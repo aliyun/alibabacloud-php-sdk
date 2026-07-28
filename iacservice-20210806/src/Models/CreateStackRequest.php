@@ -24,6 +24,11 @@ class CreateStackRequest extends Model
     public $name;
 
     /**
+     * @var string[]
+     */
+    public $parameterSetIds;
+
+    /**
      * @var string
      */
     public $ramRole;
@@ -46,6 +51,7 @@ class CreateStackRequest extends Model
         'clientToken' => 'clientToken',
         'description' => 'description',
         'name' => 'name',
+        'parameterSetIds' => 'parameterSetIds',
         'ramRole' => 'ramRole',
         'source' => 'source',
         'sourcePath' => 'sourcePath',
@@ -54,6 +60,9 @@ class CreateStackRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->parameterSetIds)) {
+            Model::validateArray($this->parameterSetIds);
+        }
         parent::validate();
     }
 
@@ -70,6 +79,17 @@ class CreateStackRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->parameterSetIds) {
+            if (\is_array($this->parameterSetIds)) {
+                $res['parameterSetIds'] = [];
+                $n1 = 0;
+                foreach ($this->parameterSetIds as $item1) {
+                    $res['parameterSetIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->ramRole) {
@@ -109,6 +129,17 @@ class CreateStackRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['parameterSetIds'])) {
+            if (!empty($map['parameterSetIds'])) {
+                $model->parameterSetIds = [];
+                $n1 = 0;
+                foreach ($map['parameterSetIds'] as $item1) {
+                    $model->parameterSetIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ramRole'])) {

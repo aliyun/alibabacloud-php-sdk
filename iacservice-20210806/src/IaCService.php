@@ -107,6 +107,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\GetParameterSetRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetParameterSetResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetProjectRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetProjectResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetProviderDocumentRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetProviderDocumentResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRegistryModuleRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRegistryModuleResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRegistryModuleVersionRequest;
@@ -230,7 +232,10 @@ class IaCService extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-zhangjiakou' => 'iac.cn-zhangjiakou.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('iacservice', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -358,7 +363,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 新增共享账号信息.
+     * Adds shared accounts.
+     *
+     * @remarks
+     * Per-user call frequency: 100 calls per second.
      *
      * @param Request - AddSharedAccountsRequest
      * @param headers - map
@@ -408,7 +416,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 新增共享账号信息.
+     * Adds shared accounts.
+     *
+     * @remarks
+     * Per-user call frequency: 100 calls per second.
      *
      * @param Request - AddSharedAccountsRequest
      *
@@ -427,7 +438,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 将参数集关联资源.
+     * Associate drift detection configuration.
      *
      * @param Request - AssociateDetectConfigRequest
      * @param headers - map
@@ -477,7 +488,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 将参数集关联资源.
+     * Associate drift detection configuration.
      *
      * @param Request - AssociateDetectConfigRequest
      *
@@ -496,7 +507,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 分组关联.
+     * Associates resources with a group.
      *
      * @param Request - AssociateGroupRequest
      * @param headers - map
@@ -551,7 +562,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 分组关联.
+     * Associates resources with a group.
      *
      * @param Request - AssociateGroupRequest
      *
@@ -571,7 +582,13 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 将参数集关联资源.
+     * Associates parameter sets.
+     *
+     * @remarks
+     * After creating a parameter set, you need to associate it with a resource. Valid values for the resource type:
+     * - Module: template
+     * - ModuleVersion: template version
+     * - Task: node.
      *
      * @param Request - AssociateParameterSetRequest
      * @param headers - map
@@ -621,7 +638,13 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 将参数集关联资源.
+     * Associates parameter sets.
+     *
+     * @remarks
+     * After creating a parameter set, you need to associate it with a resource. Valid values for the resource type:
+     * - Module: template
+     * - ModuleVersion: template version
+     * - Task: node.
      *
      * @param Request - AssociateParameterSetRequest
      *
@@ -640,7 +663,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 取消资源导出任务
+     * Cancels a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CancelResourceExportTaskRequest
      * @param headers - map
@@ -683,7 +709,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 取消资源导出任务
+     * Cancels a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CancelResourceExportTaskRequest
      *
@@ -703,7 +732,14 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建偏差检测配置.
+     * Creates a drift detection configuration that supports manual or scheduled triggering.
+     *
+     * @remarks
+     * ## Request Description
+     * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.
+     * - Each element in the `alarmConfigs` list must specify the alerting method `type` and the corresponding alerting address `address`.
+     * - If the `enabled` parameter is not explicitly set, its default value is `true`, meaning newly created detection configurations are enabled by default.
+     * - It is recommended to use a UUID as the value of `clientToken` to ensure request idempotence.
      *
      * @param Request - CreateDetectConfigRequest
      * @param headers - map
@@ -769,7 +805,14 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建偏差检测配置.
+     * Creates a drift detection configuration that supports manual or scheduled triggering.
+     *
+     * @remarks
+     * ## Request Description
+     * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.
+     * - Each element in the `alarmConfigs` list must specify the alerting method `type` and the corresponding alerting address `address`.
+     * - If the `enabled` parameter is not explicitly set, its default value is `true`, meaning newly created detection configurations are enabled by default.
+     * - It is recommended to use a UUID as the value of `clientToken` to ensure request idempotence.
      *
      * @param Request - CreateDetectConfigRequest
      *
@@ -788,7 +831,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建分组.
+     * Creates a group.
      *
      * @param Request - CreateGroupRequest
      * @param headers - map
@@ -886,7 +929,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建分组.
+     * Creates a group.
      *
      * @param Request - CreateGroupRequest
      *
@@ -905,7 +948,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建作业.
+     * Creates a job and runs a task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CreateJobRequest
      * @param headers - map
@@ -960,7 +1006,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建作业.
+     * Creates a job and runs a task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CreateJobRequest
      *
@@ -980,7 +1029,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Create Module.
+     * Creates a Terraform template. Multiple source methods are supported, such as OSS import, Registry import, file upload, and online editing.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CreateModuleRequest
      * @param headers - map
@@ -1054,7 +1106,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Create Module.
+     * Creates a Terraform template. Multiple source methods are supported, such as OSS import, Registry import, file upload, and online editing.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CreateModuleRequest
      *
@@ -1073,7 +1128,12 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Publish a template version.
+     * Publishes a new version for a specified template.
+     *
+     * @remarks
+     * ## Operation description
+     * - Use the `clientToken` parameter to ensure idempotence of the request and prevent duplicate submissions caused by network retries.
+     * - Use semantic versioning (such as `v1.0.0`).
      *
      * @param Request - CreateModuleVersionRequest
      * @param headers - map
@@ -1124,7 +1184,12 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Publish a template version.
+     * Publishes a new version for a specified template.
+     *
+     * @remarks
+     * ## Operation description
+     * - Use the `clientToken` parameter to ensure idempotence of the request and prevent duplicate submissions caused by network retries.
+     * - Use semantic versioning (such as `v1.0.0`).
      *
      * @param Request - CreateModuleVersionRequest
      *
@@ -1144,7 +1209,15 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建参数集.
+     * Adds a new parameter set. You can set the name, description, and parameter list.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation creates a new parameter set.
+     * - The name field is required and can be up to 128 characters in length.
+     * - Each element in the parameters array must contain the name field. Other fields are optional.
+     * - Use the clientToken field to ensure the idempotence of the request.
+     * - The request header must contain authentication information to ensure secure access.
      *
      * @param Request - CreateParameterSetRequest
      * @param headers - map
@@ -1198,7 +1271,15 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建参数集.
+     * Adds a new parameter set. You can set the name, description, and parameter list.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation creates a new parameter set.
+     * - The name field is required and can be up to 128 characters in length.
+     * - Each element in the parameters array must contain the name field. Other fields are optional.
+     * - Use the clientToken field to ensure the idempotence of the request.
+     * - The request header must contain authentication information to ensure secure access.
      *
      * @param Request - CreateParameterSetRequest
      *
@@ -1217,7 +1298,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建项目.
+     * Creates a project.
      *
      * @param Request - CreateProjectRequest
      * @param headers - map
@@ -1267,7 +1348,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建项目.
+     * Creates a project.
      *
      * @param Request - CreateProjectRequest
      *
@@ -1286,7 +1367,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建RegistryModule.
+     * Creates a Registry template.
+     *
+     * @remarks
+     * Per-user call frequency: 100 calls per second.
      *
      * @param Request - CreateRegistryModuleRequest
      * @param headers - map
@@ -1352,7 +1436,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建RegistryModule.
+     * Creates a Registry template.
+     *
+     * @remarks
+     * Per-user call frequency: 100 calls per second.
      *
      * @param Request - CreateRegistryModuleRequest
      *
@@ -1371,7 +1458,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建工作空间.
+     * Creates a workspace.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CreateRegistryNamespaceRequest
      * @param headers - map
@@ -1429,7 +1519,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建工作空间.
+     * Creates a workspace.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CreateRegistryNamespaceRequest
      *
@@ -1448,7 +1541,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建导出任务
+     * Creates a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CreateResourceExportTaskRequest
      * @param headers - map
@@ -1526,7 +1622,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建导出任务
+     * Creates a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CreateResourceExportTaskRequest
      *
@@ -1545,7 +1644,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建资源栈.
+     * Creates a resource stack and triggers deployment.
      *
      * @param Request - CreateStackRequest
      * @param headers - map
@@ -1573,6 +1672,10 @@ class IaCService extends OpenApiClient
 
         if (null !== $request->name) {
             @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->parameterSetIds) {
+            @$body['parameterSetIds'] = $request->parameterSetIds;
         }
 
         if (null !== $request->ramRole) {
@@ -1611,7 +1714,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建资源栈.
+     * Creates a resource stack and triggers deployment.
      *
      * @param Request - CreateStackRequest
      *
@@ -1630,7 +1733,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建任务
+     * Creates a node.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CreateTaskRequest
      * @param headers - map
@@ -1700,12 +1806,20 @@ class IaCService extends OpenApiClient
             @$body['skipPropertyValidation'] = $request->skipPropertyValidation;
         }
 
+        if (null !== $request->skipRegionValidation) {
+            @$body['skipRegionValidation'] = $request->skipRegionValidation;
+        }
+
         if (null !== $request->tags) {
             @$body['tags'] = $request->tags;
         }
 
         if (null !== $request->taskBackend) {
             @$body['taskBackend'] = $request->taskBackend;
+        }
+
+        if (null !== $request->terraformProviderVersion) {
+            @$body['terraformProviderVersion'] = $request->terraformProviderVersion;
         }
 
         if (null !== $request->terraformVersion) {
@@ -1736,7 +1850,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建任务
+     * Creates a node.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - CreateTaskRequest
      *
@@ -1755,7 +1872,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除偏差检测配置.
+     * Delete drift detection configuration.
      *
      * @param Request - DeleteDetectConfigRequest
      * @param headers - map
@@ -1792,7 +1909,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除偏差检测配置.
+     * Delete drift detection configuration.
      *
      * @param Request - DeleteDetectConfigRequest
      *
@@ -1812,7 +1929,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除分组.
+     * Deletes a group.
      *
      * @param Request - DeleteGroupRequest
      * @param headers - map
@@ -1849,7 +1966,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除分组.
+     * Deletes a group.
      *
      * @param Request - DeleteGroupRequest
      *
@@ -1869,7 +1986,12 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除模板
+     * Deletes a specified template and all its versions.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation deletes a specified template.
+     * - Deletion is irreversible. Proceed with caution.
      *
      * @param Request - DeleteModuleRequest
      * @param headers - map
@@ -1906,7 +2028,12 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除模板
+     * Deletes a specified template and all its versions.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation deletes a specified template.
+     * - Deletion is irreversible. Proceed with caution.
      *
      * @param Request - DeleteModuleRequest
      *
@@ -1926,7 +2053,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除参数集.
+     * Deletes a specified parameter set by parameter set ID.
+     *
+     * @remarks
+     * Deletes a specified parameter set.
      *
      * @param Request - DeleteParameterSetRequest
      * @param headers - map
@@ -1963,7 +2093,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除参数集.
+     * Deletes a specified parameter set by parameter set ID.
+     *
+     * @remarks
+     * Deletes a specified parameter set.
      *
      * @param Request - DeleteParameterSetRequest
      *
@@ -1983,7 +2116,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除项目.
+     * Deletes a project.
      *
      * @param Request - DeleteProjectRequest
      * @param headers - map
@@ -2020,7 +2153,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除项目.
+     * Deletes a project.
      *
      * @param Request - DeleteProjectRequest
      *
@@ -2040,7 +2173,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除RegistryModule.
+     * Deletes a Registry template.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - DeleteRegistryModuleRequest
      * @param headers - map
@@ -2078,7 +2214,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除RegistryModule.
+     * Deletes a Registry template.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - DeleteRegistryModuleRequest
      *
@@ -2099,7 +2238,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除RegistryModule版本.
+     * Deletes a Registry template version.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - DeleteRegistryModuleVersionRequest
      * @param headers - map
@@ -2138,7 +2280,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除RegistryModule版本.
+     * Deletes a Registry template version.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - DeleteRegistryModuleVersionRequest
      *
@@ -2160,7 +2305,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除工作空间.
+     * Deletes a workspace.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - DeleteRegistryNamespaceRequest
      * @param headers - map
@@ -2197,7 +2345,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除工作空间.
+     * Deletes a workspace.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - DeleteRegistryNamespaceRequest
      *
@@ -2217,7 +2368,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除资源导出任务
+     * Deletes a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - DeleteResourceExportTaskRequest
      * @param headers - map
@@ -2254,7 +2408,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除资源导出任务
+     * Deletes a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - DeleteResourceExportTaskRequest
      *
@@ -2274,7 +2431,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除资源栈.
+     * Deletes a stack.
      *
      * @param Request - DeleteStackRequest
      * @param headers - map
@@ -2317,7 +2474,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除资源栈.
+     * Deletes a stack.
      *
      * @param Request - DeleteStackRequest
      *
@@ -2337,7 +2494,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除任务
+     * Deletes a node.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
+     * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
      *
      * @param Request - DeleteTaskRequest
      * @param headers - map
@@ -2374,7 +2535,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除任务
+     * Deletes a node.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
+     * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
      *
      * @param Request - DeleteTaskRequest
      *
@@ -2394,7 +2559,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 发起状态文件一致性检测.
+     * Initiates a state file consistency check.
+     *
+     * @remarks
+     * This API is used to perform drift detection on the state files of resource orchestration tasks and stack tasks in the automated service desk.
      *
      * @param Request - DetectTerraformStateRequest
      * @param headers - map
@@ -2444,7 +2612,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 发起状态文件一致性检测.
+     * Initiates a state file consistency check.
+     *
+     * @remarks
+     * This API is used to perform drift detection on the state files of resource orchestration tasks and stack tasks in the automated service desk.
      *
      * @param Request - DetectTerraformStateRequest
      *
@@ -2463,7 +2634,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 解除参数集关联资源关系.
+     * Disassociate drift detection configuration.
      *
      * @param Request - DissociateDetectConfigRequest
      * @param headers - map
@@ -2513,7 +2684,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 解除参数集关联资源关系.
+     * Disassociate drift detection configuration.
      *
      * @param Request - DissociateDetectConfigRequest
      *
@@ -2532,7 +2703,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 取消关联分组.
+     * Dissociates a resource group.
      *
      * @param Request - DissociateGroupRequest
      * @param headers - map
@@ -2584,7 +2755,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 取消关联分组.
+     * Dissociates a resource group.
      *
      * @param Request - DissociateGroupRequest
      *
@@ -2605,7 +2776,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 解除参数集关联资源关系.
+     * Dissociates a parameter set from other resources.
      *
      * @param Request - DissociateParameterSetRequest
      * @param headers - map
@@ -2655,7 +2826,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 解除参数集关联资源关系.
+     * Dissociates a parameter set from other resources.
      *
      * @param Request - DissociateParameterSetRequest
      *
@@ -2674,7 +2845,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 执行RegistryModule.
+     * Executes a Module officially provided by Alibaba Cloud Terraform.
+     *
+     * @remarks
+     * This API operation is used to execute Terraform Module code to create or update cloud resources. Before using this API operation, make sure that all required authentication information is correctly configured and that the Terraform code corresponding to the Module meets the expected functional requirements.
      *
      * @param Request - ExecuteRegistryModuleRequest
      * @param headers - map
@@ -2722,7 +2896,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 执行RegistryModule.
+     * Executes a Module officially provided by Alibaba Cloud Terraform.
+     *
+     * @remarks
+     * This API operation is used to execute Terraform Module code to create or update cloud resources. Before using this API operation, make sure that all required authentication information is correctly configured and that the Terraform code corresponding to the Module meets the expected functional requirements.
      *
      * @param Request - ExecuteRegistryModuleRequest
      *
@@ -2743,7 +2920,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 执行资源导出任务
+     * Runs a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - ExecuteResourceExportTaskRequest
      * @param headers - map
@@ -2786,7 +2966,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 执行资源导出任务
+     * Runs a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - ExecuteResourceExportTaskRequest
      *
@@ -2806,7 +2989,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 执行TerraformApply.
+     * Executes TerraformApply.
+     *
+     * @remarks
+     * Executes the Terraform Apply command to create or update cloud resources based on the provided Terraform code. This API can handle complex scenarios such as operations that depend on a previous state.
+     * Before calling this API, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
      *
      * @param Request - ExecuteTerraformApplyRequest
      * @param headers - map
@@ -2856,7 +3043,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 执行TerraformApply.
+     * Executes TerraformApply.
+     *
+     * @remarks
+     * Executes the Terraform Apply command to create or update cloud resources based on the provided Terraform code. This API can handle complex scenarios such as operations that depend on a previous state.
+     * Before calling this API, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
      *
      * @param Request - ExecuteTerraformApplyRequest
      *
@@ -2875,7 +3066,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 执行TerraformDestroy.
+     * Executes Terraform Destroy.
+     *
+     * @remarks
+     * Executes the Terraform Destroy command to destroy resources created by Terraform.
      *
      * @param Request - ExecuteTerraformDestroyRequest
      * @param headers - map
@@ -2921,7 +3115,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 执行TerraformDestroy.
+     * Executes Terraform Destroy.
+     *
+     * @remarks
+     * Executes the Terraform Destroy command to destroy resources created by Terraform.
      *
      * @param Request - ExecuteTerraformDestroyRequest
      *
@@ -2940,7 +3137,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 执行TerraformPlan.
+     * Executes a Terraform plan.
+     *
+     * @remarks
+     * Executes a Terraform Plan command by using the provided Terraform code to create or update cloud resources. This API operation can handle complex scenarios such as operations that depend on a previous state.
+     * Before calling this API operation, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
      *
      * @param Request - ExecuteTerraformPlanRequest
      * @param headers - map
@@ -2990,7 +3191,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 执行TerraformPlan.
+     * Executes a Terraform plan.
+     *
+     * @remarks
+     * Executes a Terraform Plan command by using the provided Terraform code to create or update cloud resources. This API operation can handle complex scenarios such as operations that depend on a previous state.
+     * Before calling this API operation, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
      *
      * @param Request - ExecuteTerraformPlanRequest
      *
@@ -3009,7 +3214,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 生成模板
+     * Generates Terraform HCL template code.
      *
      * @param Request - GenerateModuleRequest
      * @param headers - map
@@ -3075,7 +3280,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 生成模板
+     * Generates Terraform HCL template code.
      *
      * @param Request - GenerateModuleRequest
      *
@@ -3094,7 +3299,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 偏差检测配置详情.
+     * Retrieve drift detection configuration.
      *
      * @param Request - GetDetectConfigRequest
      * @param headers - map
@@ -3131,7 +3336,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 偏差检测配置详情.
+     * Retrieve drift detection configuration.
      *
      * @param Request - GetDetectConfigRequest
      *
@@ -3151,7 +3356,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取Terraform运行结果.
+     * Retrieves the result of a Terraform run.
+     *
+     * @remarks
+     * Retrieves the result of a Terraform run.
      *
      * @param Request - GetExecuteStateRequest
      * @param headers - map
@@ -3188,7 +3396,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取Terraform运行结果.
+     * Retrieves the result of a Terraform run.
+     *
+     * @remarks
+     * Retrieves the result of a Terraform run.
      *
      * @param Request - GetExecuteStateRequest
      *
@@ -3208,7 +3419,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询分组.
+     * Queries a group.
      *
      * @param Request - GetGroupRequest
      * @param headers - map
@@ -3245,7 +3456,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询分组.
+     * Queries a group.
      *
      * @param Request - GetGroupRequest
      *
@@ -3265,7 +3476,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 作业详情.
+     * Retrieves job information.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - GetJobRequest
      * @param headers - map
@@ -3309,7 +3523,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 作业详情.
+     * Retrieves job information.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - GetJobRequest
      *
@@ -3330,7 +3547,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Get Module Details.
+     * Queries the details of a specified template.
+     *
+     * @remarks
+     * ## Operation description
+     * You can call this operation to query the details of a specified template, including but not limited to the template name, description, source, status, and latest version. You must specify the template ID and include authentication information in the request.
      *
      * @param Request - GetModuleRequest
      * @param headers - map
@@ -3367,7 +3588,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Get Module Details.
+     * Queries the details of a specified template.
+     *
+     * @remarks
+     * ## Operation description
+     * You can call this operation to query the details of a specified template, including but not limited to the template name, description, source, status, and latest version. You must specify the template ID and include authentication information in the request.
      *
      * @param Request - GetModuleRequest
      *
@@ -3387,7 +3612,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 模板版本详情.
+     * Queries the details of a specific version of a specified template.
+     *
+     * @remarks
+     * ## Operation description
+     * You can call this operation to query the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the template ID and version number are correct.
      *
      * @param Request - GetModuleVersionRequest
      * @param headers - map
@@ -3425,7 +3654,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 模板版本详情.
+     * Queries the details of a specific version of a specified template.
+     *
+     * @remarks
+     * ## Operation description
+     * You can call this operation to query the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the template ID and version number are correct.
      *
      * @param Request - GetModuleVersionRequest
      *
@@ -3446,7 +3679,13 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 参数集详情.
+     * Retrieves the details of a parameter set by parameter set ID.
+     *
+     * @remarks
+     * ## Description
+     * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
+     * - Authentication is required to call this operation.
+     * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
      *
      * @param Request - GetParameterSetRequest
      * @param headers - map
@@ -3483,7 +3722,13 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 参数集详情.
+     * Retrieves the details of a parameter set by parameter set ID.
+     *
+     * @remarks
+     * ## Description
+     * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
+     * - Authentication is required to call this operation.
+     * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
      *
      * @param Request - GetParameterSetRequest
      *
@@ -3503,7 +3748,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询项目.
+     * Queries a project.
      *
      * @param Request - GetProjectRequest
      * @param headers - map
@@ -3540,7 +3785,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询项目.
+     * Queries a project.
      *
      * @param Request - GetProjectRequest
      *
@@ -3560,7 +3805,75 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取RegistryModule信息.
+     * Retrieves the resource documentation of a Terraform provider.
+     *
+     * @param Request - GetProviderDocumentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProviderDocumentResponse
+     *
+     * @param GetProviderDocumentRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetProviderDocumentResponse
+     */
+    public function getProviderDocumentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->providerVersion) {
+            @$query['providerVersion'] = $request->providerVersion;
+        }
+
+        if (null !== $request->terraformResourceType) {
+            @$query['terraformResourceType'] = $request->terraformResourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetProviderDocument',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/version/terraform/provider/document',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProviderDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the resource documentation of a Terraform provider.
+     *
+     * @param Request - GetProviderDocumentRequest
+     *
+     * @returns GetProviderDocumentResponse
+     *
+     * @param GetProviderDocumentRequest $request
+     *
+     * @return GetProviderDocumentResponse
+     */
+    public function getProviderDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getProviderDocumentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a Registry module.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - GetRegistryModuleRequest
      * @param headers - map
@@ -3598,7 +3911,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取RegistryModule信息.
+     * Queries a Registry module.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - GetRegistryModuleRequest
      *
@@ -3619,7 +3935,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取RegistryModule版本信息.
+     * Queries a Registry template version.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - GetRegistryModuleVersionRequest
      * @param headers - map
@@ -3658,7 +3977,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取RegistryModule版本信息.
+     * Queries a Registry template version.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - GetRegistryModuleVersionRequest
      *
@@ -3680,7 +4002,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取工作空间信息.
+     * Queries a workspace.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - GetRegistryNamespaceRequest
      * @param headers - map
@@ -3717,7 +4042,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取工作空间信息.
+     * Queries a workspace.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - GetRegistryNamespaceRequest
      *
@@ -3737,7 +4065,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询导出任务详情.
+     * Queries the details of a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - GetResourceExportTaskRequest
      * @param headers - map
@@ -3780,7 +4111,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询导出任务详情.
+     * Queries the details of a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - GetResourceExportTaskRequest
      *
@@ -3800,7 +4134,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取资源类型信息.
+     * Retrieves resource type information.
+     *
+     * @remarks
+     * ## Request description.
      *
      * @param Request - GetResourceTypeRequest
      * @param headers - map
@@ -3851,7 +4188,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取资源类型信息.
+     * Retrieves resource type information.
+     *
+     * @remarks
+     * ## Request description.
      *
      * @param Request - GetResourceTypeRequest
      *
@@ -3871,7 +4211,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取资源栈.
+     * Queries a stack.
      *
      * @param Request - GetStackRequest
      * @param headers - map
@@ -3908,7 +4248,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取资源栈.
+     * Queries a stack.
      *
      * @param Request - GetStackRequest
      *
@@ -3928,7 +4268,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 部署详情接口.
+     * Queries the list of deployments for a stack.
      *
      * @param Request - GetStackDeploymentsRequest
      * @param headers - map
@@ -3991,7 +4331,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 部署详情接口.
+     * Queries the list of deployments for a stack.
      *
      * @param Request - GetStackDeploymentsRequest
      *
@@ -4011,7 +4351,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取资源栈部署结果.
+     * Retrieves the trigger result of a stack.
      *
      * @param Request - GetStackExecutionResultRequest
      * @param headers - map
@@ -4048,7 +4388,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取资源栈部署结果.
+     * Retrieves the trigger result of a stack.
      *
      * @param Request - GetStackExecutionResultRequest
      *
@@ -4068,7 +4408,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询任务详情.
+     * Retrieves the details of a task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - GetTaskRequest
      * @param headers - map
@@ -4105,7 +4448,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询任务详情.
+     * Retrieves the details of a task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - GetTaskRequest
      *
@@ -4125,7 +4471,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取状态文件检测结果.
+     * Retrieves the detection result of a state file.
+     *
+     * @remarks
+     * This API is used to retrieve the detection results of state files for resource orchestration tasks and stack tasks on the automation service desk.
      *
      * @param Request - GetTerraformStateDetectionRequest
      * @param headers - map
@@ -4162,7 +4511,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取状态文件检测结果.
+     * Retrieves the detection result of a state file.
+     *
+     * @remarks
+     * This API is used to retrieve the detection results of state files for resource orchestration tasks and stack tasks on the automation service desk.
      *
      * @param Request - GetTerraformStateDetectionRequest
      *
@@ -4182,7 +4534,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 关联到资源的偏差检测配置列表.
+     * List drift detection associations.
      *
      * @param Request - ListDetectConfigRelationsRequest
      * @param headers - map
@@ -4232,7 +4584,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 关联到资源的偏差检测配置列表.
+     * List drift detection associations.
      *
      * @param Request - ListDetectConfigRelationsRequest
      *
@@ -4251,7 +4603,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 偏差检测配置列表.
+     * List drift detection configurations.
      *
      * @param Request - ListDetectConfigsRequest
      * @param headers - map
@@ -4301,7 +4653,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 偏差检测配置列表.
+     * List drift detection configurations.
      *
      * @param Request - ListDetectConfigsRequest
      *
@@ -4320,7 +4672,19 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取Explorer的egistryModule版本示例列表.
+     * Retrieves the list of official Terraform Module examples.
+     *
+     * @remarks
+     * This operation queries the example information of Terraform Modules officially provided by Alibaba Cloud.
+     * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+     * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModuleExamples operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+     * - You can use keyword, namespaceName, moduleName, moduleVersion, and exampleName as conditional filter settings to narrow down the search scope. Multiple filter conditions have a logical `AND` relationship, and only resources that meet all filter conditions are returned.
+     *   - keyword: optional. Searches by keyword and supports fuzzy match on exampleName. For example, if keyword is set to ecs, module examples whose names contain ecs are returned.
+     *   - namespaceName: optional. Filters module examples by a specific workspace. For example, if namespaceName is set to alibaba, module examples in the alibaba workspace are returned.
+     *   - moduleName: optional. Filters module examples by a specific module name. For example, if moduleName is set to ecs, module examples whose module name is ecs are returned.
+     *   - moduleVersion: optional. Filters module examples by a specific module version. For example, if moduleVersion is set to 1.0.0, module examples whose module version is 1.0.0 are returned.
+     *   - exampleName: optional. Filters module examples by a specific example name. For example, if exampleName is set to ecs, module examples whose example name is ecs are returned.
+     * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates processing of query results.
      *
      * @param Request - ListExplorerRegistryModuleExamplesRequest
      * @param headers - map
@@ -4386,7 +4750,19 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取Explorer的egistryModule版本示例列表.
+     * Retrieves the list of official Terraform Module examples.
+     *
+     * @remarks
+     * This operation queries the example information of Terraform Modules officially provided by Alibaba Cloud.
+     * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+     * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModuleExamples operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+     * - You can use keyword, namespaceName, moduleName, moduleVersion, and exampleName as conditional filter settings to narrow down the search scope. Multiple filter conditions have a logical `AND` relationship, and only resources that meet all filter conditions are returned.
+     *   - keyword: optional. Searches by keyword and supports fuzzy match on exampleName. For example, if keyword is set to ecs, module examples whose names contain ecs are returned.
+     *   - namespaceName: optional. Filters module examples by a specific workspace. For example, if namespaceName is set to alibaba, module examples in the alibaba workspace are returned.
+     *   - moduleName: optional. Filters module examples by a specific module name. For example, if moduleName is set to ecs, module examples whose module name is ecs are returned.
+     *   - moduleVersion: optional. Filters module examples by a specific module version. For example, if moduleVersion is set to 1.0.0, module examples whose module version is 1.0.0 are returned.
+     *   - exampleName: optional. Filters module examples by a specific example name. For example, if exampleName is set to ecs, module examples whose example name is ecs are returned.
+     * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates processing of query results.
      *
      * @param Request - ListExplorerRegistryModuleExamplesRequest
      *
@@ -4405,7 +4781,18 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取Explorer的egistryModule版本列表.
+     * Lists the version information of official Terraform modules provided by Alibaba Cloud.
+     *
+     * @remarks
+     * This operation queries the version information of official Terraform modules provided by Alibaba Cloud.
+     * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+     * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+     * - You can use keyword, namespaceName, moduleName, and moduleVersion as conditional filter Settings to narrow the search scope. Multiple filter conditions have a logical `AND` relationship. Only resources that meet all filter conditions are returned.
+     *   - keyword: optional. Performs a fuzzy match on the module name. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+     *   - namespaceName: optional. Filters modules by a specific workspace. For example, if namespaceName is set to alibaba, modules whose workspace is alibaba are returned. When moduleName is specified, namespaceName must also be specified. You can call the ListExplorerRegistryModule operation to obtain the namespaceName information.
+     *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, modules whose name is ecs are returned.
+     *   - moduleVersion: optional. Filters modules by a specific version. For example, if moduleVersion is set to 1.0.0, modules whose version is 1.0.0 are returned.
+     * The response contains the request ID, total number of entries, data on the current page, and pagination information, which facilitates the processing of query results.
      *
      * @param Request - ListExplorerRegistryModuleVersionsRequest
      * @param headers - map
@@ -4467,7 +4854,18 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取Explorer的egistryModule版本列表.
+     * Lists the version information of official Terraform modules provided by Alibaba Cloud.
+     *
+     * @remarks
+     * This operation queries the version information of official Terraform modules provided by Alibaba Cloud.
+     * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+     * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+     * - You can use keyword, namespaceName, moduleName, and moduleVersion as conditional filter Settings to narrow the search scope. Multiple filter conditions have a logical `AND` relationship. Only resources that meet all filter conditions are returned.
+     *   - keyword: optional. Performs a fuzzy match on the module name. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+     *   - namespaceName: optional. Filters modules by a specific workspace. For example, if namespaceName is set to alibaba, modules whose workspace is alibaba are returned. When moduleName is specified, namespaceName must also be specified. You can call the ListExplorerRegistryModule operation to obtain the namespaceName information.
+     *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, modules whose name is ecs are returned.
+     *   - moduleVersion: optional. Filters modules by a specific version. For example, if moduleVersion is set to 1.0.0, modules whose version is 1.0.0 are returned.
+     * The response contains the request ID, total number of entries, data on the current page, and pagination information, which facilitates the processing of query results.
      *
      * @param Request - ListExplorerRegistryModuleVersionsRequest
      *
@@ -4486,7 +4884,16 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取Explorer的Registry Module列表.
+     * Lists information about official Terraform modules provided by Alibaba Cloud.
+     *
+     * @remarks
+     * This operation queries information about official Terraform modules provided by Alibaba Cloud.
+     * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+     * - If the `nextToken` parameter is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+     * - You can use keyword and moduleName as filter conditions to narrow the search scope. Multiple filter conditions are evaluated by using a logical `AND`. Only resources that meet all filter conditions are returned.
+     *   - keyword: optional. Searches by keyword through fuzzy matching against ModuleName. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+     *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, only the module whose name is exactly ecs is returned.
+     * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates the processing of query results.
      *
      * @param Request - ListExplorerRegistryModulesRequest
      * @param headers - map
@@ -4544,7 +4951,16 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取Explorer的Registry Module列表.
+     * Lists information about official Terraform modules provided by Alibaba Cloud.
+     *
+     * @remarks
+     * This operation queries information about official Terraform modules provided by Alibaba Cloud.
+     * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+     * - If the `nextToken` parameter is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+     * - You can use keyword and moduleName as filter conditions to narrow the search scope. Multiple filter conditions are evaluated by using a logical `AND`. Only resources that meet all filter conditions are returned.
+     *   - keyword: optional. Searches by keyword through fuzzy matching against ModuleName. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+     *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, only the module whose name is exactly ecs is returned.
+     * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates the processing of query results.
      *
      * @param Request - ListExplorerRegistryModulesRequest
      *
@@ -4563,7 +4979,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询分组列表.
+     * Queries the list of groups.
      *
      * @param tmpReq - ListGroupRequest
      * @param headers - map
@@ -4627,7 +5043,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询分组列表.
+     * Queries the list of groups.
      *
      * @param Request - ListGroupRequest
      *
@@ -4646,7 +5062,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 作业列表.
+     * Queries a list of jobs.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - ListJobsRequest
      * @param headers - map
@@ -4705,7 +5124,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 作业列表.
+     * Queries a list of jobs.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - ListJobsRequest
      *
@@ -4725,7 +5147,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 模板版本列表.
+     * Retrieves a list of template versions.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - ListModuleVersionRequest
      * @param headers - map
@@ -4776,7 +5201,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 模板版本列表.
+     * Retrieves a list of template versions.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - ListModuleVersionRequest
      *
@@ -4796,7 +5224,17 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 列举模板
+     * Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+     *
+     * @remarks
+     * ## Operation description
+     * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
+     * ### Notes
+     * - Use the pageNumber and pageSize parameters to control the number of returned results.
+     * - Use the name parameter to perform a fuzzy match on template names.
+     * - Use the source parameter to filter templates by source, such as OSS import or file upload.
+     * - Use the status parameter to filter templates by status, such as Created or Published.
+     * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
      *
      * @param tmpReq - ListModulesRequest
      * @param headers - map
@@ -4868,7 +5306,17 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 列举模板
+     * Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+     *
+     * @remarks
+     * ## Operation description
+     * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
+     * ### Notes
+     * - Use the pageNumber and pageSize parameters to control the number of returned results.
+     * - Use the name parameter to perform a fuzzy match on template names.
+     * - Use the source parameter to filter templates by source, such as OSS import or file upload.
+     * - Use the status parameter to filter templates by status, such as Created or Published.
+     * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
      *
      * @param Request - ListModulesRequest
      *
@@ -4887,7 +5335,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 关联到资源的参数集列表.
+     * Lists the parameter sets associated with a resource.
      *
      * @param Request - ListParameterSetRelationRequest
      * @param headers - map
@@ -4933,7 +5381,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 关联到资源的参数集列表.
+     * Lists the parameter sets associated with a resource.
      *
      * @param Request - ListParameterSetRelationRequest
      *
@@ -4952,7 +5400,14 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 参数集列表.
+     * Queries and retrieves a paginated list of parameter sets with keyword search support.
+     *
+     * @remarks
+     * ## Operation description
+     * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+     * ### Notes
+     * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
+     * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
      *
      * @param Request - ListParameterSetsRequest
      * @param headers - map
@@ -5006,7 +5461,14 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 参数集列表.
+     * Queries and retrieves a paginated list of parameter sets with keyword search support.
+     *
+     * @remarks
+     * ## Operation description
+     * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+     * ### Notes
+     * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
+     * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
      *
      * @param Request - ListParameterSetsRequest
      *
@@ -5025,7 +5487,14 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 所有产品列表.
+     * Queries the list of all products.
+     *
+     * @remarks
+     * ## Operation description
+     * - **Keyword search**: Use the `keyword` parameter for fuzzy matching.
+     * - **Paged query**: Use `nextToken` for pagination and `maxResults` to specify the maximum number of results per page (default: 100, maximum: 200).
+     * - **Terraform Provider version**: The optional `terraformProviderVersion` parameter filters products associated with a specific Provider version.
+     * - **Response structure**: The response contains the request ID, total number of entries, data of the current page, and pagination information for easy processing of query results.
      *
      * @param Request - ListProductsRequest
      * @param headers - map
@@ -5091,7 +5560,14 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 所有产品列表.
+     * Queries the list of all products.
+     *
+     * @remarks
+     * ## Operation description
+     * - **Keyword search**: Use the `keyword` parameter for fuzzy matching.
+     * - **Paged query**: Use `nextToken` for pagination and `maxResults` to specify the maximum number of results per page (default: 100, maximum: 200).
+     * - **Terraform Provider version**: The optional `terraformProviderVersion` parameter filters products associated with a specific Provider version.
+     * - **Response structure**: The response contains the request ID, total number of entries, data of the current page, and pagination information for easy processing of query results.
      *
      * @param Request - ListProductsRequest
      *
@@ -5110,7 +5586,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询项目列表.
+     * Queries the list of projects.
      *
      * @param tmpReq - ListProjectRequest
      * @param headers - map
@@ -5170,7 +5646,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询项目列表.
+     * Queries the list of projects.
      *
      * @param Request - ListProjectRequest
      *
@@ -5189,7 +5665,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取RegistryModule版本列表.
+     * Queries the list of Registry template versions.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - ListRegistryModuleVersionsRequest
      * @param headers - map
@@ -5243,7 +5722,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取RegistryModule版本列表.
+     * Queries the list of Registry template versions.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - ListRegistryModuleVersionsRequest
      *
@@ -5262,7 +5744,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取RegistryModule列表.
+     * Queries a list of registry modules.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - ListRegistryModulesRequest
      * @param headers - map
@@ -5324,7 +5809,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取RegistryModule列表.
+     * Queries a list of registry modules.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - ListRegistryModulesRequest
      *
@@ -5343,7 +5831,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取工作空间列表.
+     * Queries the list of workspaces.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - ListRegistryNamespacesRequest
      * @param headers - map
@@ -5397,7 +5888,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取工作空间列表.
+     * Queries the list of workspaces.
+     *
+     * @remarks
+     * Single-user call frequency: 200 calls per second.
      *
      * @param Request - ListRegistryNamespacesRequest
      *
@@ -5416,7 +5910,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取任务版本列表.
+     * Retrieves the list of versions for a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - ListResourceExportTaskVersionsRequest
      * @param headers - map
@@ -5475,7 +5972,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取任务版本列表.
+     * Retrieves the list of versions for a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - ListResourceExportTaskVersionsRequest
      *
@@ -5495,7 +5995,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询导出任务列表.
+     * Queries the list of resource export tasks.
+     *
+     * @remarks
+     * Rate limit per user: 100 calls per second.
      *
      * @param Request - ListResourceExportTasksRequest
      * @param headers - map
@@ -5549,7 +6052,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询导出任务列表.
+     * Queries the list of resource export tasks.
+     *
+     * @remarks
+     * Rate limit per user: 100 calls per second.
      *
      * @param Request - ListResourceExportTasksRequest
      *
@@ -5568,7 +6074,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 资源类型列表.
+     * Queries a list of resource types by filter conditions with pagination support.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
      *
      * @param tmpReq - ListResourceTypesRequest
      * @param headers - map
@@ -5656,7 +6166,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 资源类型列表.
+     * Queries a list of resource types by filter conditions with pagination support.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
      *
      * @param Request - ListResourceTypesRequest
      *
@@ -5675,7 +6189,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 资源列表.
+     * Retrieves the resources of a node.
      *
      * @param Request - ListResourcesRequest
      * @param headers - map
@@ -5733,7 +6247,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 资源列表.
+     * Retrieves the resources of a node.
      *
      * @param Request - ListResourcesRequest
      *
@@ -5752,7 +6266,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询资源栈配置列表.
+     * Queries the list of stack configurations.
      *
      * @param Request - ListStackConfigsRequest
      * @param headers - map
@@ -5807,7 +6321,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 查询资源栈配置列表.
+     * Queries the list of stack configurations.
      *
      * @param Request - ListStackConfigsRequest
      *
@@ -5827,7 +6341,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 列举资源栈.
+     * Queries the list of stacks.
      *
      * @param Request - ListStacksRequest
      * @param headers - map
@@ -5893,7 +6407,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 列举资源栈.
+     * Queries the list of stacks.
      *
      * @param Request - ListStacksRequest
      *
@@ -5912,7 +6426,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 任务列表.
+     * Queries a list of tasks.
+     *
+     * @remarks
+     * The maximum number of times that a single user can call this operation per second: 100.
      *
      * @param tmpReq - ListTasksRequest
      * @param headers - map
@@ -5996,7 +6513,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 任务列表.
+     * Queries a list of tasks.
+     *
+     * @remarks
+     * The maximum number of times that a single user can call this operation per second: 100.
      *
      * @param Request - ListTasksRequest
      *
@@ -6015,7 +6535,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * terraformProvider版本.
+     * Retrieves the list of Terraform provider versions.
      *
      * @param Request - ListTerraformProviderVersionsRequest
      * @param headers - map
@@ -6069,7 +6589,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * terraformProvider版本.
+     * Retrieves the list of Terraform provider versions.
      *
      * @param Request - ListTerraformProviderVersionsRequest
      *
@@ -6088,7 +6608,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 支持状态文件的资源导入和移除.
+     * Supports resource import and removal for state files.
+     *
+     * @remarks
+     * This API is used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
+     * Before using this API, make sure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
      *
      * @param Request - ManageTerraformStateRequest
      * @param headers - map
@@ -6150,7 +6674,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 支持状态文件的资源导入和移除.
+     * Supports resource import and removal for state files.
+     *
+     * @remarks
+     * This API is used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
+     * Before using this API, make sure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
      *
      * @param Request - ManageTerraformStateRequest
      *
@@ -6169,7 +6697,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 控制作业.
+     * After a job is created, you can perform the **Cancel** operation to stop the job while it is running.
+     * After a job reaches the pending confirmation state, you can perform the **Abolish** operation to stop the job, or perform the **Execute** operation to continue the job execution.
+     *
+     * @remarks
+     * Per-user call frequency: 100 calls per second.
      *
      * @param Request - OperateJobRequest
      * @param headers - map
@@ -6218,7 +6750,11 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 控制作业.
+     * After a job is created, you can perform the **Cancel** operation to stop the job while it is running.
+     * After a job reaches the pending confirmation state, you can perform the **Abolish** operation to stop the job, or perform the **Execute** operation to continue the job execution.
+     *
+     * @remarks
+     * Per-user call frequency: 100 calls per second.
      *
      * @param Request - OperateJobRequest
      *
@@ -6240,7 +6776,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 发布RegistryModule版本.
+     * Publishes a Registry template version.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - PublishRegistryModuleVersionRequest
      * @param headers - map
@@ -6294,7 +6833,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 发布RegistryModule版本.
+     * Publishes a Registry template version.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - PublishRegistryModuleVersionRequest
      *
@@ -6313,7 +6855,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除共享账号信息.
+     * Removes a shared account.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param tmpReq - RemoveSharedAccountsRequest
      * @param headers - map
@@ -6369,7 +6914,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 删除共享账号信息.
+     * Removes a shared account.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - RemoveSharedAccountsRequest
      *
@@ -6388,7 +6936,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 触发资源栈部署.
+     * Trigger Stack execution.
      *
      * @param Request - TriggerStackExecutionRequest
      * @param headers - map
@@ -6446,7 +6994,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 触发资源栈部署.
+     * Trigger Stack execution.
      *
      * @param Request - TriggerStackExecutionRequest
      *
@@ -6465,7 +7013,14 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 更新偏差检测配置.
+     * Updates the drift detection configuration information for the specified ID.
+     *
+     * @remarks
+     * ## Request Description
+     * - `detectConfigId` is a required parameter used to identify the specific detection configuration to update.
+     * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.
+     * - Each element in the `alarmConfigs` list must include an alert type (`type`) and an address (`address`).
+     * - If you do not want to change certain properties (such as `name`, `description`, etc.), you can omit these fields from the request body.
      *
      * @param Request - UpdateDetectConfigRequest
      * @param headers - map
@@ -6532,7 +7087,14 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 更新偏差检测配置.
+     * Updates the drift detection configuration information for the specified ID.
+     *
+     * @remarks
+     * ## Request Description
+     * - `detectConfigId` is a required parameter used to identify the specific detection configuration to update.
+     * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.
+     * - Each element in the `alarmConfigs` list must include an alert type (`type`) and an address (`address`).
+     * - If you do not want to change certain properties (such as `name`, `description`, etc.), you can omit these fields from the request body.
      *
      * @param Request - UpdateDetectConfigRequest
      *
@@ -6552,7 +7114,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改ExplorerModule.
+     * Updates an Explorer template.
+     *
+     * @remarks
+     * Updates an Explorer template.
      *
      * @param Request - UpdateExplorerModuleAttributeRequest
      * @param headers - map
@@ -6603,7 +7168,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改ExplorerModule.
+     * Updates an Explorer template.
+     *
+     * @remarks
+     * Updates an Explorer template.
      *
      * @param Request - UpdateExplorerModuleAttributeRequest
      *
@@ -6623,7 +7191,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改分组.
+     * Modifies a group.
      *
      * @param Request - UpdateGroupRequest
      * @param headers - map
@@ -6718,7 +7286,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改分组.
+     * Modifies a group.
      *
      * @param Request - UpdateGroupRequest
      *
@@ -6738,7 +7306,14 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Update Module.
+     * Updates the name, description, tags, and other information of a specified template.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation allows you to modify the basic attributes of an existing template, including but not limited to the template name, description, and tags.
+     * - The update operation does not affect the content or version information of the template.
+     * - To enable or disable deletion protection, use the deletionProtection parameter.
+     * - Use clientToken to ensure the idempotence of the request and avoid duplicate submissions caused by network issues.
      *
      * @param Request - UpdateModuleAttributeRequest
      * @param headers - map
@@ -6809,7 +7384,14 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Update Module.
+     * Updates the name, description, tags, and other information of a specified template.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation allows you to modify the basic attributes of an existing template, including but not limited to the template name, description, and tags.
+     * - The update operation does not affect the content or version information of the template.
+     * - To enable or disable deletion protection, use the deletionProtection parameter.
+     * - Use clientToken to ensure the idempotence of the request and avoid duplicate submissions caused by network issues.
      *
      * @param Request - UpdateModuleAttributeRequest
      *
@@ -6829,7 +7411,15 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 更新参数集.
+     * Updates the attributes of a specified parameter set, such as the name and description.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
+     * - If the request includes the parameters field, the parameter list in the parameter set is updated.
+     * - The clientToken field can be used to ensure the idempotence of the request.
+     * - The update operation requires a valid parameterSetId as a path parameter.
+     * - The request must include authentication information to pass identity verification.
      *
      * @param Request - UpdateParameterSetAttributeRequest
      * @param headers - map
@@ -6880,7 +7470,15 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 更新参数集.
+     * Updates the attributes of a specified parameter set, such as the name and description.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
+     * - If the request includes the parameters field, the parameter list in the parameter set is updated.
+     * - The clientToken field can be used to ensure the idempotence of the request.
+     * - The update operation requires a valid parameterSetId as a path parameter.
+     * - The request must include authentication information to pass identity verification.
      *
      * @param Request - UpdateParameterSetAttributeRequest
      *
@@ -6900,7 +7498,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改项目.
+     * Updates project information.
      *
      * @param Request - UpdateProjectRequest
      * @param headers - map
@@ -6951,7 +7549,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改项目.
+     * Updates project information.
      *
      * @param Request - UpdateProjectRequest
      *
@@ -6971,7 +7569,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改RegistryModule.
+     * Updates a Registry template.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - UpdateRegistryModuleAttributeRequest
      * @param headers - map
@@ -7023,7 +7624,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改RegistryModule.
+     * Updates a Registry template.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - UpdateRegistryModuleAttributeRequest
      *
@@ -7044,7 +7648,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改工作空间.
+     * Modifies a workspace.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - UpdateRegistryNamespaceAttributeRequest
      * @param headers - map
@@ -7095,7 +7702,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改工作空间.
+     * Modifies a workspace.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - UpdateRegistryNamespaceAttributeRequest
      *
@@ -7115,7 +7725,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 更新导出任务
+     * Modifies a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - UpdateResourceExportTaskAttributeRequest
      * @param headers - map
@@ -7194,7 +7807,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 更新导出任务
+     * Modifies a resource export task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - UpdateResourceExportTaskAttributeRequest
      *
@@ -7214,7 +7830,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 更新资源栈.
+     * Modifies a stack. When the configuration changes, a stack deployment is triggered.
      *
      * @param Request - UpdateStackRequest
      * @param headers - map
@@ -7277,7 +7893,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 更新资源栈.
+     * Modifies a stack. When the configuration changes, a stack deployment is triggered.
      *
      * @param Request - UpdateStackRequest
      *
@@ -7297,7 +7913,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改任务
+     * Updates the properties of a task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - UpdateTaskAttributeRequest
      * @param headers - map
@@ -7360,8 +7979,16 @@ class IaCService extends OpenApiClient
             @$body['skipPropertyValidation'] = $request->skipPropertyValidation;
         }
 
+        if (null !== $request->skipRegionValidation) {
+            @$body['skipRegionValidation'] = $request->skipRegionValidation;
+        }
+
         if (null !== $request->tags) {
             @$body['tags'] = $request->tags;
+        }
+
+        if (null !== $request->terraformProviderVersion) {
+            @$body['terraformProviderVersion'] = $request->terraformProviderVersion;
         }
 
         if (null !== $request->terraformVersion) {
@@ -7392,7 +8019,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 修改任务
+     * Updates the properties of a task.
+     *
+     * @remarks
+     * Single-user call frequency: 100 calls per second.
      *
      * @param Request - UpdateTaskAttributeRequest
      *
@@ -7412,7 +8042,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 模版上传.
+     * Uploads a template.
      *
      * @param Request - UploadModuleRequest
      * @param headers - map
@@ -7473,7 +8103,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 模版上传.
+     * Uploads a template.
      *
      * @param Request - UploadModuleRequest
      *
@@ -7587,7 +8217,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 模版预检
+     * Performs a dry run on a template.
+     *
+     * @remarks
+     * Performs a dry run on the content of a Terraform configuration file.
      *
      * @param Request - ValidateModuleRequest
      * @param headers - map
@@ -7658,7 +8291,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 模版预检
+     * Performs a dry run on a template.
+     *
+     * @remarks
+     * Performs a dry run on the content of a Terraform configuration file.
      *
      * @param Request - ValidateModuleRequest
      * @param headers - map
@@ -7716,7 +8352,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 模版预检
+     * Performs a dry run on a template.
+     *
+     * @remarks
+     * Performs a dry run on the content of a Terraform configuration file.
      *
      * @param Request - ValidateModuleRequest
      *

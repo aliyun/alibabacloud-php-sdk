@@ -97,6 +97,11 @@ class task extends Model
     public $skipPropertyValidation;
 
     /**
+     * @var bool
+     */
+    public $skipRegionValidation;
+
+    /**
      * @var string
      */
     public $status;
@@ -148,6 +153,7 @@ class task extends Model
         'protectionStrategy' => 'protectionStrategy',
         'ramRole' => 'ramRole',
         'skipPropertyValidation' => 'skipPropertyValidation',
+        'skipRegionValidation' => 'skipRegionValidation',
         'status' => 'status',
         'tags' => 'tags',
         'taskBackend' => 'taskBackend',
@@ -250,6 +256,10 @@ class task extends Model
 
         if (null !== $this->skipPropertyValidation) {
             $res['skipPropertyValidation'] = $this->skipPropertyValidation;
+        }
+
+        if (null !== $this->skipRegionValidation) {
+            $res['skipRegionValidation'] = $this->skipRegionValidation;
         }
 
         if (null !== $this->status) {
@@ -371,6 +381,10 @@ class task extends Model
 
         if (isset($map['skipPropertyValidation'])) {
             $model->skipPropertyValidation = $map['skipPropertyValidation'];
+        }
+
+        if (isset($map['skipRegionValidation'])) {
+            $model->skipRegionValidation = $map['skipRegionValidation'];
         }
 
         if (isset($map['status'])) {

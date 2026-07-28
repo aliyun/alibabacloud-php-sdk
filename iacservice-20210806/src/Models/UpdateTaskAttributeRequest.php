@@ -66,9 +66,19 @@ class UpdateTaskAttributeRequest extends Model
     public $skipPropertyValidation;
 
     /**
+     * @var bool
+     */
+    public $skipRegionValidation;
+
+    /**
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $terraformProviderVersion;
 
     /**
      * @var string
@@ -91,7 +101,9 @@ class UpdateTaskAttributeRequest extends Model
         'protectionStrategy' => 'protectionStrategy',
         'ramRole' => 'ramRole',
         'skipPropertyValidation' => 'skipPropertyValidation',
+        'skipRegionValidation' => 'skipRegionValidation',
         'tags' => 'tags',
+        'terraformProviderVersion' => 'terraformProviderVersion',
         'terraformVersion' => 'terraformVersion',
         'triggerStrategy' => 'triggerStrategy',
     ];
@@ -164,6 +176,10 @@ class UpdateTaskAttributeRequest extends Model
             $res['skipPropertyValidation'] = $this->skipPropertyValidation;
         }
 
+        if (null !== $this->skipRegionValidation) {
+            $res['skipRegionValidation'] = $this->skipRegionValidation;
+        }
+
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['tags'] = [];
@@ -173,6 +189,10 @@ class UpdateTaskAttributeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->terraformProviderVersion) {
+            $res['terraformProviderVersion'] = $this->terraformProviderVersion;
         }
 
         if (null !== $this->terraformVersion) {
@@ -245,6 +265,10 @@ class UpdateTaskAttributeRequest extends Model
             $model->skipPropertyValidation = $map['skipPropertyValidation'];
         }
 
+        if (isset($map['skipRegionValidation'])) {
+            $model->skipRegionValidation = $map['skipRegionValidation'];
+        }
+
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
@@ -254,6 +278,10 @@ class UpdateTaskAttributeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['terraformProviderVersion'])) {
+            $model->terraformProviderVersion = $map['terraformProviderVersion'];
         }
 
         if (isset($map['terraformVersion'])) {

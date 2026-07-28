@@ -52,6 +52,11 @@ class resourceType extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -92,6 +97,7 @@ class resourceType extends Model
         'properties' => 'properties',
         'resourceDetailPageUrl' => 'resourceDetailPageUrl',
         'resourceListPageUrl' => 'resourceListPageUrl',
+        'resourceType' => 'resourceType',
         'status' => 'status',
         'statusStartVersion' => 'statusStartVersion',
         'subcategory' => 'subcategory',
@@ -157,6 +163,10 @@ class resourceType extends Model
 
         if (null !== $this->resourceListPageUrl) {
             $res['resourceListPageUrl'] = $this->resourceListPageUrl;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['resourceType'] = $this->resourceType;
         }
 
         if (null !== $this->status) {
@@ -240,6 +250,10 @@ class resourceType extends Model
 
         if (isset($map['resourceListPageUrl'])) {
             $model->resourceListPageUrl = $map['resourceListPageUrl'];
+        }
+
+        if (isset($map['resourceType'])) {
+            $model->resourceType = $map['resourceType'];
         }
 
         if (isset($map['status'])) {
