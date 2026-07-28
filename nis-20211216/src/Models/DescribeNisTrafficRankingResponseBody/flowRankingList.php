@@ -116,6 +116,16 @@ class flowRankingList extends Model
     /**
      * @var float
      */
+    public $packetsIncrease;
+
+    /**
+     * @var float
+     */
+    public $packetsIncreaseRatio;
+
+    /**
+     * @var float
+     */
     public $packetsLostBlackhole;
 
     /**
@@ -147,6 +157,11 @@ class flowRankingList extends Model
      * @var float
      */
     public $roundTripTime;
+
+    /**
+     * @var float
+     */
+    public $roundTripTimeIncrease;
 
     /**
      * @var string
@@ -264,6 +279,8 @@ class flowRankingList extends Model
         'instanceId' => 'InstanceId',
         'networkInterfaceId' => 'NetworkInterfaceId',
         'packets' => 'Packets',
+        'packetsIncrease' => 'PacketsIncrease',
+        'packetsIncreaseRatio' => 'PacketsIncreaseRatio',
         'packetsLostBlackhole' => 'PacketsLostBlackhole',
         'packetsLostNoRoute' => 'PacketsLostNoRoute',
         'packetsLostTTLExpired' => 'PacketsLostTTLExpired',
@@ -271,6 +288,7 @@ class flowRankingList extends Model
         'publicIpAddress' => 'PublicIpAddress',
         'regionId' => 'RegionId',
         'roundTripTime' => 'RoundTripTime',
+        'roundTripTimeIncrease' => 'RoundTripTimeIncrease',
         'sourceIp' => 'SourceIp',
         'sourcePort' => 'SourcePort',
         'sourceRegionNo' => 'SourceRegionNo',
@@ -384,6 +402,14 @@ class flowRankingList extends Model
             $res['Packets'] = $this->packets;
         }
 
+        if (null !== $this->packetsIncrease) {
+            $res['PacketsIncrease'] = $this->packetsIncrease;
+        }
+
+        if (null !== $this->packetsIncreaseRatio) {
+            $res['PacketsIncreaseRatio'] = $this->packetsIncreaseRatio;
+        }
+
         if (null !== $this->packetsLostBlackhole) {
             $res['PacketsLostBlackhole'] = $this->packetsLostBlackhole;
         }
@@ -410,6 +436,10 @@ class flowRankingList extends Model
 
         if (null !== $this->roundTripTime) {
             $res['RoundTripTime'] = $this->roundTripTime;
+        }
+
+        if (null !== $this->roundTripTimeIncrease) {
+            $res['RoundTripTimeIncrease'] = $this->roundTripTimeIncrease;
         }
 
         if (null !== $this->sourceIp) {
@@ -583,6 +613,14 @@ class flowRankingList extends Model
             $model->packets = $map['Packets'];
         }
 
+        if (isset($map['PacketsIncrease'])) {
+            $model->packetsIncrease = $map['PacketsIncrease'];
+        }
+
+        if (isset($map['PacketsIncreaseRatio'])) {
+            $model->packetsIncreaseRatio = $map['PacketsIncreaseRatio'];
+        }
+
         if (isset($map['PacketsLostBlackhole'])) {
             $model->packetsLostBlackhole = $map['PacketsLostBlackhole'];
         }
@@ -609,6 +647,10 @@ class flowRankingList extends Model
 
         if (isset($map['RoundTripTime'])) {
             $model->roundTripTime = $map['RoundTripTime'];
+        }
+
+        if (isset($map['RoundTripTimeIncrease'])) {
+            $model->roundTripTimeIncrease = $map['RoundTripTimeIncrease'];
         }
 
         if (isset($map['SourceIp'])) {

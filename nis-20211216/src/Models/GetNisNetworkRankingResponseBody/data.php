@@ -71,6 +71,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $globalCountryCode;
+
+    /**
+     * @var string
+     */
+    public $globalProvinceCode;
+
+    /**
+     * @var string
+     */
     public $IP;
 
     /**
@@ -92,6 +102,11 @@ class data extends Model
      * @var string
      */
     public $isp;
+
+    /**
+     * @var string
+     */
+    public $lineType;
 
     /**
      * @var float
@@ -156,6 +171,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $sourceRegion;
+
+    /**
+     * @var string
+     */
     public $sourceZone;
 
     /**
@@ -175,11 +195,14 @@ class data extends Model
         'destinationPort' => 'DestinationPort',
         'destinationRegionNo' => 'DestinationRegionNo',
         'destinationZone' => 'DestinationZone',
+        'globalCountryCode' => 'GlobalCountryCode',
+        'globalProvinceCode' => 'GlobalProvinceCode',
         'IP' => 'IP',
         'inBps' => 'InBps',
         'inPps' => 'InPps',
         'instanceId' => 'InstanceId',
         'isp' => 'Isp',
+        'lineType' => 'LineType',
         'newSessionPerSecond' => 'NewSessionPerSecond',
         'outBps' => 'OutBps',
         'outPps' => 'OutPps',
@@ -192,6 +215,7 @@ class data extends Model
         'sourceIp' => 'SourceIp',
         'sourceIsp' => 'SourceIsp',
         'sourcePort' => 'SourcePort',
+        'sourceRegion' => 'SourceRegion',
         'sourceZone' => 'SourceZone',
         'vbrId' => 'VbrId',
     ];
@@ -252,6 +276,14 @@ class data extends Model
             $res['DestinationZone'] = $this->destinationZone;
         }
 
+        if (null !== $this->globalCountryCode) {
+            $res['GlobalCountryCode'] = $this->globalCountryCode;
+        }
+
+        if (null !== $this->globalProvinceCode) {
+            $res['GlobalProvinceCode'] = $this->globalProvinceCode;
+        }
+
         if (null !== $this->IP) {
             $res['IP'] = $this->IP;
         }
@@ -270,6 +302,10 @@ class data extends Model
 
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
+        }
+
+        if (null !== $this->lineType) {
+            $res['LineType'] = $this->lineType;
         }
 
         if (null !== $this->newSessionPerSecond) {
@@ -318,6 +354,10 @@ class data extends Model
 
         if (null !== $this->sourcePort) {
             $res['SourcePort'] = $this->sourcePort;
+        }
+
+        if (null !== $this->sourceRegion) {
+            $res['SourceRegion'] = $this->sourceRegion;
         }
 
         if (null !== $this->sourceZone) {
@@ -387,6 +427,14 @@ class data extends Model
             $model->destinationZone = $map['DestinationZone'];
         }
 
+        if (isset($map['GlobalCountryCode'])) {
+            $model->globalCountryCode = $map['GlobalCountryCode'];
+        }
+
+        if (isset($map['GlobalProvinceCode'])) {
+            $model->globalProvinceCode = $map['GlobalProvinceCode'];
+        }
+
         if (isset($map['IP'])) {
             $model->IP = $map['IP'];
         }
@@ -405,6 +453,10 @@ class data extends Model
 
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
+        }
+
+        if (isset($map['LineType'])) {
+            $model->lineType = $map['LineType'];
         }
 
         if (isset($map['NewSessionPerSecond'])) {
@@ -453,6 +505,10 @@ class data extends Model
 
         if (isset($map['SourcePort'])) {
             $model->sourcePort = $map['SourcePort'];
+        }
+
+        if (isset($map['SourceRegion'])) {
+            $model->sourceRegion = $map['SourceRegion'];
         }
 
         if (isset($map['SourceZone'])) {
