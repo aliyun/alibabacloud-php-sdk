@@ -11,6 +11,16 @@ class CreateOpenSingleDataResponseBody extends Model
     /**
      * @var string
      */
+    public $accessDeniedDetail;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -28,6 +38,8 @@ class CreateOpenSingleDataResponseBody extends Model
      */
     public $resultMessage;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'httpStatusCode' => 'HttpStatusCode',
         'requestId' => 'RequestId',
         'result' => 'Result',
         'resultCode' => 'ResultCode',
@@ -42,6 +54,14 @@ class CreateOpenSingleDataResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -69,6 +89,14 @@ class CreateOpenSingleDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
