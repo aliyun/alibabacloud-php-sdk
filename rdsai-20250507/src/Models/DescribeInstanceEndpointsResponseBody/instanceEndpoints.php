@@ -16,6 +16,11 @@ class instanceEndpoints extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var string
+     */
     public $IP;
 
     /**
@@ -29,6 +34,7 @@ class instanceEndpoints extends Model
     public $port;
     protected $_name = [
         'connectionString' => 'ConnectionString',
+        'domain' => 'Domain',
         'IP' => 'IP',
         'ipType' => 'IpType',
         'port' => 'Port',
@@ -44,6 +50,10 @@ class instanceEndpoints extends Model
         $res = [];
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
+        }
+
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
 
         if (null !== $this->IP) {
@@ -71,6 +81,10 @@ class instanceEndpoints extends Model
         $model = new self();
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
+        }
+
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
 
         if (isset($map['IP'])) {

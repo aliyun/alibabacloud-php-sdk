@@ -36,6 +36,11 @@ class DescribeInstanceSSLResponseBody extends Model
     /**
      * @var string
      */
+    public $SSLExpiredTime;
+
+    /**
+     * @var string
+     */
     public $serverCert;
 
     /**
@@ -48,6 +53,7 @@ class DescribeInstanceSSLResponseBody extends Model
         'instanceName' => 'InstanceName',
         'requestId' => 'RequestId',
         'SSLEnabled' => 'SSLEnabled',
+        'SSLExpiredTime' => 'SSLExpiredTime',
         'serverCert' => 'ServerCert',
         'serverKey' => 'ServerKey',
     ];
@@ -78,6 +84,10 @@ class DescribeInstanceSSLResponseBody extends Model
 
         if (null !== $this->SSLEnabled) {
             $res['SSLEnabled'] = $this->SSLEnabled;
+        }
+
+        if (null !== $this->SSLExpiredTime) {
+            $res['SSLExpiredTime'] = $this->SSLExpiredTime;
         }
 
         if (null !== $this->serverCert) {
@@ -117,6 +127,10 @@ class DescribeInstanceSSLResponseBody extends Model
 
         if (isset($map['SSLEnabled'])) {
             $model->SSLEnabled = $map['SSLEnabled'];
+        }
+
+        if (isset($map['SSLExpiredTime'])) {
+            $model->SSLExpiredTime = $map['SSLExpiredTime'];
         }
 
         if (isset($map['ServerCert'])) {
