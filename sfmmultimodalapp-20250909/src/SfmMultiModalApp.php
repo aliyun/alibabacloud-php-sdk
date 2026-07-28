@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\InterruptForArbitrationRe
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\InterruptForArbitrationShrinkRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListCommandRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListCommandResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListDomainRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListDomainResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListMmAppResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListPublishedMmAppRequest;
@@ -1182,6 +1184,75 @@ class SfmMultiModalApp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCommandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 指令类型列表查询.
+     *
+     * @param request - ListDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDomainResponse
+     *
+     * @param ListDomainRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListDomainResponse
+     */
+    public function listDomainWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDomain',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 指令类型列表查询.
+     *
+     * @param request - ListDomainRequest
+     *
+     * @returns ListDomainResponse
+     *
+     * @param ListDomainRequest $request
+     *
+     * @return ListDomainResponse
+     */
+    public function listDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDomainWithOptions($request, $runtime);
     }
 
     /**

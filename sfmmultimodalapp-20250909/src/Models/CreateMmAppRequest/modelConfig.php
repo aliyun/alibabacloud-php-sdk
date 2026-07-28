@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class modelConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $appType;
+
+    /**
      * @var int
      */
     public $historyLimit;
@@ -28,6 +33,7 @@ class modelConfig extends Model
      */
     public $textModal;
     protected $_name = [
+        'appType' => 'AppType',
         'historyLimit' => 'HistoryLimit',
         'modelType' => 'ModelType',
         'openWebSearch' => 'OpenWebSearch',
@@ -42,6 +48,10 @@ class modelConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
+        }
+
         if (null !== $this->historyLimit) {
             $res['HistoryLimit'] = $this->historyLimit;
         }
@@ -69,6 +79,10 @@ class modelConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
+        }
+
         if (isset($map['HistoryLimit'])) {
             $model->historyLimit = $map['HistoryLimit'];
         }
