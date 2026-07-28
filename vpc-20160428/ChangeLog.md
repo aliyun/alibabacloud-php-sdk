@@ -1,3 +1,12 @@
+2026-07-28 Version: 7.2.3
+- Update API CreateFlowLog: add request parameters LogFormat.
+- Update API CreateSslVpnServer: add request parameters DnsServers.
+- Update API DescribeFlowLogs: add response parameters Body.FlowLogs.$.LogFormat.
+- Update API DescribeSslVpnServers: add response parameters Body.SslVpnServers.$.DnsServers.
+- Update API ModifyFlowLogAttribute: add request parameters LogFormat.
+- Update API ModifySslVpnServer: add request parameters DnsServers.
+
+
 2026-06-23 Version: 7.2.2
 - Update API DeleteRouteTargetGroup: add request parameters ForceDelete.
 

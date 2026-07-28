@@ -32,6 +32,11 @@ class CreateFlowLogRequest extends Model
     /**
      * @var string
      */
+    public $logFormat;
+
+    /**
+     * @var string
+     */
     public $logStoreName;
 
     /**
@@ -98,6 +103,7 @@ class CreateFlowLogRequest extends Model
         'description' => 'Description',
         'flowLogName' => 'FlowLogName',
         'ipVersion' => 'IpVersion',
+        'logFormat' => 'LogFormat',
         'logStoreName' => 'LogStoreName',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -141,6 +147,10 @@ class CreateFlowLogRequest extends Model
 
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
+        }
+
+        if (null !== $this->logFormat) {
+            $res['LogFormat'] = $this->logFormat;
         }
 
         if (null !== $this->logStoreName) {
@@ -234,6 +244,10 @@ class CreateFlowLogRequest extends Model
 
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
+        }
+
+        if (isset($map['LogFormat'])) {
+            $model->logFormat = $map['LogFormat'];
         }
 
         if (isset($map['LogStoreName'])) {

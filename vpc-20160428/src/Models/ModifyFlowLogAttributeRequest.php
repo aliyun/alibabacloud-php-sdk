@@ -36,6 +36,11 @@ class ModifyFlowLogAttributeRequest extends Model
     /**
      * @var string
      */
+    public $logFormat;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -63,6 +68,7 @@ class ModifyFlowLogAttributeRequest extends Model
         'flowLogId' => 'FlowLogId',
         'flowLogName' => 'FlowLogName',
         'ipVersion' => 'IpVersion',
+        'logFormat' => 'LogFormat',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -96,6 +102,10 @@ class ModifyFlowLogAttributeRequest extends Model
 
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
+        }
+
+        if (null !== $this->logFormat) {
+            $res['LogFormat'] = $this->logFormat;
         }
 
         if (null !== $this->ownerAccount) {
@@ -147,6 +157,10 @@ class ModifyFlowLogAttributeRequest extends Model
 
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
+        }
+
+        if (isset($map['LogFormat'])) {
+            $model->logFormat = $map['LogFormat'];
         }
 
         if (isset($map['OwnerAccount'])) {

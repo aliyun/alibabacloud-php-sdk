@@ -58,6 +58,11 @@ class flowLog extends Model
     /**
      * @var string
      */
+    public $logFormat;
+
+    /**
+     * @var string
+     */
     public $logStoreName;
 
     /**
@@ -119,6 +124,7 @@ class flowLog extends Model
         'flowLogId' => 'FlowLogId',
         'flowLogName' => 'FlowLogName',
         'ipVersion' => 'IpVersion',
+        'logFormat' => 'LogFormat',
         'logStoreName' => 'LogStoreName',
         'projectName' => 'ProjectName',
         'regionId' => 'RegionId',
@@ -180,6 +186,10 @@ class flowLog extends Model
 
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
+        }
+
+        if (null !== $this->logFormat) {
+            $res['LogFormat'] = $this->logFormat;
         }
 
         if (null !== $this->logStoreName) {
@@ -271,6 +281,10 @@ class flowLog extends Model
 
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
+        }
+
+        if (isset($map['LogFormat'])) {
+            $model->logFormat = $map['LogFormat'];
         }
 
         if (isset($map['LogStoreName'])) {

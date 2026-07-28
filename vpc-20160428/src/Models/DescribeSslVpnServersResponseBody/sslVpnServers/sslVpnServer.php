@@ -34,6 +34,11 @@ class sslVpnServer extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $dnsServers;
+
+    /**
      * @var bool
      */
     public $enableMultiFactorAuth;
@@ -113,6 +118,7 @@ class sslVpnServer extends Model
         'compress' => 'Compress',
         'connections' => 'Connections',
         'createTime' => 'CreateTime',
+        'dnsServers' => 'DnsServers',
         'enableMultiFactorAuth' => 'EnableMultiFactorAuth',
         'IDaaSApplicationId' => 'IDaaSApplicationId',
         'IDaaSInstanceId' => 'IDaaSInstanceId',
@@ -156,6 +162,10 @@ class sslVpnServer extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->dnsServers) {
+            $res['DnsServers'] = $this->dnsServers;
         }
 
         if (null !== $this->enableMultiFactorAuth) {
@@ -247,6 +257,10 @@ class sslVpnServer extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['DnsServers'])) {
+            $model->dnsServers = $map['DnsServers'];
         }
 
         if (isset($map['EnableMultiFactorAuth'])) {

@@ -29,6 +29,11 @@ class CreateSslVpnServerRequest extends Model
     public $compress;
 
     /**
+     * @var string
+     */
+    public $dnsServers;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -107,6 +112,7 @@ class CreateSslVpnServerRequest extends Model
         'clientIpPool' => 'ClientIpPool',
         'clientToken' => 'ClientToken',
         'compress' => 'Compress',
+        'dnsServers' => 'DnsServers',
         'dryRun' => 'DryRun',
         'enableMultiFactorAuth' => 'EnableMultiFactorAuth',
         'IDaaSApplicationId' => 'IDaaSApplicationId',
@@ -146,6 +152,10 @@ class CreateSslVpnServerRequest extends Model
 
         if (null !== $this->compress) {
             $res['Compress'] = $this->compress;
+        }
+
+        if (null !== $this->dnsServers) {
+            $res['DnsServers'] = $this->dnsServers;
         }
 
         if (null !== $this->dryRun) {
@@ -233,6 +243,10 @@ class CreateSslVpnServerRequest extends Model
 
         if (isset($map['Compress'])) {
             $model->compress = $map['Compress'];
+        }
+
+        if (isset($map['DnsServers'])) {
+            $model->dnsServers = $map['DnsServers'];
         }
 
         if (isset($map['DryRun'])) {
