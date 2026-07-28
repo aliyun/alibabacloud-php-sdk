@@ -11,6 +11,11 @@ class MultiModalGuardForBase64Request extends Model
     /**
      * @var string
      */
+    public $fileBase64Str;
+
+    /**
+     * @var string
+     */
     public $imageBase64Str;
 
     /**
@@ -23,6 +28,7 @@ class MultiModalGuardForBase64Request extends Model
      */
     public $serviceParameters;
     protected $_name = [
+        'fileBase64Str' => 'FileBase64Str',
         'imageBase64Str' => 'ImageBase64Str',
         'service' => 'Service',
         'serviceParameters' => 'ServiceParameters',
@@ -36,6 +42,10 @@ class MultiModalGuardForBase64Request extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->fileBase64Str) {
+            $res['FileBase64Str'] = $this->fileBase64Str;
+        }
+
         if (null !== $this->imageBase64Str) {
             $res['ImageBase64Str'] = $this->imageBase64Str;
         }
@@ -59,6 +69,10 @@ class MultiModalGuardForBase64Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileBase64Str'])) {
+            $model->fileBase64Str = $map['FileBase64Str'];
+        }
+
         if (isset($map['ImageBase64Str'])) {
             $model->imageBase64Str = $map['ImageBase64Str'];
         }

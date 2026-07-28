@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultRe
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageSummary\imageSummary;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageSummary\riskSummary;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageSummary\textSummary;
 
 class pageSummary extends Model
@@ -21,12 +22,18 @@ class pageSummary extends Model
     public $pageSum;
 
     /**
+     * @var riskSummary
+     */
+    public $riskSummary;
+
+    /**
      * @var textSummary
      */
     public $textSummary;
     protected $_name = [
         'imageSummary' => 'ImageSummary',
         'pageSum' => 'PageSum',
+        'riskSummary' => 'RiskSummary',
         'textSummary' => 'TextSummary',
     ];
 
@@ -34,6 +41,9 @@ class pageSummary extends Model
     {
         if (null !== $this->imageSummary) {
             $this->imageSummary->validate();
+        }
+        if (null !== $this->riskSummary) {
+            $this->riskSummary->validate();
         }
         if (null !== $this->textSummary) {
             $this->textSummary->validate();
@@ -50,6 +60,10 @@ class pageSummary extends Model
 
         if (null !== $this->pageSum) {
             $res['PageSum'] = $this->pageSum;
+        }
+
+        if (null !== $this->riskSummary) {
+            $res['RiskSummary'] = null !== $this->riskSummary ? $this->riskSummary->toArray($noStream) : $this->riskSummary;
         }
 
         if (null !== $this->textSummary) {
@@ -73,6 +87,10 @@ class pageSummary extends Model
 
         if (isset($map['PageSum'])) {
             $model->pageSum = $map['PageSum'];
+        }
+
+        if (isset($map['RiskSummary'])) {
+            $model->riskSummary = riskSummary::fromMap($map['RiskSummary']);
         }
 
         if (isset($map['TextSummary'])) {

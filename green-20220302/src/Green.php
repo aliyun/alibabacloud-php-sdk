@@ -66,10 +66,10 @@ use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultResponse;
+use Darabonba\OpenApi\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\undefined;
 use Darabonba\OpenApi\Utils;
 
 class Green extends OpenApiClient
@@ -132,7 +132,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Document review results.
+     * Queries the document content moderation result.
      *
      * @param request - DescribeFileModerationResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -175,7 +175,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Document review results.
+     * Queries the document content moderation result.
      *
      * @param request - DescribeFileModerationResultRequest
      *
@@ -1356,7 +1356,7 @@ class Green extends OpenApiClient
      * Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
      *
      * @remarks
-     * If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
+     * If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
      *
      * @param request - MultiModalGuardAsyncResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1402,7 +1402,7 @@ class Green extends OpenApiClient
      * Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
      *
      * @remarks
-     * If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
+     * If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
      *
      * @param request - MultiModalGuardAsyncResultRequest
      *
@@ -1420,7 +1420,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
+     * Performs synchronous multimodal content moderation. Supports image base64 strings.
      *
      * @param request - MultiModalGuardForBase64Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1441,6 +1441,10 @@ class Green extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->fileBase64Str) {
+            @$body['FileBase64Str'] = $request->fileBase64Str;
+        }
+
         if (null !== $request->imageBase64Str) {
             @$body['ImageBase64Str'] = $request->imageBase64Str;
         }
@@ -1469,7 +1473,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
+     * Performs synchronous multimodal content moderation. Supports image base64 strings.
      *
      * @param request - MultiModalGuardForBase64Request
      *
@@ -1521,7 +1525,7 @@ class Green extends OpenApiClient
         $res = new MultiModalGuardWsResponse([]);
         $tmp = $this->callApi($params, $req, $runtime);
         if (null !== @$tmp['webSocketClient']) {
-            $res->webSocketClient = undefined::createWebSocketClient(@$tmp['webSocketClient']);
+            $res->webSocketClient = Client::createWebSocketClient(@$tmp['webSocketClient']);
         }
 
         return $res;
