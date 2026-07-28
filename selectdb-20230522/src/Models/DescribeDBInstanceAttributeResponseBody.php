@@ -15,12 +15,22 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     /**
      * @var string[]
      */
+    public $canUpgradeVersionCommunityMap;
+
+    /**
+     * @var string[]
+     */
     public $canUpgradeVersions;
 
     /**
      * @var string
      */
     public $chargeType;
+
+    /**
+     * @var string
+     */
+    public $communityVersion;
 
     /**
      * @var string
@@ -91,6 +101,11 @@ class DescribeDBInstanceAttributeResponseBody extends Model
      * @var string
      */
     public $lockReason;
+
+    /**
+     * @var string
+     */
+    public $MCPServerServiceStatus;
 
     /**
      * @var string
@@ -192,8 +207,10 @@ class DescribeDBInstanceAttributeResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
+        'canUpgradeVersionCommunityMap' => 'CanUpgradeVersionCommunityMap',
         'canUpgradeVersions' => 'CanUpgradeVersions',
         'chargeType' => 'ChargeType',
+        'communityVersion' => 'CommunityVersion',
         'configPatternType' => 'ConfigPatternType',
         'createTime' => 'CreateTime',
         'DBClusterList' => 'DBClusterList',
@@ -208,6 +225,7 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         'langfuseInstanceIds' => 'LangfuseInstanceIds',
         'lockMode' => 'LockMode',
         'lockReason' => 'LockReason',
+        'MCPServerServiceStatus' => 'MCPServerServiceStatus',
         'maintainEndtime' => 'MaintainEndtime',
         'maintainStarttime' => 'MaintainStarttime',
         'multiZone' => 'MultiZone',
@@ -232,6 +250,9 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->canUpgradeVersionCommunityMap)) {
+            Model::validateArray($this->canUpgradeVersionCommunityMap);
+        }
         if (\is_array($this->canUpgradeVersions)) {
             Model::validateArray($this->canUpgradeVersions);
         }
@@ -256,6 +277,15 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->canUpgradeVersionCommunityMap) {
+            if (\is_array($this->canUpgradeVersionCommunityMap)) {
+                $res['CanUpgradeVersionCommunityMap'] = [];
+                foreach ($this->canUpgradeVersionCommunityMap as $key1 => $value1) {
+                    $res['CanUpgradeVersionCommunityMap'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->canUpgradeVersions) {
             if (\is_array($this->canUpgradeVersions)) {
                 $res['CanUpgradeVersions'] = [];
@@ -269,6 +299,10 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->communityVersion) {
+            $res['CommunityVersion'] = $this->communityVersion;
         }
 
         if (null !== $this->configPatternType) {
@@ -339,6 +373,10 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (null !== $this->lockReason) {
             $res['LockReason'] = $this->lockReason;
+        }
+
+        if (null !== $this->MCPServerServiceStatus) {
+            $res['MCPServerServiceStatus'] = $this->MCPServerServiceStatus;
         }
 
         if (null !== $this->maintainEndtime) {
@@ -453,6 +491,15 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CanUpgradeVersionCommunityMap'])) {
+            if (!empty($map['CanUpgradeVersionCommunityMap'])) {
+                $model->canUpgradeVersionCommunityMap = [];
+                foreach ($map['CanUpgradeVersionCommunityMap'] as $key1 => $value1) {
+                    $model->canUpgradeVersionCommunityMap[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['CanUpgradeVersions'])) {
             if (!empty($map['CanUpgradeVersions'])) {
                 $model->canUpgradeVersions = [];
@@ -466,6 +513,10 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['CommunityVersion'])) {
+            $model->communityVersion = $map['CommunityVersion'];
         }
 
         if (isset($map['ConfigPatternType'])) {
@@ -536,6 +587,10 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (isset($map['LockReason'])) {
             $model->lockReason = $map['LockReason'];
+        }
+
+        if (isset($map['MCPServerServiceStatus'])) {
+            $model->MCPServerServiceStatus = $map['MCPServerServiceStatus'];
         }
 
         if (isset($map['MaintainEndtime'])) {

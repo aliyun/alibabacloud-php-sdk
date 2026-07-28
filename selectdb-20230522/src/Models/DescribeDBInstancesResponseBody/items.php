@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponseBody\items\FEClusterList;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponseBody\items\multiZone;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponseBody\items\tags;
 
@@ -59,6 +60,11 @@ class items extends Model
      * @var string
      */
     public $expireTime;
+
+    /**
+     * @var FEClusterList[]
+     */
+    public $FEClusterList;
 
     /**
      * @var string
@@ -230,6 +236,7 @@ class items extends Model
         'engineMinorVersion' => 'EngineMinorVersion',
         'engineVersion' => 'EngineVersion',
         'expireTime' => 'ExpireTime',
+        'FEClusterList' => 'FEClusterList',
         'gmtCreated' => 'GmtCreated',
         'gmtModified' => 'GmtModified',
         'instanceUsedType' => 'InstanceUsedType',
@@ -266,6 +273,9 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->FEClusterList)) {
+            Model::validateArray($this->FEClusterList);
+        }
         if (\is_array($this->multiZone)) {
             Model::validateArray($this->multiZone);
         }
@@ -316,6 +326,17 @@ class items extends Model
 
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+
+        if (null !== $this->FEClusterList) {
+            if (\is_array($this->FEClusterList)) {
+                $res['FEClusterList'] = [];
+                $n1 = 0;
+                foreach ($this->FEClusterList as $item1) {
+                    $res['FEClusterList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->gmtCreated) {
@@ -509,6 +530,17 @@ class items extends Model
 
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+
+        if (isset($map['FEClusterList'])) {
+            if (!empty($map['FEClusterList'])) {
+                $model->FEClusterList = [];
+                $n1 = 0;
+                foreach ($map['FEClusterList'] as $item1) {
+                    $model->FEClusterList[$n1] = FEClusterList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['GmtCreated'])) {
