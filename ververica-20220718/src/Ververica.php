@@ -11,6 +11,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\ApplyScheduledPlanResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CancelSqlPreviewHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CancelSqlPreviewRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CancelSqlPreviewResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ChatAiAgentHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ChatAiAgentRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ChatAiAgentResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentDraftHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentDraftRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentDraftResponse;
@@ -101,6 +104,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GenerateResourcePlanWithFlinkCon
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetAppliedScheduledPlanHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetAppliedScheduledPlanRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetAppliedScheduledPlanResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetAutopilotPolicyHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetAutopilotPolicyRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetAutopilotPolicyResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetCatalogsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetCatalogsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetCatalogsResponse;
@@ -166,6 +172,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GetValidateDeploymentDraftResult
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetValidateDeploymentDraftResultResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\HotUpdateJobHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\HotUpdateJobResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListAutopilotTuningHistoriesHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListAutopilotTuningHistoriesRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListAutopilotTuningHistoriesResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListCustomConnectorsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListCustomConnectorsResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListDeploymentDraftsHeaders;
@@ -231,6 +240,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\StopSqlExecutionResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateAutopilotPolicyHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateAutopilotPolicyRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateAutopilotPolicyResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentByNameHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentByNameRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentByNameResponse;
@@ -472,6 +484,167 @@ class Ververica extends OpenApiClient
         $headers = new CancelSqlPreviewHeaders([]);
 
         return $this->cancelSqlPreviewWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
+     * Initiates a streaming conversation with an AI Agent.
+     *
+     * @param request - ChatAiAgentRequest
+     * @param headers - ChatAiAgentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatAiAgentResponse
+     *
+     * @param string             $namespace_
+     * @param ChatAiAgentRequest $request
+     * @param ChatAiAgentHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ChatAiAgentResponse
+     */
+    public function chatAiAgentWithSSE($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->hitlDecisions) {
+            @$body['hitlDecisions'] = $request->hitlDecisions;
+        }
+
+        if (null !== $request->refs) {
+            @$body['refs'] = $request->refs;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->userMessage) {
+            @$body['userMessage'] = $request->userMessage;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChatAiAgent',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/advisor/v2/namespaces/' . Url::percentEncode($namespace_) . '/ai-agent/stream/agent/v2/chat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield ChatAiAgentResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Initiates a streaming conversation with an AI Agent.
+     *
+     * @param request - ChatAiAgentRequest
+     * @param headers - ChatAiAgentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatAiAgentResponse
+     *
+     * @param string             $namespace_
+     * @param ChatAiAgentRequest $request
+     * @param ChatAiAgentHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ChatAiAgentResponse
+     */
+    public function chatAiAgentWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->hitlDecisions) {
+            @$body['hitlDecisions'] = $request->hitlDecisions;
+        }
+
+        if (null !== $request->refs) {
+            @$body['refs'] = $request->refs;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->userMessage) {
+            @$body['userMessage'] = $request->userMessage;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChatAiAgent',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/advisor/v2/namespaces/' . Url::percentEncode($namespace_) . '/ai-agent/stream/agent/v2/chat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ChatAiAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates a streaming conversation with an AI Agent.
+     *
+     * @param request - ChatAiAgentRequest
+     *
+     * @returns ChatAiAgentResponse
+     *
+     * @param string             $namespace_
+     * @param ChatAiAgentRequest $request
+     *
+     * @return ChatAiAgentResponse
+     */
+    public function chatAiAgent($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ChatAiAgentHeaders([]);
+
+        return $this->chatAiAgentWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
@@ -2795,6 +2968,74 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+     *
+     * @param request - GetAutopilotPolicyRequest
+     * @param headers - GetAutopilotPolicyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAutopilotPolicyResponse
+     *
+     * @param string                    $namespace_
+     * @param string                    $deploymentId
+     * @param GetAutopilotPolicyRequest $request
+     * @param GetAutopilotPolicyHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAutopilotPolicyResponse
+     */
+    public function getAutopilotPolicyWithOptions($namespace_, $deploymentId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action' => 'GetAutopilotPolicy',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/autopilot/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/autopilotpolicy-describe',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAutopilotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+     *
+     * @param request - GetAutopilotPolicyRequest
+     *
+     * @returns GetAutopilotPolicyResponse
+     *
+     * @param string                    $namespace_
+     * @param string                    $deploymentId
+     * @param GetAutopilotPolicyRequest $request
+     *
+     * @return GetAutopilotPolicyResponse
+     */
+    public function getAutopilotPolicy($namespace_, $deploymentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetAutopilotPolicyHeaders([]);
+
+        return $this->getAutopilotPolicyWithOptions($namespace_, $deploymentId, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the details of a specified catalog or all catalogs.
      *
      * @param request - GetCatalogsRequest
@@ -4600,6 +4841,96 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * Retrieves the Autopilot tuning history records.
+     *
+     * @param request - ListAutopilotTuningHistoriesRequest
+     * @param headers - ListAutopilotTuningHistoriesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAutopilotTuningHistoriesResponse
+     *
+     * @param string                              $namespace_
+     * @param string                              $deploymentId
+     * @param ListAutopilotTuningHistoriesRequest $request
+     * @param ListAutopilotTuningHistoriesHeaders $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListAutopilotTuningHistoriesResponse
+     */
+    public function listAutopilotTuningHistoriesWithOptions($namespace_, $deploymentId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->acceptLanguage) {
+            @$realHeaders['Accept-Language'] = '' . $headers->acceptLanguage;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAutopilotTuningHistories',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/autopilot/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/tuninghistories',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAutopilotTuningHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the Autopilot tuning history records.
+     *
+     * @param request - ListAutopilotTuningHistoriesRequest
+     *
+     * @returns ListAutopilotTuningHistoriesResponse
+     *
+     * @param string                              $namespace_
+     * @param string                              $deploymentId
+     * @param ListAutopilotTuningHistoriesRequest $request
+     *
+     * @return ListAutopilotTuningHistoriesResponse
+     */
+    public function listAutopilotTuningHistories($namespace_, $deploymentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListAutopilotTuningHistoriesHeaders([]);
+
+        return $this->listAutopilotTuningHistoriesWithOptions($namespace_, $deploymentId, $request, $headers, $runtime);
+    }
+
+    /**
      * Obtains a list of existing custom connectors.
      *
      * @param headers - ListCustomConnectorsHeaders
@@ -6345,6 +6676,84 @@ class Ververica extends OpenApiClient
         $headers = new SubmitSqlPreviewHeaders([]);
 
         return $this->submitSqlPreviewWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates an Autopilot tuning policy.
+     *
+     * @param request - UpdateAutopilotPolicyRequest
+     * @param headers - UpdateAutopilotPolicyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAutopilotPolicyResponse
+     *
+     * @param string                       $namespace_
+     * @param string                       $deploymentId
+     * @param UpdateAutopilotPolicyRequest $request
+     * @param UpdateAutopilotPolicyHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateAutopilotPolicyResponse
+     */
+    public function updateAutopilotPolicyWithOptions($namespace_, $deploymentId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->policyConfig) {
+            @$body['policyConfig'] = $request->policyConfig;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAutopilotPolicy',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/autopilot/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/autopilotpolicy-update',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAutopilotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an Autopilot tuning policy.
+     *
+     * @param request - UpdateAutopilotPolicyRequest
+     *
+     * @returns UpdateAutopilotPolicyResponse
+     *
+     * @param string                       $namespace_
+     * @param string                       $deploymentId
+     * @param UpdateAutopilotPolicyRequest $request
+     *
+     * @return UpdateAutopilotPolicyResponse
+     */
+    public function updateAutopilotPolicy($namespace_, $deploymentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateAutopilotPolicyHeaders([]);
+
+        return $this->updateAutopilotPolicyWithOptions($namespace_, $deploymentId, $request, $headers, $runtime);
     }
 
     /**
