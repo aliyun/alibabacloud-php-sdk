@@ -22,6 +22,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $instructions;
 
     /**
@@ -33,12 +38,25 @@ class list_ extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $subType;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
         'applicationConfig' => 'applicationConfig',
         'code' => 'code',
+        'description' => 'description',
         'instructions' => 'instructions',
         'modelId' => 'modelId',
         'name' => 'name',
+        'subType' => 'subType',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -60,6 +78,10 @@ class list_ extends Model
             $res['code'] = $this->code;
         }
 
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+
         if (null !== $this->instructions) {
             $res['instructions'] = $this->instructions;
         }
@@ -70,6 +92,14 @@ class list_ extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->subType) {
+            $res['subType'] = $this->subType;
+        }
+
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -91,6 +121,10 @@ class list_ extends Model
             $model->code = $map['code'];
         }
 
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+
         if (isset($map['instructions'])) {
             $model->instructions = $map['instructions'];
         }
@@ -101,6 +135,14 @@ class list_ extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['subType'])) {
+            $model->subType = $map['subType'];
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

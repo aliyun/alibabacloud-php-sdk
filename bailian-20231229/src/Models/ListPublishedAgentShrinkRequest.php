@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListPublishedAgentRequest extends Model
+class ListPublishedAgentShrinkRequest extends Model
 {
     /**
      * @var int
@@ -19,20 +19,17 @@ class ListPublishedAgentRequest extends Model
     public $pageSize;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $subTypes;
+    public $subTypesShrink;
     protected $_name = [
         'pageNo' => 'pageNo',
         'pageSize' => 'pageSize',
-        'subTypes' => 'subTypes',
+        'subTypesShrink' => 'subTypes',
     ];
 
     public function validate()
     {
-        if (\is_array($this->subTypes)) {
-            Model::validateArray($this->subTypes);
-        }
         parent::validate();
     }
 
@@ -47,15 +44,8 @@ class ListPublishedAgentRequest extends Model
             $res['pageSize'] = $this->pageSize;
         }
 
-        if (null !== $this->subTypes) {
-            if (\is_array($this->subTypes)) {
-                $res['subTypes'] = [];
-                $n1 = 0;
-                foreach ($this->subTypes as $item1) {
-                    $res['subTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->subTypesShrink) {
+            $res['subTypes'] = $this->subTypesShrink;
         }
 
         return $res;
@@ -78,14 +68,7 @@ class ListPublishedAgentRequest extends Model
         }
 
         if (isset($map['subTypes'])) {
-            if (!empty($map['subTypes'])) {
-                $model->subTypes = [];
-                $n1 = 0;
-                foreach ($map['subTypes'] as $item1) {
-                    $model->subTypes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->subTypesShrink = $map['subTypes'];
         }
 
         return $model;
