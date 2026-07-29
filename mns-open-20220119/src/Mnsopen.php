@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Mnsopen\V20220119\Models\DisableEndpointRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\DisableEndpointResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\EnableEndpointRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\EnableEndpointResponse;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetAccountAttributesRequest;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetAccountAttributesResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetEndpointAttributeRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetEndpointAttributeResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetEventRuleRequest;
@@ -48,6 +50,8 @@ use AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListTopicResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\RevokeEndpointAclRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\RevokeEndpointAclResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\RevokeEndpointAclShrinkRequest;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetAccountAttributesRequest;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetAccountAttributesResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetQueueAttributesRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetQueueAttributesResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetQueueAttributesShrinkRequest;
@@ -809,6 +813,56 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
+     * Retrieves the log configuration of a user.
+     *
+     * @param request - GetAccountAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAccountAttributesResponse
+     *
+     * @param GetAccountAttributesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAccountAttributesResponse
+     */
+    public function getAccountAttributesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetAccountAttributes',
+            'version' => '2022-01-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAccountAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the log configuration of a user.
+     *
+     * @param request - GetAccountAttributesRequest
+     *
+     * @returns GetAccountAttributesResponse
+     *
+     * @param GetAccountAttributesRequest $request
+     *
+     * @return GetAccountAttributesResponse
+     */
+    public function getAccountAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccountAttributesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the attributes of an endpoint.
      *
      * @param request - GetEndpointAttributeRequest
@@ -1536,6 +1590,79 @@ class Mnsopen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeEndpointAclWithOptions($request, $runtime);
+    }
+
+    /**
+     * SetAccountAttributes.
+     *
+     * @param request - SetAccountAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAccountAttributesResponse
+     *
+     * @param SetAccountAttributesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SetAccountAttributesResponse
+     */
+    public function setAccountAttributesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->logEnabled) {
+            @$query['LogEnabled'] = $request->logEnabled;
+        }
+
+        if (null !== $request->logStoreName) {
+            @$query['LogStoreName'] = $request->logStoreName;
+        }
+
+        if (null !== $request->messageTraceEnabled) {
+            @$query['MessageTraceEnabled'] = $request->messageTraceEnabled;
+        }
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetAccountAttributes',
+            'version' => '2022-01-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetAccountAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * SetAccountAttributes.
+     *
+     * @param request - SetAccountAttributesRequest
+     *
+     * @returns SetAccountAttributesResponse
+     *
+     * @param SetAccountAttributesRequest $request
+     *
+     * @return SetAccountAttributesResponse
+     */
+    public function setAccountAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAccountAttributesWithOptions($request, $runtime);
     }
 
     /**
