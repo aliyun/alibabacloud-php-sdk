@@ -51,6 +51,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRecordRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRecordResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceTaskRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceTaskResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelRequest;
@@ -101,6 +103,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceRecordRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceRecordResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceTaskRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceTaskResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelDataRequest;
@@ -178,6 +182,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceRecordRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceRecordResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceTaskRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceTaskResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelCommonSchemaRefRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelDataRequest;
@@ -257,6 +263,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListServiceRecordsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListServiceTaskRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListServiceTaskResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListTagResourcesShrinkRequest;
@@ -2307,6 +2315,97 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * Creates a ServiceTask (heap dump or LiveDebug diagnostic task) for a specified application.
+     *
+     * @remarks
+     * Creates a service task for an application in a specified workspace.
+     * Common use cases:
+     * - heapdump: Triggers a JVM heap dump.
+     * - LiveDebug Probe: Dynamically instruments a target method (log, snapshot, metric, span, etc.).
+     * - LiveDebug Command: Performs a one-time active inspection (OGNL, decompilation, thread/memory information, etc.).
+     * - LiveDebug Code Replace: Performs hot code replacement.
+     * After successful creation, a taskId is returned. You can manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronously delivered to ConfigServer.
+     *
+     * @param request - CreateServiceTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceTaskResponse
+     *
+     * @param string                   $workspace
+     * @param string                   $serviceId
+     * @param CreateServiceTaskRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateServiceTaskResponse
+     */
+    public function createServiceTaskWithOptions($workspace, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->ip) {
+            @$body['ip'] = $request->ip;
+        }
+
+        if (null !== $request->taskConfig) {
+            @$body['taskConfig'] = $request->taskConfig;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateServiceTask',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/serviceTask/' . Url::percentEncode($workspace) . '/' . Url::percentEncode($serviceId) . '/task',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServiceTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a ServiceTask (heap dump or LiveDebug diagnostic task) for a specified application.
+     *
+     * @remarks
+     * Creates a service task for an application in a specified workspace.
+     * Common use cases:
+     * - heapdump: Triggers a JVM heap dump.
+     * - LiveDebug Probe: Dynamically instruments a target method (log, snapshot, metric, span, etc.).
+     * - LiveDebug Command: Performs a one-time active inspection (OGNL, decompilation, thread/memory information, etc.).
+     * - LiveDebug Code Replace: Performs hot code replacement.
+     * After successful creation, a taskId is returned. You can manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronously delivered to ConfigServer.
+     *
+     * @param request - CreateServiceTaskRequest
+     *
+     * @returns CreateServiceTaskResponse
+     *
+     * @param string                   $workspace
+     * @param string                   $serviceId
+     * @param CreateServiceTaskRequest $request
+     *
+     * @return CreateServiceTaskResponse
+     */
+    public function createServiceTask($workspace, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceTaskWithOptions($workspace, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
      * To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
      *
      * @param request - CreateTicketRequest
@@ -3866,6 +3965,83 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteServiceRecordWithOptions($workspace, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a specified ServiceTask under a specified application.
+     *
+     * @remarks
+     * Deletes a specified service task by taskId.
+     * heapdump: Simultaneously deletes the corresponding heap dump record.
+     * LiveDebug: After deleting the task record, synchronously updates the live_debug aggregation configuration on ConfigServer.
+     *
+     * @param request - DeleteServiceTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceTaskResponse
+     *
+     * @param string                   $workspace
+     * @param string                   $serviceId
+     * @param string                   $taskId
+     * @param DeleteServiceTaskRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteServiceTaskResponse
+     */
+    public function deleteServiceTaskWithOptions($workspace, $serviceId, $taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteServiceTask',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/serviceTask/' . Url::percentEncode($workspace) . '/' . Url::percentEncode($serviceId) . '/task/' . Url::percentEncode($taskId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteServiceTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified ServiceTask under a specified application.
+     *
+     * @remarks
+     * Deletes a specified service task by taskId.
+     * heapdump: Simultaneously deletes the corresponding heap dump record.
+     * LiveDebug: After deleting the task record, synchronously updates the live_debug aggregation configuration on ConfigServer.
+     *
+     * @param request - DeleteServiceTaskRequest
+     *
+     * @returns DeleteServiceTaskResponse
+     *
+     * @param string                   $workspace
+     * @param string                   $serviceId
+     * @param string                   $taskId
+     * @param DeleteServiceTaskRequest $request
+     *
+     * @return DeleteServiceTaskResponse
+     */
+    public function deleteServiceTask($workspace, $serviceId, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteServiceTaskWithOptions($workspace, $serviceId, $taskId, $request, $headers, $runtime);
     }
 
     /**
@@ -6416,6 +6592,81 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getServiceRecordWithOptions($workspace, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询ServiceTask.
+     *
+     * @remarks
+     * 根据 taskId 查询单个服务任务详情。
+     * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+     *
+     * @param request - GetServiceTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceTaskResponse
+     *
+     * @param string                $workspace
+     * @param string                $serviceId
+     * @param string                $taskId
+     * @param GetServiceTaskRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetServiceTaskResponse
+     */
+    public function getServiceTaskWithOptions($workspace, $serviceId, $taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetServiceTask',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/serviceTask/' . Url::percentEncode($workspace) . '/' . Url::percentEncode($serviceId) . '/task/' . Url::percentEncode($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServiceTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询ServiceTask.
+     *
+     * @remarks
+     * 根据 taskId 查询单个服务任务详情。
+     * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+     *
+     * @param request - GetServiceTaskRequest
+     *
+     * @returns GetServiceTaskResponse
+     *
+     * @param string                $workspace
+     * @param string                $serviceId
+     * @param string                $taskId
+     * @param GetServiceTaskRequest $request
+     *
+     * @return GetServiceTaskResponse
+     */
+    public function getServiceTask($workspace, $serviceId, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getServiceTaskWithOptions($workspace, $serviceId, $taskId, $request, $headers, $runtime);
     }
 
     /**
@@ -9039,6 +9290,97 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listServiceRecordsWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列举ServiceTask.
+     *
+     * @remarks
+     * 按任务类型列举应用下的服务任务。
+     * - type=heapdump：返回堆转储任务列表
+     * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
+     * - type=live_debug_*：返回对应 LiveDebug 任务列表
+     * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+     *
+     * @param request - ListServiceTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceTaskResponse
+     *
+     * @param string                 $workspace
+     * @param string                 $serviceId
+     * @param ListServiceTaskRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListServiceTaskResponse
+     */
+    public function listServiceTaskWithOptions($workspace, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchCondition) {
+            @$query['searchCondition'] = $request->searchCondition;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListServiceTask',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/serviceTask/' . Url::percentEncode($workspace) . '/' . Url::percentEncode($serviceId) . '/tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServiceTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举ServiceTask.
+     *
+     * @remarks
+     * 按任务类型列举应用下的服务任务。
+     * - type=heapdump：返回堆转储任务列表
+     * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
+     * - type=live_debug_*：返回对应 LiveDebug 任务列表
+     * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+     *
+     * @param request - ListServiceTaskRequest
+     *
+     * @returns ListServiceTaskResponse
+     *
+     * @param string                 $workspace
+     * @param string                 $serviceId
+     * @param ListServiceTaskRequest $request
+     *
+     * @return ListServiceTaskResponse
+     */
+    public function listServiceTask($workspace, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServiceTaskWithOptions($workspace, $serviceId, $request, $headers, $runtime);
     }
 
     /**
