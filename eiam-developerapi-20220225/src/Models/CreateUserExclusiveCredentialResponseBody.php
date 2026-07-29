@@ -11,6 +11,11 @@ class CreateUserExclusiveCredentialResponseBody extends Model
     /**
      * @var string
      */
+    public $credentialCiphertext;
+
+    /**
+     * @var string
+     */
     public $credentialId;
 
     /**
@@ -18,6 +23,7 @@ class CreateUserExclusiveCredentialResponseBody extends Model
      */
     public $credentialIdentifier;
     protected $_name = [
+        'credentialCiphertext' => 'credentialCiphertext',
         'credentialId' => 'credentialId',
         'credentialIdentifier' => 'credentialIdentifier',
     ];
@@ -30,6 +36,10 @@ class CreateUserExclusiveCredentialResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->credentialCiphertext) {
+            $res['credentialCiphertext'] = $this->credentialCiphertext;
+        }
+
         if (null !== $this->credentialId) {
             $res['credentialId'] = $this->credentialId;
         }
@@ -49,6 +59,10 @@ class CreateUserExclusiveCredentialResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['credentialCiphertext'])) {
+            $model->credentialCiphertext = $map['credentialCiphertext'];
+        }
+
         if (isset($map['credentialId'])) {
             $model->credentialId = $map['credentialId'];
         }

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\FetchOAuthAuthenticationTokenResponseBody\oauthAccessTokenContent;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\FetchOAuthAuthenticationTokenResponseBody\oauthAuthorizationSession;
 
 class FetchOAuthAuthenticationTokenResponseBody extends Model
 {
@@ -65,6 +66,11 @@ class FetchOAuthAuthenticationTokenResponseBody extends Model
     public $oauthAccessTokenContent;
 
     /**
+     * @var oauthAuthorizationSession
+     */
+    public $oauthAuthorizationSession;
+
+    /**
      * @var bool
      */
     public $revoked;
@@ -85,6 +91,7 @@ class FetchOAuthAuthenticationTokenResponseBody extends Model
         'expirationTime' => 'expirationTime',
         'instanceId' => 'instanceId',
         'oauthAccessTokenContent' => 'oauthAccessTokenContent',
+        'oauthAuthorizationSession' => 'oauthAuthorizationSession',
         'revoked' => 'revoked',
         'updateTime' => 'updateTime',
     ];
@@ -93,6 +100,9 @@ class FetchOAuthAuthenticationTokenResponseBody extends Model
     {
         if (null !== $this->oauthAccessTokenContent) {
             $this->oauthAccessTokenContent->validate();
+        }
+        if (null !== $this->oauthAuthorizationSession) {
+            $this->oauthAuthorizationSession->validate();
         }
         parent::validate();
     }
@@ -142,6 +152,10 @@ class FetchOAuthAuthenticationTokenResponseBody extends Model
 
         if (null !== $this->oauthAccessTokenContent) {
             $res['oauthAccessTokenContent'] = null !== $this->oauthAccessTokenContent ? $this->oauthAccessTokenContent->toArray($noStream) : $this->oauthAccessTokenContent;
+        }
+
+        if (null !== $this->oauthAuthorizationSession) {
+            $res['oauthAuthorizationSession'] = null !== $this->oauthAuthorizationSession ? $this->oauthAuthorizationSession->toArray($noStream) : $this->oauthAuthorizationSession;
         }
 
         if (null !== $this->revoked) {
@@ -205,6 +219,10 @@ class FetchOAuthAuthenticationTokenResponseBody extends Model
 
         if (isset($map['oauthAccessTokenContent'])) {
             $model->oauthAccessTokenContent = oauthAccessTokenContent::fromMap($map['oauthAccessTokenContent']);
+        }
+
+        if (isset($map['oauthAuthorizationSession'])) {
+            $model->oauthAuthorizationSession = oauthAuthorizationSession::fromMap($map['oauthAuthorizationSession']);
         }
 
         if (isset($map['revoked'])) {

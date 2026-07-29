@@ -160,7 +160,15 @@ class Eiamdeveloperapi extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'eu-central-1' => 'eiam-developerapi.eu-central-1.aliyuncs.com',
+            'cn-hongkong' => 'eiam-developerapi.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'eiam-developerapi.cn-hangzhou.aliyuncs.com',
+            'ap-southeast-5' => 'eiam-developerapi.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-1' => 'eiam-developerapi.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2' => 'eiam-developerapi.ap-northeast-2.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eiam-developerapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -190,7 +198,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 将账户加入多个组织.
+     * Adds an EIAM account to one or more EIAM organizations. These organizations serve as subordinate organizations for the account. If the account is already a member of a specified organization, no update is performed.
      *
      * @param request - AddUserToOrganizationalUnitsRequest
      * @param headers - AddUserToOrganizationalUnitsHeaders
@@ -244,7 +252,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 将账户加入多个组织.
+     * Adds an EIAM account to one or more EIAM organizations. These organizations serve as subordinate organizations for the account. If the account is already a member of a specified organization, no update is performed.
      *
      * @param request - AddUserToOrganizationalUnitsRequest
      *
@@ -506,7 +514,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Creates an Employee Identity and Access Management (EIAM) account in an organizational unit.
+     * Creates a new EIAM account in a specified organization.
      *
      * @param request - CreateUserRequest
      * @param headers - CreateUserHeaders
@@ -607,7 +615,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Creates an Employee Identity and Access Management (EIAM) account in an organizational unit.
+     * Creates a new EIAM account in a specified organization.
      *
      * @param request - CreateUserRequest
      *
@@ -628,7 +636,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 创建账户专属凭据。
+     * Creates an account-specific credential.
+     *
+     * @remarks
+     * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+     * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+     * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
      *
      * @param request - CreateUserExclusiveCredentialRequest
      * @param headers - CreateUserExclusiveCredentialHeaders
@@ -675,6 +688,10 @@ class Eiamdeveloperapi extends OpenApiClient
             @$body['description'] = $request->description;
         }
 
+        if (null !== $request->returnCiphertext) {
+            @$body['returnCiphertext'] = $request->returnCiphertext;
+        }
+
         $realHeaders = [];
         if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
@@ -704,7 +721,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 创建账户专属凭据。
+     * Creates an account-specific credential.
+     *
+     * @remarks
+     * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+     * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+     * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
      *
      * @param request - CreateUserExclusiveCredentialRequest
      *
@@ -1074,7 +1096,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 拉取一个有效的OAuth认证令牌。
+     * Retrieves a valid OAuth authentication token.
+     *
+     * @remarks
+     * This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
+     * Ensure that the Access Token you provide has the function authorization to "obtain authentication token" for the IDaaS built-in PAM application (Privileged Access Management).
+     * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
      *
      * @param request - FetchOAuthAuthenticationTokenRequest
      * @param headers - FetchOAuthAuthenticationTokenHeaders
@@ -1095,6 +1122,14 @@ class Eiamdeveloperapi extends OpenApiClient
         $body = [];
         if (null !== $request->credentialProviderIdentifier) {
             @$body['credentialProviderIdentifier'] = $request->credentialProviderIdentifier;
+        }
+
+        if (null !== $request->customParameters) {
+            @$body['customParameters'] = $request->customParameters;
+        }
+
+        if (null !== $request->forceAuthentication) {
+            @$body['forceAuthentication'] = $request->forceAuthentication;
         }
 
         if (null !== $request->scope) {
@@ -1130,7 +1165,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 拉取一个有效的OAuth认证令牌。
+     * Retrieves a valid OAuth authentication token.
+     *
+     * @remarks
+     * This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
+     * Ensure that the Access Token you provide has the function authorization to "obtain authentication token" for the IDaaS built-in PAM application (Privileged Access Management).
+     * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
      *
      * @param request - FetchOAuthAuthenticationTokenRequest
      *
@@ -1215,7 +1255,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 生成一个有效的JWT认证令牌。
+     * Generates a JSON Web Token (JWT) authentication token.
+     *
+     * @remarks
+     * This API performs identity authentication and authorization using the Access Token issued by IDaaS.
+     * Ensure that the provided Access Token has the authorization to access the "Obtain Authentication Token" feature of the built-in Privileged Access Management (PAM) application in IDaaS.
+     * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
      *
      * @param request - GenerateJwtAuthenticationTokenRequest
      * @param headers - GenerateJwtAuthenticationTokenHeaders
@@ -1291,7 +1336,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 生成一个有效的JWT认证令牌。
+     * Generates a JSON Web Token (JWT) authentication token.
+     *
+     * @remarks
+     * This API performs identity authentication and authorization using the Access Token issued by IDaaS.
+     * Ensure that the provided Access Token has the authorization to access the "Obtain Authentication Token" feature of the built-in Privileged Access Management (PAM) application in IDaaS.
+     * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
      *
      * @param request - GenerateJwtAuthenticationTokenRequest
      *
@@ -1311,10 +1361,94 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Generates a token for accessing an application in an instance.
+     * Generates an access token for an application in a specified IDaaS instance based on credential information.
      *
      * @remarks
-     * The following authorization types are supported: authorization code, device code, refresh token, and client credentials.
+     * The following methods are supported: Authorization Code, Device Flow, Refresh Token, Client Credentials, and Password.
+     * ### 1. Authorization Code
+     * Scenario: This is the standard OAuth 2.0 authorization code flow, which is suitable for web applications with frontend interaction.
+     * Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=authorization_code
+     * &code={authorization_code}
+     * &redirect_uri={redirect_uri}
+     * &client_id={client_id}
+     * &client_secret={client_secret}
+     * ```
+     * Parameters:
+     * ● code: The authorization code obtained from the authorization endpoint.
+     * ● redirect_uri: Must be the same as the redirect_uri that was used to obtain the authorization code.
+     * ### 1.1 Authorization Code for public clients
+     * Scenario: This scenario is suitable for applications that cannot securely store a secret, such as single-page applications (SPAs) or native applications. In this flow, a client_secret is not required, but you must use the Proof Key for Code Exchange (PKCE) mechanism. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=authorization_code
+     * &code={authorization_code}
+     * &redirect_uri={redirect_uri}
+     * &client_id={client_id}
+     * &code_verifier={code_verifier}
+     * ```
+     * Parameters:
+     * ● code_verifier: The code verifier for the PKCE mechanism. The client generates it when initiating an authorization request and uses it to derive the \\`code_challenge\\`. When exchanging for a token, you must submit this value. It must be identical to the value used to generate the \\`code_challenge\\`.
+     * Java example for generating a code_verifier and code_challenge:
+     * ```java
+     * String codeVerifier = Base64.getUrlEncoder().withoutPadding().encodeToString(new SecureRandom().generateSeed(43));
+     * String codeChallenge = Base64.getUrlEncoder().withoutPadding().encodeToString(java.security.MessageDigest.getInstance("SHA-256").digest(codeVerifier.getBytes()));
+     * ```
+     * ### 2. Device Flow
+     * Scenario: This scenario is suitable for input-constrained devices, such as TVs and IoT devices. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=urn:ietf:params:oauth:grant-type:device_code
+     * &device_code={device_code}
+     * &client_id={client_id}
+     * &client_secret={client_secret}
+     * ```
+     * To obtain the device code, first call `/oauth2/device/code` to retrieve the device_code and user_code.
+     * ### 2.1 Device Flow for public clients
+     * Scenario: This scenario is used when interactive logon is not convenient and the client is a public client. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=urn:ietf:params:oauth:grant-type:device_code
+     * &device_code={device_code}
+     * &client_id={client_id}
+     * ```
+     * ### 3. Refresh Token
+     * Scenario: This scenario uses a refresh_token to obtain a new access_token. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=refresh_token
+     * &refresh_token={refresh_token}
+     * &client_id={client_id}
+     * &client_secret={client_secret}
+     * ```
+     * ### 4. Client Credentials
+     * Scenario: This scenario is for server-to-server authentication without user involvement. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=client_credentials
+     * &client_id={client_id}
+     * &client_secret={client_secret}
+     * &scope={scope}
+     * ```
+     * ### 5. Password
+     * Scenario: This scenario uses traditional username and password authentication. Use this method with caution. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=password
+     * &username={username}
+     * &password={password}
+     * &client_id={client_id}
+     * &scope={scope}
+     * ```
      *
      * @param request - GenerateTokenRequest
      * @param headers - map
@@ -1402,10 +1536,94 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Generates a token for accessing an application in an instance.
+     * Generates an access token for an application in a specified IDaaS instance based on credential information.
      *
      * @remarks
-     * The following authorization types are supported: authorization code, device code, refresh token, and client credentials.
+     * The following methods are supported: Authorization Code, Device Flow, Refresh Token, Client Credentials, and Password.
+     * ### 1. Authorization Code
+     * Scenario: This is the standard OAuth 2.0 authorization code flow, which is suitable for web applications with frontend interaction.
+     * Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=authorization_code
+     * &code={authorization_code}
+     * &redirect_uri={redirect_uri}
+     * &client_id={client_id}
+     * &client_secret={client_secret}
+     * ```
+     * Parameters:
+     * ● code: The authorization code obtained from the authorization endpoint.
+     * ● redirect_uri: Must be the same as the redirect_uri that was used to obtain the authorization code.
+     * ### 1.1 Authorization Code for public clients
+     * Scenario: This scenario is suitable for applications that cannot securely store a secret, such as single-page applications (SPAs) or native applications. In this flow, a client_secret is not required, but you must use the Proof Key for Code Exchange (PKCE) mechanism. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=authorization_code
+     * &code={authorization_code}
+     * &redirect_uri={redirect_uri}
+     * &client_id={client_id}
+     * &code_verifier={code_verifier}
+     * ```
+     * Parameters:
+     * ● code_verifier: The code verifier for the PKCE mechanism. The client generates it when initiating an authorization request and uses it to derive the \\`code_challenge\\`. When exchanging for a token, you must submit this value. It must be identical to the value used to generate the \\`code_challenge\\`.
+     * Java example for generating a code_verifier and code_challenge:
+     * ```java
+     * String codeVerifier = Base64.getUrlEncoder().withoutPadding().encodeToString(new SecureRandom().generateSeed(43));
+     * String codeChallenge = Base64.getUrlEncoder().withoutPadding().encodeToString(java.security.MessageDigest.getInstance("SHA-256").digest(codeVerifier.getBytes()));
+     * ```
+     * ### 2. Device Flow
+     * Scenario: This scenario is suitable for input-constrained devices, such as TVs and IoT devices. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=urn:ietf:params:oauth:grant-type:device_code
+     * &device_code={device_code}
+     * &client_id={client_id}
+     * &client_secret={client_secret}
+     * ```
+     * To obtain the device code, first call `/oauth2/device/code` to retrieve the device_code and user_code.
+     * ### 2.1 Device Flow for public clients
+     * Scenario: This scenario is used when interactive logon is not convenient and the client is a public client. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=urn:ietf:params:oauth:grant-type:device_code
+     * &device_code={device_code}
+     * &client_id={client_id}
+     * ```
+     * ### 3. Refresh Token
+     * Scenario: This scenario uses a refresh_token to obtain a new access_token. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=refresh_token
+     * &refresh_token={refresh_token}
+     * &client_id={client_id}
+     * &client_secret={client_secret}
+     * ```
+     * ### 4. Client Credentials
+     * Scenario: This scenario is for server-to-server authentication without user involvement. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=client_credentials
+     * &client_id={client_id}
+     * &client_secret={client_secret}
+     * &scope={scope}
+     * ```
+     * ### 5. Password
+     * Scenario: This scenario uses traditional username and password authentication. Use this method with caution. Example call:
+     * ```
+     * POST /v2/{instanceId}/{applicationId}/oauth2/token
+     * Content-Type: application/x-www-form-urlencoded
+     * grant_type=password
+     * &username={username}
+     * &password={password}
+     * &client_id={client_id}
+     * &scope={scope}
+     * ```
      *
      * @param request - GenerateTokenRequest
      *
@@ -1426,7 +1644,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 实例级授权服务器 Token 端点.
+     * The token endpoint for an instance-level authorization server.
      *
      * @param request - GenerateTokenByAuthorizationServerRequest
      * @param headers - map
@@ -1530,7 +1748,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 实例级授权服务器 Token 端点.
+     * The token endpoint for an instance-level authorization server.
      *
      * @param request - GenerateTokenByAuthorizationServerRequest
      *
@@ -1551,11 +1769,10 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the synchronization scope of an application in an instance.
+     * The GetApplicationProvisioningScope operation retrieves the synchronization scope of an application in a specific instance.
      *
      * @remarks
-     * >
-     * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
+     * > - You can set the synchronization scope in Application Management in the IDaaS console. After you create an application, you have permission to call this API by default.
      *
      * @param request - GetApplicationProvisioningScopeRequest
      * @param headers - GetApplicationProvisioningScopeHeaders
@@ -1602,11 +1819,10 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the synchronization scope of an application in an instance.
+     * The GetApplicationProvisioningScope operation retrieves the synchronization scope of an application in a specific instance.
      *
      * @remarks
-     * >
-     * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
+     * > - You can set the synchronization scope in Application Management in the IDaaS console. After you create an application, you have permission to call this API by default.
      *
      * @param request - GetApplicationProvisioningScopeRequest
      *
@@ -1627,7 +1843,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the details of a group.
+     * Retrieves the details of a group.
      *
      * @param request - GetGroupRequest
      * @param headers - GetGroupHeaders
@@ -1675,7 +1891,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the details of a group.
+     * Retrieves the details of a group.
      *
      * @param request - GetGroupRequest
      *
@@ -1697,7 +1913,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the information of an organizational unit.
+     * Retrieves the information about an organizational unit.
      *
      * @param request - GetOrganizationalUnitRequest
      * @param headers - GetOrganizationalUnitHeaders
@@ -1745,7 +1961,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the information of an organizational unit.
+     * Retrieves the information about an organizational unit.
      *
      * @param request - GetOrganizationalUnitRequest
      *
@@ -1849,7 +2065,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the details of an Employee Identity and Access Management (EIAM) account.
+     * Retrieves the details of an Employee Identity and Access Management (EIAM) account.
      *
      * @param request - GetUserRequest
      * @param headers - GetUserHeaders
@@ -1897,7 +2113,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the details of an Employee Identity and Access Management (EIAM) account.
+     * Retrieves the details of an Employee Identity and Access Management (EIAM) account.
      *
      * @param request - GetUserRequest
      *
@@ -2223,7 +2439,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the information of a user by using the user token.
+     * Retrieves the information about a user by using the user token.
      *
      * @param request - GetUserInfoRequest
      * @param headers - GetUserInfoHeaders
@@ -2270,7 +2486,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the information of a user by using the user token.
+     * Retrieves the information about a user by using the user token.
      *
      * @param request - GetUserInfoRequest
      *
@@ -2291,7 +2507,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 列举认证令牌。
+     * Lists authentication tokens.
+     *
+     * @remarks
+     * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+     * Ensure that the Access Token you provide has the Query authentication tokens permission for the built-in Privileged Access Management (PAM) application in IDaaS.
+     * > The required scope is `urn:cloud:idaas:pam|authentication_token:read`.
      *
      * @param request - ListAuthenticationTokensRequest
      * @param headers - ListAuthenticationTokensHeaders
@@ -2363,7 +2584,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 列举认证令牌。
+     * Lists authentication tokens.
+     *
+     * @remarks
+     * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+     * Ensure that the Access Token you provide has the Query authentication tokens permission for the built-in Privileged Access Management (PAM) application in IDaaS.
+     * > The required scope is `urn:cloud:idaas:pam|authentication_token:read`.
      *
      * @param request - ListAuthenticationTokensRequest
      *
@@ -2383,7 +2609,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries information about Employee Identity and Access Management (EIAM) groups by page.
+     * Retrieves information about Employee Identity and Access Management (EIAM) groups by page.
      *
      * @param request - ListGroupsRequest
      * @param headers - ListGroupsHeaders
@@ -2444,7 +2670,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries information about Employee Identity and Access Management (EIAM) groups by page.
+     * Retrieves information about Employee Identity and Access Management (EIAM) groups by page.
      *
      * @param request - ListGroupsRequest
      *
@@ -2465,7 +2691,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 获取账户关联组列表.
+     * Lists the groups that an EIAM user is a member of.
      *
      * @param request - ListGroupsForUserRequest
      * @param headers - ListGroupsForUserHeaders
@@ -2523,7 +2749,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 获取账户关联组列表.
+     * Lists the groups that an EIAM user is a member of.
      *
      * @param request - ListGroupsForUserRequest
      *
@@ -2545,7 +2771,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the information of all the parent organizational units of an organizational unit.
+     * Retrieves the information about all the parent organizational units of an organizational unit.
      *
      * @param request - ListOrganizationalUnitParentIdsRequest
      * @param headers - ListOrganizationalUnitParentIdsHeaders
@@ -2593,7 +2819,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the information of all the parent organizational units of an organizational unit.
+     * Retrieves the information about all the parent organizational units of an organizational unit.
      *
      * @param request - ListOrganizationalUnitParentIdsRequest
      *
@@ -2615,7 +2841,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the information of Employee Identity and Access Management (EIAM) organizational units by page.
+     * Performs a paged query to retrieve organization information from EIAM.
+     *
+     * @remarks
+     * To retrieve the direct child organizations of the root organization, set the request parameter as follows:
+     * ```
+     * {
+     *   "parentOrganizationalUnitId": "ou_root"
+     * }
+     * ```
      *
      * @param request - ListOrganizationalUnitsRequest
      * @param headers - ListOrganizationalUnitsHeaders
@@ -2676,7 +2910,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the information of Employee Identity and Access Management (EIAM) organizational units by page.
+     * Performs a paged query to retrieve organization information from EIAM.
+     *
+     * @remarks
+     * To retrieve the direct child organizations of the root organization, set the request parameter as follows:
+     * ```
+     * {
+     *   "parentOrganizationalUnitId": "ou_root"
+     * }
+     * ```
      *
      * @param request - ListOrganizationalUnitsRequest
      *
@@ -2697,7 +2939,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the information of Employee Identity and Access Management (EIAM) accounts by page.
+     * Performs a paged query for EIAM account information.
      *
      * @param request - ListUsersRequest
      * @param headers - ListUsersHeaders
@@ -2758,7 +3000,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Queries the information of Employee Identity and Access Management (EIAM) accounts by page.
+     * Performs a paged query for EIAM account information.
      *
      * @param request - ListUsersRequest
      *
@@ -2859,7 +3101,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 获取云角色（CloudAccountRole）的临时访问凭证
+     * Retrieves temporary access credentials for a cloud account role (CloudAccountRole).
+     *
+     * @remarks
+     * This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
+     * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+     * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
      *
      * @param request - ObtainCloudAccountRoleAccessCredentialRequest
      * @param headers - ObtainCloudAccountRoleAccessCredentialHeaders
@@ -2915,7 +3162,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 获取云角色（CloudAccountRole）的临时访问凭证
+     * Retrieves temporary access credentials for a cloud account role (CloudAccountRole).
+     *
+     * @remarks
+     * This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
+     * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+     * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
      *
      * @param request - ObtainCloudAccountRoleAccessCredentialRequest
      *
@@ -2935,7 +3187,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 获取凭据明文。
+     * Retrieves the plaintext of a secret.
+     *
+     * @remarks
+     * This API uses an access token from IDaaS for authentication and authorization.
+     * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
+     * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
      *
      * @param request - ObtainCredentialRequest
      * @param headers - ObtainCredentialHeaders
@@ -2987,7 +3244,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 获取凭据明文。
+     * Retrieves the plaintext of a secret.
+     *
+     * @remarks
+     * This API uses an access token from IDaaS for authentication and authorization.
+     * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
+     * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
      *
      * @param request - ObtainCredentialRequest
      *
@@ -3007,7 +3269,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 获取JWT认证令牌明文。
+     * Obtains a JWT authentication token.
+     *
+     * @remarks
+     * This API requires an access token issued by IDaaS for authentication and authorization.
+     * The provided access token must have permission to obtain authentication tokens for the built-in privileged access management (PAM) application in IDaaS.
+     * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
      *
      * @param request - ObtainJwtAuthenticationTokenRequest
      * @param headers - ObtainJwtAuthenticationTokenHeaders
@@ -3063,7 +3330,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 获取JWT认证令牌明文。
+     * Obtains a JWT authentication token.
+     *
+     * @remarks
+     * This API requires an access token issued by IDaaS for authentication and authorization.
+     * The provided access token must have permission to obtain authentication tokens for the built-in privileged access management (PAM) application in IDaaS.
+     * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
      *
      * @param request - ObtainJwtAuthenticationTokenRequest
      *
@@ -3083,7 +3355,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 使用派生短令牌查询对应的JWT认证令牌详情。
+     * Obtain a JWT authentication token using a derived short token.
      *
      * @param request - ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
      * @param headers - map
@@ -3126,7 +3398,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 使用派生短令牌查询对应的JWT认证令牌详情。
+     * Obtain a JWT authentication token using a derived short token.
      *
      * @param request - ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
      *
@@ -3418,7 +3690,14 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 恢复一个认证令牌。
+     * Reinstate an authentication token.
+     *
+     * @remarks
+     * This API uses an IDaaS-issued Access Token for identity authentication and authorization.
+     * Ensure that the Access Token you provide has the Manage authentication tokens permission for the IDaaS built-in Privileged Access Management (PAM) application.
+     * > The required scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+     * >Notice:
+     * Only JWT authentication tokens support this operation.
      *
      * @param request - ReinstateAuthenticationTokenRequest
      * @param headers - ReinstateAuthenticationTokenHeaders
@@ -3474,7 +3753,14 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 恢复一个认证令牌。
+     * Reinstate an authentication token.
+     *
+     * @remarks
+     * This API uses an IDaaS-issued Access Token for identity authentication and authorization.
+     * Ensure that the Access Token you provide has the Manage authentication tokens permission for the IDaaS built-in Privileged Access Management (PAM) application.
+     * > The required scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+     * >Notice:
+     * Only JWT authentication tokens support this operation.
      *
      * @param request - ReinstateAuthenticationTokenRequest
      *
@@ -3494,7 +3780,14 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 基于使用者吊销认证令牌。
+     * Reinstate an authentication token for a consumer.
+     *
+     * @remarks
+     * This API uses an access token issued by IDaaS to perform identity authentication and authorization.
+     * Ensure that the provided access token is authorized to access the Manage Authentication Token feature in the IDaaS built-in PAM (Privileged Access Management) application.
+     * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+     * >Notice:
+     * This operation supports only JWT-type authentication tokens.
      *
      * @param request - ReinstateAuthenticationTokenByConsumerRequest
      * @param headers - ReinstateAuthenticationTokenByConsumerHeaders
@@ -3550,7 +3843,14 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 基于使用者吊销认证令牌。
+     * Reinstate an authentication token for a consumer.
+     *
+     * @remarks
+     * This API uses an access token issued by IDaaS to perform identity authentication and authorization.
+     * Ensure that the provided access token is authorized to access the Manage Authentication Token feature in the IDaaS built-in PAM (Privileged Access Management) application.
+     * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+     * >Notice:
+     * This operation supports only JWT-type authentication tokens.
      *
      * @param request - ReinstateAuthenticationTokenByConsumerRequest
      *
@@ -3570,7 +3870,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 将账户从多个组织移除【不支持移除主组织】.
+     * Removes an EIAM account from one or more EIAM organizational units. The operation succeeds even if the account is not in the specified organizational units.
      *
      * @param request - RemoveUserFromOrganizationalUnitsRequest
      * @param headers - RemoveUserFromOrganizationalUnitsHeaders
@@ -3624,7 +3924,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 将账户从多个组织移除【不支持移除主组织】.
+     * Removes an EIAM account from one or more EIAM organizational units. The operation succeeds even if the account is not in the specified organizational units.
      *
      * @param request - RemoveUserFromOrganizationalUnitsRequest
      *
@@ -3722,7 +4022,14 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 吊销一个认证令牌。
+     * Revokes an authentication token.
+     *
+     * @remarks
+     * This API uses an Access Token issued by IDaaS to perform identity authentication and authorization.
+     * Ensure that the Access Token is authorized to access the "Manage Authentication Tokens" feature of the built-in Privileged Access Management (PAM) application in IDaaS.
+     * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+     * >Notice:
+     * This operation currently supports only JWT authentication tokens.
      *
      * @param request - RevokeAuthenticationTokenRequest
      * @param headers - RevokeAuthenticationTokenHeaders
@@ -3778,7 +4085,14 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 吊销一个认证令牌。
+     * Revokes an authentication token.
+     *
+     * @remarks
+     * This API uses an Access Token issued by IDaaS to perform identity authentication and authorization.
+     * Ensure that the Access Token is authorized to access the "Manage Authentication Tokens" feature of the built-in Privileged Access Management (PAM) application in IDaaS.
+     * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+     * >Notice:
+     * This operation currently supports only JWT authentication tokens.
      *
      * @param request - RevokeAuthenticationTokenRequest
      *
@@ -3798,7 +4112,14 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 基于使用者吊销认证令牌。
+     * Revokes an authentication token for a consumer.
+     *
+     * @remarks
+     * This API uses an access token issued by IDaaS to authenticate and authorize requests.
+     * Make sure that the access token you provide has the \\"Manage authentication tokens\\" permission for the built-in Privileged Access Management (PAM) application in IDaaS.
+     * > The required scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+     * >Notice:
+     * This operation can revoke only JWT authentication tokens.
      *
      * @param request - RevokeAuthenticationTokenByConsumerRequest
      * @param headers - RevokeAuthenticationTokenByConsumerHeaders
@@ -3854,7 +4175,14 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 基于使用者吊销认证令牌。
+     * Revokes an authentication token for a consumer.
+     *
+     * @remarks
+     * This API uses an access token issued by IDaaS to authenticate and authorize requests.
+     * Make sure that the access token you provide has the \\"Manage authentication tokens\\" permission for the built-in Privileged Access Management (PAM) application in IDaaS.
+     * > The required scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+     * >Notice:
+     * This operation can revoke only JWT authentication tokens.
      *
      * @param request - RevokeAuthenticationTokenByConsumerRequest
      *
@@ -3951,7 +4279,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 将指定组织设置为账户主组织，移除旧主组织，加入新主组织。
+     * Sets the primary organization for an EIAM account. This operation removes the account from the old primary organization and adds it to the new one.
      *
      * @param request - SetUserPrimaryOrganizationalUnitRequest
      * @param headers - SetUserPrimaryOrganizationalUnitHeaders
@@ -4005,7 +4333,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 将指定组织设置为账户主组织，移除旧主组织，加入新主组织。
+     * Sets the primary organization for an EIAM account. This operation removes the account from the old primary organization and adds it to the new one.
      *
      * @param request - SetUserPrimaryOrganizationalUnitRequest
      *
@@ -4027,7 +4355,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 更新账户密码
+     * Updates the password for a specified EIAM account.
      *
      * @param request - UpdateUserPasswordRequest
      * @param headers - UpdateUserPasswordHeaders
@@ -4081,7 +4409,7 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 更新账户密码
+     * Updates the password for a specified EIAM account.
      *
      * @param request - UpdateUserPasswordRequest
      *
@@ -4103,7 +4431,11 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 校验认证令牌是否有效。
+     * Validates an authentication token.
+     *
+     * @remarks
+     * >Notice:
+     * This operation is supported only for JSON Web Token (JWT) authentication tokens.
      *
      * @param request - ValidateAuthenticationTokenRequest
      * @param headers - map
@@ -4150,7 +4482,11 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * 校验认证令牌是否有效。
+     * Validates an authentication token.
+     *
+     * @remarks
+     * >Notice:
+     * This operation is supported only for JSON Web Token (JWT) authentication tokens.
      *
      * @param request - ValidateAuthenticationTokenRequest
      *

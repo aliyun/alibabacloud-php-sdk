@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountR
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAccessCredentialResponseBody\cloudAccountRoleAccessCredential\alibabaCloudStsToken;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAccessCredentialResponseBody\cloudAccountRoleAccessCredential\awsStsToken;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAccessCredentialResponseBody\cloudAccountRoleAccessCredential\tencentCloudStsToken;
 
 class cloudAccountRoleAccessCredential extends Model
 {
@@ -24,10 +25,16 @@ class cloudAccountRoleAccessCredential extends Model
      * @var awsStsToken
      */
     public $awsStsToken;
+
+    /**
+     * @var tencentCloudStsToken
+     */
+    public $tencentCloudStsToken;
     protected $_name = [
         'accessCredentialExpiresAt' => 'accessCredentialExpiresAt',
         'alibabaCloudStsToken' => 'alibabaCloudStsToken',
         'awsStsToken' => 'awsStsToken',
+        'tencentCloudStsToken' => 'tencentCloudStsToken',
     ];
 
     public function validate()
@@ -37,6 +44,9 @@ class cloudAccountRoleAccessCredential extends Model
         }
         if (null !== $this->awsStsToken) {
             $this->awsStsToken->validate();
+        }
+        if (null !== $this->tencentCloudStsToken) {
+            $this->tencentCloudStsToken->validate();
         }
         parent::validate();
     }
@@ -54,6 +64,10 @@ class cloudAccountRoleAccessCredential extends Model
 
         if (null !== $this->awsStsToken) {
             $res['awsStsToken'] = null !== $this->awsStsToken ? $this->awsStsToken->toArray($noStream) : $this->awsStsToken;
+        }
+
+        if (null !== $this->tencentCloudStsToken) {
+            $res['tencentCloudStsToken'] = null !== $this->tencentCloudStsToken ? $this->tencentCloudStsToken->toArray($noStream) : $this->tencentCloudStsToken;
         }
 
         return $res;
@@ -77,6 +91,10 @@ class cloudAccountRoleAccessCredential extends Model
 
         if (isset($map['awsStsToken'])) {
             $model->awsStsToken = awsStsToken::fromMap($map['awsStsToken']);
+        }
+
+        if (isset($map['tencentCloudStsToken'])) {
+            $model->tencentCloudStsToken = tencentCloudStsToken::fromMap($map['tencentCloudStsToken']);
         }
 
         return $model;

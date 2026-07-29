@@ -43,6 +43,11 @@ class CreateUserExclusiveCredentialRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $returnCiphertext;
     protected $_name = [
         'credentialContent' => 'credentialContent',
         'credentialExternalId' => 'credentialExternalId',
@@ -51,6 +56,7 @@ class CreateUserExclusiveCredentialRequest extends Model
         'credentialScenarioLabel' => 'credentialScenarioLabel',
         'credentialType' => 'credentialType',
         'description' => 'description',
+        'returnCiphertext' => 'returnCiphertext',
     ];
 
     public function validate()
@@ -92,6 +98,10 @@ class CreateUserExclusiveCredentialRequest extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->returnCiphertext) {
+            $res['returnCiphertext'] = $this->returnCiphertext;
+        }
+
         return $res;
     }
 
@@ -129,6 +139,10 @@ class CreateUserExclusiveCredentialRequest extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['returnCiphertext'])) {
+            $model->returnCiphertext = $map['returnCiphertext'];
         }
 
         return $model;
