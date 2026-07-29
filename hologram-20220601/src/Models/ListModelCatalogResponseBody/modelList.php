@@ -39,6 +39,11 @@ class modelList extends Model
     public $serviceDeployRegion;
 
     /**
+     * @var bool
+     */
+    public $supportApiKeyAccess;
+
+    /**
      * @var string
      */
     public $taskType;
@@ -49,6 +54,7 @@ class modelList extends Model
         'paramsExample' => 'paramsExample',
         'provider' => 'provider',
         'serviceDeployRegion' => 'serviceDeployRegion',
+        'supportApiKeyAccess' => 'supportApiKeyAccess',
         'taskType' => 'taskType',
     ];
 
@@ -82,6 +88,10 @@ class modelList extends Model
 
         if (null !== $this->serviceDeployRegion) {
             $res['serviceDeployRegion'] = $this->serviceDeployRegion;
+        }
+
+        if (null !== $this->supportApiKeyAccess) {
+            $res['supportApiKeyAccess'] = $this->supportApiKeyAccess;
         }
 
         if (null !== $this->taskType) {
@@ -121,6 +131,10 @@ class modelList extends Model
 
         if (isset($map['serviceDeployRegion'])) {
             $model->serviceDeployRegion = $map['serviceDeployRegion'];
+        }
+
+        if (isset($map['supportApiKeyAccess'])) {
+            $model->supportApiKeyAccess = $map['supportApiKeyAccess'];
         }
 
         if (isset($map['taskType'])) {

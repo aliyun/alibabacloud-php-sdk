@@ -17,9 +17,15 @@ class ListModelCatalogRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $provider;
     protected $_name = [
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'provider' => 'provider',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class ListModelCatalogRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->provider) {
+            $res['provider'] = $this->provider;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class ListModelCatalogRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['provider'])) {
+            $model->provider = $map['provider'];
         }
 
         return $model;

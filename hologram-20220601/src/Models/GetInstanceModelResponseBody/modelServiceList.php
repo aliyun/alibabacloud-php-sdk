@@ -79,6 +79,11 @@ class modelServiceList extends Model
     public $status;
 
     /**
+     * @var bool
+     */
+    public $supportApiKeyAccess;
+
+    /**
      * @var string
      */
     public $taskType;
@@ -102,6 +107,7 @@ class modelServiceList extends Model
         'serviceCount' => 'serviceCount',
         'serviceDeployRegion' => 'serviceDeployRegion',
         'status' => 'status',
+        'supportApiKeyAccess' => 'supportApiKeyAccess',
         'taskType' => 'taskType',
         'version' => 'version',
     ];
@@ -168,6 +174,10 @@ class modelServiceList extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->supportApiKeyAccess) {
+            $res['supportApiKeyAccess'] = $this->supportApiKeyAccess;
         }
 
         if (null !== $this->taskType) {
@@ -243,6 +253,10 @@ class modelServiceList extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['supportApiKeyAccess'])) {
+            $model->supportApiKeyAccess = $map['supportApiKeyAccess'];
         }
 
         if (isset($map['taskType'])) {

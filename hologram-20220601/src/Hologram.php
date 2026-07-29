@@ -189,7 +189,30 @@ class Hologram extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'hologram.us-west-1.aliyuncs.com',
+            'us-east-1' => 'hologram.us-east-1.aliyuncs.com',
+            'na-south-1' => 'hologram.na-south-1.aliyuncs.com',
+            'me-east-1' => 'hologram.me-east-1.aliyuncs.com',
+            'eu-central-1' => 'hologram.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'hologram.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'hologram.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'hologram.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-shenzhen' => 'hologram.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'hologram.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'hologram.cn-shanghai.aliyuncs.com',
+            'cn-north-2-gov-1' => 'hologram.cn-north-2-gov-1.aliyuncs.com',
+            'cn-hongkong' => 'hologram.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'hologram.cn-hangzhou.aliyuncs.com',
+            'cn-chengdu' => 'hologram.cn-chengdu.aliyuncs.com',
+            'cn-beijing' => 'hologram.cn-beijing.aliyuncs.com',
+            'ap-southeast-5' => 'hologram.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'hologram.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-1' => 'hologram.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2' => 'hologram.ap-northeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'hologram.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('hologram', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -219,7 +242,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 绑定主实例.
+     * Binds a follower instance to a leader instance.
      *
      * @param request - BindLeaderInstanceRequest
      * @param headers - map
@@ -268,7 +291,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 绑定主实例.
+     * Binds a follower instance to a leader instance.
      *
      * @param request - BindLeaderInstanceRequest
      *
@@ -288,7 +311,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Updates a resource group.
+     * Updates the resource group of a Hologres instance.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -334,7 +357,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Updates a resource group.
+     * Updates the resource group of a Hologres instance.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -353,7 +376,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建db.
+     * Creates a database.
      *
      * @param request - CreateDatabaseRequest
      * @param headers - map
@@ -400,7 +423,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建db.
+     * Creates a database.
      *
      * @param request - CreateDatabaseRequest
      *
@@ -420,7 +443,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建外部db.
+     * Creates an external database.
      *
      * @param request - CreateExternalDatabaseRequest
      * @param headers - map
@@ -479,7 +502,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建外部db.
+     * Creates an external database.
      *
      * @param request - CreateExternalDatabaseRequest
      *
@@ -570,28 +593,37 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Creates a Hologres instance.
+     * Creates a Hologres instance in the specified region.
      *
      * @remarks
-     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     * *   For more information about the billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-createinstance).
-     * *   When you purchase a Hologres instance, you must specify the region and zone in which the Hologres instance resides. A region may correspond to multiple zones. Example:
-     * <!---->
-     *     cn-hangzhou: cn-hangzhou-h, cn-hangzhou-j
-     *        cn-shanghai: cn-shanghai-e, cn-shanghai-f
-     *        cn-beijing: cn-beijing-i, cn-beijing-g
-     *        cn-zhangjiakou: cn-zhangjiakou-b
-     *        cn-shenzhen: cn-shenzhen-e
-     *        cn-hongkong: cn-hongkong-b
-     *        cn-shanghai-finance-1: cn-shanghai-finance-1z
-     *        ap-northeast-1: ap-northeast-1a
-     *        ap-southeast-1: ap-southeast-1c
-     *        ap-southeast-3: ap-southeast-3b
-     *        ap-southeast-5: ap-southeast-5b
-     *        ap-south-1: ap-south-1b
-     *        eu-central-1: eu-central-1a
-     *        us-east-1: us-east-1a
-     *        us-west-1: us-west-1b
+     * >Warning:
+     * This API operation incurs fees. Before you call this operation, make sure that you fully understand the billing methods and pricing of Hologres.
+     * <props="china">
+     * - For more information about the billing of Hologres, see [Billing overview](https://help.aliyun.com/zh/hologres/product-overview/billing-overview?spm=a2c4g.11186623.0.i4).
+     * <props="intl">
+     * - For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+     * - When you create a Hologres instance, you must specify the region and zone for the instance. A region can contain multiple zones. The following list describes the zones that are available in each region:
+     * ```
+     *    cn-hangzhou (Hangzhou): cn-hangzhou-h, cn-hangzhou-j, cn-hangzhou-k
+     *    cn-hangzhou (Hangzhou): cn-hangzhou-h, cn-hangzhou-j, cn-hangzhou-k
+     *    cn-shanghai (Shanghai): cn-shanghai-e, cn-shanghai-f, cn-shanghai-l
+     *    cn-beijing (Beijing): cn-beijing-i, cn-beijing-g, cn-beijing-l
+     *    cn-zhangjiakou (Zhangjiakou): cn-zhangjiakou-b
+     *    cn-shenzhen (Shenzhen): cn-shenzhen-d, cn-shenzhen-f, cn-shenzhen-e
+     *    cn-wulanchabu (Ulanqab): cn-wulanchabu-a
+     *    cn-hongkong (Hong Kong): cn-hongkong-b, cn-hongkong-d
+     *    cn-shanghai-finance-1 (Shanghai Finance Cloud): cn-shanghai-finance-1z, cn-shanghai-finance-1f
+     *    cn-hangzhou-finance (Hangzhou Finance Cloud): cn-hangzhou-finance-k
+     *    cn-shenzhen-finance-1 (Shenzhen Finance Cloud): cn-shenzhen-finance-1d
+     *    ap-northeast-1 (Tokyo): ap-northeast-1a
+     *    ap-southeast-1 (Singapore): ap-southeast-1c, ap-southeast-1a
+     *    ap-southeast-3 (Kuala Lumpur): ap-southeast-3b
+     *    ap-southeast-5 (Jakarta): ap-southeast-5b
+     *    eu-central-1 (Frankfurt): eu-central-1a
+     *    us-east-1 (Virginia): us-east-1a
+     *    us-west-1 (Silicon Valley): us-west-1b
+     *
+     * ```
      *
      * @param request - CreateInstanceRequest
      * @param headers - map
@@ -709,28 +741,37 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Creates a Hologres instance.
+     * Creates a Hologres instance in the specified region.
      *
      * @remarks
-     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     * *   For more information about the billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-createinstance).
-     * *   When you purchase a Hologres instance, you must specify the region and zone in which the Hologres instance resides. A region may correspond to multiple zones. Example:
-     * <!---->
-     *     cn-hangzhou: cn-hangzhou-h, cn-hangzhou-j
-     *        cn-shanghai: cn-shanghai-e, cn-shanghai-f
-     *        cn-beijing: cn-beijing-i, cn-beijing-g
-     *        cn-zhangjiakou: cn-zhangjiakou-b
-     *        cn-shenzhen: cn-shenzhen-e
-     *        cn-hongkong: cn-hongkong-b
-     *        cn-shanghai-finance-1: cn-shanghai-finance-1z
-     *        ap-northeast-1: ap-northeast-1a
-     *        ap-southeast-1: ap-southeast-1c
-     *        ap-southeast-3: ap-southeast-3b
-     *        ap-southeast-5: ap-southeast-5b
-     *        ap-south-1: ap-south-1b
-     *        eu-central-1: eu-central-1a
-     *        us-east-1: us-east-1a
-     *        us-west-1: us-west-1b
+     * >Warning:
+     * This API operation incurs fees. Before you call this operation, make sure that you fully understand the billing methods and pricing of Hologres.
+     * <props="china">
+     * - For more information about the billing of Hologres, see [Billing overview](https://help.aliyun.com/zh/hologres/product-overview/billing-overview?spm=a2c4g.11186623.0.i4).
+     * <props="intl">
+     * - For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+     * - When you create a Hologres instance, you must specify the region and zone for the instance. A region can contain multiple zones. The following list describes the zones that are available in each region:
+     * ```
+     *    cn-hangzhou (Hangzhou): cn-hangzhou-h, cn-hangzhou-j, cn-hangzhou-k
+     *    cn-hangzhou (Hangzhou): cn-hangzhou-h, cn-hangzhou-j, cn-hangzhou-k
+     *    cn-shanghai (Shanghai): cn-shanghai-e, cn-shanghai-f, cn-shanghai-l
+     *    cn-beijing (Beijing): cn-beijing-i, cn-beijing-g, cn-beijing-l
+     *    cn-zhangjiakou (Zhangjiakou): cn-zhangjiakou-b
+     *    cn-shenzhen (Shenzhen): cn-shenzhen-d, cn-shenzhen-f, cn-shenzhen-e
+     *    cn-wulanchabu (Ulanqab): cn-wulanchabu-a
+     *    cn-hongkong (Hong Kong): cn-hongkong-b, cn-hongkong-d
+     *    cn-shanghai-finance-1 (Shanghai Finance Cloud): cn-shanghai-finance-1z, cn-shanghai-finance-1f
+     *    cn-hangzhou-finance (Hangzhou Finance Cloud): cn-hangzhou-finance-k
+     *    cn-shenzhen-finance-1 (Shenzhen Finance Cloud): cn-shenzhen-finance-1d
+     *    ap-northeast-1 (Tokyo): ap-northeast-1a
+     *    ap-southeast-1 (Singapore): ap-southeast-1c, ap-southeast-1a
+     *    ap-southeast-3 (Kuala Lumpur): ap-southeast-3b
+     *    ap-southeast-5 (Jakarta): ap-southeast-5b
+     *    eu-central-1 (Frankfurt): eu-central-1a
+     *    us-east-1 (Virginia): us-east-1a
+     *    us-west-1 (Silicon Valley): us-west-1b
+     *
+     * ```
      *
      * @param request - CreateInstanceRequest
      *
@@ -749,7 +790,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建手动备份.
+     * Creates a manual backup for an instance.
      *
      * @param request - CreateManualBackupRequest
      * @param headers - map
@@ -797,7 +838,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建手动备份.
+     * Creates a manual backup for an instance.
      *
      * @param request - CreateManualBackupRequest
      *
@@ -816,7 +857,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建模型服务
+     * Creates a model service that allows AI functions to invoke models. You can create a service for two types of models: a model from Alibaba Cloud Model Studio or a model on a Hologres AI node. If you use a Hologres AI node, you must purchase the AI node resources separately.
+     *
+     * @remarks
+     * To create a model service, you must specify several parameters. Use the `ListModelCatalog` operation to find the parameters for a model from Alibaba Cloud Model Studio, and use the `GetAvailableModelsResource` operation for a model on a Hologres AI node.
      *
      * @param request - CreateModelServiceRequest
      * @param headers - map
@@ -899,7 +943,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建模型服务
+     * Creates a model service that allows AI functions to invoke models. You can create a service for two types of models: a model from Alibaba Cloud Model Studio or a model on a Hologres AI node. If you use a Hologres AI node, you must purchase the AI node resources separately.
+     *
+     * @remarks
+     * To create a model service, you must specify several parameters. Use the `ListModelCatalog` operation to find the parameters for a model from Alibaba Cloud Model Studio, and use the `GetAvailableModelsResource` operation for a model on a Hologres AI node.
      *
      * @param request - CreateModelServiceRequest
      *
@@ -919,7 +966,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 添加用户.
+     * Adds a RAM user or an STS account to a Hologres instance. Once added, the account can be used to log on to the instance.
      *
      * @param request - CreateUserRequest
      * @param headers - map
@@ -966,7 +1013,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 添加用户.
+     * Adds a RAM user or an STS account to a Hologres instance. Once added, the account can be used to log on to the instance.
      *
      * @param request - CreateUserRequest
      *
@@ -986,7 +1033,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建warehouse.
+     * Creates a warehouse.
      *
      * @param request - CreateWarehouseRequest
      * @param headers - map
@@ -1043,7 +1090,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建warehouse.
+     * Creates a warehouse.
      *
      * @param request - CreateWarehouseRequest
      *
@@ -1063,7 +1110,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建分时弹性计划.
+     * Creates a warehouse schedule task.
      *
      * @param request - CreateWarehouseScheduleTaskRequest
      * @param headers - map
@@ -1122,7 +1169,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建分时弹性计划.
+     * Creates a warehouse schedule task.
      *
      * @param request - CreateWarehouseScheduleTaskRequest
      *
@@ -1142,7 +1189,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 删除备份.
+     * Deletes a backup.
      *
      * @param request - DeleteBackupDataRequest
      * @param headers - map
@@ -1185,7 +1232,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 删除备份.
+     * Deletes a backup.
      *
      * @param request - DeleteBackupDataRequest
      *
@@ -1268,12 +1315,18 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Deletes a Hologres instance.
+     * Releases an instance.
      *
      * @remarks
-     * > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
-     * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
-     * *   You can delete only pay-as-you-go instances.
+     * >Warning:
+     * Before you call this operation, make sure that you understand its prerequisites and consequences.
+     * <props="china">
+     * - After a Hologres instance is released, its data and objects cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://help.aliyun.com/zh/hologres/product-overview/billing-overview?spm=a2c4g.11186623.0.0.7d413e94YMVcqe).
+     * <props="intl">
+     * - After a Hologres instance is released, its data and objects cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
+     * - This operation applies only to pay-as-you-go instances.
+     * <props="china">
+     * - To unsubscribe from a subscription instance, go to the Unsubscribe page in the Alibaba Cloud console. For more information, see [Unsubscribe from a subscription instance](https://help.aliyun.com/zh/hologres/product-overview/subscription?spm=a2c4g.11186623.0.0.799b69ecPba0y1).
      *
      * @param request - DeleteInstanceRequest
      * @param headers - map
@@ -1316,12 +1369,18 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Deletes a Hologres instance.
+     * Releases an instance.
      *
      * @remarks
-     * > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
-     * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
-     * *   You can delete only pay-as-you-go instances.
+     * >Warning:
+     * Before you call this operation, make sure that you understand its prerequisites and consequences.
+     * <props="china">
+     * - After a Hologres instance is released, its data and objects cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://help.aliyun.com/zh/hologres/product-overview/billing-overview?spm=a2c4g.11186623.0.0.7d413e94YMVcqe).
+     * <props="intl">
+     * - After a Hologres instance is released, its data and objects cannot be recovered. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
+     * - This operation applies only to pay-as-you-go instances.
+     * <props="china">
+     * - To unsubscribe from a subscription instance, go to the Unsubscribe page in the Alibaba Cloud console. For more information, see [Unsubscribe from a subscription instance](https://help.aliyun.com/zh/hologres/product-overview/subscription?spm=a2c4g.11186623.0.0.799b69ecPba0y1).
      *
      * @param request - DeleteInstanceRequest
      *
@@ -1341,7 +1400,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 删除模型资源.
+     * Deletes a model resource. This action permanently deletes all models deployed on the node.
      *
      * @param request - DeleteModelResourceRequest
      * @param headers - map
@@ -1384,7 +1443,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 删除模型资源.
+     * Deletes a model resource. This action permanently deletes all models deployed on the node.
      *
      * @param request - DeleteModelResourceRequest
      *
@@ -1404,7 +1463,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建模型服务
+     * Deletes a specified model service.
      *
      * @param request - DeleteModelServiceRequest
      * @param headers - map
@@ -1447,7 +1506,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建模型服务
+     * Deletes a specified model service.
      *
      * @param request - DeleteModelServiceRequest
      *
@@ -1467,7 +1526,18 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 删除计算组弹性计划.
+     * Deletes a warehouse schedule task.
+     *
+     * @remarks
+     * >Warning:
+     * Before calling this operation, review the feature documentation to understand its prerequisites and impact.
+     * <props="china">
+     * - After a warehouse schedule task is deleted, it cannot be recovered. Proceed with caution.[](https://help.aliyun.com/zh/hologres/product-overview/billing-overview?spm=a2c4g.11186623.0.0.7d413e94YMVcqe)
+     * <props="intl">
+     * - After a warehouse schedule task is deleted, it cannot be recovered. Proceed with caution.[](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7)
+     * - This operation is not limited to pay-as-you-go (PostPaid) instances.
+     * <props="china">
+     * - This operation does not unsubscribe from a subscription (PrePaid) instance. To do so, go to the Alibaba Cloud Unsubscription page. For more information, see [Unsubscribe from a subscription instance](https://help.aliyun.com/zh/hologres/product-overview/subscription?spm=a2c4g.11186623.0.0.799b69ecPba0y1).
      *
      * @param request - DeleteWarehouseScheduleTaskRequest
      * @param headers - map
@@ -1514,7 +1584,18 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 删除计算组弹性计划.
+     * Deletes a warehouse schedule task.
+     *
+     * @remarks
+     * >Warning:
+     * Before calling this operation, review the feature documentation to understand its prerequisites and impact.
+     * <props="china">
+     * - After a warehouse schedule task is deleted, it cannot be recovered. Proceed with caution.[](https://help.aliyun.com/zh/hologres/product-overview/billing-overview?spm=a2c4g.11186623.0.0.7d413e94YMVcqe)
+     * <props="intl">
+     * - After a warehouse schedule task is deleted, it cannot be recovered. Proceed with caution.[](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7)
+     * - This operation is not limited to pay-as-you-go (PostPaid) instances.
+     * <props="china">
+     * - This operation does not unsubscribe from a subscription (PrePaid) instance. To do so, go to the Alibaba Cloud Unsubscription page. For more information, see [Unsubscribe from a subscription instance](https://help.aliyun.com/zh/hologres/product-overview/subscription?spm=a2c4g.11186623.0.0.799b69ecPba0y1).
      *
      * @param request - DeleteWarehouseScheduleTaskRequest
      *
@@ -1534,7 +1615,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 暂停实例.
+     * Lists all tags.
      *
      * @param request - DescribeTagsRequest
      * @param headers - map
@@ -1580,7 +1661,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 暂停实例.
+     * Lists all tags.
      *
      * @param request - DescribeTagsRequest
      *
@@ -1599,7 +1680,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 关闭OpenAPI执行SQL功能.
+     * Shuts down the ExecuteStatement API access permissions for a specified Hologres instance.
+     *
+     * @remarks
+     * Disables the OpenAPI SQL execution feature for a specified Hologres instance. After the feature is disabled, all ExecuteStatement calls return an error. You can call EnableExecuteStatement to re-enable the feature.
      *
      * @param request - DisableExecuteStatementRequest
      * @param headers - map
@@ -1636,7 +1720,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 关闭OpenAPI执行SQL功能.
+     * Shuts down the ExecuteStatement API access permissions for a specified Hologres instance.
+     *
+     * @remarks
+     * Disables the OpenAPI SQL execution feature for a specified Hologres instance. After the feature is disabled, all ExecuteStatement calls return an error. You can call EnableExecuteStatement to re-enable the feature.
      *
      * @param request - DisableExecuteStatementRequest
      *
@@ -1719,7 +1806,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 取消执行计划.
+     * Disables the instance log.
      *
      * @param request - DisableOperationEventRequest
      * @param headers - map
@@ -1762,7 +1849,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 取消执行计划.
+     * Disables the instance log.
      *
      * @param request - DisableOperationEventRequest
      *
@@ -1782,7 +1869,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 关闭SSL.
+     * Disables SSL encryption for a Hologres instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1816,7 +1903,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 关闭SSL.
+     * Disables SSL encryption for a Hologres instance.
      *
      * @returns DisableSSLResponse
      *
@@ -1833,7 +1920,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 关闭服务账号.
+     * Disables a Support Account.
+     *
+     * @remarks
+     * Disables the execution of SQL statements through OpenAPI for a specified Hologres instance. After this feature is disabled, all `ExecuteStatement` calls return an error. You can call the `EnableExecuteStatement` operation to re-enable this feature.
      *
      * @param request - DisableSupportAccountRequest
      * @param headers - map
@@ -1876,7 +1966,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 关闭服务账号.
+     * Disables a Support Account.
+     *
+     * @remarks
+     * Disables the execution of SQL statements through OpenAPI for a specified Hologres instance. After this feature is disabled, all `ExecuteStatement` calls return an error. You can call the `EnableExecuteStatement` operation to re-enable this feature.
      *
      * @param request - DisableSupportAccountRequest
      *
@@ -1896,7 +1989,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 关闭自动弹性.
+     * Disables autoscale for a specified compute group.
      *
      * @param request - DisableWarehouseAutoScaleRequest
      * @param headers - map
@@ -1939,7 +2032,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 关闭自动弹性.
+     * Disables autoscale for a specified compute group.
      *
      * @param request - DisableWarehouseAutoScaleRequest
      *
@@ -1959,7 +2052,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 取消升级.
+     * Cancels an upgrade. You can call this operation only if the upgrade task has not started or is in the `pre_check` state. You cannot cancel the upgrade after the task enters the `backup` state or any subsequent state.
      *
      * @param request - DiscardUpgradeRequest
      * @param headers - map
@@ -2002,7 +2095,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 取消升级.
+     * Cancels an upgrade. You can call this operation only if the upgrade task has not started or is in the `pre_check` state. You cannot cancel the upgrade after the task enters the `backup` state or any subsequent state.
      *
      * @param request - DiscardUpgradeRequest
      *
@@ -2022,7 +2115,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 删除用户.
+     * Deletes a RAM user or an STS account from a Hologres instance. Once deleted, the user can no longer log in to the instance. To restore access, call the CreateUser operation to add the user.
      *
      * @param request - DropUserRequest
      * @param headers - map
@@ -2069,7 +2162,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 删除用户.
+     * Deletes a RAM user or an STS account from a Hologres instance. Once deleted, the user can no longer log in to the instance. To restore access, call the CreateUser operation to add the user.
      *
      * @param request - DropUserRequest
      *
@@ -2089,7 +2182,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 开启或关闭OpenAPI执行SQL功能.
+     * Enables SQL execution via OpenAPI for a specified Hologres instance.
+     *
+     * @remarks
+     * Enables SQL execution via OpenAPI for a specified Hologres instance. Once enabled, RAM accounts with the `hologram:ExecuteStatement` permission can execute SQL statements by calling the `ExecuteStatement` API. To query the current status, call the `GetExecuteStatementEnabled` API. To disable the feature, call the `DisableExecuteStatement` API.
      *
      * @param request - EnableExecuteStatementRequest
      * @param headers - map
@@ -2126,7 +2222,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 开启或关闭OpenAPI执行SQL功能.
+     * Enables SQL execution via OpenAPI for a specified Hologres instance.
+     *
+     * @remarks
+     * Enables SQL execution via OpenAPI for a specified Hologres instance. Once enabled, RAM accounts with the `hologram:ExecuteStatement` permission can execute SQL statements by calling the `ExecuteStatement` API. To query the current status, call the `GetExecuteStatementEnabled` API. To disable the feature, call the `DisableExecuteStatement` API.
      *
      * @param request - EnableExecuteStatementRequest
      *
@@ -2146,7 +2245,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Enables data lake acceleration.
+     * Enables data lake acceleration for a Hologres instance.
      *
      * @param request - EnableHiveAccessRequest
      * @param headers - map
@@ -2189,7 +2288,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Enables data lake acceleration.
+     * Enables data lake acceleration for a Hologres instance.
      *
      * @param request - EnableHiveAccessRequest
      *
@@ -2209,7 +2308,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 打开SSL.
+     * Enables SSL encryption for a Hologres instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2243,7 +2342,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 打开SSL.
+     * Enables SSL encryption for a Hologres instance.
      *
      * @returns EnableSSLResponse
      *
@@ -2260,7 +2359,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 打开服务账号.
+     * Enables a support account.
+     *
+     * @remarks
+     * This operation lets you execute SQL statements on a specified Hologres instance through OpenAPI. After this feature is enabled, a RAM account with the `hologram:ExecuteStatement` permission can call the `ExecuteStatement` operation. You can call GetExecuteStatementEnabled to query the current status and DisableExecuteStatement to disable this feature.
      *
      * @param request - EnableSupportAccountRequest
      * @param headers - map
@@ -2317,7 +2419,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 打开服务账号.
+     * Enables a support account.
+     *
+     * @remarks
+     * This operation lets you execute SQL statements on a specified Hologres instance through OpenAPI. After this feature is enabled, a RAM account with the `hologram:ExecuteStatement` permission can call the `ExecuteStatement` operation. You can call GetExecuteStatementEnabled to query the current status and DisableExecuteStatement to disable this feature.
      *
      * @param request - EnableSupportAccountRequest
      *
@@ -2337,7 +2442,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 开启自动弹性.
+     * Enables auto scaling for a warehouse.
      *
      * @param request - EnableWarehouseAutoScaleRequest
      * @param headers - map
@@ -2384,7 +2489,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 开启自动弹性.
+     * Enables auto scaling for a warehouse.
      *
      * @param request - EnableWarehouseAutoScaleRequest
      *
@@ -2404,7 +2509,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * SQL执行.
+     * Executes an SQL statement synchronously on a specified database via OpenAPI and returns the result.
+     *
+     * @remarks
+     * Use this API to securely execute SQL statements on a Hologres instance through OpenAPI.
+     * Before using this API, ensure the following prerequisites are met:
+     * 1. The "Allow SQL execution through OpenAPI" option is enabled on the "Data Security" tab of the instance details page in the console.
+     * 2. The calling RAM account must have the hologram:ExecuteStatement permission.
+     * This API supports statements such as SELECT, DDL, and DML. It also supports parameterized queries with $1 and $2 placeholders to prevent SQL injection. By default, query results are limited to 200 rows (configurable up to 1,000) and 10 MB. Result sets that exceed these limits are truncated, and the `truncated` field in the response indicates if truncation occurred. The timeout for a single execution is 30 seconds.
      *
      * @param request - ExecuteStatementRequest
      * @param headers - map
@@ -2467,7 +2579,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * SQL执行.
+     * Executes an SQL statement synchronously on a specified database via OpenAPI and returns the result.
+     *
+     * @remarks
+     * Use this API to securely execute SQL statements on a Hologres instance through OpenAPI.
+     * Before using this API, ensure the following prerequisites are met:
+     * 1. The "Allow SQL execution through OpenAPI" option is enabled on the "Data Security" tab of the instance details page in the console.
+     * 2. The calling RAM account must have the hologram:ExecuteStatement permission.
+     * This API supports statements such as SELECT, DDL, and DML. It also supports parameterized queries with $1 and $2 placeholders to prevent SQL injection. By default, query results are limited to 200 rows (configurable up to 1,000) and 10 MB. Result sets that exceed these limits are truncated, and the `truncated` field in the response indicates if truncation occurred. The timeout for a single execution is 30 seconds.
      *
      * @param request - ExecuteStatementRequest
      *
@@ -2487,7 +2606,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获得证书信息.
+     * Retrieves the SSL certificate attributes of a Hologres instance, including SSL status and certificate expiration time.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2521,7 +2640,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获得证书信息.
+     * Retrieves the SSL certificate attributes of a Hologres instance, including SSL status and certificate expiration time.
      *
      * @returns GetCertificateAttributeResponse
      *
@@ -2538,7 +2657,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 查询实例是否已开启OpenAPI执行SQL功能.
+     * Checks whether a specified Hologres instance allows SQL execution through OpenAPI.
+     *
+     * @remarks
+     * This operation checks if the "Allow SQL execution through OpenAPI" feature is enabled for a specified Hologres instance. Returns `true` if the feature is enabled, and `false` otherwise. If enabled, you can call the `ExecuteStatement` operation to execute SQL statements.
      *
      * @param request - GetExecuteStatementEnabledRequest
      * @param headers - map
@@ -2575,7 +2697,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 查询实例是否已开启OpenAPI执行SQL功能.
+     * Checks whether a specified Hologres instance allows SQL execution through OpenAPI.
+     *
+     * @remarks
+     * This operation checks if the "Allow SQL execution through OpenAPI" feature is enabled for a specified Hologres instance. Returns `true` if the feature is enabled, and `false` otherwise. If enabled, you can call the `ExecuteStatement` operation to execute SQL statements.
      *
      * @param request - GetExecuteStatementEnabledRequest
      *
@@ -2595,7 +2720,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取holoweb登陆权限.
+     * Gets the external account login setting for HoloWeb.
+     *
+     * @remarks
+     * Checks whether external accounts are allowed to log in to HoloWeb for a specified Hologres instance. The operation returns `true` if external accounts are allowed and `false` otherwise.
      *
      * @param request - GetHoloWebLoginSettingRequest
      * @param headers - map
@@ -2638,7 +2766,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取holoweb登陆权限.
+     * Gets the external account login setting for HoloWeb.
+     *
+     * @remarks
+     * Checks whether external accounts are allowed to log in to HoloWeb for a specified Hologres instance. The operation returns `true` if external accounts are allowed and `false` otherwise.
      *
      * @param request - GetHoloWebLoginSettingRequest
      *
@@ -2658,7 +2789,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Obtains the details of an instance.
+     * Retrieves the details of an instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2692,7 +2823,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Obtains the details of an instance.
+     * Retrieves the details of an instance.
      *
      * @returns GetInstanceResponse
      *
@@ -2709,7 +2840,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 模型信息.
+     * Queries the list of large model services bound to a Hologres instance.
      *
      * @param request - GetInstanceModelRequest
      * @param headers - map
@@ -2746,7 +2877,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 模型信息.
+     * Queries the list of large model services bound to a Hologres instance.
      *
      * @param request - GetInstanceModelRequest
      *
@@ -2766,7 +2897,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取上次升级历史.
+     * Retrieves the last upgrade record.
      *
      * @param request - GetLastUpgradeRecordRequest
      * @param headers - map
@@ -2803,7 +2934,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取上次升级历史.
+     * Retrieves the last upgrade record.
      *
      * @param request - GetLastUpgradeRecordRequest
      *
@@ -2823,7 +2954,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获得根证书.
+     * Retrieves the root SSL certificate of a Hologres instance for client-side SSL connections.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2857,7 +2988,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获得根证书.
+     * Retrieves the root SSL certificate of a Hologres instance for client-side SSL connections.
      *
      * @returns GetRootCertificateResponse
      *
@@ -2874,7 +3005,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取周期备份配置.
+     * Retrieves the backup configuration.
      *
      * @param request - GetScheduledBackupConfigRequest
      * @param headers - map
@@ -2924,7 +3055,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取周期备份配置.
+     * Retrieves the backup configuration.
      *
      * @param request - GetScheduledBackupConfigRequest
      *
@@ -2943,7 +3074,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取升级状态
+     * Queries the upgrade status of an instance.
      *
      * @param request - GetUpgradeStatusRequest
      * @param headers - map
@@ -2986,7 +3117,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取升级状态
+     * Queries the upgrade status of an instance.
      *
      * @param request - GetUpgradeStatusRequest
      *
@@ -3006,7 +3137,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 是否可升级.
+     * Queries whether an instance can be upgraded.
      *
      * @param request - GetUpgradeableRequest
      * @param headers - map
@@ -3049,7 +3180,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 是否可升级.
+     * Queries whether an instance can be upgraded.
      *
      * @param request - GetUpgradeableRequest
      *
@@ -3069,7 +3200,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Queries details of a virtual warehouse instance.
+     * Retrieves the details of a virtual warehouse.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3103,7 +3234,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Queries details of a virtual warehouse instance.
+     * Retrieves the details of a virtual warehouse.
      *
      * @returns GetWarehouseDetailResponse
      *
@@ -3120,7 +3251,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * DB授权.
+     * Grants permissions on a database to a specified user within a Hologres instance.
      *
      * @param request - GrantDatabasePermissionRequest
      * @param headers - map
@@ -3171,7 +3302,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * DB授权.
+     * Grants permissions on a database to a specified user within a Hologres instance.
      *
      * @param request - GrantDatabasePermissionRequest
      *
@@ -3191,7 +3322,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * DB授权.
+     * Grants permissions on a schema to a specified user within a Hologres instance.
      *
      * @param request - GrantSchemaPermissionRequest
      * @param headers - map
@@ -3246,7 +3377,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * DB授权.
+     * Grants permissions on a schema to a specified user within a Hologres instance.
      *
      * @param request - GrantSchemaPermissionRequest
      *
@@ -3266,7 +3397,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * DB授权.
+     * Grants permissions on a table to a specified user.
      *
      * @param request - GrantTablePermissionRequest
      * @param headers - map
@@ -3333,7 +3464,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * DB授权.
+     * Grants permissions on a table to a specified user.
      *
      * @param request - GrantTablePermissionRequest
      *
@@ -3353,7 +3484,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
+     * Retrieves a list of snapshots. Each snapshot represents a point-in-time backup that can be used to restore a new instance with its full data.
      *
      * @param request - ListBackupDataRequest
      * @param headers - map
@@ -3399,7 +3530,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
+     * Retrieves a list of snapshots. Each snapshot represents a point-in-time backup that can be used to restore a new instance with its full data.
      *
      * @param request - ListBackupDataRequest
      *
@@ -3418,7 +3549,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取DB列表.
+     * Queries the databases in a Hologres instance.
      *
      * @param request - ListDatabasesRequest
      * @param headers - map
@@ -3461,7 +3592,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取DB列表.
+     * Queries the databases in a Hologres instance.
      *
      * @param request - ListDatabasesRequest
      *
@@ -3481,7 +3612,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取只读从实例.
+     * Retrieves read-only secondary instances.
+     *
+     * @remarks
+     * ## Description
+     * - This API operation retrieves information about model services deployed on a specific Holo instance, including but not limited to CPU, GPU, and memory resource usage.
+     * - The `instanceId` parameter is optional. If not specified, information about all related instances is returned by default.
+     * - This operation applies to Hologres AI nodes. Some parameters may be invalid or not applicable to non-AI nodes.
+     * - Before using this operation, make sure that you understand the [billing methods and pricing of Alibaba Cloud Hologram](https://www.aliyun.com/price/product#/ecs/detail).
      *
      * @param request - ListFollowerInstancesRequest
      * @param headers - map
@@ -3524,7 +3662,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取只读从实例.
+     * Retrieves read-only secondary instances.
+     *
+     * @remarks
+     * ## Description
+     * - This API operation retrieves information about model services deployed on a specific Holo instance, including but not limited to CPU, GPU, and memory resource usage.
+     * - The `instanceId` parameter is optional. If not specified, information about all related instances is returned by default.
+     * - This operation applies to Hologres AI nodes. Some parameters may be invalid or not applicable to non-AI nodes.
+     * - Before using this operation, make sure that you understand the [billing methods and pricing of Alibaba Cloud Hologram](https://www.aliyun.com/price/product#/ecs/detail).
      *
      * @param request - ListFollowerInstancesRequest
      *
@@ -3544,7 +3689,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * AI资源列表.
+     * AI node resources.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API operation retrieves information about model services deployed on a specific Hologres instance, including but not limited to CPU, GPU, and memory resource usage.
+     * - The `instanceId` parameter is optional. If you do not specify this parameter, information about all related instances is returned by default.
+     * - This operation applies to Hologres AI nodes. Some parameters may be invalid or inapplicable to non-AI nodes.
+     * - Before you call this operation, make sure that you understand the [billing methods and pricing of Alibaba Cloud Hologres](https://www.aliyun.com/price/product#/ecs/detail).
      *
      * @param request - ListInstanceModelRequest
      * @param headers - map
@@ -3580,7 +3732,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * AI资源列表.
+     * AI node resources.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API operation retrieves information about model services deployed on a specific Hologres instance, including but not limited to CPU, GPU, and memory resource usage.
+     * - The `instanceId` parameter is optional. If you do not specify this parameter, information about all related instances is returned by default.
+     * - This operation applies to Hologres AI nodes. Some parameters may be invalid or inapplicable to non-AI nodes.
+     * - Before you call this operation, make sure that you understand the [billing methods and pricing of Alibaba Cloud Hologres](https://www.aliyun.com/price/product#/ecs/detail).
      *
      * @param request - ListInstanceModelRequest
      *
@@ -3599,7 +3758,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * Retrieves a list of instances.
      *
      * @param request - ListInstancesRequest
      * @param headers - map
@@ -3649,7 +3808,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * Retrieves a list of instances.
      *
      * @param request - ListInstancesRequest
      *
@@ -3668,7 +3827,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取主实例.
+     * Retrieves a list of potential leader instances.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves a list of leader instances that are associated with a specific Holo instance.
+     * - The `instanceId` parameter is optional. If omitted, the API returns all related instances by default.
+     * - This API applies to Hologres AI nodes. Some parameters may be invalid for non-AI nodes.
+     * - Before you call this operation, review the [billing and pricing of Alibaba Cloud Hologres](https://www.aliyun.com/price/product#/ecs/detail).
      *
      * @param request - ListLeaderInstancesRequest
      * @param headers - map
@@ -3711,7 +3877,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取主实例.
+     * Retrieves a list of potential leader instances.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves a list of leader instances that are associated with a specific Holo instance.
+     * - The `instanceId` parameter is optional. If omitted, the API returns all related instances by default.
+     * - This API applies to Hologres AI nodes. Some parameters may be invalid for non-AI nodes.
+     * - Before you call this operation, review the [billing and pricing of Alibaba Cloud Hologres](https://www.aliyun.com/price/product#/ecs/detail).
      *
      * @param request - ListLeaderInstancesRequest
      *
@@ -3731,7 +3904,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 实例可迁移可用区列表.
+     * Lists the availability zones to which an instance can be migrated. This operation applies to instances that are deployed across three availability zones.
      *
      * @param request - ListMigrationZonesRequest
      * @param headers - map
@@ -3778,7 +3951,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 实例可迁移可用区列表.
+     * Lists the availability zones to which an instance can be migrated. This operation applies to instances that are deployed across three availability zones.
      *
      * @param request - ListMigrationZonesRequest
      *
@@ -3798,7 +3971,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 列出模型列表.
+     * Lists models.
      *
      * @param request - ListModelCatalogRequest
      * @param headers - map
@@ -3825,6 +3998,10 @@ class Hologram extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->provider) {
+            @$query['provider'] = $request->provider;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -3845,7 +4022,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 列出模型列表.
+     * Lists models.
      *
      * @param request - ListModelCatalogRequest
      *
@@ -3865,7 +4042,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 运维事件列表.
+     * Retrieves action events that match specified criteria, supporting pagination and sorting.
      *
      * @param request - ListOperationEventsRequest
      * @param headers - map
@@ -3935,7 +4112,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 运维事件列表.
+     * Retrieves action events that match specified criteria, supporting pagination and sorting.
      *
      * @param request - ListOperationEventsRequest
      *
@@ -3954,7 +4131,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * holoapp共有云所有开服的region.
+     * Queries the list of all regions supported by Hologres.
      *
      * @param request - ListRegionsRequest
      * @param headers - map
@@ -3990,7 +4167,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * holoapp共有云所有开服的region.
+     * Queries the list of all regions supported by Hologres.
      *
      * @param request - ListRegionsRequest
      *
@@ -4009,7 +4186,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取版本列表.
+     * Retrieves the list of versions available for upgrade.
      *
      * @param request - ListUpgradeReleaseVersionsRequest
      * @param headers - map
@@ -4052,7 +4229,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 获取版本列表.
+     * Retrieves the list of versions available for upgrade.
      *
      * @param request - ListUpgradeReleaseVersionsRequest
      *
@@ -4072,7 +4249,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 分时弹性日志.
+     * Retrieves the elastic scheduling events for a specified instance and time range.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves compute group scaling events for a specific instance ID.
+     * - The `startTime` and `endTime` parameters specify the time range for the query, which defaults to the last three days.
+     * - The `pageSize` and `pageNumber` parameters control pagination. The maximum value for `pageSize` is 100.
+     * - If the `elasticType` parameter is omitted, the API returns scaling events of all types.
      *
      * @param request - ListWarehouseScheduleEventRequest
      * @param headers - map
@@ -4131,7 +4315,14 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 分时弹性日志.
+     * Retrieves the elastic scheduling events for a specified instance and time range.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves compute group scaling events for a specific instance ID.
+     * - The `startTime` and `endTime` parameters specify the time range for the query, which defaults to the last three days.
+     * - The `pageSize` and `pageNumber` parameters control pagination. The maximum value for `pageSize` is 100.
+     * - If the `elasticType` parameter is omitted, the API returns scaling events of all types.
      *
      * @param request - ListWarehouseScheduleEventRequest
      *
@@ -4151,7 +4342,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 计算分时弹性计划列表.
+     * Lists all warehouse schedule tasks for a specified instance.
      *
      * @param request - ListWarehouseScheduleTaskRequest
      * @param headers - map
@@ -4188,7 +4379,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 计算分时弹性计划列表.
+     * Lists all warehouse schedule tasks for a specified instance.
      *
      * @param request - ListWarehouseScheduleTaskRequest
      *
@@ -4208,7 +4399,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Queries the list of virtual warehouse instances.
+     * Retrieves a list of virtual warehouses.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4242,7 +4433,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Queries the list of virtual warehouse instances.
+     * Retrieves a list of virtual warehouses.
      *
      * @returns ListWarehousesResponse
      *
@@ -4259,7 +4450,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 实例迁移.
+     * Migrates an instance to a target availability zone. This operation only supports instances deployed across three availability zones. The instance is launched in the target availability zone without migrating its storage. The process takes approximately 5 minutes.
      *
      * @param request - MigrateInstanceZoneRequest
      * @param headers - map
@@ -4302,7 +4493,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 实例迁移.
+     * Migrates an instance to a target availability zone. This operation only supports instances deployed across three availability zones. The instance is launched in the target availability zone without migrating its storage. The process takes approximately 5 minutes.
      *
      * @param request - MigrateInstanceZoneRequest
      *
@@ -4322,7 +4513,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 准备升级.
+     * Prepares an instance for an upgrade by running a pre-upgrade assessment. You can upgrade the instance only if the assessment passes. If it fails, contact technical support for a manual upgrade.
      *
      * @param request - PrepareUpgradeRequest
      * @param headers - map
@@ -4375,7 +4566,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 准备升级.
+     * Prepares an instance for an upgrade by running a pre-upgrade assessment. You can upgrade the instance only if the assessment passes. If it fails, contact technical support for a manual upgrade.
      *
      * @param request - PrepareUpgradeRequest
      *
@@ -4395,7 +4586,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Triggers shard rebalancing for a virtual warehouse.
+     * Rebalances shards in a virtual warehouse.
      *
      * @param request - RebalanceHoloWarehouseRequest
      * @param headers - map
@@ -4438,7 +4629,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Triggers shard rebalancing for a virtual warehouse.
+     * Rebalances shards in a virtual warehouse.
      *
      * @param request - RebalanceHoloWarehouseRequest
      *
@@ -4525,13 +4716,20 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
+     * Renews a subscription Hologres instance. You can also enable monthly auto-renewal.
      *
      * @remarks
-     * >  Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
-     * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/zh/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
-     * *   You can renew only subscription instances.
+     * >Warning:
+     * This is a paid operation. Before you call this operation, make sure that you understand the billing methods and pricing of Hologres.
+     * <props="china">
+     * - For more information about Hologres billing, see [Billing overview](https://help.aliyun.com/zh/hologres/product-overview/billing-overview?spm=a2c4g.11186623.0.i4).
+     * <props="intl">
+     * - For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+     * <props="china">
+     * - For more information about Hologres renewal, see [Manage renewals](https://help.aliyun.com/zh/hologres/product-overview/manage-renewals?spm=a2c4g.11186623.0.0.6b776c2eJ1h2vx).
+     * <props="intl">
+     * - For more information about Hologres renewal, see [Manage renewals](https://www.alibabacloud.com/help/en/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
+     * - Renewal is available only for subscription (PrePaid) instances.
      *
      * @param request - RenewInstanceRequest
      * @param headers - map
@@ -4578,13 +4776,20 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
+     * Renews a subscription Hologres instance. You can also enable monthly auto-renewal.
      *
      * @remarks
-     * >  Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
-     * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/zh/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
-     * *   You can renew only subscription instances.
+     * >Warning:
+     * This is a paid operation. Before you call this operation, make sure that you understand the billing methods and pricing of Hologres.
+     * <props="china">
+     * - For more information about Hologres billing, see [Billing overview](https://help.aliyun.com/zh/hologres/product-overview/billing-overview?spm=a2c4g.11186623.0.i4).
+     * <props="intl">
+     * - For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
+     * <props="china">
+     * - For more information about Hologres renewal, see [Manage renewals](https://help.aliyun.com/zh/hologres/product-overview/manage-renewals?spm=a2c4g.11186623.0.0.6b776c2eJ1h2vx).
+     * <props="intl">
+     * - For more information about Hologres renewal, see [Manage renewals](https://www.alibabacloud.com/help/en/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
+     * - Renewal is available only for subscription (PrePaid) instances.
      *
      * @param request - RenewInstanceRequest
      *
@@ -4604,7 +4809,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 更新证书.
+     * Renews the SSL certificate of a Hologres instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4638,7 +4843,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 更新证书.
+     * Renews the SSL certificate of a Hologres instance.
      *
      * @returns RenewSSLCertificateResponse
      *
@@ -4718,7 +4923,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Restarts an instance.
+     * Restarts a Hologres instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4752,7 +4957,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Restarts an instance.
+     * Restarts a Hologres instance.
      *
      * @returns RestartInstanceResponse
      *
@@ -4769,7 +4974,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Resumes a virtual warehouse.
+     * Resumes a virtual warehouse from Stopped to Running.
      *
      * @param request - ResumeHoloWarehouseRequest
      * @param headers - map
@@ -4812,7 +5017,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Resumes a virtual warehouse.
+     * Resumes a virtual warehouse from Stopped to Running.
      *
      * @param request - ResumeHoloWarehouseRequest
      *
@@ -4832,7 +5037,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Resumes an instance.
+     * Resumes a paused instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4866,7 +5071,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Resumes an instance.
+     * Resumes a paused instance.
      *
      * @returns ResumeInstanceResponse
      *
@@ -4883,7 +5088,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 取消DB授权.
+     * Revokes permissions on a database from a specified user within a Hologres instance.
      *
      * @param request - RevokeDatabasePermissionRequest
      * @param headers - map
@@ -4934,7 +5139,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 取消DB授权.
+     * Revokes permissions on a database from a specified user within a Hologres instance.
      *
      * @param request - RevokeDatabasePermissionRequest
      *
@@ -4954,7 +5159,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 取消Schema授权.
+     * Revokes permissions on a schema from a specified user within a Hologres instance.
      *
      * @param request - RevokeSchemaPermissionRequest
      * @param headers - map
@@ -5009,7 +5214,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 取消Schema授权.
+     * Revokes permissions on a schema from a specified user within a Hologres instance.
      *
      * @param request - RevokeSchemaPermissionRequest
      *
@@ -5029,7 +5234,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 取消表授权.
+     * Revokes permissions on a table from a specified user.
      *
      * @param request - RevokeTablePermissionRequest
      * @param headers - map
@@ -5096,7 +5301,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 取消表授权.
+     * Revokes permissions on a table from a specified user.
      *
      * @param request - RevokeTablePermissionRequest
      *
@@ -5116,7 +5321,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Scales in or out a virtual warehouse.
+     * Scales a virtual warehouse.
      *
      * @param request - ScaleHoloWarehouseRequest
      * @param headers - map
@@ -5167,7 +5372,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Scales in or out a virtual warehouse.
+     * Scales a virtual warehouse.
      *
      * @param request - ScaleHoloWarehouseRequest
      *
@@ -5190,9 +5395,16 @@ class Hologram extends OpenApiClient
      * Changes the specifications and storage space of a Hologres instance.
      *
      * @remarks
-     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
-     * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
+     * >Warning:
+     * This is a paid operation. Before you call this operation, make sure that you understand the billing methods and pricing of Hologres.
+     * <props="china">
+     * - For more information about Hologres billing, see [Billing overview](https://help.aliyun.com/zh/hologres/product-overview/billing-overview?spm=a2c4g.11186623.0.i4).
+     * <props="intl">
+     * - For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+     * <props="china">
+     * - The instance becomes unavailable when you upgrade or downgrade its computing resources. Upgrading or downgrading its storage resources does not affect the services of the instance. Avoid frequently upgrading or downgrading the instance. For more information, see [Upgrade or downgrade instance specifications](https://help.aliyun.com/zh/hologres/product-overview/upgrade-or-downgrade-instance-specifications?spm=a2c4g.11186623.0.i7).
+     * <props="intl">
+     * - The instance becomes unavailable when you upgrade or downgrade its computing resources. Upgrading or downgrading its storage resources does not affect the services of the instance. Avoid frequently upgrading or downgrading the instance. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/zh/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
      *
      * @param request - ScaleInstanceRequest
      * @param headers - map
@@ -5258,9 +5470,16 @@ class Hologram extends OpenApiClient
      * Changes the specifications and storage space of a Hologres instance.
      *
      * @remarks
-     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
-     * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
+     * >Warning:
+     * This is a paid operation. Before you call this operation, make sure that you understand the billing methods and pricing of Hologres.
+     * <props="china">
+     * - For more information about Hologres billing, see [Billing overview](https://help.aliyun.com/zh/hologres/product-overview/billing-overview?spm=a2c4g.11186623.0.i4).
+     * <props="intl">
+     * - For more information about Hologres billing, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+     * <props="china">
+     * - The instance becomes unavailable when you upgrade or downgrade its computing resources. Upgrading or downgrading its storage resources does not affect the services of the instance. Avoid frequently upgrading or downgrading the instance. For more information, see [Upgrade or downgrade instance specifications](https://help.aliyun.com/zh/hologres/product-overview/upgrade-or-downgrade-instance-specifications?spm=a2c4g.11186623.0.i7).
+     * <props="intl">
+     * - The instance becomes unavailable when you upgrade or downgrade its computing resources. Upgrading or downgrading its storage resources does not affect the services of the instance. Avoid frequently upgrading or downgrading the instance. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/zh/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
      *
      * @param request - ScaleInstanceRequest
      *
@@ -5280,7 +5499,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Stops an instance.
+     * Stops a running instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5314,7 +5533,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Stops an instance.
+     * Stops a running instance.
      *
      * @returns StopInstanceResponse
      *
@@ -5331,7 +5550,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Suspends a virtual warehouse.
+     * Stops a virtual warehouse.
      *
      * @param request - SuspendHoloWarehouseRequest
      * @param headers - map
@@ -5374,7 +5593,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Suspends a virtual warehouse.
+     * Stops a virtual warehouse.
      *
      * @param request - SuspendHoloWarehouseRequest
      *
@@ -5394,7 +5613,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 新增tag.
+     * Adds tags to one or more resources.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -5458,7 +5677,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 新增tag.
+     * Adds tags to one or more resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -5477,7 +5696,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 解除绑定主实例.
+     * Detaches a read-only instance from its primary instance.
      *
      * @param request - UnBindLeaderInstanceRequest
      * @param headers - map
@@ -5520,7 +5739,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 解除绑定主实例.
+     * Detaches a read-only instance from its primary instance.
      *
      * @param request - UnBindLeaderInstanceRequest
      *
@@ -5540,7 +5759,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 删除tag.
+     * Removes tags from one or more instances.
      *
      * @param request - UntagResourcesRequest
      * @param headers - map
@@ -5604,7 +5823,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 删除tag.
+     * Removes tags from one or more instances.
      *
      * @param request - UntagResourcesRequest
      *
@@ -5623,7 +5842,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 修改小版本自动升级开关.
+     * Enables automatic minor version upgrades for an instance. The upgrade occurs automatically during the maintenance window.
      *
      * @param request - UpdateAutoUpgradeRequest
      * @param headers - map
@@ -5666,7 +5885,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 修改小版本自动升级开关.
+     * Enables automatic minor version upgrades for an instance. The upgrade occurs automatically during the maintenance window.
      *
      * @param request - UpdateAutoUpgradeRequest
      *
@@ -5686,7 +5905,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 更新备份描述.
+     * Updates the description of a backup.
      *
      * @param request - UpdateBackupDataDescRequest
      * @param headers - map
@@ -5739,7 +5958,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 更新备份描述.
+     * Updates the description of a backup.
      *
      * @param request - UpdateBackupDataDescRequest
      *
@@ -5759,7 +5978,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 修改holoweb登陆权限.
+     * Modifies the login settings for holoweb.
+     *
+     * @remarks
+     * Creating a model service requires multiple parameters. To find the parameters for a Model Studio model, call the `ListModelCatalog` operation. For a Hologres AI node, call the `GetAvailableModelsResource` operation.
      *
      * @param request - UpdateHoloWebLoginSettingRequest
      * @param headers - map
@@ -5808,7 +6030,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 修改holoweb登陆权限.
+     * Modifies the login settings for holoweb.
+     *
+     * @remarks
+     * Creating a model service requires multiple parameters. To find the parameters for a Model Studio model, call the `ListModelCatalog` operation. For a Hologres AI node, call the `GetAvailableModelsResource` operation.
      *
      * @param request - UpdateHoloWebLoginSettingRequest
      *
@@ -5891,7 +6116,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Modifies the network configuration of an instance.
+     * Modifies the network type of an instance.
      *
      * @param request - UpdateInstanceNetworkTypeRequest
      * @param headers - map
@@ -5954,7 +6179,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * Modifies the network configuration of an instance.
+     * Modifies the network type of an instance.
      *
      * @param request - UpdateInstanceNetworkTypeRequest
      *
@@ -5974,7 +6199,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 修改端口号.
+     * Updates the port of an instance.
      *
      * @param request - UpdateInstancePortRequest
      * @param headers - map
@@ -6017,7 +6242,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 修改端口号.
+     * Updates the port of an instance.
      *
      * @param request - UpdateInstancePortRequest
      *
@@ -6037,7 +6262,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 修改可维护时间窗口.
+     * Updates the maintenance window of a specified instance.
      *
      * @param request - UpdateMaintenanceWindowRequest
      * @param headers - map
@@ -6084,7 +6309,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 修改可维护时间窗口.
+     * Updates the maintenance window of a specified instance.
      *
      * @param request - UpdateMaintenanceWindowRequest
      *
@@ -6104,7 +6329,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建模型服务
+     * Updates a model service. This operation applies only to Hologres AI.
      *
      * @param request - UpdateModelServiceRequest
      * @param headers - map
@@ -6167,7 +6392,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建模型服务
+     * Updates a model service. This operation applies only to Hologres AI.
      *
      * @param request - UpdateModelServiceRequest
      *
@@ -6187,7 +6412,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 修改运维事件执行时间.
+     * Updates the scheduled execution time for an operation event.
      *
      * @param request - UpdateOperationEventScheduleTimeRequest
      * @param headers - map
@@ -6234,7 +6459,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 修改运维事件执行时间.
+     * Updates the scheduled execution time for an operation event.
      *
      * @param request - UpdateOperationEventScheduleTimeRequest
      *
@@ -6254,7 +6479,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 配置周期备份.
+     * This operation configures a backup policy for an instance. You can set a weekly schedule to back up an instance on specific days, such as every Monday, Wednesday, and Friday at 20:00:00. You can also specify the number of completed backups to retain. The system automatically deletes expired backups.
      *
      * @param request - UpdateScheduledBackupConfigRequest
      * @param headers - map
@@ -6334,7 +6559,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 配置周期备份.
+     * This operation configures a backup policy for an instance. You can set a weekly schedule to back up an instance on specific days, such as every Monday, Wednesday, and Friday at 20:00:00. You can also specify the number of completed backups to retain. The system automatically deletes expired backups.
      *
      * @param request - UpdateScheduledBackupConfigRequest
      *
@@ -6353,7 +6578,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建分时弹性计划.
+     * Updates an elastic schedule for a warehouse.
      *
      * @param request - UpdateWarehouseScheduleTaskRequest
      * @param headers - map
@@ -6412,7 +6637,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 创建分时弹性计划.
+     * Updates an elastic schedule for a warehouse.
      *
      * @param request - UpdateWarehouseScheduleTaskRequest
      *
@@ -6432,7 +6657,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 开始升级.
+     * Upgrades an instance. If the preparation is successful, the instance can start the upgrade directly.
      *
      * @param request - UpgradeInstanceRequest
      * @param headers - map
@@ -6483,7 +6708,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * 开始升级.
+     * Upgrades an instance. If the preparation is successful, the instance can start the upgrade directly.
      *
      * @param request - UpgradeInstanceRequest
      *
