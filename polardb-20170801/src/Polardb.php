@@ -75,6 +75,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAgenticDBProjectRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAgenticDBProjectResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAgenticDBTenantApiKeyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAgenticDBTenantApiKeyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterApiKeyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterApiKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterDatasetRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterDatasetResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterRequest;
@@ -179,6 +181,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBProjectRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBProjectResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBTenantApiKeyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBTenantApiKeyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterApiKeyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterApiKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterDatasetRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterDatasetResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterRequest;
@@ -292,6 +296,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBProjectsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBProjectsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBTenantApiKeysRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBTenantApiKeysResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterApiKeysRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterApiKeysResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterDatasetsRequest;
@@ -1868,11 +1874,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Associates resource control.
+     * Binds a specified resource control rule to a user, database, query, or connection in a PolarDB for MySQL cluster. After the binding succeeds, the target object is subject to the CPU quota limit defined by the resource control rule.
      *
      * @remarks
-     * ## Operation description
-     * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+     * Resource Control limits the CPU resources that can be used by specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
+     * ### Before you begin
+     * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+     * >Notice: This is a notice.</notice>
      *
      * @param request - BindResourceControlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1927,11 +1936,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Associates resource control.
+     * Binds a specified resource control rule to a user, database, query, or connection in a PolarDB for MySQL cluster. After the binding succeeds, the target object is subject to the CPU quota limit defined by the resource control rule.
      *
      * @remarks
-     * ## Operation description
-     * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+     * Resource Control limits the CPU resources that can be used by specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
+     * ### Before you begin
+     * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+     * >Notice: This is a notice.</notice>
      *
      * @param request - BindResourceControlRequest
      *
@@ -3403,6 +3415,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAIDBClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a model service API key.
+     *
+     * @param request - CreateAIDBClusterApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAIDBClusterApiKeyResponse
+     *
+     * @param CreateAIDBClusterApiKeyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAIDBClusterApiKeyResponse
+     */
+    public function createAIDBClusterApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAIDBClusterApiKey',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAIDBClusterApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a model service API key.
+     *
+     * @param request - CreateAIDBClusterApiKeyRequest
+     *
+     * @returns CreateAIDBClusterApiKeyResponse
+     *
+     * @param CreateAIDBClusterApiKeyRequest $request
+     *
+     * @return CreateAIDBClusterApiKeyResponse
+     */
+    public function createAIDBClusterApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAIDBClusterApiKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -8104,11 +8177,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a resource control.
+     * Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set MaxCpu to specify the maximum CPU quota percentage that the rule can use, or set CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify one and only one of MaxCpu and CpuCount when creating a rule.
      *
      * @remarks
-     * ## Operation description
-     * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+     * Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
+     * ### Before you begin
+     * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+     * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
+     * - The maximum value of CpuCount is determined by the kernel parameter resource_control_cpu_count_limit of the target cluster.
+     * >Notice: This is a notice.</notice>
      *
      * @param request - CreateResourceControlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8163,11 +8241,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a resource control.
+     * Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set MaxCpu to specify the maximum CPU quota percentage that the rule can use, or set CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify one and only one of MaxCpu and CpuCount when creating a rule.
      *
      * @remarks
-     * ## Operation description
-     * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+     * Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
+     * ### Before you begin
+     * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+     * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
+     * - The maximum value of CpuCount is determined by the kernel parameter resource_control_cpu_count_limit of the target cluster.
+     * >Notice: This is a notice.</notice>
      *
      * @param request - CreateResourceControlRequest
      *
@@ -8405,6 +8488,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAIDBClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an API key for a model service.
+     *
+     * @param request - DeleteAIDBClusterApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAIDBClusterApiKeyResponse
+     *
+     * @param DeleteAIDBClusterApiKeyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAIDBClusterApiKeyResponse
+     */
+    public function deleteAIDBClusterApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAIDBClusterApiKey',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAIDBClusterApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an API key for a model service.
+     *
+     * @param request - DeleteAIDBClusterApiKeyRequest
+     *
+     * @returns DeleteAIDBClusterApiKeyResponse
+     *
+     * @param DeleteAIDBClusterApiKeyRequest $request
+     *
+     * @return DeleteAIDBClusterApiKeyResponse
+     */
+    public function deleteAIDBClusterApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAIDBClusterApiKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -11720,10 +11864,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a resource control.
+     * Deletes a resource control rule from a specified PolarDB for MySQL cluster.
      *
      * @remarks
-     * > The cluster must be in the Running state. Otherwise, the operation fails.
+     * Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports the create, update, delete, attach, and detach operations for resource control rules. Querying Resource Control CPU usage is not supported.
+     * ### Limits
+     * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - In the cluster kernel parameter Settings, loose_enable_resource_control must be set to ON.
+     * >Notice: This is a notice.</notice>
      *
      * @param request - DeleteResourceControlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11770,10 +11918,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a resource control.
+     * Deletes a resource control rule from a specified PolarDB for MySQL cluster.
      *
      * @remarks
-     * > The cluster must be in the Running state. Otherwise, the operation fails.
+     * Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports the create, update, delete, attach, and detach operations for resource control rules. Querying Resource Control CPU usage is not supported.
+     * ### Limits
+     * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - In the cluster kernel parameter Settings, loose_enable_resource_control must be set to ON.
+     * >Notice: This is a notice.</notice>
      *
      * @param request - DeleteResourceControlRequest
      *
@@ -11865,6 +12017,63 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSQLRateLimitingRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the API key of a model service.
+     *
+     * @param request - DescribeAIDBClusterApiKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAIDBClusterApiKeysResponse
+     *
+     * @param DescribeAIDBClusterApiKeysRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeAIDBClusterApiKeysResponse
+     */
+    public function describeAIDBClusterApiKeysWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAIDBClusterApiKeys',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAIDBClusterApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the API key of a model service.
+     *
+     * @param request - DescribeAIDBClusterApiKeysRequest
+     *
+     * @returns DescribeAIDBClusterApiKeysResponse
+     *
+     * @param DescribeAIDBClusterApiKeysRequest $request
+     *
+     * @return DescribeAIDBClusterApiKeysResponse
+     */
+    public function describeAIDBClusterApiKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIDBClusterApiKeysWithOptions($request, $runtime);
     }
 
     /**
@@ -33661,10 +33870,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies resource control.
+     * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU percentage mode and the maximum CPU core count mode. You must specify one and only one of the MaxCpu and CpuCount parameters.
      *
      * @remarks
-     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     * Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. It does not support querying Resource Control CPU usage.
+     * ### Before you begin
+     * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+     * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
+     * - The maximum value of CpuCount is determined by the cluster kernel parameter resource_control_cpu_count_limit.
+     * >Notice: This is a notice.</notice>
      *
      * @param request - ModifyResourceControlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33719,10 +33934,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies resource control.
+     * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU percentage mode and the maximum CPU core count mode. You must specify one and only one of the MaxCpu and CpuCount parameters.
      *
      * @remarks
-     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     * Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. It does not support querying Resource Control CPU usage.
+     * ### Before you begin
+     * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+     * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
+     * - The maximum value of CpuCount is determined by the cluster kernel parameter resource_control_cpu_count_limit.
+     * >Notice: This is a notice.</notice>
      *
      * @param request - ModifyResourceControlRequest
      *
@@ -36593,11 +36814,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Unbinds a resource control.
+     * Unbinds a specified resource control rule from a user, database, query, or connection in a PolarDB for MySQL cluster. After the unbinding is successful, the resource control rule no longer limits the CPU quota of the corresponding target object.
      *
      * @remarks
-     * > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
-     * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+     * Resource Control is used to limit the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release provides the capabilities to create, modify, delete, attach, and unbind resource control rules. It does not provide the capability to query Resource Control CPU usage.
+     * ### Before you begin
+     * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+     * >Notice: This is a notice.</notice>
      *
      * @param request - UnbindResourceControlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36652,11 +36876,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Unbinds a resource control.
+     * Unbinds a specified resource control rule from a user, database, query, or connection in a PolarDB for MySQL cluster. After the unbinding is successful, the resource control rule no longer limits the CPU quota of the corresponding target object.
      *
      * @remarks
-     * > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
-     * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+     * Resource Control is used to limit the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release provides the capabilities to create, modify, delete, attach, and unbind resource control rules. It does not provide the capability to query Resource Control CPU usage.
+     * ### Before you begin
+     * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+     * >Notice: This is a notice.</notice>
      *
      * @param request - UnbindResourceControlRequest
      *
