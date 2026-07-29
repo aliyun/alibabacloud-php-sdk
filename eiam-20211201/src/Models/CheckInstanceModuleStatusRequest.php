@@ -26,11 +26,23 @@ class CheckInstanceModuleStatusRequest extends Model
     /**
      * @var string
      */
+    public $resourceLabelKey;
+
+    /**
+     * @var string
+     */
+    public $resourceLabelValue;
+
+    /**
+     * @var string
+     */
     public $subFeatureKey;
     protected $_name = [
         'featureKey' => 'FeatureKey',
         'instanceId' => 'InstanceId',
         'moduleKey' => 'ModuleKey',
+        'resourceLabelKey' => 'ResourceLabelKey',
+        'resourceLabelValue' => 'ResourceLabelValue',
         'subFeatureKey' => 'SubFeatureKey',
     ];
 
@@ -52,6 +64,14 @@ class CheckInstanceModuleStatusRequest extends Model
 
         if (null !== $this->moduleKey) {
             $res['ModuleKey'] = $this->moduleKey;
+        }
+
+        if (null !== $this->resourceLabelKey) {
+            $res['ResourceLabelKey'] = $this->resourceLabelKey;
+        }
+
+        if (null !== $this->resourceLabelValue) {
+            $res['ResourceLabelValue'] = $this->resourceLabelValue;
         }
 
         if (null !== $this->subFeatureKey) {
@@ -79,6 +99,14 @@ class CheckInstanceModuleStatusRequest extends Model
 
         if (isset($map['ModuleKey'])) {
             $model->moduleKey = $map['ModuleKey'];
+        }
+
+        if (isset($map['ResourceLabelKey'])) {
+            $model->resourceLabelKey = $map['ResourceLabelKey'];
+        }
+
+        if (isset($map['ResourceLabelValue'])) {
+            $model->resourceLabelValue = $map['ResourceLabelValue'];
         }
 
         if (isset($map['SubFeatureKey'])) {

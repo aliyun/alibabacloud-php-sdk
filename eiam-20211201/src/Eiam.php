@@ -2000,7 +2000,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Determines whether an instance has the feature of a specific module.
+     * Determines whether an instance has the capability of a specific module.
      *
      * @param request - CheckInstanceModuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2028,6 +2028,14 @@ class Eiam extends OpenApiClient
             @$query['ModuleKey'] = $request->moduleKey;
         }
 
+        if (null !== $request->resourceLabelKey) {
+            @$query['ResourceLabelKey'] = $request->resourceLabelKey;
+        }
+
+        if (null !== $request->resourceLabelValue) {
+            @$query['ResourceLabelValue'] = $request->resourceLabelValue;
+        }
+
         if (null !== $request->subFeatureKey) {
             @$query['SubFeatureKey'] = $request->subFeatureKey;
         }
@@ -2051,7 +2059,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Determines whether an instance has the feature of a specific module.
+     * Determines whether an instance has the capability of a specific module.
      *
      * @param request - CheckInstanceModuleStatusRequest
      *
@@ -13907,7 +13915,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries information about one or more EIAM applications by using paged query. Paging is supported.
+     * Queries information about one or more EIAM applications by using paging.
      *
      * @param request - ListApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14006,7 +14014,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries information about one or more EIAM applications by using paged query. Paging is supported.
+     * Queries information about one or more EIAM applications by using paging.
      *
      * @param request - ListApplicationsRequest
      *
@@ -16657,6 +16665,10 @@ class Eiam extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->serviceManaged) {
+            @$query['ServiceManaged'] = $request->serviceManaged;
+        }
+
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
         }
@@ -16798,7 +16810,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the network endpoints for an IDaaS EIAM instance.
+     * Queries the list of network access endpoints under an IDaaS EIAM instance.
      *
      * @param request - ListNetworkAccessEndpointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16861,7 +16873,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the network endpoints for an IDaaS EIAM instance.
+     * Queries the list of network access endpoints under an IDaaS EIAM instance.
      *
      * @param request - ListNetworkAccessEndpointsRequest
      *

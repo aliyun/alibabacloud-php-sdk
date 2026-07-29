@@ -34,6 +34,11 @@ class ListInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
      * @var string
      */
     public $status;
@@ -43,6 +48,7 @@ class ListInstancesRequest extends Model
         'instanceIds' => 'InstanceIds',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'serviceManaged' => 'ServiceManaged',
         'status' => 'Status',
     ];
 
@@ -82,6 +88,10 @@ class ListInstancesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
         }
 
         if (null !== $this->status) {
@@ -124,6 +134,10 @@ class ListInstancesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
         }
 
         if (isset($map['Status'])) {

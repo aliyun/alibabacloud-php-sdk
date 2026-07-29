@@ -16,6 +16,11 @@ class networkAccessPaths extends Model
     /**
      * @var string
      */
+    public $crossRegionReplicationRole;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -52,8 +57,19 @@ class networkAccessPaths extends Model
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $vpcRegionId;
     protected $_name = [
         'createTime' => 'CreateTime',
+        'crossRegionReplicationRole' => 'CrossRegionReplicationRole',
         'instanceId' => 'InstanceId',
         'networkAccessEndpointId' => 'NetworkAccessEndpointId',
         'networkAccessPathId' => 'NetworkAccessPathId',
@@ -62,6 +78,8 @@ class networkAccessPaths extends Model
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
         'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'vpcRegionId' => 'VpcRegionId',
     ];
 
     public function validate()
@@ -74,6 +92,10 @@ class networkAccessPaths extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->crossRegionReplicationRole) {
+            $res['CrossRegionReplicationRole'] = $this->crossRegionReplicationRole;
         }
 
         if (null !== $this->instanceId) {
@@ -108,6 +130,14 @@ class networkAccessPaths extends Model
             $res['VSwitchId'] = $this->vSwitchId;
         }
 
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->vpcRegionId) {
+            $res['VpcRegionId'] = $this->vpcRegionId;
+        }
+
         return $res;
     }
 
@@ -121,6 +151,10 @@ class networkAccessPaths extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['CrossRegionReplicationRole'])) {
+            $model->crossRegionReplicationRole = $map['CrossRegionReplicationRole'];
         }
 
         if (isset($map['InstanceId'])) {
@@ -153,6 +187,14 @@ class networkAccessPaths extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['VpcRegionId'])) {
+            $model->vpcRegionId = $map['VpcRegionId'];
         }
 
         return $model;

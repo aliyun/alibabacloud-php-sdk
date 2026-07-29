@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkAccessEndpointResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkAccessEndpointResponseBody\networkAccessEndpoint\backupVpcEndpoint;
 
 class networkAccessEndpoint extends Model
 {
+    /**
+     * @var backupVpcEndpoint
+     */
+    public $backupVpcEndpoint;
+
     /**
      * @var int
      */
@@ -73,6 +79,7 @@ class networkAccessEndpoint extends Model
      */
     public $vpcRegionId;
     protected $_name = [
+        'backupVpcEndpoint' => 'BackupVpcEndpoint',
         'createTime' => 'CreateTime',
         'egressPrivateIpAddresses' => 'EgressPrivateIpAddresses',
         'egressPublicIpAddresses' => 'EgressPublicIpAddresses',
@@ -90,6 +97,9 @@ class networkAccessEndpoint extends Model
 
     public function validate()
     {
+        if (null !== $this->backupVpcEndpoint) {
+            $this->backupVpcEndpoint->validate();
+        }
         if (\is_array($this->egressPrivateIpAddresses)) {
             Model::validateArray($this->egressPrivateIpAddresses);
         }
@@ -105,6 +115,10 @@ class networkAccessEndpoint extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backupVpcEndpoint) {
+            $res['BackupVpcEndpoint'] = null !== $this->backupVpcEndpoint ? $this->backupVpcEndpoint->toArray($noStream) : $this->backupVpcEndpoint;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -189,6 +203,10 @@ class networkAccessEndpoint extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupVpcEndpoint'])) {
+            $model->backupVpcEndpoint = backupVpcEndpoint::fromMap($map['BackupVpcEndpoint']);
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
