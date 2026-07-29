@@ -11,14 +11,26 @@ class SubmitMediaComprehensionJobRequest extends Model
     /**
      * @var string
      */
+    public $input;
+
+    /**
+     * @var string
+     */
     public $jobParams;
+
+    /**
+     * @var string
+     */
+    public $jobType;
 
     /**
      * @var string
      */
     public $userData;
     protected $_name = [
+        'input' => 'Input',
         'jobParams' => 'JobParams',
+        'jobType' => 'JobType',
         'userData' => 'UserData',
     ];
 
@@ -30,8 +42,16 @@ class SubmitMediaComprehensionJobRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->input) {
+            $res['Input'] = $this->input;
+        }
+
         if (null !== $this->jobParams) {
             $res['JobParams'] = $this->jobParams;
+        }
+
+        if (null !== $this->jobType) {
+            $res['JobType'] = $this->jobType;
         }
 
         if (null !== $this->userData) {
@@ -49,8 +69,16 @@ class SubmitMediaComprehensionJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Input'])) {
+            $model->input = $map['Input'];
+        }
+
         if (isset($map['JobParams'])) {
             $model->jobParams = $map['JobParams'];
+        }
+
+        if (isset($map['JobType'])) {
+            $model->jobType = $map['JobType'];
         }
 
         if (isset($map['UserData'])) {

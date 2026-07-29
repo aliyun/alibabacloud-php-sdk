@@ -1137,8 +1137,16 @@ class Yike extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->input) {
+            @$query['Input'] = $request->input;
+        }
+
         if (null !== $request->jobParams) {
             @$query['JobParams'] = $request->jobParams;
+        }
+
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
         }
 
         if (null !== $request->userData) {
