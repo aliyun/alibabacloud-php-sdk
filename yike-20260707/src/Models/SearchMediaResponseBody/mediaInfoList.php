@@ -12,11 +12,6 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponseBody\mediaInfoList
 class mediaInfoList extends Model
 {
     /**
-     * @var string
-     */
-    public $customFields;
-
-    /**
      * @var fileInfoList[]
      */
     public $fileInfoList;
@@ -36,7 +31,6 @@ class mediaInfoList extends Model
      */
     public $mediaId;
     protected $_name = [
-        'customFields' => 'CustomFields',
         'fileInfoList' => 'FileInfoList',
         'mediaBasicInfo' => 'MediaBasicInfo',
         'mediaDynamicInfo' => 'MediaDynamicInfo',
@@ -60,10 +54,6 @@ class mediaInfoList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->customFields) {
-            $res['CustomFields'] = $this->customFields;
-        }
-
         if (null !== $this->fileInfoList) {
             if (\is_array($this->fileInfoList)) {
                 $res['FileInfoList'] = [];
@@ -98,10 +88,6 @@ class mediaInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustomFields'])) {
-            $model->customFields = $map['CustomFields'];
-        }
-
         if (isset($map['FileInfoList'])) {
             if (!empty($map['FileInfoList'])) {
                 $model->fileInfoList = [];

@@ -16,11 +16,6 @@ class SearchMediaRequest extends Model
     /**
      * @var string
      */
-    public $entityId;
-
-    /**
-     * @var string
-     */
     public $match;
 
     /**
@@ -41,20 +36,13 @@ class SearchMediaRequest extends Model
     /**
      * @var string
      */
-    public $searchLibName;
-
-    /**
-     * @var string
-     */
     public $sortBy;
     protected $_name = [
         'categoryId' => 'CategoryId',
-        'entityId' => 'EntityId',
         'match' => 'Match',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
         'scrollToken' => 'ScrollToken',
-        'searchLibName' => 'SearchLibName',
         'sortBy' => 'SortBy',
     ];
 
@@ -68,10 +56,6 @@ class SearchMediaRequest extends Model
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
-        }
-
-        if (null !== $this->entityId) {
-            $res['EntityId'] = $this->entityId;
         }
 
         if (null !== $this->match) {
@@ -88,10 +72,6 @@ class SearchMediaRequest extends Model
 
         if (null !== $this->scrollToken) {
             $res['ScrollToken'] = $this->scrollToken;
-        }
-
-        if (null !== $this->searchLibName) {
-            $res['SearchLibName'] = $this->searchLibName;
         }
 
         if (null !== $this->sortBy) {
@@ -113,10 +93,6 @@ class SearchMediaRequest extends Model
             $model->categoryId = $map['CategoryId'];
         }
 
-        if (isset($map['EntityId'])) {
-            $model->entityId = $map['EntityId'];
-        }
-
         if (isset($map['Match'])) {
             $model->match = $map['Match'];
         }
@@ -131,10 +107,6 @@ class SearchMediaRequest extends Model
 
         if (isset($map['ScrollToken'])) {
             $model->scrollToken = $map['ScrollToken'];
-        }
-
-        if (isset($map['SearchLibName'])) {
-            $model->searchLibName = $map['SearchLibName'];
         }
 
         if (isset($map['SortBy'])) {

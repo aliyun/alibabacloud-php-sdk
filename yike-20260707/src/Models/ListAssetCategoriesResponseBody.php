@@ -20,7 +20,7 @@ class ListAssetCategoriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var int
      */
     public $total;
     protected $_name = [

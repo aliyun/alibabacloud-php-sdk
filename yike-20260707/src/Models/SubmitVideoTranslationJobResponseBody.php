@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponseBody\mediaInfoList\mediaDynamicInfo;
+namespace AlibabaCloud\SDK\Yike\V20260707\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class dynamicMetaData extends Model
+class SubmitVideoTranslationJobResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $data;
+    public $jobId;
 
     /**
      * @var string
      */
-    public $entityId;
+    public $requestId;
     protected $_name = [
-        'data' => 'Data',
-        'entityId' => 'EntityId',
+        'jobId' => 'JobId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class dynamicMetaData extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
-        if (null !== $this->entityId) {
-            $res['EntityId'] = $this->entityId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class dynamicMetaData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
-        if (isset($map['EntityId'])) {
-            $model->entityId = $map['EntityId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

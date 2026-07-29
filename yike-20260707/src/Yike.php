@@ -23,6 +23,10 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetYikeAccountCreditRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetYikeAccountCreditResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetYikeJobCreditRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetYikeJobCreditResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ImportMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ImportMediaResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListAssetCategoriesRequest;
@@ -35,6 +39,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoTranslationJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoTranslationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateAssetCategoryRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateAssetCategoryResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateMediaRequest;
@@ -536,6 +542,10 @@ class Yike extends OpenApiClient
     /**
      * 查询媒资内容理解作业.
      *
+     * @remarks
+     * ## 请求说明
+     * 该API用于查询媒资内容理解作业。
+     *
      * @param request - GetMediaComprehensionJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -574,6 +584,10 @@ class Yike extends OpenApiClient
 
     /**
      * 查询媒资内容理解作业.
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API用于查询媒资内容理解作业。
      *
      * @param request - GetMediaComprehensionJobRequest
      *
@@ -649,6 +663,113 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getVideoGenerationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取一刻主账户会员计划及积分情况.
+     *
+     * @param request - GetYikeAccountCreditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeAccountCreditResponse
+     *
+     * @param GetYikeAccountCreditRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetYikeAccountCreditResponse
+     */
+    public function getYikeAccountCreditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetYikeAccountCredit',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeAccountCreditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取一刻主账户会员计划及积分情况.
+     *
+     * @param request - GetYikeAccountCreditRequest
+     *
+     * @returns GetYikeAccountCreditResponse
+     *
+     * @param GetYikeAccountCreditRequest $request
+     *
+     * @return GetYikeAccountCreditResponse
+     */
+    public function getYikeAccountCredit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeAccountCreditWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询一刻任务实际消耗积分.
+     *
+     * @param request - GetYikeJobCreditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeJobCreditResponse
+     *
+     * @param GetYikeJobCreditRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetYikeJobCreditResponse
+     */
+    public function getYikeJobCreditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetYikeJobCredit',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeJobCreditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询一刻任务实际消耗积分.
+     *
+     * @param request - GetYikeJobCreditRequest
+     *
+     * @returns GetYikeJobCreditResponse
+     *
+     * @param GetYikeJobCreditRequest $request
+     *
+     * @return GetYikeJobCreditResponse
+     */
+    public function getYikeJobCredit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeJobCreditWithOptions($request, $runtime);
     }
 
     /**
@@ -846,10 +967,6 @@ class Yike extends OpenApiClient
             @$query['CategoryId'] = $request->categoryId;
         }
 
-        if (null !== $request->entityId) {
-            @$query['EntityId'] = $request->entityId;
-        }
-
         if (null !== $request->match) {
             @$query['Match'] = $request->match;
         }
@@ -864,10 +981,6 @@ class Yike extends OpenApiClient
 
         if (null !== $request->scrollToken) {
             @$query['ScrollToken'] = $request->scrollToken;
-        }
-
-        if (null !== $request->searchLibName) {
-            @$query['SearchLibName'] = $request->searchLibName;
         }
 
         if (null !== $request->sortBy) {
@@ -1006,6 +1119,10 @@ class Yike extends OpenApiClient
     /**
      * 提交媒资内容理解作业.
      *
+     * @remarks
+     * ## 请求说明
+     * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+     *
      * @param request - SubmitMediaComprehensionJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1048,6 +1165,10 @@ class Yike extends OpenApiClient
 
     /**
      * 提交媒资内容理解作业.
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
      *
      * @param request - SubmitMediaComprehensionJobRequest
      *
@@ -1159,6 +1280,111 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitVideoGenerationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交视频翻译任务
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
+     * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
+     * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
+     * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
+     * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
+     * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
+     * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+     *
+     * @param request - SubmitVideoTranslationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitVideoTranslationJobResponse
+     *
+     * @param SubmitVideoTranslationJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SubmitVideoTranslationJobResponse
+     */
+    public function submitVideoTranslationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->input) {
+            @$body['Input'] = $request->input;
+        }
+
+        if (null !== $request->jobParameters) {
+            @$body['JobParameters'] = $request->jobParameters;
+        }
+
+        if (null !== $request->jobType) {
+            @$body['JobType'] = $request->jobType;
+        }
+
+        if (null !== $request->output) {
+            @$body['Output'] = $request->output;
+        }
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
+        }
+
+        if (null !== $request->userData) {
+            @$body['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitVideoTranslationJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitVideoTranslationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交视频翻译任务
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
+     * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
+     * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
+     * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
+     * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
+     * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
+     * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+     *
+     * @param request - SubmitVideoTranslationJobRequest
+     *
+     * @returns SubmitVideoTranslationJobResponse
+     *
+     * @param SubmitVideoTranslationJobRequest $request
+     *
+     * @return SubmitVideoTranslationJobResponse
+     */
+    public function submitVideoTranslationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitVideoTranslationJobWithOptions($request, $runtime);
     }
 
     /**
