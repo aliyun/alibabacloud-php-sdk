@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeAvailableResourceResponseBody\availableZoneList\availableZone;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeAvailableResourceResponseBody\availableZoneList\availableZone\supportedSerialList\supportedSerial;
-use AlibabaCloud\Tea\Model;
 
 class supportedSerialList extends Model
 {
@@ -19,17 +19,22 @@ class supportedSerialList extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedSerial)) {
+            Model::validateArray($this->supportedSerial);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedSerial) {
-            $res['SupportedSerial'] = [];
-            if (null !== $this->supportedSerial && \is_array($this->supportedSerial)) {
-                $n = 0;
-                foreach ($this->supportedSerial as $item) {
-                    $res['SupportedSerial'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedSerial)) {
+                $res['SupportedSerial'] = [];
+                $n1 = 0;
+                foreach ($this->supportedSerial as $item1) {
+                    $res['SupportedSerial'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class supportedSerialList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedSerialList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedSerial'])) {
             if (!empty($map['SupportedSerial'])) {
                 $model->supportedSerial = [];
-                $n                      = 0;
-                foreach ($map['SupportedSerial'] as $item) {
-                    $model->supportedSerial[$n++] = null !== $item ? supportedSerial::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SupportedSerial'] as $item1) {
+                    $model->supportedSerial[$n1] = supportedSerial::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

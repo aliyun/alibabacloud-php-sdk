@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeAccountsResponseBody\accounts;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAccountsResponseBody extends Model
 {
@@ -19,26 +19,32 @@ class DescribeAccountsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'accounts'  => 'Accounts',
+        'accounts' => 'Accounts',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->accounts)) {
+            Model::validateArray($this->accounts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accounts) {
-            $res['Accounts'] = [];
-            if (null !== $this->accounts && \is_array($this->accounts)) {
-                $n = 0;
-                foreach ($this->accounts as $item) {
-                    $res['Accounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->accounts)) {
+                $res['Accounts'] = [];
+                $n1 = 0;
+                foreach ($this->accounts as $item1) {
+                    $res['Accounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +52,25 @@ class DescribeAccountsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAccountsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accounts'])) {
             if (!empty($map['Accounts'])) {
                 $model->accounts = [];
-                $n               = 0;
-                foreach ($map['Accounts'] as $item) {
-                    $model->accounts[$n++] = null !== $item ? accounts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Accounts'] as $item1) {
+                    $model->accounts[$n1] = accounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

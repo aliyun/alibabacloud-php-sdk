@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeDBInstanceAccessWhiteListResponseBody\items;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstanceAccessWhiteListResponseBody extends Model
 {
@@ -19,20 +19,25 @@ class DescribeDBInstanceAccessWhiteListResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'items'     => 'Items',
+        'items' => 'Items',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->items) {
+            $this->items->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class DescribeDBInstanceAccessWhiteListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstanceAccessWhiteListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

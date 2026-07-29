@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeAvailableResourceResponseBody\availableZoneList\availableZone\supportedSerialList\supportedSerial\supportedInstanceClassList\supportedInstanceClass\supportedStorageSizeList\supportedStorageSize;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class storageSize extends Model
 {
@@ -23,24 +23,27 @@ class storageSize extends Model
      */
     public $step;
     protected $_name = [
-        'max'  => 'Max',
-        'min'  => 'Min',
+        'max' => 'Max',
+        'min' => 'Min',
         'step' => 'Step',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->max) {
             $res['Max'] = $this->max;
         }
+
         if (null !== $this->min) {
             $res['Min'] = $this->min;
         }
+
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
@@ -48,20 +51,22 @@ class storageSize extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return storageSize
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Max'])) {
             $model->max = $map['Max'];
         }
+
         if (isset($map['Min'])) {
             $model->min = $map['Min'];
         }
+
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }

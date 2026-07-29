@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeDBInstancePerformanceResponseBody\performanceKeys;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstancePerformanceResponseBody extends Model
 {
@@ -39,36 +39,45 @@ class DescribeDBInstancePerformanceResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'endTime'         => 'EndTime',
-        'engine'          => 'Engine',
+        'DBInstanceId' => 'DBInstanceId',
+        'endTime' => 'EndTime',
+        'engine' => 'Engine',
         'performanceKeys' => 'PerformanceKeys',
-        'requestId'       => 'RequestId',
-        'startTime'       => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        if (null !== $this->performanceKeys) {
+            $this->performanceKeys->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->performanceKeys) {
-            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toMap() : null;
+            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toArray($noStream) : $this->performanceKeys;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -76,29 +85,34 @@ class DescribeDBInstancePerformanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstancePerformanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['PerformanceKeys'])) {
             $model->performanceKeys = performanceKeys::fromMap($map['PerformanceKeys']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

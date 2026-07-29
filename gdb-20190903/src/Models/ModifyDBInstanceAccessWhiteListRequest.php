@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBInstanceAccessWhiteListRequest extends Model
 {
@@ -54,47 +54,56 @@ class ModifyDBInstanceAccessWhiteListRequest extends Model
     public $securityIps;
     protected $_name = [
         'DBInstanceIPArrayAttribute' => 'DBInstanceIPArrayAttribute',
-        'DBInstanceIPArrayName'      => 'DBInstanceIPArrayName',
-        'DBInstanceId'               => 'DBInstanceId',
-        'modifyMode'                 => 'ModifyMode',
-        'ownerAccount'               => 'OwnerAccount',
-        'ownerId'                    => 'OwnerId',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'securityIps'                => 'SecurityIps',
+        'DBInstanceIPArrayName' => 'DBInstanceIPArrayName',
+        'DBInstanceId' => 'DBInstanceId',
+        'modifyMode' => 'ModifyMode',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityIps' => 'SecurityIps',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceIPArrayAttribute) {
             $res['DBInstanceIPArrayAttribute'] = $this->DBInstanceIPArrayAttribute;
         }
+
         if (null !== $this->DBInstanceIPArrayName) {
             $res['DBInstanceIPArrayName'] = $this->DBInstanceIPArrayName;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->modifyMode) {
             $res['ModifyMode'] = $this->modifyMode;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->securityIps) {
             $res['SecurityIps'] = $this->securityIps;
         }
@@ -102,38 +111,46 @@ class ModifyDBInstanceAccessWhiteListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBInstanceAccessWhiteListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceIPArrayAttribute'])) {
             $model->DBInstanceIPArrayAttribute = $map['DBInstanceIPArrayAttribute'];
         }
+
         if (isset($map['DBInstanceIPArrayName'])) {
             $model->DBInstanceIPArrayName = $map['DBInstanceIPArrayName'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['ModifyMode'])) {
             $model->modifyMode = $map['ModifyMode'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SecurityIps'])) {
             $model->securityIps = $map['SecurityIps'];
         }

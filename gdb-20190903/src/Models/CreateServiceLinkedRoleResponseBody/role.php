@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models\CreateServiceLinkedRoleResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class role extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Gdb\V20190903\Models\CreateServiceLinkedRoleResponseBody\role\role[]
+     * @var role\role[]
      */
     public $role;
     protected $_name = [
@@ -18,17 +18,22 @@ class role extends Model
 
     public function validate()
     {
+        if (\is_array($this->role)) {
+            Model::validateArray($this->role);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->role) {
-            $res['Role'] = [];
-            if (null !== $this->role && \is_array($this->role)) {
-                $n = 0;
-                foreach ($this->role as $item) {
-                    $res['Role'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->role)) {
+                $res['Role'] = [];
+                $n1 = 0;
+                foreach ($this->role as $item1) {
+                    $res['Role'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +41,21 @@ class role extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return role
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Role'])) {
             if (!empty($map['Role'])) {
                 $model->role = [];
-                $n           = 0;
-                foreach ($map['Role'] as $item) {
-                    $model->role[$n++] = null !== $item ? \AlibabaCloud\SDK\Gdb\V20190903\Models\CreateServiceLinkedRoleResponseBody\role\role::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Role'] as $item1) {
+                    $model->role[$n1] = role\role::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

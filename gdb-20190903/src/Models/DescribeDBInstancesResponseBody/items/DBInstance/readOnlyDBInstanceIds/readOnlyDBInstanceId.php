@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeDBInstancesResponseBody\items\DBInstance\readOnlyDBInstanceIds;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class readOnlyDBInstanceId extends Model
 {
@@ -18,9 +18,10 @@ class readOnlyDBInstanceId extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
@@ -30,11 +31,11 @@ class readOnlyDBInstanceId extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return readOnlyDBInstanceId
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

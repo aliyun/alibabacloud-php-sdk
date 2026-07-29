@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeAvailableResourceResponseBody\availableZoneList\availableZone\supportedSerialList\supportedSerial\supportedInstanceClassList\supportedInstanceClass;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeAvailableResourceResponseBody\availableZoneList\availableZone\supportedSerialList\supportedSerial\supportedInstanceClassList\supportedInstanceClass\supportedStorageSizeList\supportedStorageSize;
-use AlibabaCloud\Tea\Model;
 
 class supportedStorageSizeList extends Model
 {
@@ -19,17 +19,22 @@ class supportedStorageSizeList extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedStorageSize)) {
+            Model::validateArray($this->supportedStorageSize);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedStorageSize) {
-            $res['SupportedStorageSize'] = [];
-            if (null !== $this->supportedStorageSize && \is_array($this->supportedStorageSize)) {
-                $n = 0;
-                foreach ($this->supportedStorageSize as $item) {
-                    $res['SupportedStorageSize'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedStorageSize)) {
+                $res['SupportedStorageSize'] = [];
+                $n1 = 0;
+                foreach ($this->supportedStorageSize as $item1) {
+                    $res['SupportedStorageSize'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class supportedStorageSizeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedStorageSizeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedStorageSize'])) {
             if (!empty($map['SupportedStorageSize'])) {
                 $model->supportedStorageSize = [];
-                $n                           = 0;
-                foreach ($map['SupportedStorageSize'] as $item) {
-                    $model->supportedStorageSize[$n++] = null !== $item ? supportedStorageSize::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SupportedStorageSize'] as $item1) {
+                    $model->supportedStorageSize[$n1] = supportedStorageSize::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

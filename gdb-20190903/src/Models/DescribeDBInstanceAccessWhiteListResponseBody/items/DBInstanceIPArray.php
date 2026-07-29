@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeDBInstanceAccessWhiteListResponseBody\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBInstanceIPArray extends Model
 {
@@ -24,23 +24,26 @@ class DBInstanceIPArray extends Model
     public $securityIps;
     protected $_name = [
         'DBInstanceIPArrayAttribute' => 'DBInstanceIPArrayAttribute',
-        'DBInstanceIPArrayName'      => 'DBInstanceIPArrayName',
-        'securityIps'                => 'SecurityIps',
+        'DBInstanceIPArrayName' => 'DBInstanceIPArrayName',
+        'securityIps' => 'SecurityIps',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceIPArrayAttribute) {
             $res['DBInstanceIPArrayAttribute'] = $this->DBInstanceIPArrayAttribute;
         }
+
         if (null !== $this->DBInstanceIPArrayName) {
             $res['DBInstanceIPArrayName'] = $this->DBInstanceIPArrayName;
         }
+
         if (null !== $this->securityIps) {
             $res['SecurityIps'] = $this->securityIps;
         }
@@ -48,20 +51,22 @@ class DBInstanceIPArray extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBInstanceIPArray
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceIPArrayAttribute'])) {
             $model->DBInstanceIPArrayAttribute = $map['DBInstanceIPArrayAttribute'];
         }
+
         if (isset($map['DBInstanceIPArrayName'])) {
             $model->DBInstanceIPArrayName = $map['DBInstanceIPArrayName'];
         }
+
         if (isset($map['SecurityIps'])) {
             $model->securityIps = $map['SecurityIps'];
         }

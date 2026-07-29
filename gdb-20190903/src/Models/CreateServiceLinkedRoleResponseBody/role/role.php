@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models\CreateServiceLinkedRoleResponseBody\role;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class role extends Model
 {
@@ -53,48 +53,57 @@ class role extends Model
      */
     public $rolePrincipalName;
     protected $_name = [
-        'arn'                      => 'Arn',
+        'arn' => 'Arn',
         'assumeRolePolicyDocument' => 'AssumeRolePolicyDocument',
-        'createDate'               => 'CreateDate',
-        'description'              => 'Description',
-        'isServiceLinkedRole'      => 'IsServiceLinkedRole',
-        'latestDeletionTask'       => 'LatestDeletionTask',
-        'roleId'                   => 'RoleId',
-        'roleName'                 => 'RoleName',
-        'rolePrincipalName'        => 'RolePrincipalName',
+        'createDate' => 'CreateDate',
+        'description' => 'Description',
+        'isServiceLinkedRole' => 'IsServiceLinkedRole',
+        'latestDeletionTask' => 'LatestDeletionTask',
+        'roleId' => 'RoleId',
+        'roleName' => 'RoleName',
+        'rolePrincipalName' => 'RolePrincipalName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arn) {
             $res['Arn'] = $this->arn;
         }
+
         if (null !== $this->assumeRolePolicyDocument) {
             $res['AssumeRolePolicyDocument'] = $this->assumeRolePolicyDocument;
         }
+
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->isServiceLinkedRole) {
             $res['IsServiceLinkedRole'] = $this->isServiceLinkedRole;
         }
+
         if (null !== $this->latestDeletionTask) {
             $res['LatestDeletionTask'] = $this->latestDeletionTask;
         }
+
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
+
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
+
         if (null !== $this->rolePrincipalName) {
             $res['RolePrincipalName'] = $this->rolePrincipalName;
         }
@@ -102,38 +111,46 @@ class role extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return role
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Arn'])) {
             $model->arn = $map['Arn'];
         }
+
         if (isset($map['AssumeRolePolicyDocument'])) {
             $model->assumeRolePolicyDocument = $map['AssumeRolePolicyDocument'];
         }
+
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['IsServiceLinkedRole'])) {
             $model->isServiceLinkedRole = $map['IsServiceLinkedRole'];
         }
+
         if (isset($map['LatestDeletionTask'])) {
             $model->latestDeletionTask = $map['LatestDeletionTask'];
         }
+
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }
+
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }
+
         if (isset($map['RolePrincipalName'])) {
             $model->rolePrincipalName = $map['RolePrincipalName'];
         }

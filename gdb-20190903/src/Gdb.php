@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\AllocateInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\CloneDBInstanceRequest;
@@ -72,11 +71,10 @@ use AlibabaCloud\SDK\Gdb\V20190903\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\UpgradeDBInstanceKernelVersionRequest;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\UpgradeDBInstanceKernelVersionResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Gdb extends OpenApiClient
 {
@@ -84,63 +82,63 @@ class Gdb extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'              => 'gdb-api.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'gdb-api.aliyuncs.com',
-            'ap-south-1'                  => 'gdb-api.ap-south-1.aliyuncs.com',
-            'ap-southeast-1'              => 'gdb-api.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'              => 'gdb-api.aliyuncs.com',
-            'ap-southeast-3'              => 'gdb-api.aliyuncs.com',
-            'ap-southeast-5'              => 'gdb-api.ap-southeast-5.aliyuncs.com',
-            'cn-beijing'                  => 'gdb-api.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'gdb-api.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'gdb-api.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'gdb-api.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'gdb-api.aliyuncs.com',
-            'cn-chengdu'                  => 'gdb-api.aliyuncs.com',
-            'cn-edge-1'                   => 'gdb-api.aliyuncs.com',
-            'cn-fujian'                   => 'gdb-api.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'gdb-api.aliyuncs.com',
-            'cn-hangzhou'                 => 'gdb-api.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'gdb-api.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'gdb-api.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'gdb-api.aliyuncs.com',
+            'ap-northeast-2-pop' => 'gdb-api.aliyuncs.com',
+            'ap-south-1' => 'gdb-api.ap-south-1.aliyuncs.com',
+            'ap-southeast-1' => 'gdb-api.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'gdb-api.aliyuncs.com',
+            'ap-southeast-3' => 'gdb-api.aliyuncs.com',
+            'ap-southeast-5' => 'gdb-api.ap-southeast-5.aliyuncs.com',
+            'cn-beijing' => 'gdb-api.aliyuncs.com',
+            'cn-beijing-finance-1' => 'gdb-api.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'gdb-api.aliyuncs.com',
+            'cn-beijing-gov-1' => 'gdb-api.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'gdb-api.aliyuncs.com',
+            'cn-chengdu' => 'gdb-api.aliyuncs.com',
+            'cn-edge-1' => 'gdb-api.aliyuncs.com',
+            'cn-fujian' => 'gdb-api.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'gdb-api.aliyuncs.com',
+            'cn-hangzhou' => 'gdb-api.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'gdb-api.aliyuncs.com',
+            'cn-hangzhou-finance' => 'gdb-api.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'gdb-api.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'gdb-api.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'gdb-api.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'gdb-api.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'gdb-api.aliyuncs.com',
-            'cn-hongkong'                 => 'gdb-api.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'gdb-api.aliyuncs.com',
-            'cn-huhehaote'                => 'gdb-api.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'gdb-api.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'gdb-api.aliyuncs.com',
-            'cn-qingdao'                  => 'gdb-api.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'gdb-api.aliyuncs.com',
-            'cn-shanghai'                 => 'gdb-api.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'gdb-api.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'gdb-api.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'gdb-api.aliyuncs.com',
-            'cn-shanghai-inner'           => 'gdb-api.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'gdb-api.aliyuncs.com',
+            'cn-hongkong' => 'gdb-api.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'gdb-api.aliyuncs.com',
+            'cn-huhehaote' => 'gdb-api.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'gdb-api.aliyuncs.com',
+            'cn-north-2-gov-1' => 'gdb-api.aliyuncs.com',
+            'cn-qingdao' => 'gdb-api.aliyuncs.com',
+            'cn-qingdao-nebula' => 'gdb-api.aliyuncs.com',
+            'cn-shanghai' => 'gdb-api.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'gdb-api.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'gdb-api.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'gdb-api.aliyuncs.com',
+            'cn-shanghai-inner' => 'gdb-api.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'gdb-api.aliyuncs.com',
-            'cn-shenzhen'                 => 'gdb-api.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'gdb-api.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'gdb-api.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'gdb-api.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'gdb-api.aliyuncs.com',
-            'cn-wuhan'                    => 'gdb-api.aliyuncs.com',
-            'cn-wulanchabu'               => 'gdb-api.aliyuncs.com',
-            'cn-yushanfang'               => 'gdb-api.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'gdb-api.aliyuncs.com',
-            'cn-zhangjiakou'              => 'gdb-api.cn-zhangjiakou.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'gdb-api.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'gdb-api.aliyuncs.com',
-            'eu-central-1'                => 'gdb-api.aliyuncs.com',
-            'eu-west-1'                   => 'gdb-api.aliyuncs.com',
-            'eu-west-1-oxs'               => 'gdb-api.aliyuncs.com',
-            'me-east-1'                   => 'gdb-api.aliyuncs.com',
-            'rus-west-1-pop'              => 'gdb-api.aliyuncs.com',
-            'us-east-1'                   => 'gdb-api.aliyuncs.com',
-            'us-west-1'                   => 'gdb-api.aliyuncs.com',
+            'cn-shenzhen' => 'gdb-api.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'gdb-api.aliyuncs.com',
+            'cn-shenzhen-inner' => 'gdb-api.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'gdb-api.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'gdb-api.aliyuncs.com',
+            'cn-wuhan' => 'gdb-api.aliyuncs.com',
+            'cn-wulanchabu' => 'gdb-api.aliyuncs.com',
+            'cn-yushanfang' => 'gdb-api.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'gdb-api.aliyuncs.com',
+            'cn-zhangjiakou' => 'gdb-api.cn-zhangjiakou.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'gdb-api.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'gdb-api.aliyuncs.com',
+            'eu-central-1' => 'gdb-api.aliyuncs.com',
+            'eu-west-1' => 'gdb-api.aliyuncs.com',
+            'eu-west-1-oxs' => 'gdb-api.aliyuncs.com',
+            'me-east-1' => 'gdb-api.aliyuncs.com',
+            'rus-west-1-pop' => 'gdb-api.aliyuncs.com',
+            'us-east-1' => 'gdb-api.aliyuncs.com',
+            'us-west-1' => 'gdb-api.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('gdb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -159,17 +157,25 @@ class Gdb extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * 开通公网.
+     *
+     * @param request - AllocateInstancePublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AllocateInstancePublicConnectionResponse
+     *
      * @param AllocateInstancePublicConnectionRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -177,45 +183,57 @@ class Gdb extends OpenApiClient
      */
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connectionStringPrefix)) {
-            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (null !== $request->connectionStringPrefix) {
+            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateInstancePublicConnection',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateInstancePublicConnection',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 开通公网.
+     *
+     * @param request - AllocateInstancePublicConnectionRequest
+     *
+     * @returns AllocateInstancePublicConnectionResponse
+     *
      * @param AllocateInstancePublicConnectionRequest $request
      *
      * @return AllocateInstancePublicConnectionResponse
@@ -228,6 +246,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 克隆实例.
+     *
+     * @param request - CloneDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloneDBInstanceResponse
+     *
      * @param CloneDBInstanceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -235,108 +260,141 @@ class Gdb extends OpenApiClient
      */
     public function cloneDBInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+
+        if (null !== $request->autoRenewPeriod) {
+            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-        if (!Utils::isUnset($request->backupSetId)) {
-            $query['BackupSetId'] = $request->backupSetId;
+
+        if (null !== $request->backupSetId) {
+            @$query['BackupSetId'] = $request->backupSetId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->DBInstanceCategory)) {
-            $query['DBInstanceCategory'] = $request->DBInstanceCategory;
+
+        if (null !== $request->DBInstanceCategory) {
+            @$query['DBInstanceCategory'] = $request->DBInstanceCategory;
         }
-        if (!Utils::isUnset($request->DBInstanceClass)) {
-            $query['DBInstanceClass'] = $request->DBInstanceClass;
+
+        if (null !== $request->DBInstanceClass) {
+            @$query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-        if (!Utils::isUnset($request->DBInstanceDescription)) {
-            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+
+        if (null !== $request->DBInstanceDescription) {
+            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-        if (!Utils::isUnset($request->DBInstanceNetworkType)) {
-            $query['DBInstanceNetworkType'] = $request->DBInstanceNetworkType;
+
+        if (null !== $request->DBInstanceNetworkType) {
+            @$query['DBInstanceNetworkType'] = $request->DBInstanceNetworkType;
         }
-        if (!Utils::isUnset($request->DBInstanceVersion)) {
-            $query['DBInstanceVersion'] = $request->DBInstanceVersion;
+
+        if (null !== $request->DBInstanceVersion) {
+            @$query['DBInstanceVersion'] = $request->DBInstanceVersion;
         }
-        if (!Utils::isUnset($request->DBNodeStorage)) {
-            $query['DBNodeStorage'] = $request->DBNodeStorage;
+
+        if (null !== $request->DBNodeStorage) {
+            @$query['DBNodeStorage'] = $request->DBNodeStorage;
         }
-        if (!Utils::isUnset($request->DBNodeStorageType)) {
-            $query['DBNodeStorageType'] = $request->DBNodeStorageType;
+
+        if (null !== $request->DBNodeStorageType) {
+            @$query['DBNodeStorageType'] = $request->DBNodeStorageType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->restoreTime)) {
-            $query['RestoreTime'] = $request->restoreTime;
+
+        if (null !== $request->restoreTime) {
+            @$query['RestoreTime'] = $request->restoreTime;
         }
-        if (!Utils::isUnset($request->restoreType)) {
-            $query['RestoreType'] = $request->restoreType;
+
+        if (null !== $request->restoreType) {
+            @$query['RestoreType'] = $request->restoreType;
         }
-        if (!Utils::isUnset($request->securityIPList)) {
-            $query['SecurityIPList'] = $request->securityIPList;
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
         }
-        if (!Utils::isUnset($request->sourceDBInstanceId)) {
-            $query['SourceDBInstanceId'] = $request->sourceDBInstanceId;
+
+        if (null !== $request->sourceDBInstanceId) {
+            @$query['SourceDBInstanceId'] = $request->sourceDBInstanceId;
         }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
-        if (!Utils::isUnset($request->VPCId)) {
-            $query['VPCId'] = $request->VPCId;
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CloneDBInstance',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloneDBInstance',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CloneDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 克隆实例.
+     *
+     * @param request - CloneDBInstanceRequest
+     *
+     * @returns CloneDBInstanceResponse
+     *
      * @param CloneDBInstanceRequest $request
      *
      * @return CloneDBInstanceResponse
@@ -349,6 +407,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 创建账号.
+     *
+     * @param request - CreateAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAccountResponse
+     *
      * @param CreateAccountRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -356,54 +421,69 @@ class Gdb extends OpenApiClient
      */
     public function createAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountDescription)) {
-            $query['AccountDescription'] = $request->accountDescription;
+        if (null !== $request->accountDescription) {
+            @$query['AccountDescription'] = $request->accountDescription;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAccount',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAccount',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建账号.
+     *
+     * @param request - CreateAccountRequest
+     *
+     * @returns CreateAccountResponse
+     *
      * @param CreateAccountRequest $request
      *
      * @return CreateAccountResponse
@@ -416,6 +496,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 创建实例.
+     *
+     * @param request - CreateDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDBInstanceResponse
+     *
      * @param CreateDBInstanceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -423,96 +510,125 @@ class Gdb extends OpenApiClient
      */
     public function createDBInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+
+        if (null !== $request->autoRenewPeriod) {
+            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->DBInstanceCategory)) {
-            $query['DBInstanceCategory'] = $request->DBInstanceCategory;
+
+        if (null !== $request->DBInstanceCategory) {
+            @$query['DBInstanceCategory'] = $request->DBInstanceCategory;
         }
-        if (!Utils::isUnset($request->DBInstanceClass)) {
-            $query['DBInstanceClass'] = $request->DBInstanceClass;
+
+        if (null !== $request->DBInstanceClass) {
+            @$query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-        if (!Utils::isUnset($request->DBInstanceDescription)) {
-            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+
+        if (null !== $request->DBInstanceDescription) {
+            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-        if (!Utils::isUnset($request->DBInstanceNetworkType)) {
-            $query['DBInstanceNetworkType'] = $request->DBInstanceNetworkType;
+
+        if (null !== $request->DBInstanceNetworkType) {
+            @$query['DBInstanceNetworkType'] = $request->DBInstanceNetworkType;
         }
-        if (!Utils::isUnset($request->DBInstanceVersion)) {
-            $query['DBInstanceVersion'] = $request->DBInstanceVersion;
+
+        if (null !== $request->DBInstanceVersion) {
+            @$query['DBInstanceVersion'] = $request->DBInstanceVersion;
         }
-        if (!Utils::isUnset($request->DBNodeStorage)) {
-            $query['DBNodeStorage'] = $request->DBNodeStorage;
+
+        if (null !== $request->DBNodeStorage) {
+            @$query['DBNodeStorage'] = $request->DBNodeStorage;
         }
-        if (!Utils::isUnset($request->DBNodeStorageType)) {
-            $query['DBNodeStorageType'] = $request->DBNodeStorageType;
+
+        if (null !== $request->DBNodeStorageType) {
+            @$query['DBNodeStorageType'] = $request->DBNodeStorageType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityIPList)) {
-            $query['SecurityIPList'] = $request->securityIPList;
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
         }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
-        if (!Utils::isUnset($request->VPCId)) {
-            $query['VPCId'] = $request->VPCId;
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBInstance',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBInstance',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建实例.
+     *
+     * @param request - CreateDBInstanceRequest
+     *
+     * @returns CreateDBInstanceResponse
+     *
      * @param CreateDBInstanceRequest $request
      *
      * @return CreateDBInstanceResponse
@@ -525,6 +641,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 创建只读实例.
+     *
+     * @param request - CreateReadDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateReadDBInstanceResponse
+     *
      * @param CreateReadDBInstanceRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -532,93 +655,121 @@ class Gdb extends OpenApiClient
      */
     public function createReadDBInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+
+        if (null !== $request->autoRenewPeriod) {
+            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-        if (!Utils::isUnset($request->backupSetId)) {
-            $query['BackupSetId'] = $request->backupSetId;
+
+        if (null !== $request->backupSetId) {
+            @$query['BackupSetId'] = $request->backupSetId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->DBInstanceCategory)) {
-            $query['DBInstanceCategory'] = $request->DBInstanceCategory;
+
+        if (null !== $request->DBInstanceCategory) {
+            @$query['DBInstanceCategory'] = $request->DBInstanceCategory;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->DBInstanceNetworkType)) {
-            $query['DBInstanceNetworkType'] = $request->DBInstanceNetworkType;
+
+        if (null !== $request->DBInstanceNetworkType) {
+            @$query['DBInstanceNetworkType'] = $request->DBInstanceNetworkType;
         }
-        if (!Utils::isUnset($request->DBNodeClass)) {
-            $query['DBNodeClass'] = $request->DBNodeClass;
+
+        if (null !== $request->DBNodeClass) {
+            @$query['DBNodeClass'] = $request->DBNodeClass;
         }
-        if (!Utils::isUnset($request->DBNodeStorage)) {
-            $query['DBNodeStorage'] = $request->DBNodeStorage;
+
+        if (null !== $request->DBNodeStorage) {
+            @$query['DBNodeStorage'] = $request->DBNodeStorage;
         }
-        if (!Utils::isUnset($request->DBNodeStorageType)) {
-            $query['DBNodeStorageType'] = $request->DBNodeStorageType;
+
+        if (null !== $request->DBNodeStorageType) {
+            @$query['DBNodeStorageType'] = $request->DBNodeStorageType;
         }
-        if (!Utils::isUnset($request->effectiveTime)) {
-            $query['EffectiveTime'] = $request->effectiveTime;
+
+        if (null !== $request->effectiveTime) {
+            @$query['EffectiveTime'] = $request->effectiveTime;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->orderParam)) {
-            $query['OrderParam'] = $request->orderParam;
+
+        if (null !== $request->orderParam) {
+            @$query['OrderParam'] = $request->orderParam;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateReadDBInstance',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateReadDBInstance',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateReadDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建只读实例.
+     *
+     * @param request - CreateReadDBInstanceRequest
+     *
+     * @returns CreateReadDBInstanceResponse
+     *
      * @param CreateReadDBInstanceRequest $request
      *
      * @return CreateReadDBInstanceResponse
@@ -631,6 +782,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 创建AliyunServiceRoleForGDB.
+     *
+     * @param request - CreateServiceLinkedRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceLinkedRoleResponse
+     *
      * @param CreateServiceLinkedRoleRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -638,48 +796,61 @@ class Gdb extends OpenApiClient
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceLinkedRole',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceLinkedRole',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建AliyunServiceRoleForGDB.
+     *
+     * @param request - CreateServiceLinkedRoleRequest
+     *
+     * @returns CreateServiceLinkedRoleResponse
+     *
      * @param CreateServiceLinkedRoleRequest $request
      *
      * @return CreateServiceLinkedRoleResponse
@@ -692,6 +863,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 高危清库接口.
+     *
+     * @param request - DeleteDBDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDBDataResponse
+     *
      * @param DeleteDBDataRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -699,42 +877,53 @@ class Gdb extends OpenApiClient
      */
     public function deleteDBDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBData',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBData',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDBDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 高危清库接口.
+     *
+     * @param request - DeleteDBDataRequest
+     *
+     * @returns DeleteDBDataResponse
+     *
      * @param DeleteDBDataRequest $request
      *
      * @return DeleteDBDataResponse
@@ -747,6 +936,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 删除实例.
+     *
+     * @param request - DeleteDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDBInstanceResponse
+     *
      * @param DeleteDBInstanceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -754,42 +950,53 @@ class Gdb extends OpenApiClient
      */
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBInstance',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBInstance',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除实例.
+     *
+     * @param request - DeleteDBInstanceRequest
+     *
+     * @returns DeleteDBInstanceResponse
+     *
      * @param DeleteDBInstanceRequest $request
      *
      * @return DeleteDBInstanceResponse
@@ -802,6 +1009,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取账号.
+     *
+     * @param request - DescribeAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAccountsResponse
+     *
      * @param DescribeAccountsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -809,45 +1023,57 @@ class Gdb extends OpenApiClient
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccounts',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccounts',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取账号.
+     *
+     * @param request - DescribeAccountsRequest
+     *
+     * @returns DescribeAccountsResponse
+     *
      * @param DescribeAccountsRequest $request
      *
      * @return DescribeAccountsResponse
@@ -860,6 +1086,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取可用资源.
+     *
+     * @param request - DescribeAvailableResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAvailableResourceResponse
+     *
      * @param DescribeAvailableResourceRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -867,48 +1100,61 @@ class Gdb extends OpenApiClient
      */
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAvailableResource',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAvailableResource',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取可用资源.
+     *
+     * @param request - DescribeAvailableResourceRequest
+     *
+     * @returns DescribeAvailableResourceResponse
+     *
      * @param DescribeAvailableResourceRequest $request
      *
      * @return DescribeAvailableResourceResponse
@@ -921,6 +1167,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取备份策略信息.
+     *
+     * @param request - DescribeBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupPolicyResponse
+     *
      * @param DescribeBackupPolicyRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -928,42 +1181,53 @@ class Gdb extends OpenApiClient
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupPolicy',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupPolicy',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取备份策略信息.
+     *
+     * @param request - DescribeBackupPolicyRequest
+     *
+     * @returns DescribeBackupPolicyResponse
+     *
      * @param DescribeBackupPolicyRequest $request
      *
      * @return DescribeBackupPolicyResponse
@@ -976,6 +1240,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取备份集.
+     *
+     * @param request - DescribeBackupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupsResponse
+     *
      * @param DescribeBackupsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -983,57 +1254,73 @@ class Gdb extends OpenApiClient
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackups',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackups',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取备份集.
+     *
+     * @param request - DescribeBackupsRequest
+     *
+     * @returns DescribeBackupsResponse
+     *
      * @param DescribeBackupsRequest $request
      *
      * @return DescribeBackupsResponse
@@ -1046,6 +1333,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取实例白名单.
+     *
+     * @param request - DescribeDBInstanceAccessWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstanceAccessWhiteListResponse
+     *
      * @param DescribeDBInstanceAccessWhiteListRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -1053,42 +1347,53 @@ class Gdb extends OpenApiClient
      */
     public function describeDBInstanceAccessWhiteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceAccessWhiteList',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceAccessWhiteList',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDBInstanceAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取实例白名单.
+     *
+     * @param request - DescribeDBInstanceAccessWhiteListRequest
+     *
+     * @returns DescribeDBInstanceAccessWhiteListResponse
+     *
      * @param DescribeDBInstanceAccessWhiteListRequest $request
      *
      * @return DescribeDBInstanceAccessWhiteListResponse
@@ -1101,6 +1406,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取实例详情信息.
+     *
+     * @param request - DescribeDBInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstanceAttributeResponse
+     *
      * @param DescribeDBInstanceAttributeRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1108,42 +1420,53 @@ class Gdb extends OpenApiClient
      */
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceAttribute',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceAttribute',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取实例详情信息.
+     *
+     * @param request - DescribeDBInstanceAttributeRequest
+     *
+     * @returns DescribeDBInstanceAttributeResponse
+     *
      * @param DescribeDBInstanceAttributeRequest $request
      *
      * @return DescribeDBInstanceAttributeResponse
@@ -1156,6 +1479,11 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * @param request - DescribeDBInstancePerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstancePerformanceResponse
+     *
      * @param DescribeDBInstancePerformanceRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -1163,51 +1491,63 @@ class Gdb extends OpenApiClient
      */
     public function describeDBInstancePerformanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstancePerformance',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstancePerformance',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDBInstancePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - DescribeDBInstancePerformanceRequest
+     *
+     * @returns DescribeDBInstancePerformanceResponse
+     *
      * @param DescribeDBInstancePerformanceRequest $request
      *
      * @return DescribeDBInstancePerformanceResponse
@@ -1220,6 +1560,11 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * @param request - DescribeDBInstanceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstanceStatusResponse
+     *
      * @param DescribeDBInstanceStatusRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1227,42 +1572,51 @@ class Gdb extends OpenApiClient
      */
     public function describeDBInstanceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceStatus',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceStatus',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDBInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - DescribeDBInstanceStatusRequest
+     *
+     * @returns DescribeDBInstanceStatusResponse
+     *
      * @param DescribeDBInstanceStatusRequest $request
      *
      * @return DescribeDBInstanceStatusResponse
@@ -1275,6 +1629,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取实例列表.
+     *
+     * @param request - DescribeDBInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstancesResponse
+     *
      * @param DescribeDBInstancesRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1282,66 +1643,85 @@ class Gdb extends OpenApiClient
      */
     public function describeDBInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->DBInstanceDescription)) {
-            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+
+        if (null !== $request->DBInstanceDescription) {
+            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-        if (!Utils::isUnset($request->DBInstanceIds)) {
-            $query['DBInstanceIds'] = $request->DBInstanceIds;
+
+        if (null !== $request->DBInstanceIds) {
+            @$query['DBInstanceIds'] = $request->DBInstanceIds;
         }
-        if (!Utils::isUnset($request->DBInstanceStatus)) {
-            $query['DBInstanceStatus'] = $request->DBInstanceStatus;
+
+        if (null !== $request->DBInstanceStatus) {
+            @$query['DBInstanceStatus'] = $request->DBInstanceStatus;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstances',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstances',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取实例列表.
+     *
+     * @param request - DescribeDBInstancesRequest
+     *
+     * @returns DescribeDBInstancesResponse
+     *
      * @param DescribeDBInstancesRequest $request
      *
      * @return DescribeDBInstancesResponse
@@ -1354,6 +1734,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取Region.
+     *
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1361,39 +1748,49 @@ class Gdb extends OpenApiClient
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取Region.
+     *
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
      * @param DescribeRegionsRequest $request
      *
      * @return DescribeRegionsResponse
@@ -1406,6 +1803,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取资源使用量.
+     *
+     * @param request - DescribeResourceUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceUsageResponse
+     *
      * @param DescribeResourceUsageRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1413,42 +1817,53 @@ class Gdb extends OpenApiClient
      */
     public function describeResourceUsageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourceUsage',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResourceUsage',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取资源使用量.
+     *
+     * @param request - DescribeResourceUsageRequest
+     *
+     * @returns DescribeResourceUsageResponse
+     *
      * @param DescribeResourceUsageRequest $request
      *
      * @return DescribeResourceUsageResponse
@@ -1461,6 +1876,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取安全组.
+     *
+     * @param request - DescribeSecurityGroupConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSecurityGroupConfigurationResponse
+     *
      * @param DescribeSecurityGroupConfigurationRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -1468,42 +1890,53 @@ class Gdb extends OpenApiClient
      */
     public function describeSecurityGroupConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSecurityGroupConfiguration',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSecurityGroupConfiguration',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取安全组.
+     *
+     * @param request - DescribeSecurityGroupConfigurationRequest
+     *
+     * @returns DescribeSecurityGroupConfigurationResponse
+     *
      * @param DescribeSecurityGroupConfigurationRequest $request
      *
      * @return DescribeSecurityGroupConfigurationResponse
@@ -1516,6 +1949,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取Tag.
+     *
+     * @param request - DescribeTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagsResponse
+     *
      * @param DescribeTagsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1523,51 +1963,65 @@ class Gdb extends OpenApiClient
      */
     public function describeTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTags',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTags',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取Tag.
+     *
+     * @param request - DescribeTagsRequest
+     *
+     * @returns DescribeTagsResponse
+     *
      * @param DescribeTagsRequest $request
      *
      * @return DescribeTagsResponse
@@ -1580,6 +2034,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 获取Tag信息.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1587,54 +2048,69 @@ class Gdb extends OpenApiClient
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取Tag信息.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
      * @param ListTagResourcesRequest $request
      *
      * @return ListTagResourcesResponse
@@ -1647,6 +2123,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 修改备份策略.
+     *
+     * @param request - ModifyBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBackupPolicyResponse
+     *
      * @param ModifyBackupPolicyRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1654,51 +2137,65 @@ class Gdb extends OpenApiClient
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupRetentionPeriod)) {
-            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        if (null !== $request->backupRetentionPeriod) {
+            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->preferredBackupPeriod)) {
-            $query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+
+        if (null !== $request->preferredBackupPeriod) {
+            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
         }
-        if (!Utils::isUnset($request->preferredBackupTime)) {
-            $query['PreferredBackupTime'] = $request->preferredBackupTime;
+
+        if (null !== $request->preferredBackupTime) {
+            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupPolicy',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupPolicy',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改备份策略.
+     *
+     * @param request - ModifyBackupPolicyRequest
+     *
+     * @returns ModifyBackupPolicyResponse
+     *
      * @param ModifyBackupPolicyRequest $request
      *
      * @return ModifyBackupPolicyResponse
@@ -1711,6 +2208,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 配置白名单.
+     *
+     * @param request - ModifyDBInstanceAccessWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBInstanceAccessWhiteListResponse
+     *
      * @param ModifyDBInstanceAccessWhiteListRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -1718,54 +2222,69 @@ class Gdb extends OpenApiClient
      */
     public function modifyDBInstanceAccessWhiteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceIPArrayAttribute)) {
-            $query['DBInstanceIPArrayAttribute'] = $request->DBInstanceIPArrayAttribute;
+        if (null !== $request->DBInstanceIPArrayAttribute) {
+            @$query['DBInstanceIPArrayAttribute'] = $request->DBInstanceIPArrayAttribute;
         }
-        if (!Utils::isUnset($request->DBInstanceIPArrayName)) {
-            $query['DBInstanceIPArrayName'] = $request->DBInstanceIPArrayName;
+
+        if (null !== $request->DBInstanceIPArrayName) {
+            @$query['DBInstanceIPArrayName'] = $request->DBInstanceIPArrayName;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->modifyMode)) {
-            $query['ModifyMode'] = $request->modifyMode;
+
+        if (null !== $request->modifyMode) {
+            @$query['ModifyMode'] = $request->modifyMode;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityIps)) {
-            $query['SecurityIps'] = $request->securityIps;
+
+        if (null !== $request->securityIps) {
+            @$query['SecurityIps'] = $request->securityIps;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceAccessWhiteList',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceAccessWhiteList',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDBInstanceAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 配置白名单.
+     *
+     * @param request - ModifyDBInstanceAccessWhiteListRequest
+     *
+     * @returns ModifyDBInstanceAccessWhiteListResponse
+     *
      * @param ModifyDBInstanceAccessWhiteListRequest $request
      *
      * @return ModifyDBInstanceAccessWhiteListResponse
@@ -1778,6 +2297,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 修改实例描述.
+     *
+     * @param request - ModifyDBInstanceDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBInstanceDescriptionResponse
+     *
      * @param ModifyDBInstanceDescriptionRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1785,45 +2311,57 @@ class Gdb extends OpenApiClient
      */
     public function modifyDBInstanceDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceDescription)) {
-            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (null !== $request->DBInstanceDescription) {
+            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceDescription',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceDescription',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改实例描述.
+     *
+     * @param request - ModifyDBInstanceDescriptionRequest
+     *
+     * @returns ModifyDBInstanceDescriptionResponse
+     *
      * @param ModifyDBInstanceDescriptionRequest $request
      *
      * @return ModifyDBInstanceDescriptionResponse
@@ -1836,6 +2374,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 修改实例可运维时间.
+     *
+     * @param request - ModifyDBInstanceMaintainTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBInstanceMaintainTimeResponse
+     *
      * @param ModifyDBInstanceMaintainTimeRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1843,45 +2388,57 @@ class Gdb extends OpenApiClient
      */
     public function modifyDBInstanceMaintainTimeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->maintainTime)) {
-            $query['MaintainTime'] = $request->maintainTime;
+
+        if (null !== $request->maintainTime) {
+            @$query['MaintainTime'] = $request->maintainTime;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceMaintainTime',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceMaintainTime',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDBInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改实例可运维时间.
+     *
+     * @param request - ModifyDBInstanceMaintainTimeRequest
+     *
+     * @returns ModifyDBInstanceMaintainTimeResponse
+     *
      * @param ModifyDBInstanceMaintainTimeRequest $request
      *
      * @return ModifyDBInstanceMaintainTimeResponse
@@ -1894,6 +2451,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 修改实例规格
+     *
+     * @param request - ModifyDBInstanceSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBInstanceSpecResponse
+     *
      * @param ModifyDBInstanceSpecRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1901,69 +2465,89 @@ class Gdb extends OpenApiClient
      */
     public function modifyDBInstanceSpecWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->DBInstanceClass)) {
-            $query['DBInstanceClass'] = $request->DBInstanceClass;
+
+        if (null !== $request->DBInstanceClass) {
+            @$query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->DBInstanceStorage)) {
-            $query['DBInstanceStorage'] = $request->DBInstanceStorage;
+
+        if (null !== $request->DBInstanceStorage) {
+            @$query['DBInstanceStorage'] = $request->DBInstanceStorage;
         }
-        if (!Utils::isUnset($request->DBInstanceStorageType)) {
-            $query['DBInstanceStorageType'] = $request->DBInstanceStorageType;
+
+        if (null !== $request->DBInstanceStorageType) {
+            @$query['DBInstanceStorageType'] = $request->DBInstanceStorageType;
         }
-        if (!Utils::isUnset($request->effectiveTime)) {
-            $query['EffectiveTime'] = $request->effectiveTime;
+
+        if (null !== $request->effectiveTime) {
+            @$query['EffectiveTime'] = $request->effectiveTime;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->orderParam)) {
-            $query['OrderParam'] = $request->orderParam;
+
+        if (null !== $request->orderParam) {
+            @$query['OrderParam'] = $request->orderParam;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceSpec',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceSpec',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDBInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改实例规格
+     *
+     * @param request - ModifyDBInstanceSpecRequest
+     *
+     * @returns ModifyDBInstanceSpecResponse
+     *
      * @param ModifyDBInstanceSpecRequest $request
      *
      * @return ModifyDBInstanceSpecResponse
@@ -1976,6 +2560,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 修改安全组.
+     *
+     * @param request - ModifySecurityGroupConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySecurityGroupConfigurationResponse
+     *
      * @param ModifySecurityGroupConfigurationRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -1983,45 +2574,57 @@ class Gdb extends OpenApiClient
      */
     public function modifySecurityGroupConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySecurityGroupConfiguration',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySecurityGroupConfiguration',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifySecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改安全组.
+     *
+     * @param request - ModifySecurityGroupConfigurationRequest
+     *
+     * @returns ModifySecurityGroupConfigurationResponse
+     *
      * @param ModifySecurityGroupConfigurationRequest $request
      *
      * @return ModifySecurityGroupConfigurationResponse
@@ -2034,6 +2637,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 重置密码
+     *
+     * @param request - ResetAccountPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetAccountPasswordResponse
+     *
      * @param ResetAccountPasswordRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2041,48 +2651,61 @@ class Gdb extends OpenApiClient
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetAccountPassword',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetAccountPassword',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 重置密码
+     *
+     * @param request - ResetAccountPasswordRequest
+     *
+     * @returns ResetAccountPasswordResponse
+     *
      * @param ResetAccountPasswordRequest $request
      *
      * @return ResetAccountPasswordResponse
@@ -2095,6 +2718,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 重启实例.
+     *
+     * @param request - RestartDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartDBInstanceResponse
+     *
      * @param RestartDBInstanceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2102,42 +2732,53 @@ class Gdb extends OpenApiClient
      */
     public function restartDBInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartDBInstance',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartDBInstance',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 重启实例.
+     *
+     * @param request - RestartDBInstanceRequest
+     *
+     * @returns RestartDBInstanceResponse
+     *
      * @param RestartDBInstanceRequest $request
      *
      * @return RestartDBInstanceResponse
@@ -2150,6 +2791,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 增加标签.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
      * @param TagResourcesRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2157,51 +2805,65 @@ class Gdb extends OpenApiClient
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 增加标签.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
      * @param TagResourcesRequest $request
      *
      * @return TagResourcesResponse
@@ -2214,6 +2876,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 删除标签.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
      * @param UntagResourcesRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2221,54 +2890,69 @@ class Gdb extends OpenApiClient
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除标签.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
      * @param UntagResourcesRequest $request
      *
      * @return UntagResourcesResponse
@@ -2281,6 +2965,13 @@ class Gdb extends OpenApiClient
     }
 
     /**
+     * 升级内核版本.
+     *
+     * @param request - UpgradeDBInstanceKernelVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeDBInstanceKernelVersionResponse
+     *
      * @param UpgradeDBInstanceKernelVersionRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -2288,48 +2979,61 @@ class Gdb extends OpenApiClient
      */
     public function upgradeDBInstanceKernelVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->switchTime)) {
-            $query['SwitchTime'] = $request->switchTime;
+
+        if (null !== $request->switchTime) {
+            @$query['SwitchTime'] = $request->switchTime;
         }
-        if (!Utils::isUnset($request->switchTimeMode)) {
-            $query['SwitchTimeMode'] = $request->switchTimeMode;
+
+        if (null !== $request->switchTimeMode) {
+            @$query['SwitchTimeMode'] = $request->switchTimeMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeDBInstanceKernelVersion',
-            'version'     => '2019-09-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeDBInstanceKernelVersion',
+            'version' => '2019-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpgradeDBInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 升级内核版本.
+     *
+     * @param request - UpgradeDBInstanceKernelVersionRequest
+     *
+     * @returns UpgradeDBInstanceKernelVersionResponse
+     *
      * @param UpgradeDBInstanceKernelVersionRequest $request
      *
      * @return UpgradeDBInstanceKernelVersionResponse

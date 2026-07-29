@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeBackupsResponseBody\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backup extends Model
 {
@@ -48,44 +48,52 @@ class backup extends Model
      */
     public $DBInstanceId;
     protected $_name = [
-        'backupEndTime'   => 'BackupEndTime',
-        'backupId'        => 'BackupId',
-        'backupMethod'    => 'BackupMethod',
-        'backupSize'      => 'BackupSize',
+        'backupEndTime' => 'BackupEndTime',
+        'backupId' => 'BackupId',
+        'backupMethod' => 'BackupMethod',
+        'backupSize' => 'BackupSize',
         'backupStartTime' => 'BackupStartTime',
-        'backupStatus'    => 'BackupStatus',
-        'backupType'      => 'BackupType',
-        'DBInstanceId'    => 'DBInstanceId',
+        'backupStatus' => 'BackupStatus',
+        'backupType' => 'BackupType',
+        'DBInstanceId' => 'DBInstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupEndTime) {
             $res['BackupEndTime'] = $this->backupEndTime;
         }
+
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
         }
+
         if (null !== $this->backupMethod) {
             $res['BackupMethod'] = $this->backupMethod;
         }
+
         if (null !== $this->backupSize) {
             $res['BackupSize'] = $this->backupSize;
         }
+
         if (null !== $this->backupStartTime) {
             $res['BackupStartTime'] = $this->backupStartTime;
         }
+
         if (null !== $this->backupStatus) {
             $res['BackupStatus'] = $this->backupStatus;
         }
+
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -93,35 +101,42 @@ class backup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupEndTime'])) {
             $model->backupEndTime = $map['BackupEndTime'];
         }
+
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
         }
+
         if (isset($map['BackupMethod'])) {
             $model->backupMethod = $map['BackupMethod'];
         }
+
         if (isset($map['BackupSize'])) {
             $model->backupSize = $map['BackupSize'];
         }
+
         if (isset($map['BackupStartTime'])) {
             $model->backupStartTime = $map['BackupStartTime'];
         }
+
         if (isset($map['BackupStatus'])) {
             $model->backupStatus = $map['BackupStatus'];
         }
+
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeAvailableResourceResponseBody\availableZoneList\availableZone\supportedSerialList\supportedSerial\supportedInstanceClassList\supportedInstanceClass\supportedStorageSizeList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeAvailableResourceResponseBody\availableZoneList\availableZone\supportedSerialList\supportedSerial\supportedInstanceClassList\supportedInstanceClass\supportedStorageSizeList\supportedStorageSize\storageSize;
-use AlibabaCloud\Tea\Model;
 
 class supportedStorageSize extends Model
 {
@@ -25,14 +25,19 @@ class supportedStorageSize extends Model
 
     public function validate()
     {
+        if (null !== $this->storageSize) {
+            $this->storageSize->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->storageSize) {
-            $res['StorageSize'] = null !== $this->storageSize ? $this->storageSize->toMap() : null;
+            $res['StorageSize'] = null !== $this->storageSize ? $this->storageSize->toArray($noStream) : $this->storageSize;
         }
+
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
@@ -40,17 +45,18 @@ class supportedStorageSize extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedStorageSize
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StorageSize'])) {
             $model->storageSize = storageSize::fromMap($map['StorageSize']);
         }
+
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }

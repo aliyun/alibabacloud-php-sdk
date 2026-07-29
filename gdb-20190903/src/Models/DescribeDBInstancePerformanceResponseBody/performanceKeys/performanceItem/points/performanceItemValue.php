@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gdb\V20190903\Models\DescribeDBInstancePerformanceResponseBody\performanceKeys\performanceItem\points;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class performanceItemValue extends Model
 {
@@ -19,19 +19,21 @@ class performanceItemValue extends Model
     public $value;
     protected $_name = [
         'timestamp' => 'Timestamp',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -39,17 +41,18 @@ class performanceItemValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return performanceItemValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
