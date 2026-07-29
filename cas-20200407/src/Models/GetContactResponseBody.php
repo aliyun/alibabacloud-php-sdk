@@ -49,6 +49,11 @@ class GetContactResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string[]
+     */
+    public $webhookList;
+
+    /**
      * @var string
      */
     public $webhooks;
@@ -61,11 +66,15 @@ class GetContactResponseBody extends Model
         'mobileStatus' => 'MobileStatus',
         'name' => 'Name',
         'requestId' => 'RequestId',
+        'webhookList' => 'WebhookList',
         'webhooks' => 'Webhooks',
     ];
 
     public function validate()
     {
+        if (\is_array($this->webhookList)) {
+            Model::validateArray($this->webhookList);
+        }
         parent::validate();
     }
 
@@ -102,6 +111,17 @@ class GetContactResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->webhookList) {
+            if (\is_array($this->webhookList)) {
+                $res['WebhookList'] = [];
+                $n1 = 0;
+                foreach ($this->webhookList as $item1) {
+                    $res['WebhookList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->webhooks) {
@@ -149,6 +169,17 @@ class GetContactResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['WebhookList'])) {
+            if (!empty($map['WebhookList'])) {
+                $model->webhookList = [];
+                $n1 = 0;
+                foreach ($map['WebhookList'] as $item1) {
+                    $model->webhookList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Webhooks'])) {

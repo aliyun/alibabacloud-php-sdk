@@ -225,12 +225,8 @@ class Cas extends OpenApiClient
             'rus-west-1-pop' => 'cas.aliyuncs.com',
             'us-east-1' => 'cas.aliyuncs.com',
             'us-west-1' => 'cas.aliyuncs.com',
-            'me-east-1' => 'cas.me-east-1.aliyuncs.com',
             'eu-central-1' => 'cas.eu-central-1.aliyuncs.com',
-            'ap-southeast-2' => 'cas.ap-southeast-2.aliyuncs.com',
             'ap-southeast-1' => 'cas.ap-southeast-1.aliyuncs.com',
-            'ap-south-1' => 'cas.ap-south-1.aliyuncs.com',
-            'ap-northeast-1' => 'cas.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -3319,7 +3315,7 @@ class Cas extends OpenApiClient
      * Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
      *
      * @remarks
-     * The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+     * The China single-user QPS limit for this operation is 100 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - GetUserCertificateDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3365,7 +3361,7 @@ class Cas extends OpenApiClient
      * Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
      *
      * @remarks
-     * The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+     * The China single-user QPS limit for this operation is 100 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - GetUserCertificateDetailRequest
      *

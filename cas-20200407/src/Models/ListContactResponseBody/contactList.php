@@ -39,6 +39,11 @@ class contactList extends Model
     public $name;
 
     /**
+     * @var string[]
+     */
+    public $webhookList;
+
+    /**
      * @var string
      */
     public $webhooks;
@@ -49,11 +54,15 @@ class contactList extends Model
         'mobile' => 'Mobile',
         'mobileStatus' => 'MobileStatus',
         'name' => 'Name',
+        'webhookList' => 'WebhookList',
         'webhooks' => 'Webhooks',
     ];
 
     public function validate()
     {
+        if (\is_array($this->webhookList)) {
+            Model::validateArray($this->webhookList);
+        }
         parent::validate();
     }
 
@@ -82,6 +91,17 @@ class contactList extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->webhookList) {
+            if (\is_array($this->webhookList)) {
+                $res['WebhookList'] = [];
+                $n1 = 0;
+                foreach ($this->webhookList as $item1) {
+                    $res['WebhookList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->webhooks) {
@@ -121,6 +141,17 @@ class contactList extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['WebhookList'])) {
+            if (!empty($map['WebhookList'])) {
+                $model->webhookList = [];
+                $n1 = 0;
+                foreach ($map['WebhookList'] as $item1) {
+                    $model->webhookList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Webhooks'])) {
