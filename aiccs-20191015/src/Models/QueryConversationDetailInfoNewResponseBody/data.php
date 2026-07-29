@@ -16,6 +16,11 @@ class data extends Model
     public $batchId;
 
     /**
+     * @var int
+     */
+    public $branchId;
+
+    /**
      * @var string
      */
     public $callId;
@@ -141,6 +146,7 @@ class data extends Model
     public $variables;
     protected $_name = [
         'batchId' => 'BatchId',
+        'branchId' => 'BranchId',
         'callId' => 'CallId',
         'callResult' => 'CallResult',
         'calledPhone' => 'CalledPhone',
@@ -184,6 +190,10 @@ class data extends Model
         $res = [];
         if (null !== $this->batchId) {
             $res['BatchId'] = $this->batchId;
+        }
+
+        if (null !== $this->branchId) {
+            $res['BranchId'] = $this->branchId;
         }
 
         if (null !== $this->callId) {
@@ -313,6 +323,10 @@ class data extends Model
         $model = new self();
         if (isset($map['BatchId'])) {
             $model->batchId = $map['BatchId'];
+        }
+
+        if (isset($map['BranchId'])) {
+            $model->branchId = $map['BranchId'];
         }
 
         if (isset($map['CallId'])) {

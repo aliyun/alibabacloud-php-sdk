@@ -146,6 +146,11 @@ class UpdateModelApplicationRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $pauseTime;
+
+    /**
      * @var string
      */
     public $prompt;
@@ -242,6 +247,7 @@ class UpdateModelApplicationRequest extends Model
         'muteHangupNum' => 'MuteHangupNum',
         'mutePushMode' => 'MutePushMode',
         'ownerId' => 'OwnerId',
+        'pauseTime' => 'PauseTime',
         'prompt' => 'Prompt',
         'qualificationId' => 'QualificationId',
         'qualificationName' => 'QualificationName',
@@ -378,6 +384,10 @@ class UpdateModelApplicationRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->pauseTime) {
+            $res['PauseTime'] = $this->pauseTime;
         }
 
         if (null !== $this->prompt) {
@@ -553,6 +563,10 @@ class UpdateModelApplicationRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PauseTime'])) {
+            $model->pauseTime = $map['PauseTime'];
         }
 
         if (isset($map['Prompt'])) {

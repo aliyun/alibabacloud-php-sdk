@@ -1955,10 +1955,10 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Creates a call task.
+     * Creates a voice call task.
      *
      * @remarks
-     * Before creating a call task, make a test call with an agent to ensure the results meet your requirements.
+     * Before creating a call task, use an agent to perform a test call to confirm that the results meet your requirements.
      *
      * @param tmpReq - CreateAiCallTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1987,6 +1987,10 @@ class Aiccs extends OpenApiClient
             $request->callTimeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTime, 'CallTime', 'json');
         }
 
+        if (null !== $tmpReq->callableTime) {
+            $request->callableTimeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callableTime, 'CallableTime', 'json');
+        }
+
         $query = [];
         if (null !== $request->agentId) {
             @$query['AgentId'] = $request->agentId;
@@ -1998,6 +2002,18 @@ class Aiccs extends OpenApiClient
 
         if (null !== $request->callDayShrink) {
             @$query['CallDay'] = $request->callDayShrink;
+        }
+
+        if (null !== $request->callExpireDate) {
+            @$query['CallExpireDate'] = $request->callExpireDate;
+        }
+
+        if (null !== $request->callExpireMinutes) {
+            @$query['CallExpireMinutes'] = $request->callExpireMinutes;
+        }
+
+        if (null !== $request->callExpireType) {
+            @$query['CallExpireType'] = $request->callExpireType;
         }
 
         if (null !== $request->callRetryInterval) {
@@ -2014,6 +2030,10 @@ class Aiccs extends OpenApiClient
 
         if (null !== $request->callTimeShrink) {
             @$query['CallTime'] = $request->callTimeShrink;
+        }
+
+        if (null !== $request->callableTimeShrink) {
+            @$query['CallableTime'] = $request->callableTimeShrink;
         }
 
         if (null !== $request->lineEncoding) {
@@ -2087,10 +2107,10 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Creates a call task.
+     * Creates a voice call task.
      *
      * @remarks
-     * Before creating a call task, make a test call with an agent to ensure the results meet your requirements.
+     * Before creating a call task, use an agent to perform a test call to confirm that the results meet your requirements.
      *
      * @param request - CreateAiCallTaskRequest
      *
@@ -10893,11 +10913,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Runs a paginated query for call task details.
+     * Queries call task details by page.
      *
      * @remarks
-     * - You must create a call task before you can query its details.
-     * - You can create a call task on the **call task management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) API.
+     * - Before querying call task details, make sure you have created a call task.
+     * - If you have not created a call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
      *
      * @param tmpReq - QueryAiCallDetailPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11018,11 +11038,11 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Runs a paginated query for call task details.
+     * Queries call task details by page.
      *
      * @remarks
-     * - You must create a call task before you can query its details.
-     * - You can create a call task on the **call task management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) API.
+     * - Before querying call task details, make sure you have created a call task.
+     * - If you have not created a call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
      *
      * @param request - QueryAiCallDetailPageRequest
      *
@@ -11040,7 +11060,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Gets basic information for a call task.
+     * Queries the basic information of a voice call task.
      *
      * @param request - QueryAiCallTaskDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11091,7 +11111,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Gets basic information for a call task.
+     * Queries the basic information of a voice call task.
      *
      * @param request - QueryAiCallTaskDetailRequest
      *
@@ -11109,7 +11129,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of call tasks.
+     * Queries the list of voice call tasks.
      *
      * @param request - QueryAiCallTaskPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11188,7 +11208,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of call tasks.
+     * Queries the list of voice call tasks.
      *
      * @param request - QueryAiCallTaskPageRequest
      *
@@ -11443,12 +11463,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries the details of a call task and call records.
+     * Queries the details of a call task and call conversation information.
      *
      * @remarks
-     * - You can call this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
+     * - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
      * - Before calling this operation, make sure that you have created a call task and imported callee data.
-     * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
+     * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
      *
      * @param request - QueryConversationDetailInfoNewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11511,12 +11531,12 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Queries the details of a call task and call records.
+     * Queries the details of a call task and call conversation information.
      *
      * @remarks
-     * - You can call this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
+     * - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
      * - Before calling this operation, make sure that you have created a call task and imported callee data.
-     * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
+     * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
      *
      * @param request - QueryConversationDetailInfoNewRequest
      *
@@ -14550,10 +14570,10 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Updates a call task configuration.
+     * Updates the configuration of a voice call task.
      *
      * @remarks
-     * Ensure the call task is stopped before you update its configuration.
+     * Before updating the configuration of a voice call task, make sure that the task is in the Stopped state.
      *
      * @param tmpReq - UpdateAiCallTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14582,9 +14602,25 @@ class Aiccs extends OpenApiClient
             $request->callTimeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTime, 'CallTime', 'json');
         }
 
+        if (null !== $tmpReq->callableTime) {
+            $request->callableTimeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callableTime, 'CallableTime', 'json');
+        }
+
         $query = [];
         if (null !== $request->callDayShrink) {
             @$query['CallDay'] = $request->callDayShrink;
+        }
+
+        if (null !== $request->callExpireDate) {
+            @$query['CallExpireDate'] = $request->callExpireDate;
+        }
+
+        if (null !== $request->callExpireMinutes) {
+            @$query['CallExpireMinutes'] = $request->callExpireMinutes;
+        }
+
+        if (null !== $request->callExpireType) {
+            @$query['CallExpireType'] = $request->callExpireType;
         }
 
         if (null !== $request->callRetryInterval) {
@@ -14601,6 +14637,10 @@ class Aiccs extends OpenApiClient
 
         if (null !== $request->callTimeShrink) {
             @$query['CallTime'] = $request->callTimeShrink;
+        }
+
+        if (null !== $request->callableTimeShrink) {
+            @$query['CallableTime'] = $request->callableTimeShrink;
         }
 
         if (null !== $request->lineEncoding) {
@@ -14678,10 +14718,10 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Updates a call task configuration.
+     * Updates the configuration of a voice call task.
      *
      * @remarks
-     * Ensure the call task is stopped before you update its configuration.
+     * Before updating the configuration of a voice call task, make sure that the task is in the Stopped state.
      *
      * @param request - UpdateAiCallTaskRequest
      *
@@ -15006,7 +15046,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Edit Model Application.
+     * Modifies a model application.
      *
      * @param tmpReq - UpdateModelApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15140,6 +15180,10 @@ class Aiccs extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->pauseTime) {
+            @$query['PauseTime'] = $request->pauseTime;
+        }
+
         if (null !== $request->prompt) {
             @$query['Prompt'] = $request->prompt;
         }
@@ -15215,7 +15259,7 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * Edit Model Application.
+     * Modifies a model application.
      *
      * @param request - UpdateModelApplicationRequest
      *

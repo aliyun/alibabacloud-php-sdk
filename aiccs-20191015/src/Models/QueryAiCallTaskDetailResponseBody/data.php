@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskDetailResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskDetailResponseBody\data\callableTimes;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskDetailResponseBody\data\callTimes;
 
 class data extends Model
@@ -35,9 +36,29 @@ class data extends Model
     public $callDays;
 
     /**
+     * @var string
+     */
+    public $callExpireDate;
+
+    /**
+     * @var int
+     */
+    public $callExpireMinutes;
+
+    /**
+     * @var int
+     */
+    public $callExpireType;
+
+    /**
      * @var callTimes[]
      */
     public $callTimes;
+
+    /**
+     * @var callableTimes[]
+     */
+    public $callableTimes;
 
     /**
      * @var string
@@ -114,7 +135,11 @@ class data extends Model
         'applicationCode' => 'ApplicationCode',
         'applicationName' => 'ApplicationName',
         'callDays' => 'CallDays',
+        'callExpireDate' => 'CallExpireDate',
+        'callExpireMinutes' => 'CallExpireMinutes',
+        'callExpireType' => 'CallExpireType',
         'callTimes' => 'CallTimes',
+        'callableTimes' => 'CallableTimes',
         'callerNumber' => 'CallerNumber',
         'concurrentCount' => 'ConcurrentCount',
         'lineEncoding' => 'LineEncoding',
@@ -138,6 +163,9 @@ class data extends Model
         }
         if (\is_array($this->callTimes)) {
             Model::validateArray($this->callTimes);
+        }
+        if (\is_array($this->callableTimes)) {
+            Model::validateArray($this->callableTimes);
         }
         if (\is_array($this->retryReasons)) {
             Model::validateArray($this->retryReasons);
@@ -175,12 +203,35 @@ class data extends Model
             }
         }
 
+        if (null !== $this->callExpireDate) {
+            $res['CallExpireDate'] = $this->callExpireDate;
+        }
+
+        if (null !== $this->callExpireMinutes) {
+            $res['CallExpireMinutes'] = $this->callExpireMinutes;
+        }
+
+        if (null !== $this->callExpireType) {
+            $res['CallExpireType'] = $this->callExpireType;
+        }
+
         if (null !== $this->callTimes) {
             if (\is_array($this->callTimes)) {
                 $res['CallTimes'] = [];
                 $n1 = 0;
                 foreach ($this->callTimes as $item1) {
                     $res['CallTimes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->callableTimes) {
+            if (\is_array($this->callableTimes)) {
+                $res['CallableTimes'] = [];
+                $n1 = 0;
+                foreach ($this->callableTimes as $item1) {
+                    $res['CallableTimes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -287,12 +338,35 @@ class data extends Model
             }
         }
 
+        if (isset($map['CallExpireDate'])) {
+            $model->callExpireDate = $map['CallExpireDate'];
+        }
+
+        if (isset($map['CallExpireMinutes'])) {
+            $model->callExpireMinutes = $map['CallExpireMinutes'];
+        }
+
+        if (isset($map['CallExpireType'])) {
+            $model->callExpireType = $map['CallExpireType'];
+        }
+
         if (isset($map['CallTimes'])) {
             if (!empty($map['CallTimes'])) {
                 $model->callTimes = [];
                 $n1 = 0;
                 foreach ($map['CallTimes'] as $item1) {
                     $model->callTimes[$n1] = callTimes::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['CallableTimes'])) {
+            if (!empty($map['CallableTimes'])) {
+                $model->callableTimes = [];
+                $n1 = 0;
+                foreach ($map['CallableTimes'] as $item1) {
+                    $model->callableTimes[$n1] = callableTimes::fromMap($item1);
                     ++$n1;
                 }
             }

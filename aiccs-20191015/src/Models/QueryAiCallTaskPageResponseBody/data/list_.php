@@ -29,6 +29,21 @@ class list_ extends Model
     public $applicationName;
 
     /**
+     * @var string
+     */
+    public $callExpireDate;
+
+    /**
+     * @var int
+     */
+    public $callExpireMinutes;
+
+    /**
+     * @var int
+     */
+    public $callExpireType;
+
+    /**
      * @var int
      */
     public $callingCount;
@@ -122,6 +137,9 @@ class list_ extends Model
         'agentName' => 'AgentName',
         'applicationCode' => 'ApplicationCode',
         'applicationName' => 'ApplicationName',
+        'callExpireDate' => 'CallExpireDate',
+        'callExpireMinutes' => 'CallExpireMinutes',
+        'callExpireType' => 'CallExpireType',
         'callingCount' => 'CallingCount',
         'completeRate' => 'CompleteRate',
         'concurrentCount' => 'ConcurrentCount',
@@ -164,6 +182,18 @@ class list_ extends Model
 
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
+        }
+
+        if (null !== $this->callExpireDate) {
+            $res['CallExpireDate'] = $this->callExpireDate;
+        }
+
+        if (null !== $this->callExpireMinutes) {
+            $res['CallExpireMinutes'] = $this->callExpireMinutes;
+        }
+
+        if (null !== $this->callExpireType) {
+            $res['CallExpireType'] = $this->callExpireType;
         }
 
         if (null !== $this->callingCount) {
@@ -263,6 +293,18 @@ class list_ extends Model
 
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
+        }
+
+        if (isset($map['CallExpireDate'])) {
+            $model->callExpireDate = $map['CallExpireDate'];
+        }
+
+        if (isset($map['CallExpireMinutes'])) {
+            $model->callExpireMinutes = $map['CallExpireMinutes'];
+        }
+
+        if (isset($map['CallExpireType'])) {
+            $model->callExpireType = $map['CallExpireType'];
         }
 
         if (isset($map['CallingCount'])) {

@@ -14,6 +14,21 @@ class UpdateAiCallTaskRequest extends Model
     public $callDay;
 
     /**
+     * @var string
+     */
+    public $callExpireDate;
+
+    /**
+     * @var int
+     */
+    public $callExpireMinutes;
+
+    /**
+     * @var int
+     */
+    public $callExpireType;
+
+    /**
      * @var int
      */
     public $callRetryInterval;
@@ -32,6 +47,11 @@ class UpdateAiCallTaskRequest extends Model
      * @var string[]
      */
     public $callTime;
+
+    /**
+     * @var string[]
+     */
+    public $callableTime;
 
     /**
      * @var string
@@ -104,10 +124,14 @@ class UpdateAiCallTaskRequest extends Model
     public $virtualNumber;
     protected $_name = [
         'callDay' => 'CallDay',
+        'callExpireDate' => 'CallExpireDate',
+        'callExpireMinutes' => 'CallExpireMinutes',
+        'callExpireType' => 'CallExpireType',
         'callRetryInterval' => 'CallRetryInterval',
         'callRetryReason' => 'CallRetryReason',
         'callRetryTimes' => 'CallRetryTimes',
         'callTime' => 'CallTime',
+        'callableTime' => 'CallableTime',
         'lineEncoding' => 'LineEncoding',
         'linePhoneNum' => 'LinePhoneNum',
         'missCallRetry' => 'MissCallRetry',
@@ -135,6 +159,9 @@ class UpdateAiCallTaskRequest extends Model
         if (\is_array($this->callTime)) {
             Model::validateArray($this->callTime);
         }
+        if (\is_array($this->callableTime)) {
+            Model::validateArray($this->callableTime);
+        }
         parent::validate();
     }
 
@@ -150,6 +177,18 @@ class UpdateAiCallTaskRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->callExpireDate) {
+            $res['CallExpireDate'] = $this->callExpireDate;
+        }
+
+        if (null !== $this->callExpireMinutes) {
+            $res['CallExpireMinutes'] = $this->callExpireMinutes;
+        }
+
+        if (null !== $this->callExpireType) {
+            $res['CallExpireType'] = $this->callExpireType;
         }
 
         if (null !== $this->callRetryInterval) {
@@ -177,6 +216,17 @@ class UpdateAiCallTaskRequest extends Model
                 $n1 = 0;
                 foreach ($this->callTime as $item1) {
                     $res['CallTime'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->callableTime) {
+            if (\is_array($this->callableTime)) {
+                $res['CallableTime'] = [];
+                $n1 = 0;
+                foreach ($this->callableTime as $item1) {
+                    $res['CallableTime'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -260,6 +310,18 @@ class UpdateAiCallTaskRequest extends Model
             }
         }
 
+        if (isset($map['CallExpireDate'])) {
+            $model->callExpireDate = $map['CallExpireDate'];
+        }
+
+        if (isset($map['CallExpireMinutes'])) {
+            $model->callExpireMinutes = $map['CallExpireMinutes'];
+        }
+
+        if (isset($map['CallExpireType'])) {
+            $model->callExpireType = $map['CallExpireType'];
+        }
+
         if (isset($map['CallRetryInterval'])) {
             $model->callRetryInterval = $map['CallRetryInterval'];
         }
@@ -285,6 +347,17 @@ class UpdateAiCallTaskRequest extends Model
                 $n1 = 0;
                 foreach ($map['CallTime'] as $item1) {
                     $model->callTime[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['CallableTime'])) {
+            if (!empty($map['CallableTime'])) {
+                $model->callableTime = [];
+                $n1 = 0;
+                foreach ($map['CallableTime'] as $item1) {
+                    $model->callableTime[$n1] = $item1;
                     ++$n1;
                 }
             }

@@ -14,6 +14,21 @@ class UpdateAiCallTaskShrinkRequest extends Model
     public $callDayShrink;
 
     /**
+     * @var string
+     */
+    public $callExpireDate;
+
+    /**
+     * @var int
+     */
+    public $callExpireMinutes;
+
+    /**
+     * @var int
+     */
+    public $callExpireType;
+
+    /**
      * @var int
      */
     public $callRetryInterval;
@@ -32,6 +47,11 @@ class UpdateAiCallTaskShrinkRequest extends Model
      * @var string
      */
     public $callTimeShrink;
+
+    /**
+     * @var string
+     */
+    public $callableTimeShrink;
 
     /**
      * @var string
@@ -104,10 +124,14 @@ class UpdateAiCallTaskShrinkRequest extends Model
     public $virtualNumber;
     protected $_name = [
         'callDayShrink' => 'CallDay',
+        'callExpireDate' => 'CallExpireDate',
+        'callExpireMinutes' => 'CallExpireMinutes',
+        'callExpireType' => 'CallExpireType',
         'callRetryInterval' => 'CallRetryInterval',
         'callRetryReasonShrink' => 'CallRetryReason',
         'callRetryTimes' => 'CallRetryTimes',
         'callTimeShrink' => 'CallTime',
+        'callableTimeShrink' => 'CallableTime',
         'lineEncoding' => 'LineEncoding',
         'linePhoneNum' => 'LinePhoneNum',
         'missCallRetry' => 'MissCallRetry',
@@ -136,6 +160,18 @@ class UpdateAiCallTaskShrinkRequest extends Model
             $res['CallDay'] = $this->callDayShrink;
         }
 
+        if (null !== $this->callExpireDate) {
+            $res['CallExpireDate'] = $this->callExpireDate;
+        }
+
+        if (null !== $this->callExpireMinutes) {
+            $res['CallExpireMinutes'] = $this->callExpireMinutes;
+        }
+
+        if (null !== $this->callExpireType) {
+            $res['CallExpireType'] = $this->callExpireType;
+        }
+
         if (null !== $this->callRetryInterval) {
             $res['CallRetryInterval'] = $this->callRetryInterval;
         }
@@ -150,6 +186,10 @@ class UpdateAiCallTaskShrinkRequest extends Model
 
         if (null !== $this->callTimeShrink) {
             $res['CallTime'] = $this->callTimeShrink;
+        }
+
+        if (null !== $this->callableTimeShrink) {
+            $res['CallableTime'] = $this->callableTimeShrink;
         }
 
         if (null !== $this->lineEncoding) {
@@ -223,6 +263,18 @@ class UpdateAiCallTaskShrinkRequest extends Model
             $model->callDayShrink = $map['CallDay'];
         }
 
+        if (isset($map['CallExpireDate'])) {
+            $model->callExpireDate = $map['CallExpireDate'];
+        }
+
+        if (isset($map['CallExpireMinutes'])) {
+            $model->callExpireMinutes = $map['CallExpireMinutes'];
+        }
+
+        if (isset($map['CallExpireType'])) {
+            $model->callExpireType = $map['CallExpireType'];
+        }
+
         if (isset($map['CallRetryInterval'])) {
             $model->callRetryInterval = $map['CallRetryInterval'];
         }
@@ -237,6 +289,10 @@ class UpdateAiCallTaskShrinkRequest extends Model
 
         if (isset($map['CallTime'])) {
             $model->callTimeShrink = $map['CallTime'];
+        }
+
+        if (isset($map['CallableTime'])) {
+            $model->callableTimeShrink = $map['CallableTime'];
         }
 
         if (isset($map['LineEncoding'])) {

@@ -29,6 +29,16 @@ class list_ extends Model
     public $branchVersionId;
 
     /**
+     * @var int
+     */
+    public $callExpireTime;
+
+    /**
+     * @var string
+     */
+    public $callId;
+
+    /**
      * @var string
      */
     public $callResult;
@@ -122,6 +132,8 @@ class list_ extends Model
         'branchId' => 'BranchId',
         'branchName' => 'BranchName',
         'branchVersionId' => 'BranchVersionId',
+        'callExpireTime' => 'CallExpireTime',
+        'callId' => 'CallId',
         'callResult' => 'CallResult',
         'calledNumber' => 'CalledNumber',
         'callingTime' => 'CallingTime',
@@ -164,6 +176,14 @@ class list_ extends Model
 
         if (null !== $this->branchVersionId) {
             $res['BranchVersionId'] = $this->branchVersionId;
+        }
+
+        if (null !== $this->callExpireTime) {
+            $res['CallExpireTime'] = $this->callExpireTime;
+        }
+
+        if (null !== $this->callId) {
+            $res['CallId'] = $this->callId;
         }
 
         if (null !== $this->callResult) {
@@ -263,6 +283,14 @@ class list_ extends Model
 
         if (isset($map['BranchVersionId'])) {
             $model->branchVersionId = $map['BranchVersionId'];
+        }
+
+        if (isset($map['CallExpireTime'])) {
+            $model->callExpireTime = $map['CallExpireTime'];
+        }
+
+        if (isset($map['CallId'])) {
+            $model->callId = $map['CallId'];
         }
 
         if (isset($map['CallResult'])) {
