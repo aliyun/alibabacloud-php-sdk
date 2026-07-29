@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyResponseBody\policyList\content\fingerPrintRuleList;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyResponseBody\policyList\content\l4RuleList;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyResponseBody\policyList\content\portRuleList;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyResponseBody\policyList\content\sipDefense;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyResponseBody\policyList\content\sourceBlockList;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyResponseBody\policyList\content\sourceLimit;
 
@@ -74,6 +75,11 @@ class content extends Model
     public $regionBlockProvinceList;
 
     /**
+     * @var sipDefense
+     */
+    public $sipDefense;
+
+    /**
      * @var sourceBlockList[]
      */
     public $sourceBlockList;
@@ -100,6 +106,7 @@ class content extends Model
         'reflectBlockUdpPortList' => 'ReflectBlockUdpPortList',
         'regionBlockCountryList' => 'RegionBlockCountryList',
         'regionBlockProvinceList' => 'RegionBlockProvinceList',
+        'sipDefense' => 'SipDefense',
         'sourceBlockList' => 'SourceBlockList',
         'sourceLimit' => 'SourceLimit',
         'whitenGfbrNets' => 'WhitenGfbrNets',
@@ -124,6 +131,9 @@ class content extends Model
         }
         if (\is_array($this->regionBlockProvinceList)) {
             Model::validateArray($this->regionBlockProvinceList);
+        }
+        if (null !== $this->sipDefense) {
+            $this->sipDefense->validate();
         }
         if (\is_array($this->sourceBlockList)) {
             Model::validateArray($this->sourceBlockList);
@@ -225,6 +235,10 @@ class content extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->sipDefense) {
+            $res['SipDefense'] = null !== $this->sipDefense ? $this->sipDefense->toArray($noStream) : $this->sipDefense;
         }
 
         if (null !== $this->sourceBlockList) {
@@ -345,6 +359,10 @@ class content extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SipDefense'])) {
+            $model->sipDefense = sipDefense::fromMap($map['SipDefense']);
         }
 
         if (isset($map['SourceBlockList'])) {
