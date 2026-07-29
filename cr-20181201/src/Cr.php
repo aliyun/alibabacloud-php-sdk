@@ -302,9 +302,7 @@ class Cr extends OpenApiClient
             'ap-southeast-6' => 'cr.ap-southeast-6.aliyuncs.com',
             'ap-southeast-5' => 'cr.ap-southeast-5.aliyuncs.com',
             'ap-southeast-3' => 'cr.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-2' => 'cr.ap-southeast-2.aliyuncs.com',
             'ap-southeast-1' => 'cr.ap-southeast-1.aliyuncs.com',
-            'ap-south-1' => 'cr.ap-south-1.aliyuncs.com',
             'ap-northeast-2' => 'cr.ap-northeast-2.aliyuncs.com',
             'ap-northeast-1' => 'cr.ap-northeast-1.aliyuncs.com',
         ];
@@ -2966,7 +2964,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 删除实例自定义域名.
+     * Deletes a custom domain name from an instance.
      *
      * @param request - DeleteInstanceCustomizedDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3013,7 +3011,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 删除实例自定义域名.
+     * Deletes a custom domain name from an instance.
      *
      * @param request - DeleteInstanceCustomizedDomainRequest
      *
@@ -4385,6 +4383,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the custom domain name of an instance.
+     *
      * @param request - GetInstanceCustomizedDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4430,6 +4430,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the custom domain name of an instance.
+     *
      * @param request - GetInstanceCustomizedDomainRequest
      *
      * @returns GetInstanceCustomizedDomainResponse
@@ -6680,7 +6682,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries image tags in a repository.
+     * Queries the list of image versions (tags).
      *
      * @param request - ListRepoTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6698,6 +6700,14 @@ class Cr extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
 
         if (null !== $request->pageNo) {
@@ -6731,7 +6741,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries image tags in a repository.
+     * Queries the list of image versions (tags).
      *
      * @param request - ListRepoTagRequest
      *
@@ -6907,7 +6917,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Query the image repository list.
+     * Queries a list of image repositories.
      *
      * @param request - ListRepositoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6925,6 +6935,14 @@ class Cr extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
 
         if (null !== $request->pageNo) {
@@ -6966,7 +6984,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Query the image repository list.
+     * Queries a list of image repositories.
      *
      * @param request - ListRepositoryRequest
      *
@@ -7969,7 +7987,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 更新实例自定义域名.
+     * Updates the custom domain name of an instance.
      *
      * @param request - UpdateInstanceCustomizedDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8024,7 +8042,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 更新实例自定义域名.
+     * Updates the custom domain name of an instance.
      *
      * @param request - UpdateInstanceCustomizedDomainRequest
      *

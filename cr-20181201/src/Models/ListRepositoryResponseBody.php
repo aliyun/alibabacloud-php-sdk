@@ -22,6 +22,16 @@ class ListRepositoryResponseBody extends Model
     /**
      * @var int
      */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
     public $pageNo;
 
     /**
@@ -46,6 +56,8 @@ class ListRepositoryResponseBody extends Model
     protected $_name = [
         'code' => 'Code',
         'isSuccess' => 'IsSuccess',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
         'repositories' => 'Repositories',
@@ -70,6 +82,14 @@ class ListRepositoryResponseBody extends Model
 
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->pageNo) {
@@ -116,6 +136,14 @@ class ListRepositoryResponseBody extends Model
 
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PageNo'])) {

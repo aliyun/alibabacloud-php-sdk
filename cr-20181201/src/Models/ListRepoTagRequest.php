@@ -16,6 +16,16 @@ class ListRepoTagRequest extends Model
     /**
      * @var int
      */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
     public $pageNo;
 
     /**
@@ -29,6 +39,8 @@ class ListRepoTagRequest extends Model
     public $repoId;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
         'repoId' => 'RepoId',
@@ -44,6 +56,14 @@ class ListRepoTagRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->pageNo) {
@@ -71,6 +91,14 @@ class ListRepoTagRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PageNo'])) {
