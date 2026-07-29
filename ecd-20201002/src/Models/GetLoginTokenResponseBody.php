@@ -51,6 +51,16 @@ class GetLoginTokenResponseBody extends Model
     public $nickName;
 
     /**
+     * @var string
+     */
+    public $officeSiteId;
+
+    /**
+     * @var string
+     */
+    public $officeSiteName;
+
+    /**
      * @var passwordStrategy
      */
     public $passwordStrategy;
@@ -118,6 +128,8 @@ class GetLoginTokenResponseBody extends Model
         'loginToken' => 'LoginToken',
         'nextStage' => 'NextStage',
         'nickName' => 'NickName',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
         'passwordStrategy' => 'PasswordStrategy',
         'phone' => 'Phone',
         'props' => 'Props',
@@ -179,6 +191,14 @@ class GetLoginTokenResponseBody extends Model
 
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
+        }
+
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+
+        if (null !== $this->officeSiteName) {
+            $res['OfficeSiteName'] = $this->officeSiteName;
         }
 
         if (null !== $this->passwordStrategy) {
@@ -275,6 +295,14 @@ class GetLoginTokenResponseBody extends Model
 
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
+        }
+
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
+        }
+
+        if (isset($map['OfficeSiteName'])) {
+            $model->officeSiteName = $map['OfficeSiteName'];
         }
 
         if (isset($map['PasswordStrategy'])) {

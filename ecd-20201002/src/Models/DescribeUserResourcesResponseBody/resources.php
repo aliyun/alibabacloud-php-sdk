@@ -20,6 +20,11 @@ class resources extends Model
     public $accessType;
 
     /**
+     * @var string
+     */
+    public $agentImUrl;
+
+    /**
      * @var int
      */
     public $aliUid;
@@ -247,6 +252,11 @@ class resources extends Model
     /**
      * @var bool
      */
+    public $supportAgentIm;
+
+    /**
+     * @var bool
+     */
     public $supportHibernation;
 
     /**
@@ -270,6 +280,7 @@ class resources extends Model
     public $version;
     protected $_name = [
         'accessType' => 'AccessType',
+        'agentImUrl' => 'AgentImUrl',
         'aliUid' => 'AliUid',
         'appId' => 'AppId',
         'authMode' => 'AuthMode',
@@ -315,6 +326,7 @@ class resources extends Model
         'sessionType' => 'SessionType',
         'sessions' => 'Sessions',
         'subPayType' => 'SubPayType',
+        'supportAgentIm' => 'SupportAgentIm',
         'supportHibernation' => 'SupportHibernation',
         'supportedActions' => 'SupportedActions',
         'themeColor' => 'ThemeColor',
@@ -356,6 +368,10 @@ class resources extends Model
         $res = [];
         if (null !== $this->accessType) {
             $res['AccessType'] = $this->accessType;
+        }
+
+        if (null !== $this->agentImUrl) {
+            $res['AgentImUrl'] = $this->agentImUrl;
         }
 
         if (null !== $this->aliUid) {
@@ -573,6 +589,10 @@ class resources extends Model
             $res['SubPayType'] = $this->subPayType;
         }
 
+        if (null !== $this->supportAgentIm) {
+            $res['SupportAgentIm'] = $this->supportAgentIm;
+        }
+
         if (null !== $this->supportHibernation) {
             $res['SupportHibernation'] = $this->supportHibernation;
         }
@@ -613,6 +633,10 @@ class resources extends Model
         $model = new self();
         if (isset($map['AccessType'])) {
             $model->accessType = $map['AccessType'];
+        }
+
+        if (isset($map['AgentImUrl'])) {
+            $model->agentImUrl = $map['AgentImUrl'];
         }
 
         if (isset($map['AliUid'])) {
@@ -828,6 +852,10 @@ class resources extends Model
 
         if (isset($map['SubPayType'])) {
             $model->subPayType = $map['SubPayType'];
+        }
+
+        if (isset($map['SupportAgentIm'])) {
+            $model->supportAgentIm = $map['SupportAgentIm'];
         }
 
         if (isset($map['SupportHibernation'])) {

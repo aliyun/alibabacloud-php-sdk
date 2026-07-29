@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\agentBriefSummary;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources;
 
 class DescribeUserResourcesResponseBody extends Model
 {
+    /**
+     * @var agentBriefSummary
+     */
+    public $agentBriefSummary;
+
     /**
      * @var int
      */
@@ -44,6 +50,7 @@ class DescribeUserResourcesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
+        'agentBriefSummary' => 'AgentBriefSummary',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'queryFailedResourceTypes' => 'QueryFailedResourceTypes',
@@ -55,6 +62,9 @@ class DescribeUserResourcesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->agentBriefSummary) {
+            $this->agentBriefSummary->validate();
+        }
         if (\is_array($this->queryFailedResourceTypes)) {
             Model::validateArray($this->queryFailedResourceTypes);
         }
@@ -67,6 +77,10 @@ class DescribeUserResourcesResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentBriefSummary) {
+            $res['AgentBriefSummary'] = null !== $this->agentBriefSummary ? $this->agentBriefSummary->toArray($noStream) : $this->agentBriefSummary;
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -120,6 +134,10 @@ class DescribeUserResourcesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentBriefSummary'])) {
+            $model->agentBriefSummary = agentBriefSummary::fromMap($map['AgentBriefSummary']);
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }

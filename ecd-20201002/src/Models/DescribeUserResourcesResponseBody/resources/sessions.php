@@ -11,6 +11,11 @@ class sessions extends Model
     /**
      * @var string
      */
+    public $lastClientIp;
+
+    /**
+     * @var string
+     */
     public $nickName;
 
     /**
@@ -28,6 +33,7 @@ class sessions extends Model
      */
     public $userPrincipalName;
     protected $_name = [
+        'lastClientIp' => 'LastClientIp',
         'nickName' => 'NickName',
         'resourceSessionStartTime' => 'ResourceSessionStartTime',
         'userId' => 'UserId',
@@ -42,6 +48,10 @@ class sessions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->lastClientIp) {
+            $res['LastClientIp'] = $this->lastClientIp;
+        }
+
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
@@ -69,6 +79,10 @@ class sessions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LastClientIp'])) {
+            $model->lastClientIp = $map['LastClientIp'];
+        }
+
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }

@@ -34,8 +34,6 @@ use AlibabaCloud\SDK\Ecd\V20201002\Models\GetConnectionTicketResponse;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\GetLoginTokenRequest;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\GetLoginTokenResponse;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\GetLoginTokenShrinkRequest;
-use AlibabaCloud\SDK\Ecd\V20201002\Models\IsKeepAliveRequest;
-use AlibabaCloud\SDK\Ecd\V20201002\Models\IsKeepAliveResponse;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\QueryEdsAgentReportConfigRequest;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\QueryEdsAgentReportConfigResponse;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\RebootDesktopsRequest;
@@ -79,6 +77,32 @@ class Ecd extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'ecd.us-west-1.aliyuncs.com',
+            'us-east-1' => 'ecd.us-east-1.aliyuncs.com',
+            'me-east-1' => 'ecd.me-east-1.aliyuncs.com',
+            'me-central-1' => 'ecd.me-central-1.aliyuncs.com',
+            'eu-west-1' => 'ecd.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'ecd.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'ecd.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'ecd.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen' => 'ecd.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'ecd.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'ecd.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'ecd.cn-qingdao.aliyuncs.com',
+            'cn-nanjing' => 'ecd.cn-nanjing.aliyuncs.com',
+            'cn-hongkong' => 'ecd.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou-finance' => 'ecd.cn-hangzhou-finance.aliyuncs.com',
+            'cn-hangzhou' => 'ecd.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'ecd.cn-guangzhou.aliyuncs.com',
+            'cn-chengdu' => 'ecd.cn-chengdu.aliyuncs.com',
+            'cn-beijing' => 'ecd.cn-beijing.aliyuncs.com',
+            'ap-southeast-7' => 'ecd.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-6' => 'ecd.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-5' => 'ecd.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-1' => 'ecd.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'ecd.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ecd', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -485,11 +509,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of cloud computers. Currently, only the region corresponding to the Chinese mainland can be queried (excluding: Nanjing-local region-shutting down).
+     * Query detailed information about cloud desktops across multiple regions. You can query only regions in the Chinese mainland (excluding Nanjing – Local Region – Shutting Down).
      *
      * @remarks
-     *   This API is a centralized domain name. The endpoint is in the China (Shanghai) region. You cannot call this API operation in other regions.
-     * *   The cloud computer status information in this interface has a delay of 1 to 3 seconds from the actual value.
+     * - This API uses a centralized domain name with its endpoint in Shanghai. You cannot call this API from other regions.
+     * - The cloud desktop status returned by this API may be delayed by 1 to 3 seconds.
      *
      * @param request - DescribeGlobalDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -604,11 +628,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of cloud computers. Currently, only the region corresponding to the Chinese mainland can be queried (excluding: Nanjing-local region-shutting down).
+     * Query detailed information about cloud desktops across multiple regions. You can query only regions in the Chinese mainland (excluding Nanjing – Local Region – Shutting Down).
      *
      * @remarks
-     *   This API is a centralized domain name. The endpoint is in the China (Shanghai) region. You cannot call this API operation in other regions.
-     * *   The cloud computer status information in this interface has a delay of 1 to 3 seconds from the actual value.
+     * - This API uses a centralized domain name with its endpoint in Shanghai. You cannot call this API from other regions.
+     * - The cloud desktop status returned by this API may be delayed by 1 to 3 seconds.
      *
      * @param request - DescribeGlobalDesktopsRequest
      *
@@ -626,7 +650,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries office networks.
+     * Query the details of an office network.
      *
      * @param request - DescribeOfficeSitesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -677,7 +701,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries office networks.
+     * Query the details of an office network.
      *
      * @param request - DescribeOfficeSitesRequest
      *
@@ -837,10 +861,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries user resources.
+     * Queries the list of resources owned by a user.
      *
      * @remarks
-     * Before you call this operation, verify supported resource and service types in Alibaba Cloud Workspace.
+     * Make sure that you are familiar with the resource types and product types of WUYING before you call this operation.
      *
      * @param request - DescribeUserResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -987,10 +1011,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries user resources.
+     * Queries the list of resources owned by a user.
      *
      * @remarks
-     * Before you call this operation, verify supported resource and service types in Alibaba Cloud Workspace.
+     * Make sure that you are familiar with the resource types and product types of WUYING before you call this operation.
      *
      * @param request - DescribeUserResourcesRequest
      *
@@ -1089,7 +1113,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves the logon tokens for enterprise drives.
+     * Obtain the logon credential for Enterprise File Gateway.
      *
      * @param request - GetCloudDriveServiceMountTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1144,7 +1168,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves the logon tokens for enterprise drives.
+     * Obtain the logon credential for Enterprise File Gateway.
      *
      * @param request - GetCloudDriveServiceMountTokenRequest
      *
@@ -1162,10 +1186,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves the credential that is used to connect to a cloud computer.
+     * Obtains a connection ticket for a cloud computer.
      *
      * @remarks
-     * The first time you call this operation, the system returns a task ID in the `TaskID` parameter. Use the task ID indicated in the `TaskID` parameter to continue calling this operation until the value of the `TaskStatus` parameter becomes `FINISHED` or `FAILED`. When `TaskStatus` becomes `FINISHED`, the value of the `Ticket` parameter is the ticket that is used to connect the client to the cloud computer.
+     * The first time you call this operation, it returns a `TaskID`. You can use this `TaskID` to call the operation again until `TaskStatus` changes to `FINISHED` or `FAILED`. If `TaskStatus` is `FINISHED`, the `Ticket` value is the connection ticket that the client uses to connect to the cloud computer.
      *
      * @param request - GetConnectionTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1268,10 +1292,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves the credential that is used to connect to a cloud computer.
+     * Obtains a connection ticket for a cloud computer.
      *
      * @remarks
-     * The first time you call this operation, the system returns a task ID in the `TaskID` parameter. Use the task ID indicated in the `TaskID` parameter to continue calling this operation until the value of the `TaskStatus` parameter becomes `FINISHED` or `FAILED`. When `TaskStatus` becomes `FINISHED`, the value of the `Ticket` parameter is the ticket that is used to connect the client to the cloud computer.
+     * The first time you call this operation, it returns a `TaskID`. You can use this `TaskID` to call the operation again until `TaskStatus` changes to `FINISHED` or `FAILED`. If `TaskStatus` is `FINISHED`, the `Ticket` value is the connection ticket that the client uses to connect to the cloud computer.
      *
      * @param request - GetConnectionTicketRequest
      *
@@ -1289,7 +1313,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Obtains logon credentials.
+     * Retrieves logon credentials.
      *
      * @param tmpReq - GetLoginTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1410,7 +1434,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Obtains logon credentials.
+     * Retrieves logon credentials.
      *
      * @param request - GetLoginTokenRequest
      *
@@ -1425,71 +1449,6 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLoginTokenWithOptions($request, $runtime);
-    }
-
-    /**
-     * Verifies whether the client\\"s logon session is still active.
-     *
-     * @param request - IsKeepAliveRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns IsKeepAliveResponse
-     *
-     * @param IsKeepAliveRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return IsKeepAliveResponse
-     */
-    public function isKeepAliveWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->clientId) {
-            @$query['ClientId'] = $request->clientId;
-        }
-
-        if (null !== $request->officeSiteId) {
-            @$query['OfficeSiteId'] = $request->officeSiteId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'IsKeepAlive',
-            'version' => '2020-10-02',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'Anonymous',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return IsKeepAliveResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
-    }
-
-    /**
-     * Verifies whether the client\\"s logon session is still active.
-     *
-     * @param request - IsKeepAliveRequest
-     *
-     * @returns IsKeepAliveResponse
-     *
-     * @param IsKeepAliveRequest $request
-     *
-     * @return IsKeepAliveResponse
-     */
-    public function isKeepAlive($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->isKeepAliveWithOptions($request, $runtime);
     }
 
     /**
@@ -1558,7 +1517,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Restart cloud computers.
+     * You can restart one or more cloud desktops.
      *
      * @param request - RebootDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1637,7 +1596,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Restart cloud computers.
+     * You can restart one or more cloud desktops.
      *
      * @param request - RebootDesktopsRequest
      *
@@ -1655,6 +1614,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Purge the logon credential.
+     *
+     * @remarks
+     * The validity period of a logon credential (LoginToken) is 8 hours. If the end user does not log off from the client within 8 hours, the client must purge the logon credential.
+     *
      * @param request - RefreshLoginTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1716,6 +1680,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Purge the logon credential.
+     *
+     * @remarks
+     * The validity period of a logon credential (LoginToken) is 8 hours. If the end user does not log off from the client within 8 hours, the client must purge the logon credential.
+     *
      * @param request - RefreshLoginTokenRequest
      *
      * @returns RefreshLoginTokenResponse
@@ -1801,6 +1770,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Report session status.
+     *
      * @param request - ReportSessionStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1858,6 +1829,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Report session status.
+     *
      * @param request - ReportSessionStatusRequest
      *
      * @returns ReportSessionStatusResponse
@@ -2463,10 +2436,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Stops cloud computers.
+     * Stops one or more cloud computers.
      *
      * @remarks
-     * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+     * You can stop only cloud computers that are in the Running state. After you call this operation, their state changes to Stopped.
      *
      * @param request - StopDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2545,10 +2518,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Stops cloud computers.
+     * Stops one or more cloud computers.
      *
      * @remarks
-     * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+     * You can stop only cloud computers that are in the Running state. After you call this operation, their state changes to Stopped.
      *
      * @param request - StopDesktopsRequest
      *
