@@ -34,6 +34,16 @@ class DescribeDocParserJobResultResponseBody extends Model
     public $result;
 
     /**
+     * @var string
+     */
+    public $resultType;
+
+    /**
+     * @var string
+     */
+    public $resultUrl;
+
+    /**
      * @var bool
      */
     public $success;
@@ -43,6 +53,8 @@ class DescribeDocParserJobResultResponseBody extends Model
         'httpStatusCode' => 'HttpStatusCode',
         'requestId' => 'RequestId',
         'result' => 'Result',
+        'resultType' => 'ResultType',
+        'resultUrl' => 'ResultUrl',
         'success' => 'Success',
     ];
 
@@ -72,6 +84,14 @@ class DescribeDocParserJobResultResponseBody extends Model
 
         if (null !== $this->result) {
             $res['Result'] = $this->result;
+        }
+
+        if (null !== $this->resultType) {
+            $res['ResultType'] = $this->resultType;
+        }
+
+        if (null !== $this->resultUrl) {
+            $res['ResultUrl'] = $this->resultUrl;
         }
 
         if (null !== $this->success) {
@@ -107,6 +127,14 @@ class DescribeDocParserJobResultResponseBody extends Model
 
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
+        }
+
+        if (isset($map['ResultType'])) {
+            $model->resultType = $map['ResultType'];
+        }
+
+        if (isset($map['ResultUrl'])) {
+            $model->resultUrl = $map['ResultUrl'];
         }
 
         if (isset($map['Success'])) {

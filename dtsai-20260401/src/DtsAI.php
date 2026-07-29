@@ -37,7 +37,10 @@ class DtsAI extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-beijing' => 'dtsai.cn-beijing.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dtsai', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -164,7 +167,11 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * 网页搜索.
+     * Creates a document parsing task.
+     *
+     * @remarks
+     * - Region: Only China (Beijing) is supported.
+     * - Fees: The service is free of charge during the public preview period.
      *
      * @param Request - CreateDocParserJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -192,12 +199,28 @@ class DtsAI extends OpenApiClient
             @$query['FileUrl'] = $request->fileUrl;
         }
 
+        if (null !== $request->imageMode) {
+            @$query['ImageMode'] = $request->imageMode;
+        }
+
+        if (null !== $request->ossFileUrl) {
+            @$query['OssFileUrl'] = $request->ossFileUrl;
+        }
+
         if (null !== $request->outputFormat) {
             @$query['OutputFormat'] = $request->outputFormat;
         }
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resultType) {
+            @$query['ResultType'] = $request->resultType;
+        }
+
+        if (null !== $request->tableFormat) {
+            @$query['TableFormat'] = $request->tableFormat;
         }
 
         $req = new OpenApiRequest([
@@ -219,7 +242,11 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * 网页搜索.
+     * Creates a document parsing task.
+     *
+     * @remarks
+     * - Region: Only China (Beijing) is supported.
+     * - Fees: The service is free of charge during the public preview period.
      *
      * @param Request - CreateDocParserJobRequest
      *
@@ -329,7 +356,12 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * 网页搜索.
+     * Retrieves the result of a document parsing task.
+     *
+     * @remarks
+     * - Region: Only China (Beijing) is supported.
+     * - Fees: Free of charge during the public preview period.
+     * - Call DescribeDocParserJobResult to retrieve the parsing result of a document parsing task. Call this operation only after DescribeDocParserJobStatus returns a Status of success. Task results are retained for 72 hours and cannot be retrieved after expiration.
      *
      * @param Request - DescribeDocParserJobResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -372,7 +404,12 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * 网页搜索.
+     * Retrieves the result of a document parsing task.
+     *
+     * @remarks
+     * - Region: Only China (Beijing) is supported.
+     * - Fees: Free of charge during the public preview period.
+     * - Call DescribeDocParserJobResult to retrieve the parsing result of a document parsing task. Call this operation only after DescribeDocParserJobStatus returns a Status of success. Task results are retained for 72 hours and cannot be retrieved after expiration.
      *
      * @param Request - DescribeDocParserJobResultRequest
      *
@@ -390,7 +427,11 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * 网页搜索.
+     * Queries the status of a document parsing task.
+     *
+     * @remarks
+     * - Region: Only China (Beijing) is supported.
+     * - Fees: The service is free of charge during the public preview period.
      *
      * @param Request - DescribeDocParserJobStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -433,7 +474,11 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * 网页搜索.
+     * Queries the status of a document parsing task.
+     *
+     * @remarks
+     * - Region: Only China (Beijing) is supported.
+     * - Fees: The service is free of charge during the public preview period.
      *
      * @param Request - DescribeDocParserJobStatusRequest
      *
@@ -451,7 +496,11 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * 网页搜索.
+     * Retrieves the content of a web page.
+     *
+     * @remarks
+     * - Region: Only China (Beijing) and Singapore regions are supported.
+     * - Pricing: Free of charge during the public preview period.
      *
      * @param Request - WebFetchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -498,7 +547,11 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * 网页搜索.
+     * Retrieves the content of a web page.
+     *
+     * @remarks
+     * - Region: Only China (Beijing) and Singapore regions are supported.
+     * - Pricing: Free of charge during the public preview period.
      *
      * @param Request - WebFetchRequest
      *
@@ -516,7 +569,11 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * 网页搜索.
+     * Performs a web search.
+     *
+     * @remarks
+     * - Region: Only China (Beijing) and Singapore regions are supported.
+     * - Fees: Free of charge during the public preview. No fees are charged.
      *
      * @param Request - WebSearchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -563,7 +620,11 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * 网页搜索.
+     * Performs a web search.
+     *
+     * @remarks
+     * - Region: Only China (Beijing) and Singapore regions are supported.
+     * - Fees: Free of charge during the public preview. No fees are charged.
      *
      * @param Request - WebSearchRequest
      *

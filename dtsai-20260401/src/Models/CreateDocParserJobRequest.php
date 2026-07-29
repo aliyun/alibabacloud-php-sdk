@@ -26,18 +26,42 @@ class CreateDocParserJobRequest extends Model
     /**
      * @var string
      */
+    public $imageMode;
+
+    /**
+     * @var string
+     */
+    public $ossFileUrl;
+
+    /**
+     * @var string
+     */
     public $outputFormat;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resultType;
+
+    /**
+     * @var string
+     */
+    public $tableFormat;
     protected $_name = [
         'fileFormat' => 'FileFormat',
         'fileName' => 'FileName',
         'fileUrl' => 'FileUrl',
+        'imageMode' => 'ImageMode',
+        'ossFileUrl' => 'OssFileUrl',
         'outputFormat' => 'OutputFormat',
         'regionId' => 'RegionId',
+        'resultType' => 'ResultType',
+        'tableFormat' => 'TableFormat',
     ];
 
     public function validate()
@@ -60,12 +84,28 @@ class CreateDocParserJobRequest extends Model
             $res['FileUrl'] = $this->fileUrl;
         }
 
+        if (null !== $this->imageMode) {
+            $res['ImageMode'] = $this->imageMode;
+        }
+
+        if (null !== $this->ossFileUrl) {
+            $res['OssFileUrl'] = $this->ossFileUrl;
+        }
+
         if (null !== $this->outputFormat) {
             $res['OutputFormat'] = $this->outputFormat;
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resultType) {
+            $res['ResultType'] = $this->resultType;
+        }
+
+        if (null !== $this->tableFormat) {
+            $res['TableFormat'] = $this->tableFormat;
         }
 
         return $res;
@@ -91,12 +131,28 @@ class CreateDocParserJobRequest extends Model
             $model->fileUrl = $map['FileUrl'];
         }
 
+        if (isset($map['ImageMode'])) {
+            $model->imageMode = $map['ImageMode'];
+        }
+
+        if (isset($map['OssFileUrl'])) {
+            $model->ossFileUrl = $map['OssFileUrl'];
+        }
+
         if (isset($map['OutputFormat'])) {
             $model->outputFormat = $map['OutputFormat'];
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResultType'])) {
+            $model->resultType = $map['ResultType'];
+        }
+
+        if (isset($map['TableFormat'])) {
+            $model->tableFormat = $map['TableFormat'];
         }
 
         return $model;
