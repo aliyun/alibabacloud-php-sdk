@@ -47,6 +47,11 @@ class ListGatewaysShrinkRequest extends Model
      * @var string
      */
     public $tagShrink;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'gatewayId' => 'gatewayId',
         'gatewayType' => 'gatewayType',
@@ -56,6 +61,7 @@ class ListGatewaysShrinkRequest extends Model
         'pageSize' => 'pageSize',
         'resourceGroupId' => 'resourceGroupId',
         'tagShrink' => 'tag',
+        'vpcId' => 'vpcId',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class ListGatewaysShrinkRequest extends Model
 
         if (null !== $this->tagShrink) {
             $res['tag'] = $this->tagShrink;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['vpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -139,6 +149,10 @@ class ListGatewaysShrinkRequest extends Model
 
         if (isset($map['tag'])) {
             $model->tagShrink = $map['tag'];
+        }
+
+        if (isset($map['vpcId'])) {
+            $model->vpcId = $map['vpcId'];
         }
 
         return $model;

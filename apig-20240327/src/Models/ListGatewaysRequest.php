@@ -48,6 +48,11 @@ class ListGatewaysRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'gatewayId' => 'gatewayId',
         'gatewayType' => 'gatewayType',
@@ -57,6 +62,7 @@ class ListGatewaysRequest extends Model
         'pageSize' => 'pageSize',
         'resourceGroupId' => 'resourceGroupId',
         'tag' => 'tag',
+        'vpcId' => 'vpcId',
     ];
 
     public function validate()
@@ -109,6 +115,10 @@ class ListGatewaysRequest extends Model
             }
         }
 
+        if (null !== $this->vpcId) {
+            $res['vpcId'] = $this->vpcId;
+        }
+
         return $res;
     }
 
@@ -157,6 +167,10 @@ class ListGatewaysRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['vpcId'])) {
+            $model->vpcId = $map['vpcId'];
         }
 
         return $model;

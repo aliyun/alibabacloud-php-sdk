@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\Service\outlierDetection;
 use AlibabaCloud\SDK\APIG\V20240327\Models\Service\ports;
 use AlibabaCloud\SDK\APIG\V20240327\Models\Service\versions;
 
@@ -29,6 +30,11 @@ class Service extends Model
      * @var int
      */
     public $createTimestamp;
+
+    /**
+     * @var string[]
+     */
+    public $dnsServers;
 
     /**
      * @var string
@@ -56,6 +62,11 @@ class Service extends Model
     public $healthStatus;
 
     /**
+     * @var float
+     */
+    public $healthyPanicThreshold;
+
+    /**
      * @var LabelDetail[]
      */
     public $labelDetails;
@@ -74,6 +85,11 @@ class Service extends Model
      * @var string
      */
     public $namespace;
+
+    /**
+     * @var outlierDetection
+     */
+    public $outlierDetection;
 
     /**
      * @var string[]
@@ -139,15 +155,18 @@ class Service extends Model
         'agentServiceConfig' => 'agentServiceConfig',
         'aiServiceConfig' => 'aiServiceConfig',
         'createTimestamp' => 'createTimestamp',
+        'dnsServers' => 'dnsServers',
         'expressType' => 'expressType',
         'gatewayId' => 'gatewayId',
         'groupName' => 'groupName',
         'healthCheck' => 'healthCheck',
         'healthStatus' => 'healthStatus',
+        'healthyPanicThreshold' => 'healthyPanicThreshold',
         'labelDetails' => 'labelDetails',
         'modelProviderId' => 'modelProviderId',
         'name' => 'name',
         'namespace' => 'namespace',
+        'outlierDetection' => 'outlierDetection',
         'outlierEndpoints' => 'outlierEndpoints',
         'ports' => 'ports',
         'protocol' => 'protocol',
@@ -173,11 +192,17 @@ class Service extends Model
         if (null !== $this->aiServiceConfig) {
             $this->aiServiceConfig->validate();
         }
+        if (\is_array($this->dnsServers)) {
+            Model::validateArray($this->dnsServers);
+        }
         if (null !== $this->healthCheck) {
             $this->healthCheck->validate();
         }
         if (\is_array($this->labelDetails)) {
             Model::validateArray($this->labelDetails);
+        }
+        if (null !== $this->outlierDetection) {
+            $this->outlierDetection->validate();
         }
         if (\is_array($this->outlierEndpoints)) {
             Model::validateArray($this->outlierEndpoints);
@@ -220,6 +245,17 @@ class Service extends Model
             $res['createTimestamp'] = $this->createTimestamp;
         }
 
+        if (null !== $this->dnsServers) {
+            if (\is_array($this->dnsServers)) {
+                $res['dnsServers'] = [];
+                $n1 = 0;
+                foreach ($this->dnsServers as $item1) {
+                    $res['dnsServers'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->expressType) {
             $res['expressType'] = $this->expressType;
         }
@@ -238,6 +274,10 @@ class Service extends Model
 
         if (null !== $this->healthStatus) {
             $res['healthStatus'] = $this->healthStatus;
+        }
+
+        if (null !== $this->healthyPanicThreshold) {
+            $res['healthyPanicThreshold'] = $this->healthyPanicThreshold;
         }
 
         if (null !== $this->labelDetails) {
@@ -261,6 +301,10 @@ class Service extends Model
 
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->outlierDetection) {
+            $res['outlierDetection'] = null !== $this->outlierDetection ? $this->outlierDetection->toArray($noStream) : $this->outlierDetection;
         }
 
         if (null !== $this->outlierEndpoints) {
@@ -373,6 +417,17 @@ class Service extends Model
             $model->createTimestamp = $map['createTimestamp'];
         }
 
+        if (isset($map['dnsServers'])) {
+            if (!empty($map['dnsServers'])) {
+                $model->dnsServers = [];
+                $n1 = 0;
+                foreach ($map['dnsServers'] as $item1) {
+                    $model->dnsServers[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['expressType'])) {
             $model->expressType = $map['expressType'];
         }
@@ -391,6 +446,10 @@ class Service extends Model
 
         if (isset($map['healthStatus'])) {
             $model->healthStatus = $map['healthStatus'];
+        }
+
+        if (isset($map['healthyPanicThreshold'])) {
+            $model->healthyPanicThreshold = $map['healthyPanicThreshold'];
         }
 
         if (isset($map['labelDetails'])) {
@@ -414,6 +473,10 @@ class Service extends Model
 
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
+        }
+
+        if (isset($map['outlierDetection'])) {
+            $model->outlierDetection = outlierDetection::fromMap($map['outlierDetection']);
         }
 
         if (isset($map['outlierEndpoints'])) {

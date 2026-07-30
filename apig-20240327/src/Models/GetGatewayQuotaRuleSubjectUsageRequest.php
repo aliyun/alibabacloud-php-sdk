@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class GetGatewayQuotaRuleSubjectUsageRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $filterFailedRequests;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -18,6 +23,7 @@ class GetGatewayQuotaRuleSubjectUsageRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'filterFailedRequests' => 'filterFailedRequests',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
     ];
@@ -30,6 +36,10 @@ class GetGatewayQuotaRuleSubjectUsageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->filterFailedRequests) {
+            $res['filterFailedRequests'] = $this->filterFailedRequests;
+        }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
@@ -49,6 +59,10 @@ class GetGatewayQuotaRuleSubjectUsageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['filterFailedRequests'])) {
+            $model->filterFailedRequests = $map['filterFailedRequests'];
+        }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }

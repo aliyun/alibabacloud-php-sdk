@@ -59,6 +59,11 @@ class modelCards extends Model
     /**
      * @var string
      */
+    public $sourceURL;
+
+    /**
+     * @var string
+     */
     public $updateTime;
     protected $_name = [
         'availablePaths' => 'availablePaths',
@@ -70,6 +75,7 @@ class modelCards extends Model
         'modelName' => 'modelName',
         'modelProvider' => 'modelProvider',
         'source' => 'source',
+        'sourceURL' => 'sourceURL',
         'updateTime' => 'updateTime',
     ];
 
@@ -141,6 +147,10 @@ class modelCards extends Model
             $res['source'] = $this->source;
         }
 
+        if (null !== $this->sourceURL) {
+            $res['sourceURL'] = $this->sourceURL;
+        }
+
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
         }
@@ -202,6 +212,10 @@ class modelCards extends Model
 
         if (isset($map['source'])) {
             $model->source = $map['source'];
+        }
+
+        if (isset($map['sourceURL'])) {
+            $model->sourceURL = $map['sourceURL'];
         }
 
         if (isset($map['updateTime'])) {

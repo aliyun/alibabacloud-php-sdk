@@ -27,11 +27,17 @@ class CreateAiModelProviderRequest extends Model
      * @var string[]
      */
     public $serviceIds;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
     protected $_name = [
         'displayName' => 'displayName',
         'gatewayId' => 'gatewayId',
         'provider' => 'provider',
         'serviceIds' => 'serviceIds',
+        'clientToken' => 'clientToken',
     ];
 
     public function validate()
@@ -68,6 +74,10 @@ class CreateAiModelProviderRequest extends Model
             }
         }
 
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+
         return $res;
     }
 
@@ -100,6 +110,10 @@ class CreateAiModelProviderRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

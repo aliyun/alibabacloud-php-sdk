@@ -523,7 +523,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 批量添加消费者组成员.
+     * Adds members to a consumer group in batches.
      *
      * @param request - BatchAddConsumerGroupConsumersRequest
      * @param headers - map
@@ -566,7 +566,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 批量添加消费者组成员.
+     * Adds members to a consumer group in batches.
      *
      * @param request - BatchAddConsumerGroupConsumersRequest
      *
@@ -647,7 +647,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 批量移除消费者组成员.
+     * Removes consumer group members in batches.
      *
      * @param request - BatchRemoveConsumerGroupConsumersRequest
      * @param headers - map
@@ -690,7 +690,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 批量移除消费者组成员.
+     * Removes consumer group members in batches.
      *
      * @param request - BatchRemoveConsumerGroupConsumersRequest
      *
@@ -783,11 +783,11 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建AI模型卡片.
+     * Creates an AI model card.
      *
      * @remarks
-     * 在指定AI网关实例的已有模型供应商下创建模型卡片。目标网关必须存在、属于当前账号且类型为AI网关，modelProvider必须引用该网关中已存在的模型供应商。
-     * 同一AI网关实例、同一模型供应商下的modelName必须唯一；单个网关实例最多可创建1000张模型卡片。credit当前仅支持fixed类型，费用单位为Credits/百万Token；未传时type默认为fixed，各项费用默认为0。availablePaths中的每一项必须同时包含path和type。
+     * Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference an existing model provider in the gateway.
+     * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1000 model cards can be created per gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If not specified, type defaults to fixed and all cost values default to 0. Each item in availablePaths must include both path and type.
      *
      * @param request - CreateAiModelCardRequest
      * @param headers - map
@@ -853,11 +853,11 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建AI模型卡片.
+     * Creates an AI model card.
      *
      * @remarks
-     * 在指定AI网关实例的已有模型供应商下创建模型卡片。目标网关必须存在、属于当前账号且类型为AI网关，modelProvider必须引用该网关中已存在的模型供应商。
-     * 同一AI网关实例、同一模型供应商下的modelName必须唯一；单个网关实例最多可创建1000张模型卡片。credit当前仅支持fixed类型，费用单位为Credits/百万Token；未传时type默认为fixed，各项费用默认为0。availablePaths中的每一项必须同时包含path和type。
+     * Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference an existing model provider in the gateway.
+     * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1000 model cards can be created per gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If not specified, type defaults to fixed and all cost values default to 0. Each item in availablePaths must include both path and type.
      *
      * @param request - CreateAiModelCardRequest
      *
@@ -876,7 +876,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建AI模型供应商.
+     * Creates an AI model provider.
      *
      * @param request - CreateAiModelProviderRequest
      * @param headers - map
@@ -893,6 +893,11 @@ class APIG extends OpenApiClient
     public function createAiModelProviderWithOptions($request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
         $body = [];
         if (null !== $request->displayName) {
             @$body['displayName'] = $request->displayName;
@@ -912,6 +917,7 @@ class APIG extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -930,7 +936,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建AI模型供应商.
+     * Creates an AI model provider.
      *
      * @param request - CreateAiModelProviderRequest
      *
@@ -1204,6 +1210,14 @@ class APIG extends OpenApiClient
     /**
      * Creates consumer authorization rules.
      *
+     * @remarks
+     * Prerequisites: Before creating consumer authorization rules, prepare resources according to the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
+     * Gateway instance (CreateGateway → gatewayId, gw- prefix)
+     * Environment (A default environment is automatically created with the gateway. You can also use CreateEnvironment → environmentId, env- prefix, which requires the gatewayId from step 1)
+     * HTTP API (CreateHttpApi → httpApiId, api- prefix)
+     * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belongs to the API in step 3. Then publish to the environment in step 2 by using DeployHttpApi. Unpublished routes cannot be authorized)
+     * Consumer (CreateConsumer → consumerId, cs- prefix. Or consumer group consumerGroupId, csg- prefix. Use either consumerId or consumerGroupId)
+     *
      * @param request - CreateConsumerAuthorizationRulesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1246,6 +1260,14 @@ class APIG extends OpenApiClient
     /**
      * Creates consumer authorization rules.
      *
+     * @remarks
+     * Prerequisites: Before creating consumer authorization rules, prepare resources according to the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
+     * Gateway instance (CreateGateway → gatewayId, gw- prefix)
+     * Environment (A default environment is automatically created with the gateway. You can also use CreateEnvironment → environmentId, env- prefix, which requires the gatewayId from step 1)
+     * HTTP API (CreateHttpApi → httpApiId, api- prefix)
+     * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belongs to the API in step 3. Then publish to the environment in step 2 by using DeployHttpApi. Unpublished routes cannot be authorized)
+     * Consumer (CreateConsumer → consumerId, cs- prefix. Or consumer group consumerGroupId, csg- prefix. Use either consumerId or consumerGroupId)
+     *
      * @param request - CreateConsumerAuthorizationRulesRequest
      *
      * @returns CreateConsumerAuthorizationRulesResponse
@@ -1263,7 +1285,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建消费者组.
+     * Creates a consumer group.
      *
      * @param request - CreateConsumerGroupRequest
      * @param headers - map
@@ -1317,7 +1339,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建消费者组.
+     * Creates a consumer group.
      *
      * @param request - CreateConsumerGroupRequest
      *
@@ -2678,7 +2700,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除AI模型卡片.
+     * Deletes an AI model card.
      *
      * @param request - DeleteAiModelCardRequest
      * @param headers - map
@@ -2715,7 +2737,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除AI模型卡片.
+     * Deletes an AI model card.
      *
      * @param request - DeleteAiModelCardRequest
      *
@@ -2735,7 +2757,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除AI模型供应商.
+     * Deletes an AI model provider.
      *
      * @param request - DeleteAiModelProviderRequest
      * @param headers - map
@@ -2772,7 +2794,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除AI模型供应商.
+     * Deletes an AI model provider.
      *
      * @param request - DeleteAiModelProviderRequest
      *
@@ -2896,7 +2918,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除消费者组.
+     * Deletes a consumer group.
      *
      * @param request - DeleteConsumerGroupRequest
      * @param headers - map
@@ -2933,7 +2955,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除消费者组.
+     * Deletes a consumer group.
      *
      * @param request - DeleteConsumerGroupRequest
      *
@@ -4125,7 +4147,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询AI模型卡片详情.
+     * Queries the details of an AI model card.
      *
      * @param request - GetAiModelCardRequest
      * @param headers - map
@@ -4162,7 +4184,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询AI模型卡片详情.
+     * Queries the details of an AI model card.
      *
      * @param request - GetAiModelCardRequest
      *
@@ -4182,7 +4204,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询AI模型供应商详情.
+     * Queries the details of an AI model provider.
      *
      * @param request - GetAiModelProviderRequest
      * @param headers - map
@@ -4219,7 +4241,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询AI模型供应商详情.
+     * Queries the details of an AI model provider.
      *
      * @param request - GetAiModelProviderRequest
      *
@@ -4343,7 +4365,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者组.
+     * Queries a consumer group.
      *
      * @param request - GetConsumerGroupRequest
      * @param headers - map
@@ -4380,7 +4402,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者组.
+     * Queries a consumer group.
      *
      * @param request - GetConsumerGroupRequest
      *
@@ -4790,6 +4812,10 @@ class APIG extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->filterFailedRequests) {
+            @$query['filterFailedRequests'] = $request->filterFailedRequests;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['pageNumber'] = $request->pageNumber;
         }
@@ -5442,7 +5468,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a service.
+     * Gets service details.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5476,7 +5502,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a service.
+     * Gets service details.
      *
      * @returns GetServiceResponse
      *
@@ -5785,7 +5811,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询AI模型卡片列表.
+     * Queries the list of AI model cards.
      *
      * @param request - ListAiModelCardsRequest
      * @param headers - map
@@ -5839,7 +5865,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询AI模型卡片列表.
+     * Queries the list of AI model cards.
      *
      * @param request - ListAiModelCardsRequest
      *
@@ -5858,7 +5884,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询AI模型供应商列表.
+     * Queries the list of AI model providers.
      *
      * @param request - ListAiModelProvidersRequest
      * @param headers - map
@@ -5912,7 +5938,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询AI模型供应商列表.
+     * Queries the list of AI model providers.
      *
      * @param request - ListAiModelProvidersRequest
      *
@@ -6002,7 +6028,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者组成员列表.
+     * Queries the member list of a consumer group.
      *
      * @param request - ListConsumerGroupConsumersRequest
      * @param headers - map
@@ -6053,7 +6079,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者组成员列表.
+     * Queries the member list of a consumer group.
      *
      * @param request - ListConsumerGroupConsumersRequest
      *
@@ -6073,7 +6099,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者组列表.
+     * Queries the list of consumer groups.
      *
      * @param request - ListConsumerGroupsRequest
      * @param headers - map
@@ -6127,7 +6153,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者组列表.
+     * Queries the list of consumer groups.
      *
      * @param request - ListConsumerGroupsRequest
      *
@@ -6748,6 +6774,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->tagShrink) {
             @$query['tag'] = $request->tagShrink;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['vpcId'] = $request->vpcId;
         }
 
         $req = new OpenApiRequest([
@@ -8884,7 +8914,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新AI模型卡片.
+     * Updates an AI model card.
      *
      * @param request - UpdateAiModelCardRequest
      * @param headers - map
@@ -8947,7 +8977,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新AI模型卡片.
+     * Updates an AI model card.
      *
      * @param request - UpdateAiModelCardRequest
      *
@@ -8967,7 +8997,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新AI模型供应商.
+     * Updates an AI model provider.
      *
      * @param request - UpdateAiModelProviderRequest
      * @param headers - map
@@ -9014,7 +9044,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新AI模型供应商.
+     * Updates an AI model provider.
      *
      * @param request - UpdateAiModelProviderRequest
      *
@@ -9273,7 +9303,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新消费者组.
+     * Updates a consumer group.
      *
      * @param request - UpdateConsumerGroupRequest
      * @param headers - map
@@ -9320,7 +9350,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新消费者组.
+     * Updates a consumer group.
      *
      * @param request - UpdateConsumerGroupRequest
      *
