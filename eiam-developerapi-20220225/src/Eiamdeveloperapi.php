@@ -57,6 +57,9 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetApplicationProvisionin
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetGroupHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetGroupRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetGroupResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOAuthAuthorizationSessionHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOAuthAuthorizationSessionRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOAuthAuthorizationSessionResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOrganizationalUnitHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOrganizationalUnitIdByExternalIdHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOrganizationalUnitIdByExternalIdRequest;
@@ -1910,6 +1913,78 @@ class Eiamdeveloperapi extends OpenApiClient
         $headers = new GetGroupHeaders([]);
 
         return $this->getGroupWithOptions($instanceId, $applicationId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the current status and authorization result of an OAuth authorization session.
+     *
+     * @param request - GetOAuthAuthorizationSessionRequest
+     * @param headers - GetOAuthAuthorizationSessionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOAuthAuthorizationSessionResponse
+     *
+     * @param string                              $instanceId
+     * @param GetOAuthAuthorizationSessionRequest $request
+     * @param GetOAuthAuthorizationSessionHeaders $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetOAuthAuthorizationSessionResponse
+     */
+    public function getOAuthAuthorizationSessionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->sessionUri) {
+            @$body['sessionUri'] = $request->sessionUri;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetOAuthAuthorizationSession',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/oauthAuthorizationSessions/_/actions/get',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOAuthAuthorizationSessionResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * Queries the current status and authorization result of an OAuth authorization session.
+     *
+     * @param request - GetOAuthAuthorizationSessionRequest
+     *
+     * @returns GetOAuthAuthorizationSessionResponse
+     *
+     * @param string                              $instanceId
+     * @param GetOAuthAuthorizationSessionRequest $request
+     *
+     * @return GetOAuthAuthorizationSessionResponse
+     */
+    public function getOAuthAuthorizationSession($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetOAuthAuthorizationSessionHeaders([]);
+
+        return $this->getOAuthAuthorizationSessionWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
