@@ -21,6 +21,11 @@ class DescribeComfyTasksRequest extends Model
     /**
      * @var string
      */
+    public $taskId;
+
+    /**
+     * @var string
+     */
     public $taskState;
 
     /**
@@ -30,6 +35,7 @@ class DescribeComfyTasksRequest extends Model
     protected $_name = [
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'taskId' => 'TaskId',
         'taskState' => 'TaskState',
         'workflowId' => 'WorkflowId',
     ];
@@ -48,6 +54,10 @@ class DescribeComfyTasksRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         if (null !== $this->taskState) {
@@ -75,6 +85,10 @@ class DescribeComfyTasksRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         if (isset($map['TaskState'])) {
