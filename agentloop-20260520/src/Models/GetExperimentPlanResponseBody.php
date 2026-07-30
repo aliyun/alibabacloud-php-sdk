@@ -46,6 +46,11 @@ class GetExperimentPlanResponseBody extends Model
     /**
      * @var string
      */
+    public $pipelineName;
+
+    /**
+     * @var string
+     */
     public $planId;
 
     /**
@@ -85,6 +90,7 @@ class GetExperimentPlanResponseBody extends Model
         'experimentType' => 'experimentType',
         'experiments' => 'experiments',
         'input' => 'input',
+        'pipelineName' => 'pipelineName',
         'planId' => 'planId',
         'planName' => 'planName',
         'querySql' => 'querySql',
@@ -159,6 +165,10 @@ class GetExperimentPlanResponseBody extends Model
                     $res['input'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->pipelineName) {
+            $res['pipelineName'] = $this->pipelineName;
         }
 
         if (null !== $this->planId) {
@@ -252,6 +262,10 @@ class GetExperimentPlanResponseBody extends Model
                     $model->input[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['pipelineName'])) {
+            $model->pipelineName = $map['pipelineName'];
         }
 
         if (isset($map['planId'])) {

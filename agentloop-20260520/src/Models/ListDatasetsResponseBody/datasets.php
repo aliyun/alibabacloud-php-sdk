@@ -34,6 +34,11 @@ class datasets extends Model
     public $isFavorite;
 
     /**
+     * @var string[][]
+     */
+    public $labels;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -48,12 +53,16 @@ class datasets extends Model
         'datasetName' => 'datasetName',
         'description' => 'description',
         'isFavorite' => 'isFavorite',
+        'labels' => 'labels',
         'regionId' => 'regionId',
         'updateTime' => 'updateTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
         parent::validate();
     }
 
@@ -78,6 +87,22 @@ class datasets extends Model
 
         if (null !== $this->isFavorite) {
             $res['isFavorite'] = $this->isFavorite;
+        }
+
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['labels'] = [];
+                foreach ($this->labels as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['labels'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['labels'][$key1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
 
         if (null !== $this->regionId) {
@@ -117,6 +142,22 @@ class datasets extends Model
 
         if (isset($map['isFavorite'])) {
             $model->isFavorite = $map['isFavorite'];
+        }
+
+        if (isset($map['labels'])) {
+            if (!empty($map['labels'])) {
+                $model->labels = [];
+                foreach ($map['labels'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->labels[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->labels[$key1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
 
         if (isset($map['regionId'])) {

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListDatasetsRequest extends Model
+class ListDatasetsShrinkRequest extends Model
 {
     /**
      * @var string
@@ -14,9 +14,9 @@ class ListDatasetsRequest extends Model
     public $datasetName;
 
     /**
-     * @var string[][]
+     * @var string
      */
-    public $labels;
+    public $labelsShrink;
 
     /**
      * @var int
@@ -29,16 +29,13 @@ class ListDatasetsRequest extends Model
     public $nextToken;
     protected $_name = [
         'datasetName' => 'datasetName',
-        'labels' => 'labels',
+        'labelsShrink' => 'labels',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
     ];
 
     public function validate()
     {
-        if (\is_array($this->labels)) {
-            Model::validateArray($this->labels);
-        }
         parent::validate();
     }
 
@@ -49,20 +46,8 @@ class ListDatasetsRequest extends Model
             $res['datasetName'] = $this->datasetName;
         }
 
-        if (null !== $this->labels) {
-            if (\is_array($this->labels)) {
-                $res['labels'] = [];
-                foreach ($this->labels as $key1 => $value1) {
-                    if (\is_array($value1)) {
-                        $res['labels'][$key1] = [];
-                        $n2 = 0;
-                        foreach ($value1 as $item2) {
-                            $res['labels'][$key1][$n2] = $item2;
-                            ++$n2;
-                        }
-                    }
-                }
-            }
+        if (null !== $this->labelsShrink) {
+            $res['labels'] = $this->labelsShrink;
         }
 
         if (null !== $this->maxResults) {
@@ -89,19 +74,7 @@ class ListDatasetsRequest extends Model
         }
 
         if (isset($map['labels'])) {
-            if (!empty($map['labels'])) {
-                $model->labels = [];
-                foreach ($map['labels'] as $key1 => $value1) {
-                    if (!empty($value1)) {
-                        $model->labels[$key1] = [];
-                        $n2 = 0;
-                        foreach ($value1 as $item2) {
-                            $model->labels[$key1][$n2] = $item2;
-                            ++$n2;
-                        }
-                    }
-                }
-            }
+            $model->labelsShrink = $map['labels'];
         }
 
         if (isset($map['maxResults'])) {

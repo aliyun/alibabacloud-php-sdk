@@ -41,6 +41,11 @@ class CreateExperimentPlanRequest extends Model
     /**
      * @var string
      */
+    public $pipelineName;
+
+    /**
+     * @var string
+     */
     public $planName;
 
     /**
@@ -59,6 +64,7 @@ class CreateExperimentPlanRequest extends Model
         'experimentType' => 'experimentType',
         'experiments' => 'experiments',
         'input' => 'input',
+        'pipelineName' => 'pipelineName',
         'planName' => 'planName',
         'querySql' => 'querySql',
         'selectedItemIds' => 'selectedItemIds',
@@ -125,6 +131,10 @@ class CreateExperimentPlanRequest extends Model
                     $res['input'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->pipelineName) {
+            $res['pipelineName'] = $this->pipelineName;
         }
 
         if (null !== $this->planName) {
@@ -198,6 +208,10 @@ class CreateExperimentPlanRequest extends Model
                     $model->input[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['pipelineName'])) {
+            $model->pipelineName = $map['pipelineName'];
         }
 
         if (isset($map['planName'])) {

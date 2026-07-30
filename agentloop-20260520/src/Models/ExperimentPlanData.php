@@ -36,6 +36,11 @@ class ExperimentPlanData extends Model
     /**
      * @var string
      */
+    public $pipelineName;
+
+    /**
+     * @var string
+     */
     public $planId;
 
     /**
@@ -63,6 +68,7 @@ class ExperimentPlanData extends Model
         'description' => 'description',
         'experimentCount' => 'experimentCount',
         'experimentType' => 'experimentType',
+        'pipelineName' => 'pipelineName',
         'planId' => 'planId',
         'planName' => 'planName',
         'querySql' => 'querySql',
@@ -96,6 +102,10 @@ class ExperimentPlanData extends Model
 
         if (null !== $this->experimentType) {
             $res['experimentType'] = $this->experimentType;
+        }
+
+        if (null !== $this->pipelineName) {
+            $res['pipelineName'] = $this->pipelineName;
         }
 
         if (null !== $this->planId) {
@@ -147,6 +157,10 @@ class ExperimentPlanData extends Model
 
         if (isset($map['experimentType'])) {
             $model->experimentType = $map['experimentType'];
+        }
+
+        if (isset($map['pipelineName'])) {
+            $model->pipelineName = $map['pipelineName'];
         }
 
         if (isset($map['planId'])) {

@@ -90,6 +90,7 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListContextStoresRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListContextStoresResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListDatasetsResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListDatasetsShrinkRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluationRunsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluationRunsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluationTasksRequest;
@@ -939,7 +940,7 @@ class AgentLoop extends OpenApiClient
      * Creates an experiment plan.
      *
      * @remarks
-     * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+     * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
      *
      * @param request - CreateExperimentPlanRequest
      * @param headers - map
@@ -982,6 +983,10 @@ class AgentLoop extends OpenApiClient
             @$body['input'] = $request->input;
         }
 
+        if (null !== $request->pipelineName) {
+            @$body['pipelineName'] = $request->pipelineName;
+        }
+
         if (null !== $request->planName) {
             @$body['planName'] = $request->planName;
         }
@@ -1017,7 +1022,7 @@ class AgentLoop extends OpenApiClient
      * Creates an experiment plan.
      *
      * @remarks
-     * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+     * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
      *
      * @param request - CreateExperimentPlanRequest
      *
@@ -2574,10 +2579,10 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Query an experiment plan.
+     * Queries an experiment plan.
      *
      * @remarks
-     * Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+     * Calls GetExperimentPlan to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
      *
      * @param request - GetExperimentPlanRequest
      * @param headers - map
@@ -2615,10 +2620,10 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Query an experiment plan.
+     * Queries an experiment plan.
      *
      * @remarks
-     * Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+     * Calls GetExperimentPlan to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
      *
      * @param request - GetExperimentPlanRequest
      *
@@ -3116,25 +3121,35 @@ class AgentLoop extends OpenApiClient
     /**
      * Queries a list of datasets.
      *
-     * @param request - ListDatasetsRequest
+     * @param tmpReq - ListDatasetsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDatasetsResponse
      *
      * @param string              $agentSpace
-     * @param ListDatasetsRequest $request
+     * @param ListDatasetsRequest $tmpReq
      * @param string[]            $headers
      * @param RuntimeOptions      $runtime
      *
      * @return ListDatasetsResponse
      */
-    public function listDatasetsWithOptions($agentSpace, $request, $headers, $runtime)
+    public function listDatasetsWithOptions($agentSpace, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListDatasetsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labels) {
+            $request->labelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'labels', 'json');
+        }
+
         $query = [];
         if (null !== $request->datasetName) {
             @$query['datasetName'] = $request->datasetName;
+        }
+
+        if (null !== $request->labelsShrink) {
+            @$query['labels'] = $request->labelsShrink;
         }
 
         if (null !== $request->maxResults) {
@@ -4915,6 +4930,10 @@ class AgentLoop extends OpenApiClient
 
         if (null !== $request->input) {
             @$body['input'] = $request->input;
+        }
+
+        if (null !== $request->pipelineName) {
+            @$body['pipelineName'] = $request->pipelineName;
         }
 
         if (null !== $request->planName) {
