@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListStatsEventRecordsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $eventType;
@@ -19,12 +24,19 @@ class ListStatsEventRecordsRequest extends Model
     public $level;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @var string
      */
     public $status;
     protected $_name = [
+        'endTime' => 'endTime',
         'eventType' => 'eventType',
         'level' => 'level',
+        'startTime' => 'startTime',
         'status' => 'status',
     ];
 
@@ -36,12 +48,20 @@ class ListStatsEventRecordsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['endTime'] = $this->endTime;
+        }
+
         if (null !== $this->eventType) {
             $res['eventType'] = $this->eventType;
         }
 
         if (null !== $this->level) {
             $res['level'] = $this->level;
+        }
+
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
         }
 
         if (null !== $this->status) {
@@ -59,12 +79,20 @@ class ListStatsEventRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['endTime'])) {
+            $model->endTime = $map['endTime'];
+        }
+
         if (isset($map['eventType'])) {
             $model->eventType = $map['eventType'];
         }
 
         if (isset($map['level'])) {
             $model->level = $map['level'];
+        }
+
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
         }
 
         if (isset($map['status'])) {
