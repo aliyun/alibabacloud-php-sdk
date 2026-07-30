@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Aidge\V20260428\Models\QueryAsyncTaskResultResponseBody;
+namespace AlibabaCloud\SDK\Aidge\V20260428\Models\VideoGenerationResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
@@ -11,25 +11,13 @@ class data extends Model
     /**
      * @var string
      */
-    public $result;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $taskId;
 
     /**
-     * @var mixed[]
+     * @var int[]
      */
     public $usageMap;
     protected $_name = [
-        'result' => 'Result',
-        'status' => 'Status',
         'taskId' => 'TaskId',
         'usageMap' => 'UsageMap',
     ];
@@ -45,14 +33,6 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
-        }
-
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -77,14 +57,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
-        }
-
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
