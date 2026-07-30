@@ -49,6 +49,21 @@ class data extends Model
     public $logProject;
 
     /**
+     * @var string
+     */
+    public $logProjectState;
+
+    /**
+     * @var bool
+     */
+    public $logProjectStateChangeAllowed;
+
+    /**
+     * @var bool
+     */
+    public $logServiceDisabled;
+
+    /**
      * @var normalizationLogStores[]
      */
     public $normalizationLogStores;
@@ -80,6 +95,9 @@ class data extends Model
         'dataStorageUsedCapacity' => 'DataStorageUsedCapacity',
         'dataStorageUsedCapacityDetail' => 'DataStorageUsedCapacityDetail',
         'logProject' => 'LogProject',
+        'logProjectState' => 'LogProjectState',
+        'logProjectStateChangeAllowed' => 'LogProjectStateChangeAllowed',
+        'logServiceDisabled' => 'LogServiceDisabled',
         'normalizationLogStores' => 'NormalizationLogStores',
         'normalizationLogViews' => 'NormalizationLogViews',
         'recordLogStores' => 'RecordLogStores',
@@ -136,6 +154,18 @@ class data extends Model
 
         if (null !== $this->logProject) {
             $res['LogProject'] = $this->logProject;
+        }
+
+        if (null !== $this->logProjectState) {
+            $res['LogProjectState'] = $this->logProjectState;
+        }
+
+        if (null !== $this->logProjectStateChangeAllowed) {
+            $res['LogProjectStateChangeAllowed'] = $this->logProjectStateChangeAllowed;
+        }
+
+        if (null !== $this->logServiceDisabled) {
+            $res['LogServiceDisabled'] = $this->logServiceDisabled;
         }
 
         if (null !== $this->normalizationLogStores) {
@@ -230,6 +260,18 @@ class data extends Model
 
         if (isset($map['LogProject'])) {
             $model->logProject = $map['LogProject'];
+        }
+
+        if (isset($map['LogProjectState'])) {
+            $model->logProjectState = $map['LogProjectState'];
+        }
+
+        if (isset($map['LogProjectStateChangeAllowed'])) {
+            $model->logProjectStateChangeAllowed = $map['LogProjectStateChangeAllowed'];
+        }
+
+        if (isset($map['LogServiceDisabled'])) {
+            $model->logServiceDisabled = $map['LogServiceDisabled'];
         }
 
         if (isset($map['NormalizationLogStores'])) {

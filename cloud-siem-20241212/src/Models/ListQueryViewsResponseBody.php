@@ -10,6 +10,21 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListQueryViewsResponseBody\query
 class ListQueryViewsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $logProjectName;
+
+    /**
+     * @var string
+     */
+    public $logRegionId;
+
+    /**
+     * @var string
+     */
+    public $logStoreName;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -29,6 +44,9 @@ class ListQueryViewsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'logProjectName' => 'LogProjectName',
+        'logRegionId' => 'LogRegionId',
+        'logStoreName' => 'LogStoreName',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'queryViews' => 'QueryViews',
@@ -46,6 +64,18 @@ class ListQueryViewsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->logProjectName) {
+            $res['LogProjectName'] = $this->logProjectName;
+        }
+
+        if (null !== $this->logRegionId) {
+            $res['LogRegionId'] = $this->logRegionId;
+        }
+
+        if (null !== $this->logStoreName) {
+            $res['LogStoreName'] = $this->logStoreName;
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -80,6 +110,18 @@ class ListQueryViewsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LogProjectName'])) {
+            $model->logProjectName = $map['LogProjectName'];
+        }
+
+        if (isset($map['LogRegionId'])) {
+            $model->logRegionId = $map['LogRegionId'];
+        }
+
+        if (isset($map['LogStoreName'])) {
+            $model->logStoreName = $map['LogStoreName'];
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }

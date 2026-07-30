@@ -116,6 +116,11 @@ class CreateDetectionRuleRequest extends Model
     /**
      * @var string
      */
+    public $detectionRules;
+
+    /**
+     * @var string
+     */
     public $entityMappings;
 
     /**
@@ -214,6 +219,7 @@ class CreateDetectionRuleRequest extends Model
         'detectionRuleTemplateId' => 'DetectionRuleTemplateId',
         'detectionRuleTemplateVersion' => 'DetectionRuleTemplateVersion',
         'detectionRuleType' => 'DetectionRuleType',
+        'detectionRules' => 'DetectionRules',
         'entityMappings' => 'EntityMappings',
         'incidentAggregationExpression' => 'IncidentAggregationExpression',
         'incidentAggregationType' => 'IncidentAggregationType',
@@ -322,6 +328,10 @@ class CreateDetectionRuleRequest extends Model
 
         if (null !== $this->detectionRuleType) {
             $res['DetectionRuleType'] = $this->detectionRuleType;
+        }
+
+        if (null !== $this->detectionRules) {
+            $res['DetectionRules'] = $this->detectionRules;
         }
 
         if (null !== $this->entityMappings) {
@@ -481,6 +491,10 @@ class CreateDetectionRuleRequest extends Model
 
         if (isset($map['DetectionRuleType'])) {
             $model->detectionRuleType = $map['DetectionRuleType'];
+        }
+
+        if (isset($map['DetectionRules'])) {
+            $model->detectionRules = $map['DetectionRules'];
         }
 
         if (isset($map['EntityMappings'])) {

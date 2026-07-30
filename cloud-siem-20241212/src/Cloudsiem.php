@@ -862,6 +862,10 @@ class Cloudsiem extends OpenApiClient
             @$body['DetectionRuleType'] = $request->detectionRuleType;
         }
 
+        if (null !== $request->detectionRules) {
+            @$body['DetectionRules'] = $request->detectionRules;
+        }
+
         if (null !== $request->entityMappings) {
             @$body['EntityMappings'] = $request->entityMappings;
         }
@@ -6226,7 +6230,7 @@ class Cloudsiem extends OpenApiClient
      * Retrieves a list of query views.
      *
      * @remarks
-     * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
      *
      * @param request - ListQueryViewsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6298,7 +6302,7 @@ class Cloudsiem extends OpenApiClient
      * Retrieves a list of query views.
      *
      * @remarks
-     * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
      *
      * @param request - ListQueryViewsRequest
      *
