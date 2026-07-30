@@ -11,6 +11,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $failBizCode;
+
+    /**
+     * @var string
+     */
     public $failCode;
 
     /**
@@ -33,6 +38,7 @@ class result extends Model
      */
     public $videoUrl;
     protected $_name = [
+        'failBizCode' => 'failBizCode',
         'failCode' => 'failCode',
         'failMsg' => 'failMsg',
         'status' => 'status',
@@ -48,6 +54,10 @@ class result extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->failBizCode) {
+            $res['failBizCode'] = $this->failBizCode;
+        }
+
         if (null !== $this->failCode) {
             $res['failCode'] = $this->failCode;
         }
@@ -79,6 +89,10 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['failBizCode'])) {
+            $model->failBizCode = $map['failBizCode'];
+        }
+
         if (isset($map['failCode'])) {
             $model->failCode = $map['failCode'];
         }
