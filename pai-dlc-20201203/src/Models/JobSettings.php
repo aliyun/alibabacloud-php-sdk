@@ -49,6 +49,11 @@ class JobSettings extends Model
     public $driver;
 
     /**
+     * @var int
+     */
+    public $elasticSpotJobMaxRestartTimes;
+
+    /**
      * @var bool
      */
     public $enableCPUAffinity;
@@ -141,6 +146,7 @@ class JobSettings extends Model
         'dataJuicerConfig' => 'DataJuicerConfig',
         'disableEcsStockCheck' => 'DisableEcsStockCheck',
         'driver' => 'Driver',
+        'elasticSpotJobMaxRestartTimes' => 'ElasticSpotJobMaxRestartTimes',
         'enableCPUAffinity' => 'EnableCPUAffinity',
         'enableDSWDev' => 'EnableDSWDev',
         'enableErrorMonitoringInAIMaster' => 'EnableErrorMonitoringInAIMaster',
@@ -215,6 +221,10 @@ class JobSettings extends Model
 
         if (null !== $this->driver) {
             $res['Driver'] = $this->driver;
+        }
+
+        if (null !== $this->elasticSpotJobMaxRestartTimes) {
+            $res['ElasticSpotJobMaxRestartTimes'] = $this->elasticSpotJobMaxRestartTimes;
         }
 
         if (null !== $this->enableCPUAffinity) {
@@ -336,6 +346,10 @@ class JobSettings extends Model
 
         if (isset($map['Driver'])) {
             $model->driver = $map['Driver'];
+        }
+
+        if (isset($map['ElasticSpotJobMaxRestartTimes'])) {
+            $model->elasticSpotJobMaxRestartTimes = $map['ElasticSpotJobMaxRestartTimes'];
         }
 
         if (isset($map['EnableCPUAffinity'])) {
