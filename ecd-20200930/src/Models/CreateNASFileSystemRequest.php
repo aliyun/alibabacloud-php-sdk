@@ -31,6 +31,11 @@ class CreateNASFileSystemRequest extends Model
     /**
      * @var string
      */
+    public $protocolType;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -42,6 +47,7 @@ class CreateNASFileSystemRequest extends Model
         'encryptType' => 'EncryptType',
         'name' => 'Name',
         'officeSiteId' => 'OfficeSiteId',
+        'protocolType' => 'ProtocolType',
         'regionId' => 'RegionId',
         'storageType' => 'StorageType',
     ];
@@ -68,6 +74,10 @@ class CreateNASFileSystemRequest extends Model
 
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
         }
 
         if (null !== $this->regionId) {
@@ -103,6 +113,10 @@ class CreateNASFileSystemRequest extends Model
 
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
+        }
+
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
         }
 
         if (isset($map['RegionId'])) {

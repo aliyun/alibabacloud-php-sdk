@@ -109,6 +109,11 @@ class fileSystems extends Model
     /**
      * @var string
      */
+    public $protocolType;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -155,6 +160,7 @@ class fileSystems extends Model
         'officeSites' => 'OfficeSites',
         'productType' => 'ProductType',
         'profileCompatible' => 'ProfileCompatible',
+        'protocolType' => 'ProtocolType',
         'regionId' => 'RegionId',
         'scene' => 'Scene',
         'sizeQuota' => 'SizeQuota',
@@ -275,6 +281,10 @@ class fileSystems extends Model
 
         if (null !== $this->profileCompatible) {
             $res['ProfileCompatible'] = $this->profileCompatible;
+        }
+
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
         }
 
         if (null !== $this->regionId) {
@@ -407,6 +417,10 @@ class fileSystems extends Model
 
         if (isset($map['ProfileCompatible'])) {
             $model->profileCompatible = $map['ProfileCompatible'];
+        }
+
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
         }
 
         if (isset($map['RegionId'])) {

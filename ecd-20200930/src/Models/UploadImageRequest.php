@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UploadImageRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bootMode;
+
+    /**
      * @var int
      */
     public $dataDiskSize;
@@ -68,6 +73,7 @@ class UploadImageRequest extends Model
      */
     public $systemDiskSize;
     protected $_name = [
+        'bootMode' => 'BootMode',
         'dataDiskSize' => 'DataDiskSize',
         'description' => 'Description',
         'enableSecurityCheck' => 'EnableSecurityCheck',
@@ -90,6 +96,10 @@ class UploadImageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bootMode) {
+            $res['BootMode'] = $this->bootMode;
+        }
+
         if (null !== $this->dataDiskSize) {
             $res['DataDiskSize'] = $this->dataDiskSize;
         }
@@ -149,6 +159,10 @@ class UploadImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BootMode'])) {
+            $model->bootMode = $map['BootMode'];
+        }
+
         if (isset($map['DataDiskSize'])) {
             $model->dataDiskSize = $map['DataDiskSize'];
         }

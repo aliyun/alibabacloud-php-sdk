@@ -135,6 +135,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSubnetRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSubnetResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateTemplateResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateVirtualBridgeRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateVirtualBridgeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteBundlesRequest;
@@ -191,6 +193,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSubnetRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSubnetResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteTemplatesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteTemplatesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteVirtualBridgeRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteVirtualBridgeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteVirtualMFADeviceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeAclEntriesRequest;
@@ -287,6 +291,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNatGatewaysRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNatGatewaysResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNetworkPackagesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNetworkPackagesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSiteBridgeInfoRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSiteBridgeInfoResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOnlineUserCountRequest;
@@ -402,6 +408,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTransferFilesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTransferFilesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListUserAdOrganizationUnitsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListUserAdOrganizationUnitsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ListVirtualBridgesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ListVirtualBridgesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\LockVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\LockVirtualMFADeviceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MigrateDesktopsRequest;
@@ -472,6 +480,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteAcceleratorRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteAcceleratorResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteAttributeRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteAttributeResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteBridgeInfoRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteBridgeInfoResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteCrossDesktopAccessRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteCrossDesktopAccessResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteDnsInfoRequest;
@@ -498,6 +508,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserEntitlementRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserEntitlementResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserToDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserToDesktopGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyVirtualBridgeLevelRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyVirtualBridgeLevelResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyVirtualBridgeStatusRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyVirtualBridgeStatusResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryActiveUserCountRequest;
@@ -530,6 +544,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewNetworkPackagesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewNetworkPackagesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewVirtualBridgeRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewVirtualBridgeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetNASDefaultMountTargetRequest;
@@ -651,10 +667,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Unlocks a convenience office network that is automatically locked due to a long idle period of time.
+     * Unlocks an office network that was automatically locked after being idle for a period of time.
      *
      * @remarks
-     * If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
+     * For office networks based on convenience accounts, if no cloud computers are created within 15 consecutive calendar days, the office network is automatically locked and VPC-related resources are released. To use the office network again, call this operation to unlock it.
      *
      * @param request - ActivateOfficeSiteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -697,10 +713,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Unlocks a convenience office network that is automatically locked due to a long idle period of time.
+     * Unlocks an office network that was automatically locked after being idle for a period of time.
      *
      * @remarks
-     * If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
+     * For office networks based on convenience accounts, if no cloud computers are created within 15 consecutive calendar days, the office network is automatically locked and VPC-related resources are released. To use the office network again, call this operation to unlock it.
      *
      * @param request - ActivateOfficeSiteRequest
      *
@@ -862,10 +878,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Adds a shared folder to the network disk.
+     * Creates a shared folder in a cloud disk.
      *
      * @remarks
-     * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+     * You can share a specified folder with other users and set access permissions for the folder.
      *
      * @param tmpReq - AddFilePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -930,10 +946,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Adds a shared folder to the network disk.
+     * Creates a shared folder in a cloud disk.
      *
      * @remarks
-     * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+     * You can share a specified folder with other users and set access permissions for the folder.
      *
      * @param request - AddFilePermissionRequest
      *
@@ -1259,7 +1275,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Applies for the coordinate permissions.
+     * Requests permissions for stream coordination operations.
      *
      * @param request - ApplyCoordinatePrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1314,7 +1330,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Applies for the coordinate permissions.
+     * Requests permissions for stream coordination operations.
      *
      * @param request - ApplyCoordinatePrivilegeRequest
      *
@@ -1332,7 +1348,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+     * Sends a remote assistance request from an administrator to an end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
      *
      * @param request - ApplyCoordinationForMonitoringRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1391,7 +1407,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+     * Sends a remote assistance request from an administrator to an end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
      *
      * @param request - ApplyCoordinationForMonitoringRequest
      *
@@ -1409,10 +1425,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Allows you to upgrade images.
+     * Allows an image upgrade.
      *
      * @remarks
-     * The cloud computers for which you want to allow image updates must be in the Running state.
+     * The cloud computer must be in the Running state.
      *
      * @param request - ApproveFotaUpdateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1459,10 +1475,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Allows you to upgrade images.
+     * Allows an image upgrade.
      *
      * @remarks
-     * The cloud computers for which you want to allow image updates must be in the Running state.
+     * The cloud computer must be in the Running state.
      *
      * @param request - ApproveFotaUpdateRequest
      *
@@ -1553,7 +1569,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
+     * Associates a premium Internet bandwidth plan with an office network. A premium Internet bandwidth plan has a one-to-one bindingrelationship with an office network.
      *
      * @param request - AssociateNetworkPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1600,7 +1616,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
+     * Associates a premium Internet bandwidth plan with an office network. A premium Internet bandwidth plan has a one-to-one bindingrelationship with an office network.
      *
      * @param request - AssociateNetworkPackageRequest
      *
@@ -1849,12 +1865,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Assigns multiple cloud computers to users in a batch.
+     * Assigns users to multiple cloud computers in a batch.
      *
      * @remarks
-     * - The target cloud computers must be in the Running state.
-     * - This is an asynchronous API. To check the assignment status, call [](t2167745.xdita#)and refer to the `ManagementFlags` parameter. A value of `ASSIGNING` means it is in progress; otherwise, it is complete.
-     * - Recommended polling interval: 2–5 seconds (max duration: 50s). The process usually takes 1–5 seconds.
+     * - The cloud computers must be in the Running state.
+     * - This operation immediately returns a result. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the `ManagementFlags` response parameter: `ASSIGNING` indicates that the assignment is in progress, and other values indicate that the assignment is complete.
+     * - Check whether the assignment is complete every 2 to 5 seconds, for a maximum of 50 seconds. In most cases, the assignment is completed within 1 to 5 seconds.
      *
      * @param request - BatchModifyEntitlementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1917,12 +1933,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Assigns multiple cloud computers to users in a batch.
+     * Assigns users to multiple cloud computers in a batch.
      *
      * @remarks
-     * - The target cloud computers must be in the Running state.
-     * - This is an asynchronous API. To check the assignment status, call [](t2167745.xdita#)and refer to the `ManagementFlags` parameter. A value of `ASSIGNING` means it is in progress; otherwise, it is complete.
-     * - Recommended polling interval: 2–5 seconds (max duration: 50s). The process usually takes 1–5 seconds.
+     * - The cloud computers must be in the Running state.
+     * - This operation immediately returns a result. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the `ManagementFlags` response parameter: `ASSIGNING` indicates that the assignment is in progress, and other values indicate that the assignment is complete.
+     * - Check whether the assignment is complete every 2 to 5 seconds, for a maximum of 50 seconds. In most cases, the assignment is completed within 1 to 5 seconds.
      *
      * @param request - BatchModifyEntitlementRequest
      *
@@ -1940,7 +1956,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Binds a configuration group to resources.
+     * Associates a configuration group with a cloud computer or resource group.
      *
      * @param request - BindConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1987,7 +2003,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Binds a configuration group to resources.
+     * Associates a configuration group with a cloud computer or resource group.
      *
      * @param request - BindConfigGroupRequest
      *
@@ -2070,7 +2086,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Cancels a file sharing task.
+     * Cancels file sharing.
      *
      * @param request - CancelCdsFileShareLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2113,7 +2129,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Cancels a file sharing task.
+     * Cancels file sharing.
      *
      * @param request - CancelCdsFileShareLinkRequest
      *
@@ -2131,7 +2147,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Cancels a remote assistance request to the end user.
+     * Cancels a remote assistance request initiated to an end user.
      *
      * @param request - CancelCoordinationForMonitoringRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2182,7 +2198,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Cancels a remote assistance request to the end user.
+     * Cancels a remote assistance request initiated to an end user.
      *
      * @param request - CancelCoordinationForMonitoringRequest
      *
@@ -2200,7 +2216,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Cancels the operation of copying an image to another region.
+     * Cancels an ongoing image copy operation to another region.
      *
      * @param request - CancelCopyImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2243,7 +2259,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Cancels the operation of copying an image to another region.
+     * Cancels an ongoing image copy operation to another region.
      *
      * @param request - CancelCopyImageRequest
      *
@@ -2261,7 +2277,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Clones a policy based on an existing global policy.
+     * Clones a policy based on an existing region-independent policy.
      *
      * @param request - CloneCenterPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2316,7 +2332,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Clones a policy based on an existing global policy.
+     * Clones a policy based on an existing region-independent policy.
      *
      * @param request - CloneCenterPolicyRequest
      *
@@ -2334,7 +2350,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Clones an existing policy to quickly create a policy.
+     * Clones a cloud computer policy to quickly create a custom cloud computer policy.
      *
      * @param request - ClonePolicyGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2381,7 +2397,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Clones an existing policy to quickly create a policy.
+     * Clones a cloud computer policy to quickly create a custom cloud computer policy.
      *
      * @param request - ClonePolicyGroupRequest
      *
@@ -2476,7 +2492,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Configures a conditional forwarder and trust relationship for a high-definition experience (HDX)-based office network (formerly workspace). You can call the operation to configure a trust relationship for an enterprise Active Directory (AD) office network.
+     * Configures a trust relationship for an AD office network. For office networks (formerly workspaces) that use the HDX protocol, you must configure conditional forwarders and trust relationships before the networks can function properly.
      *
      * @param request - ConfigADConnectorTrustRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2527,7 +2543,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Configures a conditional forwarder and trust relationship for a high-definition experience (HDX)-based office network (formerly workspace). You can call the operation to configure a trust relationship for an enterprise Active Directory (AD) office network.
+     * Configures a trust relationship for an AD office network. For office networks (formerly workspaces) that use the HDX protocol, you must configure conditional forwarders and trust relationships before the networks can function properly.
      *
      * @param request - ConfigADConnectorTrustRequest
      *
@@ -2545,7 +2561,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Specify an organizational unit (OU) and administrator for the Active Directory (AD) office network (formerly known as workspace).
+     * Specifies the organizational unit (OU) and administrator for an AD office network (formerly workspace).
      *
      * @param request - ConfigADConnectorUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2600,7 +2616,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Specify an organizational unit (OU) and administrator for the Active Directory (AD) office network (formerly known as workspace).
+     * Specifies the organizational unit (OU) and administrator for an AD office network (formerly workspace).
      *
      * @param request - ConfigADConnectorUserRequest
      *
@@ -2618,7 +2634,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Create a copy of a file or folder in the cloud drive.
+     * Creates a copy of a file or folder in a cloud drive.
      *
      * @param request - CopyCdsFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2689,7 +2705,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Create a copy of a file or folder in the cloud drive.
+     * Creates a copy of a file or folder in a cloud drive.
      *
      * @param request - CopyCdsFileRequest
      *
@@ -2707,7 +2723,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Copy an image to another region. If you want to share an image across regions, you can call this operation to copy the image to the destination region and then share the image.
+     * Copies an image to another region. To share an image across regions, call this operation to copy the image to the destination region first, and then share it.
      *
      * @param request - CopyImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2762,7 +2778,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Copy an image to another region. If you want to share an image across regions, you can call this operation to copy the image to the destination region and then share the image.
+     * Copies an image to another region. To share an image across regions, call this operation to copy the image to the destination region first, and then share it.
      *
      * @param request - CopyImageRequest
      *
@@ -3495,7 +3511,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Create a file share.
+     * Creates a file share.
      *
      * @param request - CreateCdsFileShareLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3586,7 +3602,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Create a file share.
+     * Creates a file share.
      *
      * @param request - CreateCdsFileShareLinkRequest
      *
@@ -3604,7 +3620,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can create a region-independent cloud desktop policy.
+     * Creates a region-independent Cloud Desktop policy.
      *
      * @param request - CreateCenterPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3786,6 +3802,26 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->fileTransferAddress) {
             @$query['FileTransferAddress'] = $request->fileTransferAddress;
+        }
+
+        if (null !== $request->fileTransferInSize) {
+            @$query['FileTransferInSize'] = $request->fileTransferInSize;
+        }
+
+        if (null !== $request->fileTransferInUnit) {
+            @$query['FileTransferInUnit'] = $request->fileTransferInUnit;
+        }
+
+        if (null !== $request->fileTransferOutSize) {
+            @$query['FileTransferOutSize'] = $request->fileTransferOutSize;
+        }
+
+        if (null !== $request->fileTransferOutUnit) {
+            @$query['FileTransferOutUnit'] = $request->fileTransferOutUnit;
+        }
+
+        if (null !== $request->fileTransferSizeLimit) {
+            @$query['FileTransferSizeLimit'] = $request->fileTransferSizeLimit;
         }
 
         if (null !== $request->fileTransferSpeed) {
@@ -4171,7 +4207,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can create a region-independent cloud desktop policy.
+     * Creates a region-independent Cloud Desktop policy.
      *
      * @param request - CreateCenterPolicyRequest
      *
@@ -4468,7 +4504,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Create a configuration group. A configuration group contains settings for scheduled tasks on cloud desktops.
+     * Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a cloud computer center.
      *
      * @param request - CreateConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4527,7 +4563,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Create a configuration group. A configuration group contains settings for scheduled tasks on cloud desktops.
+     * Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a cloud computer center.
      *
      * @param request - CreateConfigGroupRequest
      *
@@ -5376,7 +5412,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
+     * Enables the disk encryption feature and adds the service-linked role (SLR) for enterprise cloud drive encryption under the RAM user.
      *
      * @param request - CreateDiskEncryptionServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5415,7 +5451,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
+     * Enables the disk encryption feature and adds the service-linked role (SLR) for enterprise cloud drive encryption under the RAM user.
      *
      * @param request - CreateDiskEncryptionServiceRequest
      *
@@ -5781,19 +5817,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Create a NAS file system.
+     * Creates a NAS file system.
      *
      * @remarks
-     * <props="china">
-     * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-     * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-     * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase resource packages to offset the storage usage.
-     * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
-     * <props="intl">
-     * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-     * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-     * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase storage packages to offset the storage usage.
-     * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+     * - You can create one NAS file system for each standard office network to enable file sharing among cloud computers within the office network.
+     * - The system performs automatic creation of a general-purpose NAS file system (with storage-optimized and compute-optimized instance storage types, offering capacities of 10 PiB and 1 PiB respectively) and generates a default mount target.
+     * - The NAS file system uses pay-as-you-go billing by default. You are charged based on the actual storage usage. You can also purchase resource plans to offset the storage usage.
+     * For more information, see [Create shared storage NAS](https://help.aliyun.com/document_detail/214481.html).
      *
      * @param request - CreateNASFileSystemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5825,6 +5855,10 @@ class Ecd extends OpenApiClient
             @$query['OfficeSiteId'] = $request->officeSiteId;
         }
 
+        if (null !== $request->protocolType) {
+            @$query['ProtocolType'] = $request->protocolType;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -5852,19 +5886,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Create a NAS file system.
+     * Creates a NAS file system.
      *
      * @remarks
-     * <props="china">
-     * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-     * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-     * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase resource packages to offset the storage usage.
-     * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
-     * <props="intl">
-     * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-     * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-     * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase storage packages to offset the storage usage.
-     * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+     * - You can create one NAS file system for each standard office network to enable file sharing among cloud computers within the office network.
+     * - The system performs automatic creation of a general-purpose NAS file system (with storage-optimized and compute-optimized instance storage types, offering capacities of 10 PiB and 1 PiB respectively) and generates a default mount target.
+     * - The NAS file system uses pay-as-you-go billing by default. You are charged based on the actual storage usage. You can also purchase resource plans to offset the storage usage.
+     * For more information, see [Create shared storage NAS](https://help.aliyun.com/document_detail/214481.html).
      *
      * @param request - CreateNASFileSystemRequest
      *
@@ -7116,12 +7144,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
+     * Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
      *
      * @remarks
-     * When you call this operation, take note of the following item:
-     * - Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
-     * - For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn\\"t match the region where the template is used to create a cloud computer, those parameters will not take effect.
+     * When you call this operation, note the following items:
+     * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. The validity of parameter values is verified only when you create an instance.
+     * - For parameters that have region attributes in the template, if the region does not match when you use the template to create a cloud computer, these parameters do not take effect.
      *
      * @param request - CreateTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7247,12 +7275,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
+     * Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
      *
      * @remarks
-     * When you call this operation, take note of the following item:
-     * - Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
-     * - For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn\\"t match the region where the template is used to create a cloud computer, those parameters will not take effect.
+     * When you call this operation, note the following items:
+     * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. The validity of parameter values is verified only when you create an instance.
+     * - For parameters that have region attributes in the template, if the region does not match when you use the template to create a cloud computer, these parameters do not take effect.
      *
      * @param request - CreateTemplateRequest
      *
@@ -7267,6 +7295,101 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a virtual bridge.
+     *
+     * @remarks
+     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device the next time they log on to a Cloud Desktop.
+     *
+     * @param request - CreateVirtualBridgeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVirtualBridgeResponse
+     *
+     * @param CreateVirtualBridgeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVirtualBridgeResponse
+     */
+    public function createVirtualBridgeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->bridgeLevel) {
+            @$query['BridgeLevel'] = $request->bridgeLevel;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->paidCallBackUrl) {
+            @$query['PaidCallBackUrl'] = $request->paidCallBackUrl;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVirtualBridge',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVirtualBridgeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a virtual bridge.
+     *
+     * @remarks
+     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device the next time they log on to a Cloud Desktop.
+     *
+     * @param request - CreateVirtualBridgeRequest
+     *
+     * @returns CreateVirtualBridgeResponse
+     *
+     * @param CreateVirtualBridgeRequest $request
+     *
+     * @return CreateVirtualBridgeResponse
+     */
+    public function createVirtualBridge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVirtualBridgeWithOptions($request, $runtime);
     }
 
     /**
@@ -7392,7 +7515,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Delete files or folders from the network disk.
+     * Deletes a file or folder from a cloud drive.
      *
      * @param request - DeleteCdsFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7447,7 +7570,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Delete files or folders from the network disk.
+     * Deletes a file or folder from a cloud drive.
      *
      * @param request - DeleteCdsFileRequest
      *
@@ -7465,7 +7588,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a global policy.
+     * Deletes a non-region-specific policy.
      *
      * @param request - DeleteCenterPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7516,7 +7639,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a global policy.
+     * Deletes a non-region-specific policy.
      *
      * @param request - DeleteCenterPolicyRequest
      *
@@ -8007,7 +8130,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a drive.
+     * Deletes a cloud drive.
      *
      * @param request - DeleteDriveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8050,7 +8173,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a drive.
+     * Deletes a cloud drive.
      *
      * @param request - DeleteDriveRequest
      *
@@ -9047,10 +9170,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes custom cloud computer templates.
+     * Deletes a custom cloud computer template.
      *
      * @remarks
-     * Deleting a template does not affect cloud computers created from it or the associated resources.
+     * After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
      *
      * @param request - DeleteTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9093,10 +9216,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes custom cloud computer templates.
+     * Deletes a custom cloud computer template.
      *
      * @remarks
-     * Deleting a template does not affect cloud computers created from it or the associated resources.
+     * After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
      *
      * @param request - DeleteTemplatesRequest
      *
@@ -9111,6 +9234,73 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the status of a virtual bridge.
+     *
+     * @remarks
+     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to Cloud Desktop.
+     *
+     * @param request - DeleteVirtualBridgeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVirtualBridgeResponse
+     *
+     * @param DeleteVirtualBridgeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteVirtualBridgeResponse
+     */
+    public function deleteVirtualBridgeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bridgeId) {
+            @$query['BridgeId'] = $request->bridgeId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVirtualBridge',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVirtualBridgeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the status of a virtual bridge.
+     *
+     * @remarks
+     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to Cloud Desktop.
+     *
+     * @param request - DeleteVirtualBridgeRequest
+     *
+     * @returns DeleteVirtualBridgeResponse
+     *
+     * @param DeleteVirtualBridgeRequest $request
+     *
+     * @return DeleteVirtualBridgeResponse
+     */
+    public function deleteVirtualBridge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVirtualBridgeWithOptions($request, $runtime);
     }
 
     /**
@@ -9614,7 +9804,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of region-free policies.
+     * Queries the details of regionless policies.
      *
      * @param request - DescribeCenterPolicyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9685,7 +9875,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of region-free policies.
+     * Queries the details of regionless policies.
      *
      * @param request - DescribeCenterPolicyListRequest
      *
@@ -9703,7 +9893,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query end-user operation logs for events such as starting and stopping a WUYING Workspace, and disconnecting from sessions.
+     * Queries the operation logs of end users, including events such as cloud computer startup, shutdown, and session disconnection.
      *
      * @param request - DescribeClientEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9741,6 +9931,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->endUserId) {
             @$query['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->endUserIds) {
+            @$query['EndUserIds'] = $request->endUserIds;
         }
 
         if (null !== $request->eventType) {
@@ -9802,7 +9996,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query end-user operation logs for events such as starting and stopping a WUYING Workspace, and disconnecting from sessions.
+     * Queries the operation logs of end users, including events such as cloud computer startup, shutdown, and session disconnection.
      *
      * @param request - DescribeClientEventsRequest
      *
@@ -10079,7 +10273,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the permission settings details of the enterprise cloud drive.
+     * Queries the permission settings of an enterprise cloud drive.
      *
      * @param request - DescribeCloudDrivePermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10122,7 +10316,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the permission settings details of the enterprise cloud drive.
+     * Queries the permission settings of an enterprise cloud drive.
      *
      * @param request - DescribeCloudDrivePermissionsRequest
      *
@@ -10213,7 +10407,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the configuration group list information.
+     * Queries the list of configuration groups.
      *
      * @param request - DescribeConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10284,7 +10478,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the configuration group list information.
+     * Queries the list of configuration groups.
      *
      * @param request - DescribeConfigGroupRequest
      *
@@ -10674,10 +10868,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Lists cloud computers and their metadata from all regions.
+     * Queries the list and metadata of cloud desktops across all regions.
      *
      * @remarks
-     * This operation is centralized, available only in the China (Shanghai) and Singapore regions.
+     * This is a centralized API operation that supports queries only from the Shanghai and Singapore sites.
      *
      * @param request - DescribeDesktopMetadataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10729,6 +10923,10 @@ class Ecd extends OpenApiClient
             @$query['MaxResults'] = $request->maxResults;
         }
 
+        if (null !== $request->networkInterfaceIp) {
+            @$query['NetworkInterfaceIp'] = $request->networkInterfaceIp;
+        }
+
         if (null !== $request->nextToken) {
             @$query['NextToken'] = $request->nextToken;
         }
@@ -10768,10 +10966,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Lists cloud computers and their metadata from all regions.
+     * Queries the list and metadata of cloud desktops across all regions.
      *
      * @remarks
-     * This operation is centralized, available only in the China (Shanghai) and Singapore regions.
+     * This is a centralized API operation that supports queries only from the Shanghai and Singapore sites.
      *
      * @param request - DescribeDesktopMetadataRequest
      *
@@ -11004,10 +11202,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the detailed session information for cloud computers.
+     * Queries the detailed session information of a cloud computer.
      *
      * @remarks
-     * You can retrieve data only from the last 30 days.
+     * Only data within the last 30 days can be queried.
      *
      * @param request - DescribeDesktopSessionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11045,6 +11243,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->endUserIdFilter) {
             @$query['EndUserIdFilter'] = $request->endUserIdFilter;
+        }
+
+        if (null !== $request->endUserIds) {
+            @$query['EndUserIds'] = $request->endUserIds;
         }
 
         if (null !== $request->fillHardwareInfo) {
@@ -11106,10 +11308,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the detailed session information for cloud computers.
+     * Queries the detailed session information of a cloud computer.
      *
      * @remarks
-     * You can retrieve data only from the last 30 days.
+     * Only data within the last 30 days can be queried.
      *
      * @param request - DescribeDesktopSessionsRequest
      *
@@ -11268,7 +11470,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the details of your cloud computers.
+     * Queries the details of cloud computers.
      *
      * @param request - DescribeDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11455,7 +11657,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the details of your cloud computers.
+     * Queries the details of cloud computers.
      *
      * @param request - DescribeDesktopsRequest
      *
@@ -11805,7 +12007,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries data report export tasks.
+     * Queries the list of data report export tasks.
      *
      * @param request - DescribeEcdReportTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11868,7 +12070,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries data report export tasks.
+     * Queries the list of data report export tasks.
      *
      * @param request - DescribeEcdReportTasksRequest
      *
@@ -12125,7 +12327,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries a list of update tasks.
+     * Retrieves the list of image upgrade tasks.
      *
      * @param request - DescribeFotaTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12188,7 +12390,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries a list of update tasks.
+     * Retrieves the list of image upgrade tasks.
      *
      * @param request - DescribeFotaTasksRequest
      *
@@ -12206,13 +12408,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries basic information and usage duration for all recent Cloud Desktops.
+     * Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
      *
      * @remarks
-     * - Select China (Shanghai) for the Alibaba Cloud China site and Singapore for the Alibaba Cloud International site.
-     * - By default, this operation returns both active and deleted Cloud Desktops.
-     * - You can query only Cloud Desktops deleted within the last three months.
-     * - You cannot use the sort condition with other query conditions.
+     * - China site users should select Shanghai as the region. International site users should select Singapore.
+     * - By default, both deleted and non-deleted cloud desktops are queried.
+     * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
+     * - Sort conditions cannot be used together with other conditions.
      *
      * @param request - DescribeGlobalDesktopRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12300,6 +12502,10 @@ class Ecd extends OpenApiClient
             @$query['SubPayType'] = $request->subPayType;
         }
 
+        if (null !== $request->userNames) {
+            @$query['UserNames'] = $request->userNames;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -12319,13 +12525,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries basic information and usage duration for all recent Cloud Desktops.
+     * Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
      *
      * @remarks
-     * - Select China (Shanghai) for the Alibaba Cloud China site and Singapore for the Alibaba Cloud International site.
-     * - By default, this operation returns both active and deleted Cloud Desktops.
-     * - You can query only Cloud Desktops deleted within the last three months.
-     * - You cannot use the sort condition with other query conditions.
+     * - China site users should select Shanghai as the region. International site users should select Singapore.
+     * - By default, both deleted and non-deleted cloud desktops are queried.
+     * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
+     * - Sort conditions cannot be used together with other conditions.
      *
      * @param request - DescribeGlobalDesktopRecordsRequest
      *
@@ -12343,10 +12549,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries for batch information from the execution history of scheduled tasks and returns aggregated results.
+     * Queries the batch information of scheduled task execution history and returns aggregated execution results.
      *
      * @remarks
-     * - This API uses a centralized endpoint. You can call this API only from the China (Shanghai) or Singapore (Singapore) regions.
+     * - This operation uses a centralized endpoint. The access points are Shanghai or Singapore. Calls from other regions are not supported.
      *
      * @param request - DescribeGlobalTimerBatchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12409,10 +12615,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries for batch information from the execution history of scheduled tasks and returns aggregated results.
+     * Queries the batch information of scheduled task execution history and returns aggregated execution results.
      *
      * @remarks
-     * - This API uses a centralized endpoint. You can call this API only from the China (Shanghai) or Singapore (Singapore) regions.
+     * - This operation uses a centralized endpoint. The access points are Shanghai or Singapore. Calls from other regions are not supported.
      *
      * @param request - DescribeGlobalTimerBatchesRequest
      *
@@ -12430,7 +12636,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * This operation queries the scheduled task execution records for EDS across all regions.
+     * Queries the execution records of scheduled tasks for cloud computers across regions.
      *
      * @param request - DescribeGlobalTimerRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12521,7 +12727,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * This operation queries the scheduled task execution records for EDS across all regions.
+     * Queries the execution records of scheduled tasks for cloud computers across regions.
      *
      * @param request - DescribeGlobalTimerRecordsRequest
      *
@@ -12853,11 +13059,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Used to query the execution list and status of Cloud Assistant scripts.
+     * Queries the execution list and status of Cloud Assistant scripts.
      *
      * @remarks
-     * - After you execute a command, it does not necessarily mean that the command was successfully executed or produced the expected effect. You must check the actual execution result based on the return value from the API, and the actual output result prevails.
-     * - You can query execution information from the past two weeks, with a maximum retention limit of 100,000 records.
+     * - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
+     * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
      *
      * @param request - DescribeInvocationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12940,11 +13146,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Used to query the execution list and status of Cloud Assistant scripts.
+     * Queries the execution list and status of Cloud Assistant scripts.
      *
      * @remarks
-     * - After you execute a command, it does not necessarily mean that the command was successfully executed or produced the expected effect. You must check the actual execution result based on the return value from the API, and the actual output result prevails.
-     * - You can query execution information from the past two weeks, with a maximum retention limit of 100,000 records.
+     * - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
+     * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
      *
      * @param request - DescribeInvocationsRequest
      *
@@ -13092,7 +13298,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the Upgrade/Downgrade price for monthly subscription cloud desktops with unlimited duration or Internet premium bandwidth.
+     * Queries the price for changing the specifications of a monthly-subscribed unlimited-duration cloud computer or premium Internet bandwidth.
      *
      * @param request - DescribeModificationPriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13175,7 +13381,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the Upgrade/Downgrade price for monthly subscription cloud desktops with unlimited duration or Internet premium bandwidth.
+     * Queries the price for changing the specifications of a monthly-subscribed unlimited-duration cloud computer or premium Internet bandwidth.
      *
      * @param request - DescribeModificationPriceRequest
      *
@@ -13193,7 +13399,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries NAS file systems.
+     * Queries NAS file system information.
      *
      * @param request - DescribeNASFileSystemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13252,7 +13458,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries NAS file systems.
+     * Queries NAS file system information.
      *
      * @param request - DescribeNASFileSystemsRequest
      *
@@ -13424,6 +13630,83 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries virtual bridge information.
+     *
+     * @remarks
+     * Before deleting an office network, ensure that the following operations are completed:
+     * - All cloud computers in the office network are released.
+     * - Related data that needs to be retained is backed up.
+     * >Warning: Related resources and data cannot be recovered after deletion. Proceed with caution.
+     *
+     * @param request - DescribeOfficeSiteBridgeInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOfficeSiteBridgeInfoResponse
+     *
+     * @param DescribeOfficeSiteBridgeInfoRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeOfficeSiteBridgeInfoResponse
+     */
+    public function describeOfficeSiteBridgeInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bridgeId) {
+            @$query['BridgeId'] = $request->bridgeId;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOfficeSiteBridgeInfo',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOfficeSiteBridgeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries virtual bridge information.
+     *
+     * @remarks
+     * Before deleting an office network, ensure that the following operations are completed:
+     * - All cloud computers in the office network are released.
+     * - Related data that needs to be retained is backed up.
+     * >Warning: Related resources and data cannot be recovered after deletion. Proceed with caution.
+     *
+     * @param request - DescribeOfficeSiteBridgeInfoRequest
+     *
+     * @returns DescribeOfficeSiteBridgeInfoResponse
+     *
+     * @param DescribeOfficeSiteBridgeInfoRequest $request
+     *
+     * @return DescribeOfficeSiteBridgeInfoResponse
+     */
+    public function describeOfficeSiteBridgeInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOfficeSiteBridgeInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Gets all properties of an office network, including its ID, name, status, and creation time.
      *
      * @param request - DescribeOfficeSitesRequest
@@ -13513,10 +13796,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries metrics such as the online user count and the assigned user count.
+     * Queries metrics such as the number of online users and the number of users with assigned desktops.
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the resource types and product types of Elastic Desktop Service.
+     * Make sure that you are familiar with the resource types and product types of WUYING Workspace before you call this operation.
      *
      * @param request - DescribeOnlineUserCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13567,10 +13850,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries metrics such as the online user count and the assigned user count.
+     * Queries metrics such as the number of online users and the number of users with assigned desktops.
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the resource types and product types of Elastic Desktop Service.
+     * Make sure that you are familiar with the resource types and product types of WUYING Workspace before you call this operation.
      *
      * @param request - DescribeOnlineUserCountRequest
      *
@@ -14280,7 +14563,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the refund amount for monthly subscription WUYING Workspaces.
+     * Queries the unsubscription price of cloud computers purchased on a monthly basis.
      *
      * @param request - DescribeRefundPriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14331,7 +14614,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the refund amount for monthly subscription WUYING Workspaces.
+     * Queries the unsubscription price of cloud computers purchased on a monthly basis.
      *
      * @param request - DescribeRefundPriceRequest
      *
@@ -14775,11 +15058,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the session statistics of a region.
+     * Queries session statistics information across all regions.
      *
      * @remarks
-     * - This is a central operation and can be called only by using services in the China (Shanghai) region.
-     * - You can query session statistics for the past hour.
+     * - This is a centralized API operation that can be called only through the service in the China (Shanghai) region.
+     * - You can query real-time statistics for up to 1 hour.
      *
      * @param request - DescribeSessionStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14838,11 +15121,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the session statistics of a region.
+     * Queries session statistics information across all regions.
      *
      * @remarks
-     * - This is a central operation and can be called only by using services in the China (Shanghai) region.
-     * - You can query session statistics for the past hour.
+     * - This is a centralized API operation that can be called only through the service in the China (Shanghai) region.
+     * - You can query real-time statistics for up to 1 hour.
      *
      * @param request - DescribeSessionStatisticRequest
      *
@@ -14860,7 +15143,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the snapshots and their details for a cloud desktop.
+     * Queries the snapshot list and snapshot details of a cloud computer.
      *
      * @param request - DescribeSnapshotsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14886,6 +15169,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->desktopName) {
             @$query['DesktopName'] = $request->desktopName;
+        }
+
+        if (null !== $request->desktopScenario) {
+            @$query['DesktopScenario'] = $request->desktopScenario;
         }
 
         if (null !== $request->endTime) {
@@ -14947,7 +15234,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the snapshots and their details for a cloud desktop.
+     * Queries the snapshot list and snapshot details of a cloud computer.
      *
      * @param request - DescribeSnapshotsRequest
      *
@@ -15216,7 +15503,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves details for a specified configuration group.
+     * Queries the details of a specified configuration group.
      *
      * @param request - DescribeTimerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15259,7 +15546,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves details for a specified configuration group.
+     * Queries the details of a specified configuration group.
      *
      * @param request - DescribeTimerGroupRequest
      *
@@ -16153,7 +16440,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Unbinds a premium bandwidth plan from an office network.
+     * Disassociates a premium Internet bandwidth plan from the office network to which it was previously bound.
      *
      * @param request - DissociateNetworkPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16196,7 +16483,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Unbinds a premium bandwidth plan from an office network.
+     * Disassociates a premium Internet bandwidth plan from the office network to which it was previously bound.
      *
      * @param request - DissociateNetworkPackageRequest
      *
@@ -16214,7 +16501,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Obtains the download link of the target file.
+     * Retrieves the download URL of a specified file.
      *
      * @param request - DownloadCdsFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16269,7 +16556,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Obtains the download link of the target file.
+     * Retrieves the download URL of a specified file.
      *
      * @param request - DownloadCdsFileRequest
      *
@@ -16388,7 +16675,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Exports cloud computer shares and saves the list as an XLSX file. Each entry includes the ID and name of the cloud computer share, the ID and name of the office network, the cloud computer share template, and the name of the security policy.
+     * Exports the list of shared cloud desktops and saves it as an XLSX file. Each shared cloud desktop record includes the shared cloud desktop ID and name, office network ID and name, shared cloud desktop template, and security policy name.
      *
      * @param request - ExportDesktopGroupInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16471,7 +16758,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Exports cloud computer shares and saves the list as an XLSX file. Each entry includes the ID and name of the cloud computer share, the ID and name of the office network, the cloud computer share template, and the name of the security policy.
+     * Exports the list of shared cloud desktops and saves it as an XLSX file. Each shared cloud desktop record includes the shared cloud desktop ID and name, office network ID and name, shared cloud desktop template, and security policy name.
      *
      * @param request - ExportDesktopGroupInfoRequest
      *
@@ -16489,25 +16776,25 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Exports a cloud computer list as a CSV file.
+     * Exports the cloud desktop list as a CSV file.
      *
      * @remarks
-     * The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
-     * *   Cloud computer ID and name
-     * *   Office network ID and name
-     * *   The instance type, OS and protocol of the cloud computer
-     * *   System disk and data disk of the cloud computer
-     * *   The status
-     * *   Purchase method
-     * *   The time when the cloud computer expires
-     * *   Remaining duration and total duration
-     * *   Number of assigned users and number of current users
-     * *   Office network type
-     * *   The time when the cloud computer was created
-     * *   Tags
-     * *   Encryption status
-     * *   IP
-     * *   The hostname
+     * The cloud desktop list exported by calling this operation is saved as a CSV file. Each cloud desktop record includes the following fields:
+     * - Cloud desktop ID/Cloud desktop name
+     * - Office network ID/Office network name
+     * - Specifications/System/Protocol
+     * - System cloud disk/Data cloud disk
+     * - Status
+     * - Billing method
+     * - Expiration time
+     * - Remaining duration/Total duration
+     * - Number of assigned users/Current user
+     * - Office network type
+     * - Creation time
+     * - Tags
+     * - Encrypted or not
+     * - IP
+     * - Hostname
      *
      * @param request - ExportDesktopListInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16602,25 +16889,25 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Exports a cloud computer list as a CSV file.
+     * Exports the cloud desktop list as a CSV file.
      *
      * @remarks
-     * The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
-     * *   Cloud computer ID and name
-     * *   Office network ID and name
-     * *   The instance type, OS and protocol of the cloud computer
-     * *   System disk and data disk of the cloud computer
-     * *   The status
-     * *   Purchase method
-     * *   The time when the cloud computer expires
-     * *   Remaining duration and total duration
-     * *   Number of assigned users and number of current users
-     * *   Office network type
-     * *   The time when the cloud computer was created
-     * *   Tags
-     * *   Encryption status
-     * *   IP
-     * *   The hostname
+     * The cloud desktop list exported by calling this operation is saved as a CSV file. Each cloud desktop record includes the following fields:
+     * - Cloud desktop ID/Cloud desktop name
+     * - Office network ID/Office network name
+     * - Specifications/System/Protocol
+     * - System cloud disk/Data cloud disk
+     * - Status
+     * - Billing method
+     * - Expiration time
+     * - Remaining duration/Total duration
+     * - Number of assigned users/Current user
+     * - Office network type
+     * - Creation time
+     * - Tags
+     * - Encrypted or not
+     * - IP
+     * - Hostname
      *
      * @param request - ExportDesktopListInfoRequest
      *
@@ -16638,7 +16925,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
+     * Retrieves the details of a folder copy asynchronous node based on the AsyncTaskId parameter returned by the CopyCdsFile operation.
      *
      * @param request - GetAsyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16681,7 +16968,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
+     * Retrieves the details of a folder copy asynchronous node based on the AsyncTaskId parameter returned by the CopyCdsFile operation.
      *
      * @param request - GetAsyncTaskRequest
      *
@@ -16699,10 +16986,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Obtains the credential that is used to connect to a cloud desktop.
+     * Retrieves the connection credential for a cloud computer.
      *
      * @remarks
-     * The cloud computer must be in the Running state. The ticket obtained by calling this operation will expire in 10 minutes.
+     * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
      *
      * @param request - GetConnectionTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16777,10 +17064,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Obtains the credential that is used to connect to a cloud desktop.
+     * Retrieves the connection credential for a cloud computer.
      *
      * @remarks
-     * The cloud computer must be in the Running state. The ticket obtained by calling this operation will expire in 10 minutes.
+     * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
      *
      * @param request - GetConnectionTicketRequest
      *
@@ -17893,6 +18180,85 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries a list of virtual bridges.
+     *
+     * @remarks
+     * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the Wuying terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+     *
+     * @param request - ListVirtualBridgesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVirtualBridgesResponse
+     *
+     * @param ListVirtualBridgesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListVirtualBridgesResponse
+     */
+    public function listVirtualBridgesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bridgeId) {
+            @$query['BridgeId'] = $request->bridgeId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVirtualBridges',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVirtualBridgesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of virtual bridges.
+     *
+     * @remarks
+     * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the Wuying terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+     *
+     * @param request - ListVirtualBridgesRequest
+     *
+     * @returns ListVirtualBridgesResponse
+     *
+     * @param ListVirtualBridgesRequest $request
+     *
+     * @return ListVirtualBridgesResponse
+     */
+    public function listVirtualBridges($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVirtualBridgesWithOptions($request, $runtime);
+    }
+
+    /**
      * Locks a multi-factor authentication (MFA) device that is in the NORMAL state.
      *
      * @remarks
@@ -18555,7 +18921,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the attributes of a disk file or folder, such as the file name.
+     * Modifies the attributes of a cloud disk file or folder, such as the file name.
      *
      * @param request - ModifyCdsFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18618,7 +18984,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the attributes of a disk file or folder, such as the file name.
+     * Modifies the attributes of a cloud disk file or folder, such as the file name.
      *
      * @param request - ModifyCdsFileRequest
      *
@@ -18761,7 +19127,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies a configuration that does not have a region-specific policy.
+     * Modifies the configuration of a region-free policy.
      *
      * @param request - ModifyCenterPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18943,6 +19309,26 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->fileTransferAddress) {
             @$query['FileTransferAddress'] = $request->fileTransferAddress;
+        }
+
+        if (null !== $request->fileTransferInSize) {
+            @$query['FileTransferInSize'] = $request->fileTransferInSize;
+        }
+
+        if (null !== $request->fileTransferInUnit) {
+            @$query['FileTransferInUnit'] = $request->fileTransferInUnit;
+        }
+
+        if (null !== $request->fileTransferOutSize) {
+            @$query['FileTransferOutSize'] = $request->fileTransferOutSize;
+        }
+
+        if (null !== $request->fileTransferOutUnit) {
+            @$query['FileTransferOutUnit'] = $request->fileTransferOutUnit;
+        }
+
+        if (null !== $request->fileTransferSizeLimit) {
+            @$query['FileTransferSizeLimit'] = $request->fileTransferSizeLimit;
         }
 
         if (null !== $request->fileTransferSpeed) {
@@ -19336,7 +19722,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies a configuration that does not have a region-specific policy.
+     * Modifies the configuration of a region-free policy.
      *
      * @param request - ModifyCenterPolicyRequest
      *
@@ -19583,7 +19969,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information of a configuration group.
+     * Modifies the basic information of a configuration group, including the name and description.
      *
      * @param request - ModifyConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19634,7 +20020,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information of a configuration group.
+     * Modifies the basic information of a configuration group, including the name and description.
      *
      * @param request - ModifyConfigGroupRequest
      *
@@ -20635,11 +21021,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modify the performance level of a cloud desktop\\"s system disk or data disk.
+     * Modifies the performance level of the system cloud disk or data cloud disk of a cloud computer.
      *
      * @remarks
-     * When you create a WUYING Workspace, you can define its specifications using a custom template. Graphics and High-frequency workspaces use Enhanced SSDs (ESSDs) by default, which lets you set the disk capacity and performance level. You can modify the performance level of the system disk or data disk as needed.
-     * > Only Graphics and High-frequency WUYING Workspaces support modifying the disk performance level.
+     * When you create a cloud computer, you can select specifications by creating a custom template. Enterprise Graphics or High Frequency Office cloud computers use ESSDs by default and support setting disk capacity and performance level (PL). You can change the performance level (PL) of the system cloud disk or data cloud disk as needed.
+     * > Only Enterprise Graphics and High Frequency Office cloud computers support changing disk performance levels.
      *
      * @param request - ModifyDiskSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20702,11 +21088,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modify the performance level of a cloud desktop\\"s system disk or data disk.
+     * Modifies the performance level of the system cloud disk or data cloud disk of a cloud computer.
      *
      * @remarks
-     * When you create a WUYING Workspace, you can define its specifications using a custom template. Graphics and High-frequency workspaces use Enhanced SSDs (ESSDs) by default, which lets you set the disk capacity and performance level. You can modify the performance level of the system disk or data disk as needed.
-     * > Only Graphics and High-frequency WUYING Workspaces support modifying the disk performance level.
+     * When you create a cloud computer, you can select specifications by creating a custom template. Enterprise Graphics or High Frequency Office cloud computers use ESSDs by default and support setting disk capacity and performance level (PL). You can change the performance level (PL) of the system cloud disk or data cloud disk as needed.
+     * > Only Enterprise Graphics and High Frequency Office cloud computers support changing disk performance levels.
      *
      * @param request - ModifyDiskSpecRequest
      *
@@ -20973,10 +21359,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the mount target of a File Storage NAS (NAS) file system.
+     * Modifies the mount target of a NAS file system.
      *
      * @remarks
-     * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
+     * When a NAS file system is created, the system automatically generates a mount target. By default, the mount target does not need to be modified. If the mount target is accidentally deleted, you need to specify a new mount target for the NAS file system of the workspace. You can call [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) to create a mount target.
      *
      * @param request - ModifyNASDefaultMountTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21023,10 +21409,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the mount target of a File Storage NAS (NAS) file system.
+     * Modifies the mount target of a NAS file system.
      *
      * @remarks
-     * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
+     * When a NAS file system is created, the system automatically generates a mount target. By default, the mount target does not need to be modified. If the mount target is accidentally deleted, you need to specify a new mount target for the NAS file system of the workspace. You can call [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) to create a mount target.
      *
      * @param request - ModifyNASDefaultMountTargetRequest
      *
@@ -21359,6 +21745,93 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyOfficeSiteAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the bridge information for behavior management.
+     *
+     * @remarks
+     * Only AD office networks in the `ERROR` or `REGISTERING` state support modifications to domain name and DNS-related parameters, including `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+     *
+     * @param request - ModifyOfficeSiteBridgeInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyOfficeSiteBridgeInfoResponse
+     *
+     * @param ModifyOfficeSiteBridgeInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyOfficeSiteBridgeInfoResponse
+     */
+    public function modifyOfficeSiteBridgeInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bridgeId) {
+            @$query['BridgeId'] = $request->bridgeId;
+        }
+
+        if (null !== $request->bridgeLevel) {
+            @$query['BridgeLevel'] = $request->bridgeLevel;
+        }
+
+        if (null !== $request->bridgeType) {
+            @$query['BridgeType'] = $request->bridgeType;
+        }
+
+        if (null !== $request->enableBridge) {
+            @$query['EnableBridge'] = $request->enableBridge;
+        }
+
+        if (null !== $request->license) {
+            @$query['License'] = $request->license;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyOfficeSiteBridgeInfo',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyOfficeSiteBridgeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the bridge information for behavior management.
+     *
+     * @remarks
+     * Only AD office networks in the `ERROR` or `REGISTERING` state support modifications to domain name and DNS-related parameters, including `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+     *
+     * @param request - ModifyOfficeSiteBridgeInfoRequest
+     *
+     * @returns ModifyOfficeSiteBridgeInfoResponse
+     *
+     * @param ModifyOfficeSiteBridgeInfoRequest $request
+     *
+     * @return ModifyOfficeSiteBridgeInfoResponse
+     */
+    public function modifyOfficeSiteBridgeInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyOfficeSiteBridgeInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -22154,11 +22627,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies all parameters of a custom WUYING Workspace template.
+     * Modifies all parameters of a custom cloud computer template.
      *
      * @remarks
-     * >Warning:
-     * This operation updates all parameters. To ensure compatibility with the default upgrade logic, any parameter that you do not specify is set to empty.
+     * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in templates, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
      *
      * @param request - ModifyTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22280,11 +22752,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies all parameters of a custom WUYING Workspace template.
+     * Modifies all parameters of a custom cloud computer template.
      *
      * @remarks
-     * >Warning:
-     * This operation updates all parameters. To ensure compatibility with the default upgrade logic, any parameter that you do not specify is set to empty.
+     * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in templates, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
      *
      * @param request - ModifyTemplateRequest
      *
@@ -22302,10 +22773,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information of a custom cloud computer template, including the template name and template description.
+     * Modifies the basic information of a custom cloud computer template, including the template name and description.
      *
      * @remarks
-     * This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+     * This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
      *
      * @param request - ModifyTemplateBaseInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22352,10 +22823,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information of a custom cloud computer template, including the template name and template description.
+     * Modifies the basic information of a custom cloud computer template, including the template name and description.
      *
      * @remarks
-     * This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+     * This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
      *
      * @param request - ModifyTemplateBaseInfoRequest
      *
@@ -22373,7 +22844,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modify configuration group settings, such as those for scheduled tasks.
+     * Modifies the settings of a configuration group, such as scheduled task configurations.
      *
      * @param request - ModifyTimerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22428,7 +22899,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modify configuration group settings, such as those for scheduled tasks.
+     * Modifies the settings of a configuration group, such as scheduled task configurations.
      *
      * @param request - ModifyTimerGroupRequest
      *
@@ -22590,7 +23061,173 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Move files or folders.
+     * Changes the specifications of a virtual bridge.
+     *
+     * @remarks
+     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a cloud desktop.
+     *
+     * @param request - ModifyVirtualBridgeLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyVirtualBridgeLevelResponse
+     *
+     * @param ModifyVirtualBridgeLevelRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyVirtualBridgeLevelResponse
+     */
+    public function modifyVirtualBridgeLevelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->bridgeId) {
+            @$query['BridgeId'] = $request->bridgeId;
+        }
+
+        if (null !== $request->bridgeLevel) {
+            @$query['BridgeLevel'] = $request->bridgeLevel;
+        }
+
+        if (null !== $request->paidCallBackUrl) {
+            @$query['PaidCallBackUrl'] = $request->paidCallBackUrl;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyVirtualBridgeLevel',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyVirtualBridgeLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Changes the specifications of a virtual bridge.
+     *
+     * @remarks
+     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a cloud desktop.
+     *
+     * @param request - ModifyVirtualBridgeLevelRequest
+     *
+     * @returns ModifyVirtualBridgeLevelResponse
+     *
+     * @param ModifyVirtualBridgeLevelRequest $request
+     *
+     * @return ModifyVirtualBridgeLevelResponse
+     */
+    public function modifyVirtualBridgeLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVirtualBridgeLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the status of a virtual bridge.
+     *
+     * @remarks
+     * Only custom images in the active (Available) state can be modified.
+     *
+     * @param request - ModifyVirtualBridgeStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyVirtualBridgeStatusResponse
+     *
+     * @param ModifyVirtualBridgeStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyVirtualBridgeStatusResponse
+     */
+    public function modifyVirtualBridgeStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bridgeId) {
+            @$query['BridgeId'] = $request->bridgeId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyVirtualBridgeStatus',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyVirtualBridgeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the status of a virtual bridge.
+     *
+     * @remarks
+     * Only custom images in the active (Available) state can be modified.
+     *
+     * @param request - ModifyVirtualBridgeStatusRequest
+     *
+     * @returns ModifyVirtualBridgeStatusResponse
+     *
+     * @param ModifyVirtualBridgeStatusRequest $request
+     *
+     * @return ModifyVirtualBridgeStatusResponse
+     */
+    public function modifyVirtualBridgeStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVirtualBridgeStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Moves a file or folder in a cloud disk to a new location.
      *
      * @param request - MoveCdsFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22653,7 +23290,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Move files or folders.
+     * Moves a file or folder in a cloud disk to a new location.
      *
      * @param request - MoveCdsFileRequest
      *
@@ -22671,13 +23308,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the historical daily and monthly active user counts for a specified date.
+     * Queries the historical daily active user count and monthly active user count for a specified date.
      *
      * @remarks
-     * ## Usage notes
-     * - The `AliUid` parameter is automatically resolved from your AccessKey pair and does not need to be specified in the request.
-     * - The `BusinessChannel` parameter defaults to Enterprise Edition, but you can select other business channels.
-     * - By default, the query returns data for the previous day (T-1). To query for a different day, use the `DataDate` parameter in YYYY-MM-DD format.
+     * ## Request description
+     * - The `AliUid` parameter is automatically parsed from the AK/SK and does not need to be manually provided.
+     * - `BusinessChannel` defaults to Enterprise Edition, but you can also select other business channels.
+     * - `DataDate` supports a custom statistical date and defaults to the previous day (T-1). Ensure that the input format is "YYYY-MM-DD".
      *
      * @param request - QueryHistoryActiveUserCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22716,13 +23353,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the historical daily and monthly active user counts for a specified date.
+     * Queries the historical daily active user count and monthly active user count for a specified date.
      *
      * @remarks
-     * ## Usage notes
-     * - The `AliUid` parameter is automatically resolved from your AccessKey pair and does not need to be specified in the request.
-     * - The `BusinessChannel` parameter defaults to Enterprise Edition, but you can select other business channels.
-     * - By default, the query returns data for the previous day (T-1). To query for a different day, use the `DataDate` parameter in YYYY-MM-DD format.
+     * ## Request description
+     * - The `AliUid` parameter is automatically parsed from the AK/SK and does not need to be manually provided.
+     * - `BusinessChannel` defaults to Enterprise Edition, but you can also select other business channels.
+     * - `DataDate` supports a custom statistical date and defaults to the previous day (T-1). Ensure that the input format is "YYYY-MM-DD".
      *
      * @param request - QueryHistoryActiveUserCountRequest
      *
@@ -22849,15 +23486,16 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the historical distribution of a specific metric over a specified time period.
+     * Queries the historical distribution of a specific metric within a specified time range.
      *
      * @remarks
-     * ## Request
-     * This API queries the value distribution for specific metrics, such as CPU usage and memory usage, within a given date range. You can define custom value ranges for more detailed statistics. The API supports both the enterprise edition and commercial edition. By default, it returns statistics for the previous day (T-1).
-     * - **BusinessChannel**: Defaults to the enterprise edition. The commercial edition is also available.
-     * - **StartDate & EndDate**: Both default to T-1 (the previous day). The date must be in the `YYYY-MM-DD` format.
-     * - **MetricName**: The metric to query. For a list of valid metrics, see the parameter description in this topic.
-     * - **Ranges**: Defines multiple value ranges for a more detailed analysis. For each range, you can set a minimum value, a maximum value, and whether to include these boundary values.
+     * ## Operation description
+     * This API operation queries the value distribution of a specific monitoring metrics (such as CPU usage or memory usage) within a specified date range. You can obtain more detailed statistics by defining custom value ranges. Two business channels are supported: Enterprise Edition and Commercial Edition. By default, T-1 (yesterday) data statistics are used.
+     * - **BusinessChannel**: Enterprise Edition by default. Commercial Edition is optional.
+     * - **StartDate & EndDate**: Default value is T-1, which is yesterday\\"s date. The format must be "YYYY-MM-DD".
+     * - **MetricName**: The name of the specific metric to query. Refer to the valid metric list provided in the documentation.
+     * - **Ranges**: Allows you to define multiple custom value ranges for more granular data analytics. Each range can have a minimum value, a maximum value, and whether to include border values.
+     * ## Settings
      *
      * @param request - QueryHistoryMetricDistributionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22908,15 +23546,16 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the historical distribution of a specific metric over a specified time period.
+     * Queries the historical distribution of a specific metric within a specified time range.
      *
      * @remarks
-     * ## Request
-     * This API queries the value distribution for specific metrics, such as CPU usage and memory usage, within a given date range. You can define custom value ranges for more detailed statistics. The API supports both the enterprise edition and commercial edition. By default, it returns statistics for the previous day (T-1).
-     * - **BusinessChannel**: Defaults to the enterprise edition. The commercial edition is also available.
-     * - **StartDate & EndDate**: Both default to T-1 (the previous day). The date must be in the `YYYY-MM-DD` format.
-     * - **MetricName**: The metric to query. For a list of valid metrics, see the parameter description in this topic.
-     * - **Ranges**: Defines multiple value ranges for a more detailed analysis. For each range, you can set a minimum value, a maximum value, and whether to include these boundary values.
+     * ## Operation description
+     * This API operation queries the value distribution of a specific monitoring metrics (such as CPU usage or memory usage) within a specified date range. You can obtain more detailed statistics by defining custom value ranges. Two business channels are supported: Enterprise Edition and Commercial Edition. By default, T-1 (yesterday) data statistics are used.
+     * - **BusinessChannel**: Enterprise Edition by default. Commercial Edition is optional.
+     * - **StartDate & EndDate**: Default value is T-1, which is yesterday\\"s date. The format must be "YYYY-MM-DD".
+     * - **MetricName**: The name of the specific metric to query. Refer to the valid metric list provided in the documentation.
+     * - **Ranges**: Allows you to define multiple custom value ranges for more granular data analytics. Each range can have a minimum value, a maximum value, and whether to include border values.
+     * ## Settings
      *
      * @param request - QueryHistoryMetricDistributionRequest
      *
@@ -22934,16 +23573,16 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries and ranks historical usage duration by end user or desktop.
+     * Queries and sorts historical usage duration by user or desktop dimension.
      *
      * @remarks
-     * ## Usage notes
-     * - **Date range**: You can query data within the last 90 days.
-     * - **Pagination**: This operation uses the`NextToken` parameter for pagination. To retrieve the next page of results, use the `NextToken` value from the previous response.
-     * - **Default and maximum limits**: This operation returns 5 records by default, with a maximum of 200 records per page.
-     * - **Authentication**: This operation uses an AccessKey for authentication.
-     * - **Caller account information**: You do not need to specify an Alibaba Cloud account ID (AliUid). The system automatically resolves it.
-     * - **Billing**: This API operation is free of charge.
+     * ## Request description
+     * - **Date range**: Supports querying data within a maximum of 90 days.
+     * - **Paged query**: Pagination is implemented through the `NextToken` parameter, which is obtained from the previous response.
+     * - **Default and maximum limits**: 5 records are returned by default, with a maximum of 200.
+     * - **Authentication**: Uses AccessKey for identity verification.
+     * - **Caller account information**: You do not need to manually pass in AliUid. The system automatically parses it.
+     * - **Billing**: This API call is free of charge.
      *
      * @param request - QueryHistoryUsageDurationRankRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22998,16 +23637,16 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries and ranks historical usage duration by end user or desktop.
+     * Queries and sorts historical usage duration by user or desktop dimension.
      *
      * @remarks
-     * ## Usage notes
-     * - **Date range**: You can query data within the last 90 days.
-     * - **Pagination**: This operation uses the`NextToken` parameter for pagination. To retrieve the next page of results, use the `NextToken` value from the previous response.
-     * - **Default and maximum limits**: This operation returns 5 records by default, with a maximum of 200 records per page.
-     * - **Authentication**: This operation uses an AccessKey for authentication.
-     * - **Caller account information**: You do not need to specify an Alibaba Cloud account ID (AliUid). The system automatically resolves it.
-     * - **Billing**: This API operation is free of charge.
+     * ## Request description
+     * - **Date range**: Supports querying data within a maximum of 90 days.
+     * - **Paged query**: Pagination is implemented through the `NextToken` parameter, which is obtained from the previous response.
+     * - **Default and maximum limits**: 5 records are returned by default, with a maximum of 200.
+     * - **Authentication**: Uses AccessKey for identity verification.
+     * - **Caller account information**: You do not need to manually pass in AliUid. The system automatically parses it.
+     * - **Billing**: This API call is free of charge.
      *
      * @param request - QueryHistoryUsageDurationRankRequest
      *
@@ -23815,6 +24454,97 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Renews a virtual bridge.
+     *
+     * @remarks
+     * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+     *
+     * @param request - RenewVirtualBridgeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewVirtualBridgeResponse
+     *
+     * @param RenewVirtualBridgeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RenewVirtualBridgeResponse
+     */
+    public function renewVirtualBridgeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->bridgeId) {
+            @$query['BridgeId'] = $request->bridgeId;
+        }
+
+        if (null !== $request->paidCallBackUrl) {
+            @$query['PaidCallBackUrl'] = $request->paidCallBackUrl;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RenewVirtualBridge',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RenewVirtualBridgeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Renews a virtual bridge.
+     *
+     * @remarks
+     * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+     *
+     * @param request - RenewVirtualBridgeRequest
+     *
+     * @returns RenewVirtualBridgeResponse
+     *
+     * @param RenewVirtualBridgeRequest $request
+     *
+     * @return RenewVirtualBridgeResponse
+     */
+    public function renewVirtualBridge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewVirtualBridgeWithOptions($request, $runtime);
+    }
+
+    /**
      * Resets cloud desktops in a shared cloud desktop group.
      *
      * @remarks
@@ -23910,10 +24640,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Resets the mount target of a File Storage NAS (NAS) file system.
+     * Resets the mount point of a NAS file system.
      *
      * @remarks
-     * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+     * When a NAS file system is created, the system automatically generates a mount point. By default, the mount point does not need to be modified. If the mount point is in an inactive state, you need to reset the mount point of the NAS file system.
      *
      * @param request - ResetNASDefaultMountTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23956,10 +24686,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Resets the mount target of a File Storage NAS (NAS) file system.
+     * Resets the mount point of a NAS file system.
      *
      * @remarks
-     * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+     * When a NAS file system is created, the system automatically generates a mount point. By default, the mount point does not need to be modified. If the mount point is in an inactive state, you need to reset the mount point of the NAS file system.
      *
      * @param request - ResetNASDefaultMountTargetRequest
      *
@@ -24054,7 +24784,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Revokes the coordinate permissions.
+     * Cancels the permission for stream coordination operations.
      *
      * @param request - RevokeCoordinatePrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24109,7 +24839,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Revokes the coordinate permissions.
+     * Cancels the permission for stream coordination operations.
      *
      * @param request - RevokeCoordinatePrivilegeRequest
      *
@@ -24283,7 +25013,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Configures an auto scaling policy for a multi-session cloud computer. Elastic Desktop Service allows multiple end users to share a cloud computer in a multi-session cloud computer pool. This helps save costs.
+     * Sets an automatic scaling policy for multi-session cloud computers. Multi-session cloud computers allow multiple users to connect to the same cloud computer simultaneously, which reduces costs.
      *
      * @param request - SetDesktopGroupScaleTimerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24330,7 +25060,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Configures an auto scaling policy for a multi-session cloud computer. Elastic Desktop Service allows multiple end users to share a cloud computer in a multi-session cloud computer pool. This helps save costs.
+     * Sets an automatic scaling policy for multi-session cloud computers. Multi-session cloud computers allow multiple users to connect to the same cloud computer simultaneously, which reduces costs.
      *
      * @param request - SetDesktopGroupScaleTimerRequest
      *
@@ -25147,7 +25877,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the transmission and approval result for a submitted file.
+     * Submits the approval result for a file transfer task.
      *
      * @param request - TransferTaskApprovalCallbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25198,7 +25928,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the transmission and approval result for a submitted file.
+     * Submits the approval result for a file transfer task.
      *
      * @param request - TransferTaskApprovalCallbackRequest
      *
@@ -25563,10 +26293,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Uploads your custom Windows image.
+     * Uploads a custom Windows image.
      *
      * @remarks
-     * >  You can upload only Windows images.
+     * > Only Windows operating system images can be uploaded.
      *
      * @param request - UploadImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25582,6 +26312,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bootMode) {
+            @$query['BootMode'] = $request->bootMode;
+        }
+
         if (null !== $request->dataDiskSize) {
             @$query['DataDiskSize'] = $request->dataDiskSize;
         }
@@ -25649,10 +26383,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Uploads your custom Windows image.
+     * Uploads a custom Windows image.
      *
      * @remarks
-     * >  You can upload only Windows images.
+     * > Only Windows operating system images can be uploaded.
      *
      * @param request - UploadImageRequest
      *

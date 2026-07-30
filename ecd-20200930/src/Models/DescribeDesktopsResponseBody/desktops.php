@@ -201,6 +201,11 @@ class desktops extends Model
     public $imageId;
 
     /**
+     * @var string
+     */
+    public $imageName;
+
+    /**
      * @var bool
      */
     public $isLdap;
@@ -336,6 +341,11 @@ class desktops extends Model
     public $startTime;
 
     /**
+     * @var string
+     */
+    public $subnetId;
+
+    /**
      * @var bool
      */
     public $supportHibernation;
@@ -407,6 +417,7 @@ class desktops extends Model
         'hibernationOptionsConfigured' => 'HibernationOptionsConfigured',
         'hostName' => 'HostName',
         'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
         'isLdap' => 'IsLdap',
         'managementFlag' => 'ManagementFlag',
         'managementFlags' => 'ManagementFlags',
@@ -434,6 +445,7 @@ class desktops extends Model
         'snapshotPolicyName' => 'SnapshotPolicyName',
         'standardStartTime' => 'StandardStartTime',
         'startTime' => 'StartTime',
+        'subnetId' => 'SubnetId',
         'supportHibernation' => 'SupportHibernation',
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskSize' => 'SystemDiskSize',
@@ -663,6 +675,10 @@ class desktops extends Model
             $res['ImageId'] = $this->imageId;
         }
 
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
+        }
+
         if (null !== $this->isLdap) {
             $res['IsLdap'] = $this->isLdap;
         }
@@ -804,6 +820,10 @@ class desktops extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->subnetId) {
+            $res['SubnetId'] = $this->subnetId;
         }
 
         if (null !== $this->supportHibernation) {
@@ -1028,6 +1048,10 @@ class desktops extends Model
             $model->imageId = $map['ImageId'];
         }
 
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
+        }
+
         if (isset($map['IsLdap'])) {
             $model->isLdap = $map['IsLdap'];
         }
@@ -1169,6 +1193,10 @@ class desktops extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['SubnetId'])) {
+            $model->subnetId = $map['SubnetId'];
         }
 
         if (isset($map['SupportHibernation'])) {

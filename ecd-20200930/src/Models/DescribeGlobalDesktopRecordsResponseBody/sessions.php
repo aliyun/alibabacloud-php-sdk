@@ -22,6 +22,11 @@ class sessions extends Model
     /**
      * @var string
      */
+    public $creationTime;
+
+    /**
+     * @var string
+     */
     public $desktopGroupId;
 
     /**
@@ -141,6 +146,7 @@ class sessions extends Model
     protected $_name = [
         'connectionStatus' => 'ConnectionStatus',
         'cpu' => 'Cpu',
+        'creationTime' => 'CreationTime',
         'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupName' => 'DesktopGroupName',
         'desktopId' => 'DesktopId',
@@ -190,6 +196,10 @@ class sessions extends Model
 
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
 
         if (null !== $this->desktopGroupId) {
@@ -326,6 +336,10 @@ class sessions extends Model
 
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
 
         if (isset($map['DesktopGroupId'])) {

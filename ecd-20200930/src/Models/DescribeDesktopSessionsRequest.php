@@ -39,6 +39,11 @@ class DescribeDesktopSessionsRequest extends Model
     public $endUserIdFilter;
 
     /**
+     * @var string[]
+     */
+    public $endUserIds;
+
+    /**
      * @var bool
      */
     public $fillHardwareInfo;
@@ -94,6 +99,7 @@ class DescribeDesktopSessionsRequest extends Model
         'endTime' => 'EndTime',
         'endUserId' => 'EndUserId',
         'endUserIdFilter' => 'EndUserIdFilter',
+        'endUserIds' => 'EndUserIds',
         'fillHardwareInfo' => 'FillHardwareInfo',
         'language' => 'Language',
         'officeSiteId' => 'OfficeSiteId',
@@ -110,6 +116,9 @@ class DescribeDesktopSessionsRequest extends Model
     {
         if (\is_array($this->desktopId)) {
             Model::validateArray($this->desktopId);
+        }
+        if (\is_array($this->endUserIds)) {
+            Model::validateArray($this->endUserIds);
         }
         parent::validate();
     }
@@ -146,6 +155,17 @@ class DescribeDesktopSessionsRequest extends Model
 
         if (null !== $this->endUserIdFilter) {
             $res['EndUserIdFilter'] = $this->endUserIdFilter;
+        }
+
+        if (null !== $this->endUserIds) {
+            if (\is_array($this->endUserIds)) {
+                $res['EndUserIds'] = [];
+                $n1 = 0;
+                foreach ($this->endUserIds as $item1) {
+                    $res['EndUserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->fillHardwareInfo) {
@@ -228,6 +248,17 @@ class DescribeDesktopSessionsRequest extends Model
 
         if (isset($map['EndUserIdFilter'])) {
             $model->endUserIdFilter = $map['EndUserIdFilter'];
+        }
+
+        if (isset($map['EndUserIds'])) {
+            if (!empty($map['EndUserIds'])) {
+                $model->endUserIds = [];
+                $n1 = 0;
+                foreach ($map['EndUserIds'] as $item1) {
+                    $model->endUserIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['FillHardwareInfo'])) {

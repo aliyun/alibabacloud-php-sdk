@@ -56,6 +56,11 @@ class invokeDesktops extends Model
     /**
      * @var string
      */
+    public $jvsAgentId;
+
+    /**
+     * @var string
+     */
     public $output;
 
     /**
@@ -87,6 +92,7 @@ class invokeDesktops extends Model
         'exitCode' => 'ExitCode',
         'finishTime' => 'FinishTime',
         'invocationStatus' => 'InvocationStatus',
+        'jvsAgentId' => 'JvsAgentId',
         'output' => 'Output',
         'repeats' => 'Repeats',
         'startTime' => 'StartTime',
@@ -136,6 +142,10 @@ class invokeDesktops extends Model
 
         if (null !== $this->invocationStatus) {
             $res['InvocationStatus'] = $this->invocationStatus;
+        }
+
+        if (null !== $this->jvsAgentId) {
+            $res['JvsAgentId'] = $this->jvsAgentId;
         }
 
         if (null !== $this->output) {
@@ -203,6 +213,10 @@ class invokeDesktops extends Model
 
         if (isset($map['InvocationStatus'])) {
             $model->invocationStatus = $map['InvocationStatus'];
+        }
+
+        if (isset($map['JvsAgentId'])) {
+            $model->jvsAgentId = $map['JvsAgentId'];
         }
 
         if (isset($map['Output'])) {

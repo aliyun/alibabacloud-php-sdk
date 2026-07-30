@@ -39,6 +39,11 @@ class DescribeClientEventsRequest extends Model
     public $endUserId;
 
     /**
+     * @var string[]
+     */
+    public $endUserIds;
+
+    /**
      * @var string
      */
     public $eventType;
@@ -94,6 +99,7 @@ class DescribeClientEventsRequest extends Model
         'directoryId' => 'DirectoryId',
         'endTime' => 'EndTime',
         'endUserId' => 'EndUserId',
+        'endUserIds' => 'EndUserIds',
         'eventType' => 'EventType',
         'eventTypes' => 'EventTypes',
         'fillHardwareInfo' => 'FillHardwareInfo',
@@ -108,6 +114,9 @@ class DescribeClientEventsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->endUserIds)) {
+            Model::validateArray($this->endUserIds);
+        }
         if (\is_array($this->eventTypes)) {
             Model::validateArray($this->eventTypes);
         }
@@ -139,6 +148,17 @@ class DescribeClientEventsRequest extends Model
 
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+
+        if (null !== $this->endUserIds) {
+            if (\is_array($this->endUserIds)) {
+                $res['EndUserIds'] = [];
+                $n1 = 0;
+                foreach ($this->endUserIds as $item1) {
+                    $res['EndUserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->eventType) {
@@ -221,6 +241,17 @@ class DescribeClientEventsRequest extends Model
 
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
+        }
+
+        if (isset($map['EndUserIds'])) {
+            if (!empty($map['EndUserIds'])) {
+                $model->endUserIds = [];
+                $n1 = 0;
+                foreach ($map['EndUserIds'] as $item1) {
+                    $model->endUserIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['EventType'])) {

@@ -238,6 +238,31 @@ class describePolicyGroups extends Model
     public $fileTransferAddress;
 
     /**
+     * @var int
+     */
+    public $fileTransferInSize;
+
+    /**
+     * @var string
+     */
+    public $fileTransferInUnit;
+
+    /**
+     * @var int
+     */
+    public $fileTransferOutSize;
+
+    /**
+     * @var string
+     */
+    public $fileTransferOutUnit;
+
+    /**
+     * @var string
+     */
+    public $fileTransferSizeLimit;
+
+    /**
      * @var string
      */
     public $fileTransferSpeed;
@@ -776,6 +801,11 @@ class describePolicyGroups extends Model
         'fileMigrate' => 'FileMigrate',
         'fileTransfer' => 'FileTransfer',
         'fileTransferAddress' => 'FileTransferAddress',
+        'fileTransferInSize' => 'FileTransferInSize',
+        'fileTransferInUnit' => 'FileTransferInUnit',
+        'fileTransferOutSize' => 'FileTransferOutSize',
+        'fileTransferOutUnit' => 'FileTransferOutUnit',
+        'fileTransferSizeLimit' => 'FileTransferSizeLimit',
         'fileTransferSpeed' => 'FileTransferSpeed',
         'fileTransferSpeedLocation' => 'FileTransferSpeedLocation',
         'gpuAcceleration' => 'GpuAcceleration',
@@ -1156,6 +1186,26 @@ class describePolicyGroups extends Model
 
         if (null !== $this->fileTransferAddress) {
             $res['FileTransferAddress'] = $this->fileTransferAddress;
+        }
+
+        if (null !== $this->fileTransferInSize) {
+            $res['FileTransferInSize'] = $this->fileTransferInSize;
+        }
+
+        if (null !== $this->fileTransferInUnit) {
+            $res['FileTransferInUnit'] = $this->fileTransferInUnit;
+        }
+
+        if (null !== $this->fileTransferOutSize) {
+            $res['FileTransferOutSize'] = $this->fileTransferOutSize;
+        }
+
+        if (null !== $this->fileTransferOutUnit) {
+            $res['FileTransferOutUnit'] = $this->fileTransferOutUnit;
+        }
+
+        if (null !== $this->fileTransferSizeLimit) {
+            $res['FileTransferSizeLimit'] = $this->fileTransferSizeLimit;
         }
 
         if (null !== $this->fileTransferSpeed) {
@@ -1851,6 +1901,26 @@ class describePolicyGroups extends Model
 
         if (isset($map['FileTransferAddress'])) {
             $model->fileTransferAddress = $map['FileTransferAddress'];
+        }
+
+        if (isset($map['FileTransferInSize'])) {
+            $model->fileTransferInSize = $map['FileTransferInSize'];
+        }
+
+        if (isset($map['FileTransferInUnit'])) {
+            $model->fileTransferInUnit = $map['FileTransferInUnit'];
+        }
+
+        if (isset($map['FileTransferOutSize'])) {
+            $model->fileTransferOutSize = $map['FileTransferOutSize'];
+        }
+
+        if (isset($map['FileTransferOutUnit'])) {
+            $model->fileTransferOutUnit = $map['FileTransferOutUnit'];
+        }
+
+        if (isset($map['FileTransferSizeLimit'])) {
+            $model->fileTransferSizeLimit = $map['FileTransferSizeLimit'];
         }
 
         if (isset($map['FileTransferSpeed'])) {

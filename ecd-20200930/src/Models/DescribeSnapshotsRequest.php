@@ -26,6 +26,11 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @var string
      */
+    public $desktopScenario;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -76,6 +81,7 @@ class DescribeSnapshotsRequest extends Model
         'creator' => 'Creator',
         'desktopId' => 'DesktopId',
         'desktopName' => 'DesktopName',
+        'desktopScenario' => 'DesktopScenario',
         'endTime' => 'EndTime',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -106,6 +112,10 @@ class DescribeSnapshotsRequest extends Model
 
         if (null !== $this->desktopName) {
             $res['DesktopName'] = $this->desktopName;
+        }
+
+        if (null !== $this->desktopScenario) {
+            $res['DesktopScenario'] = $this->desktopScenario;
         }
 
         if (null !== $this->endTime) {
@@ -169,6 +179,10 @@ class DescribeSnapshotsRequest extends Model
 
         if (isset($map['DesktopName'])) {
             $model->desktopName = $map['DesktopName'];
+        }
+
+        if (isset($map['DesktopScenario'])) {
+            $model->desktopScenario = $map['DesktopScenario'];
         }
 
         if (isset($map['EndTime'])) {

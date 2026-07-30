@@ -27,6 +27,11 @@ class invocations extends Model
     /**
      * @var string
      */
+    public $desktopScenario;
+
+    /**
+     * @var string
+     */
     public $endUserId;
 
     /**
@@ -57,6 +62,7 @@ class invocations extends Model
         'commandContent' => 'CommandContent',
         'commandType' => 'CommandType',
         'creationTime' => 'CreationTime',
+        'desktopScenario' => 'DesktopScenario',
         'endUserId' => 'EndUserId',
         'invocationStatus' => 'InvocationStatus',
         'invokeDesktopCount' => 'InvokeDesktopCount',
@@ -86,6 +92,10 @@ class invocations extends Model
 
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+
+        if (null !== $this->desktopScenario) {
+            $res['DesktopScenario'] = $this->desktopScenario;
         }
 
         if (null !== $this->endUserId) {
@@ -140,6 +150,10 @@ class invocations extends Model
 
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+
+        if (isset($map['DesktopScenario'])) {
+            $model->desktopScenario = $map['DesktopScenario'];
         }
 
         if (isset($map['EndUserId'])) {

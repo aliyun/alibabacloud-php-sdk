@@ -5,14 +5,19 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsResponseBody\events;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ListVirtualBridgesResponseBody\bridges;
 
-class DescribeClientEventsResponseBody extends Model
+class ListVirtualBridgesResponseBody extends Model
 {
     /**
-     * @var events[]
+     * @var bridges[]
      */
-    public $events;
+    public $bridges;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
 
     /**
      * @var string
@@ -23,22 +28,17 @@ class DescribeClientEventsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
-        'events' => 'Events',
+        'bridges' => 'Bridges',
+        'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
-        if (\is_array($this->events)) {
-            Model::validateArray($this->events);
+        if (\is_array($this->bridges)) {
+            Model::validateArray($this->bridges);
         }
         parent::validate();
     }
@@ -46,15 +46,19 @@ class DescribeClientEventsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->events) {
-            if (\is_array($this->events)) {
-                $res['Events'] = [];
+        if (null !== $this->bridges) {
+            if (\is_array($this->bridges)) {
+                $res['Bridges'] = [];
                 $n1 = 0;
-                foreach ($this->events as $item1) {
-                    $res['Events'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->bridges as $item1) {
+                    $res['Bridges'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
 
         if (null !== $this->nextToken) {
@@ -63,10 +67,6 @@ class DescribeClientEventsResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -80,15 +80,19 @@ class DescribeClientEventsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Events'])) {
-            if (!empty($map['Events'])) {
-                $model->events = [];
+        if (isset($map['Bridges'])) {
+            if (!empty($map['Bridges'])) {
+                $model->bridges = [];
                 $n1 = 0;
-                foreach ($map['Events'] as $item1) {
-                    $model->events[$n1] = events::fromMap($item1);
+                foreach ($map['Bridges'] as $item1) {
+                    $model->bridges[$n1] = bridges::fromMap($item1);
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
 
         if (isset($map['NextToken'])) {
@@ -97,10 +101,6 @@ class DescribeClientEventsResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

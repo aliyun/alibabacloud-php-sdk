@@ -97,6 +97,11 @@ class DescribeGlobalDesktopRecordsRequest extends Model
      * @var string
      */
     public $subPayType;
+
+    /**
+     * @var string[]
+     */
+    public $userNames;
     protected $_name = [
         'businessChannel' => 'BusinessChannel',
         'desktopId' => 'DesktopId',
@@ -116,6 +121,7 @@ class DescribeGlobalDesktopRecordsRequest extends Model
         'sortType' => 'SortType',
         'startTime' => 'StartTime',
         'subPayType' => 'SubPayType',
+        'userNames' => 'UserNames',
     ];
 
     public function validate()
@@ -128,6 +134,9 @@ class DescribeGlobalDesktopRecordsRequest extends Model
         }
         if (\is_array($this->excludeDesktopStatusList)) {
             Model::validateArray($this->excludeDesktopStatusList);
+        }
+        if (\is_array($this->userNames)) {
+            Model::validateArray($this->userNames);
         }
         parent::validate();
     }
@@ -226,6 +235,17 @@ class DescribeGlobalDesktopRecordsRequest extends Model
 
         if (null !== $this->subPayType) {
             $res['SubPayType'] = $this->subPayType;
+        }
+
+        if (null !== $this->userNames) {
+            if (\is_array($this->userNames)) {
+                $res['UserNames'] = [];
+                $n1 = 0;
+                foreach ($this->userNames as $item1) {
+                    $res['UserNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -330,6 +350,17 @@ class DescribeGlobalDesktopRecordsRequest extends Model
 
         if (isset($map['SubPayType'])) {
             $model->subPayType = $map['SubPayType'];
+        }
+
+        if (isset($map['UserNames'])) {
+            if (!empty($map['UserNames'])) {
+                $model->userNames = [];
+                $n1 = 0;
+                foreach ($map['UserNames'] as $item1) {
+                    $model->userNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

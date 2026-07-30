@@ -56,6 +56,11 @@ class DescribeDesktopMetadataRequest extends Model
     /**
      * @var string
      */
+    public $networkInterfaceIp;
+
+    /**
+     * @var string
+     */
     public $nextToken;
 
     /**
@@ -87,6 +92,7 @@ class DescribeDesktopMetadataRequest extends Model
         'includeDesktopGroup' => 'IncludeDesktopGroup',
         'keyword' => 'Keyword',
         'maxResults' => 'MaxResults',
+        'networkInterfaceIp' => 'NetworkInterfaceIp',
         'nextToken' => 'NextToken',
         'officeSiteId' => 'OfficeSiteId',
         'operationTimeStart' => 'OperationTimeStart',
@@ -146,6 +152,10 @@ class DescribeDesktopMetadataRequest extends Model
 
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->networkInterfaceIp) {
+            $res['NetworkInterfaceIp'] = $this->networkInterfaceIp;
         }
 
         if (null !== $this->nextToken) {
@@ -220,6 +230,10 @@ class DescribeDesktopMetadataRequest extends Model
 
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NetworkInterfaceIp'])) {
+            $model->networkInterfaceIp = $map['NetworkInterfaceIp'];
         }
 
         if (isset($map['NextToken'])) {
