@@ -3938,7 +3938,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of contacts.
+     * Retrieves the list of contacts.
      *
      * @param request - ListContactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3985,7 +3985,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of contacts.
+     * Retrieves the list of contacts.
      *
      * @param request - ListContactRequest
      *
