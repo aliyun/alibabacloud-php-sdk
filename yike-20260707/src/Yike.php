@@ -21,8 +21,12 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaComprehensionJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaComprehensionJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetRemakeScriptJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetRemakeScriptJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoRenderJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoRenderJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetYikeAccountCreditRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetYikeAccountCreditResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetYikeJobCreditRequest;
@@ -37,8 +41,12 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitImageGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitImageGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitRemakeScriptJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitRemakeScriptJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoRenderJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoRenderJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoTranslationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoTranslationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateAssetCategoryRequest;
@@ -89,11 +97,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 批量获取媒资信息.
+     * Retrieves information about multiple media assets in a batch.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Request description.
      *
      * @param request - BatchGetMediasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -136,11 +143,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 批量获取媒资信息.
+     * Retrieves information about multiple media assets in a batch.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Request description.
      *
      * @param request - BatchGetMediasRequest
      *
@@ -158,10 +164,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建分类.
+     * Creates a media asset category.
      *
      * @remarks
-     * 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+     * Categories support up to three levels, and each level supports up to 100 subcategories.
      *
      * @param request - CreateAssetCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -204,10 +210,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建分类.
+     * Creates a media asset category.
      *
      * @remarks
-     * 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+     * Categories support up to three levels, and each level supports up to 100 subcategories.
      *
      * @param request - CreateAssetCategoryRequest
      *
@@ -225,10 +231,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 删除分类.
+     * Deletes a media asset category.
      *
      * @remarks
-     * 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+     * This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
      *
      * @param request - DeleteAssetCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -267,10 +273,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 删除分类.
+     * Deletes a media asset category.
      *
      * @remarks
-     * 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+     * This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
      *
      * @param request - DeleteAssetCategoryRequest
      *
@@ -288,7 +294,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 删除媒资信息.
+     * Deletes media asset information.
      *
      * @param request - DeleteMediasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -335,7 +341,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 删除媒资信息.
+     * Deletes media asset information.
      *
      * @param request - DeleteMediasRequest
      *
@@ -353,7 +359,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询分类.
+     * Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
      *
      * @param request - GetAssetCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -392,7 +398,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询分类.
+     * Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
      *
      * @param request - GetAssetCategoryRequest
      *
@@ -410,7 +416,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询图片生成任务
+     * Queries an image generation task.
      *
      * @param request - GetImageGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -449,7 +455,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询图片生成任务
+     * Queries an image generation task.
      *
      * @param request - GetImageGenerationJobRequest
      *
@@ -540,11 +546,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询媒资内容理解作业.
+     * Queries a media asset content understanding job.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Description
+     * This API is used to query a media asset content understanding job.
      *
      * @param request - GetMediaComprehensionJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -583,11 +589,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询媒资内容理解作业.
+     * Queries a media asset content understanding job.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Description
+     * This API is used to query a media asset content understanding job.
      *
      * @param request - GetMediaComprehensionJobRequest
      *
@@ -605,7 +611,64 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询视频生成任务
+     * Queries a creative script generation task.
+     *
+     * @param request - GetRemakeScriptJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRemakeScriptJobResponse
+     *
+     * @param GetRemakeScriptJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetRemakeScriptJobResponse
+     */
+    public function getRemakeScriptJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRemakeScriptJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRemakeScriptJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a creative script generation task.
+     *
+     * @param request - GetRemakeScriptJobRequest
+     *
+     * @returns GetRemakeScriptJobResponse
+     *
+     * @param GetRemakeScriptJobRequest $request
+     *
+     * @return GetRemakeScriptJobResponse
+     */
+    public function getRemakeScriptJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRemakeScriptJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a video generation task.
      *
      * @param request - GetVideoGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -648,7 +711,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询视频生成任务
+     * Queries a video generation task.
      *
      * @param request - GetVideoGenerationJobRequest
      *
@@ -666,7 +729,64 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻主账户会员计划及积分情况.
+     * 查询爆款新视频渲染任务
+     *
+     * @param request - GetVideoRenderJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoRenderJobResponse
+     *
+     * @param GetVideoRenderJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetVideoRenderJobResponse
+     */
+    public function getVideoRenderJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoRenderJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoRenderJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询爆款新视频渲染任务
+     *
+     * @param request - GetVideoRenderJobRequest
+     *
+     * @returns GetVideoRenderJobResponse
+     *
+     * @param GetVideoRenderJobRequest $request
+     *
+     * @return GetVideoRenderJobResponse
+     */
+    public function getVideoRenderJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoRenderJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the membership plan and credit information for a Yike primary account.
      *
      * @param request - GetYikeAccountCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -698,7 +818,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻主账户会员计划及积分情况.
+     * Retrieves the membership plan and credit information for a Yike primary account.
      *
      * @param request - GetYikeAccountCreditRequest
      *
@@ -716,7 +836,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻任务实际消耗积分.
+     * Queries the actual credit consumption of a task.
      *
      * @param request - GetYikeJobCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -755,7 +875,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻任务实际消耗积分.
+     * Queries the actual credit consumption of a task.
      *
      * @param request - GetYikeJobCreditRequest
      *
@@ -773,11 +893,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 导入媒资.
+     * Imports a media asset.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Operation description
+     * This API is used to query media content understanding jobs.
      *
      * @param request - ImportMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -864,11 +984,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 导入媒资.
+     * Imports a media asset.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Operation description
+     * This API is used to query media content understanding jobs.
      *
      * @param request - ImportMediaRequest
      *
@@ -886,7 +1006,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 列出分类.
+     * Retrieves a paginated list of categories.
      *
      * @param request - ListAssetCategoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -929,7 +1049,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 列出分类.
+     * Retrieves a paginated list of categories.
      *
      * @param request - ListAssetCategoriesRequest
      *
@@ -947,7 +1067,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 搜索媒资.
+     * Returns media asset information that matches the specified filter conditions.
      *
      * @param request - SearchMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1006,7 +1126,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 搜索媒资.
+     * Returns media asset information that matches the specified filter conditions.
      *
      * @param request - SearchMediaRequest
      *
@@ -1024,7 +1144,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交图像生成接口.
+     * Submits an image generation task.
      *
      * @param request - SubmitImageGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1099,7 +1219,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交图像生成接口.
+     * Submits an image generation task.
      *
      * @param request - SubmitImageGenerationJobRequest
      *
@@ -1194,7 +1314,78 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交视频生成接口.
+     * 提交爆款复刻新脚本生成任务
+     *
+     * @remarks
+     * 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+     *
+     * @param request - SubmitRemakeScriptJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitRemakeScriptJobResponse
+     *
+     * @param SubmitRemakeScriptJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitRemakeScriptJobResponse
+     */
+    public function submitRemakeScriptJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->remakeParams) {
+            @$query['RemakeParams'] = $request->remakeParams;
+        }
+
+        if (null !== $request->remakeType) {
+            @$query['RemakeType'] = $request->remakeType;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitRemakeScriptJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitRemakeScriptJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交爆款复刻新脚本生成任务
+     *
+     * @remarks
+     * 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+     *
+     * @param request - SubmitRemakeScriptJobRequest
+     *
+     * @returns SubmitRemakeScriptJobResponse
+     *
+     * @param SubmitRemakeScriptJobRequest $request
+     *
+     * @return SubmitRemakeScriptJobResponse
+     */
+    public function submitRemakeScriptJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitRemakeScriptJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a video generation task.
      *
      * @param request - SubmitVideoGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1273,7 +1464,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交视频生成接口.
+     * Submits a video generation task.
      *
      * @param request - SubmitVideoGenerationJobRequest
      *
@@ -1291,17 +1482,82 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交视频翻译任务
+     * 提交爆款新视频渲染任务
+     *
+     * @param request - SubmitVideoRenderJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitVideoRenderJobResponse
+     *
+     * @param SubmitVideoRenderJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitVideoRenderJobResponse
+     */
+    public function submitVideoRenderJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->script) {
+            @$query['Script'] = $request->script;
+        }
+
+        if (null !== $request->settings) {
+            @$query['Settings'] = $request->settings;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitVideoRenderJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitVideoRenderJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交爆款新视频渲染任务
+     *
+     * @param request - SubmitVideoRenderJobRequest
+     *
+     * @returns SubmitVideoRenderJobResponse
+     *
+     * @param SubmitVideoRenderJobRequest $request
+     *
+     * @return SubmitVideoRenderJobResponse
+     */
+    public function submitVideoRenderJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitVideoRenderJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
      *
      * @remarks
-     * ## 请求说明
-     * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
-     * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
-     * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
-     * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
-     * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
-     * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
-     * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+     * ## Request description
+     * - This API supports multiple video translation features, including subtitle translation and voice translation.
+     * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
+     * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
+     * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
+     * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
+     * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
+     * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
      *
      * @param request - SubmitVideoTranslationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1368,17 +1624,17 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交视频翻译任务
+     * Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
      *
      * @remarks
-     * ## 请求说明
-     * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
-     * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
-     * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
-     * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
-     * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
-     * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
-     * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+     * ## Request description
+     * - This API supports multiple video translation features, including subtitle translation and voice translation.
+     * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
+     * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
+     * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
+     * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
+     * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
+     * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
      *
      * @param request - SubmitVideoTranslationJobRequest
      *
@@ -1396,10 +1652,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 更新媒资分类.
+     * Updates a media asset category.
      *
      * @remarks
-     * 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+     * After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
      *
      * @param request - UpdateAssetCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1442,10 +1698,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 更新媒资分类.
+     * Updates a media asset category.
      *
      * @remarks
-     * 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+     * After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
      *
      * @param request - UpdateAssetCategoryRequest
      *
@@ -1463,11 +1719,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * UpdateMedia.
+     * Updates media asset information.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Request description
+     * This API is used to query media content understanding jobs.
      *
      * @param request - UpdateMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1542,11 +1798,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * UpdateMedia.
+     * Updates media asset information.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Request description
+     * This API is used to query media content understanding jobs.
      *
      * @param request - UpdateMediaRequest
      *
