@@ -78,6 +78,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolume
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolumesResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantSceneDetailsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantSceneDetailsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchBindModelGroupRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchBindModelGroupResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBillingCostTabsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBillingCostTabsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterChatCompletionsRequest;
@@ -95,6 +97,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateClientRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateClientResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateConversationRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelGroupRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelGroupResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateSubscriptionRequest;
@@ -102,11 +106,15 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateSubscriptionRes
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteApiKeyResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteClientResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteModelGroupRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteModelGroupResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteModelResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceLogsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceLogsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListBalanceOrdersRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListBalanceOrdersResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListSubscriptionsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListSubscriptionsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListRequest;
@@ -133,6 +141,16 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostOverviewMetr
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostOverviewMetricsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostTrendMetricsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostTrendMetricsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupClientsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupClientsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupListRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupModelsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupModelsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupsByApiKeyRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupsByApiKeyResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelResponse;
@@ -158,6 +176,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateClientRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateClientResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateConversationRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateModelGroupRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateModelGroupResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateModelRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateModelResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobRequest;
@@ -3263,6 +3283,77 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * Binds model groups to departments in batches.
+     *
+     * @remarks
+     * Binds model groups to departments in batches.
+     *
+     * @param request - ModelRouterBatchBindModelGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterBatchBindModelGroupResponse
+     *
+     * @param ModelRouterBatchBindModelGroupRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModelRouterBatchBindModelGroupResponse
+     */
+    public function modelRouterBatchBindModelGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->allowedModelGroupConfig) {
+            @$body['allowedModelGroupConfig'] = $request->allowedModelGroupConfig;
+        }
+
+        if (null !== $request->clientIdList) {
+            @$body['clientIdList'] = $request->clientIdList;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterBatchBindModelGroup',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/batch-bind-model-group',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterBatchBindModelGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Binds model groups to departments in batches.
+     *
+     * @remarks
+     * Binds model groups to departments in batches.
+     *
+     * @param request - ModelRouterBatchBindModelGroupRequest
+     *
+     * @returns ModelRouterBatchBindModelGroupResponse
+     *
+     * @param ModelRouterBatchBindModelGroupRequest $request
+     *
+     * @return ModelRouterBatchBindModelGroupResponse
+     */
+    public function modelRouterBatchBindModelGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterBatchBindModelGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the usage monitoring tab configuration.
      *
      * @param request - ModelRouterBillingCostTabsRequest
@@ -4040,6 +4131,77 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * Creates a manual model group.
+     *
+     * @remarks
+     * Creates a manual model group.
+     *
+     * @param request - ModelRouterCreateModelGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateModelGroupResponse
+     *
+     * @param ModelRouterCreateModelGroupRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModelRouterCreateModelGroupResponse
+     */
+    public function modelRouterCreateModelGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->modelList) {
+            @$body['modelList'] = $request->modelList;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateModelGroup',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/model-groups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateModelGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a manual model group.
+     *
+     * @remarks
+     * Creates a manual model group.
+     *
+     * @param request - ModelRouterCreateModelGroupRequest
+     *
+     * @returns ModelRouterCreateModelGroupResponse
+     *
+     * @param ModelRouterCreateModelGroupRequest $request
+     *
+     * @return ModelRouterCreateModelGroupResponse
+     */
+    public function modelRouterCreateModelGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateModelGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates a periodic recharge subscription for customer management.
      *
      * @param request - ModelRouterCreateSubscriptionRequest
@@ -4319,6 +4481,69 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * Deletes a manual group.
+     *
+     * @remarks
+     * Deletes a manual group.
+     *
+     * @param request - ModelRouterDeleteModelGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterDeleteModelGroupResponse
+     *
+     * @param string                             $groupId
+     * @param ModelRouterDeleteModelGroupRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModelRouterDeleteModelGroupResponse
+     */
+    public function modelRouterDeleteModelGroupWithOptions($groupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterDeleteModelGroup',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/model-groups/' . Url::percentEncode($groupId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterDeleteModelGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a manual group.
+     *
+     * @remarks
+     * Deletes a manual group.
+     *
+     * @param request - ModelRouterDeleteModelGroupRequest
+     *
+     * @returns ModelRouterDeleteModelGroupResponse
+     *
+     * @param string                             $groupId
+     * @param ModelRouterDeleteModelGroupRequest $request
+     *
+     * @return ModelRouterDeleteModelGroupResponse
+     */
+    public function modelRouterDeleteModelGroup($groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterDeleteModelGroupWithOptions($groupId, $request, $headers, $runtime);
+    }
+
+    /**
      * Client Management/Get department balance.
      *
      * @param request - ModelRouterGetClientBalanceRequest
@@ -4452,6 +4677,99 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterGetClientBalanceLogsWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries balance change records.
+     *
+     * @remarks
+     * This API operation is deprecated. Do not use it.
+     *
+     * @param request - ModelRouterListBalanceOrdersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterListBalanceOrdersResponse
+     *
+     * @param string                              $id
+     * @param ModelRouterListBalanceOrdersRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModelRouterListBalanceOrdersResponse
+     */
+    public function modelRouterListBalanceOrdersWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->balanceType) {
+            @$query['balanceType'] = $request->balanceType;
+        }
+
+        if (null !== $request->direction) {
+            @$query['direction'] = $request->direction;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['orderType'] = $request->orderType;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterListBalanceOrders',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/balance/orders',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterListBalanceOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries balance change records.
+     *
+     * @remarks
+     * This API operation is deprecated. Do not use it.
+     *
+     * @param request - ModelRouterListBalanceOrdersRequest
+     *
+     * @returns ModelRouterListBalanceOrdersResponse
+     *
+     * @param string                              $id
+     * @param ModelRouterListBalanceOrdersRequest $request
+     *
+     * @return ModelRouterListBalanceOrdersResponse
+     */
+    public function modelRouterListBalanceOrders($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterListBalanceOrdersWithOptions($id, $request, $headers, $runtime);
     }
 
     /**
@@ -5678,6 +5996,385 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * Queries the details of a model group.
+     *
+     * @remarks
+     * Queries the details of a model group.
+     *
+     * @param request - ModelRouterQueryModelGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryModelGroupResponse
+     *
+     * @param string                            $groupId
+     * @param ModelRouterQueryModelGroupRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModelRouterQueryModelGroupResponse
+     */
+    public function modelRouterQueryModelGroupWithOptions($groupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryModelGroup',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/model-groups/' . Url::percentEncode($groupId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryModelGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a model group.
+     *
+     * @remarks
+     * Queries the details of a model group.
+     *
+     * @param request - ModelRouterQueryModelGroupRequest
+     *
+     * @returns ModelRouterQueryModelGroupResponse
+     *
+     * @param string                            $groupId
+     * @param ModelRouterQueryModelGroupRequest $request
+     *
+     * @return ModelRouterQueryModelGroupResponse
+     */
+    public function modelRouterQueryModelGroup($groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryModelGroupWithOptions($groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the departments bound to a model group by paging.
+     *
+     * @remarks
+     * Queries the departments bound to a model group by paging.
+     *
+     * @param request - ModelRouterQueryModelGroupClientsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryModelGroupClientsResponse
+     *
+     * @param string                                   $groupId
+     * @param ModelRouterQueryModelGroupClientsRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModelRouterQueryModelGroupClientsResponse
+     */
+    public function modelRouterQueryModelGroupClientsWithOptions($groupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryModelGroupClients',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/model-groups/' . Url::percentEncode($groupId) . '/clients',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryModelGroupClientsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the departments bound to a model group by paging.
+     *
+     * @remarks
+     * Queries the departments bound to a model group by paging.
+     *
+     * @param request - ModelRouterQueryModelGroupClientsRequest
+     *
+     * @returns ModelRouterQueryModelGroupClientsResponse
+     *
+     * @param string                                   $groupId
+     * @param ModelRouterQueryModelGroupClientsRequest $request
+     *
+     * @return ModelRouterQueryModelGroupClientsResponse
+     */
+    public function modelRouterQueryModelGroupClients($groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryModelGroupClientsWithOptions($groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the list of model groups by paging.
+     *
+     * @remarks
+     * Queries the list of model groups by paging.
+     *
+     * @param request - ModelRouterQueryModelGroupListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryModelGroupListResponse
+     *
+     * @param ModelRouterQueryModelGroupListRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModelRouterQueryModelGroupListResponse
+     */
+    public function modelRouterQueryModelGroupListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryModelGroupList',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/model-groups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryModelGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of model groups by paging.
+     *
+     * @remarks
+     * Queries the list of model groups by paging.
+     *
+     * @param request - ModelRouterQueryModelGroupListRequest
+     *
+     * @returns ModelRouterQueryModelGroupListResponse
+     *
+     * @param ModelRouterQueryModelGroupListRequest $request
+     *
+     * @return ModelRouterQueryModelGroupListResponse
+     */
+    public function modelRouterQueryModelGroupList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryModelGroupListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paging query for models within a model group.
+     *
+     * @remarks
+     * Queries models within a group with pagination.
+     *
+     * @param request - ModelRouterQueryModelGroupModelsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryModelGroupModelsResponse
+     *
+     * @param string                                  $groupId
+     * @param ModelRouterQueryModelGroupModelsRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModelRouterQueryModelGroupModelsResponse
+     */
+    public function modelRouterQueryModelGroupModelsWithOptions($groupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryModelGroupModels',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/model-groups/' . Url::percentEncode($groupId) . '/models',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryModelGroupModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query for models within a model group.
+     *
+     * @remarks
+     * Queries models within a group with pagination.
+     *
+     * @param request - ModelRouterQueryModelGroupModelsRequest
+     *
+     * @returns ModelRouterQueryModelGroupModelsResponse
+     *
+     * @param string                                  $groupId
+     * @param ModelRouterQueryModelGroupModelsRequest $request
+     *
+     * @return ModelRouterQueryModelGroupModelsResponse
+     */
+    public function modelRouterQueryModelGroupModels($groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryModelGroupModelsWithOptions($groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Lists the model groups and models bound to a specified API key.
+     *
+     * @remarks
+     * Queries the groups and models bound to a specified API key.
+     *
+     * @param request - ModelRouterQueryModelGroupsByApiKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryModelGroupsByApiKeyResponse
+     *
+     * @param string                                     $id
+     * @param ModelRouterQueryModelGroupsByApiKeyRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModelRouterQueryModelGroupsByApiKeyResponse
+     */
+    public function modelRouterQueryModelGroupsByApiKeyWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryModelGroupsByApiKey',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/apikeys/' . Url::percentEncode($id) . '/model-groups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryModelGroupsByApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the model groups and models bound to a specified API key.
+     *
+     * @remarks
+     * Queries the groups and models bound to a specified API key.
+     *
+     * @param request - ModelRouterQueryModelGroupsByApiKeyRequest
+     *
+     * @returns ModelRouterQueryModelGroupsByApiKeyResponse
+     *
+     * @param string                                     $id
+     * @param ModelRouterQueryModelGroupsByApiKeyRequest $request
+     *
+     * @return ModelRouterQueryModelGroupsByApiKeyResponse
+     */
+    public function modelRouterQueryModelGroupsByApiKey($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryModelGroupsByApiKeyWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
      * Model management/Get model list.
      *
      * @param request - ModelRouterQueryModelListRequest
@@ -6846,6 +7543,79 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterUpdateModelWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Edits a manual model group.
+     *
+     * @remarks
+     * Edits a manual group.
+     *
+     * @param request - ModelRouterUpdateModelGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterUpdateModelGroupResponse
+     *
+     * @param string                             $groupId
+     * @param ModelRouterUpdateModelGroupRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModelRouterUpdateModelGroupResponse
+     */
+    public function modelRouterUpdateModelGroupWithOptions($groupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->modelList) {
+            @$body['modelList'] = $request->modelList;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterUpdateModelGroup',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/model-groups/' . Url::percentEncode($groupId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterUpdateModelGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Edits a manual model group.
+     *
+     * @remarks
+     * Edits a manual group.
+     *
+     * @param request - ModelRouterUpdateModelGroupRequest
+     *
+     * @returns ModelRouterUpdateModelGroupResponse
+     *
+     * @param string                             $groupId
+     * @param ModelRouterUpdateModelGroupRequest $request
+     *
+     * @return ModelRouterUpdateModelGroupResponse
+     */
+    public function modelRouterUpdateModelGroup($groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterUpdateModelGroupWithOptions($groupId, $request, $headers, $runtime);
     }
 
     /**
