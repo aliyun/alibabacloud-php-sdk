@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class moduleDetails extends Model
 {
     /**
+     * @var float
+     */
+    public $credit;
+
+    /**
      * @var string
      */
     public $moduleCode;
@@ -18,6 +23,7 @@ class moduleDetails extends Model
      */
     public $seCu;
     protected $_name = [
+        'credit' => 'Credit',
         'moduleCode' => 'ModuleCode',
         'seCu' => 'SeCu',
     ];
@@ -30,6 +36,10 @@ class moduleDetails extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->credit) {
+            $res['Credit'] = $this->credit;
+        }
+
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
         }
@@ -49,6 +59,10 @@ class moduleDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Credit'])) {
+            $model->credit = $map['Credit'];
+        }
+
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
         }

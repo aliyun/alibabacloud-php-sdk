@@ -22,6 +22,11 @@ class DescribeChargeResultRequest extends Model
     /**
      * @var string
      */
+    public $chargeUnit;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -36,6 +41,7 @@ class DescribeChargeResultRequest extends Model
     protected $_name = [
         'chargeCycle' => 'ChargeCycle',
         'chargeModules' => 'ChargeModules',
+        'chargeUnit' => 'ChargeUnit',
         'payType' => 'PayType',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
@@ -65,6 +71,10 @@ class DescribeChargeResultRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->chargeUnit) {
+            $res['ChargeUnit'] = $this->chargeUnit;
         }
 
         if (null !== $this->payType) {
@@ -103,6 +113,10 @@ class DescribeChargeResultRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ChargeUnit'])) {
+            $model->chargeUnit = $map['ChargeUnit'];
         }
 
         if (isset($map['PayType'])) {

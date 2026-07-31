@@ -22,10 +22,16 @@ class DescribeChargeResultResponseBody extends Model
     /**
      * @var float
      */
+    public $totalCredit;
+
+    /**
+     * @var float
+     */
     public $totalSeCu;
     protected $_name = [
         'moduleDetails' => 'ModuleDetails',
         'requestId' => 'RequestId',
+        'totalCredit' => 'TotalCredit',
         'totalSeCu' => 'TotalSeCu',
     ];
 
@@ -53,6 +59,10 @@ class DescribeChargeResultResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->totalCredit) {
+            $res['TotalCredit'] = $this->totalCredit;
         }
 
         if (null !== $this->totalSeCu) {
@@ -83,6 +93,10 @@ class DescribeChargeResultResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TotalCredit'])) {
+            $model->totalCredit = $map['TotalCredit'];
         }
 
         if (isset($map['TotalSeCu'])) {

@@ -1076,7 +1076,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Connects a cloud service to WAF in cloud native mode. Currently, only ECS and CLB are supported.
+     * Connects a cloud service to Web Application Firewall (WAF) in cloud native mode. Currently, only ECS and CLB are supported.
      *
      * @param tmpReq - CreateCloudResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1149,7 +1149,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Connects a cloud service to WAF in cloud native mode. Currently, only ECS and CLB are supported.
+     * Connects a cloud service to Web Application Firewall (WAF) in cloud native mode. Currently, only ECS and CLB are supported.
      *
      * @param request - CreateCloudResourceRequest
      *
@@ -1432,7 +1432,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Create a web core protection rule.
+     * Creates a web core protection rule.
      *
      * @param request - CreateDefenseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1501,7 +1501,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Create a web core protection rule.
+     * Creates a web core protection rule.
      *
      * @param request - CreateDefenseRuleRequest
      *
@@ -1620,7 +1620,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds a domain name to a WAF instance by using Website Config for protection.
+     * Adds a domain name to a WAF instance for Website Config protection.
      *
      * @param tmpReq - CreateDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1697,7 +1697,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds a domain name to a WAF instance by using Website Config for protection.
+     * Adds a domain name to a WAF instance for Website Config protection.
      *
      * @param request - CreateDomainRequest
      *
@@ -2006,7 +2006,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Creates a log delivery configuration for a Web Application Firewall (WAF) instance in a hybrid cloud.
+     * Creates a hybrid cloud log forwarding delivery configuration.
      *
      * @param request - CreateLogDeliveryConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2065,7 +2065,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Creates a log delivery configuration for a Web Application Firewall (WAF) instance in a hybrid cloud.
+     * Creates a hybrid cloud log forwarding delivery configuration.
      *
      * @param request - CreateLogDeliveryConfigRequest
      *
@@ -2973,7 +2973,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes the specified protection rules.
+     * Deletes a protection rule.
      *
      * @param request - DeleteDefenseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3036,7 +3036,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes the specified protection rules.
+     * Deletes a protection rule.
      *
      * @param request - DeleteDefenseRuleRequest
      *
@@ -4488,7 +4488,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an API security event.
+     * Queries the details of an API security event.
      *
      * @param request - DescribeApisecEventDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4551,7 +4551,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an API security event.
+     * Queries the details of an API security event.
      *
      * @param request - DescribeApisecEventDetailRequest
      *
@@ -4658,7 +4658,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of API security events.
+     * Queries the list of API security events.
      *
      * @param request - DescribeApisecEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4781,7 +4781,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of API security events.
+     * Queries the list of API security events.
      *
      * @param request - DescribeApisecEventsRequest
      *
@@ -4799,7 +4799,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the API security examples that are detected by Web Application Firewall (WAF).
+     * Queries API security sample information.
      *
      * @param request - DescribeApisecExamplesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4878,7 +4878,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the API security examples that are detected by Web Application Firewall (WAF).
+     * Queries API security sample information.
      *
      * @param request - DescribeApisecExamplesRequest
      *
@@ -5852,7 +5852,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the system rules for Web Application Firewall (WAF) protection.
+     * Queries the system rules of Web core protection.
      *
      * @param request - DescribeBaseSystemRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5943,7 +5943,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the system rules for Web Application Firewall (WAF) protection.
+     * Queries the system rules of Web core protection.
      *
      * @param request - DescribeBaseSystemRulesRequest
      *
@@ -6030,7 +6030,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the labels of bot management rules.
+     * Queries the tag information of bot management rules.
      *
      * @param request - DescribeBotRuleLabelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6093,7 +6093,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the labels of bot management rules.
+     * Queries the tag information of bot management rules.
      *
      * @param request - DescribeBotRuleLabelsRequest
      *
@@ -6326,7 +6326,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the billing results for Web Application Firewall (WAF).
+     * Queries the pricing results of WAF pricing modules.
      *
      * @param request - DescribeChargeResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6348,6 +6348,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->chargeModules) {
             @$query['ChargeModules'] = $request->chargeModules;
+        }
+
+        if (null !== $request->chargeUnit) {
+            @$query['ChargeUnit'] = $request->chargeUnit;
         }
 
         if (null !== $request->payType) {
@@ -6381,7 +6385,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the billing results for Web Application Firewall (WAF).
+     * Queries the pricing results of WAF pricing modules.
      *
      * @param request - DescribeChargeResultRequest
      *
@@ -6399,7 +6403,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves port details of cloud service instances onboarded to Web Application Firewall (WAF).
+     * Queries the port details of cloud service instances that are connected to WAF.
      *
      * @param request - DescribeCloudResourceAccessPortDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6470,7 +6474,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves port details of cloud service instances onboarded to Web Application Firewall (WAF).
+     * Queries the port details of cloud service instances that are connected to WAF.
      *
      * @param request - DescribeCloudResourceAccessPortDetailsRequest
      *
@@ -6557,7 +6561,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of resources added to Web Application Firewall (WAF) in cloud native mode.
+     * Queries the list of resources connected to WAF in cloud native mode.
      *
      * @param request - DescribeCloudResourceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6636,7 +6640,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of resources added to Web Application Firewall (WAF) in cloud native mode.
+     * Queries the list of resources connected to WAF in cloud native mode.
      *
      * @param request - DescribeCloudResourceListRequest
      *
@@ -7629,7 +7633,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the protection templates associated with a protected object or protected object group.
+     * Queries the protection templates of a protected object or a protected object group.
      *
      * @param request - DescribeDefenseResourceTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7700,7 +7704,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the protection templates associated with a protected object or protected object group.
+     * Queries the protection templates of a protected object or a protected object group.
      *
      * @param request - DescribeDefenseResourceTemplatesRequest
      *
@@ -7799,7 +7803,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified protection rule.
+     * Queries a single protection rule.
      *
      * @param request - DescribeDefenseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7862,7 +7866,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified protection rule.
+     * Queries a single protection rule.
      *
      * @param request - DescribeDefenseRuleRequest
      *
@@ -8362,7 +8366,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of protection templates.
+     * Queries a list of protection templates by paging.
      *
      * @param request - DescribeDefenseTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8449,7 +8453,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of protection templates.
+     * Queries a list of protection templates by paging.
      *
      * @param request - DescribeDefenseTemplatesRequest
      *
@@ -8755,7 +8759,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the daily bills for WAF pay-as-you-go instances for the last 7 days.
+     * Queries the daily bills of a pay-as-you-go WAF instance for the last 7 days.
      *
      * @param request - DescribeElasticBillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8810,7 +8814,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the daily bills for WAF pay-as-you-go instances for the last 7 days.
+     * Queries the daily bills of a pay-as-you-go WAF instance for the last 7 days.
      *
      * @param request - DescribeElasticBillsRequest
      *
@@ -10166,7 +10170,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries hybrid cloud server regions, including carriers, continents, and cities.
+     * Queries the dictionary of region information supported by hybrid cloud WAF, including ISPs, continents, and cities.
      *
      * @param request - DescribeHybridCloudServerRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10221,7 +10225,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries hybrid cloud server regions, including carriers, continents, and cities.
+     * Queries the dictionary of region information supported by hybrid cloud WAF, including ISPs, continents, and cities.
      *
      * @param request - DescribeHybridCloudServerRegionsRequest
      *
@@ -11435,7 +11439,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the elastic pay-as-you-go billing details of a subscription WAF instance, such as burstable QPS.
+     * Queries the burstable pay-as-you-go billing details of a subscription WAF instance, such as burstable QPS.
      *
      * @param request - DescribePrepayDailyBillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11490,7 +11494,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the elastic pay-as-you-go billing details of a subscription WAF instance, such as burstable QPS.
+     * Queries the burstable pay-as-you-go billing details of a subscription WAF instance, such as burstable QPS.
      *
      * @param request - DescribePrepayDailyBillsRequest
      *
@@ -11508,7 +11512,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries synchronized cloud service instances.
+     * Queries the list of synchronized cloud service assets.
      *
      * @param request - DescribeProductInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11603,7 +11607,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries synchronized cloud service instances.
+     * Queries the list of synchronized cloud service assets.
      *
      * @param request - DescribeProductInstancesRequest
      *
@@ -11998,7 +12002,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the log collection status of protected objects in a Web Application Firewall (WAF) instance.
+     * Queries the log status of protected objects.
      *
      * @param request - DescribeResourceLogStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12049,7 +12053,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the log collection status of protected objects in a Web Application Firewall (WAF) instance.
+     * Queries the log status of protected objects.
      *
      * @param request - DescribeResourceLogStatusRequest
      *
@@ -14244,7 +14248,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the resources attached to a protection template.
+     * Queries the resources bound to a protection template.
      *
      * @param request - DescribeTemplateResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14315,7 +14319,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the resources attached to a protection template.
+     * Queries the resources bound to a protection template.
      *
      * @param request - DescribeTemplateResourcesRequest
      *
@@ -14872,7 +14876,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the trend of API security attacks.
+     * Queries the attack trend of API security.
      *
      * @param request - DescribeUserEventTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14927,7 +14931,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the trend of API security attacks.
+     * Queries the attack trend of API security.
      *
      * @param request - DescribeUserEventTrendRequest
      *
@@ -14945,7 +14949,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the types and statistics of user security events.
+     * Queries the security event types and statistics for API security users.
      *
      * @param request - DescribeUserEventTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15012,7 +15016,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the types and statistics of user security events.
+     * Queries the security event types and statistics for API security users.
      *
      * @param request - DescribeUserEventTypeRequest
      *
@@ -16040,7 +16044,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the status of a batch of API security events.
+     * Modifies the statuses of multiple API security events in a batch.
      *
      * @param request - ModifyApisecEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16107,7 +16111,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the status of a batch of API security events.
+     * Modifies the statuses of multiple API security events in a batch.
      *
      * @param request - ModifyApisecEventsRequest
      *
@@ -16437,7 +16441,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a cloud service that is connected to Web Application Firewall (WAF).
+     * Modifies the configuration of a cloud service that is connected to WAF.
      *
      * @param tmpReq - ModifyCloudResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16506,7 +16510,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a cloud service that is connected to Web Application Firewall (WAF).
+     * Modifies the configuration of a cloud service that is connected to WAF.
      *
      * @param request - ModifyCloudResourceRequest
      *
@@ -16524,7 +16528,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the certificate for a resource managed by WAF in cloud native mode.
+     * Modifies the certificate for a cloud native mode resource.
      *
      * @param request - ModifyCloudResourceCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16587,7 +16591,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the certificate for a resource managed by WAF in cloud native mode.
+     * Modifies the certificate for a cloud native mode resource.
      *
      * @param request - ModifyCloudResourceCertRequest
      *
@@ -17405,7 +17409,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Updates a CNAME-based domain name onboarded to Web Application Firewall (WAF).
+     * Modifies a CNAME-based domain name.
      *
      * @param tmpReq - ModifyDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17478,7 +17482,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Updates a CNAME-based domain name onboarded to Web Application Firewall (WAF).
+     * Modifies a CNAME-based domain name.
      *
      * @param request - ModifyDomainRequest
      *
@@ -17496,7 +17500,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the certificate that is associated with a domain name added to a Web Application Firewall (WAF) instance in CNAME record mode.
+     * Modifies the certificate of a domain name.
      *
      * @param request - ModifyDomainCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17563,7 +17567,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the certificate that is associated with a domain name added to a Web Application Firewall (WAF) instance in CNAME record mode.
+     * Modifies the certificate of a domain name.
      *
      * @param request - ModifyDomainCertRequest
      *
@@ -18784,7 +18788,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Enables or disables the log collection feature for a protected object.
+     * Modifies the log status of a protected object.
      *
      * @param tmpReq - ModifyResourceLogStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18853,7 +18857,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Enables or disables the log collection feature for a protected object.
+     * Modifies the log status of a protected object.
      *
      * @param request - ModifyResourceLogStatusRequest
      *
@@ -19118,7 +19122,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Re-registers a cloud service with WAF. This operation is used only when the cloud native mode status is protection exception.
+     * Re-connects a cloud service to WAF. This operation is used only when the cloud native mode connection status is protection exception.
      *
      * @param request - ReCreateCloudResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19181,7 +19185,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Re-registers a cloud service with WAF. This operation is used only when the cloud native mode status is protection exception.
+     * Re-connects a cloud service to WAF. This operation is used only when the cloud native mode connection status is protection exception.
      *
      * @param request - ReCreateCloudResourceRequest
      *

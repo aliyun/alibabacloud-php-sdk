@@ -14,6 +14,16 @@ class billDetail extends Model
     public $chargeData;
 
     /**
+     * @var float
+     */
+    public $credit;
+
+    /**
+     * @var string
+     */
+    public $creditChargeData;
+
+    /**
      * @var string
      */
     public $cu;
@@ -22,6 +32,11 @@ class billDetail extends Model
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var float
+     */
+    public $functionCredit;
 
     /**
      * @var string
@@ -34,15 +49,24 @@ class billDetail extends Model
     public $startTime;
 
     /**
+     * @var float
+     */
+    public $trafficCredit;
+
+    /**
      * @var string
      */
     public $trafficCu;
     protected $_name = [
         'chargeData' => 'ChargeData',
+        'credit' => 'Credit',
+        'creditChargeData' => 'CreditChargeData',
         'cu' => 'Cu',
         'endTime' => 'EndTime',
+        'functionCredit' => 'FunctionCredit',
         'functionCu' => 'FunctionCu',
         'startTime' => 'StartTime',
+        'trafficCredit' => 'TrafficCredit',
         'trafficCu' => 'TrafficCu',
     ];
 
@@ -58,6 +82,14 @@ class billDetail extends Model
             $res['ChargeData'] = $this->chargeData;
         }
 
+        if (null !== $this->credit) {
+            $res['Credit'] = $this->credit;
+        }
+
+        if (null !== $this->creditChargeData) {
+            $res['CreditChargeData'] = $this->creditChargeData;
+        }
+
         if (null !== $this->cu) {
             $res['Cu'] = $this->cu;
         }
@@ -66,12 +98,20 @@ class billDetail extends Model
             $res['EndTime'] = $this->endTime;
         }
 
+        if (null !== $this->functionCredit) {
+            $res['FunctionCredit'] = $this->functionCredit;
+        }
+
         if (null !== $this->functionCu) {
             $res['FunctionCu'] = $this->functionCu;
         }
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->trafficCredit) {
+            $res['TrafficCredit'] = $this->trafficCredit;
         }
 
         if (null !== $this->trafficCu) {
@@ -93,6 +133,14 @@ class billDetail extends Model
             $model->chargeData = $map['ChargeData'];
         }
 
+        if (isset($map['Credit'])) {
+            $model->credit = $map['Credit'];
+        }
+
+        if (isset($map['CreditChargeData'])) {
+            $model->creditChargeData = $map['CreditChargeData'];
+        }
+
         if (isset($map['Cu'])) {
             $model->cu = $map['Cu'];
         }
@@ -101,12 +149,20 @@ class billDetail extends Model
             $model->endTime = $map['EndTime'];
         }
 
+        if (isset($map['FunctionCredit'])) {
+            $model->functionCredit = $map['FunctionCredit'];
+        }
+
         if (isset($map['FunctionCu'])) {
             $model->functionCu = $map['FunctionCu'];
         }
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['TrafficCredit'])) {
+            $model->trafficCredit = $map['TrafficCredit'];
         }
 
         if (isset($map['TrafficCu'])) {
