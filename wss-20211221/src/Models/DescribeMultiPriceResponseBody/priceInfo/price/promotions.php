@@ -11,6 +11,11 @@ class promotions extends Model
     /**
      * @var string
      */
+    public $activityId;
+
+    /**
+     * @var string
+     */
     public $optionCode;
 
     /**
@@ -33,6 +38,7 @@ class promotions extends Model
      */
     public $selected;
     protected $_name = [
+        'activityId' => 'ActivityId',
         'optionCode' => 'OptionCode',
         'promotionDesc' => 'PromotionDesc',
         'promotionId' => 'PromotionId',
@@ -48,6 +54,10 @@ class promotions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->activityId) {
+            $res['ActivityId'] = $this->activityId;
+        }
+
         if (null !== $this->optionCode) {
             $res['OptionCode'] = $this->optionCode;
         }
@@ -79,6 +89,10 @@ class promotions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActivityId'])) {
+            $model->activityId = $map['ActivityId'];
+        }
+
         if (isset($map['OptionCode'])) {
             $model->optionCode = $map['OptionCode'];
         }

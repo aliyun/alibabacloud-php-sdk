@@ -40,6 +40,11 @@ class orderItems extends Model
     public $instanceIds;
 
     /**
+     * @var string
+     */
+    public $paidCallBackUrl;
+
+    /**
      * @var int
      */
     public $period;
@@ -70,6 +75,7 @@ class orderItems extends Model
         'buyChange' => 'BuyChange',
         'components' => 'Components',
         'instanceIds' => 'InstanceIds',
+        'paidCallBackUrl' => 'PaidCallBackUrl',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
@@ -130,6 +136,10 @@ class orderItems extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->paidCallBackUrl) {
+            $res['PaidCallBackUrl'] = $this->paidCallBackUrl;
         }
 
         if (null !== $this->period) {
@@ -206,6 +216,10 @@ class orderItems extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PaidCallBackUrl'])) {
+            $model->paidCallBackUrl = $map['PaidCallBackUrl'];
         }
 
         if (isset($map['Period'])) {
