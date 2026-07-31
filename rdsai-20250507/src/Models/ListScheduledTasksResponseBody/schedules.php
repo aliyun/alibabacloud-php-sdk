@@ -66,6 +66,16 @@ class schedules extends Model
     /**
      * @var string
      */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateName;
+
+    /**
+     * @var string
+     */
     public $timeRange;
     protected $_name = [
         'createTime' => 'CreateTime',
@@ -79,6 +89,8 @@ class schedules extends Model
         'reportType' => 'ReportType',
         'scheduledId' => 'ScheduledId',
         'taskStartTime' => 'TaskStartTime',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
         'timeRange' => 'TimeRange',
     ];
 
@@ -132,6 +144,14 @@ class schedules extends Model
 
         if (null !== $this->taskStartTime) {
             $res['TaskStartTime'] = $this->taskStartTime;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         if (null !== $this->timeRange) {
@@ -191,6 +211,14 @@ class schedules extends Model
 
         if (isset($map['TaskStartTime'])) {
             $model->taskStartTime = $map['TaskStartTime'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         if (isset($map['TimeRange'])) {

@@ -28,11 +28,23 @@ class GetInspectionReportResponseBody extends Model
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateName;
     protected $_name = [
         'data' => 'Data',
         'markdownText' => 'MarkdownText',
         'requestId' => 'RequestId',
         'taskId' => 'TaskId',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
@@ -69,6 +81,14 @@ class GetInspectionReportResponseBody extends Model
             $res['TaskId'] = $this->taskId;
         }
 
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+
         return $res;
     }
 
@@ -101,6 +121,14 @@ class GetInspectionReportResponseBody extends Model
 
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

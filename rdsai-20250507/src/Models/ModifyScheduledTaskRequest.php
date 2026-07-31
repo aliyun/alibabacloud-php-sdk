@@ -51,6 +51,11 @@ class ModifyScheduledTaskRequest extends Model
     /**
      * @var string
      */
+    public $templateId;
+
+    /**
+     * @var string
+     */
     public $timeRange;
     protected $_name = [
         'description' => 'Description',
@@ -61,6 +66,7 @@ class ModifyScheduledTaskRequest extends Model
         'reportLanguage' => 'ReportLanguage',
         'scheduledId' => 'ScheduledId',
         'startTime' => 'StartTime',
+        'templateId' => 'TemplateId',
         'timeRange' => 'TimeRange',
     ];
 
@@ -102,6 +108,10 @@ class ModifyScheduledTaskRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         if (null !== $this->timeRange) {
@@ -149,6 +159,10 @@ class ModifyScheduledTaskRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         if (isset($map['TimeRange'])) {

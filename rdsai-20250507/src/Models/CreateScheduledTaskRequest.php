@@ -61,6 +61,11 @@ class CreateScheduledTaskRequest extends Model
     /**
      * @var string
      */
+    public $templateId;
+
+    /**
+     * @var string
+     */
     public $timeRange;
     protected $_name = [
         'description' => 'Description',
@@ -73,6 +78,7 @@ class CreateScheduledTaskRequest extends Model
         'reportRegionId' => 'ReportRegionId',
         'reportType' => 'ReportType',
         'startTime' => 'StartTime',
+        'templateId' => 'TemplateId',
         'timeRange' => 'TimeRange',
     ];
 
@@ -122,6 +128,10 @@ class CreateScheduledTaskRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         if (null !== $this->timeRange) {
@@ -177,6 +187,10 @@ class CreateScheduledTaskRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         if (isset($map['TimeRange'])) {

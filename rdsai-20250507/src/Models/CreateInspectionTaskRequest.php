@@ -47,6 +47,11 @@ class CreateInspectionTaskRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $templateId;
     protected $_name = [
         'endTime' => 'EndTime',
         'inspectionItems' => 'InspectionItems',
@@ -56,6 +61,7 @@ class CreateInspectionTaskRequest extends Model
         'reportRegionId' => 'ReportRegionId',
         'reportType' => 'ReportType',
         'startTime' => 'StartTime',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class CreateInspectionTaskRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -139,6 +149,10 @@ class CreateInspectionTaskRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

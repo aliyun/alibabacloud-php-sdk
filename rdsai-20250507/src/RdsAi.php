@@ -745,7 +745,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates an inspection task for one or more instances.
+     * Creates a batch instance inspection task.
      *
      * @param request - CreateInspectionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -793,6 +793,10 @@ class RdsAi extends OpenApiClient
             @$query['StartTime'] = $request->startTime;
         }
 
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -812,7 +816,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates an inspection task for one or more instances.
+     * Creates a batch instance inspection task.
      *
      * @param request - CreateInspectionTaskRequest
      *
@@ -915,12 +919,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 创建沙箱模板
+     * Creates a sandbox template.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS Supabase
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - CreateSandboxTemplateRequest
@@ -984,12 +988,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 创建沙箱模板
+     * Creates a sandbox template.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS Supabase
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - CreateSandboxTemplateRequest
@@ -1008,13 +1012,13 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates a scheduled inspection task for one or more instances.
+     * Creates a scheduled inspection configuration for batch instances.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engine
      * RDS PostgreSQL
      * ### Related feature documentation
-     * >Warning: This API operation may incur charges. Please read the related feature documentation carefully before you proceed.
+     * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - CreateScheduledTaskRequest
@@ -1071,6 +1075,10 @@ class RdsAi extends OpenApiClient
             @$query['StartTime'] = $request->startTime;
         }
 
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
         if (null !== $request->timeRange) {
             @$query['TimeRange'] = $request->timeRange;
         }
@@ -1094,13 +1102,13 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates a scheduled inspection task for one or more instances.
+     * Creates a scheduled inspection configuration for batch instances.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engine
      * RDS PostgreSQL
      * ### Related feature documentation
-     * >Warning: This API operation may incur charges. Please read the related feature documentation carefully before you proceed.
+     * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - CreateScheduledTaskRequest
@@ -1409,12 +1417,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 删除沙箱模板
+     * Deletes a sandbox template.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS Supabase
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DeleteSandboxTemplateRequest
@@ -1462,12 +1470,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 删除沙箱模板
+     * Deletes a sandbox template.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS Supabase
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DeleteSandboxTemplateRequest
@@ -1762,12 +1770,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 查询已支持的沙箱模板列表.
+     * Queries the list of supported sandbox templates.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS Supabase
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeCommonSandboxTemplatesRequest
@@ -1815,12 +1823,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 查询已支持的沙箱模板列表.
+     * Queries the list of supported sandbox templates.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS Supabase
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeCommonSandboxTemplatesRequest
@@ -3223,7 +3231,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the content of a specified inspection report.
+     * Retrieves the details of an inspection report by report ID.
      *
      * @param request - GetInspectionReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3270,7 +3278,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the content of a specified inspection report.
+     * Retrieves the details of an inspection report by report ID.
      *
      * @param request - GetInspectionReportRequest
      *
@@ -3478,7 +3486,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves all inspection reports for a specified scheduled task. You can filter the results by time range and use pagination.
+     * Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
      *
      * @param request - GetScheduledReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3533,7 +3541,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves all inspection reports for a specified scheduled task. You can filter the results by time range and use pagination.
+     * Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
      *
      * @param request - GetScheduledReportsRequest
      *
@@ -3612,7 +3620,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves paginated standalone inspection reports on a specified user\\"s non-scheduled tasks.
+     * Queries the list of individual inspection reports for all non-scheduled tasks under a specified user, with pagination support.
      *
      * @param request - GetStandAloneReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3667,7 +3675,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves paginated standalone inspection reports on a specified user\\"s non-scheduled tasks.
+     * Queries the list of individual inspection reports for all non-scheduled tasks under a specified user, with pagination support.
      *
      * @param request - GetStandAloneReportsRequest
      *
@@ -3943,7 +3951,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Lists basic information about all inspection configurations for the specified user ID.
+     * Queries the list of basic information about all inspection configurations under a specified user UID.
      *
      * @param request - ListScheduledTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3990,7 +3998,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Lists basic information about all inspection configurations for the specified user ID.
+     * Queries the list of basic information about all inspection configurations under a specified user UID.
      *
      * @param request - ListScheduledTasksRequest
      *
@@ -4073,12 +4081,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 修改RDS AI应用实例.
+     * Modifies the modules of an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param tmpReq - ModifyAppInstanceRequest
@@ -4148,12 +4156,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 修改RDS AI应用实例.
+     * Modifies the modules of an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifyAppInstanceRequest
@@ -4858,12 +4866,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 修改沙箱模板
+     * Modifies a sandbox template.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS Supabase
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifySandboxTemplateRequest
@@ -4923,12 +4931,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 修改沙箱模板
+     * Modifies a sandbox template.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS Supabase
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifySandboxTemplateRequest
@@ -4993,6 +5001,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
 
         if (null !== $request->timeRange) {
@@ -5247,12 +5259,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 重置RDS AI实例的Keys.
+     * Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ResetInstanceKeysRequest
@@ -5296,12 +5308,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 重置RDS AI实例的Keys.
+     * Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ResetInstanceKeysRequest

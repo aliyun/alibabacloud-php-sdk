@@ -52,6 +52,16 @@ class reports extends Model
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateName;
     protected $_name = [
         'createdTime' => 'CreatedTime',
         'endTime' => 'EndTime',
@@ -62,6 +72,8 @@ class reports extends Model
         'startTime' => 'StartTime',
         'status' => 'Status',
         'taskId' => 'TaskId',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
@@ -106,6 +118,14 @@ class reports extends Model
 
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         return $res;
@@ -153,6 +173,14 @@ class reports extends Model
 
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;
