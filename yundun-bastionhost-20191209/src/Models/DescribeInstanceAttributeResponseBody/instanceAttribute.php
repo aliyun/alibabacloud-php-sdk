@@ -13,6 +13,16 @@ class instanceAttribute extends Model
     /**
      * @var string
      */
+    public $aiCreditStatus;
+
+    /**
+     * @var string
+     */
+    public $aiOpsModule;
+
+    /**
+     * @var string
+     */
     public $appOperationModule;
 
     /**
@@ -200,6 +210,8 @@ class instanceAttribute extends Model
      */
     public $whiteListPolicies;
     protected $_name = [
+        'aiCreditStatus' => 'AiCreditStatus',
+        'aiOpsModule' => 'AiOpsModule',
         'appOperationModule' => 'AppOperationModule',
         'authorizedSecurityGroups' => 'AuthorizedSecurityGroups',
         'bandwidth' => 'Bandwidth',
@@ -278,6 +290,14 @@ class instanceAttribute extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiCreditStatus) {
+            $res['AiCreditStatus'] = $this->aiCreditStatus;
+        }
+
+        if (null !== $this->aiOpsModule) {
+            $res['AiOpsModule'] = $this->aiOpsModule;
+        }
+
         if (null !== $this->appOperationModule) {
             $res['AppOperationModule'] = $this->appOperationModule;
         }
@@ -511,6 +531,14 @@ class instanceAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiCreditStatus'])) {
+            $model->aiCreditStatus = $map['AiCreditStatus'];
+        }
+
+        if (isset($map['AiOpsModule'])) {
+            $model->aiOpsModule = $map['AiOpsModule'];
+        }
+
         if (isset($map['AppOperationModule'])) {
             $model->appOperationModule = $map['AppOperationModule'];
         }

@@ -396,7 +396,9 @@ class Yundunbastionhost extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'yundun-bastionhost.aliyuncs.com',
             'eu-west-1-oxs' => 'yundun-bastionhost.aliyuncs.com',
             'rus-west-1-pop' => 'yundun-bastionhost.aliyuncs.com',
+            'na-south-1' => 'bastionhost.na-south-1.aliyuncs.com',
             'cn-zhengzhou-jva' => 'yundun-bastionhost.aliyuncs.com',
+            'ap-southeast-7' => 'bastionhost.ap-southeast-7.aliyuncs.com',
             'ap-southeast-6' => 'bastionhost.ap-southeast-6.aliyuncs.com',
             'ap-northeast-2' => 'bastionhost.ap-northeast-2.aliyuncs.com',
         ];
@@ -885,7 +887,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Approves an O&M task request.
+     * Approves an O&M task execution request.
      *
      * @param request - AllowOperationTaskApprovalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -932,7 +934,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Approves an O&M task request.
+     * Approves an O&M task execution request.
      *
      * @param request - AllowOperationTaskApprovalRequest
      *
@@ -3623,7 +3625,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Returns all instance attributes, such as its instance ID and description.
+     * Queries all attribute information of an instance, such as the instance ID and instance description.
      *
      * @param request - DescribeInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3666,7 +3668,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Returns all instance attributes, such as its instance ID and description.
+     * Queries all attribute information of an instance, such as the instance ID and instance description.
      *
      * @param request - DescribeInstanceAttributeRequest
      *
@@ -4439,7 +4441,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Enables public network access for a specified Bastionhost instance.
+     * Enables the public access switch for a specified Bastionhost instance.
      *
      * @param request - EnableInstancePublicAccessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4482,7 +4484,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Enables public network access for a specified Bastionhost instance.
+     * Enables the public access switch for a specified Bastionhost instance.
      *
      * @param request - EnableInstancePublicAccessRequest
      *
@@ -4670,7 +4672,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified O&M task for an administrator.
+     * Queries the details of a specified O&M task.
      *
      * @param request - GetAutoOpsTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4719,7 +4721,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified O&M task for an administrator.
+     * Queries the details of a specified O&M task.
      *
      * @param request - GetAutoOpsTaskRequest
      *
@@ -5787,7 +5789,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a user of a bastion host.
+     * Retrieves the details of a specified Bastionhost user.
      *
      * @param request - GetUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5834,7 +5836,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a user of a bastion host.
+     * Retrieves the details of a specified Bastionhost user.
      *
      * @param request - GetUserRequest
      *
@@ -8171,11 +8173,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Lists the O&M requests that require approval.
+     * Retrieves the list of O&M applications that require approval.
      *
      * @remarks
-     * Queries the operations and maintenance (O\\&M) requests that require administrator approval.
-     * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
+     * Retrieves the list of O&M applications that require approval for an administrator.
+     * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
      *
      * @param request - ListOperationTicketsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8230,11 +8232,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Lists the O&M requests that require approval.
+     * Retrieves the list of O&M applications that require approval.
      *
      * @remarks
-     * Queries the operations and maintenance (O\\&M) requests that require administrator approval.
-     * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
+     * Retrieves the list of O&M applications that require approval for an administrator.
+     * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
      *
      * @param request - ListOperationTicketsRequest
      *
@@ -8552,7 +8554,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Retrieves pending automated O&M approval requests.
+     * Retrieves the list of pending automated O&M approval requests.
      *
      * @param request - ListTodoOpsTaskApprovalsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8611,7 +8613,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Retrieves pending automated O&M approval requests.
+     * Retrieves the list of pending automated O&M approval requests.
      *
      * @param request - ListTodoOpsTaskApprovalsRequest
      *
@@ -8775,7 +8777,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries a list of users of a bastion host.
+     * Retrieves the list of users for a specified bastion host.
      *
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8854,7 +8856,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries a list of users of a bastion host.
+     * Retrieves the list of users for a specified bastion host.
      *
      * @param request - ListUsersRequest
      *
@@ -9732,7 +9734,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Modifies the attributes of a specified Bastionhost instance.
+     * Modifies the information of a specified bastion host instance.
      *
      * @param request - ModifyInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9779,7 +9781,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Modifies the attributes of a specified Bastionhost instance.
+     * Modifies the information of a specified bastion host instance.
      *
      * @param request - ModifyInstanceAttributeRequest
      *
@@ -10785,7 +10787,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Rejects an O&M task approval.
+     * Rejects an O&M task execution request.
      *
      * @param request - RejectOperationTaskApprovalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10832,7 +10834,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Rejects an O&M task approval.
+     * Rejects an O&M task execution request.
      *
      * @param request - RejectOperationTaskApprovalRequest
      *
