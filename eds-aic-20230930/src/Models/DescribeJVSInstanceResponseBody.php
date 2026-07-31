@@ -25,6 +25,11 @@ class DescribeJVSInstanceResponseBody extends Model
     public $nextToken;
 
     /**
+     * @var int
+     */
+    public $pendingUpgradeCount;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -37,6 +42,7 @@ class DescribeJVSInstanceResponseBody extends Model
         'data' => 'Data',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'pendingUpgradeCount' => 'PendingUpgradeCount',
         'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
@@ -69,6 +75,10 @@ class DescribeJVSInstanceResponseBody extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->pendingUpgradeCount) {
+            $res['PendingUpgradeCount'] = $this->pendingUpgradeCount;
         }
 
         if (null !== $this->requestId) {
@@ -107,6 +117,10 @@ class DescribeJVSInstanceResponseBody extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['PendingUpgradeCount'])) {
+            $model->pendingUpgradeCount = $map['PendingUpgradeCount'];
         }
 
         if (isset($map['RequestId'])) {

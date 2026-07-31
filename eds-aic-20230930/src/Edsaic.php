@@ -926,7 +926,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a cloud phone matrix, including the instance type and the number of cloud phone instances.
+     * Modifies the configuration of a cloud phone matrix. Currently, only the instance type and the number of cloud phone instances (the instance count of the cloud phone matrix) can be changed.
      *
      * @param request - ChangeCloudPhoneNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1005,7 +1005,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a cloud phone matrix, including the instance type and the number of cloud phone instances.
+     * Modifies the configuration of a cloud phone matrix. Currently, only the instance type and the number of cloud phone instances (the instance count of the cloud phone matrix) can be changed.
      *
      * @param request - ChangeCloudPhoneNodeRequest
      *
@@ -2250,7 +2250,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 创建定时任务
+     * Creates a scheduled task for an agent.
      *
      * @param tmpReq - CreateScheduledTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2315,7 +2315,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 创建定时任务
+     * Creates a scheduled task for an agent.
      *
      * @param request - CreateScheduledTaskRequest
      *
@@ -4226,7 +4226,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Retrieves details of JVS instances.
+     * Queries JVS instance information.
      *
      * @param request - DescribeJVSInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4273,7 +4273,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Retrieves details of JVS instances.
+     * Queries JVS instance information.
      *
      * @param request - DescribeJVSInstanceRequest
      *
@@ -7005,6 +7005,10 @@ class Edsaic extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentVersion) {
+            @$query['AgentVersion'] = $request->agentVersion;
+        }
+
         if (null !== $request->applyToAll) {
             @$query['ApplyToAll'] = $request->applyToAll;
         }

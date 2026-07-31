@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyJVSInstanceRequest\creditConf
 class ModifyJVSInstanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $agentVersion;
+
+    /**
      * @var bool
      */
     public $applyToAll;
@@ -34,6 +39,7 @@ class ModifyJVSInstanceRequest extends Model
      */
     public $instanceName;
     protected $_name = [
+        'agentVersion' => 'AgentVersion',
         'applyToAll' => 'ApplyToAll',
         'creditConfig' => 'CreditConfig',
         'imageId' => 'ImageId',
@@ -55,6 +61,10 @@ class ModifyJVSInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentVersion) {
+            $res['AgentVersion'] = $this->agentVersion;
+        }
+
         if (null !== $this->applyToAll) {
             $res['ApplyToAll'] = $this->applyToAll;
         }
@@ -100,6 +110,10 @@ class ModifyJVSInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentVersion'])) {
+            $model->agentVersion = $map['AgentVersion'];
+        }
+
         if (isset($map['ApplyToAll'])) {
             $model->applyToAll = $map['ApplyToAll'];
         }

@@ -5,11 +5,18 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponseBody\data\agentVersion;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponseBody\data\creditConfig;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponseBody\data\installedSkills;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponseBody\data\usedCredit;
 
 class data extends Model
 {
+    /**
+     * @var agentVersion
+     */
+    public $agentVersion;
+
     /**
      * @var string
      */
@@ -24,6 +31,11 @@ class data extends Model
      * @var string
      */
     public $expireTime;
+
+    /**
+     * @var installedSkills[]
+     */
+    public $installedSkills;
 
     /**
      * @var string
@@ -50,9 +62,11 @@ class data extends Model
      */
     public $usedCredit;
     protected $_name = [
+        'agentVersion' => 'AgentVersion',
         'createTime' => 'CreateTime',
         'creditConfig' => 'CreditConfig',
         'expireTime' => 'ExpireTime',
+        'installedSkills' => 'InstalledSkills',
         'instanceId' => 'InstanceId',
         'jvsPackageId' => 'JvsPackageId',
         'modifyTime' => 'ModifyTime',
@@ -62,8 +76,14 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->agentVersion) {
+            $this->agentVersion->validate();
+        }
         if (\is_array($this->creditConfig)) {
             Model::validateArray($this->creditConfig);
+        }
+        if (\is_array($this->installedSkills)) {
+            Model::validateArray($this->installedSkills);
         }
         if (\is_array($this->usedCredit)) {
             Model::validateArray($this->usedCredit);
@@ -74,6 +94,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentVersion) {
+            $res['AgentVersion'] = null !== $this->agentVersion ? $this->agentVersion->toArray($noStream) : $this->agentVersion;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -91,6 +115,17 @@ class data extends Model
 
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+
+        if (null !== $this->installedSkills) {
+            if (\is_array($this->installedSkills)) {
+                $res['InstalledSkills'] = [];
+                $n1 = 0;
+                foreach ($this->installedSkills as $item1) {
+                    $res['InstalledSkills'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->instanceId) {
@@ -131,6 +166,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentVersion'])) {
+            $model->agentVersion = agentVersion::fromMap($map['AgentVersion']);
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -148,6 +187,17 @@ class data extends Model
 
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+
+        if (isset($map['InstalledSkills'])) {
+            if (!empty($map['InstalledSkills'])) {
+                $model->installedSkills = [];
+                $n1 = 0;
+                foreach ($map['InstalledSkills'] as $item1) {
+                    $model->installedSkills[$n1] = installedSkills::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['InstanceId'])) {
