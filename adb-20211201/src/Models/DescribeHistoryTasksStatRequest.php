@@ -24,11 +24,6 @@ class DescribeHistoryTasksStatRequest extends Model
     public $instanceId;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $regionId;
@@ -37,16 +32,6 @@ class DescribeHistoryTasksStatRequest extends Model
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
 
     /**
      * @var string
@@ -81,11 +66,8 @@ class DescribeHistoryTasksStatRequest extends Model
         'fromExecTime' => 'FromExecTime',
         'fromStartTime' => 'FromStartTime',
         'instanceId' => 'InstanceId',
-        'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
         'status' => 'Status',
         'taskId' => 'TaskId',
@@ -114,24 +96,12 @@ class DescribeHistoryTasksStatRequest extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         if (null !== $this->securityToken) {
@@ -181,24 +151,12 @@ class DescribeHistoryTasksStatRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         if (isset($map['SecurityToken'])) {

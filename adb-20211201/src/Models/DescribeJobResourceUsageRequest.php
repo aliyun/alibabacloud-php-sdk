@@ -31,12 +31,18 @@ class DescribeJobResourceUsageRequest extends Model
     /**
      * @var string
      */
+    public $sparkAppName;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'endTime' => 'EndTime',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'sparkAppName' => 'SparkAppName',
         'startTime' => 'StartTime',
     ];
 
@@ -62,6 +68,10 @@ class DescribeJobResourceUsageRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->sparkAppName) {
+            $res['SparkAppName'] = $this->sparkAppName;
         }
 
         if (null !== $this->startTime) {
@@ -93,6 +103,10 @@ class DescribeJobResourceUsageRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SparkAppName'])) {
+            $model->sparkAppName = $map['SparkAppName'];
         }
 
         if (isset($map['StartTime'])) {

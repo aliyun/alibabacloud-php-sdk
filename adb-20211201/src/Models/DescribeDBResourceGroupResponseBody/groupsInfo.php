@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\groupsInfo\atmConfig;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\groupsInfo\gpuElasticPlan;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\groupsInfo\rayConfig;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\groupsInfo\rules;
@@ -12,9 +13,19 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\gr
 class groupsInfo extends Model
 {
     /**
+     * @var atmConfig
+     */
+    public $atmConfig;
+
+    /**
      * @var string
      */
     public $autoStopInterval;
+
+    /**
+     * @var string
+     */
+    public $classification;
 
     /**
      * @var string
@@ -124,6 +135,11 @@ class groupsInfo extends Model
     /**
      * @var string
      */
+    public $scalePolicy;
+
+    /**
+     * @var string
+     */
     public $specName;
 
     /**
@@ -141,7 +157,9 @@ class groupsInfo extends Model
      */
     public $updateTime;
     protected $_name = [
+        'atmConfig' => 'AtmConfig',
         'autoStopInterval' => 'AutoStopInterval',
+        'classification' => 'Classification',
         'clusterMode' => 'ClusterMode',
         'clusterSizeResource' => 'ClusterSizeResource',
         'createTime' => 'CreateTime',
@@ -163,6 +181,7 @@ class groupsInfo extends Model
         'rayConfig' => 'RayConfig',
         'rules' => 'Rules',
         'runningClusterCount' => 'RunningClusterCount',
+        'scalePolicy' => 'ScalePolicy',
         'specName' => 'SpecName',
         'status' => 'Status',
         'targetResourceGroupName' => 'TargetResourceGroupName',
@@ -171,6 +190,9 @@ class groupsInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->atmConfig) {
+            $this->atmConfig->validate();
+        }
         if (\is_array($this->engineParams)) {
             Model::validateArray($this->engineParams);
         }
@@ -189,8 +211,16 @@ class groupsInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->atmConfig) {
+            $res['AtmConfig'] = null !== $this->atmConfig ? $this->atmConfig->toArray($noStream) : $this->atmConfig;
+        }
+
         if (null !== $this->autoStopInterval) {
             $res['AutoStopInterval'] = $this->autoStopInterval;
+        }
+
+        if (null !== $this->classification) {
+            $res['Classification'] = $this->classification;
         }
 
         if (null !== $this->clusterMode) {
@@ -289,6 +319,10 @@ class groupsInfo extends Model
             $res['RunningClusterCount'] = $this->runningClusterCount;
         }
 
+        if (null !== $this->scalePolicy) {
+            $res['ScalePolicy'] = $this->scalePolicy;
+        }
+
         if (null !== $this->specName) {
             $res['SpecName'] = $this->specName;
         }
@@ -316,8 +350,16 @@ class groupsInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AtmConfig'])) {
+            $model->atmConfig = atmConfig::fromMap($map['AtmConfig']);
+        }
+
         if (isset($map['AutoStopInterval'])) {
             $model->autoStopInterval = $map['AutoStopInterval'];
+        }
+
+        if (isset($map['Classification'])) {
+            $model->classification = $map['Classification'];
         }
 
         if (isset($map['ClusterMode'])) {
@@ -414,6 +456,10 @@ class groupsInfo extends Model
 
         if (isset($map['RunningClusterCount'])) {
             $model->runningClusterCount = $map['RunningClusterCount'];
+        }
+
+        if (isset($map['ScalePolicy'])) {
+            $model->scalePolicy = $map['ScalePolicy'];
         }
 
         if (isset($map['SpecName'])) {

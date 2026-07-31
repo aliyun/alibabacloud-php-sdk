@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest\atmConfig;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest\gpuElasticPlan;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest\rayConfig;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest\rules;
 
 class ModifyDBResourceGroupRequest extends Model
 {
+    /**
+     * @var atmConfig
+     */
+    public $atmConfig;
+
     /**
      * @var string
      */
@@ -116,6 +122,7 @@ class ModifyDBResourceGroupRequest extends Model
      */
     public $targetResourceGroupName;
     protected $_name = [
+        'atmConfig' => 'AtmConfig',
         'autoStopInterval' => 'AutoStopInterval',
         'clusterMode' => 'ClusterMode',
         'clusterSizeResource' => 'ClusterSizeResource',
@@ -141,6 +148,9 @@ class ModifyDBResourceGroupRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->atmConfig) {
+            $this->atmConfig->validate();
+        }
         if (\is_array($this->engineParams)) {
             Model::validateArray($this->engineParams);
         }
@@ -159,6 +169,10 @@ class ModifyDBResourceGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->atmConfig) {
+            $res['AtmConfig'] = null !== $this->atmConfig ? $this->atmConfig->toArray($noStream) : $this->atmConfig;
+        }
+
         if (null !== $this->autoStopInterval) {
             $res['AutoStopInterval'] = $this->autoStopInterval;
         }
@@ -266,6 +280,10 @@ class ModifyDBResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AtmConfig'])) {
+            $model->atmConfig = atmConfig::fromMap($map['AtmConfig']);
+        }
+
         if (isset($map['AutoStopInterval'])) {
             $model->autoStopInterval = $map['AutoStopInterval'];
         }

@@ -1,0 +1,90 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Adb\V20211201\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class CheckFormationSchemaExistsRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var bool
+     */
+    public $prefixMode;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $schema;
+    protected $_name = [
+        'DBClusterId' => 'DBClusterId',
+        'prefixMode' => 'PrefixMode',
+        'regionId' => 'RegionId',
+        'schema' => 'Schema',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->prefixMode) {
+            $res['PrefixMode'] = $this->prefixMode;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->schema) {
+            $res['Schema'] = $this->schema;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['PrefixMode'])) {
+            $model->prefixMode = $map['PrefixMode'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['Schema'])) {
+            $model->schema = $map['Schema'];
+        }
+
+        return $model;
+    }
+}

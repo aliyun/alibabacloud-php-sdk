@@ -35,6 +35,11 @@ class jobAcuUsage extends Model
     public $resourceGroupName;
 
     /**
+     * @var string
+     */
+    public $sparkAppName;
+
+    /**
      * @var bool
      */
     public $useCachePool;
@@ -44,6 +49,7 @@ class jobAcuUsage extends Model
         'jobId' => 'JobId',
         'jobStartTime' => 'JobStartTime',
         'resourceGroupName' => 'ResourceGroupName',
+        'sparkAppName' => 'SparkAppName',
         'useCachePool' => 'UseCachePool',
     ];
 
@@ -76,6 +82,10 @@ class jobAcuUsage extends Model
 
         if (null !== $this->resourceGroupName) {
             $res['ResourceGroupName'] = $this->resourceGroupName;
+        }
+
+        if (null !== $this->sparkAppName) {
+            $res['SparkAppName'] = $this->sparkAppName;
         }
 
         if (null !== $this->useCachePool) {
@@ -111,6 +121,10 @@ class jobAcuUsage extends Model
 
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
+        }
+
+        if (isset($map['SparkAppName'])) {
+            $model->sparkAppName = $map['SparkAppName'];
         }
 
         if (isset($map['UseCachePool'])) {

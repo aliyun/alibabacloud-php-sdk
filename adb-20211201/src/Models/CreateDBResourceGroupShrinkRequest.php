@@ -11,7 +11,17 @@ class CreateDBResourceGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $atmConfigShrink;
+
+    /**
+     * @var string
+     */
     public $autoStopInterval;
+
+    /**
+     * @var string
+     */
+    public $classification;
 
     /**
      * @var string
@@ -106,6 +116,11 @@ class CreateDBResourceGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $scalePolicy;
+
+    /**
+     * @var string
+     */
     public $specName;
 
     /**
@@ -113,7 +128,9 @@ class CreateDBResourceGroupShrinkRequest extends Model
      */
     public $targetResourceGroupName;
     protected $_name = [
+        'atmConfigShrink' => 'AtmConfig',
         'autoStopInterval' => 'AutoStopInterval',
+        'classification' => 'Classification',
         'clusterMode' => 'ClusterMode',
         'clusterSizeResource' => 'ClusterSizeResource',
         'DBClusterId' => 'DBClusterId',
@@ -132,6 +149,7 @@ class CreateDBResourceGroupShrinkRequest extends Model
         'rayConfigShrink' => 'RayConfig',
         'regionId' => 'RegionId',
         'rulesShrink' => 'Rules',
+        'scalePolicy' => 'ScalePolicy',
         'specName' => 'SpecName',
         'targetResourceGroupName' => 'TargetResourceGroupName',
     ];
@@ -144,8 +162,16 @@ class CreateDBResourceGroupShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->atmConfigShrink) {
+            $res['AtmConfig'] = $this->atmConfigShrink;
+        }
+
         if (null !== $this->autoStopInterval) {
             $res['AutoStopInterval'] = $this->autoStopInterval;
+        }
+
+        if (null !== $this->classification) {
+            $res['Classification'] = $this->classification;
         }
 
         if (null !== $this->clusterMode) {
@@ -220,6 +246,10 @@ class CreateDBResourceGroupShrinkRequest extends Model
             $res['Rules'] = $this->rulesShrink;
         }
 
+        if (null !== $this->scalePolicy) {
+            $res['ScalePolicy'] = $this->scalePolicy;
+        }
+
         if (null !== $this->specName) {
             $res['SpecName'] = $this->specName;
         }
@@ -239,8 +269,16 @@ class CreateDBResourceGroupShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AtmConfig'])) {
+            $model->atmConfigShrink = $map['AtmConfig'];
+        }
+
         if (isset($map['AutoStopInterval'])) {
             $model->autoStopInterval = $map['AutoStopInterval'];
+        }
+
+        if (isset($map['Classification'])) {
+            $model->classification = $map['Classification'];
         }
 
         if (isset($map['ClusterMode'])) {
@@ -313,6 +351,10 @@ class CreateDBResourceGroupShrinkRequest extends Model
 
         if (isset($map['Rules'])) {
             $model->rulesShrink = $map['Rules'];
+        }
+
+        if (isset($map['ScalePolicy'])) {
+            $model->scalePolicy = $map['ScalePolicy'];
         }
 
         if (isset($map['SpecName'])) {

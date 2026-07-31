@@ -49,6 +49,11 @@ class DescribeSQLPatternsRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $sqlPatternHash;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -66,6 +71,7 @@ class DescribeSQLPatternsRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
+        'sqlPatternHash' => 'SqlPatternHash',
         'startTime' => 'StartTime',
         'userName' => 'UserName',
     ];
@@ -108,6 +114,10 @@ class DescribeSQLPatternsRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->sqlPatternHash) {
+            $res['SqlPatternHash'] = $this->sqlPatternHash;
         }
 
         if (null !== $this->startTime) {
@@ -159,6 +169,10 @@ class DescribeSQLPatternsRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SqlPatternHash'])) {
+            $model->sqlPatternHash = $map['SqlPatternHash'];
         }
 
         if (isset($map['StartTime'])) {

@@ -22,14 +22,23 @@ class BindAccountRequest extends Model
      * @var string
      */
     public $ramUser;
+
+    /**
+     * @var string[]
+     */
+    public $ramUserList;
     protected $_name = [
         'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
         'ramUser' => 'RamUser',
+        'ramUserList' => 'RamUserList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ramUserList)) {
+            Model::validateArray($this->ramUserList);
+        }
         parent::validate();
     }
 
@@ -46,6 +55,17 @@ class BindAccountRequest extends Model
 
         if (null !== $this->ramUser) {
             $res['RamUser'] = $this->ramUser;
+        }
+
+        if (null !== $this->ramUserList) {
+            if (\is_array($this->ramUserList)) {
+                $res['RamUserList'] = [];
+                $n1 = 0;
+                foreach ($this->ramUserList as $item1) {
+                    $res['RamUserList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -69,6 +89,17 @@ class BindAccountRequest extends Model
 
         if (isset($map['RamUser'])) {
             $model->ramUser = $map['RamUser'];
+        }
+
+        if (isset($map['RamUserList'])) {
+            if (!empty($map['RamUserList'])) {
+                $model->ramUserList = [];
+                $n1 = 0;
+                foreach ($map['RamUserList'] as $item1) {
+                    $model->ramUserList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

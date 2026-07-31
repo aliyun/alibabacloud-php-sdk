@@ -10,6 +10,16 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBClusterRequest\tag;
 class CreateDBClusterRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $AINodeNumber;
+
+    /**
+     * @var string
+     */
+    public $AINodeSpec;
+
+    /**
      * @var string
      */
     public $backupSetId;
@@ -154,6 +164,8 @@ class CreateDBClusterRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'AINodeNumber' => 'AINodeNumber',
+        'AINodeSpec' => 'AINodeSpec',
         'backupSetId' => 'BackupSetId',
         'cloneSourceRegionId' => 'CloneSourceRegionId',
         'computeResource' => 'ComputeResource',
@@ -196,6 +208,14 @@ class CreateDBClusterRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->AINodeNumber) {
+            $res['AINodeNumber'] = $this->AINodeNumber;
+        }
+
+        if (null !== $this->AINodeSpec) {
+            $res['AINodeSpec'] = $this->AINodeSpec;
+        }
+
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
         }
@@ -330,6 +350,14 @@ class CreateDBClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AINodeNumber'])) {
+            $model->AINodeNumber = $map['AINodeNumber'];
+        }
+
+        if (isset($map['AINodeSpec'])) {
+            $model->AINodeSpec = $map['AINodeSpec'];
+        }
+
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
         }

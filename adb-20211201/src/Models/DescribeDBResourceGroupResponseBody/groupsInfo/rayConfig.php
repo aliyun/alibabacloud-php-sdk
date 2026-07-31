@@ -62,9 +62,19 @@ class rayConfig extends Model
     public $rayGrafanaAddress;
 
     /**
+     * @var string
+     */
+    public $rayServePublicAddress;
+
+    /**
      * @var storageMounts[]
      */
     public $storageMounts;
+
+    /**
+     * @var string
+     */
+    public $userDefinedRequirements;
 
     /**
      * @var workerGroups[]
@@ -81,7 +91,9 @@ class rayConfig extends Model
         'rayClusterAddress' => 'RayClusterAddress',
         'rayDashboardAddress' => 'RayDashboardAddress',
         'rayGrafanaAddress' => 'RayGrafanaAddress',
+        'rayServePublicAddress' => 'RayServePublicAddress',
         'storageMounts' => 'StorageMounts',
+        'userDefinedRequirements' => 'UserDefinedRequirements',
         'workerGroups' => 'WorkerGroups',
     ];
 
@@ -142,6 +154,10 @@ class rayConfig extends Model
             $res['RayGrafanaAddress'] = $this->rayGrafanaAddress;
         }
 
+        if (null !== $this->rayServePublicAddress) {
+            $res['RayServePublicAddress'] = $this->rayServePublicAddress;
+        }
+
         if (null !== $this->storageMounts) {
             if (\is_array($this->storageMounts)) {
                 $res['StorageMounts'] = [];
@@ -151,6 +167,10 @@ class rayConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->userDefinedRequirements) {
+            $res['UserDefinedRequirements'] = $this->userDefinedRequirements;
         }
 
         if (null !== $this->workerGroups) {
@@ -215,6 +235,10 @@ class rayConfig extends Model
             $model->rayGrafanaAddress = $map['RayGrafanaAddress'];
         }
 
+        if (isset($map['RayServePublicAddress'])) {
+            $model->rayServePublicAddress = $map['RayServePublicAddress'];
+        }
+
         if (isset($map['StorageMounts'])) {
             if (!empty($map['StorageMounts'])) {
                 $model->storageMounts = [];
@@ -224,6 +248,10 @@ class rayConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UserDefinedRequirements'])) {
+            $model->userDefinedRequirements = $map['UserDefinedRequirements'];
         }
 
         if (isset($map['WorkerGroups'])) {

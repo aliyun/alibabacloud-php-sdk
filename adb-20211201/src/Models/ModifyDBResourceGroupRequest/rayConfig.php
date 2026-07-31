@@ -52,6 +52,11 @@ class rayConfig extends Model
     public $storageMounts;
 
     /**
+     * @var string
+     */
+    public $userDefinedRequirements;
+
+    /**
      * @var workerGroups[]
      */
     public $workerGroups;
@@ -64,6 +69,7 @@ class rayConfig extends Model
         'headSpec' => 'HeadSpec',
         'headSpecType' => 'HeadSpecType',
         'storageMounts' => 'StorageMounts',
+        'userDefinedRequirements' => 'UserDefinedRequirements',
         'workerGroups' => 'WorkerGroups',
     ];
 
@@ -121,6 +127,10 @@ class rayConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->userDefinedRequirements) {
+            $res['UserDefinedRequirements'] = $this->userDefinedRequirements;
         }
 
         if (null !== $this->workerGroups) {
@@ -182,6 +192,10 @@ class rayConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UserDefinedRequirements'])) {
+            $model->userDefinedRequirements = $map['UserDefinedRequirements'];
         }
 
         if (isset($map['WorkerGroups'])) {

@@ -31,11 +31,6 @@ class DescribeHistoryTasksRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var int
-     */
     public $pageNumber;
 
     /**
@@ -52,11 +47,6 @@ class DescribeHistoryTasksRequest extends Model
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
 
     /**
      * @var string
@@ -87,12 +77,10 @@ class DescribeHistoryTasksRequest extends Model
         'fromStartTime' => 'FromStartTime',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'ownerId' => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceOwnerId' => 'ResourceOwnerId',
         'status' => 'Status',
         'taskId' => 'TaskId',
         'taskType' => 'TaskType',
@@ -124,10 +112,6 @@ class DescribeHistoryTasksRequest extends Model
             $res['InstanceType'] = $this->instanceType;
         }
 
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -142,10 +126,6 @@ class DescribeHistoryTasksRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         if (null !== $this->status) {
@@ -195,10 +175,6 @@ class DescribeHistoryTasksRequest extends Model
             $model->instanceType = $map['InstanceType'];
         }
 
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -213,10 +189,6 @@ class DescribeHistoryTasksRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         if (isset($map['Status'])) {

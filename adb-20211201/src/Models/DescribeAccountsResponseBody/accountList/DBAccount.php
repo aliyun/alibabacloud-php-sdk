@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAccountsResponseBody\accountList;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAccountsResponseBody\accountList\DBAccount\ramUserList;
 
 class DBAccount extends Model
 {
@@ -34,6 +35,11 @@ class DBAccount extends Model
     public $engine;
 
     /**
+     * @var ramUserList
+     */
+    public $ramUserList;
+
+    /**
      * @var string
      */
     public $ramUsers;
@@ -43,11 +49,15 @@ class DBAccount extends Model
         'accountStatus' => 'AccountStatus',
         'accountType' => 'AccountType',
         'engine' => 'Engine',
+        'ramUserList' => 'RamUserList',
         'ramUsers' => 'RamUsers',
     ];
 
     public function validate()
     {
+        if (null !== $this->ramUserList) {
+            $this->ramUserList->validate();
+        }
         parent::validate();
     }
 
@@ -72,6 +82,10 @@ class DBAccount extends Model
 
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+
+        if (null !== $this->ramUserList) {
+            $res['RamUserList'] = null !== $this->ramUserList ? $this->ramUserList->toArray($noStream) : $this->ramUserList;
         }
 
         if (null !== $this->ramUsers) {
@@ -107,6 +121,10 @@ class DBAccount extends Model
 
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+
+        if (isset($map['RamUserList'])) {
+            $model->ramUserList = ramUserList::fromMap($map['RamUserList']);
         }
 
         if (isset($map['RamUsers'])) {

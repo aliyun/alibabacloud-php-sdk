@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest\atmConfig;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest\gpuElasticPlan;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest\rayConfig;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest\rules;
@@ -12,9 +13,19 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest\rules;
 class CreateDBResourceGroupRequest extends Model
 {
     /**
+     * @var atmConfig
+     */
+    public $atmConfig;
+
+    /**
      * @var string
      */
     public $autoStopInterval;
+
+    /**
+     * @var string
+     */
+    public $classification;
 
     /**
      * @var string
@@ -109,6 +120,11 @@ class CreateDBResourceGroupRequest extends Model
     /**
      * @var string
      */
+    public $scalePolicy;
+
+    /**
+     * @var string
+     */
     public $specName;
 
     /**
@@ -116,7 +132,9 @@ class CreateDBResourceGroupRequest extends Model
      */
     public $targetResourceGroupName;
     protected $_name = [
+        'atmConfig' => 'AtmConfig',
         'autoStopInterval' => 'AutoStopInterval',
+        'classification' => 'Classification',
         'clusterMode' => 'ClusterMode',
         'clusterSizeResource' => 'ClusterSizeResource',
         'DBClusterId' => 'DBClusterId',
@@ -135,12 +153,16 @@ class CreateDBResourceGroupRequest extends Model
         'rayConfig' => 'RayConfig',
         'regionId' => 'RegionId',
         'rules' => 'Rules',
+        'scalePolicy' => 'ScalePolicy',
         'specName' => 'SpecName',
         'targetResourceGroupName' => 'TargetResourceGroupName',
     ];
 
     public function validate()
     {
+        if (null !== $this->atmConfig) {
+            $this->atmConfig->validate();
+        }
         if (\is_array($this->engineParams)) {
             Model::validateArray($this->engineParams);
         }
@@ -159,8 +181,16 @@ class CreateDBResourceGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->atmConfig) {
+            $res['AtmConfig'] = null !== $this->atmConfig ? $this->atmConfig->toArray($noStream) : $this->atmConfig;
+        }
+
         if (null !== $this->autoStopInterval) {
             $res['AutoStopInterval'] = $this->autoStopInterval;
+        }
+
+        if (null !== $this->classification) {
+            $res['Classification'] = $this->classification;
         }
 
         if (null !== $this->clusterMode) {
@@ -247,6 +277,10 @@ class CreateDBResourceGroupRequest extends Model
             }
         }
 
+        if (null !== $this->scalePolicy) {
+            $res['ScalePolicy'] = $this->scalePolicy;
+        }
+
         if (null !== $this->specName) {
             $res['SpecName'] = $this->specName;
         }
@@ -266,8 +300,16 @@ class CreateDBResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AtmConfig'])) {
+            $model->atmConfig = atmConfig::fromMap($map['AtmConfig']);
+        }
+
         if (isset($map['AutoStopInterval'])) {
             $model->autoStopInterval = $map['AutoStopInterval'];
+        }
+
+        if (isset($map['Classification'])) {
+            $model->classification = $map['Classification'];
         }
 
         if (isset($map['ClusterMode'])) {
@@ -352,6 +394,10 @@ class CreateDBResourceGroupRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ScalePolicy'])) {
+            $model->scalePolicy = $map['ScalePolicy'];
         }
 
         if (isset($map['SpecName'])) {

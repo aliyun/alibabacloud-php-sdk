@@ -11,6 +11,11 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $atmConfigShrink;
+
+    /**
+     * @var string
+     */
     public $autoStopInterval;
 
     /**
@@ -113,6 +118,7 @@ class ModifyDBResourceGroupShrinkRequest extends Model
      */
     public $targetResourceGroupName;
     protected $_name = [
+        'atmConfigShrink' => 'AtmConfig',
         'autoStopInterval' => 'AutoStopInterval',
         'clusterMode' => 'ClusterMode',
         'clusterSizeResource' => 'ClusterSizeResource',
@@ -144,6 +150,10 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->atmConfigShrink) {
+            $res['AtmConfig'] = $this->atmConfigShrink;
+        }
+
         if (null !== $this->autoStopInterval) {
             $res['AutoStopInterval'] = $this->autoStopInterval;
         }
@@ -239,6 +249,10 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AtmConfig'])) {
+            $model->atmConfigShrink = $map['AtmConfig'];
+        }
+
         if (isset($map['AutoStopInterval'])) {
             $model->autoStopInterval = $map['AutoStopInterval'];
         }

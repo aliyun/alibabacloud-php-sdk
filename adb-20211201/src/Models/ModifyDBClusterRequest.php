@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $AINodeNumber;
+
+    /**
+     * @var string
+     */
+    public $AINodeSpec;
+
+    /**
      * @var string
      */
     public $computeResource;
@@ -48,6 +58,8 @@ class ModifyDBClusterRequest extends Model
      */
     public $storageResource;
     protected $_name = [
+        'AINodeNumber' => 'AINodeNumber',
+        'AINodeSpec' => 'AINodeSpec',
         'computeResource' => 'ComputeResource',
         'DBClusterId' => 'DBClusterId',
         'enableDefaultResourcePool' => 'EnableDefaultResourcePool',
@@ -66,6 +78,14 @@ class ModifyDBClusterRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->AINodeNumber) {
+            $res['AINodeNumber'] = $this->AINodeNumber;
+        }
+
+        if (null !== $this->AINodeSpec) {
+            $res['AINodeSpec'] = $this->AINodeSpec;
+        }
+
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = $this->computeResource;
         }
@@ -109,6 +129,14 @@ class ModifyDBClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AINodeNumber'])) {
+            $model->AINodeNumber = $map['AINodeNumber'];
+        }
+
+        if (isset($map['AINodeSpec'])) {
+            $model->AINodeSpec = $map['AINodeSpec'];
+        }
+
         if (isset($map['ComputeResource'])) {
             $model->computeResource = $map['ComputeResource'];
         }

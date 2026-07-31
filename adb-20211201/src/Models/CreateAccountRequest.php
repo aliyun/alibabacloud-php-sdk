@@ -37,6 +37,11 @@ class CreateAccountRequest extends Model
      * @var string
      */
     public $engine;
+
+    /**
+     * @var string[]
+     */
+    public $ramUserList;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
         'accountName' => 'AccountName',
@@ -44,10 +49,14 @@ class CreateAccountRequest extends Model
         'accountType' => 'AccountType',
         'DBClusterId' => 'DBClusterId',
         'engine' => 'Engine',
+        'ramUserList' => 'RamUserList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ramUserList)) {
+            Model::validateArray($this->ramUserList);
+        }
         parent::validate();
     }
 
@@ -76,6 +85,17 @@ class CreateAccountRequest extends Model
 
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+
+        if (null !== $this->ramUserList) {
+            if (\is_array($this->ramUserList)) {
+                $res['RamUserList'] = [];
+                $n1 = 0;
+                foreach ($this->ramUserList as $item1) {
+                    $res['RamUserList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -111,6 +131,17 @@ class CreateAccountRequest extends Model
 
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+
+        if (isset($map['RamUserList'])) {
+            if (!empty($map['RamUserList'])) {
+                $model->ramUserList = [];
+                $n1 = 0;
+                foreach ($map['RamUserList'] as $item1) {
+                    $model->ramUserList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

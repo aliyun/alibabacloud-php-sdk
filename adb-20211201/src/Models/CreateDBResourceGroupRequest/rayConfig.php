@@ -40,6 +40,11 @@ class rayConfig extends Model
     public $headSpecType;
 
     /**
+     * @var string
+     */
+    public $userDefinedRequirements;
+
+    /**
      * @var workerGroups[]
      */
     public $workerGroups;
@@ -50,6 +55,7 @@ class rayConfig extends Model
         'headDiskCapacity' => 'HeadDiskCapacity',
         'headSpec' => 'HeadSpec',
         'headSpecType' => 'HeadSpecType',
+        'userDefinedRequirements' => 'UserDefinedRequirements',
         'workerGroups' => 'WorkerGroups',
     ];
 
@@ -86,6 +92,10 @@ class rayConfig extends Model
 
         if (null !== $this->headSpecType) {
             $res['HeadSpecType'] = $this->headSpecType;
+        }
+
+        if (null !== $this->userDefinedRequirements) {
+            $res['UserDefinedRequirements'] = $this->userDefinedRequirements;
         }
 
         if (null !== $this->workerGroups) {
@@ -132,6 +142,10 @@ class rayConfig extends Model
 
         if (isset($map['HeadSpecType'])) {
             $model->headSpecType = $map['HeadSpecType'];
+        }
+
+        if (isset($map['UserDefinedRequirements'])) {
+            $model->userDefinedRequirements = $map['UserDefinedRequirements'];
         }
 
         if (isset($map['WorkerGroups'])) {
