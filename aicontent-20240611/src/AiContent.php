@@ -3263,7 +3263,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the tab configuration for usage monitoring.
+     * Retrieves the usage monitoring tab configuration.
      *
      * @param request - ModelRouterBillingCostTabsRequest
      * @param headers - map
@@ -3309,7 +3309,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the tab configuration for usage monitoring.
+     * Retrieves the usage monitoring tab configuration.
      *
      * @param request - ModelRouterBillingCostTabsRequest
      *
@@ -3328,7 +3328,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Generates a chat completion.
+     * Initiates a chat conversation.
      *
      * @param request - ModelRouterChatCompletionsRequest
      * @param headers - map
@@ -3378,7 +3378,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Generates a chat completion.
+     * Initiates a chat conversation.
      *
      * @param request - ModelRouterChatCompletionsRequest
      * @param headers - map
@@ -3415,7 +3415,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Generates a chat completion.
+     * Initiates a chat conversation.
      *
      * @param request - ModelRouterChatCompletionsRequest
      *
@@ -3434,7 +3434,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Configures balance throttling for a department.
+     * Enables balance-based throttling for a department.
      *
      * @param request - ModelRouterConfigureClientBalanceRequest
      * @param headers - map
@@ -3485,7 +3485,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Configures balance throttling for a department.
+     * Enables balance-based throttling for a department.
      *
      * @param request - ModelRouterConfigureClientBalanceRequest
      *
@@ -3556,7 +3556,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API key management / Create an API key.
+     * Creates an API key.
      *
      * @param request - ModelRouterCreateApiKeyRequest
      * @param headers - map
@@ -3598,7 +3598,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API key management / Create an API key.
+     * Creates an API key.
      *
      * @param request - ModelRouterCreateApiKeyRequest
      *
@@ -3618,9 +3618,6 @@ class AiContent extends OpenApiClient
 
     /**
      * Creates a balance transaction for customer management.
-     *
-     * @remarks
-     * This operation is deprecated. Do not use it.
      *
      * @param request - ModelRouterCreateBalanceTransactionRequest
      * @param headers - map
@@ -3681,9 +3678,6 @@ class AiContent extends OpenApiClient
     /**
      * Creates a balance transaction for customer management.
      *
-     * @remarks
-     * This operation is deprecated. Do not use it.
-     *
      * @param request - ModelRouterCreateBalanceTransactionRequest
      *
      * @returns ModelRouterCreateBalanceTransactionResponse
@@ -3702,7 +3696,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Billing Management/Create Billing Rule.
+     * Creates a billing rule.
      *
      * @param request - ModelRouterCreateBillingRuleRequest
      * @param headers - map
@@ -3764,7 +3758,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Billing Management/Create Billing Rule.
+     * Creates a billing rule.
      *
      * @param request - ModelRouterCreateBillingRuleRequest
      *
@@ -3783,7 +3777,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Client management / Create client.
+     * Creates a customer.
      *
      * @param request - ModelRouterCreateClientRequest
      * @param headers - map
@@ -3803,6 +3797,10 @@ class AiContent extends OpenApiClient
         $body = [];
         if (null !== $request->address) {
             @$body['address'] = $request->address;
+        }
+
+        if (null !== $request->allowedModelGroupConfig) {
+            @$body['allowedModelGroupConfig'] = $request->allowedModelGroupConfig;
         }
 
         if (null !== $request->allowedModels) {
@@ -3849,7 +3847,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Client management / Create client.
+     * Creates a customer.
      *
      * @param request - ModelRouterCreateClientRequest
      *
@@ -3868,7 +3866,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Conversation management / Create conversation.
+     * Creates a conversation.
      *
      * @param request - ModelRouterCreateConversationRequest
      * @param headers - map
@@ -3918,7 +3916,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Conversation management / Create conversation.
+     * Creates a conversation.
      *
      * @param request - ModelRouterCreateConversationRequest
      *
@@ -3937,7 +3935,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Creates a model.
+     * Performs model creation.
      *
      * @param request - ModelRouterCreateModelRequest
      * @param headers - map
@@ -4023,7 +4021,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Creates a model.
+     * Performs model creation.
      *
      * @param request - ModelRouterCreateModelRequest
      *
@@ -4042,10 +4040,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/创建周期充值订阅.
-     *
-     * @remarks
-     * 该接口已弃用，请勿使用
+     * Creates a periodic recharge subscription for customer management.
      *
      * @param request - ModelRouterCreateSubscriptionRequest
      * @param headers - map
@@ -4100,10 +4095,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/创建周期充值订阅.
-     *
-     * @remarks
-     * 该接口已弃用，请勿使用
+     * Creates a periodic recharge subscription for customer management.
      *
      * @param request - ModelRouterCreateSubscriptionRequest
      *
@@ -4123,7 +4115,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API Key Management / Delete API Key.
+     * Deletes an API key.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4157,7 +4149,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API Key Management / Delete API Key.
+     * Deletes an API key.
      *
      * @returns ModelRouterDeleteApiKeyResponse
      *
@@ -4174,7 +4166,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Deletes a client.
+     * Deletes a customer.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4208,7 +4200,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Deletes a client.
+     * Deletes a customer.
      *
      * @returns ModelRouterDeleteClientResponse
      *
@@ -4225,7 +4217,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Conversation management/Delete conversation.
+     * Deletes a conversation.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4259,7 +4251,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Conversation management/Delete conversation.
+     * Deletes a conversation.
      *
      * @returns ModelRouterDeleteConversationResponse
      *
@@ -4276,7 +4268,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Model Management / Delete Model.
+     * Deletes a model.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4310,7 +4302,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Model Management / Delete Model.
+     * Deletes a model.
      *
      * @returns ModelRouterDeleteModelResponse
      *
@@ -4384,7 +4376,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Gets the balance change log for a specified department.
+     * Retrieves the balance change logs of a department.
      *
      * @param request - ModelRouterGetClientBalanceLogsRequest
      * @param headers - map
@@ -4443,7 +4435,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Gets the balance change log for a specified department.
+     * Retrieves the balance change logs of a department.
      *
      * @param request - ModelRouterGetClientBalanceLogsRequest
      *
@@ -4463,10 +4455,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/查询周期充值订阅列表.
+     * Queries the list of periodic recharge subscriptions.
      *
      * @remarks
-     * 该接口已弃用，请勿使用
+     * This operation is deprecated. Do not use it.
      *
      * @param request - ModelRouterListSubscriptionsRequest
      * @param headers - map
@@ -4521,10 +4513,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/查询周期充值订阅列表.
+     * Queries the list of periodic recharge subscriptions.
      *
      * @remarks
-     * 该接口已弃用，请勿使用
+     * This operation is deprecated. Do not use it.
      *
      * @param request - ModelRouterListSubscriptionsRequest
      *
@@ -4544,7 +4536,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific API key.
+     * Retrieves the details of an API key.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4578,7 +4570,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific API key.
+     * Retrieves the details of an API key.
      *
      * @returns ModelRouterQueryApiKeyResponse
      *
@@ -5054,7 +5046,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Returns a hierarchical tree of customers.
+     * Retrieves the customer tree structure.
      *
      * @param request - ModelRouterQueryClientTreeRequest
      * @param headers - map
@@ -5100,7 +5092,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Returns a hierarchical tree of customers.
+     * Retrieves the customer tree structure.
      *
      * @param request - ModelRouterQueryClientTreeRequest
      *
@@ -5787,10 +5779,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Configures Nacos or retrieves the list of Nacos service providers.
-     *
-     * @remarks
-     * This operation is deprecated. Do not use it.
+     * Queries the list of Nacos service providers through Nacos configuration.
      *
      * @param request - ModelRouterQueryNacosProvidersRequest
      * @param headers - map
@@ -5860,10 +5849,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Configures Nacos or retrieves the list of Nacos service providers.
-     *
-     * @remarks
-     * This operation is deprecated. Do not use it.
+     * Queries the list of Nacos service providers through Nacos configuration.
      *
      * @param request - ModelRouterQueryNacosProvidersRequest
      *
@@ -6056,7 +6042,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Model Observation / Observation Logs.
+     * Retrieves a list of model observation logs.
      *
      * @param request - ModelRouterQueryObservationLogsRequest
      * @param headers - map
@@ -6150,7 +6136,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Model Observation / Observation Logs.
+     * Retrieves a list of model observation logs.
      *
      * @param request - ModelRouterQueryObservationLogsRequest
      *
@@ -6169,7 +6155,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Model Observation > Get Observation Metric Data.
+     * Retrieves observability metric data for models.
      *
      * @param request - ModelRouterQueryObservationMetricsRequest
      * @param headers - map
@@ -6263,7 +6249,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Model Observation > Get Observation Metric Data.
+     * Retrieves observability metric data for models.
      *
      * @param request - ModelRouterQueryObservationMetricsRequest
      *
@@ -6448,7 +6434,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/停止周期充值订阅.
+     * Stops a periodic recharge subscription for customer management.
      *
      * @param request - ModelRouterStopSubscriptionRequest
      * @param headers - map
@@ -6491,7 +6477,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/停止周期充值订阅.
+     * Stops a periodic recharge subscription for customer management.
      *
      * @param request - ModelRouterStopSubscriptionRequest
      *
@@ -6594,7 +6580,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Updates a specified client\\"s information.
+     * Updates customer information.
      *
      * @param request - ModelRouterUpdateClientRequest
      * @param headers - map
@@ -6615,6 +6601,10 @@ class AiContent extends OpenApiClient
         $body = [];
         if (null !== $request->address) {
             @$body['address'] = $request->address;
+        }
+
+        if (null !== $request->allowedModelGroupConfig) {
+            @$body['allowedModelGroupConfig'] = $request->allowedModelGroupConfig;
         }
 
         if (null !== $request->allowedModels) {
@@ -6661,7 +6651,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Updates a specified client\\"s information.
+     * Updates customer information.
      *
      * @param request - ModelRouterUpdateClientRequest
      *

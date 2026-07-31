@@ -16,6 +16,11 @@ class ModelRouterUpdateClientRequest extends Model
     /**
      * @var string
      */
+    public $allowedModelGroupConfig;
+
+    /**
+     * @var string
+     */
     public $allowedModels;
 
     /**
@@ -44,6 +49,7 @@ class ModelRouterUpdateClientRequest extends Model
     public $status;
     protected $_name = [
         'address' => 'address',
+        'allowedModelGroupConfig' => 'allowedModelGroupConfig',
         'allowedModels' => 'allowedModels',
         'contact' => 'contact',
         'discount' => 'discount',
@@ -62,6 +68,10 @@ class ModelRouterUpdateClientRequest extends Model
         $res = [];
         if (null !== $this->address) {
             $res['address'] = $this->address;
+        }
+
+        if (null !== $this->allowedModelGroupConfig) {
+            $res['allowedModelGroupConfig'] = $this->allowedModelGroupConfig;
         }
 
         if (null !== $this->allowedModels) {
@@ -101,6 +111,10 @@ class ModelRouterUpdateClientRequest extends Model
         $model = new self();
         if (isset($map['address'])) {
             $model->address = $map['address'];
+        }
+
+        if (isset($map['allowedModelGroupConfig'])) {
+            $model->allowedModelGroupConfig = $map['allowedModelGroupConfig'];
         }
 
         if (isset($map['allowedModels'])) {
