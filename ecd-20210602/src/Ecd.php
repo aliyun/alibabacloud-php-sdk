@@ -254,10 +254,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 获取 OSS STS 令牌.
+     * Retrieves a temporary OSS token for authentication.
      *
      * @remarks
-     * 获取到的SecurityToken有效期为15分钟。
+     * The obtained SecurityToken is valid for 15 minutes.
      *
      * @param request - GetOssStsTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -296,10 +296,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 获取 OSS STS 令牌.
+     * Retrieves a temporary OSS token for authentication.
      *
      * @remarks
-     * 获取到的SecurityToken有效期为15分钟。
+     * The obtained SecurityToken is valid for 15 minutes.
      *
      * @param request - GetOssStsTokenRequest
      *
@@ -810,7 +810,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 设置租户技能启用状态
+     * Sets the enabling status of skills at the tenant level.
      *
      * @param request - SetTenantSkillEnabledRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -857,7 +857,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 设置租户技能启用状态
+     * Sets the enabling status of skills at the tenant level.
      *
      * @param request - SetTenantSkillEnabledRequest
      *

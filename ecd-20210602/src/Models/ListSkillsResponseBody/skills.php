@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecd\V20210602\Models\ListSkillsResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20210602\Models\ListSkillsResponseBody\skills\skillVersions;
+use AlibabaCloud\SDK\Ecd\V20210602\Models\ListSkillsResponseBody\skills\supportAgentList;
 
 class skills extends Model
 {
@@ -88,6 +89,11 @@ class skills extends Model
      * @var string
      */
     public $supplierType;
+
+    /**
+     * @var supportAgentList[]
+     */
+    public $supportAgentList;
     protected $_name = [
         'apiKey' => 'ApiKey',
         'author' => 'Author',
@@ -105,6 +111,7 @@ class skills extends Model
         'sourceMarket' => 'SourceMarket',
         'sourceMarketName' => 'SourceMarketName',
         'supplierType' => 'SupplierType',
+        'supportAgentList' => 'SupportAgentList',
     ];
 
     public function validate()
@@ -114,6 +121,9 @@ class skills extends Model
         }
         if (\is_array($this->skillVersions)) {
             Model::validateArray($this->skillVersions);
+        }
+        if (\is_array($this->supportAgentList)) {
+            Model::validateArray($this->supportAgentList);
         }
         parent::validate();
     }
@@ -195,6 +205,17 @@ class skills extends Model
 
         if (null !== $this->supplierType) {
             $res['SupplierType'] = $this->supplierType;
+        }
+
+        if (null !== $this->supportAgentList) {
+            if (\is_array($this->supportAgentList)) {
+                $res['SupportAgentList'] = [];
+                $n1 = 0;
+                foreach ($this->supportAgentList as $item1) {
+                    $res['SupportAgentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -282,6 +303,17 @@ class skills extends Model
 
         if (isset($map['SupplierType'])) {
             $model->supplierType = $map['SupplierType'];
+        }
+
+        if (isset($map['SupportAgentList'])) {
+            if (!empty($map['SupportAgentList'])) {
+                $model->supportAgentList = [];
+                $n1 = 0;
+                foreach ($map['SupportAgentList'] as $item1) {
+                    $model->supportAgentList[$n1] = supportAgentList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
