@@ -11,6 +11,11 @@ class DescribeAdbMySqlColumnsRequest extends Model
     /**
      * @var string
      */
+    public $catalog;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -28,6 +33,7 @@ class DescribeAdbMySqlColumnsRequest extends Model
      */
     public $tableName;
     protected $_name = [
+        'catalog' => 'Catalog',
         'DBClusterId' => 'DBClusterId',
         'regionId' => 'RegionId',
         'schema' => 'Schema',
@@ -42,6 +48,10 @@ class DescribeAdbMySqlColumnsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->catalog) {
+            $res['Catalog'] = $this->catalog;
+        }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -69,6 +79,10 @@ class DescribeAdbMySqlColumnsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Catalog'])) {
+            $model->catalog = $map['Catalog'];
+        }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }

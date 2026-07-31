@@ -2298,7 +2298,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
+     * Creates an APS link from Simple Log Service (SLS) to an AnalyticDB data warehouse.
      *
      * @param tmpReq - CreateApsSlsADBJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2475,7 +2475,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
+     * Creates an APS link from Simple Log Service (SLS) to an AnalyticDB data warehouse.
      *
      * @param request - CreateApsSlsADBJobRequest
      *
@@ -5290,11 +5290,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about table columns for an AnalyticDB for MySQL cluster.
+     * Queries the column information of a specified table in a cluster.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5310,6 +5310,10 @@ class Adb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
@@ -5345,11 +5349,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about table columns for an AnalyticDB for MySQL cluster.
+     * Queries the column information of a specified table in a cluster.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlColumnsRequest
      *
@@ -5436,11 +5440,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of databases for an AnalyticDB for MySQL cluster.
+     * Lists all databases in a specified cluster.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+     * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5456,6 +5460,10 @@ class Adb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
@@ -5483,11 +5491,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of databases for an AnalyticDB for MySQL cluster.
+     * Lists all databases in a specified cluster.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+     * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlSchemasRequest
      *
@@ -5574,11 +5582,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Lists information about all tables in a specified database of a cluster.
+     * Lists all tables in a specified database of a cluster.
      *
      * @remarks
-     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. For example, `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. For example, `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+     * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5594,6 +5602,10 @@ class Adb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
@@ -5625,11 +5637,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Lists information about all tables in a specified database of a cluster.
+     * Lists all tables in a specified database of a cluster.
      *
      * @remarks
-     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. For example, `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. For example, `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+     * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlTablesRequest
      *
