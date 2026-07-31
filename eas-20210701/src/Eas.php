@@ -104,6 +104,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceRolloutRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceRolloutResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteVirtualResourceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteVirtualResourceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeArtifactRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeArtifactResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskRequest;
@@ -3538,6 +3540,65 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * Queries the details of a cloud native artifact.
+     *
+     * @param request - DescribeArtifactRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeArtifactResponse
+     *
+     * @param string                  $ClusterId
+     * @param string                  $ArtifactName
+     * @param DescribeArtifactRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeArtifactResponse
+     */
+    public function describeArtifactWithOptions($ClusterId, $ArtifactName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DescribeArtifact',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/artifacts/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ArtifactName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a cloud native artifact.
+     *
+     * @param request - DescribeArtifactRequest
+     *
+     * @returns DescribeArtifactResponse
+     *
+     * @param string                  $ClusterId
+     * @param string                  $ArtifactName
+     * @param DescribeArtifactRequest $request
+     *
+     * @return DescribeArtifactResponse
+     */
+    public function describeArtifact($ClusterId, $ArtifactName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeArtifactWithOptions($ClusterId, $ArtifactName, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries details about the configurations of a stress testing task.
      *
      * @param request - DescribeBenchmarkTaskRequest
@@ -3662,7 +3723,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a private gateway.
+     * Queries the details of a dedicated gateway.
      *
      * @param request - DescribeGatewayRequest
      * @param headers - map
@@ -3700,7 +3761,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a private gateway.
+     * Queries the details of a dedicated gateway.
      *
      * @param request - DescribeGatewayRequest
      *
