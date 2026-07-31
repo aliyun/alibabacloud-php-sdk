@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListMmAppResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListPublishedMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListPublishedMmAppResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListVoiceRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListVoiceResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\MmAppBindingMcpRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\MmAppBindingMcpResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\MmAppBindingMcpShrinkRequest;
@@ -62,6 +64,8 @@ use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryMemoryListRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryMemoryListResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryProfileRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryProfileResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QuerySelectOptionsRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QuerySelectOptionsResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryUserProfileRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryUserProfileResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateCommandRequest;
@@ -70,6 +74,9 @@ use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateCommandShrinkReques
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMemoryRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMemoryResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMemoryShrinkRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppAndBindingRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppAndBindingResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppAndBindingShrinkRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppMemoryRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppMemoryResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppRagConfigRequest;
@@ -1398,6 +1405,67 @@ class SfmMultiModalApp extends OpenApiClient
     }
 
     /**
+     * 查询音色列表.
+     *
+     * @param request - ListVoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVoiceResponse
+     *
+     * @param ListVoiceRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListVoiceResponse
+     */
+    public function listVoiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->modelId) {
+            @$query['ModelId'] = $request->modelId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVoice',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询音色列表.
+     *
+     * @param request - ListVoiceRequest
+     *
+     * @returns ListVoiceResponse
+     *
+     * @param ListVoiceRequest $request
+     *
+     * @return ListVoiceResponse
+     */
+    public function listVoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVoiceWithOptions($request, $runtime);
+    }
+
+    /**
      * 多模态应用绑定MCP.
      *
      * @param tmpReq - MmAppBindingMcpRequest
@@ -1958,6 +2026,63 @@ class SfmMultiModalApp extends OpenApiClient
     }
 
     /**
+     * 查询选项.
+     *
+     * @param request - QuerySelectOptionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySelectOptionsResponse
+     *
+     * @param QuerySelectOptionsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QuerySelectOptionsResponse
+     */
+    public function querySelectOptionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySelectOptions',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySelectOptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询选项.
+     *
+     * @param request - QuerySelectOptionsRequest
+     *
+     * @returns QuerySelectOptionsResponse
+     *
+     * @param QuerySelectOptionsRequest $request
+     *
+     * @return QuerySelectOptionsResponse
+     */
+    public function querySelectOptions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySelectOptionsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询用户画像.
      *
      * @param request - QueryUserProfileRequest
@@ -2305,6 +2430,109 @@ class SfmMultiModalApp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMmAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新应用和绑定信息.
+     *
+     * @param tmpReq - UpdateMmAppAndBindingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMmAppAndBindingResponse
+     *
+     * @param UpdateMmAppAndBindingRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateMmAppAndBindingResponse
+     */
+    public function updateMmAppAndBindingWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMmAppAndBindingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bindingConfig) {
+            $request->bindingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bindingConfig, 'BindingConfig', 'json');
+        }
+
+        if (null !== $tmpReq->conversationConfig) {
+            $request->conversationConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->conversationConfig, 'ConversationConfig', 'json');
+        }
+
+        if (null !== $tmpReq->memoryConfig) {
+            $request->memoryConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->memoryConfig, 'MemoryConfig', 'json');
+        }
+
+        if (null !== $tmpReq->modelConfig) {
+            $request->modelConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modelConfig, 'ModelConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bindingConfigShrink) {
+            @$query['BindingConfig'] = $request->bindingConfigShrink;
+        }
+
+        if (null !== $request->conversationConfigShrink) {
+            @$query['ConversationConfig'] = $request->conversationConfigShrink;
+        }
+
+        if (null !== $request->memoryConfigShrink) {
+            @$query['MemoryConfig'] = $request->memoryConfigShrink;
+        }
+
+        if (null !== $request->modelConfigShrink) {
+            @$query['ModelConfig'] = $request->modelConfigShrink;
+        }
+
+        if (null !== $request->prompt) {
+            @$query['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMmAppAndBinding',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMmAppAndBindingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新应用和绑定信息.
+     *
+     * @param request - UpdateMmAppAndBindingRequest
+     *
+     * @returns UpdateMmAppAndBindingResponse
+     *
+     * @param UpdateMmAppAndBindingRequest $request
+     *
+     * @return UpdateMmAppAndBindingResponse
+     */
+    public function updateMmAppAndBinding($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMmAppAndBindingWithOptions($request, $runtime);
     }
 
     /**
