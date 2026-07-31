@@ -3975,8 +3975,8 @@ class Elasticsearch extends OpenApiClient
      * Invokes the EnableKibanaPvlNetwork operation to enable private network access for Kibana.
      *
      * @remarks
-     * 1. This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
-     * 2. The Kibana specification must be greater than 1 vCPU and 2 GB of memory.
+     * 1. This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
+     * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
      *
      * @param request - EnableKibanaPvlNetworkRequest
      * @param headers - map
@@ -4002,6 +4002,10 @@ class Elasticsearch extends OpenApiClient
         $body = [];
         if (null !== $request->endpointName) {
             @$body['endpointName'] = $request->endpointName;
+        }
+
+        if (null !== $request->managedSecurityGroup) {
+            @$body['managedSecurityGroup'] = $request->managedSecurityGroup;
         }
 
         if (null !== $request->securityGroups) {
@@ -4040,8 +4044,8 @@ class Elasticsearch extends OpenApiClient
      * Invokes the EnableKibanaPvlNetwork operation to enable private network access for Kibana.
      *
      * @remarks
-     * 1. This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
-     * 2. The Kibana specification must be greater than 1 vCPU and 2 GB of memory.
+     * 1. This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
+     * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
      *
      * @param request - EnableKibanaPvlNetworkRequest
      *
@@ -7257,7 +7261,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of Elasticsearch instances.
+     * Retrieves a list of Elasticsearch instances.
      *
      * @param request - ListInstanceRequest
      * @param headers - map
@@ -7343,7 +7347,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of Elasticsearch instances.
+     * Retrieves a list of Elasticsearch instances.
      *
      * @param request - ListInstanceRequest
      *

@@ -30,6 +30,11 @@ class result extends Model
     public $endpointStatus;
 
     /**
+     * @var bool
+     */
+    public $managedSecurityGroup;
+
+    /**
      * @var string
      */
     public $pvlId;
@@ -53,6 +58,7 @@ class result extends Model
         'endpointId' => 'endpointId',
         'endpointName' => 'endpointName',
         'endpointStatus' => 'endpointStatus',
+        'managedSecurityGroup' => 'managedSecurityGroup',
         'pvlId' => 'pvlId',
         'securityGroups' => 'securityGroups',
         'vSwitchIdsZone' => 'vSwitchIdsZone',
@@ -87,6 +93,10 @@ class result extends Model
 
         if (null !== $this->endpointStatus) {
             $res['endpointStatus'] = $this->endpointStatus;
+        }
+
+        if (null !== $this->managedSecurityGroup) {
+            $res['managedSecurityGroup'] = $this->managedSecurityGroup;
         }
 
         if (null !== $this->pvlId) {
@@ -144,6 +154,10 @@ class result extends Model
 
         if (isset($map['endpointStatus'])) {
             $model->endpointStatus = $map['endpointStatus'];
+        }
+
+        if (isset($map['managedSecurityGroup'])) {
+            $model->managedSecurityGroup = $map['managedSecurityGroup'];
         }
 
         if (isset($map['pvlId'])) {

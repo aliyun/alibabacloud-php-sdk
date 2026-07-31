@@ -15,6 +15,11 @@ class EnableKibanaPvlNetworkRequest extends Model
     public $endpointName;
 
     /**
+     * @var bool
+     */
+    public $managedSecurityGroup;
+
+    /**
      * @var string[]
      */
     public $securityGroups;
@@ -35,6 +40,7 @@ class EnableKibanaPvlNetworkRequest extends Model
     public $clientToken;
     protected $_name = [
         'endpointName' => 'endpointName',
+        'managedSecurityGroup' => 'managedSecurityGroup',
         'securityGroups' => 'securityGroups',
         'vSwitchIdsZone' => 'vSwitchIdsZone',
         'vpcId' => 'vpcId',
@@ -57,6 +63,10 @@ class EnableKibanaPvlNetworkRequest extends Model
         $res = [];
         if (null !== $this->endpointName) {
             $res['endpointName'] = $this->endpointName;
+        }
+
+        if (null !== $this->managedSecurityGroup) {
+            $res['managedSecurityGroup'] = $this->managedSecurityGroup;
         }
 
         if (null !== $this->securityGroups) {
@@ -102,6 +112,10 @@ class EnableKibanaPvlNetworkRequest extends Model
         $model = new self();
         if (isset($map['endpointName'])) {
             $model->endpointName = $map['endpointName'];
+        }
+
+        if (isset($map['managedSecurityGroup'])) {
+            $model->managedSecurityGroup = $map['managedSecurityGroup'];
         }
 
         if (isset($map['securityGroups'])) {

@@ -21,6 +21,11 @@ class nodeSpec extends Model
     /**
      * @var string
      */
+    public $diskPreference;
+
+    /**
+     * @var string
+     */
     public $diskType;
 
     /**
@@ -40,6 +45,7 @@ class nodeSpec extends Model
     protected $_name = [
         'disk' => 'disk',
         'diskEncryption' => 'diskEncryption',
+        'diskPreference' => 'diskPreference',
         'diskType' => 'diskType',
         'performanceLevel' => 'performanceLevel',
         'spec' => 'spec',
@@ -60,6 +66,10 @@ class nodeSpec extends Model
 
         if (null !== $this->diskEncryption) {
             $res['diskEncryption'] = $this->diskEncryption;
+        }
+
+        if (null !== $this->diskPreference) {
+            $res['diskPreference'] = $this->diskPreference;
         }
 
         if (null !== $this->diskType) {
@@ -95,6 +105,10 @@ class nodeSpec extends Model
 
         if (isset($map['diskEncryption'])) {
             $model->diskEncryption = $map['diskEncryption'];
+        }
+
+        if (isset($map['diskPreference'])) {
+            $model->diskPreference = $map['diskPreference'];
         }
 
         if (isset($map['diskType'])) {
