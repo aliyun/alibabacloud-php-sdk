@@ -12,8 +12,14 @@ class ipv6Set extends Model
      * @var string
      */
     public $ipv6Address;
+
+    /**
+     * @var bool
+     */
+    public $primary;
     protected $_name = [
         'ipv6Address' => 'Ipv6Address',
+        'primary' => 'Primary',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class ipv6Set extends Model
         $res = [];
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
+        }
+
+        if (null !== $this->primary) {
+            $res['Primary'] = $this->primary;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class ipv6Set extends Model
         $model = new self();
         if (isset($map['Ipv6Address'])) {
             $model->ipv6Address = $map['Ipv6Address'];
+        }
+
+        if (isset($map['Primary'])) {
+            $model->primary = $map['Primary'];
         }
 
         return $model;

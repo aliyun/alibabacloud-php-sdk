@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\inst
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\enhancedNetwork;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\networkCards;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\networkInfo;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\securityOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\supportedBootModes;
 
 class instanceType extends Model
@@ -231,6 +232,11 @@ class instanceType extends Model
     public $secondaryEniQueueNumber;
 
     /**
+     * @var securityOptions
+     */
+    public $securityOptions;
+
+    /**
      * @var supportedBootModes
      */
     public $supportedBootModes;
@@ -283,6 +289,7 @@ class instanceType extends Model
         'primaryEniQueueNumber' => 'PrimaryEniQueueNumber',
         'queuePairNumber' => 'QueuePairNumber',
         'secondaryEniQueueNumber' => 'SecondaryEniQueueNumber',
+        'securityOptions' => 'SecurityOptions',
         'supportedBootModes' => 'SupportedBootModes',
         'totalEniQueueQuantity' => 'TotalEniQueueQuantity',
     ];
@@ -306,6 +313,9 @@ class instanceType extends Model
         }
         if (null !== $this->networkInfo) {
             $this->networkInfo->validate();
+        }
+        if (null !== $this->securityOptions) {
+            $this->securityOptions->validate();
         }
         if (null !== $this->supportedBootModes) {
             $this->supportedBootModes->validate();
@@ -486,6 +496,10 @@ class instanceType extends Model
 
         if (null !== $this->secondaryEniQueueNumber) {
             $res['SecondaryEniQueueNumber'] = $this->secondaryEniQueueNumber;
+        }
+
+        if (null !== $this->securityOptions) {
+            $res['SecurityOptions'] = null !== $this->securityOptions ? $this->securityOptions->toArray($noStream) : $this->securityOptions;
         }
 
         if (null !== $this->supportedBootModes) {
@@ -677,6 +691,10 @@ class instanceType extends Model
 
         if (isset($map['SecondaryEniQueueNumber'])) {
             $model->secondaryEniQueueNumber = $map['SecondaryEniQueueNumber'];
+        }
+
+        if (isset($map['SecurityOptions'])) {
+            $model->securityOptions = securityOptions::fromMap($map['SecurityOptions']);
         }
 
         if (isset($map['SupportedBootModes'])) {

@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\ima
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\advancedOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\imageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\importImageOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\repairItems;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\tags;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\toRegionIds;
 
@@ -100,6 +101,11 @@ class imagePipelineSet extends Model
     public $nvmeSupport;
 
     /**
+     * @var repairItems
+     */
+    public $repairItems;
+
+    /**
      * @var string
      */
     public $repairMode;
@@ -151,6 +157,7 @@ class imagePipelineSet extends Model
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'name' => 'Name',
         'nvmeSupport' => 'NvmeSupport',
+        'repairItems' => 'RepairItems',
         'repairMode' => 'RepairMode',
         'resourceGroupId' => 'ResourceGroupId',
         'systemDiskSize' => 'SystemDiskSize',
@@ -173,6 +180,9 @@ class imagePipelineSet extends Model
         }
         if (null !== $this->importImageOptions) {
             $this->importImageOptions->validate();
+        }
+        if (null !== $this->repairItems) {
+            $this->repairItems->validate();
         }
         if (null !== $this->tags) {
             $this->tags->validate();
@@ -252,6 +262,10 @@ class imagePipelineSet extends Model
 
         if (null !== $this->nvmeSupport) {
             $res['NvmeSupport'] = $this->nvmeSupport;
+        }
+
+        if (null !== $this->repairItems) {
+            $res['RepairItems'] = null !== $this->repairItems ? $this->repairItems->toArray($noStream) : $this->repairItems;
         }
 
         if (null !== $this->repairMode) {
@@ -359,6 +373,10 @@ class imagePipelineSet extends Model
 
         if (isset($map['NvmeSupport'])) {
             $model->nvmeSupport = $map['NvmeSupport'];
+        }
+
+        if (isset($map['RepairItems'])) {
+            $model->repairItems = repairItems::fromMap($map['RepairItems']);
         }
 
         if (isset($map['RepairMode'])) {

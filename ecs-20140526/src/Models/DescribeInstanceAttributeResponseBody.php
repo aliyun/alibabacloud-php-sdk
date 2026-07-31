@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\operationLocks;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\publicIpAddress;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\securityGroupIds;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\securityOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\vpcAttributes;
 
 class DescribeInstanceAttributeResponseBody extends Model
@@ -162,6 +163,11 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $securityGroupIds;
 
     /**
+     * @var securityOptions
+     */
+    public $securityOptions;
+
+    /**
      * @var string
      */
     public $serialNumber;
@@ -220,6 +226,7 @@ class DescribeInstanceAttributeResponseBody extends Model
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
         'securityGroupIds' => 'SecurityGroupIds',
+        'securityOptions' => 'SecurityOptions',
         'serialNumber' => 'SerialNumber',
         'status' => 'Status',
         'stoppedMode' => 'StoppedMode',
@@ -250,6 +257,9 @@ class DescribeInstanceAttributeResponseBody extends Model
         }
         if (null !== $this->securityGroupIds) {
             $this->securityGroupIds->validate();
+        }
+        if (null !== $this->securityOptions) {
+            $this->securityOptions->validate();
         }
         if (null !== $this->vpcAttributes) {
             $this->vpcAttributes->validate();
@@ -374,6 +384,10 @@ class DescribeInstanceAttributeResponseBody extends Model
 
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toArray($noStream) : $this->securityGroupIds;
+        }
+
+        if (null !== $this->securityOptions) {
+            $res['SecurityOptions'] = null !== $this->securityOptions ? $this->securityOptions->toArray($noStream) : $this->securityOptions;
         }
 
         if (null !== $this->serialNumber) {
@@ -525,6 +539,10 @@ class DescribeInstanceAttributeResponseBody extends Model
 
         if (isset($map['SecurityGroupIds'])) {
             $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
+        }
+
+        if (isset($map['SecurityOptions'])) {
+            $model->securityOptions = securityOptions::fromMap($map['SecurityOptions']);
         }
 
         if (isset($map['SerialNumber'])) {

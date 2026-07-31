@@ -108,6 +108,11 @@ class CreateImagePipelineRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $repairItem;
+
+    /**
      * @var string
      */
     public $repairMode;
@@ -171,6 +176,7 @@ class CreateImagePipelineRequest extends Model
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
+        'repairItem' => 'RepairItem',
         'repairMode' => 'RepairMode',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -195,6 +201,9 @@ class CreateImagePipelineRequest extends Model
         }
         if (null !== $this->importImageOptions) {
             $this->importImageOptions->validate();
+        }
+        if (\is_array($this->repairItem)) {
+            Model::validateArray($this->repairItem);
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -289,6 +298,17 @@ class CreateImagePipelineRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->repairItem) {
+            if (\is_array($this->repairItem)) {
+                $res['RepairItem'] = [];
+                $n1 = 0;
+                foreach ($this->repairItem as $item1) {
+                    $res['RepairItem'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->repairMode) {
@@ -433,6 +453,17 @@ class CreateImagePipelineRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['RepairItem'])) {
+            if (!empty($map['RepairItem'])) {
+                $model->repairItem = [];
+                $n1 = 0;
+                foreach ($map['RepairItem'] as $item1) {
+                    $model->repairItem[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RepairMode'])) {

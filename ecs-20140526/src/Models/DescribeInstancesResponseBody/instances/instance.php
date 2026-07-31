@@ -22,6 +22,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instance
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\publicIpAddress;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\rdmaIpAddress;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\securityGroupIds;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\securityOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\tags;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\vpcAttributes;
 
@@ -308,6 +309,11 @@ class instance extends Model
     public $securityGroupIds;
 
     /**
+     * @var securityOptions
+     */
+    public $securityOptions;
+
+    /**
      * @var string
      */
     public $serialNumber;
@@ -423,6 +429,7 @@ class instance extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'saleCycle' => 'SaleCycle',
         'securityGroupIds' => 'SecurityGroupIds',
+        'securityOptions' => 'SecurityOptions',
         'serialNumber' => 'SerialNumber',
         'spotDuration' => 'SpotDuration',
         'spotInterruptionBehavior' => 'SpotInterruptionBehavior',
@@ -489,6 +496,9 @@ class instance extends Model
         }
         if (null !== $this->securityGroupIds) {
             $this->securityGroupIds->validate();
+        }
+        if (null !== $this->securityOptions) {
+            $this->securityOptions->validate();
         }
         if (null !== $this->tags) {
             $this->tags->validate();
@@ -724,6 +734,10 @@ class instance extends Model
 
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toArray($noStream) : $this->securityGroupIds;
+        }
+
+        if (null !== $this->securityOptions) {
+            $res['SecurityOptions'] = null !== $this->securityOptions ? $this->securityOptions->toArray($noStream) : $this->securityOptions;
         }
 
         if (null !== $this->serialNumber) {
@@ -1007,6 +1021,10 @@ class instance extends Model
 
         if (isset($map['SecurityGroupIds'])) {
             $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
+        }
+
+        if (isset($map['SecurityOptions'])) {
+            $model->securityOptions = securityOptions::fromMap($map['SecurityOptions']);
         }
 
         if (isset($map['SerialNumber'])) {

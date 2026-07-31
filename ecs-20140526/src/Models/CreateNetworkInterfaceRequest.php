@@ -38,6 +38,11 @@ class CreateNetworkInterfaceRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enablePrimaryIPv6;
+
+    /**
      * @var enhancedNetwork
      */
     public $enhancedNetwork;
@@ -192,6 +197,7 @@ class CreateNetworkInterfaceRequest extends Model
         'connectionTrackingConfiguration' => 'ConnectionTrackingConfiguration',
         'deleteOnRelease' => 'DeleteOnRelease',
         'description' => 'Description',
+        'enablePrimaryIPv6' => 'EnablePrimaryIPv6',
         'enhancedNetwork' => 'EnhancedNetwork',
         'instanceType' => 'InstanceType',
         'ipv4Prefix' => 'Ipv4Prefix',
@@ -277,6 +283,10 @@ class CreateNetworkInterfaceRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enablePrimaryIPv6) {
+            $res['EnablePrimaryIPv6'] = $this->enablePrimaryIPv6;
         }
 
         if (null !== $this->enhancedNetwork) {
@@ -470,6 +480,10 @@ class CreateNetworkInterfaceRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnablePrimaryIPv6'])) {
+            $model->enablePrimaryIPv6 = $map['EnablePrimaryIPv6'];
         }
 
         if (isset($map['EnhancedNetwork'])) {

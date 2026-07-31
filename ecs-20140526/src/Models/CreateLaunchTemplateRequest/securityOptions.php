@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class securityOptions extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableSecureBoot;
+
+    /**
      * @var string
      */
     public $trustedSystemMode;
     protected $_name = [
+        'enableSecureBoot' => 'EnableSecureBoot',
         'trustedSystemMode' => 'TrustedSystemMode',
     ];
 
@@ -24,6 +30,10 @@ class securityOptions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableSecureBoot) {
+            $res['EnableSecureBoot'] = $this->enableSecureBoot;
+        }
+
         if (null !== $this->trustedSystemMode) {
             $res['TrustedSystemMode'] = $this->trustedSystemMode;
         }
@@ -39,6 +49,10 @@ class securityOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableSecureBoot'])) {
+            $model->enableSecureBoot = $map['EnableSecureBoot'];
+        }
+
         if (isset($map['TrustedSystemMode'])) {
             $model->trustedSystemMode = $map['TrustedSystemMode'];
         }
