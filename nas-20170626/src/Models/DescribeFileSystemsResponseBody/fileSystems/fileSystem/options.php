@@ -16,6 +16,11 @@ class options extends Model
     /**
      * @var bool
      */
+    public $enableDataInsight;
+
+    /**
+     * @var bool
+     */
     public $enableOplock;
 
     /**
@@ -24,6 +29,7 @@ class options extends Model
     public $vscAccessPointAccessOnly;
     protected $_name = [
         'enableABE' => 'EnableABE',
+        'enableDataInsight' => 'EnableDataInsight',
         'enableOplock' => 'EnableOplock',
         'vscAccessPointAccessOnly' => 'VscAccessPointAccessOnly',
     ];
@@ -38,6 +44,10 @@ class options extends Model
         $res = [];
         if (null !== $this->enableABE) {
             $res['EnableABE'] = $this->enableABE;
+        }
+
+        if (null !== $this->enableDataInsight) {
+            $res['EnableDataInsight'] = $this->enableDataInsight;
         }
 
         if (null !== $this->enableOplock) {
@@ -61,6 +71,10 @@ class options extends Model
         $model = new self();
         if (isset($map['EnableABE'])) {
             $model->enableABE = $map['EnableABE'];
+        }
+
+        if (isset($map['EnableDataInsight'])) {
+            $model->enableDataInsight = $map['EnableDataInsight'];
         }
 
         if (isset($map['EnableOplock'])) {

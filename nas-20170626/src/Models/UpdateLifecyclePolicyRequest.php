@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\NAS\V20170626\Models\UpdateLifecyclePolicyRequest\deleteRules;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UpdateLifecyclePolicyRequest\retrieveRules;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UpdateLifecyclePolicyRequest\transitRules;
 
 class UpdateLifecyclePolicyRequest extends Model
 {
+    /**
+     * @var deleteRules[]
+     */
+    public $deleteRules;
+
     /**
      * @var string
      */
@@ -45,6 +51,7 @@ class UpdateLifecyclePolicyRequest extends Model
      */
     public $transitRules;
     protected $_name = [
+        'deleteRules' => 'DeleteRules',
         'description' => 'Description',
         'fileSystemId' => 'FileSystemId',
         'lifecyclePolicyId' => 'LifecyclePolicyId',
@@ -56,6 +63,9 @@ class UpdateLifecyclePolicyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->deleteRules)) {
+            Model::validateArray($this->deleteRules);
+        }
         if (\is_array($this->paths)) {
             Model::validateArray($this->paths);
         }
@@ -71,6 +81,17 @@ class UpdateLifecyclePolicyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->deleteRules) {
+            if (\is_array($this->deleteRules)) {
+                $res['DeleteRules'] = [];
+                $n1 = 0;
+                foreach ($this->deleteRules as $item1) {
+                    $res['DeleteRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -131,6 +152,17 @@ class UpdateLifecyclePolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeleteRules'])) {
+            if (!empty($map['DeleteRules'])) {
+                $model->deleteRules = [];
+                $n1 = 0;
+                foreach ($map['DeleteRules'] as $item1) {
+                    $model->deleteRules[$n1] = deleteRules::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

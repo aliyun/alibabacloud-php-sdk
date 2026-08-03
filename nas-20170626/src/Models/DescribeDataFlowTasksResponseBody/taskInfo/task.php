@@ -48,6 +48,11 @@ class task extends Model
     /**
      * @var string
      */
+    public $entryList;
+
+    /**
+     * @var string
+     */
     public $errorMsg;
 
     /**
@@ -132,6 +137,7 @@ class task extends Model
         'directory' => 'Directory',
         'dstDirectory' => 'DstDirectory',
         'endTime' => 'EndTime',
+        'entryList' => 'EntryList',
         'errorMsg' => 'ErrorMsg',
         'fileSystemPath' => 'FileSystemPath',
         'filesystemId' => 'FilesystemId',
@@ -190,6 +196,10 @@ class task extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->entryList) {
+            $res['EntryList'] = $this->entryList;
         }
 
         if (null !== $this->errorMsg) {
@@ -293,6 +303,10 @@ class task extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['EntryList'])) {
+            $model->entryList = $map['EntryList'];
         }
 
         if (isset($map['ErrorMsg'])) {
