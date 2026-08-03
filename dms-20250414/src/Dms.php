@@ -15,9 +15,13 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\BatchDeleteDataLakePartitionsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\BatchUpdateDataLakePartitionsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\BatchUpdateDataLakePartitionsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\BatchUpdateDataLakePartitionsShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CheckDataAgentMemoryConfigRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CheckDataAgentMemoryConfigResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigDataAgentMemoryRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowRequest;
@@ -55,6 +59,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentAccuracyTestRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentAccuracyTestResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentMemoryRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceRequest;
@@ -138,6 +144,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestResultsReques
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestResultsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestTasksRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestTasksResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentMemoryRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceMemberRequest;
@@ -208,6 +216,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentAccuracyTestRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentAccuracyTestResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentMemoryRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentSpaceInfoRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentSpaceInfoResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentWorkspaceMemberRoleRequest;
@@ -617,6 +627,63 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
+     *
+     * @param request - CheckDataAgentMemoryConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDataAgentMemoryConfigResponse
+     *
+     * @param CheckDataAgentMemoryConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CheckDataAgentMemoryConfigResponse
+     */
+    public function checkDataAgentMemoryConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckDataAgentMemoryConfig',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckDataAgentMemoryConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
+     *
+     * @param request - CheckDataAgentMemoryConfigRequest
+     *
+     * @returns CheckDataAgentMemoryConfigResponse
+     *
+     * @param CheckDataAgentMemoryConfigRequest $request
+     *
+     * @return CheckDataAgentMemoryConfigResponse
+     */
+    public function checkDataAgentMemoryConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkDataAgentMemoryConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Update an Airflow instance\\"s custom configuration.
      *
      * @remarks
@@ -691,6 +758,71 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->configAirflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * ConfigDataAgentMemory.
+     *
+     * @param request - ConfigDataAgentMemoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigDataAgentMemoryResponse
+     *
+     * @param ConfigDataAgentMemoryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ConfigDataAgentMemoryResponse
+     */
+    public function configDataAgentMemoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->recallEnabled) {
+            @$query['RecallEnabled'] = $request->recallEnabled;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigDataAgentMemory',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigDataAgentMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ConfigDataAgentMemory.
+     *
+     * @param request - ConfigDataAgentMemoryRequest
+     *
+     * @returns ConfigDataAgentMemoryResponse
+     *
+     * @param ConfigDataAgentMemoryRequest $request
+     *
+     * @return ConfigDataAgentMemoryResponse
+     */
+    public function configDataAgentMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configDataAgentMemoryWithOptions($request, $runtime);
     }
 
     /**
@@ -2019,6 +2151,67 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDataAgentKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes the memory of a DataAgent.
+     *
+     * @param request - DeleteDataAgentMemoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataAgentMemoryResponse
+     *
+     * @param DeleteDataAgentMemoryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDataAgentMemoryResponse
+     */
+    public function deleteDataAgentMemoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataAgentMemory',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataAgentMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the memory of a DataAgent.
+     *
+     * @param request - DeleteDataAgentMemoryRequest
+     *
+     * @returns DeleteDataAgentMemoryResponse
+     *
+     * @param DeleteDataAgentMemoryRequest $request
+     *
+     * @return DeleteDataAgentMemoryResponse
+     */
+    public function deleteDataAgentMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataAgentMemoryWithOptions($request, $runtime);
     }
 
     /**
@@ -4828,6 +5021,95 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Retrieves the DataAgent memory list (up to 50 memories per RAM user).
+     *
+     * @param request - ListDataAgentMemoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataAgentMemoryResponse
+     *
+     * @param ListDataAgentMemoryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDataAgentMemoryResponse
+     */
+    public function listDataAgentMemoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contentPattern) {
+            @$query['ContentPattern'] = $request->contentPattern;
+        }
+
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->fromId) {
+            @$query['FromId'] = $request->fromId;
+        }
+
+        if (null !== $request->memFrom) {
+            @$query['MemFrom'] = $request->memFrom;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->queryAll) {
+            @$query['QueryAll'] = $request->queryAll;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataAgentMemory',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataAgentMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the DataAgent memory list (up to 50 memories per RAM user).
+     *
+     * @param request - ListDataAgentMemoryRequest
+     *
+     * @returns ListDataAgentMemoryResponse
+     *
+     * @param ListDataAgentMemoryRequest $request
+     *
+     * @return ListDataAgentMemoryResponse
+     */
+    public function listDataAgentMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataAgentMemoryWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the list of historical session descriptions for a Data Agent.
      *
      * @param request - ListDataAgentSessionRequest
@@ -4925,7 +5207,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the collaborative workspaces under the primary account with pagination.
+     * Retrieves the workspaces under the primary account with pagination.
      *
      * @param request - ListDataAgentWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4996,7 +5278,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the collaborative workspaces under the primary account with pagination.
+     * Retrieves the workspaces under the primary account with pagination.
      *
      * @param request - ListDataAgentWorkspaceRequest
      *
@@ -7676,6 +7958,79 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDataAgentAccuracyTestWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the memory of a DataAgent.
+     *
+     * @param request - UpdateDataAgentMemoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataAgentMemoryResponse
+     *
+     * @param UpdateDataAgentMemoryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDataAgentMemoryResponse
+     */
+    public function updateDataAgentMemoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->fromId) {
+            @$query['FromId'] = $request->fromId;
+        }
+
+        if (null !== $request->memFrom) {
+            @$query['MemFrom'] = $request->memFrom;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataAgentMemory',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataAgentMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the memory of a DataAgent.
+     *
+     * @param request - UpdateDataAgentMemoryRequest
+     *
+     * @returns UpdateDataAgentMemoryResponse
+     *
+     * @param UpdateDataAgentMemoryRequest $request
+     *
+     * @return UpdateDataAgentMemoryResponse
+     */
+    public function updateDataAgentMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataAgentMemoryWithOptions($request, $runtime);
     }
 
     /**
