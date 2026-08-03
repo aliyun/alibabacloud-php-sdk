@@ -14,9 +14,29 @@ class promotions extends Model
     public $activityId;
 
     /**
+     * @var bool
+     */
+    public $effective;
+
+    /**
+     * @var string
+     */
+    public $endTimestamp;
+
+    /**
      * @var string
      */
     public $optionCode;
+
+    /**
+     * @var string
+     */
+    public $priceBreakReduceValue;
+
+    /**
+     * @var string
+     */
+    public $priceBreakThreshold;
 
     /**
      * @var string
@@ -37,13 +57,23 @@ class promotions extends Model
      * @var bool
      */
     public $selected;
+
+    /**
+     * @var string
+     */
+    public $startTimestamp;
     protected $_name = [
         'activityId' => 'ActivityId',
+        'effective' => 'Effective',
+        'endTimestamp' => 'EndTimestamp',
         'optionCode' => 'OptionCode',
+        'priceBreakReduceValue' => 'PriceBreakReduceValue',
+        'priceBreakThreshold' => 'PriceBreakThreshold',
         'promotionDesc' => 'PromotionDesc',
         'promotionId' => 'PromotionId',
         'promotionName' => 'PromotionName',
         'selected' => 'Selected',
+        'startTimestamp' => 'StartTimestamp',
     ];
 
     public function validate()
@@ -58,8 +88,24 @@ class promotions extends Model
             $res['ActivityId'] = $this->activityId;
         }
 
+        if (null !== $this->effective) {
+            $res['Effective'] = $this->effective;
+        }
+
+        if (null !== $this->endTimestamp) {
+            $res['EndTimestamp'] = $this->endTimestamp;
+        }
+
         if (null !== $this->optionCode) {
             $res['OptionCode'] = $this->optionCode;
+        }
+
+        if (null !== $this->priceBreakReduceValue) {
+            $res['PriceBreakReduceValue'] = $this->priceBreakReduceValue;
+        }
+
+        if (null !== $this->priceBreakThreshold) {
+            $res['PriceBreakThreshold'] = $this->priceBreakThreshold;
         }
 
         if (null !== $this->promotionDesc) {
@@ -78,6 +124,10 @@ class promotions extends Model
             $res['Selected'] = $this->selected;
         }
 
+        if (null !== $this->startTimestamp) {
+            $res['StartTimestamp'] = $this->startTimestamp;
+        }
+
         return $res;
     }
 
@@ -93,8 +143,24 @@ class promotions extends Model
             $model->activityId = $map['ActivityId'];
         }
 
+        if (isset($map['Effective'])) {
+            $model->effective = $map['Effective'];
+        }
+
+        if (isset($map['EndTimestamp'])) {
+            $model->endTimestamp = $map['EndTimestamp'];
+        }
+
         if (isset($map['OptionCode'])) {
             $model->optionCode = $map['OptionCode'];
+        }
+
+        if (isset($map['PriceBreakReduceValue'])) {
+            $model->priceBreakReduceValue = $map['PriceBreakReduceValue'];
+        }
+
+        if (isset($map['PriceBreakThreshold'])) {
+            $model->priceBreakThreshold = $map['PriceBreakThreshold'];
         }
 
         if (isset($map['PromotionDesc'])) {
@@ -111,6 +177,10 @@ class promotions extends Model
 
         if (isset($map['Selected'])) {
             $model->selected = $map['Selected'];
+        }
+
+        if (isset($map['StartTimestamp'])) {
+            $model->startTimestamp = $map['StartTimestamp'];
         }
 
         return $model;
