@@ -440,6 +440,8 @@ class Selectdb extends OpenApiClient
     }
 
     /**
+     * Checks whether a specified IP address already exists in a network whitelist group.
+     *
      * @param request - CheckIpExistsInSecurityIpListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -473,6 +475,8 @@ class Selectdb extends OpenApiClient
     }
 
     /**
+     * Checks whether a specified IP address already exists in a network whitelist group.
+     *
      * @param request - CheckIpExistsInSecurityIpListRequest
      *
      * @returns CheckIpExistsInSecurityIpListResponse
@@ -843,6 +847,14 @@ class Selectdb extends OpenApiClient
 
         if (null !== $request->engineVersion) {
             @$query['EngineVersion'] = $request->engineVersion;
+        }
+
+        if (null !== $request->FEClassCode) {
+            @$query['FEClassCode'] = $request->FEClassCode;
+        }
+
+        if (null !== $request->FENodeCount) {
+            @$query['FENodeCount'] = $request->FENodeCount;
         }
 
         if (null !== $request->multiZoneShrink) {
@@ -1801,7 +1813,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified instance.
+     * Queries the details of an instance.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1848,7 +1860,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified instance.
+     * Queries the details of an instance.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      *
@@ -2422,7 +2434,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * 获取表结构.
+     * Retrieves the CREATE TABLE statement.
      *
      * @param request - DescribeTableSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2473,7 +2485,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * 获取表结构.
+     * Retrieves the CREATE TABLE statement.
      *
      * @param request - DescribeTableSchemaRequest
      *
@@ -2767,7 +2779,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
+     * Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
      *
      * @param request - GetModifyBEClusterInquiryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2802,7 +2814,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
+     * Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
      *
      * @param request - GetModifyBEClusterInquiryRequest
      *

@@ -76,6 +76,16 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $FEClassCode;
+
+    /**
+     * @var string
+     */
+    public $FENodeCount;
+
+    /**
+     * @var string
+     */
     public $multiZoneShrink;
 
     /**
@@ -151,6 +161,8 @@ class CreateDBInstanceShrinkRequest extends Model
         'deployScheme' => 'DeployScheme',
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
+        'FEClassCode' => 'FEClassCode',
+        'FENodeCount' => 'FENodeCount',
         'multiZoneShrink' => 'MultiZone',
         'period' => 'Period',
         'regionId' => 'RegionId',
@@ -224,6 +236,14 @@ class CreateDBInstanceShrinkRequest extends Model
 
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+
+        if (null !== $this->FEClassCode) {
+            $res['FEClassCode'] = $this->FEClassCode;
+        }
+
+        if (null !== $this->FENodeCount) {
+            $res['FENodeCount'] = $this->FENodeCount;
         }
 
         if (null !== $this->multiZoneShrink) {
@@ -339,6 +359,14 @@ class CreateDBInstanceShrinkRequest extends Model
 
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+
+        if (isset($map['FEClassCode'])) {
+            $model->FEClassCode = $map['FEClassCode'];
+        }
+
+        if (isset($map['FENodeCount'])) {
+            $model->FENodeCount = $map['FENodeCount'];
         }
 
         if (isset($map['MultiZone'])) {

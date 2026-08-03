@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceAttributeResponseBody\DBClusterList;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceAttributeResponseBody\FEClusterList;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceAttributeResponseBody\multiZone;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceAttributeResponseBody\tags;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceAttributeResponseBody\virtualClusterList;
@@ -81,6 +82,11 @@ class DescribeDBInstanceAttributeResponseBody extends Model
      * @var string
      */
     public $expireTime;
+
+    /**
+     * @var FEClusterList[]
+     */
+    public $FEClusterList;
 
     /**
      * @var string
@@ -221,6 +227,7 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         'engineMinorVersion' => 'EngineMinorVersion',
         'engineVersion' => 'EngineVersion',
         'expireTime' => 'ExpireTime',
+        'FEClusterList' => 'FEClusterList',
         'gmtModified' => 'GmtModified',
         'langfuseInstanceIds' => 'LangfuseInstanceIds',
         'lockMode' => 'LockMode',
@@ -258,6 +265,9 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         }
         if (\is_array($this->DBClusterList)) {
             Model::validateArray($this->DBClusterList);
+        }
+        if (\is_array($this->FEClusterList)) {
+            Model::validateArray($this->FEClusterList);
         }
         if (\is_array($this->langfuseInstanceIds)) {
             Model::validateArray($this->langfuseInstanceIds);
@@ -350,6 +360,17 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+
+        if (null !== $this->FEClusterList) {
+            if (\is_array($this->FEClusterList)) {
+                $res['FEClusterList'] = [];
+                $n1 = 0;
+                foreach ($this->FEClusterList as $item1) {
+                    $res['FEClusterList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->gmtModified) {
@@ -564,6 +585,17 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+
+        if (isset($map['FEClusterList'])) {
+            if (!empty($map['FEClusterList'])) {
+                $model->FEClusterList = [];
+                $n1 = 0;
+                foreach ($map['FEClusterList'] as $item1) {
+                    $model->FEClusterList[$n1] = FEClusterList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['GmtModified'])) {
