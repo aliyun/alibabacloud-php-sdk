@@ -11,6 +11,11 @@ class downloadParams extends Model
     /**
      * @var string
      */
+    public $earlyMediaSignatureUrl;
+
+    /**
+     * @var string
+     */
     public $fileName;
 
     /**
@@ -23,6 +28,7 @@ class downloadParams extends Model
      */
     public $voiceSliceRecordingListJson;
     protected $_name = [
+        'earlyMediaSignatureUrl' => 'EarlyMediaSignatureUrl',
         'fileName' => 'FileName',
         'signatureUrl' => 'SignatureUrl',
         'voiceSliceRecordingListJson' => 'VoiceSliceRecordingListJson',
@@ -36,6 +42,10 @@ class downloadParams extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->earlyMediaSignatureUrl) {
+            $res['EarlyMediaSignatureUrl'] = $this->earlyMediaSignatureUrl;
+        }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
@@ -59,6 +69,10 @@ class downloadParams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EarlyMediaSignatureUrl'])) {
+            $model->earlyMediaSignatureUrl = $map['EarlyMediaSignatureUrl'];
+        }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }

@@ -1409,7 +1409,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Creates a URL for a Download Hub task.
+     * Creates a URL for a download center task.
      *
      * @param request - CreateDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1444,7 +1444,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Creates a URL for a Download Hub task.
+     * Creates a URL for a download center task.
      *
      * @param request - CreateDownloadUrlRequest
      *
@@ -1815,7 +1815,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Create a job group.
+     * Creates a job group.
      *
      * @param request - CreateJobGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1902,7 +1902,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Create a job group.
+     * Creates a job group.
      *
      * @param request - CreateJobGroupRequest
      *
@@ -2264,7 +2264,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Create an asynchronous task to export outbound call history.
+     * Creates an asynchronous task to export outbound call history.
      *
      * @param request - CreateTaskExportTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2299,7 +2299,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Create an asynchronous task to export outbound call history.
+     * Creates an asynchronous task to export outbound call history.
      *
      * @param request - CreateTaskExportTaskRequest
      *
@@ -3123,7 +3123,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Deletes an outbound call number. This API is deprecated.
+     * Deletes an outbound call number. This operation is deprecated.
      *
      * @param request - DeleteOutboundCallNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3166,7 +3166,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Deletes an outbound call number. This API is deprecated.
+     * Deletes an outbound call number. This operation is deprecated.
      *
      * @param request - DeleteOutboundCallNumberRequest
      *
@@ -3245,7 +3245,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Deletes uploaded recordings for a small-model scenario.
+     * Deletes uploaded recordings in a small model scenario.
      *
      * @param request - DeleteScriptRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3292,7 +3292,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Deletes uploaded recordings for a small-model scenario.
+     * Deletes uploaded recordings in a small model scenario.
      *
      * @param request - DeleteScriptRecordingRequest
      *
@@ -3509,7 +3509,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Describes DS reports.
+     * Queries the tag statistics of hits for a job group.
      *
      * @param request - DescribeDsReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3552,7 +3552,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Describes DS reports.
+     * Queries the tag statistics of hits for a job group.
      *
      * @param request - DescribeDsReportsRequest
      *
@@ -3700,7 +3700,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the details of an Outbound Calling instance.
+     * Queries the information of an outbound robot business instance.
      *
      * @param request - DescribeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3739,7 +3739,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the details of an Outbound Calling instance.
+     * Queries the information of an outbound robot business instance.
      *
      * @param request - DescribeInstanceRequest
      *
@@ -3887,7 +3887,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the conversation data for a specific job.
+     * Returns the conversation data of a job.
      *
      * @param request - DescribeJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3934,7 +3934,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the conversation data for a specific job.
+     * Returns the conversation data of a job.
      *
      * @param request - DescribeJobRequest
      *
@@ -3952,7 +3952,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieve the parsing progress of an uploaded job file.
+     * Retrieves the parsing progress of an uploaded job file.
      *
      * @param request - DescribeJobDataParsingTaskProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3995,7 +3995,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieve the parsing progress of an uploaded job file.
+     * Retrieves the parsing progress of an uploaded job file.
      *
      * @param request - DescribeJobDataParsingTaskProgressRequest
      *
@@ -4200,7 +4200,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Describes the voice configuration of a script created in the legacy canvas.
+     * Returns a scene voice configuration in the legacy canvas scenario.
      *
      * @param request - DescribeScriptVoiceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4247,7 +4247,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Describes the voice configuration of a script created in the legacy canvas.
+     * Returns a scene voice configuration in the legacy canvas scenario.
      *
      * @param request - DescribeScriptVoiceConfigRequest
      *
@@ -4496,7 +4496,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists the instances to which a phone number is bound in a tenant.
+     * Queries the list of number binding instances under a tenant.
      *
      * @param request - DescribeTenantBindNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4535,7 +4535,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists the instances to which a phone number is bound in a tenant.
+     * Queries the list of number binding instances under a tenant.
      *
      * @param request - DescribeTenantBindNumberRequest
      *
@@ -4784,7 +4784,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Duplicates an existing script. This operation applies only to the legacy canvas.
+     * Copies a new script from an existing script (for the legacy canvas only).
      *
      * @param request - DuplicateScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4831,7 +4831,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Duplicates an existing script. This operation applies only to the legacy canvas.
+     * Copies a new script from an existing script (for the legacy canvas only).
      *
      * @param request - DuplicateScriptRequest
      *
@@ -7512,7 +7512,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+     * Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
      *
      * @param request - ListJobGroupsAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7547,7 +7547,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+     * Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
      *
      * @param request - ListJobGroupsAsyncRequest
      *
@@ -7565,7 +7565,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Query multiple jobs.
+     * Queries multiple jobs.
      *
      * @param request - ListJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7608,7 +7608,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Query multiple jobs.
+     * Queries multiple jobs.
      *
      * @param request - ListJobsRequest
      *
@@ -9316,7 +9316,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modifies an outbound call number. This API is deprecated.
+     * Modifies an outbound call number. This operation is deprecated.
      *
      * @param request - ModifyOutboundCallNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9371,7 +9371,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modifies an outbound call number. This API is deprecated.
+     * Modifies an outbound call number. This operation is deprecated.
      *
      * @param request - ModifyOutboundCallNumberRequest
      *
@@ -9895,7 +9895,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * You can query the list of jobs.
+     * Queries a list of jobs.
      *
      * @param request - QueryJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9970,7 +9970,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * You can query the list of jobs.
+     * Queries a list of jobs.
      *
      * @param request - QueryJobsRequest
      *
@@ -9988,7 +9988,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Find tasks by result.
+     * Queries tasks based on task results.
      *
      * @param request - QueryJobsWithResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10079,7 +10079,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Find tasks by result.
+     * Queries tasks based on task results.
      *
      * @param request - QueryJobsWithResultRequest
      *
@@ -10458,7 +10458,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Sets the delay before playback starts after the call is answered.
+     * Saves the delayed playback time after a call is answered.
      *
      * @param request - SaveAfterAnswerDelayPlaybackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10505,7 +10505,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Sets the delay before playback starts after the call is answered.
+     * Saves the delayed playback time after a call is answered.
      *
      * @param request - SaveAfterAnswerDelayPlaybackRequest
      *
@@ -11140,7 +11140,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Submits a draft job group. This operation is deprecated.
+     * Submits a job group in draft status for execution. This operation is deprecated.
      *
      * @param request - SubmitBatchJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11183,7 +11183,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Submits a draft job group. This operation is deprecated.
+     * Submits a job group in draft status for execution. This operation is deprecated.
      *
      * @param request - SubmitBatchJobsRequest
      *
@@ -11893,7 +11893,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Revoke script review.
+     * Withdraws a script review.
      *
      * @remarks
      *
@@ -11938,7 +11938,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Revoke script review.
+     * Withdraws a script review.
      *
      * @remarks
      *
