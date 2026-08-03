@@ -11,11 +11,20 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\AccountFlowListResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\AncillarySuggestHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\AncillarySuggestRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\AncillarySuggestResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ApplyRefundRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ApplyRefundResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BatchGetHotelDetailRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BatchGetHotelDetailResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BatchGetHotelDetailShrinkRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BookHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BookRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BookResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\BookShrinkRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CancelHeaders;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CancelOrderRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CancelOrderResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CancelOrRefundRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CancelOrRefundResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CancelRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CancelResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ChangeApplyHeaders;
@@ -41,6 +50,12 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CollectFlightLowestPriceHead
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CollectFlightLowestPriceRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CollectFlightLowestPriceResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CollectFlightLowestPriceShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CreateAndPayRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CreateAndPayResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CreateAndPayShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CreateOrderRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CreateOrderResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CreateOrderShrinkRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\EnrichHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\EnrichRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\EnrichResponse;
@@ -53,6 +68,38 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\FlightChangeOfOrderRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\FlightChangeOfOrderResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GetTokenRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GetTokenResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelApplyRefundRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelApplyRefundResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelBatchGetHotelDetailRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelBatchGetHotelDetailResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelBatchGetHotelDetailShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelCancelOrderRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelCancelOrderResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelCancelOrRefundRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelCancelOrRefundResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelCreateAndPayRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelCreateAndPayResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelCreateAndPayShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelCreateOrderRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelCreateOrderResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelCreateOrderShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelPayRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelPayResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryAvailabilityRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryAvailabilityResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryAvailabilityShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryCalendarAvailabilityRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryCalendarAvailabilityResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryCalendarAvailabilityShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryOrderRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryOrderResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelSearchCityPageRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelSearchCityPageResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelSearchHotelListRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelSearchHotelListResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelValidatePriceRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelValidatePriceResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelValidatePriceShrinkRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\LuggageDirectHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\LuggageDirectRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\LuggageDirectResponse;
@@ -63,9 +110,19 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\OrderDetailResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\OrderListHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\OrderListRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\OrderListResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\PayRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\PayResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\PricingHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\PricingRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\PricingResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\QueryAvailabilityRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\QueryAvailabilityResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\QueryAvailabilityShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\QueryCalendarAvailabilityRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\QueryCalendarAvailabilityResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\QueryCalendarAvailabilityShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\QueryOrderRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\QueryOrderResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundApplyHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundApplyRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundApplyResponse;
@@ -76,7 +133,11 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundDetailListRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundDetailListResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundDetailRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\RefundDetailResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchCityPageRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchCityPageResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchHeaders;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchHotelListRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchHotelListResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchShrinkRequest;
@@ -94,6 +155,9 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TransitVisaHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TransitVisaRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TransitVisaResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TransitVisaShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ValidatePriceRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ValidatePriceResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ValidatePriceShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -2416,5 +2480,2151 @@ class AirticketOpen extends OpenApiClient
         $headers = new TransitVisaHeaders([]);
 
         return $this->transitVisaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 申请退款.
+     *
+     * @param request - ApplyRefundRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyRefundResponse
+     *
+     * @param ApplyRefundRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ApplyRefundResponse
+     */
+    public function applyRefundWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->orderNo) {
+            @$body['OrderNo'] = $request->orderNo;
+        }
+
+        if (null !== $request->refundReason) {
+            @$body['RefundReason'] = $request->refundReason;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'applyRefund',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/applyRefund',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ApplyRefundResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 申请退款.
+     *
+     * @param request - ApplyRefundRequest
+     *
+     * @returns ApplyRefundResponse
+     *
+     * @param ApplyRefundRequest $request
+     *
+     * @return ApplyRefundResponse
+     */
+    public function applyRefund($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->applyRefundWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量查询酒店详情.
+     *
+     * @param tmpReq - BatchGetHotelDetailRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetHotelDetailResponse
+     *
+     * @param BatchGetHotelDetailRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchGetHotelDetailResponse
+     */
+    public function batchGetHotelDetailWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchGetHotelDetailShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->standardHotelIds) {
+            $request->standardHotelIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->standardHotelIds, 'StandardHotelIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->language) {
+            @$body['Language'] = $request->language;
+        }
+
+        if (null !== $request->standardHotelIdsShrink) {
+            @$body['StandardHotelIds'] = $request->standardHotelIdsShrink;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'batchGetHotelDetail',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/batchGetHotelDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchGetHotelDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询酒店详情.
+     *
+     * @param request - BatchGetHotelDetailRequest
+     *
+     * @returns BatchGetHotelDetailResponse
+     *
+     * @param BatchGetHotelDetailRequest $request
+     *
+     * @return BatchGetHotelDetailResponse
+     */
+    public function batchGetHotelDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchGetHotelDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 取消或退款.
+     *
+     * @param request - CancelOrRefundRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelOrRefundResponse
+     *
+     * @param CancelOrRefundRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CancelOrRefundResponse
+     */
+    public function cancelOrRefundWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->orderNo) {
+            @$body['OrderNo'] = $request->orderNo;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'cancelOrRefund',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cancelOrRefund',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelOrRefundResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消或退款.
+     *
+     * @param request - CancelOrRefundRequest
+     *
+     * @returns CancelOrRefundResponse
+     *
+     * @param CancelOrRefundRequest $request
+     *
+     * @return CancelOrRefundResponse
+     */
+    public function cancelOrRefund($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelOrRefundWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 取消订单.
+     *
+     * @param request - CancelOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelOrderResponse
+     *
+     * @param CancelOrderRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CancelOrderResponse
+     */
+    public function cancelOrderWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->orderNo) {
+            @$body['OrderNo'] = $request->orderNo;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'cancelOrder',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cancelOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消订单.
+     *
+     * @param request - CancelOrderRequest
+     *
+     * @returns CancelOrderResponse
+     *
+     * @param CancelOrderRequest $request
+     *
+     * @return CancelOrderResponse
+     */
+    public function cancelOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创单并支付.
+     *
+     * @param tmpReq - CreateAndPayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAndPayResponse
+     *
+     * @param CreateAndPayRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateAndPayResponse
+     */
+    public function createAndPayWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAndPayShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contact) {
+            $request->contactShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contact, 'Contact', 'json');
+        }
+
+        if (null !== $tmpReq->guests) {
+            $request->guestsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->guests, 'Guests', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->contactShrink) {
+            @$body['Contact'] = $request->contactShrink;
+        }
+
+        if (null !== $request->externalOrderNo) {
+            @$body['ExternalOrderNo'] = $request->externalOrderNo;
+        }
+
+        if (null !== $request->guestsShrink) {
+            @$body['Guests'] = $request->guestsShrink;
+        }
+
+        if (null !== $request->itemOfferId) {
+            @$body['ItemOfferId'] = $request->itemOfferId;
+        }
+
+        if (null !== $request->roomCount) {
+            @$body['RoomCount'] = $request->roomCount;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'createAndPay',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/createAndPay',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAndPayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创单并支付.
+     *
+     * @param request - CreateAndPayRequest
+     *
+     * @returns CreateAndPayResponse
+     *
+     * @param CreateAndPayRequest $request
+     *
+     * @return CreateAndPayResponse
+     */
+    public function createAndPay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAndPayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建订单.
+     *
+     * @param tmpReq - CreateOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOrderResponse
+     *
+     * @param CreateOrderRequest $tmpReq
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateOrderResponse
+     */
+    public function createOrderWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateOrderShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contact) {
+            $request->contactShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contact, 'Contact', 'json');
+        }
+
+        if (null !== $tmpReq->guests) {
+            $request->guestsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->guests, 'Guests', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->contactShrink) {
+            @$body['Contact'] = $request->contactShrink;
+        }
+
+        if (null !== $request->externalOrderNo) {
+            @$body['ExternalOrderNo'] = $request->externalOrderNo;
+        }
+
+        if (null !== $request->guestsShrink) {
+            @$body['Guests'] = $request->guestsShrink;
+        }
+
+        if (null !== $request->itemOfferId) {
+            @$body['ItemOfferId'] = $request->itemOfferId;
+        }
+
+        if (null !== $request->roomCount) {
+            @$body['RoomCount'] = $request->roomCount;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'createOrder',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/createOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建订单.
+     *
+     * @param request - CreateOrderRequest
+     *
+     * @returns CreateOrderResponse
+     *
+     * @param CreateOrderRequest $request
+     *
+     * @return CreateOrderResponse
+     */
+    public function createOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 申请退款.
+     *
+     * @param request - GlobalHotelApplyRefundRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelApplyRefundResponse
+     *
+     * @param GlobalHotelApplyRefundRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GlobalHotelApplyRefundResponse
+     */
+    public function globalHotelApplyRefundWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->orderNo) {
+            @$body['OrderNo'] = $request->orderNo;
+        }
+
+        if (null !== $request->refundReason) {
+            @$body['RefundReason'] = $request->refundReason;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelApplyRefund',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelApplyRefund',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelApplyRefundResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 申请退款.
+     *
+     * @param request - GlobalHotelApplyRefundRequest
+     *
+     * @returns GlobalHotelApplyRefundResponse
+     *
+     * @param GlobalHotelApplyRefundRequest $request
+     *
+     * @return GlobalHotelApplyRefundResponse
+     */
+    public function globalHotelApplyRefund($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelApplyRefundWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量查询酒店详情.
+     *
+     * @param tmpReq - GlobalHotelBatchGetHotelDetailRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelBatchGetHotelDetailResponse
+     *
+     * @param GlobalHotelBatchGetHotelDetailRequest $tmpReq
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GlobalHotelBatchGetHotelDetailResponse
+     */
+    public function globalHotelBatchGetHotelDetailWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GlobalHotelBatchGetHotelDetailShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->standardHotelIds) {
+            $request->standardHotelIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->standardHotelIds, 'StandardHotelIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->language) {
+            @$body['Language'] = $request->language;
+        }
+
+        if (null !== $request->standardHotelIdsShrink) {
+            @$body['StandardHotelIds'] = $request->standardHotelIdsShrink;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelBatchGetHotelDetail',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelBatchGetHotelDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelBatchGetHotelDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询酒店详情.
+     *
+     * @param request - GlobalHotelBatchGetHotelDetailRequest
+     *
+     * @returns GlobalHotelBatchGetHotelDetailResponse
+     *
+     * @param GlobalHotelBatchGetHotelDetailRequest $request
+     *
+     * @return GlobalHotelBatchGetHotelDetailResponse
+     */
+    public function globalHotelBatchGetHotelDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelBatchGetHotelDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 取消或退款.
+     *
+     * @param request - GlobalHotelCancelOrRefundRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelCancelOrRefundResponse
+     *
+     * @param GlobalHotelCancelOrRefundRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GlobalHotelCancelOrRefundResponse
+     */
+    public function globalHotelCancelOrRefundWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->orderNo) {
+            @$body['OrderNo'] = $request->orderNo;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelCancelOrRefund',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelCancelOrRefund',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelCancelOrRefundResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消或退款.
+     *
+     * @param request - GlobalHotelCancelOrRefundRequest
+     *
+     * @returns GlobalHotelCancelOrRefundResponse
+     *
+     * @param GlobalHotelCancelOrRefundRequest $request
+     *
+     * @return GlobalHotelCancelOrRefundResponse
+     */
+    public function globalHotelCancelOrRefund($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelCancelOrRefundWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 取消订单.
+     *
+     * @param request - GlobalHotelCancelOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelCancelOrderResponse
+     *
+     * @param GlobalHotelCancelOrderRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GlobalHotelCancelOrderResponse
+     */
+    public function globalHotelCancelOrderWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->orderNo) {
+            @$body['OrderNo'] = $request->orderNo;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelCancelOrder',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelCancelOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelCancelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消订单.
+     *
+     * @param request - GlobalHotelCancelOrderRequest
+     *
+     * @returns GlobalHotelCancelOrderResponse
+     *
+     * @param GlobalHotelCancelOrderRequest $request
+     *
+     * @return GlobalHotelCancelOrderResponse
+     */
+    public function globalHotelCancelOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelCancelOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创单并支付.
+     *
+     * @param tmpReq - GlobalHotelCreateAndPayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelCreateAndPayResponse
+     *
+     * @param GlobalHotelCreateAndPayRequest $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GlobalHotelCreateAndPayResponse
+     */
+    public function globalHotelCreateAndPayWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GlobalHotelCreateAndPayShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contact) {
+            $request->contactShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contact, 'Contact', 'json');
+        }
+
+        if (null !== $tmpReq->guests) {
+            $request->guestsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->guests, 'Guests', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->contactShrink) {
+            @$body['Contact'] = $request->contactShrink;
+        }
+
+        if (null !== $request->externalOrderNo) {
+            @$body['ExternalOrderNo'] = $request->externalOrderNo;
+        }
+
+        if (null !== $request->guestsShrink) {
+            @$body['Guests'] = $request->guestsShrink;
+        }
+
+        if (null !== $request->itemOfferId) {
+            @$body['ItemOfferId'] = $request->itemOfferId;
+        }
+
+        if (null !== $request->roomCount) {
+            @$body['RoomCount'] = $request->roomCount;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelCreateAndPay',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelCreateAndPay',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelCreateAndPayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创单并支付.
+     *
+     * @param request - GlobalHotelCreateAndPayRequest
+     *
+     * @returns GlobalHotelCreateAndPayResponse
+     *
+     * @param GlobalHotelCreateAndPayRequest $request
+     *
+     * @return GlobalHotelCreateAndPayResponse
+     */
+    public function globalHotelCreateAndPay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelCreateAndPayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建订单.
+     *
+     * @param tmpReq - GlobalHotelCreateOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelCreateOrderResponse
+     *
+     * @param GlobalHotelCreateOrderRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GlobalHotelCreateOrderResponse
+     */
+    public function globalHotelCreateOrderWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GlobalHotelCreateOrderShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contact) {
+            $request->contactShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contact, 'Contact', 'json');
+        }
+
+        if (null !== $tmpReq->guests) {
+            $request->guestsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->guests, 'Guests', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->contactShrink) {
+            @$body['Contact'] = $request->contactShrink;
+        }
+
+        if (null !== $request->externalOrderNo) {
+            @$body['ExternalOrderNo'] = $request->externalOrderNo;
+        }
+
+        if (null !== $request->guestsShrink) {
+            @$body['Guests'] = $request->guestsShrink;
+        }
+
+        if (null !== $request->itemOfferId) {
+            @$body['ItemOfferId'] = $request->itemOfferId;
+        }
+
+        if (null !== $request->roomCount) {
+            @$body['RoomCount'] = $request->roomCount;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelCreateOrder',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelCreateOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelCreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建订单.
+     *
+     * @param request - GlobalHotelCreateOrderRequest
+     *
+     * @returns GlobalHotelCreateOrderResponse
+     *
+     * @param GlobalHotelCreateOrderRequest $request
+     *
+     * @return GlobalHotelCreateOrderResponse
+     */
+    public function globalHotelCreateOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelCreateOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 分销支付.
+     *
+     * @param request - GlobalHotelPayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelPayResponse
+     *
+     * @param GlobalHotelPayRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GlobalHotelPayResponse
+     */
+    public function globalHotelPayWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->orderNo) {
+            @$body['OrderNo'] = $request->orderNo;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelPay',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelPay',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelPayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分销支付.
+     *
+     * @param request - GlobalHotelPayRequest
+     *
+     * @returns GlobalHotelPayResponse
+     *
+     * @param GlobalHotelPayRequest $request
+     *
+     * @return GlobalHotelPayResponse
+     */
+    public function globalHotelPay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelPayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询酒店报价可用性.
+     *
+     * @param tmpReq - GlobalHotelQueryAvailabilityRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelQueryAvailabilityResponse
+     *
+     * @param GlobalHotelQueryAvailabilityRequest $tmpReq
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GlobalHotelQueryAvailabilityResponse
+     */
+    public function globalHotelQueryAvailabilityWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GlobalHotelQueryAvailabilityShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->childrenAges) {
+            $request->childrenAgesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->childrenAges, 'ChildrenAges', 'json');
+        }
+
+        if (null !== $tmpReq->standardHotelIds) {
+            $request->standardHotelIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->standardHotelIds, 'StandardHotelIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->adultCount) {
+            @$body['AdultCount'] = $request->adultCount;
+        }
+
+        if (null !== $request->checkInDate) {
+            @$body['CheckInDate'] = $request->checkInDate;
+        }
+
+        if (null !== $request->checkOutDate) {
+            @$body['CheckOutDate'] = $request->checkOutDate;
+        }
+
+        if (null !== $request->childCount) {
+            @$body['ChildCount'] = $request->childCount;
+        }
+
+        if (null !== $request->childrenAgesShrink) {
+            @$body['ChildrenAges'] = $request->childrenAgesShrink;
+        }
+
+        if (null !== $request->roomCount) {
+            @$body['RoomCount'] = $request->roomCount;
+        }
+
+        if (null !== $request->standardHotelIdsShrink) {
+            @$body['StandardHotelIds'] = $request->standardHotelIdsShrink;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelQueryAvailability',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelQueryAvailability',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelQueryAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询酒店报价可用性.
+     *
+     * @param request - GlobalHotelQueryAvailabilityRequest
+     *
+     * @returns GlobalHotelQueryAvailabilityResponse
+     *
+     * @param GlobalHotelQueryAvailabilityRequest $request
+     *
+     * @return GlobalHotelQueryAvailabilityResponse
+     */
+    public function globalHotelQueryAvailability($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelQueryAvailabilityWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量日历报价查询.
+     *
+     * @param tmpReq - GlobalHotelQueryCalendarAvailabilityRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelQueryCalendarAvailabilityResponse
+     *
+     * @param GlobalHotelQueryCalendarAvailabilityRequest $tmpReq
+     * @param string[]                                    $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return GlobalHotelQueryCalendarAvailabilityResponse
+     */
+    public function globalHotelQueryCalendarAvailabilityWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GlobalHotelQueryCalendarAvailabilityShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->childrenAges) {
+            $request->childrenAgesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->childrenAges, 'ChildrenAges', 'json');
+        }
+
+        if (null !== $tmpReq->standardHotelIds) {
+            $request->standardHotelIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->standardHotelIds, 'StandardHotelIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->adultCount) {
+            @$body['AdultCount'] = $request->adultCount;
+        }
+
+        if (null !== $request->checkInDateEnd) {
+            @$body['CheckInDateEnd'] = $request->checkInDateEnd;
+        }
+
+        if (null !== $request->checkInDateStart) {
+            @$body['CheckInDateStart'] = $request->checkInDateStart;
+        }
+
+        if (null !== $request->childCount) {
+            @$body['ChildCount'] = $request->childCount;
+        }
+
+        if (null !== $request->childrenAgesShrink) {
+            @$body['ChildrenAges'] = $request->childrenAgesShrink;
+        }
+
+        if (null !== $request->roomCount) {
+            @$body['RoomCount'] = $request->roomCount;
+        }
+
+        if (null !== $request->standardHotelIdsShrink) {
+            @$body['StandardHotelIds'] = $request->standardHotelIdsShrink;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelQueryCalendarAvailability',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelQueryCalendarAvailability',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelQueryCalendarAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量日历报价查询.
+     *
+     * @param request - GlobalHotelQueryCalendarAvailabilityRequest
+     *
+     * @returns GlobalHotelQueryCalendarAvailabilityResponse
+     *
+     * @param GlobalHotelQueryCalendarAvailabilityRequest $request
+     *
+     * @return GlobalHotelQueryCalendarAvailabilityResponse
+     */
+    public function globalHotelQueryCalendarAvailability($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelQueryCalendarAvailabilityWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询订单.
+     *
+     * @param request - GlobalHotelQueryOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelQueryOrderResponse
+     *
+     * @param GlobalHotelQueryOrderRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GlobalHotelQueryOrderResponse
+     */
+    public function globalHotelQueryOrderWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->externalOrderNo) {
+            @$body['ExternalOrderNo'] = $request->externalOrderNo;
+        }
+
+        if (null !== $request->orderNo) {
+            @$body['OrderNo'] = $request->orderNo;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelQueryOrder',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelQueryOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelQueryOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询订单.
+     *
+     * @param request - GlobalHotelQueryOrderRequest
+     *
+     * @returns GlobalHotelQueryOrderResponse
+     *
+     * @param GlobalHotelQueryOrderRequest $request
+     *
+     * @return GlobalHotelQueryOrderResponse
+     */
+    public function globalHotelQueryOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelQueryOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 分页查询城市行政区划（中英文）.
+     *
+     * @param request - GlobalHotelSearchCityPageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelSearchCityPageResponse
+     *
+     * @param GlobalHotelSearchCityPageRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GlobalHotelSearchCityPageResponse
+     */
+    public function globalHotelSearchCityPageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->count) {
+            @$body['Count'] = $request->count;
+        }
+
+        if (null !== $request->countryCode) {
+            @$body['CountryCode'] = $request->countryCode;
+        }
+
+        if (null !== $request->start) {
+            @$body['Start'] = $request->start;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelSearchCityPage',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelSearchCityPage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelSearchCityPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询城市行政区划（中英文）.
+     *
+     * @param request - GlobalHotelSearchCityPageRequest
+     *
+     * @returns GlobalHotelSearchCityPageResponse
+     *
+     * @param GlobalHotelSearchCityPageRequest $request
+     *
+     * @return GlobalHotelSearchCityPageResponse
+     */
+    public function globalHotelSearchCityPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelSearchCityPageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 按城市分页查询酒店列表.
+     *
+     * @param request - GlobalHotelSearchHotelListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelSearchHotelListResponse
+     *
+     * @param GlobalHotelSearchHotelListRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GlobalHotelSearchHotelListResponse
+     */
+    public function globalHotelSearchHotelListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->cityCode) {
+            @$body['CityCode'] = $request->cityCode;
+        }
+
+        if (null !== $request->pageNo) {
+            @$body['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelSearchHotelList',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelSearchHotelList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelSearchHotelListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按城市分页查询酒店列表.
+     *
+     * @param request - GlobalHotelSearchHotelListRequest
+     *
+     * @returns GlobalHotelSearchHotelListResponse
+     *
+     * @param GlobalHotelSearchHotelListRequest $request
+     *
+     * @return GlobalHotelSearchHotelListResponse
+     */
+    public function globalHotelSearchHotelList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelSearchHotelListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 验价.
+     *
+     * @param tmpReq - GlobalHotelValidatePriceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalHotelValidatePriceResponse
+     *
+     * @param GlobalHotelValidatePriceRequest $tmpReq
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GlobalHotelValidatePriceResponse
+     */
+    public function globalHotelValidatePriceWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GlobalHotelValidatePriceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->childrenAges) {
+            $request->childrenAgesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->childrenAges, 'ChildrenAges', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->adults) {
+            @$body['Adults'] = $request->adults;
+        }
+
+        if (null !== $request->children) {
+            @$body['Children'] = $request->children;
+        }
+
+        if (null !== $request->childrenAgesShrink) {
+            @$body['ChildrenAges'] = $request->childrenAgesShrink;
+        }
+
+        if (null !== $request->itemOfferKey) {
+            @$body['ItemOfferKey'] = $request->itemOfferKey;
+        }
+
+        if (null !== $request->roomCount) {
+            @$body['RoomCount'] = $request->roomCount;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'globalHotelValidatePrice',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotelValidatePrice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GlobalHotelValidatePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 验价.
+     *
+     * @param request - GlobalHotelValidatePriceRequest
+     *
+     * @returns GlobalHotelValidatePriceResponse
+     *
+     * @param GlobalHotelValidatePriceRequest $request
+     *
+     * @return GlobalHotelValidatePriceResponse
+     */
+    public function globalHotelValidatePrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalHotelValidatePriceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 分销支付.
+     *
+     * @param request - PayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PayResponse
+     *
+     * @param PayRequest     $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return PayResponse
+     */
+    public function payWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->orderNo) {
+            @$body['OrderNo'] = $request->orderNo;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'pay',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pay',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分销支付.
+     *
+     * @param request - PayRequest
+     *
+     * @returns PayResponse
+     *
+     * @param PayRequest $request
+     *
+     * @return PayResponse
+     */
+    public function pay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->payWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询酒店报价可用性.
+     *
+     * @param tmpReq - QueryAvailabilityRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAvailabilityResponse
+     *
+     * @param QueryAvailabilityRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryAvailabilityResponse
+     */
+    public function queryAvailabilityWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryAvailabilityShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->childrenAges) {
+            $request->childrenAgesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->childrenAges, 'ChildrenAges', 'json');
+        }
+
+        if (null !== $tmpReq->standardHotelIds) {
+            $request->standardHotelIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->standardHotelIds, 'StandardHotelIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->adultCount) {
+            @$body['AdultCount'] = $request->adultCount;
+        }
+
+        if (null !== $request->checkInDate) {
+            @$body['CheckInDate'] = $request->checkInDate;
+        }
+
+        if (null !== $request->checkOutDate) {
+            @$body['CheckOutDate'] = $request->checkOutDate;
+        }
+
+        if (null !== $request->childCount) {
+            @$body['ChildCount'] = $request->childCount;
+        }
+
+        if (null !== $request->childrenAgesShrink) {
+            @$body['ChildrenAges'] = $request->childrenAgesShrink;
+        }
+
+        if (null !== $request->roomCount) {
+            @$body['RoomCount'] = $request->roomCount;
+        }
+
+        if (null !== $request->standardHotelIdsShrink) {
+            @$body['StandardHotelIds'] = $request->standardHotelIdsShrink;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'queryAvailability',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/queryAvailability',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询酒店报价可用性.
+     *
+     * @param request - QueryAvailabilityRequest
+     *
+     * @returns QueryAvailabilityResponse
+     *
+     * @param QueryAvailabilityRequest $request
+     *
+     * @return QueryAvailabilityResponse
+     */
+    public function queryAvailability($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryAvailabilityWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量日历报价查询.
+     *
+     * @param tmpReq - QueryCalendarAvailabilityRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCalendarAvailabilityResponse
+     *
+     * @param QueryCalendarAvailabilityRequest $tmpReq
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryCalendarAvailabilityResponse
+     */
+    public function queryCalendarAvailabilityWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryCalendarAvailabilityShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->childrenAges) {
+            $request->childrenAgesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->childrenAges, 'ChildrenAges', 'json');
+        }
+
+        if (null !== $tmpReq->standardHotelIds) {
+            $request->standardHotelIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->standardHotelIds, 'StandardHotelIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->adultCount) {
+            @$body['AdultCount'] = $request->adultCount;
+        }
+
+        if (null !== $request->checkInDateEnd) {
+            @$body['CheckInDateEnd'] = $request->checkInDateEnd;
+        }
+
+        if (null !== $request->checkInDateStart) {
+            @$body['CheckInDateStart'] = $request->checkInDateStart;
+        }
+
+        if (null !== $request->childCount) {
+            @$body['ChildCount'] = $request->childCount;
+        }
+
+        if (null !== $request->childrenAgesShrink) {
+            @$body['ChildrenAges'] = $request->childrenAgesShrink;
+        }
+
+        if (null !== $request->roomCount) {
+            @$body['RoomCount'] = $request->roomCount;
+        }
+
+        if (null !== $request->standardHotelIdsShrink) {
+            @$body['StandardHotelIds'] = $request->standardHotelIdsShrink;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'queryCalendarAvailability',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/queryCalendarAvailability',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCalendarAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量日历报价查询.
+     *
+     * @param request - QueryCalendarAvailabilityRequest
+     *
+     * @returns QueryCalendarAvailabilityResponse
+     *
+     * @param QueryCalendarAvailabilityRequest $request
+     *
+     * @return QueryCalendarAvailabilityResponse
+     */
+    public function queryCalendarAvailability($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryCalendarAvailabilityWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询订单.
+     *
+     * @param request - QueryOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryOrderResponse
+     *
+     * @param QueryOrderRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return QueryOrderResponse
+     */
+    public function queryOrderWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->externalOrderNo) {
+            @$body['ExternalOrderNo'] = $request->externalOrderNo;
+        }
+
+        if (null !== $request->orderNo) {
+            @$body['OrderNo'] = $request->orderNo;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'queryOrder',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/queryOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询订单.
+     *
+     * @param request - QueryOrderRequest
+     *
+     * @returns QueryOrderResponse
+     *
+     * @param QueryOrderRequest $request
+     *
+     * @return QueryOrderResponse
+     */
+    public function queryOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 分页查询城市行政区划（中英文）.
+     *
+     * @param request - SearchCityPageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchCityPageResponse
+     *
+     * @param SearchCityPageRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SearchCityPageResponse
+     */
+    public function searchCityPageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->count) {
+            @$body['Count'] = $request->count;
+        }
+
+        if (null !== $request->countryCode) {
+            @$body['CountryCode'] = $request->countryCode;
+        }
+
+        if (null !== $request->start) {
+            @$body['Start'] = $request->start;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'searchCityPage',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/searchCityPage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchCityPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询城市行政区划（中英文）.
+     *
+     * @param request - SearchCityPageRequest
+     *
+     * @returns SearchCityPageResponse
+     *
+     * @param SearchCityPageRequest $request
+     *
+     * @return SearchCityPageResponse
+     */
+    public function searchCityPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->searchCityPageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 按城市分页查询酒店列表.
+     *
+     * @param request - SearchHotelListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchHotelListResponse
+     *
+     * @param SearchHotelListRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SearchHotelListResponse
+     */
+    public function searchHotelListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->cityCode) {
+            @$body['CityCode'] = $request->cityCode;
+        }
+
+        if (null !== $request->pageNo) {
+            @$body['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'searchHotelList',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/globalHotel/searchHotelList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchHotelListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按城市分页查询酒店列表.
+     *
+     * @param request - SearchHotelListRequest
+     *
+     * @returns SearchHotelListResponse
+     *
+     * @param SearchHotelListRequest $request
+     *
+     * @return SearchHotelListResponse
+     */
+    public function searchHotelList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->searchHotelListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 验价.
+     *
+     * @param tmpReq - ValidatePriceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidatePriceResponse
+     *
+     * @param ValidatePriceRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ValidatePriceResponse
+     */
+    public function validatePriceWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ValidatePriceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->childrenAges) {
+            $request->childrenAgesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->childrenAges, 'ChildrenAges', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->adults) {
+            @$body['Adults'] = $request->adults;
+        }
+
+        if (null !== $request->children) {
+            @$body['Children'] = $request->children;
+        }
+
+        if (null !== $request->childrenAgesShrink) {
+            @$body['ChildrenAges'] = $request->childrenAgesShrink;
+        }
+
+        if (null !== $request->itemOfferKey) {
+            @$body['ItemOfferKey'] = $request->itemOfferKey;
+        }
+
+        if (null !== $request->roomCount) {
+            @$body['RoomCount'] = $request->roomCount;
+        }
+
+        if (null !== $request->tracerId) {
+            @$body['TracerId'] = $request->tracerId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'validatePrice',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/validatePrice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidatePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 验价.
+     *
+     * @param request - ValidatePriceRequest
+     *
+     * @returns ValidatePriceResponse
+     *
+     * @param ValidatePriceRequest $request
+     *
+     * @return ValidatePriceResponse
+     */
+    public function validatePrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->validatePriceWithOptions($request, $headers, $runtime);
     }
 }
