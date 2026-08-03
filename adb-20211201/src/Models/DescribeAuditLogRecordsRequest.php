@@ -26,6 +26,11 @@ class DescribeAuditLogRecordsRequest extends Model
     /**
      * @var string
      */
+    public $engineType;
+
+    /**
+     * @var string
+     */
     public $hostAddress;
 
     /**
@@ -106,6 +111,7 @@ class DescribeAuditLogRecordsRequest extends Model
         'DBClusterId' => 'DBClusterId',
         'DBName' => 'DBName',
         'endTime' => 'EndTime',
+        'engineType' => 'EngineType',
         'hostAddress' => 'HostAddress',
         'order' => 'Order',
         'orderType' => 'OrderType',
@@ -142,6 +148,10 @@ class DescribeAuditLogRecordsRequest extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->engineType) {
+            $res['EngineType'] = $this->engineType;
         }
 
         if (null !== $this->hostAddress) {
@@ -229,6 +239,10 @@ class DescribeAuditLogRecordsRequest extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['EngineType'])) {
+            $model->engineType = $map['EngineType'];
         }
 
         if (isset($map['HostAddress'])) {
