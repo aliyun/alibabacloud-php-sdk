@@ -132,7 +132,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the document content moderation result.
+     * The document moderation result.
      *
      * @param request - DescribeFileModerationResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -175,7 +175,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the document content moderation result.
+     * The document moderation result.
      *
      * @param request - DescribeFileModerationResultRequest
      *
@@ -967,7 +967,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the manual review result.
+     * Retrieves the manual review result for content moderation.
      *
      * @param request - ManualModerationResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1006,7 +1006,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the manual review result.
+     * Retrieves the manual review result for content moderation.
      *
      * @param request - ManualModerationResultRequest
      *

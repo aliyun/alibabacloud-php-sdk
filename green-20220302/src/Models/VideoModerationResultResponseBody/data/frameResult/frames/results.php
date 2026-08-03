@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results\aigcData;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results\customImage;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results\logoData;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results\publicFigure;
@@ -13,6 +14,11 @@ use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\da
 
 class results extends Model
 {
+    /**
+     * @var aigcData
+     */
+    public $aigcData;
+
     /**
      * @var customImage[]
      */
@@ -48,6 +54,7 @@ class results extends Model
      */
     public $vlContent;
     protected $_name = [
+        'aigcData' => 'AigcData',
         'customImage' => 'CustomImage',
         'logoData' => 'LogoData',
         'publicFigure' => 'PublicFigure',
@@ -59,6 +66,9 @@ class results extends Model
 
     public function validate()
     {
+        if (null !== $this->aigcData) {
+            $this->aigcData->validate();
+        }
         if (\is_array($this->customImage)) {
             Model::validateArray($this->customImage);
         }
@@ -83,6 +93,10 @@ class results extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aigcData) {
+            $res['AigcData'] = null !== $this->aigcData ? $this->aigcData->toArray($noStream) : $this->aigcData;
+        }
+
         if (null !== $this->customImage) {
             if (\is_array($this->customImage)) {
                 $res['CustomImage'] = [];
@@ -155,6 +169,10 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AigcData'])) {
+            $model->aigcData = aigcData::fromMap($map['AigcData']);
+        }
+
         if (isset($map['CustomImage'])) {
             if (!empty($map['CustomImage'])) {
                 $model->customImage = [];
