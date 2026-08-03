@@ -31,6 +31,11 @@ class incidents extends Model
     /**
      * @var string
      */
+    public $detectionRuleName;
+
+    /**
+     * @var string
+     */
     public $entityInfos;
 
     /**
@@ -97,6 +102,7 @@ class incidents extends Model
         'attckTactics' => 'AttckTactics',
         'createTime' => 'CreateTime',
         'detectionRuleId' => 'DetectionRuleId',
+        'detectionRuleName' => 'DetectionRuleName',
         'entityInfos' => 'EntityInfos',
         'incidentDescription' => 'IncidentDescription',
         'incidentName' => 'IncidentName',
@@ -134,6 +140,10 @@ class incidents extends Model
 
         if (null !== $this->detectionRuleId) {
             $res['DetectionRuleId'] = $this->detectionRuleId;
+        }
+
+        if (null !== $this->detectionRuleName) {
+            $res['DetectionRuleName'] = $this->detectionRuleName;
         }
 
         if (null !== $this->entityInfos) {
@@ -213,6 +223,10 @@ class incidents extends Model
 
         if (isset($map['DetectionRuleId'])) {
             $model->detectionRuleId = $map['DetectionRuleId'];
+        }
+
+        if (isset($map['DetectionRuleName'])) {
+            $model->detectionRuleName = $map['DetectionRuleName'];
         }
 
         if (isset($map['EntityInfos'])) {

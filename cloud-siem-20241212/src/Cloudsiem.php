@@ -5104,6 +5104,10 @@ class Cloudsiem extends OpenApiClient
             @$body['AlertUuid'] = $request->alertUuid;
         }
 
+        if (null !== $request->detectionRuleIds) {
+            @$body['DetectionRuleIds'] = $request->detectionRuleIds;
+        }
+
         if (null !== $request->endTime) {
             @$body['EndTime'] = $request->endTime;
         }

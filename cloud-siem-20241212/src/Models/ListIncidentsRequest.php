@@ -14,6 +14,11 @@ class ListIncidentsRequest extends Model
     public $alertUuid;
 
     /**
+     * @var string[]
+     */
+    public $detectionRuleIds;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -119,6 +124,7 @@ class ListIncidentsRequest extends Model
     public $threatLevel;
     protected $_name = [
         'alertUuid' => 'AlertUuid',
+        'detectionRuleIds' => 'DetectionRuleIds',
         'endTime' => 'EndTime',
         'incidentName' => 'IncidentName',
         'incidentStatus' => 'IncidentStatus',
@@ -144,6 +150,9 @@ class ListIncidentsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->detectionRuleIds)) {
+            Model::validateArray($this->detectionRuleIds);
+        }
         if (\is_array($this->incidentStatusList)) {
             Model::validateArray($this->incidentStatusList);
         }
@@ -164,6 +173,17 @@ class ListIncidentsRequest extends Model
         $res = [];
         if (null !== $this->alertUuid) {
             $res['AlertUuid'] = $this->alertUuid;
+        }
+
+        if (null !== $this->detectionRuleIds) {
+            if (\is_array($this->detectionRuleIds)) {
+                $res['DetectionRuleIds'] = [];
+                $n1 = 0;
+                foreach ($this->detectionRuleIds as $item1) {
+                    $res['DetectionRuleIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->endTime) {
@@ -291,6 +311,17 @@ class ListIncidentsRequest extends Model
         $model = new self();
         if (isset($map['AlertUuid'])) {
             $model->alertUuid = $map['AlertUuid'];
+        }
+
+        if (isset($map['DetectionRuleIds'])) {
+            if (!empty($map['DetectionRuleIds'])) {
+                $model->detectionRuleIds = [];
+                $n1 = 0;
+                foreach ($map['DetectionRuleIds'] as $item1) {
+                    $model->detectionRuleIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['EndTime'])) {
