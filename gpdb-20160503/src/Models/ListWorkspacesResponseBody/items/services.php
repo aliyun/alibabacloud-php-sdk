@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListWorkspacesResponseBody\items;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListWorkspacesResponseBody\items\services\components;
 
 class services extends Model
 {
+    /**
+     * @var components[]
+     */
+    public $components;
+
     /**
      * @var string
      */
@@ -17,6 +23,11 @@ class services extends Model
      * @var string
      */
     public $cu;
+
+    /**
+     * @var bool
+     */
+    public $deletionProtection;
 
     /**
      * @var string
@@ -53,8 +64,10 @@ class services extends Model
      */
     public $status;
     protected $_name = [
+        'components' => 'Components',
         'createTime' => 'CreateTime',
         'cu' => 'Cu',
+        'deletionProtection' => 'DeletionProtection',
         'expireTime' => 'ExpireTime',
         'payType' => 'PayType',
         'plan' => 'Plan',
@@ -66,18 +79,36 @@ class services extends Model
 
     public function validate()
     {
+        if (\is_array($this->components)) {
+            Model::validateArray($this->components);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->components) {
+            if (\is_array($this->components)) {
+                $res['Components'] = [];
+                $n1 = 0;
+                foreach ($this->components as $item1) {
+                    $res['Components'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
 
         if (null !== $this->cu) {
             $res['Cu'] = $this->cu;
+        }
+
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
 
         if (null !== $this->expireTime) {
@@ -119,12 +150,27 @@ class services extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Components'])) {
+            if (!empty($map['Components'])) {
+                $model->components = [];
+                $n1 = 0;
+                foreach ($map['Components'] as $item1) {
+                    $model->components[$n1] = components::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
 
         if (isset($map['Cu'])) {
             $model->cu = $map['Cu'];
+        }
+
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
 
         if (isset($map['ExpireTime'])) {
