@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskSessi
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAnchorRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAnchorResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateGenerateAICoachScriptTaskRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateGenerateAICoachScriptTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIllustrationTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIllustrationTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIndividuationProjectRequest;
@@ -76,6 +78,10 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachAssessmentPo
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachAssessmentPointResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachCheatDetectionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachCheatDetectionResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachDebugResultRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachDebugResultResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptGenerateTaskRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptGenerateTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionHistoryRequest;
@@ -102,6 +108,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageR
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachTaskPageRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachTaskPageResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachTaskSessionRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachTaskSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAnchorRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAnchorResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAvatarProjectRequest;
@@ -150,6 +158,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\StopAvatarSessionReque
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\StopAvatarSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\StopProjectTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\StopProjectTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitAICoachDebugRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitAICoachDebugResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitImageToVideoTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitImageToVideoTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitProjectTaskRequest;
@@ -1391,6 +1401,91 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * 创建文档生成剧本任务
+     *
+     * @param request - CreateGenerateAICoachScriptTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGenerateAICoachScriptTaskResponse
+     *
+     * @param CreateGenerateAICoachScriptTaskRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateGenerateAICoachScriptTaskResponse
+     */
+    public function createGenerateAICoachScriptTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->assessmentPoint) {
+            @$body['assessmentPoint'] = $request->assessmentPoint;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->dialogueKey) {
+            @$body['dialogueKey'] = $request->dialogueKey;
+        }
+
+        if (null !== $request->dialogueUrl) {
+            @$body['dialogueUrl'] = $request->dialogueUrl;
+        }
+
+        if (null !== $request->docList) {
+            @$body['docList'] = $request->docList;
+        }
+
+        if (null !== $request->docUrlList) {
+            @$body['docUrlList'] = $request->docUrlList;
+        }
+
+        if (null !== $request->scriptName) {
+            @$body['scriptName'] = $request->scriptName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGenerateAICoachScriptTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/scriptGenerateTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGenerateAICoachScriptTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建文档生成剧本任务
+     *
+     * @param request - CreateGenerateAICoachScriptTaskRequest
+     *
+     * @returns CreateGenerateAICoachScriptTaskResponse
+     *
+     * @param CreateGenerateAICoachScriptTaskRequest $request
+     *
+     * @return CreateGenerateAICoachScriptTaskResponse
+     */
+    public function createGenerateAICoachScriptTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGenerateAICoachScriptTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 创建配图生成任务
      *
      * @param request - CreateIllustrationTaskRequest
@@ -2495,6 +2590,87 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * 查看剧本调试详情.
+     *
+     * @param request - GetAICoachDebugResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAICoachDebugResultResponse
+     *
+     * @param GetAICoachDebugResultRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAICoachDebugResultResponse
+     */
+    public function getAICoachDebugResultWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dataId) {
+            @$query['dataId'] = $request->dataId;
+        }
+
+        if (null !== $request->dataType) {
+            @$query['dataType'] = $request->dataType;
+        }
+
+        if (null !== $request->scriptDebugId) {
+            @$query['scriptDebugId'] = $request->scriptDebugId;
+        }
+
+        if (null !== $request->scriptRecordId) {
+            @$query['scriptRecordId'] = $request->scriptRecordId;
+        }
+
+        if (null !== $request->scriptSnapshotId) {
+            @$query['scriptSnapshotId'] = $request->scriptSnapshotId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAICoachDebugResult',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/getDebugResult',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAICoachDebugResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看剧本调试详情.
+     *
+     * @param request - GetAICoachDebugResultRequest
+     *
+     * @returns GetAICoachDebugResultResponse
+     *
+     * @param GetAICoachDebugResultRequest $request
+     *
+     * @return GetAICoachDebugResultResponse
+     */
+    public function getAICoachDebugResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAICoachDebugResultWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 查询剧本详情.
      *
      * @param request - GetAICoachScriptRequest
@@ -2553,6 +2729,67 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->getAICoachScriptWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询文档生成剧本任务结果.
+     *
+     * @param request - GetAICoachScriptGenerateTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAICoachScriptGenerateTaskResponse
+     *
+     * @param GetAICoachScriptGenerateTaskRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetAICoachScriptGenerateTaskResponse
+     */
+    public function getAICoachScriptGenerateTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAICoachScriptGenerateTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/scriptGenerateTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAICoachScriptGenerateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询文档生成剧本任务结果.
+     *
+     * @param request - GetAICoachScriptGenerateTaskRequest
+     *
+     * @returns GetAICoachScriptGenerateTaskResponse
+     *
+     * @param GetAICoachScriptGenerateTaskRequest $request
+     *
+     * @return GetAICoachScriptGenerateTaskResponse
+     */
+    public function getAICoachScriptGenerateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAICoachScriptGenerateTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3449,6 +3686,79 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->listAICoachTaskPageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 根据剧本对练任务查询会话历史.
+     *
+     * @param request - ListAICoachTaskSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAICoachTaskSessionResponse
+     *
+     * @param ListAICoachTaskSessionRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAICoachTaskSessionResponse
+     */
+    public function listAICoachTaskSessionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAICoachTaskSession',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/listTaskSession',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据剧本对练任务查询会话历史.
+     *
+     * @param request - ListAICoachTaskSessionRequest
+     *
+     * @returns ListAICoachTaskSessionResponse
+     *
+     * @param ListAICoachTaskSessionRequest $request
+     *
+     * @return ListAICoachTaskSessionResponse
+     */
+    public function listAICoachTaskSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAICoachTaskSessionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5328,6 +5638,87 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->stopProjectTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 提交剧本考核点调试.
+     *
+     * @param request - SubmitAICoachDebugRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAICoachDebugResponse
+     *
+     * @param SubmitAICoachDebugRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitAICoachDebugResponse
+     */
+    public function submitAICoachDebugWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->dataId) {
+            @$body['dataId'] = $request->dataId;
+        }
+
+        if (null !== $request->dataType) {
+            @$body['dataType'] = $request->dataType;
+        }
+
+        if (null !== $request->deductionRule) {
+            @$body['deductionRule'] = $request->deductionRule;
+        }
+
+        if (null !== $request->dialogueList) {
+            @$body['dialogueList'] = $request->dialogueList;
+        }
+
+        if (null !== $request->expressiveness) {
+            @$body['expressiveness'] = $request->expressiveness;
+        }
+
+        if (null !== $request->point) {
+            @$body['point'] = $request->point;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAICoachDebug',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/saveDebug',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAICoachDebugResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交剧本考核点调试.
+     *
+     * @param request - SubmitAICoachDebugRequest
+     *
+     * @returns SubmitAICoachDebugResponse
+     *
+     * @param SubmitAICoachDebugRequest $request
+     *
+     * @return SubmitAICoachDebugResponse
+     */
+    public function submitAICoachDebug($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitAICoachDebugWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -29,6 +29,11 @@ class GetAICoachTaskSessionReportResponseBody extends Model
     public $evaluationResult;
 
     /**
+     * @var string[]
+     */
+    public $extendCustomNameMap;
+
+    /**
      * @var bool
      */
     public $feedback;
@@ -62,6 +67,7 @@ class GetAICoachTaskSessionReportResponseBody extends Model
         'endTime' => 'endTime',
         'evaluationRating' => 'evaluationRating',
         'evaluationResult' => 'evaluationResult',
+        'extendCustomNameMap' => 'extendCustomNameMap',
         'feedback' => 'feedback',
         'requestId' => 'requestId',
         'scriptName' => 'scriptName',
@@ -72,6 +78,9 @@ class GetAICoachTaskSessionReportResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->extendCustomNameMap)) {
+            Model::validateArray($this->extendCustomNameMap);
+        }
         parent::validate();
     }
 
@@ -92,6 +101,15 @@ class GetAICoachTaskSessionReportResponseBody extends Model
 
         if (null !== $this->evaluationResult) {
             $res['evaluationResult'] = $this->evaluationResult;
+        }
+
+        if (null !== $this->extendCustomNameMap) {
+            if (\is_array($this->extendCustomNameMap)) {
+                $res['extendCustomNameMap'] = [];
+                foreach ($this->extendCustomNameMap as $key1 => $value1) {
+                    $res['extendCustomNameMap'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->feedback) {
@@ -143,6 +161,15 @@ class GetAICoachTaskSessionReportResponseBody extends Model
 
         if (isset($map['evaluationResult'])) {
             $model->evaluationResult = $map['evaluationResult'];
+        }
+
+        if (isset($map['extendCustomNameMap'])) {
+            if (!empty($map['extendCustomNameMap'])) {
+                $model->extendCustomNameMap = [];
+                foreach ($map['extendCustomNameMap'] as $key1 => $value1) {
+                    $model->extendCustomNameMap[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['feedback'])) {

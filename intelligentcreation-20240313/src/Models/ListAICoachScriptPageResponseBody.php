@@ -20,6 +20,11 @@ class ListAICoachScriptPageResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string[]
+     */
+    public $extendCustomNameMap;
+
+    /**
      * @var list_[]
      */
     public $list;
@@ -41,6 +46,7 @@ class ListAICoachScriptPageResponseBody extends Model
     protected $_name = [
         'errorCode' => 'errorCode',
         'errorMessage' => 'errorMessage',
+        'extendCustomNameMap' => 'extendCustomNameMap',
         'list' => 'list',
         'requestId' => 'requestId',
         'success' => 'success',
@@ -49,6 +55,9 @@ class ListAICoachScriptPageResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->extendCustomNameMap)) {
+            Model::validateArray($this->extendCustomNameMap);
+        }
         if (\is_array($this->list)) {
             Model::validateArray($this->list);
         }
@@ -64,6 +73,15 @@ class ListAICoachScriptPageResponseBody extends Model
 
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
+        }
+
+        if (null !== $this->extendCustomNameMap) {
+            if (\is_array($this->extendCustomNameMap)) {
+                $res['extendCustomNameMap'] = [];
+                foreach ($this->extendCustomNameMap as $key1 => $value1) {
+                    $res['extendCustomNameMap'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->list) {
@@ -106,6 +124,15 @@ class ListAICoachScriptPageResponseBody extends Model
 
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
+        }
+
+        if (isset($map['extendCustomNameMap'])) {
+            if (!empty($map['extendCustomNameMap'])) {
+                $model->extendCustomNameMap = [];
+                foreach ($map['extendCustomNameMap'] as $key1 => $value1) {
+                    $model->extendCustomNameMap[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['list'])) {

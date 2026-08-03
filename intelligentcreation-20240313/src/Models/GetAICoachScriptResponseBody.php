@@ -93,6 +93,11 @@ class GetAICoachScriptResponseBody extends Model
     public $expressivenessList;
 
     /**
+     * @var string[]
+     */
+    public $extendCustomNameMap;
+
+    /**
      * @var string
      */
     public $gifDynamicUrl;
@@ -242,6 +247,7 @@ class GetAICoachScriptResponseBody extends Model
         'evaluateReportFlag' => 'evaluateReportFlag',
         'expressiveness' => 'expressiveness',
         'expressivenessList' => 'expressivenessList',
+        'extendCustomNameMap' => 'extendCustomNameMap',
         'gifDynamicUrl' => 'gifDynamicUrl',
         'gifStaticUrl' => 'gifStaticUrl',
         'gmtCreate' => 'gmtCreate',
@@ -287,6 +293,9 @@ class GetAICoachScriptResponseBody extends Model
         }
         if (\is_array($this->expressivenessList)) {
             Model::validateArray($this->expressivenessList);
+        }
+        if (\is_array($this->extendCustomNameMap)) {
+            Model::validateArray($this->extendCustomNameMap);
         }
         if (\is_array($this->interactionInputTypes)) {
             Model::validateArray($this->interactionInputTypes);
@@ -387,6 +396,15 @@ class GetAICoachScriptResponseBody extends Model
                 foreach ($this->expressivenessList as $item1) {
                     $res['expressivenessList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->extendCustomNameMap) {
+            if (\is_array($this->extendCustomNameMap)) {
+                $res['extendCustomNameMap'] = [];
+                foreach ($this->extendCustomNameMap as $key1 => $value1) {
+                    $res['extendCustomNameMap'][$key1] = $value1;
                 }
             }
         }
@@ -613,6 +631,15 @@ class GetAICoachScriptResponseBody extends Model
                 foreach ($map['expressivenessList'] as $item1) {
                     $model->expressivenessList[$n1] = expressivenessList::fromMap($item1);
                     ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['extendCustomNameMap'])) {
+            if (!empty($map['extendCustomNameMap'])) {
+                $model->extendCustomNameMap = [];
+                foreach ($map['extendCustomNameMap'] as $key1 => $value1) {
+                    $model->extendCustomNameMap[$key1] = $value1;
                 }
             }
         }
