@@ -11,6 +11,11 @@ class enhancedNetwork extends Model
     /**
      * @var bool
      */
+    public $enableExpress;
+
+    /**
+     * @var bool
+     */
     public $enableRss;
 
     /**
@@ -28,6 +33,7 @@ class enhancedNetwork extends Model
      */
     public $virtualFunctionTotalQueueNumber;
     protected $_name = [
+        'enableExpress' => 'EnableExpress',
         'enableRss' => 'EnableRss',
         'enableSriov' => 'EnableSriov',
         'virtualFunctionQuantity' => 'VirtualFunctionQuantity',
@@ -42,6 +48,10 @@ class enhancedNetwork extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableExpress) {
+            $res['EnableExpress'] = $this->enableExpress;
+        }
+
         if (null !== $this->enableRss) {
             $res['EnableRss'] = $this->enableRss;
         }
@@ -69,6 +79,10 @@ class enhancedNetwork extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableExpress'])) {
+            $model->enableExpress = $map['EnableExpress'];
+        }
+
         if (isset($map['EnableRss'])) {
             $model->enableRss = $map['EnableRss'];
         }
