@@ -16,6 +16,11 @@ class GetCaInstanceCrlAddressResponseBody extends Model
     /**
      * @var string
      */
+    public $caType;
+
+    /**
+     * @var string
+     */
     public $crlUrl;
 
     /**
@@ -34,6 +39,7 @@ class GetCaInstanceCrlAddressResponseBody extends Model
     public $requestId;
     protected $_name = [
         'caInstanceStatus' => 'CaInstanceStatus',
+        'caType' => 'CaType',
         'crlUrl' => 'CrlUrl',
         'hashCode' => 'HashCode',
         'nextUpdateTime' => 'NextUpdateTime',
@@ -50,6 +56,10 @@ class GetCaInstanceCrlAddressResponseBody extends Model
         $res = [];
         if (null !== $this->caInstanceStatus) {
             $res['CaInstanceStatus'] = $this->caInstanceStatus;
+        }
+
+        if (null !== $this->caType) {
+            $res['CaType'] = $this->caType;
         }
 
         if (null !== $this->crlUrl) {
@@ -81,6 +91,10 @@ class GetCaInstanceCrlAddressResponseBody extends Model
         $model = new self();
         if (isset($map['CaInstanceStatus'])) {
             $model->caInstanceStatus = $map['CaInstanceStatus'];
+        }
+
+        if (isset($map['CaType'])) {
+            $model->caType = $map['CaType'];
         }
 
         if (isset($map['CrlUrl'])) {
