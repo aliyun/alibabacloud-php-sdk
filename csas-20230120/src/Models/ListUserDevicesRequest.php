@@ -111,6 +111,11 @@ class ListUserDevicesRequest extends Model
     /**
      * @var string
      */
+    public $snBios;
+
+    /**
+     * @var string
+     */
     public $snSystem;
 
     /**
@@ -148,6 +153,7 @@ class ListUserDevicesRequest extends Model
         'pageSize' => 'PageSize',
         'saseUserId' => 'SaseUserId',
         'sharingStatus' => 'SharingStatus',
+        'snBios' => 'SnBios',
         'snSystem' => 'SnSystem',
         'sortBy' => 'SortBy',
         'username' => 'Username',
@@ -342,6 +348,10 @@ class ListUserDevicesRequest extends Model
             $res['SharingStatus'] = $this->sharingStatus;
         }
 
+        if (null !== $this->snBios) {
+            $res['SnBios'] = $this->snBios;
+        }
+
         if (null !== $this->snSystem) {
             $res['SnSystem'] = $this->snSystem;
         }
@@ -517,6 +527,10 @@ class ListUserDevicesRequest extends Model
 
         if (isset($map['SharingStatus'])) {
             $model->sharingStatus = $map['SharingStatus'];
+        }
+
+        if (isset($map['SnBios'])) {
+            $model->snBios = $map['SnBios'];
         }
 
         if (isset($map['SnSystem'])) {

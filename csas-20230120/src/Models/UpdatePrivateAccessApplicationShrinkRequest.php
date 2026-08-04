@@ -83,6 +83,11 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
      * @var string[]
      */
     public $tagIds;
+
+    /**
+     * @var string
+     */
+    public $unauthorizedAccessConfigShrink;
     protected $_name = [
         'addressGroups' => 'AddressGroups',
         'addresses' => 'Addresses',
@@ -99,6 +104,7 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
         'protocol' => 'Protocol',
         'status' => 'Status',
         'tagIds' => 'TagIds',
+        'unauthorizedAccessConfigShrink' => 'UnauthorizedAccessConfig',
     ];
 
     public function validate()
@@ -209,6 +215,10 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
             }
         }
 
+        if (null !== $this->unauthorizedAccessConfigShrink) {
+            $res['UnauthorizedAccessConfig'] = $this->unauthorizedAccessConfigShrink;
+        }
+
         return $res;
     }
 
@@ -306,6 +316,10 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UnauthorizedAccessConfig'])) {
+            $model->unauthorizedAccessConfigShrink = $map['UnauthorizedAccessConfig'];
         }
 
         return $model;

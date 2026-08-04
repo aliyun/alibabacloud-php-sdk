@@ -261,7 +261,11 @@ class Csas extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'public' => 'csas.aliyuncs.com',
+            'cn-hangzhou' => 'csas.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('csas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -291,7 +295,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 挂载connector的应用.
+     * Attaches the private access applications of a Connector under the current Alibaba Cloud account.
      *
      * @param tmpReq - AttachApplication2ConnectorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -340,7 +344,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 挂载connector的应用.
+     * Attaches the private access applications of a Connector under the current Alibaba Cloud account.
      *
      * @param request - AttachApplication2ConnectorRequest
      *
@@ -358,7 +362,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Mount a business policy to a specified approval flow.
+     * Attaches a business policy to a specified approval process.
      *
      * @param request - AttachPolicy2ApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -405,7 +409,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Mount a business policy to a specified approval flow.
+     * Attaches a business policy to a specified approval process.
      *
      * @param request - AttachPolicy2ApprovalProcessRequest
      *
@@ -423,7 +427,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create an approval flow under the current Alibaba Cloud account.
+     * Creates an approval process under the current Alibaba Cloud account.
      *
      * @param tmpReq - CreateApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -483,7 +487,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create an approval flow under the current Alibaba Cloud account.
+     * Creates an approval process under the current Alibaba Cloud account.
      *
      * @param request - CreateApprovalProcessRequest
      *
@@ -501,7 +505,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建自定义身份源用户.
+     * Create a custom identity source user for your Alibaba Cloud account.
      *
      * @param request - CreateClientUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -564,7 +568,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建自定义身份源用户.
+     * Create a custom identity source user for your Alibaba Cloud account.
      *
      * @param request - CreateClientUserRequest
      *
@@ -582,7 +586,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建动态路由.
+     * Create dynamic routes for the current Alibaba Cloud account.
+     *
+     * @remarks
+     * By default, you can create a maximum of 100 dynamic routes.
      *
      * @param request - CreateDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -660,7 +667,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建动态路由.
+     * Create dynamic routes for the current Alibaba Cloud account.
+     *
+     * @remarks
+     * By default, you can create a maximum of 100 dynamic routes.
      *
      * @param request - CreateDynamicRouteRequest
      *
@@ -678,7 +688,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create an enterprise acceleration policy.
+     * Creates an enterprise accelerate policy.
      *
      * @param request - CreateEnterpriseAcceleratePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -749,7 +759,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create an enterprise acceleration policy.
+     * Creates an enterprise accelerate policy.
      *
      * @param request - CreateEnterpriseAcceleratePolicyRequest
      *
@@ -767,7 +777,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create an enterprise acceleration address.
+     * Creates enterprise acceleration addresses.
      *
      * @param request - CreateEnterpriseAccelerateTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -813,7 +823,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create an enterprise acceleration address.
+     * Creates enterprise acceleration addresses.
      *
      * @param request - CreateEnterpriseAccelerateTargetRequest
      *
@@ -831,7 +841,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建自定义身份源部门.
+     * Creates a department for a custom identity source in the current Alibaba Cloud account.
      *
      * @param request - CreateIdpDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -874,7 +884,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建自定义身份源部门.
+     * Creates a department for a custom identity source in the current Alibaba Cloud account.
      *
      * @param request - CreateIdpDepartmentRequest
      *
@@ -892,7 +902,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create an internal network access diagnostic task.
+     * Creates a diagnostic task for internal network access.
      *
      * @param tmpReq - CreatePADiagnosisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -973,7 +983,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create an internal network access diagnostic task.
+     * Creates a diagnostic task for internal network access.
      *
      * @param request - CreatePADiagnosisTaskRequest
      *
@@ -991,10 +1001,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an office application within the current Alibaba Cloud account.
+     * Creates an internal-facing access application under the current Alibaba Cloud account.
      *
      * @remarks
-     * By default, you can create a maximum of 500 office applications.
+     * You can create up to 500 internal-facing access applications by default.
      *
      * @param tmpReq - CreatePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1013,6 +1023,10 @@ class Csas extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->l7Config) {
             $request->l7ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
+        }
+
+        if (null !== $tmpReq->unauthorizedAccessConfig) {
+            $request->unauthorizedAccessConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->unauthorizedAccessConfig, 'UnauthorizedAccessConfig', 'json');
         }
 
         $body = [];
@@ -1069,6 +1083,10 @@ class Csas extends OpenApiClient
             @$bodyFlat['TagIds'] = $request->tagIds;
         }
 
+        if (null !== $request->unauthorizedAccessConfigShrink) {
+            @$body['UnauthorizedAccessConfig'] = $request->unauthorizedAccessConfigShrink;
+        }
+
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
@@ -1090,10 +1108,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an office application within the current Alibaba Cloud account.
+     * Creates an internal-facing access application under the current Alibaba Cloud account.
      *
      * @remarks
-     * By default, you can create a maximum of 500 office applications.
+     * You can create up to 500 internal-facing access applications by default.
      *
      * @param request - CreatePrivateAccessApplicationRequest
      *
@@ -1253,7 +1271,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建内网访问标签.
+     * Creates a private access tag for the current Alibaba Cloud account.
+     *
+     * @remarks
+     * By default, you can create up to 500 private access tags.
      *
      * @param request - CreatePrivateAccessTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1296,7 +1317,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建内网访问标签.
+     * Creates a private access tag for the current Alibaba Cloud account.
+     *
+     * @remarks
+     * By default, you can create up to 500 private access tags.
      *
      * @param request - CreatePrivateAccessTagRequest
      *
@@ -1314,7 +1338,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建设备注册策略.
+     * Create a device registration policy for your Alibaba Cloud account.
      *
      * @param tmpReq - CreateRegistrationPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1406,7 +1430,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建设备注册策略.
+     * Create a device registration policy for your Alibaba Cloud account.
      *
      * @param request - CreateRegistrationPolicyRequest
      *
@@ -1424,7 +1448,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建用户组.
+     * Creates a user group for your Alibaba Cloud account.
+     *
+     * @remarks
+     * You can create up to 500 user groups.
      *
      * @param request - CreateUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1474,7 +1501,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建用户组.
+     * Creates a user group for your Alibaba Cloud account.
+     *
+     * @remarks
+     * You can create up to 500 user groups.
      *
      * @param request - CreateUserGroupRequest
      *
@@ -1492,7 +1522,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建数字水印暗水印透明底图.
+     * Generates a transparent base image for web, screen, or app watermarks.
      *
      * @param tmpReq - CreateWmBaseImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1575,7 +1605,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建数字水印暗水印透明底图.
+     * Generates a transparent base image for web, screen, or app watermarks.
      *
      * @param request - CreateWmBaseImageRequest
      *
@@ -1593,7 +1623,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建嵌入水印任务
+     * Create a digital watermarking embedding Job.
+     *
+     * @remarks
+     * By default, you can create up to 500 groups.
      *
      * @param tmpReq - CreateWmEmbedTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1714,7 +1747,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建嵌入水印任务
+     * Create a digital watermarking embedding Job.
+     *
+     * @remarks
+     * By default, you can create up to 500 groups.
      *
      * @param request - CreateWmEmbedTaskRequest
      *
@@ -1732,7 +1768,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a digital watermark extraction task.
+     * Create a digital watermarking fetch job.
      *
      * @param tmpReq - CreateWmExtractTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1819,7 +1855,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a digital watermark extraction task.
+     * Create a digital watermarking fetch job.
      *
      * @param request - CreateWmExtractTaskRequest
      *
@@ -1837,7 +1873,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建一条字符串水印信息到数字水印信息的映射记录.
+     * Creates a mapping from string-format watermark information to digital-format watermark information.
      *
      * @param request - CreateWmInfoMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1884,7 +1920,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建一条字符串水印信息到数字水印信息的映射记录.
+     * Creates a mapping from string-format watermark information to digital-format watermark information.
      *
      * @param request - CreateWmInfoMappingRequest
      *
@@ -1902,7 +1938,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch delete approval flows under the current Alibaba Cloud account.
+     * Deletes approval processes in batches from your Alibaba Cloud account.
      *
      * @param request - DeleteApprovalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1944,7 +1980,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch delete approval flows under the current Alibaba Cloud account.
+     * Deletes approval processes in batches from your Alibaba Cloud account.
      *
      * @param request - DeleteApprovalProcessesRequest
      *
@@ -1962,7 +1998,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除自定义身份源指定用户.
+     * Delete a specified user from your Alibaba Cloud account\\"s custom identity source.
      *
      * @param request - DeleteClientUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2001,7 +2037,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除自定义身份源指定用户.
+     * Delete a specified user from your Alibaba Cloud account\\"s custom identity source.
      *
      * @param request - DeleteClientUserRequest
      *
@@ -2019,7 +2055,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除动态路由.
+     * Delete a dynamic route from your current Alibaba Cloud account.
      *
      * @param request - DeleteDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2058,7 +2094,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除动态路由.
+     * Delete a dynamic route from your current Alibaba Cloud account.
      *
      * @param request - DeleteDynamicRouteRequest
      *
@@ -2076,7 +2112,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Delete an enterprise acceleration policy.
+     * Deletes an enterprise acceleration policy.
      *
      * @param request - DeleteEnterpriseAcceleratePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2115,7 +2151,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Delete an enterprise acceleration policy.
+     * Deletes an enterprise acceleration policy.
      *
      * @param request - DeleteEnterpriseAcceleratePolicyRequest
      *
@@ -2133,7 +2169,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Delete an enterprise acceleration address.
+     * Deletes an enterprise acceleration address.
      *
      * @param request - DeleteEnterpriseAccelerateTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2179,7 +2215,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Delete an enterprise acceleration address.
+     * Deletes an enterprise acceleration address.
      *
      * @param request - DeleteEnterpriseAccelerateTargetRequest
      *
@@ -2197,7 +2233,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除指定自定义身份源部门.
+     * Delete a department from a custom identity provider in your Alibaba Cloud account.
      *
      * @param request - DeleteIdpDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2240,7 +2276,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除指定自定义身份源部门.
+     * Delete a department from a custom identity provider in your Alibaba Cloud account.
      *
      * @param request - DeleteIdpDepartmentRequest
      *
@@ -2258,7 +2294,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Delete the employee OTP configuration.
+     * Deletes a user\\"s One-Time Password (OTP) configuration.
      *
      * @param request - DeleteOtpConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2297,7 +2333,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Delete the employee OTP configuration.
+     * Deletes a user\\"s One-Time Password (OTP) configuration.
      *
      * @param request - DeleteOtpConfigRequest
      *
@@ -2315,7 +2351,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问应用.
+     * Deletes an internal network access application from your Alibaba Cloud account.
+     *
+     * @remarks
+     * You cannot delete an application if it is referenced by an office zone or a policy. For more information, see:
+     * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal network access applications.
+     * - [ListPrivateAccessPolicies](~~ListPrivateAccessPolices~~): Lists internal network access policies.
      *
      * @param request - DeletePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2354,7 +2395,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问应用.
+     * Deletes an internal network access application from your Alibaba Cloud account.
+     *
+     * @remarks
+     * You cannot delete an application if it is referenced by an office zone or a policy. For more information, see:
+     * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal network access applications.
+     * - [ListPrivateAccessPolicies](~~ListPrivateAccessPolices~~): Lists internal network access policies.
      *
      * @param request - DeletePrivateAccessApplicationRequest
      *
@@ -2372,7 +2418,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问策略.
+     * Deletes a private network access policy for the current Alibaba Cloud account.
      *
      * @param request - DeletePrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2411,7 +2457,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问策略.
+     * Deletes a private network access policy for the current Alibaba Cloud account.
      *
      * @param request - DeletePrivateAccessPolicyRequest
      *
@@ -2429,7 +2475,13 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问标签.
+     * Deletes an internal access tag from the current Alibaba Cloud account.
+     *
+     * @remarks
+     * Deletion is not allowed when the tag is referenced by applications, office networks, or policies. References:
+     * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal access applications.
+     * - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): Lists internal access tags.
+     * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal access policies.
      *
      * @param request - DeletePrivateAccessTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2468,7 +2520,13 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除内网访问标签.
+     * Deletes an internal access tag from the current Alibaba Cloud account.
+     *
+     * @remarks
+     * Deletion is not allowed when the tag is referenced by applications, office networks, or policies. References:
+     * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal access applications.
+     * - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): Lists internal access tags.
+     * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal access policies.
      *
      * @param request - DeletePrivateAccessTagRequest
      *
@@ -2486,7 +2544,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除设备注册策略.
+     * Batch delete device registration policies under your Alibaba Cloud account.
      *
      * @param request - DeleteRegistrationPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2528,7 +2586,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除设备注册策略.
+     * Batch delete device registration policies under your Alibaba Cloud account.
      *
      * @param request - DeleteRegistrationPoliciesRequest
      *
@@ -2546,7 +2604,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Deletes multiple user terminals at a time.
+     * Deletes user endpoint devices in batches.
+     *
+     * @remarks
+     * You can delete up to 100 devices at a time. Each device must be in a non-online status. If some device IDs in the specified collection do not meet the status requirement, only the devices that meet the requirement are deleted, and the operation still returns a success response.
      *
      * @param request - DeleteUserDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2588,7 +2649,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Deletes multiple user terminals at a time.
+     * Deletes user endpoint devices in batches.
+     *
+     * @remarks
+     * You can delete up to 100 devices at a time. Each device must be in a non-online status. If some device IDs in the specified collection do not meet the status requirement, only the devices that meet the requirement are deleted, and the operation still returns a success response.
      *
      * @param request - DeleteUserDevicesRequest
      *
@@ -2606,7 +2670,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除用户组.
+     * Delete a user group in your Alibaba Cloud account.
+     *
+     * @remarks
+     * For more information, see:
+     * - [ListPolicesForUserGroup](~~ListPolicesForUserGroup~~): Query policies attached to a user group.
      *
      * @param request - DeleteUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2645,7 +2713,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除用户组.
+     * Delete a user group in your Alibaba Cloud account.
+     *
+     * @remarks
+     * For more information, see:
+     * - [ListPolicesForUserGroup](~~ListPolicesForUserGroup~~): Query policies attached to a user group.
      *
      * @param request - DeleteUserGroupRequest
      *
@@ -2663,7 +2735,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 卸载connector的应用.
+     * Detaches private network access applications from a Connector in your Alibaba Cloud account.
      *
      * @deprecated openAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead
      *
@@ -2715,7 +2787,7 @@ class Csas extends OpenApiClient
 
     // Deprecated
     /**
-     * 卸载connector的应用.
+     * Detaches private network access applications from a Connector in your Alibaba Cloud account.
      *
      * @deprecated openAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead
      *
@@ -2735,7 +2807,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Detach business policies from approval flows.
+     * Detach a business policy from an approval process.
      *
      * @param request - DetachPolicy2ApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2782,7 +2854,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Detach business policies from approval flows.
+     * Detach a business policy from an approval process.
      *
      * @param request - DetachPolicy2ApprovalProcessRequest
      *
@@ -2800,7 +2872,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Disable enterprise acceleration policy.
+     * Disables an enterprise acceleration policy.
      *
      * @param request - DisableEnterpriseAcceleratePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2839,7 +2911,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Disable enterprise acceleration policy.
+     * Disables an enterprise acceleration policy.
      *
      * @param request - DisableEnterpriseAcceleratePolicyRequest
      *
@@ -2857,7 +2929,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Enable enterprise acceleration policy.
+     * Enables an enterprise acceleration policy.
      *
      * @param request - EnableEnterpriseAcceleratePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2896,7 +2968,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Enable enterprise acceleration policy.
+     * Enables an enterprise acceleration policy.
      *
      * @param request - EnableEnterpriseAcceleratePolicyRequest
      *
@@ -2914,7 +2986,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Exports the information about user terminals in an Excel file.
+     * Export a list of user terminal devices to an Excel file.
      *
      * @param request - ExportUserDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3012,7 +3084,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Exports the information about user terminals in an Excel file.
+     * Export a list of user terminal devices to an Excel file.
      *
      * @param request - ExportUserDevicesRequest
      *
@@ -3030,7 +3102,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询已启用的身份源配置.
+     * Queries the identity provider configuration enabled for your Alibaba Cloud account.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3059,7 +3131,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询已启用的身份源配置.
+     * Queries the identity provider configuration enabled for your Alibaba Cloud account.
      *
      * @returns GetActiveIdpConfigResponse
      *
@@ -3073,7 +3145,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of an approval instance within your Alibaba Cloud account.
+     * Retrieves the details of an approval instance for your Alibaba Cloud account.
      *
      * @param request - GetApprovalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3108,7 +3180,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of an approval instance within your Alibaba Cloud account.
+     * Retrieves the details of an approval instance for your Alibaba Cloud account.
      *
      * @param request - GetApprovalRequest
      *
@@ -3179,7 +3251,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of an approval template within your Alibaba Cloud account.
+     * Retrieves the details of an approval template for your Alibaba Cloud account.
      *
      * @param request - GetApprovalSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3214,7 +3286,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of an approval template within your Alibaba Cloud account.
+     * Retrieves the details of an approval template for your Alibaba Cloud account.
      *
      * @param request - GetApprovalSchemaRequest
      *
@@ -3232,7 +3304,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of the Startup and anti-uninstall policy under the current Alibaba Cloud account.
+     * Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3261,7 +3333,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of the Startup and anti-uninstall policy under the current Alibaba Cloud account.
+     * Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
      *
      * @returns GetBootAndAntiUninstallPolicyResponse
      *
@@ -3275,7 +3347,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query a specified user from a custom identity source.
+     * Retrieves the details of a user from a custom identity source in your Alibaba Cloud account.
      *
      * @param request - GetClientUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3310,7 +3382,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query a specified user from a custom identity source.
+     * Retrieves the details of a user from a custom identity source in your Alibaba Cloud account.
      *
      * @param request - GetClientUserRequest
      *
@@ -3328,7 +3400,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询动态路由详情.
+     * Retrieves details about a dynamic route in your Alibaba Cloud account.
      *
      * @param request - GetDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3363,7 +3435,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询动态路由详情.
+     * Retrieves details about a dynamic route in your Alibaba Cloud account.
      *
      * @param request - GetDynamicRouteRequest
      *
@@ -3381,7 +3453,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询身份源配置详情.
+     * Retrieve the configuration details of a specified identity provider for your Alibaba Cloud account.
      *
      * @param request - GetIdpConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3416,7 +3488,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询身份源配置详情.
+     * Retrieve the configuration details of a specified identity provider for your Alibaba Cloud account.
      *
      * @param request - GetIdpConfigRequest
      *
@@ -3434,7 +3506,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query the details of an internal network access diagnostic task.
+     * Retrieves the details of a private access diagnostic task.
      *
      * @param request - GetPADiagnosisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3469,7 +3541,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query the details of an internal network access diagnostic task.
+     * Retrieves the details of a private access diagnostic task.
      *
      * @param request - GetPADiagnosisTaskRequest
      *
@@ -3487,7 +3559,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of the office applications that belong to the current Alibaba Cloud account.
+     * Queries the details of an internal-facing access application under the current Alibaba Cloud account.
      *
      * @param request - GetPrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3522,7 +3594,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of the office applications that belong to the current Alibaba Cloud account.
+     * Queries the details of an internal-facing access application under the current Alibaba Cloud account.
      *
      * @param request - GetPrivateAccessApplicationRequest
      *
@@ -3593,7 +3665,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询设备注册策略详情.
+     * Queries the details of a device registration policy within the current Alibaba Cloud account.
      *
      * @param request - GetRegistrationPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3628,7 +3700,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询设备注册策略详情.
+     * Queries the details of a device registration policy within the current Alibaba Cloud account.
      *
      * @param request - GetRegistrationPolicyRequest
      *
@@ -3646,7 +3718,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户设备详情.
+     * Queries the details of a user endpoint device under the current Alibaba Cloud account.
      *
      * @param request - GetUserDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3681,7 +3753,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户设备详情.
+     * Queries the details of a user endpoint device under the current Alibaba Cloud account.
      *
      * @param request - GetUserDeviceRequest
      *
@@ -3699,7 +3771,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户组详情.
+     * Queries the details of a user group in the current Alibaba Cloud account.
      *
      * @param request - GetUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3734,7 +3806,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户组详情.
+     * Queries the details of a user group in the current Alibaba Cloud account.
      *
      * @param request - GetUserGroupRequest
      *
@@ -3752,7 +3824,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询嵌入水印任务
+     * Use the job ID obtained from creating a watermark embedding job to query the embedding job result.
      *
      * @param request - GetWmEmbedTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3787,7 +3859,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询嵌入水印任务
+     * Use the job ID obtained from creating a watermark embedding job to query the embedding job result.
      *
      * @param request - GetWmEmbedTaskRequest
      *
@@ -3805,7 +3877,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询文件水印提取任务详情.
+     * Queries the result of a watermark extraction task using the task ID that is returned when you create the task.
      *
      * @param request - GetWmExtractTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3840,7 +3912,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询文件水印提取任务详情.
+     * Queries the result of a watermark extraction task using the task ID that is returned when you create the task.
      *
      * @param request - GetWmExtractTaskRequest
      *
@@ -3858,7 +3930,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch import accelerated address List.
+     * Batch import acceleration addresses.
      *
      * @param request - ImportEnterpriseAccelerateTargetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3901,7 +3973,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch import accelerated address List.
+     * Batch import acceleration addresses.
      *
      * @param request - ImportEnterpriseAccelerateTargetsRequest
      *
@@ -3919,7 +3991,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch queries the applications of internal network access policies under the current Alibaba Cloud account.
+     * Queries the applications associated with one or more private access policies.
      *
      * @param request - ListApplicationsForPrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3954,7 +4026,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch queries the applications of internal network access policies under the current Alibaba Cloud account.
+     * Queries the applications associated with one or more private access policies.
      *
      * @param request - ListApplicationsForPrivateAccessPolicyRequest
      *
@@ -3972,7 +4044,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问标签的应用.
+     * Batch-query applications associated with private network access tags within your Alibaba Cloud account.
      *
      * @param request - ListApplicationsForPrivateAccessTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4007,7 +4079,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问标签的应用.
+     * Batch-query applications associated with private network access tags within your Alibaba Cloud account.
      *
      * @param request - ListApplicationsForPrivateAccessTagRequest
      *
@@ -4025,7 +4097,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the approval flow list under the current Alibaba Cloud account.
+     * Queries the list of approval processes under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4060,7 +4132,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the approval flow list under the current Alibaba Cloud account.
+     * Queries the list of approval processes under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalProcessesRequest
      *
@@ -4078,7 +4150,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query flows associated with an approval rendering template.
+     * Queries the approval flows associated with approval rendering templates.
      *
      * @param request - ListApprovalProcessesForApprovalSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4113,7 +4185,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query flows associated with an approval rendering template.
+     * Queries the approval flows associated with approval rendering templates.
      *
      * @param request - ListApprovalProcessesForApprovalSchemasRequest
      *
@@ -4131,7 +4203,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the list of approval templates under the current Alibaba Cloud account.
+     * Lists the approval templates for your Alibaba Cloud account.
      *
      * @param request - ListApprovalSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4166,7 +4238,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the list of approval templates under the current Alibaba Cloud account.
+     * Lists the approval templates for your Alibaba Cloud account.
      *
      * @param request - ListApprovalSchemasRequest
      *
@@ -4184,7 +4256,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query rendering templates associated with an approval flow.
+     * Queries the rendering templates associated with approval processes.
      *
      * @param request - ListApprovalSchemasForApprovalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4219,7 +4291,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query rendering templates associated with an approval flow.
+     * Queries the rendering templates associated with approval processes.
      *
      * @param request - ListApprovalSchemasForApprovalProcessesRequest
      *
@@ -4237,7 +4309,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the approval instance list under the current Alibaba Cloud account.
+     * Lists approval instances for your Alibaba Cloud account.
      *
      * @param request - ListApprovalsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4272,7 +4344,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the approval instance list under the current Alibaba Cloud account.
+     * Lists approval instances for your Alibaba Cloud account.
      *
      * @param request - ListApprovalsRequest
      *
@@ -4290,7 +4362,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源用户.
+     * Query user information from custom identity sources in your Alibaba Cloud account.
      *
      * @param request - ListClientUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4325,7 +4397,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源用户.
+     * Query user information from custom identity sources in your Alibaba Cloud account.
      *
      * @param request - ListClientUsersRequest
      *
@@ -4343,7 +4415,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch query connectors.
+     * Query connectors in batches.
      *
      * @param request - ListConnectorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4378,7 +4450,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch query connectors.
+     * Query connectors in batches.
      *
      * @param request - ListConnectorsRequest
      *
@@ -4396,7 +4468,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch query Dynamic policy handling flows.
+     * Batch Query Dynamic Policy Disposal Processes.
      *
      * @param request - ListDynamicDisposalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4431,7 +4503,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch query Dynamic policy handling flows.
+     * Batch Query Dynamic Policy Disposal Processes.
      *
      * @param request - ListDynamicDisposalProcessesRequest
      *
@@ -4449,7 +4521,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的地域
+     * Queries the regions that are supported by the access points of SASE POP clusters for your Alibaba Cloud account.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4478,7 +4550,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的地域
+     * Queries the regions that are supported by the access points of SASE POP clusters for your Alibaba Cloud account.
      *
      * @returns ListDynamicRouteRegionsResponse
      *
@@ -4492,7 +4564,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由.
+     * Retrieves information about all dynamic routes for the current Alibaba Cloud account.
      *
      * @param request - ListDynamicRoutesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4527,7 +4599,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由.
+     * Retrieves information about all dynamic routes for the current Alibaba Cloud account.
      *
      * @param request - ListDynamicRoutesRequest
      *
@@ -4545,7 +4617,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries enterprise acceleration Audit logs.
+     * Queries audit logs for enterprise acceleration.
      *
      * @param request - ListEnterpriseAccelerateLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4580,7 +4652,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries enterprise acceleration Audit logs.
+     * Queries audit logs for enterprise acceleration.
      *
      * @param request - ListEnterpriseAccelerateLogsRequest
      *
@@ -4598,7 +4670,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query acceleration policy list.
+     * Query acceleration policies.
      *
      * @param request - ListEnterpriseAcceleratePoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4633,7 +4705,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query acceleration policy list.
+     * Query acceleration policies.
      *
      * @param request - ListEnterpriseAcceleratePoliciesRequest
      *
@@ -4651,7 +4723,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query the enterprise acceleration address list.
+     * Query the list of enterprise acceleration targets.
      *
      * @param request - ListEnterpriseAccelerateTargetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4686,7 +4758,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query the enterprise acceleration address list.
+     * Query the list of enterprise acceleration targets.
      *
      * @param request - ListEnterpriseAccelerateTargetsRequest
      *
@@ -4704,7 +4776,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询超额注册申请列表.
+     * Lists excess end-user device registration applications in the current Alibaba Cloud account.
      *
      * @param request - ListExcessiveDeviceRegistrationApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4739,7 +4811,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询超额注册申请列表.
+     * Lists excess end-user device registration applications in the current Alibaba Cloud account.
      *
      * @param request - ListExcessiveDeviceRegistrationApplicationsRequest
      *
@@ -4757,7 +4829,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch query forwarding rules.
+     * Queries forwarding rules in batches.
      *
      * @param request - ListForwardStrategiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4792,7 +4864,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch query forwarding rules.
+     * Queries forwarding rules in batches.
      *
      * @param request - ListForwardStrategiesRequest
      *
@@ -4810,7 +4882,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch Query Forwarding Rules Attached to Projects.
+     * Queries the bindings of forwarding rules in batches.
      *
      * @param request - ListForwardStrategyBindingItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4845,7 +4917,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch Query Forwarding Rules Attached to Projects.
+     * Queries the bindings of forwarding rules in batches.
      *
      * @param request - ListForwardStrategyBindingItemsRequest
      *
@@ -4863,7 +4935,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询IDP配置.
+     * Lists identity provider configurations for the current Alibaba Cloud account.
      *
      * @param request - ListIdpConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4898,7 +4970,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询IDP配置.
+     * Lists identity provider configurations for the current Alibaba Cloud account.
      *
      * @param request - ListIdpConfigsRequest
      *
@@ -4916,7 +4988,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源部门.
+     * Retrieves department information for a custom identity provider (IdP) associated with your Alibaba Cloud account.
      *
      * @param request - ListIdpDepartmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4951,7 +5023,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源部门.
+     * Retrieves department information for a custom identity provider (IdP) associated with your Alibaba Cloud account.
      *
      * @param request - ListIdpDepartmentsRequest
      *
@@ -4969,7 +5041,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Network User List.
+     * Lists onboarded users.
      *
      * @param request - ListNacUserCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5036,7 +5108,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Network User List.
+     * Lists onboarded users.
      *
      * @param request - ListNacUserCertRequest
      *
@@ -5054,7 +5126,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用的策略.
+     * Queries policies for private access applications in your Alibaba Cloud account in batches.
      *
      * @param request - ListPolicesForPrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5089,7 +5161,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用的策略.
+     * Queries policies for private access applications in your Alibaba Cloud account in batches.
      *
      * @param request - ListPolicesForPrivateAccessApplicationRequest
      *
@@ -5107,7 +5179,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问标签的策略.
+     * Batch query policies for private network access tags in your Alibaba Cloud account.
      *
      * @param request - ListPolicesForPrivateAccessTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5142,7 +5214,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问标签的策略.
+     * Batch query policies for private network access tags in your Alibaba Cloud account.
      *
      * @param request - ListPolicesForPrivateAccessTagRequest
      *
@@ -5160,7 +5232,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户组的策略.
+     * Queries policies for multiple user groups within your Alibaba Cloud account.
      *
      * @param request - ListPolicesForUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5195,7 +5267,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户组的策略.
+     * Queries policies for multiple user groups within your Alibaba Cloud account.
      *
      * @param request - ListPolicesForUserGroupRequest
      *
@@ -5213,7 +5285,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * pop节点流量统计
+     * Retrieves bandwidth usage statistics for Secure Access Service Edge (SASE) points of presence (POPs).
      *
      * @param request - ListPopTrafficStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5248,7 +5320,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * pop节点流量统计
+     * Retrieves bandwidth usage statistics for Secure Access Service Edge (SASE) points of presence (POPs).
      *
      * @param request - ListPopTrafficStatisticsRequest
      *
@@ -5266,7 +5338,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用.
+     * Queries information about all internal-facing access applications under the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5341,7 +5413,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用.
+     * Queries information about all internal-facing access applications under the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessApplicationsRequest
      *
@@ -5359,7 +5431,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的内网访问应用.
+     * List private access applications for dynamic routes in your Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessApplicationsForDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5394,7 +5466,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的内网访问应用.
+     * List private access applications for dynamic routes in your Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessApplicationsForDynamicRouteRequest
      *
@@ -5412,7 +5484,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the private access policies within the current Alibaba Cloud account.
+     * Queries the information about all private access policies under the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessPolicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5447,7 +5519,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the private access policies within the current Alibaba Cloud account.
+     * Queries the information about all private access policies under the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessPolicesRequest
      *
@@ -5518,7 +5590,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的内网访问标签.
+     * Lists the tags for dynamic routes in your Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessTagsForDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5553,7 +5625,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询动态路由的内网访问标签.
+     * Lists the tags for dynamic routes in your Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessTagsForDynamicRouteRequest
      *
@@ -5571,7 +5643,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户设备注册策略列表.
+     * Query the list of device registration policies for your Alibaba Cloud account.
      *
      * @param request - ListRegistrationPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5606,7 +5678,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户设备注册策略列表.
+     * Query the list of device registration policies for your Alibaba Cloud account.
      *
      * @param request - ListRegistrationPoliciesRequest
      *
@@ -5624,7 +5696,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户组相关的设备注册策略.
+     * Queries the device registration policies that are associated with user groups in your Alibaba Cloud account.
      *
      * @param request - ListRegistrationPoliciesForUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5659,7 +5731,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询用户组相关的设备注册策略.
+     * Queries the device registration policies that are associated with user groups in your Alibaba Cloud account.
      *
      * @param request - ListRegistrationPoliciesForUserGroupRequest
      *
@@ -5677,7 +5749,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询终端安装软件列表.
+     * Lists the software installed on a user device.
      *
      * @param request - ListSoftwareForUserDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5712,7 +5784,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询终端安装软件列表.
+     * Lists the software installed on a user device.
      *
      * @param request - ListSoftwareForUserDeviceRequest
      *
@@ -5730,7 +5802,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用的标签.
+     * Batch query tags for private network access applications under the current Alibaba Cloud account.
      *
      * @param request - ListTagsForPrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5765,7 +5837,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问应用的标签.
+     * Batch query tags for private network access applications under the current Alibaba Cloud account.
      *
      * @param request - ListTagsForPrivateAccessApplicationRequest
      *
@@ -5783,7 +5855,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的标签.
+     * Queries the tags of internal network access policies in your Alibaba Cloud account.
      *
      * @param request - ListTagsForPrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5818,7 +5890,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的标签.
+     * Queries the tags of internal network access policies in your Alibaba Cloud account.
      *
      * @param request - ListTagsForPrivateAccessPolicyRequest
      *
@@ -5836,7 +5908,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch queries the uninstall request list under the current Alibaba Cloud account.
+     * Retrieves a list of uninstallation requests for your Alibaba Cloud account.
      *
      * @param request - ListUninstallApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5871,7 +5943,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch queries the uninstall request list under the current Alibaba Cloud account.
+     * Retrieves a list of uninstallation requests for your Alibaba Cloud account.
      *
      * @param request - ListUninstallApplicationsRequest
      *
@@ -5889,7 +5961,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the application permissions of a logon user under the current Alibaba Cloud account.
+     * Queries the application permissions of the logged-in user in the current Alibaba Cloud account.
      *
      * @param request - ListUserApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5924,7 +5996,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the application permissions of a logon user under the current Alibaba Cloud account.
+     * Queries the application permissions of the logged-in user in the current Alibaba Cloud account.
      *
      * @param request - ListUserApplicationsRequest
      *
@@ -5942,7 +6014,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户设备列表.
+     * Queries the list of user endpoint devices under the current Alibaba Cloud account.
      *
      * @param request - ListUserDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5957,7 +6029,107 @@ class Csas extends OpenApiClient
     public function listUserDevicesWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->appStatuses) {
+            @$query['AppStatuses'] = $request->appStatuses;
+        }
+
+        if (null !== $request->appVersions) {
+            @$query['AppVersions'] = $request->appVersions;
+        }
+
+        if (null !== $request->autoLoginStatuses) {
+            @$query['AutoLoginStatuses'] = $request->autoLoginStatuses;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->department) {
+            @$query['Department'] = $request->department;
+        }
+
+        if (null !== $request->deviceBelong) {
+            @$query['DeviceBelong'] = $request->deviceBelong;
+        }
+
+        if (null !== $request->deviceGroupId) {
+            @$query['DeviceGroupId'] = $request->deviceGroupId;
+        }
+
+        if (null !== $request->deviceStatuses) {
+            @$query['DeviceStatuses'] = $request->deviceStatuses;
+        }
+
+        if (null !== $request->deviceTags) {
+            @$query['DeviceTags'] = $request->deviceTags;
+        }
+
+        if (null !== $request->deviceTypes) {
+            @$query['DeviceTypes'] = $request->deviceTypes;
+        }
+
+        if (null !== $request->dlpStatuses) {
+            @$query['DlpStatuses'] = $request->dlpStatuses;
+        }
+
+        if (null !== $request->hostname) {
+            @$query['Hostname'] = $request->hostname;
+        }
+
+        if (null !== $request->iaStatuses) {
+            @$query['IaStatuses'] = $request->iaStatuses;
+        }
+
+        if (null !== $request->innerIp) {
+            @$query['InnerIp'] = $request->innerIp;
+        }
+
+        if (null !== $request->mac) {
+            @$query['Mac'] = $request->mac;
+        }
+
+        if (null !== $request->nacStatuses) {
+            @$query['NacStatuses'] = $request->nacStatuses;
+        }
+
+        if (null !== $request->paStatuses) {
+            @$query['PaStatuses'] = $request->paStatuses;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->saseUserId) {
+            @$query['SaseUserId'] = $request->saseUserId;
+        }
+
+        if (null !== $request->sharingStatus) {
+            @$query['SharingStatus'] = $request->sharingStatus;
+        }
+
+        if (null !== $request->snBios) {
+            @$query['SnBios'] = $request->snBios;
+        }
+
+        if (null !== $request->snSystem) {
+            @$query['SnSystem'] = $request->snSystem;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
+        }
+
+        if (null !== $request->workshop) {
+            @$query['Workshop'] = $request->workshop;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5966,7 +6138,7 @@ class Csas extends OpenApiClient
             'version' => '2023-01-20',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -5977,7 +6149,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户设备列表.
+     * Queries the list of user endpoint devices under the current Alibaba Cloud account.
      *
      * @param request - ListUserDevicesRequest
      *
@@ -5995,7 +6167,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户组.
+     * Retrieves information about all user groups in your Alibaba Cloud account.
      *
      * @param request - ListUserGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6030,7 +6202,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户组.
+     * Retrieves information about all user groups in your Alibaba Cloud account.
      *
      * @param request - ListUserGroupsRequest
      *
@@ -6048,7 +6220,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的用户组.
+     * Retrieve user groups for private network access policies in batches under your Alibaba Cloud account.
      *
      * @param request - ListUserGroupsForPrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6083,7 +6255,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的用户组.
+     * Retrieve user groups for private network access policies in batches under your Alibaba Cloud account.
      *
      * @param request - ListUserGroupsForPrivateAccessPolicyRequest
      *
@@ -6101,7 +6273,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询设备注册策略相关用户组.
+     * Lists the user groups associated with device registration policies in your Alibaba Cloud account.
      *
      * @param request - ListUserGroupsForRegistrationPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6136,7 +6308,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询设备注册策略相关用户组.
+     * Lists the user groups associated with device registration policies in your Alibaba Cloud account.
      *
      * @param request - ListUserGroupsForRegistrationPolicyRequest
      *
@@ -6154,7 +6326,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query the zero trust policies of a User in a List.
+     * Queries the list of user zero trust policies.
      *
      * @param request - ListUserPrivateAccessPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6189,7 +6361,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query the zero trust policies of a User in a List.
+     * Queries the list of user zero trust policies.
      *
      * @param request - ListUserPrivateAccessPoliciesRequest
      *
@@ -6207,7 +6379,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询登陆用户.
+     * Queries the users for the current Alibaba Cloud account.
      *
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6242,7 +6414,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询登陆用户.
+     * Queries the users for the current Alibaba Cloud account.
      *
      * @param request - ListUsersRequest
      *
@@ -6260,7 +6432,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 根据数字水印信息查询字符串水印信息.
+     * Look up an existing watermark information mapping to retrieve the corresponding string-formatted watermark information from numeric-formatted watermark data.
      *
      * @param request - LookupWmInfoMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6295,7 +6467,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 根据数字水印信息查询字符串水印信息.
+     * Look up an existing watermark information mapping to retrieve the corresponding string-formatted watermark information from numeric-formatted watermark data.
      *
      * @param request - LookupWmInfoMappingRequest
      *
@@ -6313,7 +6485,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modify enterprise acceleration policy.
+     * Modifies an enterprise acceleration policy.
      *
      * @param request - ModifyEnterpriseAcceleratePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6392,7 +6564,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modify enterprise acceleration policy.
+     * Modifies an enterprise acceleration policy.
      *
      * @param request - ModifyEnterpriseAcceleratePolicyRequest
      *
@@ -6410,7 +6582,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Revoke a user device session.
+     * Revokes a user device session.
      *
      * @param request - RevokeUserDeviceSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6453,7 +6625,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Revoke a user device session.
+     * Revokes a user device session.
      *
      * @param request - RevokeUserDeviceSessionRequest
      *
@@ -6471,7 +6643,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Revoke a User logon session.
+     * Revokes a user logon session.
      *
      * @deprecated OpenAPI RevokeUserSession is deprecated
      *
@@ -6517,7 +6689,7 @@ class Csas extends OpenApiClient
 
     // Deprecated
     /**
-     * Revoke a User logon session.
+     * Revokes a user logon session.
      *
      * @deprecated OpenAPI RevokeUserSession is deprecated
      *
@@ -6537,7 +6709,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Update an approval flow under the current Alibaba Cloud account.
+     * Updates an approval flow under the current Alibaba Cloud account.
      *
      * @param tmpReq - UpdateApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6623,7 +6795,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Update an approval flow under the current Alibaba Cloud account.
+     * Updates an approval flow under the current Alibaba Cloud account.
      *
      * @param request - UpdateApprovalProcessRequest
      *
@@ -6641,7 +6813,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Update the approval instance status under the current Alibaba Cloud account.
+     * Updates the status of an approval instance under your Alibaba Cloud account.
      *
      * @param request - UpdateApprovalStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6684,7 +6856,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Update the approval instance status under the current Alibaba Cloud account.
+     * Updates the status of an approval instance under your Alibaba Cloud account.
      *
      * @param request - UpdateApprovalStatusRequest
      *
@@ -6702,7 +6874,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Update the Startup and anti-uninstall policy under the current Alibaba Cloud account.
+     * Update the auto-start and anti-uninstall policy for your Alibaba Cloud account.
      *
      * @param tmpReq - UpdateBootAndAntiUninstallPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6770,7 +6942,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Update the Startup and anti-uninstall policy under the current Alibaba Cloud account.
+     * Update the auto-start and anti-uninstall policy for your Alibaba Cloud account.
      *
      * @param request - UpdateBootAndAntiUninstallPolicyRequest
      *
@@ -6788,7 +6960,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户.
+     * Update user information for a custom identity provider in your Alibaba Cloud account.
      *
      * @param request - UpdateClientUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6843,7 +7015,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户.
+     * Update user information for a custom identity provider in your Alibaba Cloud account.
      *
      * @param request - UpdateClientUserRequest
      *
@@ -6861,7 +7033,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户密码
+     * Sets the password for a specified user that belongs to a custom identity source.
      *
      * @param request - UpdateClientUserPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6908,7 +7080,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户密码
+     * Sets the password for a specified user that belongs to a custom identity source.
      *
      * @param request - UpdateClientUserPasswordRequest
      *
@@ -6926,7 +7098,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户启用状态
+     * Sets the status of a specified user from a custom identity source for your Alibaba Cloud account.
      *
      * @param request - UpdateClientUserStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6969,7 +7141,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改自定义身份源指定用户启用状态
+     * Sets the status of a specified user from a custom identity source for your Alibaba Cloud account.
      *
      * @param request - UpdateClientUserStatusRequest
      *
@@ -6987,7 +7159,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改动态路由.
+     * Modifies a dynamic route in your Alibaba Cloud account.
      *
      * @param request - UpdateDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7073,7 +7245,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改动态路由.
+     * Modifies a dynamic route in your Alibaba Cloud account.
      *
      * @param request - UpdateDynamicRouteRequest
      *
@@ -7091,7 +7263,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新超额注册申请状态
+     * Update the status of device registration applications that exceed your Alibaba Cloud account\\"s quota.
      *
      * @param request - UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7137,7 +7309,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新超额注册申请状态
+     * Update the status of device registration applications that exceed your Alibaba Cloud account\\"s quota.
      *
      * @param request - UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
      *
@@ -7155,7 +7327,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改指定自定义身份源部门.
+     * Deletes a department from a custom identity provider for the current Alibaba Cloud account.
      *
      * @param request - UpdateIdpDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7202,7 +7374,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改指定自定义身份源部门.
+     * Deletes a department from a custom identity provider for the current Alibaba Cloud account.
      *
      * @param request - UpdateIdpDepartmentRequest
      *
@@ -7220,7 +7392,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch modifies the Status of network access certificates for Users under the current Alibaba Cloud account.
+     * Updates the network access certificate status for users in your Alibaba Cloud account.
      *
      * @param request - UpdateNacUserCertStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7266,7 +7438,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch modifies the Status of network access certificates for Users under the current Alibaba Cloud account.
+     * Updates the network access certificate status for users in your Alibaba Cloud account.
      *
      * @param request - UpdateNacUserCertStatusRequest
      *
@@ -7284,7 +7456,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies the office applications of the current Alibaba Cloud account.
+     * Modifies an internal-facing access application under the current Alibaba Cloud account.
      *
      * @param tmpReq - UpdatePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7303,6 +7475,10 @@ class Csas extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->l7Config) {
             $request->l7ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
+        }
+
+        if (null !== $tmpReq->unauthorizedAccessConfig) {
+            $request->unauthorizedAccessConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->unauthorizedAccessConfig, 'UnauthorizedAccessConfig', 'json');
         }
 
         $body = [];
@@ -7367,6 +7543,10 @@ class Csas extends OpenApiClient
             @$bodyFlat['TagIds'] = $request->tagIds;
         }
 
+        if (null !== $request->unauthorizedAccessConfigShrink) {
+            @$body['UnauthorizedAccessConfig'] = $request->unauthorizedAccessConfigShrink;
+        }
+
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
@@ -7388,7 +7568,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies the office applications of the current Alibaba Cloud account.
+     * Modifies an internal-facing access application under the current Alibaba Cloud account.
      *
      * @param request - UpdatePrivateAccessApplicationRequest
      *
@@ -7406,7 +7586,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modify Private Access Policy.
+     * Update an internal network access policy for your Alibaba Cloud account.
      *
      * @param request - UpdatePrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7532,7 +7712,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modify Private Access Policy.
+     * Update an internal network access policy for your Alibaba Cloud account.
      *
      * @param request - UpdatePrivateAccessPolicyRequest
      *
@@ -7550,7 +7730,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改设备注册策略.
+     * Modifies a device registration policy for your Alibaba Cloud account.
      *
      * @param tmpReq - UpdateRegistrationPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7646,7 +7826,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改设备注册策略.
+     * Modifies a device registration policy for your Alibaba Cloud account.
      *
      * @param request - UpdateRegistrationPolicyRequest
      *
@@ -7664,7 +7844,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch updates the uninstall request status under the current Alibaba Cloud account.
+     * Batch updates the status of uninstall requests for your Alibaba Cloud account.
      *
      * @param request - UpdateUninstallApplicationsStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7710,7 +7890,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch updates the uninstall request status under the current Alibaba Cloud account.
+     * Batch updates the status of uninstall requests for your Alibaba Cloud account.
      *
      * @param request - UpdateUninstallApplicationsStatusRequest
      *
@@ -7728,7 +7908,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新用户设备共享状态
+     * Updates the sharing status of devices for multiple enterprise users.
      *
      * @param request - UpdateUserDevicesSharingStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7774,7 +7954,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新用户设备共享状态
+     * Updates the sharing status of devices for multiple enterprise users.
      *
      * @param request - UpdateUserDevicesSharingStatusRequest
      *
@@ -7792,7 +7972,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新用户设备状态
+     * Update the status of endpoint devices for your Alibaba Cloud account.
      *
      * @param request - UpdateUserDevicesStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7838,7 +8018,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量更新用户设备状态
+     * Update the status of endpoint devices for your Alibaba Cloud account.
      *
      * @param request - UpdateUserDevicesStatusRequest
      *
@@ -7856,7 +8036,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改用户组.
+     * Modifies a user group under the current Alibaba Cloud account.
      *
      * @param request - UpdateUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7910,7 +8090,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改用户组.
+     * Modifies a user group under the current Alibaba Cloud account.
      *
      * @param request - UpdateUserGroupRequest
      *
@@ -7928,7 +8108,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量修改登陆用户状态
+     * Updates the status of users in your Alibaba Cloud account.
      *
      * @param request - UpdateUsersStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7971,7 +8151,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量修改登陆用户状态
+     * Updates the status of users in your Alibaba Cloud account.
      *
      * @param request - UpdateUsersStatusRequest
      *

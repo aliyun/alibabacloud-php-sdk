@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest\matchSch
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest\matchSchemaConfigs\domainWhitelistSchemaConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest\matchSchemaConfigs\endpointHardeningSchemaConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest\matchSchemaConfigs\peripheralBlockSchemaConfig;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest\matchSchemaConfigs\privateAccessBlockSchemaConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest\matchSchemaConfigs\softwareBlockSchemaConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest\matchSchemaConfigs\softwareHardeningSchemaConfig;
 
@@ -53,6 +54,11 @@ class matchSchemaConfigs extends Model
     public $peripheralBlockSchemaConfig;
 
     /**
+     * @var privateAccessBlockSchemaConfig
+     */
+    public $privateAccessBlockSchemaConfig;
+
+    /**
      * @var softwareBlockSchemaConfig
      */
     public $softwareBlockSchemaConfig;
@@ -69,6 +75,7 @@ class matchSchemaConfigs extends Model
         'domainWhitelistSchemaConfig' => 'DomainWhitelistSchemaConfig',
         'endpointHardeningSchemaConfig' => 'EndpointHardeningSchemaConfig',
         'peripheralBlockSchemaConfig' => 'PeripheralBlockSchemaConfig',
+        'privateAccessBlockSchemaConfig' => 'PrivateAccessBlockSchemaConfig',
         'softwareBlockSchemaConfig' => 'SoftwareBlockSchemaConfig',
         'softwareHardeningSchemaConfig' => 'SoftwareHardeningSchemaConfig',
     ];
@@ -95,6 +102,9 @@ class matchSchemaConfigs extends Model
         }
         if (null !== $this->peripheralBlockSchemaConfig) {
             $this->peripheralBlockSchemaConfig->validate();
+        }
+        if (null !== $this->privateAccessBlockSchemaConfig) {
+            $this->privateAccessBlockSchemaConfig->validate();
         }
         if (null !== $this->softwareBlockSchemaConfig) {
             $this->softwareBlockSchemaConfig->validate();
@@ -134,6 +144,10 @@ class matchSchemaConfigs extends Model
 
         if (null !== $this->peripheralBlockSchemaConfig) {
             $res['PeripheralBlockSchemaConfig'] = null !== $this->peripheralBlockSchemaConfig ? $this->peripheralBlockSchemaConfig->toArray($noStream) : $this->peripheralBlockSchemaConfig;
+        }
+
+        if (null !== $this->privateAccessBlockSchemaConfig) {
+            $res['PrivateAccessBlockSchemaConfig'] = null !== $this->privateAccessBlockSchemaConfig ? $this->privateAccessBlockSchemaConfig->toArray($noStream) : $this->privateAccessBlockSchemaConfig;
         }
 
         if (null !== $this->softwareBlockSchemaConfig) {
@@ -181,6 +195,10 @@ class matchSchemaConfigs extends Model
 
         if (isset($map['PeripheralBlockSchemaConfig'])) {
             $model->peripheralBlockSchemaConfig = peripheralBlockSchemaConfig::fromMap($map['PeripheralBlockSchemaConfig']);
+        }
+
+        if (isset($map['PrivateAccessBlockSchemaConfig'])) {
+            $model->privateAccessBlockSchemaConfig = privateAccessBlockSchemaConfig::fromMap($map['PrivateAccessBlockSchemaConfig']);
         }
 
         if (isset($map['SoftwareBlockSchemaConfig'])) {

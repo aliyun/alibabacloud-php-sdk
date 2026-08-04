@@ -46,6 +46,11 @@ class matchSchemas extends Model
     /**
      * @var string
      */
+    public $privateAccessBlockSchemaId;
+
+    /**
+     * @var string
+     */
     public $softwareBlockSchemaId;
 
     /**
@@ -60,6 +65,7 @@ class matchSchemas extends Model
         'domainWhitelistSchemaId' => 'DomainWhitelistSchemaId',
         'endpointHardeningSchemaId' => 'EndpointHardeningSchemaId',
         'peripheralBlockSchemaId' => 'PeripheralBlockSchemaId',
+        'privateAccessBlockSchemaId' => 'PrivateAccessBlockSchemaId',
         'softwareBlockSchemaId' => 'SoftwareBlockSchemaId',
         'softwareHardeningSchemaId' => 'SoftwareHardeningSchemaId',
     ];
@@ -98,6 +104,10 @@ class matchSchemas extends Model
 
         if (null !== $this->peripheralBlockSchemaId) {
             $res['PeripheralBlockSchemaId'] = $this->peripheralBlockSchemaId;
+        }
+
+        if (null !== $this->privateAccessBlockSchemaId) {
+            $res['PrivateAccessBlockSchemaId'] = $this->privateAccessBlockSchemaId;
         }
 
         if (null !== $this->softwareBlockSchemaId) {
@@ -145,6 +155,10 @@ class matchSchemas extends Model
 
         if (isset($map['PeripheralBlockSchemaId'])) {
             $model->peripheralBlockSchemaId = $map['PeripheralBlockSchemaId'];
+        }
+
+        if (isset($map['PrivateAccessBlockSchemaId'])) {
+            $model->privateAccessBlockSchemaId = $map['PrivateAccessBlockSchemaId'];
         }
 
         if (isset($map['SoftwareBlockSchemaId'])) {

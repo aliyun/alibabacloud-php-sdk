@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResp
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AddressGroup;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResponseBody\application\portRanges;
+use AlibabaCloud\SDK\Csas\V20230120\Models\PAApplicationUnauthorizedAccessConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config;
 
 class application extends Model
@@ -100,6 +101,11 @@ class application extends Model
      * @var string[]
      */
     public $tagIds;
+
+    /**
+     * @var PAApplicationUnauthorizedAccessConfig
+     */
+    public $unauthorizedAccessConfig;
     protected $_name = [
         'addressGroups' => 'AddressGroups',
         'addresses' => 'Addresses',
@@ -119,6 +125,7 @@ class application extends Model
         'protocol' => 'Protocol',
         'status' => 'Status',
         'tagIds' => 'TagIds',
+        'unauthorizedAccessConfig' => 'UnauthorizedAccessConfig',
     ];
 
     public function validate()
@@ -143,6 +150,9 @@ class application extends Model
         }
         if (\is_array($this->tagIds)) {
             Model::validateArray($this->tagIds);
+        }
+        if (null !== $this->unauthorizedAccessConfig) {
+            $this->unauthorizedAccessConfig->validate();
         }
         parent::validate();
     }
@@ -262,6 +272,10 @@ class application extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->unauthorizedAccessConfig) {
+            $res['UnauthorizedAccessConfig'] = null !== $this->unauthorizedAccessConfig ? $this->unauthorizedAccessConfig->toArray($noStream) : $this->unauthorizedAccessConfig;
         }
 
         return $res;
@@ -387,6 +401,10 @@ class application extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UnauthorizedAccessConfig'])) {
+            $model->unauthorizedAccessConfig = PAApplicationUnauthorizedAccessConfig::fromMap($map['UnauthorizedAccessConfig']);
         }
 
         return $model;

@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessResponseBody\proces
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessResponseBody\process\domainWhitelistPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessResponseBody\process\endpointHardeningPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessResponseBody\process\peripheralBlockPolicies;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessResponseBody\process\privateAccessBlockPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessResponseBody\process\processNodes;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessResponseBody\process\softwareBlockPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessResponseBody\process\softwareHardeningPolicies;
@@ -79,6 +80,11 @@ class process extends Model
     public $peripheralBlockPolicies;
 
     /**
+     * @var privateAccessBlockPolicies
+     */
+    public $privateAccessBlockPolicies;
+
+    /**
      * @var string
      */
     public $processId;
@@ -115,6 +121,7 @@ class process extends Model
         'eventLabel' => 'EventLabel',
         'externalConfig' => 'ExternalConfig',
         'peripheralBlockPolicies' => 'PeripheralBlockPolicies',
+        'privateAccessBlockPolicies' => 'PrivateAccessBlockPolicies',
         'processId' => 'ProcessId',
         'processName' => 'ProcessName',
         'processNodes' => 'ProcessNodes',
@@ -144,6 +151,9 @@ class process extends Model
         }
         if (null !== $this->peripheralBlockPolicies) {
             $this->peripheralBlockPolicies->validate();
+        }
+        if (null !== $this->privateAccessBlockPolicies) {
+            $this->privateAccessBlockPolicies->validate();
         }
         if (\is_array($this->processNodes)) {
             Model::validateArray($this->processNodes);
@@ -206,6 +216,10 @@ class process extends Model
 
         if (null !== $this->peripheralBlockPolicies) {
             $res['PeripheralBlockPolicies'] = null !== $this->peripheralBlockPolicies ? $this->peripheralBlockPolicies->toArray($noStream) : $this->peripheralBlockPolicies;
+        }
+
+        if (null !== $this->privateAccessBlockPolicies) {
+            $res['PrivateAccessBlockPolicies'] = null !== $this->privateAccessBlockPolicies ? $this->privateAccessBlockPolicies->toArray($noStream) : $this->privateAccessBlockPolicies;
         }
 
         if (null !== $this->processId) {
@@ -299,6 +313,10 @@ class process extends Model
 
         if (isset($map['PeripheralBlockPolicies'])) {
             $model->peripheralBlockPolicies = peripheralBlockPolicies::fromMap($map['PeripheralBlockPolicies']);
+        }
+
+        if (isset($map['PrivateAccessBlockPolicies'])) {
+            $model->privateAccessBlockPolicies = privateAccessBlockPolicies::fromMap($map['PrivateAccessBlockPolicies']);
         }
 
         if (isset($map['ProcessId'])) {

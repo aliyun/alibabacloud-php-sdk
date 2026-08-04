@@ -70,6 +70,11 @@ class connectors extends Model
      * @var upgradeTime
      */
     public $upgradeTime;
+
+    /**
+     * @var string
+     */
+    public $vipCidr;
     protected $_name = [
         'accelerateStatus' => 'AccelerateStatus',
         'applications' => 'Applications',
@@ -83,6 +88,7 @@ class connectors extends Model
         'status' => 'Status',
         'switchStatus' => 'SwitchStatus',
         'upgradeTime' => 'UpgradeTime',
+        'vipCidr' => 'VipCidr',
     ];
 
     public function validate()
@@ -164,6 +170,10 @@ class connectors extends Model
             $res['UpgradeTime'] = null !== $this->upgradeTime ? $this->upgradeTime->toArray($noStream) : $this->upgradeTime;
         }
 
+        if (null !== $this->vipCidr) {
+            $res['VipCidr'] = $this->vipCidr;
+        }
+
         return $res;
     }
 
@@ -235,6 +245,10 @@ class connectors extends Model
 
         if (isset($map['UpgradeTime'])) {
             $model->upgradeTime = upgradeTime::fromMap($map['UpgradeTime']);
+        }
+
+        if (isset($map['VipCidr'])) {
+            $model->vipCidr = $map['VipCidr'];
         }
 
         return $model;
