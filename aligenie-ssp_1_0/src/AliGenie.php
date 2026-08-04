@@ -297,7 +297,7 @@ class AliGenie extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aligenie', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -327,7 +327,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 收藏/取消收藏.
+     * Collect or remove from favorites.
      *
      * @param tmpReq - AddAndRemoveFavoriteContentRequest
      * @param headers - AddAndRemoveFavoriteContentHeaders
@@ -406,7 +406,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 收藏/取消收藏.
+     * Collect or remove from favorites.
      *
      * @param request - AddAndRemoveFavoriteContentRequest
      *
@@ -425,7 +425,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 新增订阅.
+     * Subscribe to an album.
      *
      * @param tmpReq - AddSubRequest
      * @param headers - AddSubHeaders
@@ -502,7 +502,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 新增订阅.
+     * Subscribe to an album.
      *
      * @param request - AddSubRequest
      *
@@ -521,7 +521,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过指定精灵账号进行授权登录.
+     * Authorize logon by specifying an Aligenie account.
      *
      * @param request - AuthLoginWithAligenieUserInfoRequest
      * @param headers - AuthLoginWithAligenieUserInfoHeaders
@@ -580,7 +580,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过指定精灵账号进行授权登录.
+     * Authorize logon by specifying an Aligenie account.
      *
      * @param request - AuthLoginWithAligenieUserInfoRequest
      *
@@ -599,7 +599,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过手机号生成精灵账号进行授权登录.
+     * Generate a Genie account by phone number for authorization logon.
      *
      * @param request - AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest
      * @param headers - AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders
@@ -654,7 +654,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过手机号生成精灵账号进行授权登录.
+     * Generate a Genie account by phone number for authorization logon.
      *
      * @param request - AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest
      *
@@ -673,7 +673,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过指定淘宝账号进行授权登录.
+     * Authorize logon by specifying a Taobao account.
      *
      * @param request - AuthLoginWithTaobaoUserInfoRequest
      * @param headers - AuthLoginWithTaobaoUserInfoHeaders
@@ -732,7 +732,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过指定淘宝账号进行授权登录.
+     * Authorize logon by specifying a Taobao account.
      *
      * @param request - AuthLoginWithTaobaoUserInfoRequest
      *
@@ -751,7 +751,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过三方用户信息进行授权登录.
+     * Authorize logon by using third-party user information.
      *
      * @param tmpReq - AuthLoginWithThirdUserInfoRequest
      * @param headers - AuthLoginWithThirdUserInfoHeaders
@@ -824,7 +824,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过三方用户信息进行授权登录.
+     * Authorize logon by using third-party user information.
      *
      * @param request - AuthLoginWithThirdUserInfoRequest
      *
@@ -943,7 +943,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 轮询激活绑定结果.
+     * Poll the result of the activation attachment.
      *
      * @param tmpReq - CheckAuthCodeBindForExtRequest
      * @param headers - CheckAuthCodeBindForExtHeaders
@@ -1016,7 +1016,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 轮询激活绑定结果.
+     * Poll the result of the activation attachment.
      *
      * @param request - CheckAuthCodeBindForExtRequest
      *
@@ -1035,7 +1035,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 云播放器：对外.
+     * Cloud Push Song: Create a playlist by providing the device openUuid and the Tmall Genie openUserId.
+     *
+     * @remarks
+     * After synchronously validating the input parameters, the system asynchronously creates the playlist.
      *
      * @param tmpReq - CloudPlayerRequest
      * @param headers - CloudPlayerHeaders
@@ -1128,7 +1131,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 云播放器：对外.
+     * Cloud Push Song: Create a playlist by providing the device openUuid and the Tmall Genie openUserId.
+     *
+     * @remarks
+     * After synchronously validating the input parameters, the system asynchronously creates the playlist.
      *
      * @param request - CloudPlayerRequest
      *
@@ -1147,7 +1153,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 创建闹钟
+     * Create an alarm that supports three types: one-time, weekly, and legal working days.
      *
      * @param tmpReq - CreateAlarmRequest
      * @param headers - CreateAlarmHeaders
@@ -1224,7 +1230,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 创建闹钟
+     * Create an alarm that supports three types: one-time, weekly, and legal working days.
      *
      * @param request - CreateAlarmRequest
      *
@@ -1243,7 +1249,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 播放列表创建.
+     * Create a playlist and play the specified content.
      *
      * @param tmpReq - CreatePlayingListRequest
      * @param headers - CreatePlayingListHeaders
@@ -1322,7 +1328,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 播放列表创建.
+     * Create a playlist and play the specified content.
      *
      * @param request - CreatePlayingListRequest
      *
@@ -1341,7 +1347,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 播放列表创建走OAuth2授权.
+     * Playlist creation uses OAuth2 authorization.
      *
      * @param tmpReq - CreatePlayingListOAuth2Request
      * @param headers - map
@@ -1399,7 +1405,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 播放列表创建走OAuth2授权.
+     * Playlist creation uses OAuth2 authorization.
      *
      * @param request - CreatePlayingListOAuth2Request
      *
@@ -1418,7 +1424,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 创建定时任务
+     * Create a scheduled task.
+     *
+     * @remarks
+     * Configure a triggering task for Custom instruction data in the ecosystem based on scheduling rules such as one-time, daily, or business days.
      *
      * @param tmpReq - CreateScheduleTaskRequest
      * @param headers - CreateScheduleTaskHeaders
@@ -1495,7 +1504,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 创建定时任务
+     * Create a scheduled task.
+     *
+     * @remarks
+     * Configure a triggering task for Custom instruction data in the ecosystem based on scheduling rules such as one-time, daily, or business days.
      *
      * @param request - CreateScheduleTaskRequest
      *
@@ -1514,7 +1526,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 闹钟批量删除.
+     * Delete alarms. You can delete multiple alarms at the same time.
      *
      * @param tmpReq - DeleteAlarmsRequest
      * @param headers - DeleteAlarmsHeaders
@@ -1591,7 +1603,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 闹钟批量删除.
+     * Delete alarms. You can delete multiple alarms at the same time.
      *
      * @param request - DeleteAlarmsRequest
      *
@@ -1610,7 +1622,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 删除定时任务
+     * Delete a scheduled task.
+     *
+     * @remarks
+     * Deletes a specified scheduled task by its ID.
      *
      * @param tmpReq - DeleteScheduleTaskRequest
      * @param headers - DeleteScheduleTaskHeaders
@@ -1687,7 +1702,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 删除定时任务
+     * Delete a scheduled task.
+     *
+     * @remarks
+     * Deletes a specified scheduled task by its ID.
      *
      * @param request - DeleteScheduleTaskRequest
      *
@@ -1706,7 +1724,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 删除订阅.
+     * Delete a subscribed album.
      *
      * @param request - DeleteSubRequest
      * @param headers - DeleteSubHeaders
@@ -1761,7 +1779,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 删除订阅.
+     * Delete a subscribed album.
      *
      * @param request - DeleteSubRequest
      *
@@ -1780,7 +1798,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 设备控制.
+     * Control property values such as device volume.
+     *
+     * @remarks
+     * Specify a device to modify property values such as volume.
      *
      * @param tmpReq - DeviceControlRequest
      * @param headers - DeviceControlHeaders
@@ -1851,7 +1872,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 设备控制.
+     * Control property values such as device volume.
+     *
+     * @remarks
+     * Specify a device to modify property values such as volume.
      *
      * @param request - DeviceControlRequest
      *
@@ -1870,7 +1894,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 生态开放鉴权.
+     * Use the login-state access token for authentication to obtain the third-party user identifier and the Tmall Genie user\\"s openId.
+     *
+     * @remarks
+     * Note: When the login state expires, the integrator must reinitiate the authorization login flow to obtain a new login state (entry service API: AuthLoginWithThirdUserInfo).
+     * - Invoke the service API with the login-state access credential (LoginStateAccessToken) parameter by using the Java SDK (for SDKs in other languages, consult Tmall Genie developers during integration).
+     * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the login state has expired.
+     * - Invoke the service API by sending an HTTP request with the login-state access credential (LoginStateAccessToken) parameter.
+     * If the HTTP response status code returned by the API call is 400, the login state has expired.
      *
      * @param request - EcologyOpennessAuthenticateRequest
      * @param headers - EcologyOpennessAuthenticateHeaders
@@ -1933,7 +1964,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 生态开放鉴权.
+     * Use the login-state access token for authentication to obtain the third-party user identifier and the Tmall Genie user\\"s openId.
+     *
+     * @remarks
+     * Note: When the login state expires, the integrator must reinitiate the authorization login flow to obtain a new login state (entry service API: AuthLoginWithThirdUserInfo).
+     * - Invoke the service API with the login-state access credential (LoginStateAccessToken) parameter by using the Java SDK (for SDKs in other languages, consult Tmall Genie developers during integration).
+     * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the login state has expired.
+     * - Invoke the service API by sending an HTTP request with the login-state access credential (LoginStateAccessToken) parameter.
+     * If the HTTP response status code returned by the API call is 400, the login state has expired.
      *
      * @param request - EcologyOpennessAuthenticateRequest
      *
@@ -1952,7 +1990,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 生态开放发送短信验证码
+     * Ecosystem Open API for sending SMS verification codes.
      *
      * @param request - EcologyOpennessSendVerificationCodeRequest
      * @param headers - EcologyOpennessSendVerificationCodeHeaders
@@ -2015,7 +2053,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 生态开放发送短信验证码
+     * Ecosystem Open API for sending SMS verification codes.
      *
      * @param request - EcologyOpennessSendVerificationCodeRequest
      *
@@ -2034,7 +2072,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过手机号寻找可授权登录的账号列表.
+     * Find a list of accounts that can be authorized to log on by phone number.
      *
      * @param request - FindUserlistToAuthLoginWithPhoneNumberRequest
      * @param headers - FindUserlistToAuthLoginWithPhoneNumberHeaders
@@ -2101,7 +2139,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过手机号寻找可授权登录的账号列表.
+     * Find a list of accounts that can be authorized to log on by phone number.
      *
      * @param request - FindUserlistToAuthLoginWithPhoneNumberRequest
      *
@@ -2120,7 +2158,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取单个闹钟
+     * Retrieve the detailed information of a specific alarm clock.
      *
      * @param tmpReq - GetAlarmRequest
      * @param headers - GetAlarmHeaders
@@ -2197,7 +2235,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取单个闹钟
+     * Retrieve the detailed information of a specific alarm clock.
      *
      * @param request - GetAlarmRequest
      *
@@ -2216,7 +2254,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 根据id获取专辑信息.
+     * Retrieve album information by a specific ID.
      *
      * @param request - GetAlbumRequest
      * @param headers - GetAlbumHeaders
@@ -2275,7 +2313,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 根据id获取专辑信息.
+     * Retrieve album information by a specific ID.
      *
      * @param request - GetAlbumRequest
      *
@@ -2294,7 +2332,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取专辑数据.
+     * Retrieve album information.
      *
      * @param request - GetAlbumDetailByIdRequest
      * @param headers - GetAlbumDetailByIdHeaders
@@ -2349,7 +2387,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取专辑数据.
+     * Retrieve album information.
      *
      * @param request - GetAlbumDetailByIdRequest
      *
@@ -2368,7 +2406,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取三方绑定的精灵账号信息.
+     * Obtain the Aligenie account information bound to a third party by using the logon state credential.
+     *
+     * @remarks
+     * Note: When the logon state expires, the integrator must initiate the authorization logon flow again to obtain a new logon state (entry service API: AuthLoginWithThirdUserInfo).
+     * - Invoke the service API with the logon state access credential (LoginStateAccessToken) parameter by using the Java software development kit (SDK). For SDKs in other languages, consult the Tmall Genie developer team during integration.
+     * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the logon state has expired.
+     * - Invoke the service API by sending an HTTP request with the logon state access credential (LoginStateAccessToken) parameter.
+     * If the HTTP response status code returned by the API call is 400, the logon state has expired.
      *
      * @param request - GetAligenieUserInfoRequest
      * @param headers - GetAligenieUserInfoHeaders
@@ -2423,7 +2468,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取三方绑定的精灵账号信息.
+     * Obtain the Aligenie account information bound to a third party by using the logon state credential.
+     *
+     * @remarks
+     * Note: When the logon state expires, the integrator must initiate the authorization logon flow again to obtain a new logon state (entry service API: AuthLoginWithThirdUserInfo).
+     * - Invoke the service API with the logon state access credential (LoginStateAccessToken) parameter by using the Java software development kit (SDK). For SDKs in other languages, consult the Tmall Genie developer team during integration.
+     * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the logon state has expired.
+     * - Invoke the service API by sending an HTTP request with the logon state access credential (LoginStateAccessToken) parameter.
+     * If the HTTP response status code returned by the API call is 400, the logon state has expired.
      *
      * @param request - GetAligenieUserInfoRequest
      *
@@ -2442,7 +2494,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取authCode.
+     * Obtain the authCode.
+     *
+     * @remarks
+     * Obtain the corresponding authCode by specifying the user ID.
      *
      * @param tmpReq - GetCodeEnhanceRequest
      * @param headers - GetCodeEnhanceHeaders
@@ -2511,7 +2566,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取authCode.
+     * Obtain the authCode.
+     *
+     * @remarks
+     * Obtain the corresponding authCode by specifying the user ID.
      *
      * @param request - GetCodeEnhanceRequest
      *
@@ -2530,7 +2588,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 按照特定的id获取内容信息.
+     * Retrieve content information by a specific ID.
      *
      * @param request - GetContentRequest
      * @param headers - GetContentHeaders
@@ -2589,7 +2647,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 按照特定的id获取内容信息.
+     * Retrieve content information by a specific ID.
      *
      * @param request - GetContentRequest
      *
@@ -2608,7 +2666,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取当前播放项.
+     * Obtain the current playback item.
      *
      * @param tmpReq - GetCurrentPlayingItemRequest
      * @param headers - GetCurrentPlayingItemHeaders
@@ -2677,7 +2735,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取当前播放项.
+     * Obtain the current playback item.
      *
      * @param request - GetCurrentPlayingItemRequest
      *
@@ -2696,7 +2754,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取当前播放列表.
+     * Obtain the current playlist.
      *
      * @param tmpReq - GetCurrentPlayingListRequest
      * @param headers - GetCurrentPlayingListHeaders
@@ -2775,7 +2833,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取当前播放列表.
+     * Obtain the current playlist.
      *
      * @param request - GetCurrentPlayingListRequest
      *
@@ -2794,7 +2852,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备认证信息.
+     * Obtain basic device information by Device ID.
      *
      * @param tmpReq - GetDeviceBasicInfoRequest
      * @param headers - GetDeviceBasicInfoHeaders
@@ -2855,7 +2913,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备认证信息.
+     * Obtain basic device information by Device ID.
      *
      * @param request - GetDeviceBasicInfoRequest
      *
@@ -2874,7 +2932,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备信息.
+     * Obtain the Device ID based on the device MAC or SN.
      *
      * @param request - GetDeviceIdByIdentityRequest
      * @param headers - GetDeviceIdByIdentityHeaders
@@ -2945,7 +3003,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备信息.
+     * Obtain the Device ID based on the device MAC or SN.
      *
      * @param request - GetDeviceIdByIdentityRequest
      *
@@ -2964,7 +3022,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备的用户设置.
+     * Obtain the user settings of a device.
      *
      * @param tmpReq - GetDeviceSettingRequest
      * @param headers - GetDeviceSettingHeaders
@@ -3033,7 +3091,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备的用户设置.
+     * Obtain the user settings of a device.
      *
      * @param request - GetDeviceSettingRequest
      *
@@ -3052,7 +3110,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备状态详情.
+     * Obtain device status details.
      *
      * @param tmpReq - GetDeviceStatusDetailRequest
      * @param headers - GetDeviceStatusDetailHeaders
@@ -3121,7 +3179,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备状态详情.
+     * Obtain device status details.
      *
      * @param request - GetDeviceStatusDetailRequest
      *
@@ -3140,7 +3198,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备状态信息.
+     * Obtain the online status of a device based on its openID.
      *
      * @param tmpReq - GetDeviceStatusInfoRequest
      * @param headers - GetDeviceStatusInfoHeaders
@@ -3201,7 +3259,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备状态信息.
+     * Obtain the online status of a device based on its openID.
      *
      * @param request - GetDeviceStatusInfoRequest
      *
@@ -3220,7 +3278,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备标签.
+     * Obtain the tag information of a device.
      *
      * @param tmpReq - GetDeviceTagRequest
      * @param headers - GetDeviceTagHeaders
@@ -3281,7 +3339,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取设备标签.
+     * Obtain the tag information of a device.
      *
      * @param request - GetDeviceTagRequest
      *
@@ -3300,7 +3358,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 江苏电信号百.
+     * Derived requirements from Jiangsu Telecom\\"s self-developed desktop launcher project. HaoBai expects to collect statistics on the activation rate, active user rate, and top user usage patterns after the project is published, and to generate daily and weekly reports. Daily reports are synchronized automatically via API, while weekly reports are synchronized offline.
      *
      * @param request - GetJiangSuTelecomDataRequest
      * @param headers - GetJiangSuTelecomDataHeaders
@@ -3355,7 +3413,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 江苏电信号百.
+     * Derived requirements from Jiangsu Telecom\\"s self-developed desktop launcher project. HaoBai expects to collect statistics on the activation rate, active user rate, and top user usage patterns after the project is published, and to generate daily and weekly reports. Daily reports are synchronized automatically via API, while weekly reports are synchronized offline.
      *
      * @param request - GetJiangSuTelecomDataRequest
      *
@@ -3374,7 +3432,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询定时任务
+     * Obtain scheduled task information.
+     *
+     * @remarks
+     * Query the details of a specified scheduled task by its ID.
      *
      * @param tmpReq - GetScheduleTaskRequest
      * @param headers - GetScheduleTaskHeaders
@@ -3451,7 +3512,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询定时任务
+     * Obtain scheduled task information.
+     *
+     * @remarks
+     * Query the details of a specified scheduled task by its ID.
      *
      * @param request - GetScheduleTaskRequest
      *
@@ -3470,7 +3534,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询未读留言数量.
+     * Query the number of unread messages for a user.
      *
      * @param tmpReq - GetUnreadMessageCountRequest
      * @param headers - GetUnreadMessageCountHeaders
@@ -3531,7 +3595,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询未读留言数量.
+     * Query the number of unread messages for a user.
      *
      * @param request - GetUnreadMessageCountRequest
      *
@@ -3550,7 +3614,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询设备绑定的用户.
+     * Obtain the User ID attached to a device by the device\\"s openID.
      *
      * @param tmpReq - GetUserByDeviceIdRequest
      * @param headers - GetUserByDeviceIdHeaders
@@ -3611,7 +3675,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询设备绑定的用户.
+     * Obtain the User ID attached to a device by the device\\"s openID.
      *
      * @param request - GetUserByDeviceIdRequest
      *
@@ -3630,7 +3694,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询天气.
+     * Query the weather.
+     *
+     * @remarks
+     * Query the weather data for the location of the device based on the Device Information obtained from system parameters.
      *
      * @param tmpReq - GetWeatherRequest
      * @param headers - GetWeatherHeaders
@@ -3707,7 +3774,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询天气.
+     * Query the weather.
+     *
+     * @remarks
+     * Query the weather data for the location of the device based on the Device Information obtained from system parameters.
      *
      * @param request - GetWeatherRequest
      *
@@ -3726,7 +3796,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 播放列表点击播放.
+     * Click a playlist to start playback.
      *
      * @param tmpReq - IndexControlPlayingListRequest
      * @param headers - IndexControlPlayingListHeaders
@@ -3805,7 +3875,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 播放列表点击播放.
+     * Click a playlist to start playback.
      *
      * @param request - IndexControlPlayingListRequest
      *
@@ -3824,7 +3894,11 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 失效三方应用登录态
+     * When a user operation (not initiated from the device side) causes the login session of a third-party application on the device to become invalid (for example, the user logs on to the same account from a new device, invalidating the session on the old device, or the user changes their password, which invalidates the session on the old device), the third party must invoke this API to notify Tmall Genie.
+     *
+     * @remarks
+     * > Modify message notification template
+     * > - You need to query the templateId first, then modify other parameters based on the templateId.
      *
      * @param tmpReq - InvalidateThirdPartyAppLoginStateRequest
      * @param headers - InvalidateThirdPartyAppLoginStateHeaders
@@ -3889,7 +3963,11 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 失效三方应用登录态
+     * When a user operation (not initiated from the device side) causes the login session of a third-party application on the device to become invalid (for example, the user logs on to the same account from a new device, invalidating the session on the old device, or the user changes their password, which invalidates the session on the old device), the third party must invoke this API to notify Tmall Genie.
+     *
+     * @remarks
+     * > Modify message notification template
+     * > - You need to query the templateId first, then modify other parameters based on the templateId.
      *
      * @param request - InvalidateThirdPartyAppLoginStateRequest
      *
@@ -3908,7 +3986,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询闹钟列表.
+     * Perform a paged query to retrieve the alarm clock list of a specific User on a device.
      *
      * @param tmpReq - ListAlarmsRequest
      * @param headers - ListAlarmsHeaders
@@ -3985,7 +4063,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询闹钟列表.
+     * Perform a paged query to retrieve the alarm clock list of a specific User on a device.
      *
      * @param request - ListAlarmsRequest
      *
@@ -4004,7 +4082,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取音乐音频专辑里面的内容列表.
+     * Obtain the content list within a music audio album.
      *
      * @param request - ListAlbumDetailRequest
      * @param headers - ListAlbumDetailHeaders
@@ -4067,7 +4145,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取音乐音频专辑里面的内容列表.
+     * Obtain the content list within a music audio album.
      *
      * @param request - ListAlbumDetailRequest
      *
@@ -4086,7 +4164,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 专辑是否被订阅.
+     * Whether the album is subscribed.
      *
      * @param tmpReq - ListAlbumIsAddedRequest
      * @param headers - ListAlbumIsAddedHeaders
@@ -4163,7 +4241,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 专辑是否被订阅.
+     * Whether the album is subscribed.
      *
      * @param request - ListAlbumIsAddedRequest
      *
@@ -4182,7 +4260,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 根据特定的类目,按照指定的排序顺序获取该类目下的内容.
+     * Obtain the content under a specific category according to the specified sorting order.
      *
      * @param tmpReq - ListCateContentRequest
      * @param headers - ListCateContentHeaders
@@ -4261,7 +4339,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 根据特定的类目,按照指定的排序顺序获取该类目下的内容.
+     * Obtain the content under a specific category according to the specified sorting order.
      *
      * @param request - ListCateContentRequest
      *
@@ -4280,7 +4358,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取音乐音频类目列表.
+     * Obtain category information.
      *
      * @param request - ListCateInfoRequest
      * @param headers - ListCateInfoHeaders
@@ -4335,7 +4413,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取音乐音频类目列表.
+     * Obtain category information.
      *
      * @param request - ListCateInfoRequest
      *
@@ -4354,7 +4432,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取音乐/音频的一级类目列表.
+     * Obtain the top-level category list for music or audio.
      *
      * @param request - ListCommonCateFirstFloorRequest
      * @param headers - ListCommonCateFirstFloorHeaders
@@ -4409,7 +4487,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取音乐/音频的一级类目列表.
+     * Obtain the top-level category list for music or audio.
      *
      * @param request - ListCommonCateFirstFloorRequest
      *
@@ -4428,7 +4506,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取指定一级类目下面的二级类目列表.
+     * Retrieve the list of level-2 categories under a specified level-1 category.
      *
      * @param request - ListCommonCateSecondFloorRequest
      * @param headers - ListCommonCateSecondFloorHeaders
@@ -4483,7 +4561,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取指定一级类目下面的二级类目列表.
+     * Retrieve the list of level-2 categories under a specified level-1 category.
      *
      * @param request - ListCommonCateSecondFloorRequest
      *
@@ -4502,7 +4580,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 批量获取设备基本信息.
+     * Batch retrieve basic device information based on a list of device openIDs.
      *
      * @param tmpReq - ListDeviceBasicInfoRequest
      * @param headers - ListDeviceBasicInfoHeaders
@@ -4563,7 +4641,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 批量获取设备基本信息.
+     * Batch retrieve basic device information based on a list of device openIDs.
      *
      * @param request - ListDeviceBasicInfoRequest
      *
@@ -4582,7 +4660,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询用户名下的设备.
+     * Obtain the list of attached Device IDs based on the user\\"s openID.
      *
      * @param tmpReq - ListDeviceByUserIdRequest
      * @param headers - ListDeviceByUserIdHeaders
@@ -4643,7 +4721,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询用户名下的设备.
+     * Obtain the list of attached Device IDs based on the user\\"s openID.
      *
      * @param request - ListDeviceByUserIdRequest
      *
@@ -4662,7 +4740,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取指定渠道的设备列表.
+     * Obtain the device list for a specified channel.
      *
      * @param tmpReq - ListDeviceByUserIdAndChanelRequest
      * @param headers - ListDeviceByUserIdAndChanelHeaders
@@ -4731,7 +4809,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取指定渠道的设备列表.
+     * Obtain the device list for a specified channel.
      *
      * @param request - ListDeviceByUserIdAndChanelRequest
      *
@@ -4750,7 +4828,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 批量获取设备openId.
+     * Batch retrieve Device IDs by device MAC/SN.
      *
      * @param tmpReq - ListDeviceIdByIdentitiesRequest
      * @param headers - ListDeviceIdByIdentitiesHeaders
@@ -4827,7 +4905,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 批量获取设备openId.
+     * Batch retrieve Device IDs by device MAC/SN.
      *
      * @param request - ListDeviceIdByIdentitiesRequest
      *
@@ -4846,7 +4924,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 基于音乐类型查询铃声列表（分页）.
+     * Query the list of ringtones under a specified music category.
      *
      * @param tmpReq - ListMusicRequest
      * @param headers - ListMusicHeaders
@@ -4923,7 +5001,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 基于音乐类型查询铃声列表（分页）.
+     * Query the list of ringtones under a specified music category.
      *
      * @param request - ListMusicRequest
      *
@@ -4942,7 +5020,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取用户的播放历史.
+     * Obtain the history playback API.
      *
      * @param tmpReq - ListPlayHistoryRequest
      * @param headers - ListPlayHistoryHeaders
@@ -5021,7 +5099,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取用户的播放历史.
+     * Obtain the history playback API.
      *
      * @param request - ListPlayHistoryRequest
      *
@@ -5040,7 +5118,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取每日推荐的音乐或者音频.
+     * Obtain daily recommended music or audio.
      *
      * @param tmpReq - ListRecommendContentRequest
      * @param headers - ListRecommendContentHeaders
@@ -5119,7 +5197,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取每日推荐的音乐或者音频.
+     * Obtain daily recommended music or audio.
      *
      * @param request - ListRecommendContentRequest
      *
@@ -5138,7 +5216,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 订阅列表.
+     * The user has subscribed to the list.
      *
      * @param tmpReq - ListSubRequest
      * @param headers - ListSubHeaders
@@ -5215,7 +5293,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 订阅列表.
+     * The user has subscribed to the list.
      *
      * @param request - ListSubRequest
      *
@@ -5234,7 +5312,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 订阅专辑元数据列表.
+     * Album List.
      *
      * @param tmpReq - ListSubAlbumRequest
      * @param headers - ListSubAlbumHeaders
@@ -5311,7 +5389,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 订阅专辑元数据列表.
+     * Album List.
      *
      * @param request - ListSubAlbumRequest
      *
@@ -5330,7 +5408,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 内容订阅元数据分类.
+     * Album categorization.
      *
      * @param request - ListSubscriptionAlbumCategoryRequest
      * @param headers - ListSubscriptionAlbumCategoryHeaders
@@ -5385,7 +5463,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 内容订阅元数据分类.
+     * Album categorization.
      *
      * @param request - ListSubscriptionAlbumCategoryRequest
      *
@@ -5404,7 +5482,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取留言列表.
+     * Query the list of user message records based on the query conditions, including the start time and the number of entries to return.
      *
      * @param tmpReq - ListUserMessageRequest
      * @param headers - ListUserMessageHeaders
@@ -5473,7 +5551,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取留言列表.
+     * Query the list of user message records based on the query conditions, including the start time and the number of entries to return.
      *
      * @param request - ListUserMessageRequest
      *
@@ -5492,7 +5570,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 移动轻纳管
+     * Shift the project to obtain recommended songs, including daily recommendations, popular songs, and genre-based playlists.
+     *
+     * @remarks
+     * Different scenarios (such as daily recommendations and popular songs) can be distinguished by the Type parameter.
      *
      * @param tmpReq - MobileRecommendRequest
      * @param headers - MobileRecommendHeaders
@@ -5577,7 +5658,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 移动轻纳管
+     * Shift the project to obtain recommended songs, including daily recommendations, popular songs, and genre-based playlists.
+     *
+     * @remarks
+     * Different scenarios (such as daily recommendations and popular songs) can be distinguished by the Type parameter.
      *
      * @param request - MobileRecommendRequest
      *
@@ -5596,7 +5680,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 播放暂停控制.
+     * Playback and pause control.
      *
      * @param tmpReq - PlayAndPauseControlRequest
      * @param headers - PlayAndPauseControlHeaders
@@ -5675,7 +5759,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 播放暂停控制.
+     * Playback and pause control.
      *
      * @param request - PlayAndPauseControlRequest
      *
@@ -5694,7 +5778,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 播放模式切换.
+     * Switch playback mode.
      *
      * @param tmpReq - PlayModeControlRequest
      * @param headers - PlayModeControlHeaders
@@ -5773,7 +5857,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 播放模式切换.
+     * Switch playback mode.
      *
      * @param request - PlayModeControlRequest
      *
@@ -5792,7 +5876,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 上下首控制.
+     * Control the next or previous track in the created playlist.
      *
      * @param tmpReq - PreviousAndNextControlRequest
      * @param headers - PreviousAndNextControlHeaders
@@ -5871,7 +5955,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 上下首控制.
+     * Control the next or previous track in the created playlist.
      *
      * @param request - PreviousAndNextControlRequest
      *
@@ -5890,7 +5974,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 进度控制.
+     * Progress control.
      *
      * @param tmpReq - ProgressControlRequest
      * @param headers - ProgressControlHeaders
@@ -5969,7 +6053,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 进度控制.
+     * Progress control.
      *
      * @param request - ProgressControlRequest
      *
@@ -5988,7 +6072,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取闹钟音乐类型列表.
+     * Obtain the collection of alarm music types supported by the device.
      *
      * @param tmpReq - QueryMusicTypeRequest
      * @param headers - QueryMusicTypeHeaders
@@ -6065,7 +6149,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取闹钟音乐类型列表.
+     * Obtain the collection of alarm music types supported by the device.
      *
      * @param request - QueryMusicTypeRequest
      *
@@ -6084,7 +6168,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过tme用户id获取授权的天猫精灵用户+设备列表.
+     * Obtain the list of authorized Tmall Genie users and their devices by using the TME user ID, for use by KuGou Cloud Push Song service.
      *
      * @param request - QueryUserDeviceListByTmeUserIdRequest
      * @param headers - QueryUserDeviceListByTmeUserIdHeaders
@@ -6143,7 +6227,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 通过tme用户id获取授权的天猫精灵用户+设备列表.
+     * Obtain the list of authorized Tmall Genie users and their devices by using the TME user ID, for use by KuGou Cloud Push Song service.
      *
      * @param request - QueryUserDeviceListByTmeUserIdRequest
      *
@@ -6162,7 +6246,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 读取留言
+     * Set a message to read status.
      *
      * @param tmpReq - ReadMessageRequest
      * @param headers - ReadMessageHeaders
@@ -6227,7 +6311,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 读取留言
+     * Set a message to read status.
      *
      * @param request - ReadMessageRequest
      *
@@ -6246,7 +6330,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 扫描二维码激活绑定设备.
+     * A screen-equipped device completes activation and attachment between the user and the device by scanning a QR code.
+     *
+     * @remarks
+     * Perform activation and attachment by scanning the QR code related to activation and attachment displayed on the device.
      *
      * @param tmpReq - ScanCodeBindRequest
      * @param headers - ScanCodeBindHeaders
@@ -6315,7 +6402,10 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 扫描二维码激活绑定设备.
+     * A screen-equipped device completes activation and attachment between the user and the device by scanning a QR code.
+     *
+     * @remarks
+     * Perform activation and attachment by scanning the QR code related to activation and attachment displayed on the device.
      *
      * @param request - ScanCodeBindRequest
      *
@@ -6334,7 +6424,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 选品池投放能力.
+     * Query the content of a selection pool by its ID.
      *
      * @param tmpReq - ScgSearchRequest
      * @param headers - ScgSearchHeaders
@@ -6399,7 +6489,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 选品池投放能力.
+     * Query the content of a selection pool by its ID.
      *
      * @param request - ScgSearchRequest
      *
@@ -6418,7 +6508,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 按照特定的搜索条件搜索.
+     * Search according to specific search criteria.
      *
      * @param tmpReq - SearchContentRequest
      * @param headers - SearchContentHeaders
@@ -6497,7 +6587,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 按照特定的搜索条件搜索.
+     * Search according to specific search criteria.
      *
      * @param request - SearchContentRequest
      *
@@ -6516,7 +6606,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 发送留言
+     * Send a message.
      *
      * @param tmpReq - SendMessageRequest
      * @param headers - SendMessageHeaders
@@ -6581,7 +6671,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 发送留言
+     * Send a message.
      *
      * @param request - SendMessageRequest
      *
@@ -6600,7 +6690,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 修改设备设置.
+     * Modify the user settings of a device.
      *
      * @param tmpReq - SetDeviceSettingRequest
      * @param headers - SetDeviceSettingHeaders
@@ -6671,7 +6761,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 修改设备设置.
+     * Modify the user settings of a device.
      *
      * @param request - SetDeviceSettingRequest
      *
@@ -6690,7 +6780,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 三方即时信息数据变更事件推送
+     * Third-party real-time information data change event push.
      *
      * @param request - ThirdImmediateMsgPushRequest
      * @param headers - ThirdImmediateMsgPushHeaders
@@ -6781,7 +6871,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 三方即时信息数据变更事件推送
+     * Third-party real-time information data change event push.
      *
      * @param request - ThirdImmediateMsgPushRequest
      *
@@ -6800,7 +6890,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 解除三方和精灵账号的关系.
+     * Detach the relationship between a third-party account and a Tmall Genie account by using a logon credential.
+     *
+     * @remarks
+     * Note: When the logon credential expires, the integrator must initiate the authorization logon flow again to obtain a new logon credential (entry service API: AuthLoginWithThirdUserInfo).
+     * - Invoke the service API with the logon credential (LoginStateAccessToken) parameter via the Java software development kit (SDK). For SDKs in other languages, consult Tmall Genie developers during integration.
+     * If the API call throws a TeaException and TeaException.code is "InvalidAuthentication", the logon credential has expired.
+     * - Invoke the service API by sending an HTTP request with the logon credential (LoginStateAccessToken) parameter.
+     * If the HTTP response status code returned by the API call is 400, the logon credential has expired.
      *
      * @param request - UnbindAligenieUserRequest
      * @param headers - UnbindAligenieUserHeaders
@@ -6855,7 +6952,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 解除三方和精灵账号的关系.
+     * Detach the relationship between a third-party account and a Tmall Genie account by using a logon credential.
+     *
+     * @remarks
+     * Note: When the logon credential expires, the integrator must initiate the authorization logon flow again to obtain a new logon credential (entry service API: AuthLoginWithThirdUserInfo).
+     * - Invoke the service API with the logon credential (LoginStateAccessToken) parameter via the Java software development kit (SDK). For SDKs in other languages, consult Tmall Genie developers during integration.
+     * If the API call throws a TeaException and TeaException.code is "InvalidAuthentication", the logon credential has expired.
+     * - Invoke the service API by sending an HTTP request with the logon credential (LoginStateAccessToken) parameter.
+     * If the HTTP response status code returned by the API call is 400, the logon credential has expired.
      *
      * @param request - UnbindAligenieUserRequest
      *
@@ -6874,7 +6978,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 解绑设备.
+     * Detach the binding relationship based on the user\\"s open information and the device\\"s open information.
      *
      * @param tmpReq - UnbindDeviceRequest
      * @param headers - UnbindDeviceHeaders
@@ -6943,7 +7047,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 解绑设备.
+     * Detach the binding relationship based on the user\\"s open information and the device\\"s open information.
      *
      * @param request - UnbindDeviceRequest
      *
@@ -6962,7 +7066,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 更新闹钟
+     * Update an alarm, including its trigger time, loop type, and music.
      *
      * @param tmpReq - UpdateAlarmRequest
      * @param headers - UpdateAlarmHeaders
@@ -7039,7 +7143,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 更新闹钟
+     * Update an alarm, including its trigger time, loop type, and music.
      *
      * @param request - UpdateAlarmRequest
      *
