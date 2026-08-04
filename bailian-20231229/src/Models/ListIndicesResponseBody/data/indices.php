@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesResponseBody\data\indices\structuredIndexConfig;
 
 class indices extends Model
 {
@@ -92,6 +93,11 @@ class indices extends Model
      * @var string
      */
     public $structureType;
+
+    /**
+     * @var structuredIndexConfig[]
+     */
+    public $structuredIndexConfig;
     protected $_name = [
         'chunkSize' => 'ChunkSize',
         'confgModel' => 'ConfgModel',
@@ -110,12 +116,16 @@ class indices extends Model
         'sinkType' => 'SinkType',
         'sourceType' => 'SourceType',
         'structureType' => 'StructureType',
+        'structuredIndexConfig' => 'StructuredIndexConfig',
     ];
 
     public function validate()
     {
         if (\is_array($this->documentIds)) {
             Model::validateArray($this->documentIds);
+        }
+        if (\is_array($this->structuredIndexConfig)) {
+            Model::validateArray($this->structuredIndexConfig);
         }
         parent::validate();
     }
@@ -196,6 +206,17 @@ class indices extends Model
 
         if (null !== $this->structureType) {
             $res['StructureType'] = $this->structureType;
+        }
+
+        if (null !== $this->structuredIndexConfig) {
+            if (\is_array($this->structuredIndexConfig)) {
+                $res['StructuredIndexConfig'] = [];
+                $n1 = 0;
+                foreach ($this->structuredIndexConfig as $item1) {
+                    $res['StructuredIndexConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -282,6 +303,17 @@ class indices extends Model
 
         if (isset($map['StructureType'])) {
             $model->structureType = $map['StructureType'];
+        }
+
+        if (isset($map['StructuredIndexConfig'])) {
+            if (!empty($map['StructuredIndexConfig'])) {
+                $model->structuredIndexConfig = [];
+                $n1 = 0;
+                foreach ($map['StructuredIndexConfig'] as $item1) {
+                    $model->structuredIndexConfig[$n1] = structuredIndexConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
