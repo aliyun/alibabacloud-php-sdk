@@ -21,6 +21,11 @@ class ListDataAgentSessionRequest extends Model
     /**
      * @var string
      */
+    public $creatorId;
+
+    /**
+     * @var string
+     */
     public $customAgentId;
 
     /**
@@ -65,6 +70,7 @@ class ListDataAgentSessionRequest extends Model
     protected $_name = [
         'createEndTime' => 'CreateEndTime',
         'createStartTime' => 'CreateStartTime',
+        'creatorId' => 'CreatorId',
         'customAgentId' => 'CustomAgentId',
         'DMSUnit' => 'DMSUnit',
         'isSaved' => 'IsSaved',
@@ -90,6 +96,10 @@ class ListDataAgentSessionRequest extends Model
 
         if (null !== $this->createStartTime) {
             $res['CreateStartTime'] = $this->createStartTime;
+        }
+
+        if (null !== $this->creatorId) {
+            $res['CreatorId'] = $this->creatorId;
         }
 
         if (null !== $this->customAgentId) {
@@ -145,6 +155,10 @@ class ListDataAgentSessionRequest extends Model
 
         if (isset($map['CreateStartTime'])) {
             $model->createStartTime = $map['CreateStartTime'];
+        }
+
+        if (isset($map['CreatorId'])) {
+            $model->creatorId = $map['CreatorId'];
         }
 
         if (isset($map['CustomAgentId'])) {

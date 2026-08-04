@@ -49,6 +49,16 @@ class AgenticDmsInstanceSyncTask extends Model
     public $gmtModified;
 
     /**
+     * @var string
+     */
+    public $operatorMode;
+
+    /**
+     * @var string
+     */
+    public $requestedOperatorMode;
+
+    /**
      * @var int
      */
     public $skippedCount;
@@ -86,6 +96,8 @@ class AgenticDmsInstanceSyncTask extends Model
         'failedCount' => 'FailedCount',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
+        'operatorMode' => 'OperatorMode',
+        'requestedOperatorMode' => 'RequestedOperatorMode',
         'skippedCount' => 'SkippedCount',
         'status' => 'Status',
         'successCount' => 'SuccessCount',
@@ -132,6 +144,14 @@ class AgenticDmsInstanceSyncTask extends Model
 
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+
+        if (null !== $this->operatorMode) {
+            $res['OperatorMode'] = $this->operatorMode;
+        }
+
+        if (null !== $this->requestedOperatorMode) {
+            $res['RequestedOperatorMode'] = $this->requestedOperatorMode;
         }
 
         if (null !== $this->skippedCount) {
@@ -199,6 +219,14 @@ class AgenticDmsInstanceSyncTask extends Model
 
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+
+        if (isset($map['OperatorMode'])) {
+            $model->operatorMode = $map['OperatorMode'];
+        }
+
+        if (isset($map['RequestedOperatorMode'])) {
+            $model->requestedOperatorMode = $map['RequestedOperatorMode'];
         }
 
         if (isset($map['SkippedCount'])) {

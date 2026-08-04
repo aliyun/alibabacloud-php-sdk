@@ -21,6 +21,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $creatorName;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -41,7 +46,17 @@ class content extends Model
     /**
      * @var int
      */
+    public $runningSessionCount;
+
+    /**
+     * @var int
+     */
     public $totalMember;
+
+    /**
+     * @var int
+     */
+    public $totalSessionCount;
 
     /**
      * @var string
@@ -65,11 +80,14 @@ class content extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'creator' => 'Creator',
+        'creatorName' => 'CreatorName',
         'description' => 'Description',
         'isSessionShareEnabled' => 'IsSessionShareEnabled',
         'modifyTime' => 'ModifyTime',
         'roleName' => 'RoleName',
+        'runningSessionCount' => 'RunningSessionCount',
         'totalMember' => 'TotalMember',
+        'totalSessionCount' => 'TotalSessionCount',
         'type' => 'Type',
         'workspaceId' => 'WorkspaceId',
         'workspaceName' => 'WorkspaceName',
@@ -92,6 +110,10 @@ class content extends Model
             $res['Creator'] = $this->creator;
         }
 
+        if (null !== $this->creatorName) {
+            $res['CreatorName'] = $this->creatorName;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -108,8 +130,16 @@ class content extends Model
             $res['RoleName'] = $this->roleName;
         }
 
+        if (null !== $this->runningSessionCount) {
+            $res['RunningSessionCount'] = $this->runningSessionCount;
+        }
+
         if (null !== $this->totalMember) {
             $res['TotalMember'] = $this->totalMember;
+        }
+
+        if (null !== $this->totalSessionCount) {
+            $res['TotalSessionCount'] = $this->totalSessionCount;
         }
 
         if (null !== $this->type) {
@@ -147,6 +177,10 @@ class content extends Model
             $model->creator = $map['Creator'];
         }
 
+        if (isset($map['CreatorName'])) {
+            $model->creatorName = $map['CreatorName'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -163,8 +197,16 @@ class content extends Model
             $model->roleName = $map['RoleName'];
         }
 
+        if (isset($map['RunningSessionCount'])) {
+            $model->runningSessionCount = $map['RunningSessionCount'];
+        }
+
         if (isset($map['TotalMember'])) {
             $model->totalMember = $map['TotalMember'];
+        }
+
+        if (isset($map['TotalSessionCount'])) {
+            $model->totalSessionCount = $map['TotalSessionCount'];
         }
 
         if (isset($map['Type'])) {

@@ -59,6 +59,9 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentAccuracyTestRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentAccuracyTestResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentMcpRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentMcpResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentMcpShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentMemoryRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentRequest;
@@ -105,6 +108,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetChatContentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetChatContentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentMcpRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentMcpResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentSubAccountInfoRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentSubAccountInfoResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentWorkspaceInfoRequest;
@@ -120,6 +125,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakePartitionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeTableResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetListMcpServerToolsResultRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetListMcpServerToolsResultResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusRequest;
@@ -132,6 +139,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodeRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceQuotaRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceQuotaResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\InitWorkspaceSystemMcpServerRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\InitWorkspaceSystemMcpServerResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\InstallDataAgentMcpRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\InstallDataAgentMcpResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowVersionsRequest;
@@ -144,6 +155,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestResultsReques
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestResultsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestTasksRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestTasksResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentMcpRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentMcpResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentMemoryRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionRequest;
@@ -190,6 +203,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListWorkspaceCodeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyDataAgentMcpRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyDataAgentMcpResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\OperateCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\OperateCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\RedeployAirflowRequest;
@@ -209,6 +224,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceQuotaRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceQuotaResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\StartDataAgentAccuracyTestTaskRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\StartDataAgentAccuracyTestTaskResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\StartListMcpServerToolsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\StartListMcpServerToolsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\StopDataAgentAccuracyTestTaskRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\StopDataAgentAccuracyTestTaskResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowRequest;
@@ -2154,6 +2171,73 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Deletes MCP Servers from a specified workspace.
+     *
+     * @param tmpReq - DeleteDataAgentMcpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataAgentMcpResponse
+     *
+     * @param DeleteDataAgentMcpRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDataAgentMcpResponse
+     */
+    public function deleteDataAgentMcpWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteDataAgentMcpShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->mcpServerIds) {
+            $request->mcpServerIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->mcpServerIds, 'McpServerIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->mcpServerIdsShrink) {
+            @$query['McpServerIds'] = $request->mcpServerIdsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataAgentMcp',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataAgentMcpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes MCP Servers from a specified workspace.
+     *
+     * @param request - DeleteDataAgentMcpRequest
+     *
+     * @returns DeleteDataAgentMcpResponse
+     *
+     * @param DeleteDataAgentMcpRequest $request
+     *
+     * @return DeleteDataAgentMcpResponse
+     */
+    public function deleteDataAgentMcp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataAgentMcpWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes the memory of a DataAgent.
      *
      * @param request - DeleteDataAgentMemoryRequest
@@ -3632,6 +3716,67 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Queries the details of an MCP Server by its ID, including the workspace, network, connection method, and running status.
+     *
+     * @param request - GetDataAgentMcpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataAgentMcpResponse
+     *
+     * @param GetDataAgentMcpRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDataAgentMcpResponse
+     */
+    public function getDataAgentMcpWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->mcpServerId) {
+            @$query['McpServerId'] = $request->mcpServerId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataAgentMcp',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataAgentMcpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an MCP Server by its ID, including the workspace, network, connection method, and running status.
+     *
+     * @param request - GetDataAgentMcpRequest
+     *
+     * @returns GetDataAgentMcpResponse
+     *
+     * @param GetDataAgentMcpRequest $request
+     *
+     * @return GetDataAgentMcpResponse
+     */
+    public function getDataAgentMcp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataAgentMcpWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves information about a RAM user that belongs to an Alibaba Cloud account.
      *
      * @param request - GetDataAgentSubAccountInfoRequest
@@ -4117,6 +4262,71 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+     *
+     * @param request - GetListMcpServerToolsResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetListMcpServerToolsResultResponse
+     *
+     * @param GetListMcpServerToolsResultRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetListMcpServerToolsResultResponse
+     */
+    public function getListMcpServerToolsResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->mcpServerUuid) {
+            @$query['McpServerUuid'] = $request->mcpServerUuid;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetListMcpServerToolsResult',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetListMcpServerToolsResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+     *
+     * @param request - GetListMcpServerToolsResultRequest
+     *
+     * @returns GetListMcpServerToolsResultResponse
+     *
+     * @param GetListMcpServerToolsResultRequest $request
+     *
+     * @return GetListMcpServerToolsResultResponse
+     */
+    public function getListMcpServerToolsResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getListMcpServerToolsResultWithOptions($request, $runtime);
+    }
+
+    /**
      * Submits a task to schedule and run a Notebook file.
      *
      * @param request - GetNotebookAndSubmitTaskRequest
@@ -4536,6 +4746,166 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWorkspaceQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * Installs all currently available system MCP services for a specified Data Agent workspace.
+     *
+     * @param request - InitWorkspaceSystemMcpServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitWorkspaceSystemMcpServerResponse
+     *
+     * @param InitWorkspaceSystemMcpServerRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return InitWorkspaceSystemMcpServerResponse
+     */
+    public function initWorkspaceSystemMcpServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InitWorkspaceSystemMcpServer',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InitWorkspaceSystemMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Installs all currently available system MCP services for a specified Data Agent workspace.
+     *
+     * @param request - InitWorkspaceSystemMcpServerRequest
+     *
+     * @returns InitWorkspaceSystemMcpServerResponse
+     *
+     * @param InitWorkspaceSystemMcpServerRequest $request
+     *
+     * @return InitWorkspaceSystemMcpServerResponse
+     */
+    public function initWorkspaceSystemMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initWorkspaceSystemMcpServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * Imports an MCP into DataAgent.
+     *
+     * @remarks
+     * Imports an MCP into DataAgent.
+     *
+     * @param request - InstallDataAgentMcpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallDataAgentMcpResponse
+     *
+     * @param InstallDataAgentMcpRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return InstallDataAgentMcpResponse
+     */
+    public function installDataAgentMcpWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->endpoint) {
+            @$query['Endpoint'] = $request->endpoint;
+        }
+
+        if (null !== $request->fromJson) {
+            @$query['FromJson'] = $request->fromJson;
+        }
+
+        if (null !== $request->headers) {
+            @$query['Headers'] = $request->headers;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->needUidInHeader) {
+            @$query['NeedUidInHeader'] = $request->needUidInHeader;
+        }
+
+        if (null !== $request->netType) {
+            @$query['NetType'] = $request->netType;
+        }
+
+        if (null !== $request->transportType) {
+            @$query['TransportType'] = $request->transportType;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->vswId) {
+            @$query['VswId'] = $request->vswId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InstallDataAgentMcp',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallDataAgentMcpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Imports an MCP into DataAgent.
+     *
+     * @remarks
+     * Imports an MCP into DataAgent.
+     *
+     * @param request - InstallDataAgentMcpRequest
+     *
+     * @returns InstallDataAgentMcpResponse
+     *
+     * @param InstallDataAgentMcpRequest $request
+     *
+     * @return InstallDataAgentMcpResponse
+     */
+    public function installDataAgentMcp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installDataAgentMcpWithOptions($request, $runtime);
     }
 
     /**
@@ -5021,6 +5391,91 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Queries MCP Servers in a specified workspace by paging. You can filter results by name, ready status, and service type.
+     *
+     * @param request - ListDataAgentMcpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataAgentMcpResponse
+     *
+     * @param ListDataAgentMcpRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListDataAgentMcpResponse
+     */
+    public function listDataAgentMcpWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->readyOnly) {
+            @$query['ReadyOnly'] = $request->readyOnly;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataAgentMcp',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataAgentMcpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries MCP Servers in a specified workspace by paging. You can filter results by name, ready status, and service type.
+     *
+     * @param request - ListDataAgentMcpRequest
+     *
+     * @returns ListDataAgentMcpResponse
+     *
+     * @param ListDataAgentMcpRequest $request
+     *
+     * @return ListDataAgentMcpResponse
+     */
+    public function listDataAgentMcp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataAgentMcpWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the DataAgent memory list (up to 50 memories per RAM user).
      *
      * @param request - ListDataAgentMemoryRequest
@@ -5110,7 +5565,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of historical session descriptions for a Data Agent.
+     * Retrieves the list of historical session descriptions for Data Agent.
      *
      * @param request - ListDataAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5132,6 +5587,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->createStartTime) {
             @$query['CreateStartTime'] = $request->createStartTime;
+        }
+
+        if (null !== $request->creatorId) {
+            @$query['CreatorId'] = $request->creatorId;
         }
 
         if (null !== $request->customAgentId) {
@@ -5189,7 +5648,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of historical session descriptions for a Data Agent.
+     * Retrieves the list of historical session descriptions for Data Agent.
      *
      * @param request - ListDataAgentSessionRequest
      *
@@ -5223,6 +5682,10 @@ class Dms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->creator) {
+            @$query['Creator'] = $request->creator;
+        }
+
         if (null !== $request->DMSUnit) {
             @$query['DMSUnit'] = $request->DMSUnit;
         }
@@ -6905,6 +7368,101 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Modifies the configuration of an MCP server.
+     *
+     * @remarks
+     * Modifies the configuration of an MCP server.
+     *
+     * @param request - ModifyDataAgentMcpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDataAgentMcpResponse
+     *
+     * @param ModifyDataAgentMcpRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyDataAgentMcpResponse
+     */
+    public function modifyDataAgentMcpWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->endpoint) {
+            @$query['Endpoint'] = $request->endpoint;
+        }
+
+        if (null !== $request->headers) {
+            @$query['Headers'] = $request->headers;
+        }
+
+        if (null !== $request->mcpServerId) {
+            @$query['McpServerId'] = $request->mcpServerId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->needUidInHeader) {
+            @$query['NeedUidInHeader'] = $request->needUidInHeader;
+        }
+
+        if (null !== $request->transportType) {
+            @$query['TransportType'] = $request->transportType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDataAgentMcp',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDataAgentMcpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the configuration of an MCP server.
+     *
+     * @remarks
+     * Modifies the configuration of an MCP server.
+     *
+     * @param request - ModifyDataAgentMcpRequest
+     *
+     * @returns ModifyDataAgentMcpResponse
+     *
+     * @param ModifyDataAgentMcpRequest $request
+     *
+     * @return ModifyDataAgentMcpResponse
+     */
+    public function modifyDataAgentMcp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDataAgentMcpWithOptions($request, $runtime);
+    }
+
+    /**
      * Operate custom agents in personal spaces and workspaces.
      *
      * @param request - OperateCustomAgentRequest
@@ -7657,6 +8215,71 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startDataAgentAccuracyTestTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Asynchronously starts MCP Server connectivity and tool list detection. The first call prompts you to wait one minute for resource provisioning. Subsequent calls return a temporary Session ID for polling the result.
+     *
+     * @param request - StartListMcpServerToolsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartListMcpServerToolsResponse
+     *
+     * @param StartListMcpServerToolsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return StartListMcpServerToolsResponse
+     */
+    public function startListMcpServerToolsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->mcpServerUuid) {
+            @$query['McpServerUuid'] = $request->mcpServerUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartListMcpServerTools',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartListMcpServerToolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Asynchronously starts MCP Server connectivity and tool list detection. The first call prompts you to wait one minute for resource provisioning. Subsequent calls return a temporary Session ID for polling the result.
+     *
+     * @param request - StartListMcpServerToolsRequest
+     *
+     * @returns StartListMcpServerToolsResponse
+     *
+     * @param StartListMcpServerToolsRequest $request
+     *
+     * @return StartListMcpServerToolsResponse
+     */
+    public function startListMcpServerTools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startListMcpServerToolsWithOptions($request, $runtime);
     }
 
     /**

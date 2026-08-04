@@ -6,18 +6,8 @@ namespace AlibabaCloud\SDK\Dms\V20250414\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListDataAgentWorkspaceRequest extends Model
+class ListDataAgentMcpRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $creator;
-
-    /**
-     * @var string
-     */
-    public $DMSUnit;
-
     /**
      * @var int
      */
@@ -29,45 +19,43 @@ class ListDataAgentWorkspaceRequest extends Model
     public $nextToken;
 
     /**
-     * @var string
-     */
-    public $order;
-
-    /**
-     * @var string
-     */
-    public $orderBy;
-
-    /**
-     * @var string
+     * @var int
      */
     public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
     public $pageSize;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $workspaceName;
+    public $readyOnly;
 
     /**
      * @var string
      */
-    public $workspaceType;
+    public $searchKey;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
-        'creator' => 'Creator',
-        'DMSUnit' => 'DMSUnit',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
-        'order' => 'Order',
-        'orderBy' => 'OrderBy',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
-        'workspaceName' => 'WorkspaceName',
-        'workspaceType' => 'WorkspaceType',
+        'readyOnly' => 'ReadyOnly',
+        'searchKey' => 'SearchKey',
+        'type' => 'Type',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -78,28 +66,12 @@ class ListDataAgentWorkspaceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->creator) {
-            $res['Creator'] = $this->creator;
-        }
-
-        if (null !== $this->DMSUnit) {
-            $res['DMSUnit'] = $this->DMSUnit;
-        }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-
-        if (null !== $this->order) {
-            $res['Order'] = $this->order;
-        }
-
-        if (null !== $this->orderBy) {
-            $res['OrderBy'] = $this->orderBy;
         }
 
         if (null !== $this->pageNumber) {
@@ -110,12 +82,20 @@ class ListDataAgentWorkspaceRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
-        if (null !== $this->workspaceName) {
-            $res['WorkspaceName'] = $this->workspaceName;
+        if (null !== $this->readyOnly) {
+            $res['ReadyOnly'] = $this->readyOnly;
         }
 
-        if (null !== $this->workspaceType) {
-            $res['WorkspaceType'] = $this->workspaceType;
+        if (null !== $this->searchKey) {
+            $res['SearchKey'] = $this->searchKey;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -129,28 +109,12 @@ class ListDataAgentWorkspaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Creator'])) {
-            $model->creator = $map['Creator'];
-        }
-
-        if (isset($map['DMSUnit'])) {
-            $model->DMSUnit = $map['DMSUnit'];
-        }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-
-        if (isset($map['Order'])) {
-            $model->order = $map['Order'];
-        }
-
-        if (isset($map['OrderBy'])) {
-            $model->orderBy = $map['OrderBy'];
         }
 
         if (isset($map['PageNumber'])) {
@@ -161,12 +125,20 @@ class ListDataAgentWorkspaceRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
-        if (isset($map['WorkspaceName'])) {
-            $model->workspaceName = $map['WorkspaceName'];
+        if (isset($map['ReadyOnly'])) {
+            $model->readyOnly = $map['ReadyOnly'];
         }
 
-        if (isset($map['WorkspaceType'])) {
-            $model->workspaceType = $map['WorkspaceType'];
+        if (isset($map['SearchKey'])) {
+            $model->searchKey = $map['SearchKey'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;
