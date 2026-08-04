@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckHadoopNetConnectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckHadoopNetConnectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckJDBCSourceNetConnectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckJDBCSourceNetConnectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckSaasServiceVersionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckSaasServiceVersionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CloneDBInstanceRequest;
@@ -354,6 +356,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetApiEndpointsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetApiEndpointsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetApiKeyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetApiKeyResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetBranchSchemaRequest;
@@ -380,6 +384,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUpsertCollectionDataJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUpsertCollectionDataJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetWorkspaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetWorkspaceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantApiKeyRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantApiKeyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantApiKeyShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\HandleActiveSQLRecordRequest;
@@ -495,6 +502,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyParametersRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyParametersResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyRemoteADBDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyRemoteADBDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySaasServiceDeletionProtectionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySaasServiceDeletionProtectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySQLCollectorPolicyRequest;
@@ -565,6 +574,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSaasServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSaasServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSupabaseProjectRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSupabaseProjectResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RevokeApiKeyRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RevokeApiKeyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RevokeApiKeyShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetAsDefaultBranchRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetAsDefaultBranchResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetDataShareInstanceRequest;
@@ -597,6 +609,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateCollectionDataMetadataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateCollectionDataMetadataShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateDBInstancePlanResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateSaasServiceVersionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateSaasServiceVersionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBVersionRequest;
@@ -1806,6 +1820,73 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkJDBCSourceNetConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Checks the available update versions for a SaaS service.
+     *
+     * @remarks
+     * Checks the available update versions for a SaaS service.
+     *
+     * @param Request - CheckSaasServiceVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckSaasServiceVersionResponse
+     *
+     * @param CheckSaasServiceVersionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CheckSaasServiceVersionResponse
+     */
+    public function checkSaasServiceVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckSaasServiceVersion',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckSaasServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Checks the available update versions for a SaaS service.
+     *
+     * @remarks
+     * Checks the available update versions for a SaaS service.
+     *
+     * @param Request - CheckSaasServiceVersionRequest
+     *
+     * @returns CheckSaasServiceVersionResponse
+     *
+     * @param CheckSaasServiceVersionRequest $request
+     *
+     * @return CheckSaasServiceVersionResponse
+     */
+    public function checkSaasServiceVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkSaasServiceVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -13977,6 +14058,77 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Queries API endpoints.
+     *
+     * @remarks
+     * Queries API access endpoints.
+     *
+     * @param Request - GetApiEndpointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApiEndpointsResponse
+     *
+     * @param GetApiEndpointsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetApiEndpointsResponse
+     */
+    public function getApiEndpointsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApiEndpoints',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApiEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries API endpoints.
+     *
+     * @remarks
+     * Queries API access endpoints.
+     *
+     * @param Request - GetApiEndpointsRequest
+     *
+     * @returns GetApiEndpointsResponse
+     *
+     * @param GetApiEndpointsRequest $request
+     *
+     * @return GetApiEndpointsResponse
+     */
+    public function getApiEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApiEndpointsWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of an API key.
      *
      * @remarks
@@ -14949,6 +15101,87 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Authorizes an API key to access SaaS services.
+     *
+     * @remarks
+     * Retrieves the details of an API key.
+     *
+     * @param tmpReq - GrantApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GrantApiKeyResponse
+     *
+     * @param GrantApiKeyRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GrantApiKeyResponse
+     */
+    public function grantApiKeyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GrantApiKeyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->serviceIds) {
+            $request->serviceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serviceIds, 'ServiceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->keyId) {
+            @$query['KeyId'] = $request->keyId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceIdsShrink) {
+            @$query['ServiceIds'] = $request->serviceIdsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GrantApiKey',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GrantApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Authorizes an API key to access SaaS services.
+     *
+     * @remarks
+     * Retrieves the details of an API key.
+     *
+     * @param Request - GrantApiKeyRequest
+     *
+     * @returns GrantApiKeyResponse
+     *
+     * @param GrantApiKeyRequest $request
+     *
+     * @return GrantApiKeyResponse
+     */
+    public function grantApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantApiKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -19380,6 +19613,77 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Modifies the deletion protection setting for a SaaS service.
+     *
+     * @remarks
+     * Modifies the deletion protection setting for a SaaS service.
+     *
+     * @param Request - ModifySaasServiceDeletionProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySaasServiceDeletionProtectionResponse
+     *
+     * @param ModifySaasServiceDeletionProtectionRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModifySaasServiceDeletionProtectionResponse
+     */
+    public function modifySaasServiceDeletionProtectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deletionProtection) {
+            @$query['DeletionProtection'] = $request->deletionProtection;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySaasServiceDeletionProtection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySaasServiceDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the deletion protection setting for a SaaS service.
+     *
+     * @remarks
+     * Modifies the deletion protection setting for a SaaS service.
+     *
+     * @param Request - ModifySaasServiceDeletionProtectionRequest
+     *
+     * @returns ModifySaasServiceDeletionProtectionResponse
+     *
+     * @param ModifySaasServiceDeletionProtectionRequest $request
+     *
+     * @return ModifySaasServiceDeletionProtectionResponse
+     */
+    public function modifySaasServiceDeletionProtection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySaasServiceDeletionProtectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
@@ -22013,6 +22317,87 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Revokes the access permissions of an API key to SaaS services.
+     *
+     * @remarks
+     * Revokes the access permissions of an API key to SaaS services.
+     *
+     * @param tmpReq - RevokeApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeApiKeyResponse
+     *
+     * @param RevokeApiKeyRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RevokeApiKeyResponse
+     */
+    public function revokeApiKeyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RevokeApiKeyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->serviceIds) {
+            $request->serviceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serviceIds, 'ServiceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->keyId) {
+            @$query['KeyId'] = $request->keyId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceIdsShrink) {
+            @$query['ServiceIds'] = $request->serviceIdsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeApiKey',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Revokes the access permissions of an API key to SaaS services.
+     *
+     * @remarks
+     * Revokes the access permissions of an API key to SaaS services.
+     *
+     * @param Request - RevokeApiKeyRequest
+     *
+     * @returns RevokeApiKeyResponse
+     *
+     * @param RevokeApiKeyRequest $request
+     *
+     * @return RevokeApiKeyResponse
+     */
+    public function revokeApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * Sets the default branch for a Supabase project.
      *
      * @remarks
@@ -23164,6 +23549,73 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDBInstancePlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the SaaS service version.
+     *
+     * @remarks
+     * Updates the SaaS service version.
+     *
+     * @param Request - UpdateSaasServiceVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSaasServiceVersionResponse
+     *
+     * @param UpdateSaasServiceVersionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateSaasServiceVersionResponse
+     */
+    public function updateSaasServiceVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSaasServiceVersion',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSaasServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the SaaS service version.
+     *
+     * @remarks
+     * Updates the SaaS service version.
+     *
+     * @param Request - UpdateSaasServiceVersionRequest
+     *
+     * @returns UpdateSaasServiceVersionResponse
+     *
+     * @param UpdateSaasServiceVersionRequest $request
+     *
+     * @return UpdateSaasServiceVersionResponse
+     */
+    public function updateSaasServiceVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSaasServiceVersionWithOptions($request, $runtime);
     }
 
     /**
