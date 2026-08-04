@@ -19,6 +19,11 @@ class ModelRouterQueryApiKeyListRequest extends Model
     public $groupBy;
 
     /**
+     * @var bool
+     */
+    public $includeMemberKeys;
+
+    /**
      * @var string
      */
     public $keyword;
@@ -27,6 +32,11 @@ class ModelRouterQueryApiKeyListRequest extends Model
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $memberUserIds;
 
     /**
      * @var bool
@@ -65,8 +75,10 @@ class ModelRouterQueryApiKeyListRequest extends Model
     protected $_name = [
         'clientId' => 'clientId',
         'groupBy' => 'groupBy',
+        'includeMemberKeys' => 'includeMemberKeys',
         'keyword' => 'keyword',
         'maxResults' => 'maxResults',
+        'memberUserIds' => 'memberUserIds',
         'needTotalCount' => 'needTotalCount',
         'nextToken' => 'nextToken',
         'orderBy' => 'orderBy',
@@ -92,12 +104,20 @@ class ModelRouterQueryApiKeyListRequest extends Model
             $res['groupBy'] = $this->groupBy;
         }
 
+        if (null !== $this->includeMemberKeys) {
+            $res['includeMemberKeys'] = $this->includeMemberKeys;
+        }
+
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
         }
 
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->memberUserIds) {
+            $res['memberUserIds'] = $this->memberUserIds;
         }
 
         if (null !== $this->needTotalCount) {
@@ -147,12 +167,20 @@ class ModelRouterQueryApiKeyListRequest extends Model
             $model->groupBy = $map['groupBy'];
         }
 
+        if (isset($map['includeMemberKeys'])) {
+            $model->includeMemberKeys = $map['includeMemberKeys'];
+        }
+
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
         }
 
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['memberUserIds'])) {
+            $model->memberUserIds = $map['memberUserIds'];
         }
 
         if (isset($map['needTotalCount'])) {

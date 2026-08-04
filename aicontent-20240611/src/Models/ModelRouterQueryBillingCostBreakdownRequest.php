@@ -34,6 +34,11 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
     public $maxResults;
 
     /**
+     * @var string
+     */
+    public $memberUserIds;
+
+    /**
      * @var int
      */
     public $modelId;
@@ -68,6 +73,7 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
         'endTime' => 'endTime',
         'granularity' => 'granularity',
         'maxResults' => 'maxResults',
+        'memberUserIds' => 'memberUserIds',
         'modelId' => 'modelId',
         'modelTypes' => 'modelTypes',
         'nextToken' => 'nextToken',
@@ -102,6 +108,10 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
 
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->memberUserIds) {
+            $res['memberUserIds'] = $this->memberUserIds;
         }
 
         if (null !== $this->modelId) {
@@ -157,6 +167,10 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
 
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['memberUserIds'])) {
+            $model->memberUserIds = $map['memberUserIds'];
         }
 
         if (isset($map['modelId'])) {

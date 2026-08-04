@@ -80,12 +80,24 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantSceneDetail
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantSceneDetailsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchBindModelGroupRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchBindModelGroupResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchCreateMemberApiKeysRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchCreateMemberApiKeysResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchCreateModelRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchCreateModelResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchDisableMemberApiKeysRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchDisableMemberApiKeysResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchResetMemberAuthorizationRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchResetMemberAuthorizationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchSetMemberAuthorizationRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchSetMemberAuthorizationResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBillingCostTabsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBillingCostTabsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterChatCompletionsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterChatCompletionsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterConfigureClientBalanceRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterConfigureClientBalanceResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterConfigureMemberBalanceRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterConfigureMemberBalanceResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCopyApiKeyResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateApiKeyRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateApiKeyResponse;
@@ -97,24 +109,52 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateClientRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateClientResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateConversationRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateMemberApiKeyRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateMemberApiKeyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateMemberBalanceTransactionRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateMemberBalanceTransactionResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateMemberSubscriptionRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateMemberSubscriptionResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelGroupRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelGroupResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateSubscriptionRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateSubscriptionResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateUserRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateUserResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteApiKeyResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteClientResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteConversationResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteModelGroupRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteModelGroupResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteModelResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteUserRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteUserResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterExportMemberBalanceOrdersRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterExportMemberBalanceOrdersResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceLogsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceLogsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetDeptBalanceSummaryRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetDeptBalanceSummaryResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetMemberApiKeysRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetMemberApiKeysResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetMemberBalanceLogsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetMemberBalanceLogsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetMemberBalanceRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetMemberBalanceResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetUserRolesRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetUserRolesResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListBalanceOrdersRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListBalanceOrdersResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListDeptMembersRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListDeptMembersResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListMemberBalanceOrdersRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListMemberBalanceOrdersResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListMemberSubscriptionsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListMemberSubscriptionsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListSubscriptionsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListSubscriptionsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListRequest;
@@ -151,6 +191,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupReques
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupsByApiKeyRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupsByApiKeyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupUsersRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelGroupUsersResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelResponse;
@@ -166,10 +208,24 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationMetri
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationMetricsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUsageBreakdownRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUsageBreakdownResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUserListRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUserListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterResetMemberAuthorizationRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterResetMemberAuthorizationResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSaveFlowConfigRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSaveFlowConfigResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSearchClientTreeRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSearchClientTreeResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSetMemberAuthorizationRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSetMemberAuthorizationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSetUserRolesRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSetUserRolesResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterStopMemberSubscriptionRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterStopMemberSubscriptionResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterStopSubscriptionRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterStopSubscriptionResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterTransferToMemberRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterTransferToMemberResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateClientRequest;
@@ -180,6 +236,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateModelGroupReque
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateModelGroupResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateModelRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateModelResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateUserRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateUserResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageQueryImageAssetRequest;
@@ -3354,6 +3412,343 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * Batch creates API keys for members under a department in organization management.
+     *
+     * @param request - ModelRouterBatchCreateMemberApiKeysRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterBatchCreateMemberApiKeysResponse
+     *
+     * @param string                                     $id
+     * @param ModelRouterBatchCreateMemberApiKeysRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModelRouterBatchCreateMemberApiKeysResponse
+     */
+    public function modelRouterBatchCreateMemberApiKeysWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->expireAt) {
+            @$body['expireAt'] = $request->expireAt;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->userIds) {
+            @$body['userIds'] = $request->userIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterBatchCreateMemberApiKeys',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/member-apikeys',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterBatchCreateMemberApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Batch creates API keys for members under a department in organization management.
+     *
+     * @param request - ModelRouterBatchCreateMemberApiKeysRequest
+     *
+     * @returns ModelRouterBatchCreateMemberApiKeysResponse
+     *
+     * @param string                                     $id
+     * @param ModelRouterBatchCreateMemberApiKeysRequest $request
+     *
+     * @return ModelRouterBatchCreateMemberApiKeysResponse
+     */
+    public function modelRouterBatchCreateMemberApiKeys($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterBatchCreateMemberApiKeysWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Manages models by performing batch model creation.
+     *
+     * @param request - ModelRouterBatchCreateModelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterBatchCreateModelResponse
+     *
+     * @param ModelRouterBatchCreateModelRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModelRouterBatchCreateModelResponse
+     */
+    public function modelRouterBatchCreateModelWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiKey) {
+            @$body['apiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->baseUrl) {
+            @$body['baseUrl'] = $request->baseUrl;
+        }
+
+        if (null !== $request->models) {
+            @$body['models'] = $request->models;
+        }
+
+        if (null !== $request->symbol) {
+            @$body['symbol'] = $request->symbol;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterBatchCreateModel',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/models/batch',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterBatchCreateModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Manages models by performing batch model creation.
+     *
+     * @param request - ModelRouterBatchCreateModelRequest
+     *
+     * @returns ModelRouterBatchCreateModelResponse
+     *
+     * @param ModelRouterBatchCreateModelRequest $request
+     *
+     * @return ModelRouterBatchCreateModelResponse
+     */
+    public function modelRouterBatchCreateModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterBatchCreateModelWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Disables API keys in batches for members under a department in organization management.
+     *
+     * @param request - ModelRouterBatchDisableMemberApiKeysRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterBatchDisableMemberApiKeysResponse
+     *
+     * @param string                                      $id
+     * @param ModelRouterBatchDisableMemberApiKeysRequest $request
+     * @param string[]                                    $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ModelRouterBatchDisableMemberApiKeysResponse
+     */
+    public function modelRouterBatchDisableMemberApiKeysWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->userIds) {
+            @$body['userIds'] = $request->userIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterBatchDisableMemberApiKeys',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/member-apikeys/disable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterBatchDisableMemberApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables API keys in batches for members under a department in organization management.
+     *
+     * @param request - ModelRouterBatchDisableMemberApiKeysRequest
+     *
+     * @returns ModelRouterBatchDisableMemberApiKeysResponse
+     *
+     * @param string                                      $id
+     * @param ModelRouterBatchDisableMemberApiKeysRequest $request
+     *
+     * @return ModelRouterBatchDisableMemberApiKeysResponse
+     */
+    public function modelRouterBatchDisableMemberApiKeys($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterBatchDisableMemberApiKeysWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Batch resets member authorizations to inherit under a department in organization management.
+     *
+     * @param request - ModelRouterBatchResetMemberAuthorizationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterBatchResetMemberAuthorizationResponse
+     *
+     * @param string                                          $id
+     * @param ModelRouterBatchResetMemberAuthorizationRequest $request
+     * @param string[]                                        $headers
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return ModelRouterBatchResetMemberAuthorizationResponse
+     */
+    public function modelRouterBatchResetMemberAuthorizationWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->userIds) {
+            @$body['userIds'] = $request->userIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterBatchResetMemberAuthorization',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/member-authorizations/reset',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterBatchResetMemberAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Batch resets member authorizations to inherit under a department in organization management.
+     *
+     * @param request - ModelRouterBatchResetMemberAuthorizationRequest
+     *
+     * @returns ModelRouterBatchResetMemberAuthorizationResponse
+     *
+     * @param string                                          $id
+     * @param ModelRouterBatchResetMemberAuthorizationRequest $request
+     *
+     * @return ModelRouterBatchResetMemberAuthorizationResponse
+     */
+    public function modelRouterBatchResetMemberAuthorization($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterBatchResetMemberAuthorizationWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Sets authorization for multiple members under a department in batch.
+     *
+     * @param request - ModelRouterBatchSetMemberAuthorizationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterBatchSetMemberAuthorizationResponse
+     *
+     * @param string                                        $id
+     * @param ModelRouterBatchSetMemberAuthorizationRequest $request
+     * @param string[]                                      $headers
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ModelRouterBatchSetMemberAuthorizationResponse
+     */
+    public function modelRouterBatchSetMemberAuthorizationWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->allowedModelGroupConfig) {
+            @$body['allowedModelGroupConfig'] = $request->allowedModelGroupConfig;
+        }
+
+        if (null !== $request->userIdList) {
+            @$body['userIdList'] = $request->userIdList;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterBatchSetMemberAuthorization',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/member-authorizations',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterBatchSetMemberAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets authorization for multiple members under a department in batch.
+     *
+     * @param request - ModelRouterBatchSetMemberAuthorizationRequest
+     *
+     * @returns ModelRouterBatchSetMemberAuthorizationResponse
+     *
+     * @param string                                        $id
+     * @param ModelRouterBatchSetMemberAuthorizationRequest $request
+     *
+     * @return ModelRouterBatchSetMemberAuthorizationResponse
+     */
+    public function modelRouterBatchSetMemberAuthorization($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterBatchSetMemberAuthorizationWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the usage monitoring tab configuration.
      *
      * @param request - ModelRouterBillingCostTabsRequest
@@ -3593,6 +3988,79 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterConfigureClientBalanceWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 组织管理/配置成员子钱包余额.
+     *
+     * @param request - ModelRouterConfigureMemberBalanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterConfigureMemberBalanceResponse
+     *
+     * @param string                                   $clientId
+     * @param string                                   $id
+     * @param ModelRouterConfigureMemberBalanceRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModelRouterConfigureMemberBalanceResponse
+     */
+    public function modelRouterConfigureMemberBalanceWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->balanceType) {
+            @$body['balanceType'] = $request->balanceType;
+        }
+
+        if (null !== $request->enableBalance) {
+            @$body['enableBalance'] = $request->enableBalance;
+        }
+
+        if (null !== $request->initialBalance) {
+            @$body['initialBalance'] = $request->initialBalance;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterConfigureMemberBalance',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/balance',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterConfigureMemberBalanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 组织管理/配置成员子钱包余额.
+     *
+     * @param request - ModelRouterConfigureMemberBalanceRequest
+     *
+     * @returns ModelRouterConfigureMemberBalanceResponse
+     *
+     * @param string                                   $clientId
+     * @param string                                   $id
+     * @param ModelRouterConfigureMemberBalanceRequest $request
+     *
+     * @return ModelRouterConfigureMemberBalanceResponse
+     */
+    public function modelRouterConfigureMemberBalance($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterConfigureMemberBalanceWithOptions($clientId, $id, $request, $headers, $runtime);
     }
 
     /**
@@ -4026,6 +4494,233 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * Creates an API key for a member in the organization.
+     *
+     * @param request - ModelRouterCreateMemberApiKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateMemberApiKeyResponse
+     *
+     * @param string                               $clientId
+     * @param string                               $id
+     * @param ModelRouterCreateMemberApiKeyRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModelRouterCreateMemberApiKeyResponse
+     */
+    public function modelRouterCreateMemberApiKeyWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->expireAt) {
+            @$body['expireAt'] = $request->expireAt;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateMemberApiKey',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/apikeys',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateMemberApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an API key for a member in the organization.
+     *
+     * @param request - ModelRouterCreateMemberApiKeyRequest
+     *
+     * @returns ModelRouterCreateMemberApiKeyResponse
+     *
+     * @param string                               $clientId
+     * @param string                               $id
+     * @param ModelRouterCreateMemberApiKeyRequest $request
+     *
+     * @return ModelRouterCreateMemberApiKeyResponse
+     */
+    public function modelRouterCreateMemberApiKey($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateMemberApiKeyWithOptions($clientId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a balance transaction on a member sub-wallet in organization management.
+     *
+     * @param request - ModelRouterCreateMemberBalanceTransactionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateMemberBalanceTransactionResponse
+     *
+     * @param string                                           $clientId
+     * @param string                                           $id
+     * @param ModelRouterCreateMemberBalanceTransactionRequest $request
+     * @param string[]                                         $headers
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return ModelRouterCreateMemberBalanceTransactionResponse
+     */
+    public function modelRouterCreateMemberBalanceTransactionWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->amount) {
+            @$body['amount'] = $request->amount;
+        }
+
+        if (null !== $request->balanceType) {
+            @$body['balanceType'] = $request->balanceType;
+        }
+
+        if (null !== $request->idempotencyKey) {
+            @$body['idempotencyKey'] = $request->idempotencyKey;
+        }
+
+        if (null !== $request->remark) {
+            @$body['remark'] = $request->remark;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateMemberBalanceTransaction',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/balance/transactions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateMemberBalanceTransactionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a balance transaction on a member sub-wallet in organization management.
+     *
+     * @param request - ModelRouterCreateMemberBalanceTransactionRequest
+     *
+     * @returns ModelRouterCreateMemberBalanceTransactionResponse
+     *
+     * @param string                                           $clientId
+     * @param string                                           $id
+     * @param ModelRouterCreateMemberBalanceTransactionRequest $request
+     *
+     * @return ModelRouterCreateMemberBalanceTransactionResponse
+     */
+    public function modelRouterCreateMemberBalanceTransaction($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateMemberBalanceTransactionWithOptions($clientId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a balance subscription for a member in an organization.
+     *
+     * @param request - ModelRouterCreateMemberSubscriptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateMemberSubscriptionResponse
+     *
+     * @param string                                     $clientId
+     * @param string                                     $id
+     * @param ModelRouterCreateMemberSubscriptionRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModelRouterCreateMemberSubscriptionResponse
+     */
+    public function modelRouterCreateMemberSubscriptionWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->amount) {
+            @$body['amount'] = $request->amount;
+        }
+
+        if (null !== $request->balanceType) {
+            @$body['balanceType'] = $request->balanceType;
+        }
+
+        if (null !== $request->effectiveTime) {
+            @$body['effectiveTime'] = $request->effectiveTime;
+        }
+
+        if (null !== $request->idempotencyKey) {
+            @$body['idempotencyKey'] = $request->idempotencyKey;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateMemberSubscription',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/balance/subscription',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateMemberSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a balance subscription for a member in an organization.
+     *
+     * @param request - ModelRouterCreateMemberSubscriptionRequest
+     *
+     * @returns ModelRouterCreateMemberSubscriptionResponse
+     *
+     * @param string                                     $clientId
+     * @param string                                     $id
+     * @param ModelRouterCreateMemberSubscriptionRequest $request
+     *
+     * @return ModelRouterCreateMemberSubscriptionResponse
+     */
+    public function modelRouterCreateMemberSubscription($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateMemberSubscriptionWithOptions($clientId, $id, $request, $headers, $runtime);
+    }
+
+    /**
      * Performs model creation.
      *
      * @param request - ModelRouterCreateModelRequest
@@ -4274,6 +4969,85 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterCreateSubscriptionWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a user.
+     *
+     * @remarks
+     * Creates a user.
+     *
+     * @param request - ModelRouterCreateUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateUserResponse
+     *
+     * @param ModelRouterCreateUserRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModelRouterCreateUserResponse
+     */
+    public function modelRouterCreateUserWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->departmentRoles) {
+            @$body['departmentRoles'] = $request->departmentRoles;
+        }
+
+        if (null !== $request->loginName) {
+            @$body['loginName'] = $request->loginName;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateUser',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/users',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a user.
+     *
+     * @remarks
+     * Creates a user.
+     *
+     * @param request - ModelRouterCreateUserRequest
+     *
+     * @returns ModelRouterCreateUserResponse
+     *
+     * @param ModelRouterCreateUserRequest $request
+     *
+     * @return ModelRouterCreateUserResponse
+     */
+    public function modelRouterCreateUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4544,6 +5318,132 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * Deletes a user.
+     *
+     * @param request - ModelRouterDeleteUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterDeleteUserResponse
+     *
+     * @param string                       $id
+     * @param ModelRouterDeleteUserRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModelRouterDeleteUserResponse
+     */
+    public function modelRouterDeleteUserWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterDeleteUser',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/users/' . Url::percentEncode($id) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterDeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a user.
+     *
+     * @param request - ModelRouterDeleteUserRequest
+     *
+     * @returns ModelRouterDeleteUserResponse
+     *
+     * @param string                       $id
+     * @param ModelRouterDeleteUserRequest $request
+     *
+     * @return ModelRouterDeleteUserResponse
+     */
+    public function modelRouterDeleteUser($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterDeleteUserWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Exports the balance change records of a member in the organization.
+     *
+     * @param request - ModelRouterExportMemberBalanceOrdersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterExportMemberBalanceOrdersResponse
+     *
+     * @param string                                      $clientId
+     * @param string                                      $id
+     * @param ModelRouterExportMemberBalanceOrdersRequest $request
+     * @param string[]                                    $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ModelRouterExportMemberBalanceOrdersResponse
+     */
+    public function modelRouterExportMemberBalanceOrdersWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->balanceType) {
+            @$query['balanceType'] = $request->balanceType;
+        }
+
+        if (null !== $request->direction) {
+            @$query['direction'] = $request->direction;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterExportMemberBalanceOrders',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/balance/orders/export',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterExportMemberBalanceOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Exports the balance change records of a member in the organization.
+     *
+     * @param request - ModelRouterExportMemberBalanceOrdersRequest
+     *
+     * @returns ModelRouterExportMemberBalanceOrdersResponse
+     *
+     * @param string                                      $clientId
+     * @param string                                      $id
+     * @param ModelRouterExportMemberBalanceOrdersRequest $request
+     *
+     * @return ModelRouterExportMemberBalanceOrdersResponse
+     */
+    public function modelRouterExportMemberBalanceOrders($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterExportMemberBalanceOrdersWithOptions($clientId, $id, $request, $headers, $runtime);
+    }
+
+    /**
      * Client Management/Get department balance.
      *
      * @param request - ModelRouterGetClientBalanceRequest
@@ -4680,6 +5580,335 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * 组织管理/获取部门余额概览.
+     *
+     * @param request - ModelRouterGetDeptBalanceSummaryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterGetDeptBalanceSummaryResponse
+     *
+     * @param string                                  $id
+     * @param ModelRouterGetDeptBalanceSummaryRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModelRouterGetDeptBalanceSummaryResponse
+     */
+    public function modelRouterGetDeptBalanceSummaryWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterGetDeptBalanceSummary',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/balance-summary',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterGetDeptBalanceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 组织管理/获取部门余额概览.
+     *
+     * @param request - ModelRouterGetDeptBalanceSummaryRequest
+     *
+     * @returns ModelRouterGetDeptBalanceSummaryResponse
+     *
+     * @param string                                  $id
+     * @param ModelRouterGetDeptBalanceSummaryRequest $request
+     *
+     * @return ModelRouterGetDeptBalanceSummaryResponse
+     */
+    public function modelRouterGetDeptBalanceSummary($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterGetDeptBalanceSummaryWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the list of API keys for a member in the organization.
+     *
+     * @param request - ModelRouterGetMemberApiKeysRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterGetMemberApiKeysResponse
+     *
+     * @param string                             $clientId
+     * @param string                             $id
+     * @param ModelRouterGetMemberApiKeysRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModelRouterGetMemberApiKeysResponse
+     */
+    public function modelRouterGetMemberApiKeysWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterGetMemberApiKeys',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/apikeys',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterGetMemberApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of API keys for a member in the organization.
+     *
+     * @param request - ModelRouterGetMemberApiKeysRequest
+     *
+     * @returns ModelRouterGetMemberApiKeysResponse
+     *
+     * @param string                             $clientId
+     * @param string                             $id
+     * @param ModelRouterGetMemberApiKeysRequest $request
+     *
+     * @return ModelRouterGetMemberApiKeysResponse
+     */
+    public function modelRouterGetMemberApiKeys($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterGetMemberApiKeysWithOptions($clientId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 组织管理/获取成员子钱包余额.
+     *
+     * @param request - ModelRouterGetMemberBalanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterGetMemberBalanceResponse
+     *
+     * @param string                             $clientId
+     * @param string                             $id
+     * @param ModelRouterGetMemberBalanceRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModelRouterGetMemberBalanceResponse
+     */
+    public function modelRouterGetMemberBalanceWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterGetMemberBalance',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/balance',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterGetMemberBalanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 组织管理/获取成员子钱包余额.
+     *
+     * @param request - ModelRouterGetMemberBalanceRequest
+     *
+     * @returns ModelRouterGetMemberBalanceResponse
+     *
+     * @param string                             $clientId
+     * @param string                             $id
+     * @param ModelRouterGetMemberBalanceRequest $request
+     *
+     * @return ModelRouterGetMemberBalanceResponse
+     */
+    public function modelRouterGetMemberBalance($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterGetMemberBalanceWithOptions($clientId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 组织管理/获取成员余额变更日志.
+     *
+     * @param request - ModelRouterGetMemberBalanceLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterGetMemberBalanceLogsResponse
+     *
+     * @param string                                 $clientId
+     * @param string                                 $id
+     * @param ModelRouterGetMemberBalanceLogsRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModelRouterGetMemberBalanceLogsResponse
+     */
+    public function modelRouterGetMemberBalanceLogsWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->changeType) {
+            @$query['changeType'] = $request->changeType;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        if (null !== $request->skipTotal) {
+            @$query['skipTotal'] = $request->skipTotal;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterGetMemberBalanceLogs',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/balance/logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterGetMemberBalanceLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 组织管理/获取成员余额变更日志.
+     *
+     * @param request - ModelRouterGetMemberBalanceLogsRequest
+     *
+     * @returns ModelRouterGetMemberBalanceLogsResponse
+     *
+     * @param string                                 $clientId
+     * @param string                                 $id
+     * @param ModelRouterGetMemberBalanceLogsRequest $request
+     *
+     * @return ModelRouterGetMemberBalanceLogsResponse
+     */
+    public function modelRouterGetMemberBalanceLogs($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterGetMemberBalanceLogsWithOptions($clientId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the cross-department role assignments of a user.
+     *
+     * @remarks
+     * Queries the role assignments of a user.
+     *
+     * @param request - ModelRouterGetUserRolesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterGetUserRolesResponse
+     *
+     * @param string                         $id
+     * @param ModelRouterGetUserRolesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModelRouterGetUserRolesResponse
+     */
+    public function modelRouterGetUserRolesWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterGetUserRoles',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/users/' . Url::percentEncode($id) . '/roles',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterGetUserRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the cross-department role assignments of a user.
+     *
+     * @remarks
+     * Queries the role assignments of a user.
+     *
+     * @param request - ModelRouterGetUserRolesRequest
+     *
+     * @returns ModelRouterGetUserRolesResponse
+     *
+     * @param string                         $id
+     * @param ModelRouterGetUserRolesRequest $request
+     *
+     * @return ModelRouterGetUserRolesResponse
+     */
+    public function modelRouterGetUserRoles($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterGetUserRolesWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries balance change records.
      *
      * @remarks
@@ -4770,6 +5999,233 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterListBalanceOrdersWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 组织管理/获取部门成员列表.
+     *
+     * @param request - ModelRouterListDeptMembersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterListDeptMembersResponse
+     *
+     * @param string                            $id
+     * @param ModelRouterListDeptMembersRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModelRouterListDeptMembersResponse
+     */
+    public function modelRouterListDeptMembersWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authConfig) {
+            @$query['authConfig'] = $request->authConfig;
+        }
+
+        if (null !== $request->includeAuthorization) {
+            @$query['includeAuthorization'] = $request->includeAuthorization;
+        }
+
+        if (null !== $request->includeBalance) {
+            @$query['includeBalance'] = $request->includeBalance;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->model) {
+            @$query['model'] = $request->model;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterListDeptMembers',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/members',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterListDeptMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 组织管理/获取部门成员列表.
+     *
+     * @param request - ModelRouterListDeptMembersRequest
+     *
+     * @returns ModelRouterListDeptMembersResponse
+     *
+     * @param string                            $id
+     * @param ModelRouterListDeptMembersRequest $request
+     *
+     * @return ModelRouterListDeptMembersResponse
+     */
+    public function modelRouterListDeptMembers($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterListDeptMembersWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 组织管理/获取成员余额变更记录.
+     *
+     * @param request - ModelRouterListMemberBalanceOrdersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterListMemberBalanceOrdersResponse
+     *
+     * @param string                                    $clientId
+     * @param string                                    $id
+     * @param ModelRouterListMemberBalanceOrdersRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModelRouterListMemberBalanceOrdersResponse
+     */
+    public function modelRouterListMemberBalanceOrdersWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->balanceType) {
+            @$query['balanceType'] = $request->balanceType;
+        }
+
+        if (null !== $request->direction) {
+            @$query['direction'] = $request->direction;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['orderType'] = $request->orderType;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterListMemberBalanceOrders',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/balance/orders',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterListMemberBalanceOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 组织管理/获取成员余额变更记录.
+     *
+     * @param request - ModelRouterListMemberBalanceOrdersRequest
+     *
+     * @returns ModelRouterListMemberBalanceOrdersResponse
+     *
+     * @param string                                    $clientId
+     * @param string                                    $id
+     * @param ModelRouterListMemberBalanceOrdersRequest $request
+     *
+     * @return ModelRouterListMemberBalanceOrdersResponse
+     */
+    public function modelRouterListMemberBalanceOrders($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterListMemberBalanceOrdersWithOptions($clientId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 组织管理/获取成员订阅列表.
+     *
+     * @param request - ModelRouterListMemberSubscriptionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterListMemberSubscriptionsResponse
+     *
+     * @param string                                    $clientId
+     * @param string                                    $id
+     * @param ModelRouterListMemberSubscriptionsRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModelRouterListMemberSubscriptionsResponse
+     */
+    public function modelRouterListMemberSubscriptionsWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterListMemberSubscriptions',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/balance/subscription',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterListMemberSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 组织管理/获取成员订阅列表.
+     *
+     * @param request - ModelRouterListMemberSubscriptionsRequest
+     *
+     * @returns ModelRouterListMemberSubscriptionsResponse
+     *
+     * @param string                                    $clientId
+     * @param string                                    $id
+     * @param ModelRouterListMemberSubscriptionsRequest $request
+     *
+     * @return ModelRouterListMemberSubscriptionsResponse
+     */
+    public function modelRouterListMemberSubscriptions($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterListMemberSubscriptionsWithOptions($clientId, $id, $request, $headers, $runtime);
     }
 
     /**
@@ -4931,12 +6387,20 @@ class AiContent extends OpenApiClient
             @$query['groupBy'] = $request->groupBy;
         }
 
+        if (null !== $request->includeMemberKeys) {
+            @$query['includeMemberKeys'] = $request->includeMemberKeys;
+        }
+
         if (null !== $request->keyword) {
             @$query['keyword'] = $request->keyword;
         }
 
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->memberUserIds) {
+            @$query['memberUserIds'] = $request->memberUserIds;
         }
 
         if (null !== $request->needTotalCount) {
@@ -5006,7 +6470,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Billing > Query billing cost breakdown.
+     * Queries billing details in batches.
      *
      * @param request - ModelRouterQueryBillingCostBreakdownRequest
      * @param headers - map
@@ -5042,6 +6506,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->memberUserIds) {
+            @$query['memberUserIds'] = $request->memberUserIds;
         }
 
         if (null !== $request->modelId) {
@@ -5088,7 +6556,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Billing > Query billing cost breakdown.
+     * Queries billing details in batches.
      *
      * @param request - ModelRouterQueryBillingCostBreakdownRequest
      *
@@ -5319,6 +6787,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->parentId) {
+            @$query['parentId'] = $request->parentId;
         }
 
         if (null !== $request->status) {
@@ -5577,7 +7049,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * billing management / Model details.
+     * Retrieves the usage details of a model for billing management.
      *
      * @param request - ModelRouterQueryCostModelDetailRequest
      * @param headers - map
@@ -5609,6 +7081,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->memberUserIds) {
+            @$query['memberUserIds'] = $request->memberUserIds;
         }
 
         if (null !== $request->modelId) {
@@ -5655,7 +7131,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * billing management / Model details.
+     * Retrieves the usage details of a model for billing management.
      *
      * @param request - ModelRouterQueryCostModelDetailRequest
      *
@@ -5674,7 +7150,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * billing management / Retrieves a list of invoked models.
+     * Retrieves the list of models called for billing management.
      *
      * @param request - ModelRouterQueryCostModelListRequest
      * @param headers - map
@@ -5710,6 +7186,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->memberUserIds) {
+            @$query['memberUserIds'] = $request->memberUserIds;
         }
 
         if (null !== $request->modelTypes) {
@@ -5748,7 +7228,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * billing management / Retrieves a list of invoked models.
+     * Retrieves the list of models called for billing management.
      *
      * @param request - ModelRouterQueryCostModelListRequest
      *
@@ -5767,7 +7247,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * billing management / Get cost overview metrics.
+     * Retrieves cost overview metrics for billing management.
      *
      * @param request - ModelRouterQueryCostOverviewMetricsRequest
      * @param headers - map
@@ -5805,6 +7285,10 @@ class AiContent extends OpenApiClient
             @$query['maxResults'] = $request->maxResults;
         }
 
+        if (null !== $request->memberUserIds) {
+            @$query['memberUserIds'] = $request->memberUserIds;
+        }
+
         if (null !== $request->modelTypes) {
             @$query['modelTypes'] = $request->modelTypes;
         }
@@ -5837,7 +7321,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * billing management / Get cost overview metrics.
+     * Retrieves cost overview metrics for billing management.
      *
      * @param request - ModelRouterQueryCostOverviewMetricsRequest
      *
@@ -5856,7 +7340,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * billing management / Cost trends.
+     * Retrieves usage cost trends.
      *
      * @param request - ModelRouterQueryCostTrendMetricsRequest
      * @param headers - map
@@ -5894,6 +7378,10 @@ class AiContent extends OpenApiClient
             @$query['maxResults'] = $request->maxResults;
         }
 
+        if (null !== $request->memberUserIds) {
+            @$query['memberUserIds'] = $request->memberUserIds;
+        }
+
         if (null !== $request->modelTypes) {
             @$query['modelTypes'] = $request->modelTypes;
         }
@@ -5926,7 +7414,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * billing management / Cost trends.
+     * Retrieves usage cost trends.
      *
      * @param request - ModelRouterQueryCostTrendMetricsRequest
      *
@@ -6312,10 +7800,91 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Lists the model groups and models bound to a specified API key.
+     * Queries the users attached to a model group by paging.
      *
      * @remarks
-     * Queries the groups and models bound to a specified API key.
+     * Queries the users attached to a model group by paging.
+     *
+     * @param request - ModelRouterQueryModelGroupUsersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryModelGroupUsersResponse
+     *
+     * @param string                                 $groupId
+     * @param ModelRouterQueryModelGroupUsersRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModelRouterQueryModelGroupUsersResponse
+     */
+    public function modelRouterQueryModelGroupUsersWithOptions($groupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryModelGroupUsers',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/model-groups/' . Url::percentEncode($groupId) . '/users',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryModelGroupUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the users attached to a model group by paging.
+     *
+     * @remarks
+     * Queries the users attached to a model group by paging.
+     *
+     * @param request - ModelRouterQueryModelGroupUsersRequest
+     *
+     * @returns ModelRouterQueryModelGroupUsersResponse
+     *
+     * @param string                                 $groupId
+     * @param ModelRouterQueryModelGroupUsersRequest $request
+     *
+     * @return ModelRouterQueryModelGroupUsersResponse
+     */
+    public function modelRouterQueryModelGroupUsers($groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryModelGroupUsersWithOptions($groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the bound groups and models by API key.
+     *
+     * @remarks
+     * Queries the bound groups and models by API key.
      *
      * @param request - ModelRouterQueryModelGroupsByApiKeyRequest
      * @param headers - map
@@ -6352,10 +7921,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Lists the model groups and models bound to a specified API key.
+     * Queries the bound groups and models by API key.
      *
      * @remarks
-     * Queries the groups and models bound to a specified API key.
+     * Queries the bound groups and models by API key.
      *
      * @param request - ModelRouterQueryModelGroupsByApiKeyRequest
      *
@@ -6658,7 +8227,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves chart data for model observation.
+     * Retrieves observation chart data for model monitoring.
      *
      * @param request - ModelRouterQueryObservationChartsRequest
      * @param headers - map
@@ -6686,6 +8255,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->endTime) {
             @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->memberUserIds) {
+            @$query['memberUserIds'] = $request->memberUserIds;
         }
 
         if (null !== $request->modelId) {
@@ -6720,7 +8293,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves chart data for model observation.
+     * Retrieves observation chart data for model monitoring.
      *
      * @param request - ModelRouterQueryObservationChartsRequest
      *
@@ -6775,6 +8348,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->memberUserIds) {
+            @$query['memberUserIds'] = $request->memberUserIds;
         }
 
         if (null !== $request->modelId) {
@@ -6890,6 +8467,10 @@ class AiContent extends OpenApiClient
             @$query['maxResults'] = $request->maxResults;
         }
 
+        if (null !== $request->memberUserIds) {
+            @$query['memberUserIds'] = $request->memberUserIds;
+        }
+
         if (null !== $request->modelId) {
             @$query['modelId'] = $request->modelId;
         }
@@ -7003,6 +8584,10 @@ class AiContent extends OpenApiClient
             @$query['maxResults'] = $request->maxResults;
         }
 
+        if (null !== $request->memberUserIds) {
+            @$query['memberUserIds'] = $request->memberUserIds;
+        }
+
         if (null !== $request->nextToken) {
             @$query['nextToken'] = $request->nextToken;
         }
@@ -7055,6 +8640,140 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterQueryUsageBreakdownWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the list of users.
+     *
+     * @remarks
+     * Queries the list of users.
+     *
+     * @param request - ModelRouterQueryUserListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryUserListResponse
+     *
+     * @param ModelRouterQueryUserListRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModelRouterQueryUserListResponse
+     */
+    public function modelRouterQueryUserListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryUserList',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/users',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryUserListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of users.
+     *
+     * @remarks
+     * Queries the list of users.
+     *
+     * @param request - ModelRouterQueryUserListRequest
+     *
+     * @returns ModelRouterQueryUserListResponse
+     *
+     * @param ModelRouterQueryUserListRequest $request
+     *
+     * @return ModelRouterQueryUserListResponse
+     */
+    public function modelRouterQueryUserList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryUserListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Resets the authorization of a member to inherit from the organization.
+     *
+     * @param request - ModelRouterResetMemberAuthorizationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterResetMemberAuthorizationResponse
+     *
+     * @param string                                     $clientId
+     * @param string                                     $id
+     * @param ModelRouterResetMemberAuthorizationRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModelRouterResetMemberAuthorizationResponse
+     */
+    public function modelRouterResetMemberAuthorizationWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterResetMemberAuthorization',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/authorization',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterResetMemberAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Resets the authorization of a member to inherit from the organization.
+     *
+     * @param request - ModelRouterResetMemberAuthorizationRequest
+     *
+     * @returns ModelRouterResetMemberAuthorizationResponse
+     *
+     * @param string                                     $clientId
+     * @param string                                     $id
+     * @param ModelRouterResetMemberAuthorizationRequest $request
+     *
+     * @return ModelRouterResetMemberAuthorizationResponse
+     */
+    public function modelRouterResetMemberAuthorization($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterResetMemberAuthorizationWithOptions($clientId, $id, $request, $headers, $runtime);
     }
 
     /**
@@ -7131,6 +8850,270 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * 组织管理/部门树搜索定位.
+     *
+     * @param request - ModelRouterSearchClientTreeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterSearchClientTreeResponse
+     *
+     * @param ModelRouterSearchClientTreeRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModelRouterSearchClientTreeResponse
+     */
+    public function modelRouterSearchClientTreeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterSearchClientTree',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/tree/search',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterSearchClientTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 组织管理/部门树搜索定位.
+     *
+     * @param request - ModelRouterSearchClientTreeRequest
+     *
+     * @returns ModelRouterSearchClientTreeResponse
+     *
+     * @param ModelRouterSearchClientTreeRequest $request
+     *
+     * @return ModelRouterSearchClientTreeResponse
+     */
+    public function modelRouterSearchClientTree($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterSearchClientTreeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Sets the member authorization model for an organization.
+     *
+     * @param request - ModelRouterSetMemberAuthorizationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterSetMemberAuthorizationResponse
+     *
+     * @param string                                   $clientId
+     * @param string                                   $id
+     * @param ModelRouterSetMemberAuthorizationRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModelRouterSetMemberAuthorizationResponse
+     */
+    public function modelRouterSetMemberAuthorizationWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->allowedModelGroupConfig) {
+            @$body['allowedModelGroupConfig'] = $request->allowedModelGroupConfig;
+        }
+
+        if (null !== $request->allowedModels) {
+            @$body['allowedModels'] = $request->allowedModels;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterSetMemberAuthorization',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/authorization',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterSetMemberAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets the member authorization model for an organization.
+     *
+     * @param request - ModelRouterSetMemberAuthorizationRequest
+     *
+     * @returns ModelRouterSetMemberAuthorizationResponse
+     *
+     * @param string                                   $clientId
+     * @param string                                   $id
+     * @param ModelRouterSetMemberAuthorizationRequest $request
+     *
+     * @return ModelRouterSetMemberAuthorizationResponse
+     */
+    public function modelRouterSetMemberAuthorization($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterSetMemberAuthorizationWithOptions($clientId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Sets user roles or changes the department to which a user belongs.
+     *
+     * @remarks
+     * Sets user roles or changes the department to which a user belongs.
+     *
+     * @param request - ModelRouterSetUserRolesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterSetUserRolesResponse
+     *
+     * @param string                         $id
+     * @param ModelRouterSetUserRolesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModelRouterSetUserRolesResponse
+     */
+    public function modelRouterSetUserRolesWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->departmentRoles) {
+            @$body['departmentRoles'] = $request->departmentRoles;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterSetUserRoles',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/users/' . Url::percentEncode($id) . '/roles',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterSetUserRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets user roles or changes the department to which a user belongs.
+     *
+     * @remarks
+     * Sets user roles or changes the department to which a user belongs.
+     *
+     * @param request - ModelRouterSetUserRolesRequest
+     *
+     * @returns ModelRouterSetUserRolesResponse
+     *
+     * @param string                         $id
+     * @param ModelRouterSetUserRolesRequest $request
+     *
+     * @return ModelRouterSetUserRolesResponse
+     */
+    public function modelRouterSetUserRoles($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterSetUserRolesWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 组织管理/停止成员订阅.
+     *
+     * @param request - ModelRouterStopMemberSubscriptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterStopMemberSubscriptionResponse
+     *
+     * @param string                                   $clientId
+     * @param string                                   $id
+     * @param ModelRouterStopMemberSubscriptionRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModelRouterStopMemberSubscriptionResponse
+     */
+    public function modelRouterStopMemberSubscriptionWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->balanceType) {
+            @$body['balanceType'] = $request->balanceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterStopMemberSubscription',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/balance/subscription/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterStopMemberSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 组织管理/停止成员订阅.
+     *
+     * @param request - ModelRouterStopMemberSubscriptionRequest
+     *
+     * @returns ModelRouterStopMemberSubscriptionResponse
+     *
+     * @param string                                   $clientId
+     * @param string                                   $id
+     * @param ModelRouterStopMemberSubscriptionRequest $request
+     *
+     * @return ModelRouterStopMemberSubscriptionResponse
+     */
+    public function modelRouterStopMemberSubscription($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterStopMemberSubscriptionWithOptions($clientId, $id, $request, $headers, $runtime);
+    }
+
+    /**
      * Stops a periodic recharge subscription for customer management.
      *
      * @param request - ModelRouterStopSubscriptionRequest
@@ -7191,6 +9174,87 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterStopSubscriptionWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 组织管理/部门向成员转账.
+     *
+     * @param request - ModelRouterTransferToMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterTransferToMemberResponse
+     *
+     * @param string                             $clientId
+     * @param string                             $id
+     * @param ModelRouterTransferToMemberRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModelRouterTransferToMemberResponse
+     */
+    public function modelRouterTransferToMemberWithOptions($clientId, $id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->amount) {
+            @$body['amount'] = $request->amount;
+        }
+
+        if (null !== $request->balanceType) {
+            @$body['balanceType'] = $request->balanceType;
+        }
+
+        if (null !== $request->idempotencyKey) {
+            @$body['idempotencyKey'] = $request->idempotencyKey;
+        }
+
+        if (null !== $request->monthlyQuota) {
+            @$body['monthlyQuota'] = $request->monthlyQuota;
+        }
+
+        if (null !== $request->remark) {
+            @$body['remark'] = $request->remark;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterTransferToMember',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($clientId) . '/members/' . Url::percentEncode($id) . '/transfer',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterTransferToMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 组织管理/部门向成员转账.
+     *
+     * @param request - ModelRouterTransferToMemberRequest
+     *
+     * @returns ModelRouterTransferToMemberResponse
+     *
+     * @param string                             $clientId
+     * @param string                             $id
+     * @param ModelRouterTransferToMemberRequest $request
+     *
+     * @return ModelRouterTransferToMemberResponse
+     */
+    public function modelRouterTransferToMember($clientId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterTransferToMemberWithOptions($clientId, $id, $request, $headers, $runtime);
     }
 
     /**
@@ -7616,6 +9680,79 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterUpdateModelGroupWithOptions($groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates user information.
+     *
+     * @remarks
+     * Updates user information.
+     *
+     * @param request - ModelRouterUpdateUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterUpdateUserResponse
+     *
+     * @param string                       $id
+     * @param ModelRouterUpdateUserRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModelRouterUpdateUserResponse
+     */
+    public function modelRouterUpdateUserWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterUpdateUser',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/users/' . Url::percentEncode($id) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterUpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates user information.
+     *
+     * @remarks
+     * Updates user information.
+     *
+     * @param request - ModelRouterUpdateUserRequest
+     *
+     * @returns ModelRouterUpdateUserResponse
+     *
+     * @param string                       $id
+     * @param ModelRouterUpdateUserRequest $request
+     *
+     * @return ModelRouterUpdateUserResponse
+     */
+    public function modelRouterUpdateUser($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterUpdateUserWithOptions($id, $request, $headers, $runtime);
     }
 
     /**

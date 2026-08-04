@@ -36,6 +36,11 @@ class ModelRouterQueryUsageBreakdownRequest extends Model
     /**
      * @var string
      */
+    public $memberUserIds;
+
+    /**
+     * @var string
+     */
     public $nextToken;
 
     /**
@@ -58,6 +63,7 @@ class ModelRouterQueryUsageBreakdownRequest extends Model
         'endTime' => 'endTime',
         'granularity' => 'granularity',
         'maxResults' => 'maxResults',
+        'memberUserIds' => 'memberUserIds',
         'nextToken' => 'nextToken',
         'page' => 'page',
         'pageSize' => 'pageSize',
@@ -90,6 +96,10 @@ class ModelRouterQueryUsageBreakdownRequest extends Model
 
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->memberUserIds) {
+            $res['memberUserIds'] = $this->memberUserIds;
         }
 
         if (null !== $this->nextToken) {
@@ -137,6 +147,10 @@ class ModelRouterQueryUsageBreakdownRequest extends Model
 
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['memberUserIds'])) {
+            $model->memberUserIds = $map['memberUserIds'];
         }
 
         if (isset($map['nextToken'])) {

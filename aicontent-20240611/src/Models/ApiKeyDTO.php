@@ -49,6 +49,16 @@ class ApiKeyDTO extends Model
     public $keyPreview;
 
     /**
+     * @var int
+     */
+    public $memberUserId;
+
+    /**
+     * @var string
+     */
+    public $memberUserName;
+
+    /**
      * @var string
      */
     public $name;
@@ -61,6 +71,8 @@ class ApiKeyDTO extends Model
         'id' => 'id',
         'key' => 'key',
         'keyPreview' => 'keyPreview',
+        'memberUserId' => 'memberUserId',
+        'memberUserName' => 'memberUserName',
         'name' => 'name',
     ];
 
@@ -105,6 +117,14 @@ class ApiKeyDTO extends Model
 
         if (null !== $this->keyPreview) {
             $res['keyPreview'] = $this->keyPreview;
+        }
+
+        if (null !== $this->memberUserId) {
+            $res['memberUserId'] = $this->memberUserId;
+        }
+
+        if (null !== $this->memberUserName) {
+            $res['memberUserName'] = $this->memberUserName;
         }
 
         if (null !== $this->name) {
@@ -152,6 +172,14 @@ class ApiKeyDTO extends Model
 
         if (isset($map['keyPreview'])) {
             $model->keyPreview = $map['keyPreview'];
+        }
+
+        if (isset($map['memberUserId'])) {
+            $model->memberUserId = $map['memberUserId'];
+        }
+
+        if (isset($map['memberUserName'])) {
+            $model->memberUserName = $map['memberUserName'];
         }
 
         if (isset($map['name'])) {

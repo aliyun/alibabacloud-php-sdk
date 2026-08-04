@@ -29,6 +29,16 @@ class UsageBreakdownRowDTO extends Model
     public $clientName;
 
     /**
+     * @var int
+     */
+    public $memberUserId;
+
+    /**
+     * @var string
+     */
+    public $memberUserName;
+
+    /**
      * @var MetricKVPairDTO[]
      */
     public $metrics;
@@ -62,6 +72,8 @@ class UsageBreakdownRowDTO extends Model
         'apiKeyName' => 'apiKeyName',
         'clientId' => 'clientId',
         'clientName' => 'clientName',
+        'memberUserId' => 'memberUserId',
+        'memberUserName' => 'memberUserName',
         'metrics' => 'metrics',
         'modelCode' => 'modelCode',
         'modelId' => 'modelId',
@@ -95,6 +107,14 @@ class UsageBreakdownRowDTO extends Model
 
         if (null !== $this->clientName) {
             $res['clientName'] = $this->clientName;
+        }
+
+        if (null !== $this->memberUserId) {
+            $res['memberUserId'] = $this->memberUserId;
+        }
+
+        if (null !== $this->memberUserName) {
+            $res['memberUserName'] = $this->memberUserName;
         }
 
         if (null !== $this->metrics) {
@@ -153,6 +173,14 @@ class UsageBreakdownRowDTO extends Model
 
         if (isset($map['clientName'])) {
             $model->clientName = $map['clientName'];
+        }
+
+        if (isset($map['memberUserId'])) {
+            $model->memberUserId = $map['memberUserId'];
+        }
+
+        if (isset($map['memberUserName'])) {
+            $model->memberUserName = $map['memberUserName'];
         }
 
         if (isset($map['metrics'])) {

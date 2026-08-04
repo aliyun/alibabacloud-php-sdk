@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelGroupDTO;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $bindType;
+
+    /**
      * @var int
      */
     public $clientId;
@@ -24,6 +29,7 @@ class data extends Model
      */
     public $standaloneModelList;
     protected $_name = [
+        'bindType' => 'bindType',
         'clientId' => 'clientId',
         'groups' => 'groups',
         'standaloneModelList' => 'standaloneModelList',
@@ -43,6 +49,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bindType) {
+            $res['bindType'] = $this->bindType;
+        }
+
         if (null !== $this->clientId) {
             $res['clientId'] = $this->clientId;
         }
@@ -80,6 +90,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bindType'])) {
+            $model->bindType = $map['bindType'];
+        }
+
         if (isset($map['clientId'])) {
             $model->clientId = $map['clientId'];
         }

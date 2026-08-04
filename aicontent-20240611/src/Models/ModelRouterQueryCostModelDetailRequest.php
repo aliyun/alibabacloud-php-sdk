@@ -29,6 +29,11 @@ class ModelRouterQueryCostModelDetailRequest extends Model
     public $maxResults;
 
     /**
+     * @var string
+     */
+    public $memberUserIds;
+
+    /**
      * @var int
      */
     public $modelId;
@@ -62,6 +67,7 @@ class ModelRouterQueryCostModelDetailRequest extends Model
         'clientId' => 'clientId',
         'endTime' => 'endTime',
         'maxResults' => 'maxResults',
+        'memberUserIds' => 'memberUserIds',
         'modelId' => 'modelId',
         'nextToken' => 'nextToken',
         'page' => 'page',
@@ -92,6 +98,10 @@ class ModelRouterQueryCostModelDetailRequest extends Model
 
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->memberUserIds) {
+            $res['memberUserIds'] = $this->memberUserIds;
         }
 
         if (null !== $this->modelId) {
@@ -143,6 +153,10 @@ class ModelRouterQueryCostModelDetailRequest extends Model
 
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['memberUserIds'])) {
+            $model->memberUserIds = $map['memberUserIds'];
         }
 
         if (isset($map['modelId'])) {

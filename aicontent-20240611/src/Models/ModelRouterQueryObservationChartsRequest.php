@@ -24,6 +24,11 @@ class ModelRouterQueryObservationChartsRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $memberUserIds;
+
+    /**
      * @var int
      */
     public $modelId;
@@ -41,6 +46,7 @@ class ModelRouterQueryObservationChartsRequest extends Model
         'apiKeyId' => 'apiKeyId',
         'clientId' => 'clientId',
         'endTime' => 'endTime',
+        'memberUserIds' => 'memberUserIds',
         'modelId' => 'modelId',
         'startTime' => 'startTime',
         'timeRange' => 'timeRange',
@@ -64,6 +70,10 @@ class ModelRouterQueryObservationChartsRequest extends Model
 
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+
+        if (null !== $this->memberUserIds) {
+            $res['memberUserIds'] = $this->memberUserIds;
         }
 
         if (null !== $this->modelId) {
@@ -99,6 +109,10 @@ class ModelRouterQueryObservationChartsRequest extends Model
 
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+
+        if (isset($map['memberUserIds'])) {
+            $model->memberUserIds = $map['memberUserIds'];
         }
 
         if (isset($map['modelId'])) {

@@ -36,6 +36,11 @@ class ModelRouterQueryCostModelListRequest extends Model
     /**
      * @var string
      */
+    public $memberUserIds;
+
+    /**
+     * @var string
+     */
     public $modelTypes;
 
     /**
@@ -58,6 +63,7 @@ class ModelRouterQueryCostModelListRequest extends Model
         'endTime' => 'endTime',
         'granularity' => 'granularity',
         'maxResults' => 'maxResults',
+        'memberUserIds' => 'memberUserIds',
         'modelTypes' => 'modelTypes',
         'nextToken' => 'nextToken',
         'search' => 'search',
@@ -90,6 +96,10 @@ class ModelRouterQueryCostModelListRequest extends Model
 
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->memberUserIds) {
+            $res['memberUserIds'] = $this->memberUserIds;
         }
 
         if (null !== $this->modelTypes) {
@@ -137,6 +147,10 @@ class ModelRouterQueryCostModelListRequest extends Model
 
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['memberUserIds'])) {
+            $model->memberUserIds = $map['memberUserIds'];
         }
 
         if (isset($map['modelTypes'])) {

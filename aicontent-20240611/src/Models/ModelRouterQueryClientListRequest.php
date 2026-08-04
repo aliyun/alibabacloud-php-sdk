@@ -56,6 +56,11 @@ class ModelRouterQueryClientListRequest extends Model
     /**
      * @var int
      */
+    public $parentId;
+
+    /**
+     * @var int
+     */
     public $status;
     protected $_name = [
         'groupBy' => 'groupBy',
@@ -67,6 +72,7 @@ class ModelRouterQueryClientListRequest extends Model
         'orderDirection' => 'orderDirection',
         'pageIndex' => 'pageIndex',
         'pageSize' => 'pageSize',
+        'parentId' => 'parentId',
         'status' => 'status',
     ];
 
@@ -112,6 +118,10 @@ class ModelRouterQueryClientListRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->parentId) {
+            $res['parentId'] = $this->parentId;
         }
 
         if (null !== $this->status) {
@@ -163,6 +173,10 @@ class ModelRouterQueryClientListRequest extends Model
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['parentId'])) {
+            $model->parentId = $map['parentId'];
         }
 
         if (isset($map['status'])) {

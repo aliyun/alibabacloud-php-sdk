@@ -39,6 +39,16 @@ class BillingCostBreakdownRowDTO extends Model
     public $dimValues;
 
     /**
+     * @var int
+     */
+    public $memberUserId;
+
+    /**
+     * @var string
+     */
+    public $memberUserName;
+
+    /**
      * @var string
      */
     public $modelCode;
@@ -56,7 +66,17 @@ class BillingCostBreakdownRowDTO extends Model
     /**
      * @var string
      */
+    public $modelSymbol;
+
+    /**
+     * @var string
+     */
     public $modelType;
+
+    /**
+     * @var int
+     */
+    public $modelVersion;
 
     /**
      * @var float
@@ -84,10 +104,14 @@ class BillingCostBreakdownRowDTO extends Model
         'clientId' => 'clientId',
         'clientName' => 'clientName',
         'dimValues' => 'dimValues',
+        'memberUserId' => 'memberUserId',
+        'memberUserName' => 'memberUserName',
         'modelCode' => 'modelCode',
         'modelId' => 'modelId',
         'modelName' => 'modelName',
+        'modelSymbol' => 'modelSymbol',
         'modelType' => 'modelType',
+        'modelVersion' => 'modelVersion',
         'payableAmount' => 'payableAmount',
         'summaryTime' => 'summaryTime',
         'tiers' => 'tiers',
@@ -129,6 +153,14 @@ class BillingCostBreakdownRowDTO extends Model
             $res['dimValues'] = $this->dimValues;
         }
 
+        if (null !== $this->memberUserId) {
+            $res['memberUserId'] = $this->memberUserId;
+        }
+
+        if (null !== $this->memberUserName) {
+            $res['memberUserName'] = $this->memberUserName;
+        }
+
         if (null !== $this->modelCode) {
             $res['modelCode'] = $this->modelCode;
         }
@@ -141,8 +173,16 @@ class BillingCostBreakdownRowDTO extends Model
             $res['modelName'] = $this->modelName;
         }
 
+        if (null !== $this->modelSymbol) {
+            $res['modelSymbol'] = $this->modelSymbol;
+        }
+
         if (null !== $this->modelType) {
             $res['modelType'] = $this->modelType;
+        }
+
+        if (null !== $this->modelVersion) {
+            $res['modelVersion'] = $this->modelVersion;
         }
 
         if (null !== $this->payableAmount) {
@@ -203,6 +243,14 @@ class BillingCostBreakdownRowDTO extends Model
             $model->dimValues = $map['dimValues'];
         }
 
+        if (isset($map['memberUserId'])) {
+            $model->memberUserId = $map['memberUserId'];
+        }
+
+        if (isset($map['memberUserName'])) {
+            $model->memberUserName = $map['memberUserName'];
+        }
+
         if (isset($map['modelCode'])) {
             $model->modelCode = $map['modelCode'];
         }
@@ -215,8 +263,16 @@ class BillingCostBreakdownRowDTO extends Model
             $model->modelName = $map['modelName'];
         }
 
+        if (isset($map['modelSymbol'])) {
+            $model->modelSymbol = $map['modelSymbol'];
+        }
+
         if (isset($map['modelType'])) {
             $model->modelType = $map['modelType'];
+        }
+
+        if (isset($map['modelVersion'])) {
+            $model->modelVersion = $map['modelVersion'];
         }
 
         if (isset($map['payableAmount'])) {

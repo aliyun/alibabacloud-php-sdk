@@ -79,6 +79,11 @@ class ClientTreeDTO extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $nodeType;
+
+    /**
      * @var int
      */
     public $parentId;
@@ -87,6 +92,11 @@ class ClientTreeDTO extends Model
      * @var string
      */
     public $remark;
+
+    /**
+     * @var int
+     */
+    public $userId;
     protected $_name = [
         'address' => 'address',
         'allowedModels' => 'allowedModels',
@@ -102,8 +112,10 @@ class ClientTreeDTO extends Model
         'level' => 'level',
         'main' => 'main',
         'name' => 'name',
+        'nodeType' => 'nodeType',
         'parentId' => 'parentId',
         'remark' => 'remark',
+        'userId' => 'userId',
     ];
 
     public function validate()
@@ -183,12 +195,20 @@ class ClientTreeDTO extends Model
             $res['name'] = $this->name;
         }
 
+        if (null !== $this->nodeType) {
+            $res['nodeType'] = $this->nodeType;
+        }
+
         if (null !== $this->parentId) {
             $res['parentId'] = $this->parentId;
         }
 
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
+        }
+
+        if (null !== $this->userId) {
+            $res['userId'] = $this->userId;
         }
 
         return $res;
@@ -265,12 +285,20 @@ class ClientTreeDTO extends Model
             $model->name = $map['name'];
         }
 
+        if (isset($map['nodeType'])) {
+            $model->nodeType = $map['nodeType'];
+        }
+
         if (isset($map['parentId'])) {
             $model->parentId = $map['parentId'];
         }
 
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
+        }
+
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
         }
 
         return $model;

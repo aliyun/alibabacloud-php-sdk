@@ -16,6 +16,11 @@ class ClientDTO extends Model
     /**
      * @var string
      */
+    public $allowedModelGroupConfig;
+
+    /**
+     * @var string
+     */
     public $allowedModels;
 
     /**
@@ -32,6 +37,11 @@ class ClientDTO extends Model
      * @var int
      */
     public $deleteTag;
+
+    /**
+     * @var float
+     */
+    public $discount;
 
     /**
      * @var string
@@ -51,6 +61,11 @@ class ClientDTO extends Model
     /**
      * @var int
      */
+    public $level;
+
+    /**
+     * @var int
+     */
     public $main;
 
     /**
@@ -61,19 +76,40 @@ class ClientDTO extends Model
     /**
      * @var string
      */
+    public $nodeType;
+
+    /**
+     * @var int
+     */
+    public $parentId;
+
+    /**
+     * @var string
+     */
     public $remark;
+
+    /**
+     * @var int
+     */
+    public $userId;
     protected $_name = [
         'address' => 'address',
+        'allowedModelGroupConfig' => 'allowedModelGroupConfig',
         'allowedModels' => 'allowedModels',
         'clientUuid' => 'clientUuid',
         'contact' => 'contact',
         'deleteTag' => 'deleteTag',
+        'discount' => 'discount',
         'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
         'id' => 'id',
+        'level' => 'level',
         'main' => 'main',
         'name' => 'name',
+        'nodeType' => 'nodeType',
+        'parentId' => 'parentId',
         'remark' => 'remark',
+        'userId' => 'userId',
     ];
 
     public function validate()
@@ -86,6 +122,10 @@ class ClientDTO extends Model
         $res = [];
         if (null !== $this->address) {
             $res['address'] = $this->address;
+        }
+
+        if (null !== $this->allowedModelGroupConfig) {
+            $res['allowedModelGroupConfig'] = $this->allowedModelGroupConfig;
         }
 
         if (null !== $this->allowedModels) {
@@ -104,6 +144,10 @@ class ClientDTO extends Model
             $res['deleteTag'] = $this->deleteTag;
         }
 
+        if (null !== $this->discount) {
+            $res['discount'] = $this->discount;
+        }
+
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
@@ -116,6 +160,10 @@ class ClientDTO extends Model
             $res['id'] = $this->id;
         }
 
+        if (null !== $this->level) {
+            $res['level'] = $this->level;
+        }
+
         if (null !== $this->main) {
             $res['main'] = $this->main;
         }
@@ -124,8 +172,20 @@ class ClientDTO extends Model
             $res['name'] = $this->name;
         }
 
+        if (null !== $this->nodeType) {
+            $res['nodeType'] = $this->nodeType;
+        }
+
+        if (null !== $this->parentId) {
+            $res['parentId'] = $this->parentId;
+        }
+
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
+        }
+
+        if (null !== $this->userId) {
+            $res['userId'] = $this->userId;
         }
 
         return $res;
@@ -141,6 +201,10 @@ class ClientDTO extends Model
         $model = new self();
         if (isset($map['address'])) {
             $model->address = $map['address'];
+        }
+
+        if (isset($map['allowedModelGroupConfig'])) {
+            $model->allowedModelGroupConfig = $map['allowedModelGroupConfig'];
         }
 
         if (isset($map['allowedModels'])) {
@@ -159,6 +223,10 @@ class ClientDTO extends Model
             $model->deleteTag = $map['deleteTag'];
         }
 
+        if (isset($map['discount'])) {
+            $model->discount = $map['discount'];
+        }
+
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
@@ -171,6 +239,10 @@ class ClientDTO extends Model
             $model->id = $map['id'];
         }
 
+        if (isset($map['level'])) {
+            $model->level = $map['level'];
+        }
+
         if (isset($map['main'])) {
             $model->main = $map['main'];
         }
@@ -179,8 +251,20 @@ class ClientDTO extends Model
             $model->name = $map['name'];
         }
 
+        if (isset($map['nodeType'])) {
+            $model->nodeType = $map['nodeType'];
+        }
+
+        if (isset($map['parentId'])) {
+            $model->parentId = $map['parentId'];
+        }
+
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
+        }
+
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
         }
 
         return $model;
