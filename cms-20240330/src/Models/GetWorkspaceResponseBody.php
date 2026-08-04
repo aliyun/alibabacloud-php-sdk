@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetWorkspaceResponseBody\tags;
 
 class GetWorkspaceResponseBody extends Model
 {
@@ -41,7 +42,17 @@ class GetWorkspaceResponseBody extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $slsProject;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -54,12 +65,17 @@ class GetWorkspaceResponseBody extends Model
         'lastModifyTime' => 'lastModifyTime',
         'regionId' => 'regionId',
         'requestId' => 'requestId',
+        'resourceGroupId' => 'resourceGroupId',
         'slsProject' => 'slsProject',
+        'tags' => 'tags',
         'workspaceName' => 'workspaceName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -90,8 +106,23 @@ class GetWorkspaceResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->slsProject) {
             $res['slsProject'] = $this->slsProject;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->workspaceName) {
@@ -133,8 +164,23 @@ class GetWorkspaceResponseBody extends Model
             $model->requestId = $map['requestId'];
         }
 
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
         if (isset($map['slsProject'])) {
             $model->slsProject = $map['slsProject'];
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['workspaceName'])) {

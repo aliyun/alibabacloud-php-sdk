@@ -596,7 +596,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Changes the resource group of a resource.
+     * Modifies the resource group to which a resource belongs.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -646,7 +646,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Changes the resource group of a resource.
+     * Modifies the resource group to which a resource belongs.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -5661,7 +5661,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query integration center policy information.
+     * Queries the policy information of the DDoS Access Center.
      *
      * @param request - GetIntegrationPolicyRequest
      * @param headers - map
@@ -5698,7 +5698,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query integration center policy information.
+     * Queries the policy information of the DDoS Access Center.
      *
      * @param request - GetIntegrationPolicyRequest
      *
@@ -6595,11 +6595,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询ServiceTask.
+     * Queries the details of a single ServiceTask under a specified application.
      *
      * @remarks
-     * 根据 taskId 查询单个服务任务详情。
-     * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+     * Queries the details of a single service task based on the taskId.
+     * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
      *
      * @param request - GetServiceTaskRequest
      * @param headers - map
@@ -6644,11 +6644,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询ServiceTask.
+     * Queries the details of a single ServiceTask under a specified application.
      *
      * @remarks
-     * 根据 taskId 查询单个服务任务详情。
-     * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+     * Queries the details of a single service task based on the taskId.
+     * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
      *
      * @param request - GetServiceTaskRequest
      *
@@ -9293,14 +9293,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 列举ServiceTask.
+     * Lists service tasks.
      *
      * @remarks
-     * 按任务类型列举应用下的服务任务。
-     * - type=heapdump：返回堆转储任务列表
-     * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
-     * - type=live_debug_*：返回对应 LiveDebug 任务列表
-     * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+     * Lists service tasks under an application by task type.
+     * - type=heapdump: Returns the list of heap dump tasks.
+     * - type=pprof: Returns the list of pprof dumps (requires searchCondition).
+     * - type=live_debug_*: Returns the list of corresponding LiveDebug tasks.
+     * Supports nextToken/maxResults pagination and searchCondition filtering.
      *
      * @param request - ListServiceTaskRequest
      * @param headers - map
@@ -9356,14 +9356,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 列举ServiceTask.
+     * Lists service tasks.
      *
      * @remarks
-     * 按任务类型列举应用下的服务任务。
-     * - type=heapdump：返回堆转储任务列表
-     * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
-     * - type=live_debug_*：返回对应 LiveDebug 任务列表
-     * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+     * Lists service tasks under an application by task type.
+     * - type=heapdump: Returns the list of heap dump tasks.
+     * - type=pprof: Returns the list of pprof dumps (requires searchCondition).
+     * - type=live_debug_*: Returns the list of corresponding LiveDebug tasks.
+     * Supports nextToken/maxResults pagination and searchCondition filtering.
      *
      * @param request - ListServiceTaskRequest
      *
@@ -9473,7 +9473,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the tags attached to resources.
+     * Queries labels associated with resources.
      *
      * @param tmpReq - ListTagResourcesRequest
      * @param headers - map
@@ -9541,7 +9541,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the tags attached to resources.
+     * Queries labels associated with resources.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -9579,6 +9579,10 @@ class Cms extends OpenApiClient
         $tmpReq->validate();
         $request = new ListWorkspacesShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
+
         if (null !== $tmpReq->workspaceNameList) {
             $request->workspaceNameListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workspaceNameList, 'workspaceNameList', 'simple');
         }
@@ -9594,6 +9598,14 @@ class Cms extends OpenApiClient
 
         if (null !== $request->region) {
             @$query['region'] = $request->region;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$query['tags'] = $request->tagsShrink;
         }
 
         if (null !== $request->workspaceName) {
@@ -9798,8 +9810,16 @@ class Cms extends OpenApiClient
             @$body['displayName'] = $request->displayName;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->slsProject) {
             @$body['slsProject'] = $request->slsProject;
+        }
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
         }
 
         $req = new OpenApiRequest([
@@ -10131,7 +10151,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Adds tags to one or more resources.
+     * Attaches labels to resources.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -10181,7 +10201,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Adds tags to one or more resources.
+     * Attaches labels to resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -10200,7 +10220,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a tag.
+     * Unbinds labels from a resource.
      *
      * @param tmpReq - UntagResourcesRequest
      * @param headers - map
@@ -10264,7 +10284,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a tag.
+     * Unbinds labels from a resource.
      *
      * @param request - UntagResourcesRequest
      *

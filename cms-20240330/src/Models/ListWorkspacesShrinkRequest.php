@@ -26,6 +26,16 @@ class ListWorkspacesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $tagsShrink;
+
+    /**
+     * @var string
+     */
     public $workspaceName;
 
     /**
@@ -36,6 +46,8 @@ class ListWorkspacesShrinkRequest extends Model
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
         'region' => 'region',
+        'resourceGroupId' => 'resourceGroupId',
+        'tagsShrink' => 'tags',
         'workspaceName' => 'workspaceName',
         'workspaceNameListShrink' => 'workspaceNameList',
     ];
@@ -58,6 +70,14 @@ class ListWorkspacesShrinkRequest extends Model
 
         if (null !== $this->region) {
             $res['region'] = $this->region;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->tagsShrink) {
+            $res['tags'] = $this->tagsShrink;
         }
 
         if (null !== $this->workspaceName) {
@@ -89,6 +109,14 @@ class ListWorkspacesShrinkRequest extends Model
 
         if (isset($map['region'])) {
             $model->region = $map['region'];
+        }
+
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
+        if (isset($map['tags'])) {
+            $model->tagsShrink = $map['tags'];
         }
 
         if (isset($map['workspaceName'])) {
