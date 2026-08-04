@@ -1,3 +1,6 @@
+2026-08-04 Version: 7.11.1
+- Generated php 2017-08-01 for polardb.
+
 2026-07-29 Version: 7.11.0
 - Support API CreateAIDBClusterApiKey.
 - Support API DeleteAIDBClusterApiKey.
