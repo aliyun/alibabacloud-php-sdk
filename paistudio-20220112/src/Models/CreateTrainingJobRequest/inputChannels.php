@@ -31,12 +31,18 @@ class inputChannels extends Model
     /**
      * @var string
      */
+    public $roleArn;
+
+    /**
+     * @var string
+     */
     public $versionName;
     protected $_name = [
         'datasetId' => 'DatasetId',
         'inputUri' => 'InputUri',
         'name' => 'Name',
         'options' => 'Options',
+        'roleArn' => 'RoleArn',
         'versionName' => 'VersionName',
     ];
 
@@ -62,6 +68,10 @@ class inputChannels extends Model
 
         if (null !== $this->options) {
             $res['Options'] = $this->options;
+        }
+
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
         }
 
         if (null !== $this->versionName) {
@@ -93,6 +103,10 @@ class inputChannels extends Model
 
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
+        }
+
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
         }
 
         if (isset($map['VersionName'])) {

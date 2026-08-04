@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBo
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\AssignNodeSpec;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CredentialConfig;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs\computeResource;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs\experimentConfig;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs\hyperParameters;
@@ -42,6 +43,11 @@ class trainingJobs extends Model
      * @var computeResource
      */
     public $computeResource;
+
+    /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
 
     /**
      * @var string
@@ -163,6 +169,7 @@ class trainingJobs extends Model
         'algorithmVersion' => 'AlgorithmVersion',
         'assignNodeSpec' => 'AssignNodeSpec',
         'computeResource' => 'ComputeResource',
+        'credentialConfig' => 'CredentialConfig',
         'dlcJobId' => 'DlcJobId',
         'environments' => 'Environments',
         'experimentConfig' => 'ExperimentConfig',
@@ -195,6 +202,9 @@ class trainingJobs extends Model
         }
         if (null !== $this->computeResource) {
             $this->computeResource->validate();
+        }
+        if (null !== $this->credentialConfig) {
+            $this->credentialConfig->validate();
         }
         if (\is_array($this->environments)) {
             Model::validateArray($this->environments);
@@ -250,6 +260,10 @@ class trainingJobs extends Model
 
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toArray($noStream) : $this->computeResource;
+        }
+
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toArray($noStream) : $this->credentialConfig;
         }
 
         if (null !== $this->dlcJobId) {
@@ -420,6 +434,10 @@ class trainingJobs extends Model
 
         if (isset($map['ComputeResource'])) {
             $model->computeResource = computeResource::fromMap($map['ComputeResource']);
+        }
+
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
 
         if (isset($map['DlcJobId'])) {

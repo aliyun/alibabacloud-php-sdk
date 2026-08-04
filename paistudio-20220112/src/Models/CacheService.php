@@ -34,6 +34,11 @@ class CacheService extends Model
     public $gmtCreated;
 
     /**
+     * @var bool
+     */
+    public $isSharded;
+
+    /**
      * @var string
      */
     public $networkType;
@@ -78,6 +83,7 @@ class CacheService extends Model
         'clusterId' => 'ClusterId',
         'createdBy' => 'CreatedBy',
         'gmtCreated' => 'GmtCreated',
+        'isSharded' => 'IsSharded',
         'networkType' => 'NetworkType',
         'quotaId' => 'QuotaId',
         'status' => 'Status',
@@ -130,6 +136,10 @@ class CacheService extends Model
 
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
+        }
+
+        if (null !== $this->isSharded) {
+            $res['IsSharded'] = $this->isSharded;
         }
 
         if (null !== $this->networkType) {
@@ -207,6 +217,10 @@ class CacheService extends Model
 
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];
+        }
+
+        if (isset($map['IsSharded'])) {
+            $model->isSharded = $map['IsSharded'];
         }
 
         if (isset($map['NetworkType'])) {

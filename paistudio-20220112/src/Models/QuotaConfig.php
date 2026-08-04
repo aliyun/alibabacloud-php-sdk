@@ -54,6 +54,11 @@ class QuotaConfig extends Model
     public $eniCacheConfig;
 
     /**
+     * @var bool
+     */
+    public $isEncryptedResource;
+
+    /**
      * @var OversoldUsageConfig
      */
     public $oversoldUsageConfig;
@@ -97,6 +102,11 @@ class QuotaConfig extends Model
      * @var UserVpc
      */
     public $userVpc;
+
+    /**
+     * @var string[]
+     */
+    public $workloadTypes;
     protected $_name = [
         'ACS' => 'ACS',
         'clusterId' => 'ClusterId',
@@ -107,6 +117,7 @@ class QuotaConfig extends Model
         'enableSelfQuotaPreemption' => 'EnableSelfQuotaPreemption',
         'enableSubQuotaPreemption' => 'EnableSubQuotaPreemption',
         'eniCacheConfig' => 'EniCacheConfig',
+        'isEncryptedResource' => 'IsEncryptedResource',
         'oversoldUsageConfig' => 'OversoldUsageConfig',
         'resourceSpecs' => 'ResourceSpecs',
         'sandboxCacheConfig' => 'SandboxCacheConfig',
@@ -116,6 +127,7 @@ class QuotaConfig extends Model
         'supportRDMA' => 'SupportRDMA',
         'useCase' => 'UseCase',
         'userVpc' => 'UserVpc',
+        'workloadTypes' => 'WorkloadTypes',
     ];
 
     public function validate()
@@ -146,6 +158,9 @@ class QuotaConfig extends Model
         }
         if (null !== $this->userVpc) {
             $this->userVpc->validate();
+        }
+        if (\is_array($this->workloadTypes)) {
+            Model::validateArray($this->workloadTypes);
         }
         parent::validate();
     }
@@ -187,6 +202,10 @@ class QuotaConfig extends Model
 
         if (null !== $this->eniCacheConfig) {
             $res['EniCacheConfig'] = null !== $this->eniCacheConfig ? $this->eniCacheConfig->toArray($noStream) : $this->eniCacheConfig;
+        }
+
+        if (null !== $this->isEncryptedResource) {
+            $res['IsEncryptedResource'] = $this->isEncryptedResource;
         }
 
         if (null !== $this->oversoldUsageConfig) {
@@ -239,6 +258,17 @@ class QuotaConfig extends Model
             $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toArray($noStream) : $this->userVpc;
         }
 
+        if (null !== $this->workloadTypes) {
+            if (\is_array($this->workloadTypes)) {
+                $res['WorkloadTypes'] = [];
+                $n1 = 0;
+                foreach ($this->workloadTypes as $item1) {
+                    $res['WorkloadTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         return $res;
     }
 
@@ -284,6 +314,10 @@ class QuotaConfig extends Model
 
         if (isset($map['EniCacheConfig'])) {
             $model->eniCacheConfig = EniCacheConfig::fromMap($map['EniCacheConfig']);
+        }
+
+        if (isset($map['IsEncryptedResource'])) {
+            $model->isEncryptedResource = $map['IsEncryptedResource'];
         }
 
         if (isset($map['OversoldUsageConfig'])) {
@@ -334,6 +368,17 @@ class QuotaConfig extends Model
 
         if (isset($map['UserVpc'])) {
             $model->userVpc = UserVpc::fromMap($map['UserVpc']);
+        }
+
+        if (isset($map['WorkloadTypes'])) {
+            if (!empty($map['WorkloadTypes'])) {
+                $model->workloadTypes = [];
+                $n1 = 0;
+                foreach ($map['WorkloadTypes'] as $item1) {
+                    $model->workloadTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

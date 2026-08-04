@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class NodeDrainParameters extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string[]
      */
     public $podFromSubProducts;
@@ -18,6 +23,7 @@ class NodeDrainParameters extends Model
      */
     public $podNames;
     protected $_name = [
+        'force' => 'Force',
         'podFromSubProducts' => 'PodFromSubProducts',
         'podNames' => 'PodNames',
     ];
@@ -36,6 +42,10 @@ class NodeDrainParameters extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
+
         if (null !== $this->podFromSubProducts) {
             if (\is_array($this->podFromSubProducts)) {
                 $res['PodFromSubProducts'] = [];
@@ -69,6 +79,10 @@ class NodeDrainParameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
+
         if (isset($map['PodFromSubProducts'])) {
             if (!empty($map['PodFromSubProducts'])) {
                 $model->podFromSubProducts = [];

@@ -26,11 +26,17 @@ class outputChannels extends Model
     /**
      * @var string
      */
+    public $roleArn;
+
+    /**
+     * @var string
+     */
     public $versionName;
     protected $_name = [
         'datasetId' => 'DatasetId',
         'name' => 'Name',
         'outputUri' => 'OutputUri',
+        'roleArn' => 'RoleArn',
         'versionName' => 'VersionName',
     ];
 
@@ -52,6 +58,10 @@ class outputChannels extends Model
 
         if (null !== $this->outputUri) {
             $res['OutputUri'] = $this->outputUri;
+        }
+
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
         }
 
         if (null !== $this->versionName) {
@@ -79,6 +89,10 @@ class outputChannels extends Model
 
         if (isset($map['OutputUri'])) {
             $model->outputUri = $map['OutputUri'];
+        }
+
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
         }
 
         if (isset($map['VersionName'])) {

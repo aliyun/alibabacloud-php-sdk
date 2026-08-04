@@ -19,6 +19,11 @@ class UpdateQuotaRequest extends Model
     public $labels;
 
     /**
+     * @var bool
+     */
+    public $propagateDefaultGPUDriver;
+
+    /**
      * @var string
      */
     public $queueStrategy;
@@ -35,6 +40,7 @@ class UpdateQuotaRequest extends Model
     protected $_name = [
         'description' => 'Description',
         'labels' => 'Labels',
+        'propagateDefaultGPUDriver' => 'PropagateDefaultGPUDriver',
         'queueStrategy' => 'QueueStrategy',
         'quotaConfig' => 'QuotaConfig',
         'quotaName' => 'QuotaName',
@@ -67,6 +73,10 @@ class UpdateQuotaRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->propagateDefaultGPUDriver) {
+            $res['PropagateDefaultGPUDriver'] = $this->propagateDefaultGPUDriver;
         }
 
         if (null !== $this->queueStrategy) {
@@ -105,6 +115,10 @@ class UpdateQuotaRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PropagateDefaultGPUDriver'])) {
+            $model->propagateDefaultGPUDriver = $map['PropagateDefaultGPUDriver'];
         }
 
         if (isset($map['QueueStrategy'])) {

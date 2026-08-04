@@ -57,6 +57,11 @@ class GetTrainingJobResponseBody extends Model
     public $computeResource;
 
     /**
+     * @var CredentialConfig
+     */
+    public $credentialConfig;
+
+    /**
      * @var int
      */
     public $duration;
@@ -218,6 +223,7 @@ class GetTrainingJobResponseBody extends Model
         'algorithmVersion' => 'AlgorithmVersion',
         'assignNodeSpec' => 'AssignNodeSpec',
         'computeResource' => 'ComputeResource',
+        'credentialConfig' => 'CredentialConfig',
         'duration' => 'Duration',
         'environments' => 'Environments',
         'experimentConfig' => 'ExperimentConfig',
@@ -261,6 +267,9 @@ class GetTrainingJobResponseBody extends Model
         }
         if (null !== $this->computeResource) {
             $this->computeResource->validate();
+        }
+        if (null !== $this->credentialConfig) {
+            $this->credentialConfig->validate();
         }
         if (\is_array($this->environments)) {
             Model::validateArray($this->environments);
@@ -339,6 +348,10 @@ class GetTrainingJobResponseBody extends Model
 
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toArray($noStream) : $this->computeResource;
+        }
+
+        if (null !== $this->credentialConfig) {
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toArray($noStream) : $this->credentialConfig;
         }
 
         if (null !== $this->duration) {
@@ -563,6 +576,10 @@ class GetTrainingJobResponseBody extends Model
 
         if (isset($map['ComputeResource'])) {
             $model->computeResource = computeResource::fromMap($map['ComputeResource']);
+        }
+
+        if (isset($map['CredentialConfig'])) {
+            $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
 
         if (isset($map['Duration'])) {
