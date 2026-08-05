@@ -54,6 +54,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $gatewayMode;
+
+    /**
+     * @var string
+     */
     public $gatewayType;
 
     /**
@@ -112,6 +117,11 @@ class data extends Model
     public $targetVersion;
 
     /**
+     * @var string
+     */
+    public $tenantId;
+
+    /**
      * @var int
      */
     public $updateTimestamp;
@@ -143,6 +153,7 @@ class data extends Model
         'expireTimestamp' => 'expireTimestamp',
         'gatewayEdition' => 'gatewayEdition',
         'gatewayId' => 'gatewayId',
+        'gatewayMode' => 'gatewayMode',
         'gatewayType' => 'gatewayType',
         'isp' => 'isp',
         'loadBalancers' => 'loadBalancers',
@@ -155,6 +166,7 @@ class data extends Model
         'status' => 'status',
         'tags' => 'tags',
         'targetVersion' => 'targetVersion',
+        'tenantId' => 'tenantId',
         'updateTimestamp' => 'updateTimestamp',
         'vSwitch' => 'vSwitch',
         'version' => 'version',
@@ -229,6 +241,10 @@ class data extends Model
             $res['gatewayId'] = $this->gatewayId;
         }
 
+        if (null !== $this->gatewayMode) {
+            $res['gatewayMode'] = $this->gatewayMode;
+        }
+
         if (null !== $this->gatewayType) {
             $res['gatewayType'] = $this->gatewayType;
         }
@@ -289,6 +305,10 @@ class data extends Model
 
         if (null !== $this->targetVersion) {
             $res['targetVersion'] = $this->targetVersion;
+        }
+
+        if (null !== $this->tenantId) {
+            $res['tenantId'] = $this->tenantId;
         }
 
         if (null !== $this->updateTimestamp) {
@@ -364,6 +384,10 @@ class data extends Model
             $model->gatewayId = $map['gatewayId'];
         }
 
+        if (isset($map['gatewayMode'])) {
+            $model->gatewayMode = $map['gatewayMode'];
+        }
+
         if (isset($map['gatewayType'])) {
             $model->gatewayType = $map['gatewayType'];
         }
@@ -424,6 +448,10 @@ class data extends Model
 
         if (isset($map['targetVersion'])) {
             $model->targetVersion = $map['targetVersion'];
+        }
+
+        if (isset($map['tenantId'])) {
+            $model->tenantId = $map['tenantId'];
         }
 
         if (isset($map['updateTimestamp'])) {

@@ -25,6 +25,11 @@ class CreateGatewayRequest extends Model
     /**
      * @var string
      */
+    public $gatewayMode;
+
+    /**
+     * @var string
+     */
     public $gatewayType;
 
     /**
@@ -69,6 +74,7 @@ class CreateGatewayRequest extends Model
     protected $_name = [
         'chargeType' => 'chargeType',
         'gatewayEdition' => 'gatewayEdition',
+        'gatewayMode' => 'gatewayMode',
         'gatewayType' => 'gatewayType',
         'logConfig' => 'logConfig',
         'name' => 'name',
@@ -106,6 +112,10 @@ class CreateGatewayRequest extends Model
 
         if (null !== $this->gatewayEdition) {
             $res['gatewayEdition'] = $this->gatewayEdition;
+        }
+
+        if (null !== $this->gatewayMode) {
+            $res['gatewayMode'] = $this->gatewayMode;
         }
 
         if (null !== $this->gatewayType) {
@@ -168,6 +178,10 @@ class CreateGatewayRequest extends Model
 
         if (isset($map['gatewayEdition'])) {
             $model->gatewayEdition = $map['gatewayEdition'];
+        }
+
+        if (isset($map['gatewayMode'])) {
+            $model->gatewayMode = $map['gatewayMode'];
         }
 
         if (isset($map['gatewayType'])) {

@@ -48,6 +48,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $gatewayMode;
+
+    /**
+     * @var string
+     */
     public $gatewayType;
 
     /**
@@ -136,6 +141,7 @@ class items extends Model
         'expireTimestamp' => 'expireTimestamp',
         'gatewayEdition' => 'gatewayEdition',
         'gatewayId' => 'gatewayId',
+        'gatewayMode' => 'gatewayMode',
         'gatewayType' => 'gatewayType',
         'legacy' => 'legacy',
         'loadBalancers' => 'loadBalancers',
@@ -206,6 +212,10 @@ class items extends Model
 
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->gatewayMode) {
+            $res['gatewayMode'] = $this->gatewayMode;
         }
 
         if (null !== $this->gatewayType) {
@@ -337,6 +347,10 @@ class items extends Model
 
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['gatewayMode'])) {
+            $model->gatewayMode = $map['gatewayMode'];
         }
 
         if (isset($map['gatewayType'])) {

@@ -1579,6 +1579,10 @@ class APIG extends OpenApiClient
             @$body['gatewayEdition'] = $request->gatewayEdition;
         }
 
+        if (null !== $request->gatewayMode) {
+            @$body['gatewayMode'] = $request->gatewayMode;
+        }
+
         if (null !== $request->gatewayType) {
             @$body['gatewayType'] = $request->gatewayType;
         }
@@ -4658,7 +4662,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
+     * Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4692,7 +4696,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
+     * Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
      *
      * @returns GetGatewayResponse
      *
@@ -8585,7 +8589,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Adds labels to resources.
+     * Tags resources.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -8635,7 +8639,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Adds labels to resources.
+     * Tags resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -9151,7 +9155,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates an API consumer.
+     * Updates a consumer.
      *
      * @param request - UpdateConsumerRequest
      * @param headers - map
@@ -9210,7 +9214,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates an API consumer.
+     * Updates a consumer.
      *
      * @param request - UpdateConsumerRequest
      *
