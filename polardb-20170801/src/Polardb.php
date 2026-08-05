@@ -141,6 +141,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGwConsumerOrderRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGwConsumerOrderResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateLakebaseS3AccountRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateLakebaseS3AccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelApiRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelApiResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelServiceRequest;
@@ -161,6 +163,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawCronJobResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawCronJobShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateRateLimitPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateRateLimitPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateResourceControlRequest;
@@ -237,6 +241,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDataNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDataNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteLakebaseS3AccountRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteLakebaseS3AccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteMaskingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteMaskingRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteModelApiRequest;
@@ -260,6 +266,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsPathMappingRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsPathMappingResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteRateLimitPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteRateLimitPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteResourceControlRequest;
@@ -485,6 +493,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksStatRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksStatResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseS3AccountRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseS3AccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLicenseOrderDetailsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLicenseOrderDetailsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLicenseOrdersRequest;
@@ -544,6 +554,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawTaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawTaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsMappingRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsMappingResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsObjectsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsObjectsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaListRequest;
@@ -639,6 +651,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\InstallPolarClawPluginRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\InstallPolarClawPluginResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\InstallPolarClawSkillRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\InstallPolarClawSkillResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ListLakebaseS3AccountsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ListLakebaseS3AccountsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListOrdersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListOrdersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListPolarClawBindingsRequest;
@@ -790,6 +804,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyModelServiceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyModelServiceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPolarFsMappingAuthRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPolarFsMappingAuthResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyRateLimitPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyRateLimitPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyResourceControlRequest;
@@ -7234,6 +7250,79 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Creates a PolarFS S3 account.
+     *
+     * @param request - CreateLakebaseS3AccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLakebaseS3AccountResponse
+     *
+     * @param CreateLakebaseS3AccountRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateLakebaseS3AccountResponse
+     */
+    public function createLakebaseS3AccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pfsInstanceId) {
+            @$query['PfsInstanceId'] = $request->pfsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userAccAk) {
+            @$query['UserAccAk'] = $request->userAccAk;
+        }
+
+        if (null !== $request->userAccPolicy) {
+            @$query['UserAccPolicy'] = $request->userAccPolicy;
+        }
+
+        if (null !== $request->userAccSk) {
+            @$query['UserAccSk'] = $request->userAccSk;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLakebaseS3Account',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLakebaseS3AccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a PolarFS S3 account.
+     *
+     * @param request - CreateLakebaseS3AccountRequest
+     *
+     * @returns CreateLakebaseS3AccountResponse
+     *
+     * @param CreateLakebaseS3AccountRequest $request
+     *
+     * @return CreateLakebaseS3AccountResponse
+     */
+    public function createLakebaseS3Account($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLakebaseS3AccountWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a model API.
      *
      * @param request - CreateModelApiRequest
@@ -8021,6 +8110,155 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPolarClawCronJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables PolarFS support.
+     *
+     * @param request - CreatePolarFsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolarFsResponse
+     *
+     * @param CreatePolarFsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreatePolarFsResponse
+     */
+    public function createPolarFsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accelerateStorageSize) {
+            @$query['AccelerateStorageSize'] = $request->accelerateStorageSize;
+        }
+
+        if (null !== $request->accelerateSwitch) {
+            @$query['AccelerateSwitch'] = $request->accelerateSwitch;
+        }
+
+        if (null !== $request->accelerateType) {
+            @$query['AccelerateType'] = $request->accelerateType;
+        }
+
+        if (null !== $request->authorizedUserIds) {
+            @$query['AuthorizedUserIds'] = $request->authorizedUserIds;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
+        if (null !== $request->creationCategory) {
+            @$query['CreationCategory'] = $request->creationCategory;
+        }
+
+        if (null !== $request->customBucketCount) {
+            @$query['CustomBucketCount'] = $request->customBucketCount;
+        }
+
+        if (null !== $request->customBucketPath) {
+            @$query['CustomBucketPath'] = $request->customBucketPath;
+        }
+
+        if (null !== $request->customBucketPathList) {
+            @$query['CustomBucketPathList'] = $request->customBucketPathList;
+        }
+
+        if (null !== $request->customOssAk) {
+            @$query['CustomOssAk'] = $request->customOssAk;
+        }
+
+        if (null !== $request->customOssSk) {
+            @$query['CustomOssSk'] = $request->customOssSk;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBType) {
+            @$query['DBType'] = $request->DBType;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->storageSpace) {
+            @$query['StorageSpace'] = $request->storageSpace;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
+        }
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePolarFs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePolarFsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables PolarFS support.
+     *
+     * @param request - CreatePolarFsRequest
+     *
+     * @returns CreatePolarFsResponse
+     *
+     * @param CreatePolarFsRequest $request
+     *
+     * @return CreatePolarFsResponse
+     */
+    public function createPolarFs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolarFsWithOptions($request, $runtime);
     }
 
     /**
@@ -10967,6 +11205,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Deletes a PolarFS S3 account.
+     *
+     * @param request - DeleteLakebaseS3AccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLakebaseS3AccountResponse
+     *
+     * @param DeleteLakebaseS3AccountRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteLakebaseS3AccountResponse
+     */
+    public function deleteLakebaseS3AccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pfsInstanceId) {
+            @$query['PfsInstanceId'] = $request->pfsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userAccAk) {
+            @$query['UserAccAk'] = $request->userAccAk;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLakebaseS3Account',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLakebaseS3AccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a PolarFS S3 account.
+     *
+     * @param request - DeleteLakebaseS3AccountRequest
+     *
+     * @returns DeleteLakebaseS3AccountResponse
+     *
+     * @param DeleteLakebaseS3AccountRequest $request
+     *
+     * @return DeleteLakebaseS3AccountResponse
+     */
+    public function deleteLakebaseS3Account($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLakebaseS3AccountWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes the specified data masking rules.
      *
      * @param request - DeleteMaskingRulesRequest
@@ -11572,6 +11875,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePolarClawCronJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Releases a pay-as-you-go PolarFs instance.
+     *
+     * @param request - DeletePolarFsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolarFsResponse
+     *
+     * @param DeletePolarFsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeletePolarFsResponse
+     */
+    public function deletePolarFsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePolarFs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePolarFsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Releases a pay-as-you-go PolarFs instance.
+     *
+     * @param request - DeletePolarFsRequest
+     *
+     * @returns DeletePolarFsResponse
+     *
+     * @param DeletePolarFsRequest $request
+     *
+     * @return DeletePolarFsResponse
+     */
+    public function deletePolarFs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolarFsWithOptions($request, $runtime);
     }
 
     /**
@@ -21087,6 +21451,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the details of a PolarFS S3 account.
+     *
+     * @param request - DescribeLakebaseS3AccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLakebaseS3AccountResponse
+     *
+     * @param DescribeLakebaseS3AccountRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeLakebaseS3AccountResponse
+     */
+    public function describeLakebaseS3AccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pfsInstanceId) {
+            @$query['PfsInstanceId'] = $request->pfsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userAccAk) {
+            @$query['UserAccAk'] = $request->userAccAk;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLakebaseS3Account',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLakebaseS3AccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a PolarFS S3 account.
+     *
+     * @param request - DescribeLakebaseS3AccountRequest
+     *
+     * @returns DescribeLakebaseS3AccountResponse
+     *
+     * @param DescribeLakebaseS3AccountRequest $request
+     *
+     * @return DescribeLakebaseS3AccountResponse
+     */
+    public function describeLakebaseS3Account($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLakebaseS3AccountWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a license order.
      *
      * @param request - DescribeLicenseOrderDetailsRequest
@@ -23315,6 +23744,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolarFsAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of PolarFS path mappings.
+     *
+     * @param request - DescribePolarFsMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarFsMappingResponse
+     *
+     * @param DescribePolarFsMappingRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribePolarFsMappingResponse
+     */
+    public function describePolarFsMappingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarFsMapping',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarFsMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of PolarFS path mappings.
+     *
+     * @param request - DescribePolarFsMappingRequest
+     *
+     * @returns DescribePolarFsMappingResponse
+     *
+     * @param DescribePolarFsMappingRequest $request
+     *
+     * @return DescribePolarFsMappingResponse
+     */
+    public function describePolarFsMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarFsMappingWithOptions($request, $runtime);
     }
 
     /**
@@ -27248,6 +27746,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installPolarClawSkillWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists PolarFS S3 accounts.
+     *
+     * @param request - ListLakebaseS3AccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLakebaseS3AccountsResponse
+     *
+     * @param ListLakebaseS3AccountsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListLakebaseS3AccountsResponse
+     */
+    public function listLakebaseS3AccountsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pfsInstanceId) {
+            @$query['PfsInstanceId'] = $request->pfsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLakebaseS3Accounts',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLakebaseS3AccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists PolarFS S3 accounts.
+     *
+     * @param request - ListLakebaseS3AccountsRequest
+     *
+     * @returns ListLakebaseS3AccountsResponse
+     *
+     * @param ListLakebaseS3AccountsRequest $request
+     *
+     * @return ListLakebaseS3AccountsResponse
+     */
+    public function listLakebaseS3Accounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLakebaseS3AccountsWithOptions($request, $runtime);
     }
 
     /**
@@ -33795,6 +34362,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPendingMaintenanceActionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the bucket credentials for a PolarFS path mapping.
+     *
+     * @param request - ModifyPolarFsMappingAuthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPolarFsMappingAuthResponse
+     *
+     * @param ModifyPolarFsMappingAuthRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyPolarFsMappingAuthResponse
+     */
+    public function modifyPolarFsMappingAuthWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bucket) {
+            @$query['Bucket'] = $request->bucket;
+        }
+
+        if (null !== $request->bucketAccessKeyId) {
+            @$query['BucketAccessKeyId'] = $request->bucketAccessKeyId;
+        }
+
+        if (null !== $request->bucketAccessKeySecret) {
+            @$query['BucketAccessKeySecret'] = $request->bucketAccessKeySecret;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPolarFsMappingAuth',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyPolarFsMappingAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the bucket credentials for a PolarFS path mapping.
+     *
+     * @param request - ModifyPolarFsMappingAuthRequest
+     *
+     * @returns ModifyPolarFsMappingAuthResponse
+     *
+     * @param ModifyPolarFsMappingAuthRequest $request
+     *
+     * @return ModifyPolarFsMappingAuthResponse
+     */
+    public function modifyPolarFsMappingAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPolarFsMappingAuthWithOptions($request, $runtime);
     }
 
     /**
