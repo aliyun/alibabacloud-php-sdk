@@ -24,6 +24,11 @@ class SetLiveDomainCertificateRequest extends Model
     public $domainName;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $forceSet;
@@ -56,6 +61,7 @@ class SetLiveDomainCertificateRequest extends Model
         'certName' => 'CertName',
         'certType' => 'CertType',
         'domainName' => 'DomainName',
+        'dryRun' => 'DryRun',
         'forceSet' => 'ForceSet',
         'ownerId' => 'OwnerId',
         'SSLPri' => 'SSLPri',
@@ -82,6 +88,10 @@ class SetLiveDomainCertificateRequest extends Model
 
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->forceSet) {
@@ -129,6 +139,10 @@ class SetLiveDomainCertificateRequest extends Model
 
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['ForceSet'])) {

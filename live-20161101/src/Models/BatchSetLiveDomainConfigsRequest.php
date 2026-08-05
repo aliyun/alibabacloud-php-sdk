@@ -14,6 +14,11 @@ class BatchSetLiveDomainConfigsRequest extends Model
     public $domainNames;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $functions;
@@ -34,6 +39,7 @@ class BatchSetLiveDomainConfigsRequest extends Model
     public $securityToken;
     protected $_name = [
         'domainNames' => 'DomainNames',
+        'dryRun' => 'DryRun',
         'functions' => 'Functions',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -50,6 +56,10 @@ class BatchSetLiveDomainConfigsRequest extends Model
         $res = [];
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->functions) {
@@ -81,6 +91,10 @@ class BatchSetLiveDomainConfigsRequest extends Model
         $model = new self();
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Functions'])) {

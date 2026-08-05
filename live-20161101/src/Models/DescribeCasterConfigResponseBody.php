@@ -14,6 +14,11 @@ class DescribeCasterConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $audioMixerMode;
+
+    /**
+     * @var string
+     */
     public $autoSwitchUrgentConfig;
 
     /**
@@ -111,6 +116,7 @@ class DescribeCasterConfigResponseBody extends Model
      */
     public $urgentMaterialId;
     protected $_name = [
+        'audioMixerMode' => 'AudioMixerMode',
         'autoSwitchUrgentConfig' => 'AutoSwitchUrgentConfig',
         'autoSwitchUrgentOn' => 'AutoSwitchUrgentOn',
         'callbackUrl' => 'CallbackUrl',
@@ -150,6 +156,10 @@ class DescribeCasterConfigResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->audioMixerMode) {
+            $res['AudioMixerMode'] = $this->audioMixerMode;
+        }
+
         if (null !== $this->autoSwitchUrgentConfig) {
             $res['AutoSwitchUrgentConfig'] = $this->autoSwitchUrgentConfig;
         }
@@ -241,6 +251,10 @@ class DescribeCasterConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioMixerMode'])) {
+            $model->audioMixerMode = $map['AudioMixerMode'];
+        }
+
         if (isset($map['AutoSwitchUrgentConfig'])) {
             $model->autoSwitchUrgentConfig = $map['AutoSwitchUrgentConfig'];
         }
