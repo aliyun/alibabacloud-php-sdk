@@ -11658,7 +11658,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a path mapping for transparent acceleration.
+     * Deletes a transparent acceleration path mapping.
      *
      * @param request - DeletePolarFsPathMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11705,7 +11705,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a path mapping for transparent acceleration.
+     * Deletes a transparent acceleration path mapping.
      *
      * @param request - DeletePolarFsPathMappingRequest
      *
