@@ -45,7 +45,8 @@ class ListMFADevicesForUserResponseBody extends Model
                 $res['MFADevices'] = [];
                 $n1 = 0;
                 foreach ($this->MFADevices as $item1) {
-                    $res['MFADevices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MFADevices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListMFADevicesForUserResponseBody extends Model
                 $model->MFADevices = [];
                 $n1 = 0;
                 foreach ($map['MFADevices'] as $item1) {
-                    $model->MFADevices[$n1++] = MFADevices::fromMap($item1);
+                    $model->MFADevices[$n1] = MFADevices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

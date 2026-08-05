@@ -58,7 +58,8 @@ class serviceStatus extends Model
                 $res['RegionsInUse'] = [];
                 $n1 = 0;
                 foreach ($this->regionsInUse as $item1) {
-                    $res['RegionsInUse'][$n1++] = $item1;
+                    $res['RegionsInUse'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class serviceStatus extends Model
                 $model->regionsInUse = [];
                 $n1 = 0;
                 foreach ($map['RegionsInUse'] as $item1) {
-                    $model->regionsInUse[$n1++] = $item1;
+                    $model->regionsInUse[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

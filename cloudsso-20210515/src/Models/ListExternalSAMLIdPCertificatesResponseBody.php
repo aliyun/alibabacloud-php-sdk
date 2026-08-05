@@ -49,7 +49,8 @@ class ListExternalSAMLIdPCertificatesResponseBody extends Model
                 $res['SAMLIdPCertificates'] = [];
                 $n1 = 0;
                 foreach ($this->SAMLIdPCertificates as $item1) {
-                    $res['SAMLIdPCertificates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SAMLIdPCertificates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListExternalSAMLIdPCertificatesResponseBody extends Model
                 $model->SAMLIdPCertificates = [];
                 $n1 = 0;
                 foreach ($map['SAMLIdPCertificates'] as $item1) {
-                    $model->SAMLIdPCertificates[$n1++] = SAMLIdPCertificates::fromMap($item1);
+                    $model->SAMLIdPCertificates[$n1] = SAMLIdPCertificates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -116,7 +116,8 @@ class accessConfigurationProvisionings extends Model
                 $res['RAMPolicyNames'] = [];
                 $n1 = 0;
                 foreach ($this->RAMPolicyNames as $item1) {
-                    $res['RAMPolicyNames'][$n1++] = $item1;
+                    $res['RAMPolicyNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -185,7 +186,8 @@ class accessConfigurationProvisionings extends Model
                 $model->RAMPolicyNames = [];
                 $n1 = 0;
                 foreach ($map['RAMPolicyNames'] as $item1) {
-                    $model->RAMPolicyNames[$n1++] = $item1;
+                    $model->RAMPolicyNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

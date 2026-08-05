@@ -21,10 +21,16 @@ class DeleteMFADeviceForUserRequest extends Model
     /**
      * @var string
      */
+    public $mfaType;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
         'directoryId' => 'DirectoryId',
         'MFADeviceId' => 'MFADeviceId',
+        'mfaType' => 'MfaType',
         'userId' => 'UserId',
     ];
 
@@ -42,6 +48,10 @@ class DeleteMFADeviceForUserRequest extends Model
 
         if (null !== $this->MFADeviceId) {
             $res['MFADeviceId'] = $this->MFADeviceId;
+        }
+
+        if (null !== $this->mfaType) {
+            $res['MfaType'] = $this->mfaType;
         }
 
         if (null !== $this->userId) {
@@ -65,6 +75,10 @@ class DeleteMFADeviceForUserRequest extends Model
 
         if (isset($map['MFADeviceId'])) {
             $model->MFADeviceId = $map['MFADeviceId'];
+        }
+
+        if (isset($map['MfaType'])) {
+            $model->mfaType = $map['MfaType'];
         }
 
         if (isset($map['UserId'])) {

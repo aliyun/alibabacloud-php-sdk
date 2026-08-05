@@ -63,7 +63,8 @@ class ListAccessConfigurationProvisioningsResponseBody extends Model
                 $res['AccessConfigurationProvisionings'] = [];
                 $n1 = 0;
                 foreach ($this->accessConfigurationProvisionings as $item1) {
-                    $res['AccessConfigurationProvisionings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccessConfigurationProvisionings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListAccessConfigurationProvisioningsResponseBody extends Model
                 $model->accessConfigurationProvisionings = [];
                 $n1 = 0;
                 foreach ($map['AccessConfigurationProvisionings'] as $item1) {
-                    $model->accessConfigurationProvisionings[$n1++] = accessConfigurationProvisionings::fromMap($item1);
+                    $model->accessConfigurationProvisionings[$n1] = accessConfigurationProvisionings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

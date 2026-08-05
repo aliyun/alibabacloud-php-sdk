@@ -83,7 +83,8 @@ class ListUserProvisioningsResponseBody extends Model
                 $res['UserProvisionings'] = [];
                 $n1 = 0;
                 foreach ($this->userProvisionings as $item1) {
-                    $res['UserProvisionings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserProvisionings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class ListUserProvisioningsResponseBody extends Model
                 $model->userProvisionings = [];
                 $n1 = 0;
                 foreach ($map['UserProvisionings'] as $item1) {
-                    $model->userProvisionings[$n1++] = userProvisionings::fromMap($item1);
+                    $model->userProvisionings[$n1] = userProvisionings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

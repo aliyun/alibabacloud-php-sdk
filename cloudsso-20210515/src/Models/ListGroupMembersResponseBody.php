@@ -63,7 +63,8 @@ class ListGroupMembersResponseBody extends Model
                 $res['GroupMembers'] = [];
                 $n1 = 0;
                 foreach ($this->groupMembers as $item1) {
-                    $res['GroupMembers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GroupMembers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListGroupMembersResponseBody extends Model
                 $model->groupMembers = [];
                 $n1 = 0;
                 foreach ($map['GroupMembers'] as $item1) {
-                    $model->groupMembers[$n1++] = groupMembers::fromMap($item1);
+                    $model->groupMembers[$n1] = groupMembers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

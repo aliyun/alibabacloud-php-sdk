@@ -31,12 +31,18 @@ class MFADevices extends Model
     /**
      * @var string
      */
+    public $lastUseTime;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
         'deviceId' => 'DeviceId',
         'deviceName' => 'DeviceName',
         'deviceType' => 'DeviceType',
         'effectiveTime' => 'EffectiveTime',
+        'lastUseTime' => 'LastUseTime',
         'userId' => 'UserId',
     ];
 
@@ -62,6 +68,10 @@ class MFADevices extends Model
 
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
+        }
+
+        if (null !== $this->lastUseTime) {
+            $res['LastUseTime'] = $this->lastUseTime;
         }
 
         if (null !== $this->userId) {
@@ -93,6 +103,10 @@ class MFADevices extends Model
 
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];
+        }
+
+        if (isset($map['LastUseTime'])) {
+            $model->lastUseTime = $map['LastUseTime'];
         }
 
         if (isset($map['UserId'])) {

@@ -67,7 +67,8 @@ class ListJoinedGroupsForUserResponseBody extends Model
                 $res['JoinedGroups'] = [];
                 $n1 = 0;
                 foreach ($this->joinedGroups as $item1) {
-                    $res['JoinedGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['JoinedGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class ListJoinedGroupsForUserResponseBody extends Model
                 $model->joinedGroups = [];
                 $n1 = 0;
                 foreach ($map['JoinedGroups'] as $item1) {
-                    $model->joinedGroups[$n1++] = joinedGroups::fromMap($item1);
+                    $model->joinedGroups[$n1] = joinedGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

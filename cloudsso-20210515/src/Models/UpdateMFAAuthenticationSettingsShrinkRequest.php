@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateMFAAuthenticationSettingsRequest extends Model
+class UpdateMFAAuthenticationSettingsShrinkRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $allowedVerificationTypes;
+    public $allowedVerificationTypesShrink;
 
     /**
      * @var string
@@ -28,7 +28,7 @@ class UpdateMFAAuthenticationSettingsRequest extends Model
      */
     public $operationForRiskLogin;
     protected $_name = [
-        'allowedVerificationTypes' => 'AllowedVerificationTypes',
+        'allowedVerificationTypesShrink' => 'AllowedVerificationTypes',
         'directoryId' => 'DirectoryId',
         'MFAAuthenticationSettings' => 'MFAAuthenticationSettings',
         'operationForRiskLogin' => 'OperationForRiskLogin',
@@ -36,24 +36,14 @@ class UpdateMFAAuthenticationSettingsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->allowedVerificationTypes)) {
-            Model::validateArray($this->allowedVerificationTypes);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->allowedVerificationTypes) {
-            if (\is_array($this->allowedVerificationTypes)) {
-                $res['AllowedVerificationTypes'] = [];
-                $n1 = 0;
-                foreach ($this->allowedVerificationTypes as $item1) {
-                    $res['AllowedVerificationTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->allowedVerificationTypesShrink) {
+            $res['AllowedVerificationTypes'] = $this->allowedVerificationTypesShrink;
         }
 
         if (null !== $this->directoryId) {
@@ -80,14 +70,7 @@ class UpdateMFAAuthenticationSettingsRequest extends Model
     {
         $model = new self();
         if (isset($map['AllowedVerificationTypes'])) {
-            if (!empty($map['AllowedVerificationTypes'])) {
-                $model->allowedVerificationTypes = [];
-                $n1 = 0;
-                foreach ($map['AllowedVerificationTypes'] as $item1) {
-                    $model->allowedVerificationTypes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->allowedVerificationTypesShrink = $map['AllowedVerificationTypes'];
         }
 
         if (isset($map['DirectoryId'])) {

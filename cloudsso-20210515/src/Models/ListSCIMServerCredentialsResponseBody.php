@@ -49,7 +49,8 @@ class ListSCIMServerCredentialsResponseBody extends Model
                 $res['SCIMServerCredentials'] = [];
                 $n1 = 0;
                 foreach ($this->SCIMServerCredentials as $item1) {
-                    $res['SCIMServerCredentials'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SCIMServerCredentials'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListSCIMServerCredentialsResponseBody extends Model
                 $model->SCIMServerCredentials = [];
                 $n1 = 0;
                 foreach ($map['SCIMServerCredentials'] as $item1) {
-                    $model->SCIMServerCredentials[$n1++] = SCIMServerCredentials::fromMap($item1);
+                    $model->SCIMServerCredentials[$n1] = SCIMServerCredentials::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

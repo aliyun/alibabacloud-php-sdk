@@ -108,7 +108,8 @@ class accessConfiguration extends Model
                 $res['StatusNotifications'] = [];
                 $n1 = 0;
                 foreach ($this->statusNotifications as $item1) {
-                    $res['StatusNotifications'][$n1++] = $item1;
+                    $res['StatusNotifications'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +119,8 @@ class accessConfiguration extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +169,8 @@ class accessConfiguration extends Model
                 $model->statusNotifications = [];
                 $n1 = 0;
                 foreach ($map['StatusNotifications'] as $item1) {
-                    $model->statusNotifications[$n1++] = $item1;
+                    $model->statusNotifications[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,7 +180,8 @@ class accessConfiguration extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

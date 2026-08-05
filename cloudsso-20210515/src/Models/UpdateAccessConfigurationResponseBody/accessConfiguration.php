@@ -98,7 +98,8 @@ class accessConfiguration extends Model
                 $res['StatusNotifications'] = [];
                 $n1 = 0;
                 foreach ($this->statusNotifications as $item1) {
-                    $res['StatusNotifications'][$n1++] = $item1;
+                    $res['StatusNotifications'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class accessConfiguration extends Model
                 $model->statusNotifications = [];
                 $n1 = 0;
                 foreach ($map['StatusNotifications'] as $item1) {
-                    $model->statusNotifications[$n1++] = $item1;
+                    $model->statusNotifications[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

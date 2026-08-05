@@ -63,7 +63,8 @@ class ListAccessAssignmentsResponseBody extends Model
                 $res['AccessAssignments'] = [];
                 $n1 = 0;
                 foreach ($this->accessAssignments as $item1) {
-                    $res['AccessAssignments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccessAssignments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class ListAccessAssignmentsResponseBody extends Model
                 $model->accessAssignments = [];
                 $n1 = 0;
                 foreach ($map['AccessAssignments'] as $item1) {
-                    $model->accessAssignments[$n1++] = accessAssignments::fromMap($item1);
+                    $model->accessAssignments[$n1] = accessAssignments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -45,7 +45,8 @@ class ListPermissionPoliciesInAccessConfigurationResponseBody extends Model
                 $res['PermissionPolicies'] = [];
                 $n1 = 0;
                 foreach ($this->permissionPolicies as $item1) {
-                    $res['PermissionPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PermissionPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListPermissionPoliciesInAccessConfigurationResponseBody extends Model
                 $model->permissionPolicies = [];
                 $n1 = 0;
                 foreach ($map['PermissionPolicies'] as $item1) {
-                    $model->permissionPolicies[$n1++] = permissionPolicies::fromMap($item1);
+                    $model->permissionPolicies[$n1] = permissionPolicies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -83,7 +83,8 @@ class ListUserProvisioningEventsResponseBody extends Model
                 $res['UserProvisioningEvents'] = [];
                 $n1 = 0;
                 foreach ($this->userProvisioningEvents as $item1) {
-                    $res['UserProvisioningEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserProvisioningEvents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class ListUserProvisioningEventsResponseBody extends Model
                 $model->userProvisioningEvents = [];
                 $n1 = 0;
                 foreach ($map['UserProvisioningEvents'] as $item1) {
-                    $model->userProvisioningEvents[$n1++] = userProvisioningEvents::fromMap($item1);
+                    $model->userProvisioningEvents[$n1] = userProvisioningEvents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
