@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class GetAuthorizationTokenRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $expiresInHours;
+
+    /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
+        'expiresInHours' => 'ExpiresInHours',
         'instanceId' => 'InstanceId',
     ];
 
@@ -24,6 +30,10 @@ class GetAuthorizationTokenRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->expiresInHours) {
+            $res['ExpiresInHours'] = $this->expiresInHours;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -39,6 +49,10 @@ class GetAuthorizationTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExpiresInHours'])) {
+            $model->expiresInHours = $map['ExpiresInHours'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
