@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\BatchGetYikeAIAppJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\BatchGetYikeAIAppJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\BatchGetYikeAssetMediaInfosRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\BatchGetYikeAssetMediaInfosResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\CreateInfiniteCanvasRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\CreateInfiniteCanvasResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeAssetUploadRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeAssetUploadResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeEditingProjectRequest;
@@ -23,10 +25,16 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeUserRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeUserResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeWorkspaceRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeWorkspaceResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\DeleteInfiniteCanvasRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\DeleteInfiniteCanvasResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\DeleteYikeAssetMediaInfosRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\DeleteYikeAssetMediaInfosResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GenerateYikeLoginTokenRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GenerateYikeLoginTokenResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetImageGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetImageGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetInfiniteCanvasRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetInfiniteCanvasResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetVideoGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAccountCreditRequest;
@@ -53,6 +61,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeUserRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeUserResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeVoiceNarratorJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeVoiceNarratorJobResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\ListInfiniteCanvasesRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\ListInfiniteCanvasesResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeAssetFoldersRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeAssetFoldersResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeProductionsRequest;
@@ -89,6 +99,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeVoiceNarratorJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeVoiceNarratorJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubYikeUserCreditRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubYikeUserCreditResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\UpdateInfiniteCanvasRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\UpdateInfiniteCanvasResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\UpdateYikeProductionMemberAuthRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\UpdateYikeProductionMemberAuthResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\UpdateYikeProductionRequest;
@@ -370,6 +382,83 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchGetYikeAssetMediaInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建无限画布.
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API用于查询媒资内容理解作业。
+     *
+     * @param request - CreateInfiniteCanvasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInfiniteCanvasResponse
+     *
+     * @param CreateInfiniteCanvasRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateInfiniteCanvasResponse
+     */
+    public function createInfiniteCanvasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->coverUrl) {
+            @$query['CoverUrl'] = $request->coverUrl;
+        }
+
+        if (null !== $request->productionId) {
+            @$query['ProductionId'] = $request->productionId;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInfiniteCanvas',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInfiniteCanvasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建无限画布.
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API用于查询媒资内容理解作业。
+     *
+     * @param request - CreateInfiniteCanvasRequest
+     *
+     * @returns CreateInfiniteCanvasResponse
+     *
+     * @param CreateInfiniteCanvasRequest $request
+     *
+     * @return CreateInfiniteCanvasResponse
+     */
+    public function createInfiniteCanvas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInfiniteCanvasWithOptions($request, $runtime);
     }
 
     /**
@@ -700,6 +789,63 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * 删除无限画布.
+     *
+     * @param request - DeleteInfiniteCanvasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInfiniteCanvasResponse
+     *
+     * @param DeleteInfiniteCanvasRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteInfiniteCanvasResponse
+     */
+    public function deleteInfiniteCanvasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->canvasId) {
+            @$query['CanvasId'] = $request->canvasId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInfiniteCanvas',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInfiniteCanvasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除无限画布.
+     *
+     * @param request - DeleteInfiniteCanvasRequest
+     *
+     * @returns DeleteInfiniteCanvasResponse
+     *
+     * @param DeleteInfiniteCanvasRequest $request
+     *
+     * @return DeleteInfiniteCanvasResponse
+     */
+    public function deleteInfiniteCanvas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInfiniteCanvasWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes media asset information.
      *
      * @param request - DeleteYikeAssetMediaInfosRequest
@@ -761,10 +907,95 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * 获取企业账号登录Token.
+     *
+     * @param request - GenerateYikeLoginTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateYikeLoginTokenResponse
+     *
+     * @param GenerateYikeLoginTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GenerateYikeLoginTokenResponse
+     */
+    public function generateYikeLoginTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoCreateProduction) {
+            @$query['AutoCreateProduction'] = $request->autoCreateProduction;
+        }
+
+        if (null !== $request->expires) {
+            @$query['Expires'] = $request->expires;
+        }
+
+        if (null !== $request->nickName) {
+            @$query['NickName'] = $request->nickName;
+        }
+
+        if (null !== $request->productionAuth) {
+            @$query['ProductionAuth'] = $request->productionAuth;
+        }
+
+        if (null !== $request->subUserCredit) {
+            @$query['SubUserCredit'] = $request->subUserCredit;
+        }
+
+        if (null !== $request->tenant) {
+            @$query['Tenant'] = $request->tenant;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateYikeLoginToken',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateYikeLoginTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取企业账号登录Token.
+     *
+     * @param request - GenerateYikeLoginTokenRequest
+     *
+     * @returns GenerateYikeLoginTokenResponse
+     *
+     * @param GenerateYikeLoginTokenRequest $request
+     *
+     * @return GenerateYikeLoginTokenResponse
+     */
+    public function generateYikeLoginToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateYikeLoginTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries an image generation task.
      *
      * @remarks
-     * The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
+     * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
      *
      * @param request - GetImageGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -806,7 +1037,7 @@ class Yike extends OpenApiClient
      * Queries an image generation task.
      *
      * @remarks
-     * The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
+     * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
      *
      * @param request - GetImageGenerationJobRequest
      *
@@ -824,10 +1055,67 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * 查询无限画布.
+     *
+     * @param request - GetInfiniteCanvasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInfiniteCanvasResponse
+     *
+     * @param GetInfiniteCanvasRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetInfiniteCanvasResponse
+     */
+    public function getInfiniteCanvasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->canvasId) {
+            @$query['CanvasId'] = $request->canvasId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInfiniteCanvas',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInfiniteCanvasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询无限画布.
+     *
+     * @param request - GetInfiniteCanvasRequest
+     *
+     * @returns GetInfiniteCanvasResponse
+     *
+     * @param GetInfiniteCanvasRequest $request
+     *
+     * @return GetInfiniteCanvasResponse
+     */
+    public function getInfiniteCanvas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInfiniteCanvasWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries an AI video generation task.
      *
      * @remarks
-     * The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
+     * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.
      *
      * @param request - GetVideoGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -869,7 +1157,7 @@ class Yike extends OpenApiClient
      * Queries an AI video generation task.
      *
      * @remarks
-     * The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
+     * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.
      *
      * @param request - GetVideoGenerationJobRequest
      *
@@ -1051,7 +1339,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻口播任务预估积分.
+     * Queries the estimated credits for a digital human oral broadcasting task.
      *
      * @param request - GetYikeAgentJobEstimatedCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1094,7 +1382,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻口播任务预估积分.
+     * Queries the estimated credits for a digital human oral broadcasting task.
      *
      * @param request - GetYikeAgentJobEstimatedCreditRequest
      *
@@ -1169,7 +1457,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻任务实际消耗积分.
+     * Queries the actual credit consumption of a task.
      *
      * @param request - GetYikeJobCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1208,7 +1496,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻任务实际消耗积分.
+     * Queries the actual credit consumption of a task.
      *
      * @param request - GetYikeJobCreditRequest
      *
@@ -1565,6 +1853,79 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getYikeVoiceNarratorJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询无限画布列表.
+     *
+     * @param request - ListInfiniteCanvasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInfiniteCanvasesResponse
+     *
+     * @param ListInfiniteCanvasesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListInfiniteCanvasesResponse
+     */
+    public function listInfiniteCanvasesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInfiniteCanvases',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInfiniteCanvasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询无限画布列表.
+     *
+     * @param request - ListInfiniteCanvasesRequest
+     *
+     * @returns ListInfiniteCanvasesResponse
+     *
+     * @param ListInfiniteCanvasesRequest $request
+     *
+     * @return ListInfiniteCanvasesResponse
+     */
+    public function listInfiniteCanvases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInfiniteCanvasesWithOptions($request, $runtime);
     }
 
     /**
@@ -2140,7 +2501,7 @@ class Yike extends OpenApiClient
      * Submits an image generation task.
      *
      * @remarks
-     * The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
+     * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
      *
      * @param request - SubmitImageGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2218,7 +2579,7 @@ class Yike extends OpenApiClient
      * Submits an image generation task.
      *
      * @remarks
-     * The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
+     * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
      *
      * @param request - SubmitImageGenerationJobRequest
      *
@@ -2236,10 +2597,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an AI video generation task.
+     * Submits a video generation task.
      *
      * @remarks
-     * The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
+     * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
      *
      * @param request - SubmitVideoGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2318,10 +2679,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an AI video generation task.
+     * Submits a video generation task.
      *
      * @remarks
-     * The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
+     * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
      *
      * @param request - SubmitVideoGenerationJobRequest
      *
@@ -2853,6 +3214,71 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitYikeVoiceNarratorJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新无限画布信息.
+     *
+     * @param request - UpdateInfiniteCanvasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInfiniteCanvasResponse
+     *
+     * @param UpdateInfiniteCanvasRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateInfiniteCanvasResponse
+     */
+    public function updateInfiniteCanvasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->canvasId) {
+            @$query['CanvasId'] = $request->canvasId;
+        }
+
+        if (null !== $request->coverUrl) {
+            @$query['CoverUrl'] = $request->coverUrl;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInfiniteCanvas',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInfiniteCanvasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新无限画布信息.
+     *
+     * @param request - UpdateInfiniteCanvasRequest
+     *
+     * @returns UpdateInfiniteCanvasResponse
+     *
+     * @param UpdateInfiniteCanvasRequest $request
+     *
+     * @return UpdateInfiniteCanvasResponse
+     */
+    public function updateInfiniteCanvas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInfiniteCanvasWithOptions($request, $runtime);
     }
 
     /**
