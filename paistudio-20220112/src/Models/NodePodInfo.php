@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class NodePodInfo extends Model
 {
     /**
+     * @var int[]
+     */
+    public $GPUIndexes;
+
+    /**
      * @var string
      */
     public $phase;
@@ -43,6 +48,7 @@ class NodePodInfo extends Model
      */
     public $workloadType;
     protected $_name = [
+        'GPUIndexes' => 'GPUIndexes',
         'phase' => 'Phase',
         'podIP' => 'PodIP',
         'podName' => 'PodName',
@@ -54,6 +60,9 @@ class NodePodInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->GPUIndexes)) {
+            Model::validateArray($this->GPUIndexes);
+        }
         if (null !== $this->resourceSpec) {
             $this->resourceSpec->validate();
         }
@@ -63,6 +72,17 @@ class NodePodInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->GPUIndexes) {
+            if (\is_array($this->GPUIndexes)) {
+                $res['GPUIndexes'] = [];
+                $n1 = 0;
+                foreach ($this->GPUIndexes as $item1) {
+                    $res['GPUIndexes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
@@ -102,6 +122,17 @@ class NodePodInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GPUIndexes'])) {
+            if (!empty($map['GPUIndexes'])) {
+                $model->GPUIndexes = [];
+                $n1 = 0;
+                foreach ($map['GPUIndexes'] as $item1) {
+                    $model->GPUIndexes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }
