@@ -26,6 +26,11 @@ class inputs extends Model
     /**
      * @var string
      */
+    public $modelId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -41,6 +46,7 @@ class inputs extends Model
         'customAgentId' => 'CustomAgentId',
         'enableThinking' => 'EnableThinking',
         'language' => 'Language',
+        'modelId' => 'ModelId',
         'regionId' => 'RegionId',
         'thinkEffort' => 'ThinkEffort',
         'timezone' => 'Timezone',
@@ -64,6 +70,10 @@ class inputs extends Model
 
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
         }
 
         if (null !== $this->regionId) {
@@ -99,6 +109,10 @@ class inputs extends Model
 
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
         }
 
         if (isset($map['RegionId'])) {
