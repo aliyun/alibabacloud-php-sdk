@@ -32,6 +32,11 @@ class CreateAIDBClusterRequest extends Model
     /**
      * @var string
      */
+    public $createPublicEndpoint;
+
+    /**
+     * @var string
+     */
     public $DBClusterDescription;
 
     /**
@@ -88,6 +93,11 @@ class CreateAIDBClusterRequest extends Model
      * @var string
      */
     public $modelName;
+
+    /**
+     * @var string
+     */
+    public $modelSpace;
 
     /**
      * @var string
@@ -178,6 +188,7 @@ class CreateAIDBClusterRequest extends Model
         'autoRenew' => 'AutoRenew',
         'autoUseCoupon' => 'AutoUseCoupon',
         'clientToken' => 'ClientToken',
+        'createPublicEndpoint' => 'CreatePublicEndpoint',
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterId' => 'DBClusterId',
         'DBNodeClass' => 'DBNodeClass',
@@ -190,6 +201,7 @@ class CreateAIDBClusterRequest extends Model
         'kubernetesConfig' => 'KubernetesConfig',
         'managementMode' => 'ManagementMode',
         'modelName' => 'ModelName',
+        'modelSpace' => 'ModelSpace',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'password' => 'Password',
@@ -234,6 +246,10 @@ class CreateAIDBClusterRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->createPublicEndpoint) {
+            $res['CreatePublicEndpoint'] = $this->createPublicEndpoint;
         }
 
         if (null !== $this->DBClusterDescription) {
@@ -282,6 +298,10 @@ class CreateAIDBClusterRequest extends Model
 
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
+        }
+
+        if (null !== $this->modelSpace) {
+            $res['ModelSpace'] = $this->modelSpace;
         }
 
         if (null !== $this->ownerAccount) {
@@ -386,6 +406,10 @@ class CreateAIDBClusterRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
+        if (isset($map['CreatePublicEndpoint'])) {
+            $model->createPublicEndpoint = $map['CreatePublicEndpoint'];
+        }
+
         if (isset($map['DBClusterDescription'])) {
             $model->DBClusterDescription = $map['DBClusterDescription'];
         }
@@ -432,6 +456,10 @@ class CreateAIDBClusterRequest extends Model
 
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
+        }
+
+        if (isset($map['ModelSpace'])) {
+            $model->modelSpace = $map['ModelSpace'];
         }
 
         if (isset($map['OwnerAccount'])) {

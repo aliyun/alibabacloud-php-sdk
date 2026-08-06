@@ -335,6 +335,7 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersRespo
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationPerformanceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationPerformanceResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationPerformanceShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationPromptsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationPromptsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationServerlessConfRequest;
@@ -3282,6 +3283,10 @@ class Polardb extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->createPublicEndpoint) {
+            @$query['CreatePublicEndpoint'] = $request->createPublicEndpoint;
+        }
+
         if (null !== $request->DBClusterDescription) {
             @$query['DBClusterDescription'] = $request->DBClusterDescription;
         }
@@ -3328,6 +3333,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->modelName) {
             @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelSpace) {
+            @$query['ModelSpace'] = $request->modelSpace;
         }
 
         if (null !== $request->ownerAccount) {
@@ -3453,6 +3462,10 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->modelSpaceName) {
+            @$query['ModelSpaceName'] = $request->modelSpaceName;
         }
 
         if (null !== $request->regionId) {
@@ -3605,12 +3618,20 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->customOssBucketName) {
+            @$query['CustomOssBucketName'] = $request->customOssBucketName;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
         if (null !== $request->DBInstanceClass) {
             @$query['DBInstanceClass'] = $request->DBInstanceClass;
+        }
+
+        if (null !== $request->dataserviceMode) {
+            @$query['DataserviceMode'] = $request->dataserviceMode;
         }
 
         if (null !== $request->datasetPath) {
@@ -5350,6 +5371,14 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->cacheCostPointsPerMillion) {
             @$query['CacheCostPointsPerMillion'] = $request->cacheCostPointsPerMillion;
+        }
+
+        if (null !== $request->effectiveTargetType) {
+            @$query['EffectiveTargetType'] = $request->effectiveTargetType;
+        }
+
+        if (null !== $request->effectiveTargetValue) {
+            @$query['EffectiveTargetValue'] = $request->effectiveTargetValue;
         }
 
         if (null !== $request->gwClusterId) {
@@ -8693,6 +8722,10 @@ class Polardb extends OpenApiClient
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
+        if (null !== $request->modelSpace) {
+            @$query['ModelSpace'] = $request->modelSpace;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -8748,6 +8781,10 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->apiKey) {
             @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->modelSpaceName) {
+            @$query['ModelSpaceName'] = $request->modelSpaceName;
         }
 
         if (null !== $request->regionId) {
@@ -12401,6 +12438,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->modelSpaceName) {
+            @$query['ModelSpaceName'] = $request->modelSpaceName;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -14770,19 +14811,25 @@ class Polardb extends OpenApiClient
     /**
      * Queries the performance of a PolarDB AI application.
      *
-     * @param request - DescribeApplicationPerformanceRequest
+     * @param tmpReq - DescribeApplicationPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeApplicationPerformanceResponse
      *
-     * @param DescribeApplicationPerformanceRequest $request
+     * @param DescribeApplicationPerformanceRequest $tmpReq
      * @param RuntimeOptions                        $runtime
      *
      * @return DescribeApplicationPerformanceResponse
      */
-    public function describeApplicationPerformanceWithOptions($request, $runtime)
+    public function describeApplicationPerformanceWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DescribeApplicationPerformanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
+        }
+
         $query = [];
         if (null !== $request->applicationId) {
             @$query['ApplicationId'] = $request->applicationId;
@@ -14830,6 +14877,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->filterShrink) {
+            @$query['filter'] = $request->filterShrink;
         }
 
         $req = new OpenApiRequest([
@@ -16556,6 +16607,14 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->effectiveTargetType) {
+            @$query['EffectiveTargetType'] = $request->effectiveTargetType;
+        }
+
+        if (null !== $request->effectiveTargetValue) {
+            @$query['EffectiveTargetValue'] = $request->effectiveTargetValue;
+        }
+
         if (null !== $request->gwClusterId) {
             @$query['GwClusterId'] = $request->gwClusterId;
         }
@@ -23682,7 +23741,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a PolarLakebase instance.
+     * Retrieves the details of a Polarlakebase instance.
      *
      * @param request - DescribePolarFsAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23729,7 +23788,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a PolarLakebase instance.
+     * Retrieves the details of a Polarlakebase instance.
      *
      * @param request - DescribePolarFsAttributeRequest
      *
@@ -36767,7 +36826,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves memories based on a search query.
+     * Retrieves memories.
      *
      * @param request - SearchMemoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36803,6 +36862,14 @@ class Polardb extends OpenApiClient
             @$query['MemoryUserId'] = $request->memoryUserId;
         }
 
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         if (null !== $request->query) {
             @$query['Query'] = $request->query;
         }
@@ -36830,7 +36897,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves memories based on a search query.
+     * Retrieves memories.
      *
      * @param request - SearchMemoriesRequest
      *

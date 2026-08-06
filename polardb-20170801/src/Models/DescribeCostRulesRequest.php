@@ -11,6 +11,16 @@ class DescribeCostRulesRequest extends Model
     /**
      * @var string
      */
+    public $effectiveTargetType;
+
+    /**
+     * @var string
+     */
+    public $effectiveTargetValue;
+
+    /**
+     * @var string
+     */
     public $gwClusterId;
 
     /**
@@ -38,6 +48,8 @@ class DescribeCostRulesRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'effectiveTargetType' => 'EffectiveTargetType',
+        'effectiveTargetValue' => 'EffectiveTargetValue',
         'gwClusterId' => 'GwClusterId',
         'modelName' => 'ModelName',
         'modelServiceId' => 'ModelServiceId',
@@ -54,6 +66,14 @@ class DescribeCostRulesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->effectiveTargetType) {
+            $res['EffectiveTargetType'] = $this->effectiveTargetType;
+        }
+
+        if (null !== $this->effectiveTargetValue) {
+            $res['EffectiveTargetValue'] = $this->effectiveTargetValue;
+        }
+
         if (null !== $this->gwClusterId) {
             $res['GwClusterId'] = $this->gwClusterId;
         }
@@ -89,6 +109,14 @@ class DescribeCostRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EffectiveTargetType'])) {
+            $model->effectiveTargetType = $map['EffectiveTargetType'];
+        }
+
+        if (isset($map['EffectiveTargetValue'])) {
+            $model->effectiveTargetValue = $map['EffectiveTargetValue'];
+        }
+
         if (isset($map['GwClusterId'])) {
             $model->gwClusterId = $map['GwClusterId'];
         }

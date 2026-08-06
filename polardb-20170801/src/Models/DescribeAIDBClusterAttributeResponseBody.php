@@ -44,6 +44,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     public $DBClusterStatus;
 
     /**
+     * @var string
+     */
+    public $DBInstanceStatusDesc;
+
+    /**
      * @var DBNodes[]
      */
     public $DBNodes;
@@ -106,7 +111,17 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $maxTPM;
+
+    /**
+     * @var string
+     */
     public $modelName;
+
+    /**
+     * @var string
+     */
+    public $modelSpaceName;
 
     /**
      * @var string
@@ -189,6 +204,7 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterId' => 'DBClusterId',
         'DBClusterStatus' => 'DBClusterStatus',
+        'DBInstanceStatusDesc' => 'DBInstanceStatusDesc',
         'DBNodes' => 'DBNodes',
         'DBVersion' => 'DBVersion',
         'ecsSecurityGroupId' => 'EcsSecurityGroupId',
@@ -201,7 +217,9 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'kubeClusterId' => 'KubeClusterId',
         'lockMode' => 'LockMode',
         'maxQPM' => 'MaxQPM',
+        'maxTPM' => 'MaxTPM',
         'modelName' => 'ModelName',
+        'modelSpaceName' => 'ModelSpaceName',
         'modelType' => 'ModelType',
         'payType' => 'PayType',
         'publicIp' => 'PublicIp',
@@ -266,6 +284,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
             $res['DBClusterStatus'] = $this->DBClusterStatus;
         }
 
+        if (null !== $this->DBInstanceStatusDesc) {
+            $res['DBInstanceStatusDesc'] = $this->DBInstanceStatusDesc;
+        }
+
         if (null !== $this->DBNodes) {
             if (\is_array($this->DBNodes)) {
                 $res['DBNodes'] = [];
@@ -328,8 +350,16 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
             $res['MaxQPM'] = $this->maxQPM;
         }
 
+        if (null !== $this->maxTPM) {
+            $res['MaxTPM'] = $this->maxTPM;
+        }
+
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
+        }
+
+        if (null !== $this->modelSpaceName) {
+            $res['ModelSpaceName'] = $this->modelSpaceName;
         }
 
         if (null !== $this->modelType) {
@@ -434,6 +464,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
             $model->DBClusterStatus = $map['DBClusterStatus'];
         }
 
+        if (isset($map['DBInstanceStatusDesc'])) {
+            $model->DBInstanceStatusDesc = $map['DBInstanceStatusDesc'];
+        }
+
         if (isset($map['DBNodes'])) {
             if (!empty($map['DBNodes'])) {
                 $model->DBNodes = [];
@@ -496,8 +530,16 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
             $model->maxQPM = $map['MaxQPM'];
         }
 
+        if (isset($map['MaxTPM'])) {
+            $model->maxTPM = $map['MaxTPM'];
+        }
+
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
+        }
+
+        if (isset($map['ModelSpaceName'])) {
+            $model->modelSpaceName = $map['ModelSpaceName'];
         }
 
         if (isset($map['ModelType'])) {

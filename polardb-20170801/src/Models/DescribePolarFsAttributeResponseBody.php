@@ -27,6 +27,16 @@ class DescribePolarFsAttributeResponseBody extends Model
     public $acceleratingEnable;
 
     /**
+     * @var string
+     */
+    public $authorizedUserArnIds;
+
+    /**
+     * @var string
+     */
+    public $authorizedUserIds;
+
+    /**
      * @var float
      */
     public $bandwidth;
@@ -234,6 +244,8 @@ class DescribePolarFsAttributeResponseBody extends Model
         'accelerateType' => 'AccelerateType',
         'acceleratedStorageSpace' => 'AcceleratedStorageSpace',
         'acceleratingEnable' => 'AcceleratingEnable',
+        'authorizedUserArnIds' => 'AuthorizedUserArnIds',
+        'authorizedUserIds' => 'AuthorizedUserIds',
         'bandwidth' => 'Bandwidth',
         'bandwidthBaseLine' => 'BandwidthBaseLine',
         'bucketId' => 'BucketId',
@@ -304,6 +316,14 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (null !== $this->acceleratingEnable) {
             $res['AcceleratingEnable'] = $this->acceleratingEnable;
+        }
+
+        if (null !== $this->authorizedUserArnIds) {
+            $res['AuthorizedUserArnIds'] = $this->authorizedUserArnIds;
+        }
+
+        if (null !== $this->authorizedUserIds) {
+            $res['AuthorizedUserIds'] = $this->authorizedUserIds;
         }
 
         if (null !== $this->bandwidth) {
@@ -505,6 +525,14 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (isset($map['AcceleratingEnable'])) {
             $model->acceleratingEnable = $map['AcceleratingEnable'];
+        }
+
+        if (isset($map['AuthorizedUserArnIds'])) {
+            $model->authorizedUserArnIds = $map['AuthorizedUserArnIds'];
+        }
+
+        if (isset($map['AuthorizedUserIds'])) {
+            $model->authorizedUserIds = $map['AuthorizedUserIds'];
         }
 
         if (isset($map['Bandwidth'])) {

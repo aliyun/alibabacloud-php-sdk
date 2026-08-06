@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskAttributeResponseBody\customBucketInfo;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskAttributeResponseBody\dataSets;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskAttributeResponseBody\taskInfo;
 
@@ -24,6 +25,11 @@ class DescribeAIDBClusterTaskAttributeResponseBody extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var customBucketInfo
+     */
+    public $customBucketInfo;
 
     /**
      * @var string
@@ -118,6 +124,7 @@ class DescribeAIDBClusterTaskAttributeResponseBody extends Model
         'accessInfo' => 'AccessInfo',
         'clusterNetworkType' => 'ClusterNetworkType',
         'createTime' => 'CreateTime',
+        'customBucketInfo' => 'CustomBucketInfo',
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterId' => 'DBClusterId',
         'DBClusterStatus' => 'DBClusterStatus',
@@ -140,6 +147,9 @@ class DescribeAIDBClusterTaskAttributeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->customBucketInfo) {
+            $this->customBucketInfo->validate();
+        }
         if (\is_array($this->dataSets)) {
             Model::validateArray($this->dataSets);
         }
@@ -165,6 +175,10 @@ class DescribeAIDBClusterTaskAttributeResponseBody extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->customBucketInfo) {
+            $res['CustomBucketInfo'] = null !== $this->customBucketInfo ? $this->customBucketInfo->toArray($noStream) : $this->customBucketInfo;
         }
 
         if (null !== $this->DBClusterDescription) {
@@ -286,6 +300,10 @@ class DescribeAIDBClusterTaskAttributeResponseBody extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['CustomBucketInfo'])) {
+            $model->customBucketInfo = customBucketInfo::fromMap($map['CustomBucketInfo']);
         }
 
         if (isset($map['DBClusterDescription'])) {

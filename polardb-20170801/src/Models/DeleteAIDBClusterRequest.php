@@ -12,8 +12,14 @@ class DeleteAIDBClusterRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $modelSpace;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'modelSpace' => 'ModelSpace',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DeleteAIDBClusterRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->modelSpace) {
+            $res['ModelSpace'] = $this->modelSpace;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DeleteAIDBClusterRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['ModelSpace'])) {
+            $model->modelSpace = $map['ModelSpace'];
         }
 
         return $model;

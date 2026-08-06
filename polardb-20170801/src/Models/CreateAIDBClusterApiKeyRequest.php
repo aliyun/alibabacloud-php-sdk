@@ -16,9 +16,15 @@ class CreateAIDBClusterApiKeyRequest extends Model
     /**
      * @var string
      */
+    public $modelSpaceName;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'description' => 'Description',
+        'modelSpaceName' => 'ModelSpaceName',
         'regionId' => 'RegionId',
     ];
 
@@ -32,6 +38,10 @@ class CreateAIDBClusterApiKeyRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->modelSpaceName) {
+            $res['ModelSpaceName'] = $this->modelSpaceName;
         }
 
         if (null !== $this->regionId) {
@@ -51,6 +61,10 @@ class CreateAIDBClusterApiKeyRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['ModelSpaceName'])) {
+            $model->modelSpaceName = $map['ModelSpaceName'];
         }
 
         if (isset($map['RegionId'])) {

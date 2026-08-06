@@ -17,9 +17,21 @@ class DescribeAIDBClusterApiKeysResponseBody extends Model
     /**
      * @var string
      */
+    public $pageNumber;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'apiKeys' => 'ApiKeys',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
     ];
 
@@ -43,6 +55,14 @@ class DescribeAIDBClusterApiKeysResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->requestId) {
@@ -69,6 +89,14 @@ class DescribeAIDBClusterApiKeysResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['RequestId'])) {

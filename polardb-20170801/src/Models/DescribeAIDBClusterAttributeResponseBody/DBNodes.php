@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttribute
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponseBody\DBNodes\childVolumes;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponseBody\DBNodes\supportedApis;
 
 class DBNodes extends Model
 {
@@ -62,7 +63,17 @@ class DBNodes extends Model
     /**
      * @var string
      */
+    public $modelName;
+
+    /**
+     * @var string
+     */
     public $publicIp;
+
+    /**
+     * @var supportedApis[]
+     */
+    public $supportedApis;
 
     /**
      * @var string
@@ -94,7 +105,9 @@ class DBNodes extends Model
         'GPU' => 'GPU',
         'linkIP' => 'LinkIP',
         'memorySize' => 'MemorySize',
+        'modelName' => 'ModelName',
         'publicIp' => 'PublicIp',
+        'supportedApis' => 'SupportedApis',
         'VNodeId' => 'VNodeId',
         'VPCId' => 'VPCId',
         'vSwitchId' => 'VSwitchId',
@@ -105,6 +118,9 @@ class DBNodes extends Model
     {
         if (\is_array($this->childVolumes)) {
             Model::validateArray($this->childVolumes);
+        }
+        if (\is_array($this->supportedApis)) {
+            Model::validateArray($this->supportedApis);
         }
         parent::validate();
     }
@@ -159,8 +175,23 @@ class DBNodes extends Model
             $res['MemorySize'] = $this->memorySize;
         }
 
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
+        }
+
         if (null !== $this->publicIp) {
             $res['PublicIp'] = $this->publicIp;
+        }
+
+        if (null !== $this->supportedApis) {
+            if (\is_array($this->supportedApis)) {
+                $res['SupportedApis'] = [];
+                $n1 = 0;
+                foreach ($this->supportedApis as $item1) {
+                    $res['SupportedApis'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->VNodeId) {
@@ -237,8 +268,23 @@ class DBNodes extends Model
             $model->memorySize = $map['MemorySize'];
         }
 
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
+        }
+
         if (isset($map['PublicIp'])) {
             $model->publicIp = $map['PublicIp'];
+        }
+
+        if (isset($map['SupportedApis'])) {
+            if (!empty($map['SupportedApis'])) {
+                $model->supportedApis = [];
+                $n1 = 0;
+                foreach ($map['SupportedApis'] as $item1) {
+                    $model->supportedApis[$n1] = supportedApis::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VNodeId'])) {

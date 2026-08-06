@@ -11,12 +11,22 @@ class CreateAIDBClusterTaskRequest extends Model
     /**
      * @var string
      */
+    public $customOssBucketName;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
      * @var string
      */
     public $DBInstanceClass;
+
+    /**
+     * @var string
+     */
+    public $dataserviceMode;
 
     /**
      * @var string
@@ -108,8 +118,10 @@ class CreateAIDBClusterTaskRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'customOssBucketName' => 'CustomOssBucketName',
         'DBClusterId' => 'DBClusterId',
         'DBInstanceClass' => 'DBInstanceClass',
+        'dataserviceMode' => 'DataserviceMode',
         'datasetPath' => 'DatasetPath',
         'evalDatasetPath' => 'EvalDatasetPath',
         'kubeType' => 'KubeType',
@@ -138,12 +150,20 @@ class CreateAIDBClusterTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customOssBucketName) {
+            $res['CustomOssBucketName'] = $this->customOssBucketName;
+        }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
+        }
+
+        if (null !== $this->dataserviceMode) {
+            $res['DataserviceMode'] = $this->dataserviceMode;
         }
 
         if (null !== $this->datasetPath) {
@@ -229,12 +249,20 @@ class CreateAIDBClusterTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomOssBucketName'])) {
+            $model->customOssBucketName = $map['CustomOssBucketName'];
+        }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
 
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
+        }
+
+        if (isset($map['DataserviceMode'])) {
+            $model->dataserviceMode = $map['DataserviceMode'];
         }
 
         if (isset($map['DatasetPath'])) {

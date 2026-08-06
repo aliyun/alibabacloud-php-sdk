@@ -21,6 +21,16 @@ class items extends Model
     /**
      * @var string
      */
+    public $effectiveTargetType;
+
+    /**
+     * @var string
+     */
+    public $effectiveTargetValue;
+
+    /**
+     * @var string
+     */
     public $gmtCreated;
 
     /**
@@ -55,6 +65,8 @@ class items extends Model
     protected $_name = [
         'cacheCostPointsPerMillion' => 'CacheCostPointsPerMillion',
         'costRuleId' => 'CostRuleId',
+        'effectiveTargetType' => 'EffectiveTargetType',
+        'effectiveTargetValue' => 'EffectiveTargetValue',
         'gmtCreated' => 'GmtCreated',
         'gmtModified' => 'GmtModified',
         'gwClusterId' => 'GwClusterId',
@@ -78,6 +90,14 @@ class items extends Model
 
         if (null !== $this->costRuleId) {
             $res['CostRuleId'] = $this->costRuleId;
+        }
+
+        if (null !== $this->effectiveTargetType) {
+            $res['EffectiveTargetType'] = $this->effectiveTargetType;
+        }
+
+        if (null !== $this->effectiveTargetValue) {
+            $res['EffectiveTargetValue'] = $this->effectiveTargetValue;
         }
 
         if (null !== $this->gmtCreated) {
@@ -125,6 +145,14 @@ class items extends Model
 
         if (isset($map['CostRuleId'])) {
             $model->costRuleId = $map['CostRuleId'];
+        }
+
+        if (isset($map['EffectiveTargetType'])) {
+            $model->effectiveTargetType = $map['EffectiveTargetType'];
+        }
+
+        if (isset($map['EffectiveTargetValue'])) {
+            $model->effectiveTargetValue = $map['EffectiveTargetValue'];
         }
 
         if (isset($map['GmtCreated'])) {

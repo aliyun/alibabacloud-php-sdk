@@ -16,9 +16,15 @@ class DeleteAIDBClusterApiKeyRequest extends Model
     /**
      * @var string
      */
+    public $modelSpaceName;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'apiKey' => 'ApiKey',
+        'modelSpaceName' => 'ModelSpaceName',
         'regionId' => 'RegionId',
     ];
 
@@ -32,6 +38,10 @@ class DeleteAIDBClusterApiKeyRequest extends Model
         $res = [];
         if (null !== $this->apiKey) {
             $res['ApiKey'] = $this->apiKey;
+        }
+
+        if (null !== $this->modelSpaceName) {
+            $res['ModelSpaceName'] = $this->modelSpaceName;
         }
 
         if (null !== $this->regionId) {
@@ -51,6 +61,10 @@ class DeleteAIDBClusterApiKeyRequest extends Model
         $model = new self();
         if (isset($map['ApiKey'])) {
             $model->apiKey = $map['ApiKey'];
+        }
+
+        if (isset($map['ModelSpaceName'])) {
+            $model->modelSpaceName = $map['ModelSpaceName'];
         }
 
         if (isset($map['RegionId'])) {

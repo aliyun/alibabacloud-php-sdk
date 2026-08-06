@@ -16,6 +16,16 @@ class CreateCostRuleRequest extends Model
     /**
      * @var string
      */
+    public $effectiveTargetType;
+
+    /**
+     * @var string
+     */
+    public $effectiveTargetValue;
+
+    /**
+     * @var string
+     */
     public $gwClusterId;
 
     /**
@@ -44,6 +54,8 @@ class CreateCostRuleRequest extends Model
     public $regionId;
     protected $_name = [
         'cacheCostPointsPerMillion' => 'CacheCostPointsPerMillion',
+        'effectiveTargetType' => 'EffectiveTargetType',
+        'effectiveTargetValue' => 'EffectiveTargetValue',
         'gwClusterId' => 'GwClusterId',
         'inputCostPointsPerMillion' => 'InputCostPointsPerMillion',
         'modelName' => 'ModelName',
@@ -62,6 +74,14 @@ class CreateCostRuleRequest extends Model
         $res = [];
         if (null !== $this->cacheCostPointsPerMillion) {
             $res['CacheCostPointsPerMillion'] = $this->cacheCostPointsPerMillion;
+        }
+
+        if (null !== $this->effectiveTargetType) {
+            $res['EffectiveTargetType'] = $this->effectiveTargetType;
+        }
+
+        if (null !== $this->effectiveTargetValue) {
+            $res['EffectiveTargetValue'] = $this->effectiveTargetValue;
         }
 
         if (null !== $this->gwClusterId) {
@@ -101,6 +121,14 @@ class CreateCostRuleRequest extends Model
         $model = new self();
         if (isset($map['CacheCostPointsPerMillion'])) {
             $model->cacheCostPointsPerMillion = $map['CacheCostPointsPerMillion'];
+        }
+
+        if (isset($map['EffectiveTargetType'])) {
+            $model->effectiveTargetType = $map['EffectiveTargetType'];
+        }
+
+        if (isset($map['EffectiveTargetValue'])) {
+            $model->effectiveTargetValue = $map['EffectiveTargetValue'];
         }
 
         if (isset($map['GwClusterId'])) {

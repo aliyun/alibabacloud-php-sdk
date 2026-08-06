@@ -12,15 +12,39 @@ class SearchMemoriesResponseBody extends Model
     /**
      * @var string
      */
+    public $page;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var results[]
      */
     public $results;
+
+    /**
+     * @var string
+     */
+    public $total;
+
+    /**
+     * @var string
+     */
+    public $totalPages;
     protected $_name = [
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
         'results' => 'Results',
+        'total' => 'Total',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()
@@ -34,6 +58,14 @@ class SearchMemoriesResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->page) {
+            $res['Page'] = $this->page;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,6 +81,14 @@ class SearchMemoriesResponseBody extends Model
             }
         }
 
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
+        }
+
+        if (null !== $this->totalPages) {
+            $res['TotalPages'] = $this->totalPages;
+        }
+
         return $res;
     }
 
@@ -60,6 +100,14 @@ class SearchMemoriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Page'])) {
+            $model->page = $map['Page'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -73,6 +121,14 @@ class SearchMemoriesResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
+        }
+
+        if (isset($map['TotalPages'])) {
+            $model->totalPages = $map['TotalPages'];
         }
 
         return $model;

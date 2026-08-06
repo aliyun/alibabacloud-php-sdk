@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeApplicationPerformanceRequest extends Model
+class DescribeApplicationPerformanceShrinkRequest extends Model
 {
     /**
      * @var string
@@ -69,9 +69,9 @@ class DescribeApplicationPerformanceRequest extends Model
     public $startTime;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $filter;
+    public $filterShrink;
     protected $_name = [
         'applicationId' => 'ApplicationId',
         'consumer' => 'Consumer',
@@ -85,14 +85,11 @@ class DescribeApplicationPerformanceRequest extends Model
         'modelService' => 'ModelService',
         'startStep' => 'StartStep',
         'startTime' => 'StartTime',
-        'filter' => 'filter',
+        'filterShrink' => 'filter',
     ];
 
     public function validate()
     {
-        if (\is_array($this->filter)) {
-            Model::validateArray($this->filter);
-        }
         parent::validate();
     }
 
@@ -147,13 +144,8 @@ class DescribeApplicationPerformanceRequest extends Model
             $res['StartTime'] = $this->startTime;
         }
 
-        if (null !== $this->filter) {
-            if (\is_array($this->filter)) {
-                $res['filter'] = [];
-                foreach ($this->filter as $key1 => $value1) {
-                    $res['filter'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->filterShrink) {
+            $res['filter'] = $this->filterShrink;
         }
 
         return $res;
@@ -216,12 +208,7 @@ class DescribeApplicationPerformanceRequest extends Model
         }
 
         if (isset($map['filter'])) {
-            if (!empty($map['filter'])) {
-                $model->filter = [];
-                foreach ($map['filter'] as $key1 => $value1) {
-                    $model->filter[$key1] = $value1;
-                }
-            }
+            $model->filterShrink = $map['filter'];
         }
 
         return $model;

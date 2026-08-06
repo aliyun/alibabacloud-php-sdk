@@ -11,8 +11,14 @@ class DescribeAIDBClusterApiKeysRequest extends Model
     /**
      * @var string
      */
+    public $modelSpaceName;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
+        'modelSpaceName' => 'ModelSpaceName',
         'regionId' => 'RegionId',
     ];
 
@@ -24,6 +30,10 @@ class DescribeAIDBClusterApiKeysRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->modelSpaceName) {
+            $res['ModelSpaceName'] = $this->modelSpaceName;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -39,6 +49,10 @@ class DescribeAIDBClusterApiKeysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ModelSpaceName'])) {
+            $model->modelSpaceName = $map['ModelSpaceName'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
