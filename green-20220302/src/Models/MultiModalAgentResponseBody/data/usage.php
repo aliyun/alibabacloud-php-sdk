@@ -19,12 +19,18 @@ class usage extends Model
     public $contentLength;
 
     /**
+     * @var float
+     */
+    public $credits;
+
+    /**
      * @var int
      */
     public $promptLength;
     protected $_name = [
         'agentDetail' => 'AgentDetail',
         'contentLength' => 'ContentLength',
+        'credits' => 'Credits',
         'promptLength' => 'PromptLength',
     ];
 
@@ -50,6 +56,10 @@ class usage extends Model
 
         if (null !== $this->contentLength) {
             $res['ContentLength'] = $this->contentLength;
+        }
+
+        if (null !== $this->credits) {
+            $res['Credits'] = $this->credits;
         }
 
         if (null !== $this->promptLength) {
@@ -78,6 +88,10 @@ class usage extends Model
 
         if (isset($map['ContentLength'])) {
             $model->contentLength = $map['ContentLength'];
+        }
+
+        if (isset($map['Credits'])) {
+            $model->credits = $map['Credits'];
         }
 
         if (isset($map['PromptLength'])) {

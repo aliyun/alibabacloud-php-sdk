@@ -1024,10 +1024,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * This is the synchronous detection API for the multi-modal agent.
+     * Synchronously detects content by using the multimodal Agent API.
      *
      * @remarks
-     * This is the AI Guardrails agent.
+     * The content moderation agent.
      *
      * @param request - MultiModalAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1070,10 +1070,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * This is the synchronous detection API for the multi-modal agent.
+     * Synchronously detects content by using the multimodal Agent API.
      *
      * @remarks
-     * This is the AI Guardrails agent.
+     * The content moderation agent.
      *
      * @param request - MultiModalAgentRequest
      *
