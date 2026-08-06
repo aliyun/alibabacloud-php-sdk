@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesResponseBody\data\events;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesResponseBody\data\messageFiles;
 
 class data extends Model
 {
@@ -60,6 +61,11 @@ class data extends Model
     public $lastSentEntryId;
 
     /**
+     * @var messageFiles[]
+     */
+    public $messageFiles;
+
+    /**
      * @var string
      */
     public $query;
@@ -84,6 +90,7 @@ class data extends Model
         'generationStatus' => 'GenerationStatus',
         'id' => 'Id',
         'lastSentEntryId' => 'LastSentEntryId',
+        'messageFiles' => 'MessageFiles',
         'query' => 'Query',
         'retrieverResources' => 'RetrieverResources',
         'streamKey' => 'StreamKey',
@@ -93,6 +100,9 @@ class data extends Model
     {
         if (\is_array($this->events)) {
             Model::validateArray($this->events);
+        }
+        if (\is_array($this->messageFiles)) {
+            Model::validateArray($this->messageFiles);
         }
         if (\is_array($this->retrieverResources)) {
             Model::validateArray($this->retrieverResources);
@@ -148,6 +158,17 @@ class data extends Model
 
         if (null !== $this->lastSentEntryId) {
             $res['LastSentEntryId'] = $this->lastSentEntryId;
+        }
+
+        if (null !== $this->messageFiles) {
+            if (\is_array($this->messageFiles)) {
+                $res['MessageFiles'] = [];
+                $n1 = 0;
+                foreach ($this->messageFiles as $item1) {
+                    $res['MessageFiles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->query) {
@@ -225,6 +246,17 @@ class data extends Model
 
         if (isset($map['LastSentEntryId'])) {
             $model->lastSentEntryId = $map['LastSentEntryId'];
+        }
+
+        if (isset($map['MessageFiles'])) {
+            if (!empty($map['MessageFiles'])) {
+                $model->messageFiles = [];
+                $n1 = 0;
+                foreach ($map['MessageFiles'] as $item1) {
+                    $model->messageFiles[$n1] = messageFiles::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Query'])) {

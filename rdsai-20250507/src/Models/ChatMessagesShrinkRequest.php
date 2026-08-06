@@ -21,6 +21,11 @@ class ChatMessagesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $filesShrink;
+
+    /**
+     * @var string
+     */
     public $inputsShrink;
 
     /**
@@ -35,6 +40,7 @@ class ChatMessagesShrinkRequest extends Model
     protected $_name = [
         'conversationId' => 'ConversationId',
         'eventMode' => 'EventMode',
+        'filesShrink' => 'Files',
         'inputsShrink' => 'Inputs',
         'parentMessageId' => 'ParentMessageId',
         'query' => 'Query',
@@ -54,6 +60,10 @@ class ChatMessagesShrinkRequest extends Model
 
         if (null !== $this->eventMode) {
             $res['EventMode'] = $this->eventMode;
+        }
+
+        if (null !== $this->filesShrink) {
+            $res['Files'] = $this->filesShrink;
         }
 
         if (null !== $this->inputsShrink) {
@@ -85,6 +95,10 @@ class ChatMessagesShrinkRequest extends Model
 
         if (isset($map['EventMode'])) {
             $model->eventMode = $map['EventMode'];
+        }
+
+        if (isset($map['Files'])) {
+            $model->filesShrink = $map['Files'];
         }
 
         if (isset($map['Inputs'])) {

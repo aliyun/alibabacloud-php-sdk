@@ -239,6 +239,10 @@ class RdsAi extends OpenApiClient
         $tmpReq->validate();
         $request = new ChatMessagesShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->files) {
+            $request->filesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        }
+
         if (null !== $tmpReq->inputs) {
             $request->inputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputs, 'Inputs', 'json');
         }
@@ -250,6 +254,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->eventMode) {
             @$query['EventMode'] = $request->eventMode;
+        }
+
+        if (null !== $request->filesShrink) {
+            @$query['Files'] = $request->filesShrink;
         }
 
         if (null !== $request->inputsShrink) {
@@ -313,6 +321,10 @@ class RdsAi extends OpenApiClient
         $tmpReq->validate();
         $request = new ChatMessagesShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->files) {
+            $request->filesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        }
+
         if (null !== $tmpReq->inputs) {
             $request->inputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputs, 'Inputs', 'json');
         }
@@ -324,6 +336,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->eventMode) {
             @$query['EventMode'] = $request->eventMode;
+        }
+
+        if (null !== $request->filesShrink) {
+            @$query['Files'] = $request->filesShrink;
         }
 
         if (null !== $request->inputsShrink) {

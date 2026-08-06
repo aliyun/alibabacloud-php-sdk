@@ -1,3 +1,8 @@
+2026-08-06 Version: 3.7.1
+- Update API ChatMessages: add request parameters Files.
+- Update API GetMessages: add response parameters Body.Data.$.MessageFiles.
+
+
 2026-08-06 Version: 3.7.0
 - Support API DescribeMOTokenUsageSummary.
 

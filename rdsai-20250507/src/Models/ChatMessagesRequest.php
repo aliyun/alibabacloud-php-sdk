@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\RdsAi\V20250507\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesRequest\files;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesRequest\inputs;
 
 class ChatMessagesRequest extends Model
@@ -18,6 +19,11 @@ class ChatMessagesRequest extends Model
      * @var string
      */
     public $eventMode;
+
+    /**
+     * @var files[]
+     */
+    public $files;
 
     /**
      * @var inputs
@@ -36,6 +42,7 @@ class ChatMessagesRequest extends Model
     protected $_name = [
         'conversationId' => 'ConversationId',
         'eventMode' => 'EventMode',
+        'files' => 'Files',
         'inputs' => 'Inputs',
         'parentMessageId' => 'ParentMessageId',
         'query' => 'Query',
@@ -43,6 +50,9 @@ class ChatMessagesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->files)) {
+            Model::validateArray($this->files);
+        }
         if (null !== $this->inputs) {
             $this->inputs->validate();
         }
@@ -58,6 +68,17 @@ class ChatMessagesRequest extends Model
 
         if (null !== $this->eventMode) {
             $res['EventMode'] = $this->eventMode;
+        }
+
+        if (null !== $this->files) {
+            if (\is_array($this->files)) {
+                $res['Files'] = [];
+                $n1 = 0;
+                foreach ($this->files as $item1) {
+                    $res['Files'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->inputs) {
@@ -89,6 +110,17 @@ class ChatMessagesRequest extends Model
 
         if (isset($map['EventMode'])) {
             $model->eventMode = $map['EventMode'];
+        }
+
+        if (isset($map['Files'])) {
+            if (!empty($map['Files'])) {
+                $model->files = [];
+                $n1 = 0;
+                foreach ($map['Files'] as $item1) {
+                    $model->files[$n1] = files::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Inputs'])) {
