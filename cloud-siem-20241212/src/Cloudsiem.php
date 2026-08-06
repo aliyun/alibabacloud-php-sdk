@@ -1517,6 +1517,10 @@ class Cloudsiem extends OpenApiClient
             @$body['ResponseRulePriority'] = $request->responseRulePriority;
         }
 
+        if (null !== $request->responseRuleRemark) {
+            @$body['ResponseRuleRemark'] = $request->responseRuleRemark;
+        }
+
         if (null !== $request->responseTriggerType) {
             @$body['ResponseTriggerType'] = $request->responseTriggerType;
         }
@@ -5069,7 +5073,7 @@ class Cloudsiem extends OpenApiClient
      *
      * @remarks
      * Notifications are subject to frequency and time restrictions.
-     * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+     * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
      *
      * @param tmpReq - ListIncidentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5208,7 +5212,7 @@ class Cloudsiem extends OpenApiClient
      *
      * @remarks
      * Notifications are subject to frequency and time restrictions.
-     * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+     * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
      *
      * @param request - ListIncidentsRequest
      *
@@ -8928,6 +8932,10 @@ class Cloudsiem extends OpenApiClient
 
         if (null !== $request->responseRulePriority) {
             @$body['ResponseRulePriority'] = $request->responseRulePriority;
+        }
+
+        if (null !== $request->responseRuleRemark) {
+            @$body['ResponseRuleRemark'] = $request->responseRuleRemark;
         }
 
         if (null !== $request->responseRuleStatus) {

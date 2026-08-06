@@ -59,6 +59,11 @@ class UpdateResponseRuleRequest extends Model
     public $responseRulePriority;
 
     /**
+     * @var string
+     */
+    public $responseRuleRemark;
+
+    /**
      * @var int
      */
     public $responseRuleStatus;
@@ -78,6 +83,7 @@ class UpdateResponseRuleRequest extends Model
         'responseRuleId' => 'ResponseRuleId',
         'responseRuleName' => 'ResponseRuleName',
         'responseRulePriority' => 'ResponseRulePriority',
+        'responseRuleRemark' => 'ResponseRuleRemark',
         'responseRuleStatus' => 'ResponseRuleStatus',
         'responseTriggerType' => 'ResponseTriggerType',
     ];
@@ -128,6 +134,10 @@ class UpdateResponseRuleRequest extends Model
 
         if (null !== $this->responseRulePriority) {
             $res['ResponseRulePriority'] = $this->responseRulePriority;
+        }
+
+        if (null !== $this->responseRuleRemark) {
+            $res['ResponseRuleRemark'] = $this->responseRuleRemark;
         }
 
         if (null !== $this->responseRuleStatus) {
@@ -187,6 +197,10 @@ class UpdateResponseRuleRequest extends Model
 
         if (isset($map['ResponseRulePriority'])) {
             $model->responseRulePriority = $map['ResponseRulePriority'];
+        }
+
+        if (isset($map['ResponseRuleRemark'])) {
+            $model->responseRuleRemark = $map['ResponseRuleRemark'];
         }
 
         if (isset($map['ResponseRuleStatus'])) {

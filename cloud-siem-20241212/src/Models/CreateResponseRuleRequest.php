@@ -56,6 +56,11 @@ class CreateResponseRuleRequest extends Model
     /**
      * @var string
      */
+    public $responseRuleRemark;
+
+    /**
+     * @var string
+     */
     public $responseTriggerType;
 
     /**
@@ -77,6 +82,7 @@ class CreateResponseRuleRequest extends Model
         'responseExecutionCondition' => 'ResponseExecutionCondition',
         'responseRuleName' => 'ResponseRuleName',
         'responseRulePriority' => 'ResponseRulePriority',
+        'responseRuleRemark' => 'ResponseRuleRemark',
         'responseTriggerType' => 'ResponseTriggerType',
         'roleFor' => 'RoleFor',
         'roleType' => 'RoleType',
@@ -124,6 +130,10 @@ class CreateResponseRuleRequest extends Model
 
         if (null !== $this->responseRulePriority) {
             $res['ResponseRulePriority'] = $this->responseRulePriority;
+        }
+
+        if (null !== $this->responseRuleRemark) {
+            $res['ResponseRuleRemark'] = $this->responseRuleRemark;
         }
 
         if (null !== $this->responseTriggerType) {
@@ -183,6 +193,10 @@ class CreateResponseRuleRequest extends Model
 
         if (isset($map['ResponseRulePriority'])) {
             $model->responseRulePriority = $map['ResponseRulePriority'];
+        }
+
+        if (isset($map['ResponseRuleRemark'])) {
+            $model->responseRuleRemark = $map['ResponseRuleRemark'];
         }
 
         if (isset($map['ResponseTriggerType'])) {

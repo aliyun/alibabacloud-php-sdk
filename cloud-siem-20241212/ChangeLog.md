@@ -1,3 +1,9 @@
+2026-08-06 Version: 2.5.3
+- Update API CreateResponseRule: add request parameters ResponseRuleRemark.
+- Update API ListResponseRules: add response parameters Body.ResponseRules.$.ResponseRuleRemark.
+- Update API UpdateResponseRule: add request parameters ResponseRuleRemark.
+
+
 2026-08-03 Version: 2.5.2
 - Update API ListIncidents: add request parameters DetectionRuleIds.
 - Update API ListIncidents: add response parameters Body.Incidents.$.DetectionRuleName.
