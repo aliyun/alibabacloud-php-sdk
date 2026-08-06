@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateTemplateInput extends Model
 {
     /**
+     * @var ContainerConfiguration
+     */
+    public $containerConfiguration;
+
+    /**
      * @var LogConfiguration
      */
     public $logConfiguration;
@@ -18,12 +23,16 @@ class UpdateTemplateInput extends Model
      */
     public $networkConfiguration;
     protected $_name = [
+        'containerConfiguration' => 'containerConfiguration',
         'logConfiguration' => 'logConfiguration',
         'networkConfiguration' => 'networkConfiguration',
     ];
 
     public function validate()
     {
+        if (null !== $this->containerConfiguration) {
+            $this->containerConfiguration->validate();
+        }
         if (null !== $this->logConfiguration) {
             $this->logConfiguration->validate();
         }
@@ -36,6 +45,10 @@ class UpdateTemplateInput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->containerConfiguration) {
+            $res['containerConfiguration'] = null !== $this->containerConfiguration ? $this->containerConfiguration->toArray($noStream) : $this->containerConfiguration;
+        }
+
         if (null !== $this->logConfiguration) {
             $res['logConfiguration'] = null !== $this->logConfiguration ? $this->logConfiguration->toArray($noStream) : $this->logConfiguration;
         }
@@ -55,6 +68,10 @@ class UpdateTemplateInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['containerConfiguration'])) {
+            $model->containerConfiguration = ContainerConfiguration::fromMap($map['containerConfiguration']);
+        }
+
         if (isset($map['logConfiguration'])) {
             $model->logConfiguration = LogConfiguration::fromMap($map['logConfiguration']);
         }

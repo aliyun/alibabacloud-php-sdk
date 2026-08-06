@@ -46,7 +46,15 @@ class FCSandbox extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shenzhen' => 'fcsandbox.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'fcsandbox.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'fcsandbox.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'fcsandbox.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'fcsandbox.cn-beijing.aliyuncs.com',
+            'ap-southeast-1' => 'fcsandbox.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('fcsandbox', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -76,7 +84,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 创建 ApiKey.
+     * Creates an API key.
      *
      * @param request - CreateApiKeyRequest
      * @param headers - map
@@ -113,7 +121,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 创建 ApiKey.
+     * Creates an API key.
      *
      * @param request - CreateApiKeyRequest
      *
@@ -132,7 +140,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 创建 Team.
+     * Creates a Team.
      *
      * @param request - CreateTeamRequest
      * @param headers - map
@@ -169,7 +177,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 创建 Team.
+     * Creates a Team.
      *
      * @param request - CreateTeamRequest
      *
@@ -188,7 +196,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 删除 ApiKey.
+     * Deletes an API key.
      *
      * @param request - DeleteApiKeyRequest
      * @param headers - map
@@ -225,7 +233,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 删除 ApiKey.
+     * Deletes an API key.
      *
      * @param request - DeleteApiKeyRequest
      *
@@ -245,7 +253,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 删除 quota 配置.
+     * Deletes a Quota configuration.
      *
      * @param request - DeleteQuotaRequest
      * @param headers - map
@@ -287,7 +295,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 删除 quota 配置.
+     * Deletes a Quota configuration.
      *
      * @param request - DeleteQuotaRequest
      *
@@ -306,7 +314,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 删除 Team.
+     * Deletes a team.
      *
      * @param request - DeleteTeamRequest
      * @param headers - map
@@ -343,7 +351,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 删除 Team.
+     * Deletes a team.
      *
      * @param request - DeleteTeamRequest
      *
@@ -363,7 +371,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 查看 ApiKey.
+     * Queries an API key.
      *
      * @param request - DescribeApiKeyRequest
      * @param headers - map
@@ -400,7 +408,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 查看 ApiKey.
+     * Queries an API key.
      *
      * @param request - DescribeApiKeyRequest
      *
@@ -420,7 +428,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 获取 quota 配置.
+     * Retrieves the Quota configuration.
      *
      * @param request - DescribeQuotaRequest
      * @param headers - map
@@ -462,7 +470,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 获取 quota 配置.
+     * Retrieves the Quota configuration.
      *
      * @param request - DescribeQuotaRequest
      *
@@ -481,7 +489,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 获取Team详情.
+     * Retrieves the details of a team.
      *
      * @param request - GetTeamRequest
      * @param headers - map
@@ -518,7 +526,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 获取Team详情.
+     * Retrieves the details of a team.
      *
      * @param request - GetTeamRequest
      *
@@ -538,7 +546,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 分页查询 ApiKey.
+     * Queries API keys by paging.
      *
      * @param request - ListApiKeysRequest
      * @param headers - map
@@ -604,7 +612,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 分页查询 ApiKey.
+     * Queries API keys by paging.
      *
      * @param request - ListApiKeysRequest
      *
@@ -623,7 +631,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 查询 quota 配置.
+     * Queries the quota configurations of an account.
      *
      * @param request - ListQuotaRequest
      * @param headers - map
@@ -669,7 +677,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 查询 quota 配置.
+     * Queries the quota configurations of an account.
      *
      * @param request - ListQuotaRequest
      *
@@ -688,7 +696,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 查询 Team 列表.
+     * Queries a list of teams.
      *
      * @param request - ListTeamsRequest
      * @param headers - map
@@ -712,6 +720,10 @@ class FCSandbox extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->plan) {
+            @$query['plan'] = $request->plan;
         }
 
         if (null !== $request->resourceGroupID) {
@@ -742,7 +754,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 查询 Team 列表.
+     * Queries a list of teams.
      *
      * @param request - ListTeamsRequest
      *
@@ -761,7 +773,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 重置 ApiKey.
+     * Resets an API key.
      *
      * @param request - ResetApiKeyRequest
      * @param headers - map
@@ -798,7 +810,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 重置 ApiKey.
+     * Resets an API key.
      *
      * @param request - ResetApiKeyRequest
      *
@@ -818,7 +830,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 更新 ApiKey.
+     * Updates an API key.
      *
      * @param request - UpdateApiKeyRequest
      * @param headers - map
@@ -856,7 +868,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 更新 ApiKey.
+     * Updates an API key.
      *
      * @param request - UpdateApiKeyRequest
      *
@@ -876,7 +888,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 更新 quota 配置.
+     * Updates the Quota configuration.
      *
      * @param request - UpdateQuotaRequest
      * @param headers - map
@@ -913,7 +925,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 更新 quota 配置.
+     * Updates the Quota configuration.
      *
      * @param request - UpdateQuotaRequest
      *
@@ -932,7 +944,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 更新 Team.
+     * Updates a team.
      *
      * @param request - UpdateTeamRequest
      * @param headers - map
@@ -970,7 +982,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 更新 Team.
+     * Updates a team.
      *
      * @param request - UpdateTeamRequest
      *

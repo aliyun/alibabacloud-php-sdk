@@ -66,6 +66,11 @@ class ApiKey extends Model
     /**
      * @var string
      */
+    public $teamPlan;
+
+    /**
+     * @var string
+     */
     public $userID;
 
     /**
@@ -84,6 +89,7 @@ class ApiKey extends Model
         'status' => 'status',
         'teamID' => 'teamID',
         'teamName' => 'teamName',
+        'teamPlan' => 'teamPlan',
         'userID' => 'userID',
         'username' => 'username',
     ];
@@ -138,6 +144,10 @@ class ApiKey extends Model
 
         if (null !== $this->teamName) {
             $res['teamName'] = $this->teamName;
+        }
+
+        if (null !== $this->teamPlan) {
+            $res['teamPlan'] = $this->teamPlan;
         }
 
         if (null !== $this->userID) {
@@ -201,6 +211,10 @@ class ApiKey extends Model
 
         if (isset($map['teamName'])) {
             $model->teamName = $map['teamName'];
+        }
+
+        if (isset($map['teamPlan'])) {
+            $model->teamPlan = $map['teamPlan'];
         }
 
         if (isset($map['userID'])) {

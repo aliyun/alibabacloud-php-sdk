@@ -21,6 +21,11 @@ class ListTeamsRequest extends Model
     /**
      * @var string
      */
+    public $plan;
+
+    /**
+     * @var string
+     */
     public $resourceGroupID;
 
     /**
@@ -30,6 +35,7 @@ class ListTeamsRequest extends Model
     protected $_name = [
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
+        'plan' => 'plan',
         'resourceGroupID' => 'resourceGroupID',
         'teamName' => 'teamName',
     ];
@@ -48,6 +54,10 @@ class ListTeamsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->plan) {
+            $res['plan'] = $this->plan;
         }
 
         if (null !== $this->resourceGroupID) {
@@ -75,6 +85,10 @@ class ListTeamsRequest extends Model
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['plan'])) {
+            $model->plan = $map['plan'];
         }
 
         if (isset($map['resourceGroupID'])) {

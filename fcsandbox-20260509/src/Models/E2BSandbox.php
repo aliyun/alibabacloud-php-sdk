@@ -91,6 +91,11 @@ class E2BSandbox extends Model
     /**
      * @var string
      */
+    public $teamPlan;
+
+    /**
+     * @var string
+     */
     public $templateID;
 
     /**
@@ -119,6 +124,7 @@ class E2BSandbox extends Model
         'state' => 'state',
         'teamID' => 'teamID',
         'teamName' => 'teamName',
+        'teamPlan' => 'teamPlan',
         'templateID' => 'templateID',
         'templateName' => 'templateName',
         'userID' => 'userID',
@@ -202,6 +208,10 @@ class E2BSandbox extends Model
 
         if (null !== $this->teamName) {
             $res['teamName'] = $this->teamName;
+        }
+
+        if (null !== $this->teamPlan) {
+            $res['teamPlan'] = $this->teamPlan;
         }
 
         if (null !== $this->templateID) {
@@ -294,6 +304,10 @@ class E2BSandbox extends Model
 
         if (isset($map['teamName'])) {
             $model->teamName = $map['teamName'];
+        }
+
+        if (isset($map['teamPlan'])) {
+            $model->teamPlan = $map['teamPlan'];
         }
 
         if (isset($map['templateID'])) {

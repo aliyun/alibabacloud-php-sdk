@@ -16,6 +16,11 @@ class UpdateTeamInput extends Model
     /**
      * @var string
      */
+    public $plan;
+
+    /**
+     * @var string
+     */
     public $resourceGroupID;
 
     /**
@@ -24,6 +29,7 @@ class UpdateTeamInput extends Model
     public $teamName;
     protected $_name = [
         'description' => 'description',
+        'plan' => 'plan',
         'resourceGroupID' => 'resourceGroupID',
         'teamName' => 'teamName',
     ];
@@ -38,6 +44,10 @@ class UpdateTeamInput extends Model
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->plan) {
+            $res['plan'] = $this->plan;
         }
 
         if (null !== $this->resourceGroupID) {
@@ -61,6 +71,10 @@ class UpdateTeamInput extends Model
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['plan'])) {
+            $model->plan = $map['plan'];
         }
 
         if (isset($map['resourceGroupID'])) {

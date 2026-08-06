@@ -26,6 +26,11 @@ class E2BTeam extends Model
     /**
      * @var string
      */
+    public $plan;
+
+    /**
+     * @var string
+     */
     public $resourceGroupID;
 
     /**
@@ -51,6 +56,7 @@ class E2BTeam extends Model
         'allowUpdateTeamName' => 'allowUpdateTeamName',
         'createdTime' => 'createdTime',
         'description' => 'description',
+        'plan' => 'plan',
         'resourceGroupID' => 'resourceGroupID',
         'status' => 'status',
         'teamID' => 'teamID',
@@ -76,6 +82,10 @@ class E2BTeam extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->plan) {
+            $res['plan'] = $this->plan;
         }
 
         if (null !== $this->resourceGroupID) {
@@ -119,6 +129,10 @@ class E2BTeam extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['plan'])) {
+            $model->plan = $map['plan'];
         }
 
         if (isset($map['resourceGroupID'])) {

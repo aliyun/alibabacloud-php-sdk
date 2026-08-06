@@ -19,6 +19,11 @@ class E2BTemplate extends Model
     public $category;
 
     /**
+     * @var ContainerConfiguration
+     */
+    public $containerConfiguration;
+
+    /**
      * @var int
      */
     public $cpuCount;
@@ -81,6 +86,11 @@ class E2BTemplate extends Model
     /**
      * @var string
      */
+    public $teamPlan;
+
+    /**
+     * @var string
+     */
     public $templateID;
 
     /**
@@ -95,6 +105,7 @@ class E2BTemplate extends Model
     protected $_name = [
         'buildStatus' => 'buildStatus',
         'category' => 'category',
+        'containerConfiguration' => 'containerConfiguration',
         'cpuCount' => 'cpuCount',
         'createdAt' => 'createdAt',
         'logConfiguration' => 'logConfiguration',
@@ -107,6 +118,7 @@ class E2BTemplate extends Model
         'tags' => 'tags',
         'teamID' => 'teamID',
         'teamName' => 'teamName',
+        'teamPlan' => 'teamPlan',
         'templateID' => 'templateID',
         'updatedAt' => 'updatedAt',
         'userID' => 'userID',
@@ -114,6 +126,9 @@ class E2BTemplate extends Model
 
     public function validate()
     {
+        if (null !== $this->containerConfiguration) {
+            $this->containerConfiguration->validate();
+        }
         if (null !== $this->logConfiguration) {
             $this->logConfiguration->validate();
         }
@@ -138,6 +153,10 @@ class E2BTemplate extends Model
 
         if (null !== $this->category) {
             $res['category'] = $this->category;
+        }
+
+        if (null !== $this->containerConfiguration) {
+            $res['containerConfiguration'] = null !== $this->containerConfiguration ? $this->containerConfiguration->toArray($noStream) : $this->containerConfiguration;
         }
 
         if (null !== $this->cpuCount) {
@@ -202,6 +221,10 @@ class E2BTemplate extends Model
             $res['teamName'] = $this->teamName;
         }
 
+        if (null !== $this->teamPlan) {
+            $res['teamPlan'] = $this->teamPlan;
+        }
+
         if (null !== $this->templateID) {
             $res['templateID'] = $this->templateID;
         }
@@ -231,6 +254,10 @@ class E2BTemplate extends Model
 
         if (isset($map['category'])) {
             $model->category = $map['category'];
+        }
+
+        if (isset($map['containerConfiguration'])) {
+            $model->containerConfiguration = ContainerConfiguration::fromMap($map['containerConfiguration']);
         }
 
         if (isset($map['cpuCount'])) {
@@ -293,6 +320,10 @@ class E2BTemplate extends Model
 
         if (isset($map['teamName'])) {
             $model->teamName = $map['teamName'];
+        }
+
+        if (isset($map['teamPlan'])) {
+            $model->teamPlan = $map['teamPlan'];
         }
 
         if (isset($map['templateID'])) {
