@@ -80,7 +80,7 @@ class AIRegistry extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('airegistry', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -110,7 +110,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 创建 AI Registry 命名空间.
+     * Creates a namespace in AI Registry and returns the corresponding namespace ID.
      *
      * @param request - CreateNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -161,7 +161,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 创建 AI Registry 命名空间.
+     * Creates a namespace in AI Registry and returns the corresponding namespace ID.
      *
      * @param request - CreateNamespaceRequest
      *
@@ -179,7 +179,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 创建 Prompt.
+     * Create a prompt and create the initial draft version content of that prompt.
      *
      * @param request - CreatePromptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -246,7 +246,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 创建 Prompt.
+     * Create a prompt and create the initial draft version content of that prompt.
      *
      * @param request - CreatePromptRequest
      *
@@ -264,7 +264,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 创建 Prompt 草稿版本。Prompt 必须已存在，且当前没有正在编辑的草稿。只对草稿版本生效。
+     * Creates a new version of a prompt. The new version defaults to draft status. An error is returned if a draft version already exists.
      *
      * @param request - CreatePromptVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -327,7 +327,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 创建 Prompt 草稿版本。Prompt 必须已存在，且当前没有正在编辑的草稿。只对草稿版本生效。
+     * Creates a new version of a prompt. The new version defaults to draft status. An error is returned if a draft version already exists.
      *
      * @param request - CreatePromptVersionRequest
      *
@@ -345,7 +345,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 创建 Skill 草稿版本.
+     * Creates a Skill draft and returns the Skill version.
      *
      * @param request - CreateSkillDraftRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -404,7 +404,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 创建 Skill 草稿版本.
+     * Creates a Skill draft and returns the Skill version.
      *
      * @param request - CreateSkillDraftRequest
      *
@@ -422,7 +422,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 删除命名空间.
+     * Deletes a specified namespace from the AI Governance Center. The system checks whether the namespace contains any resources in use (such as Skills or Prompts) before deletion. If such resources exist, the deletion fails.
      *
      * @param request - DeleteNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -461,7 +461,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 删除命名空间.
+     * Deletes a specified namespace from the AI Governance Center. The system checks whether the namespace contains any resources in use (such as Skills or Prompts) before deletion. If such resources exist, the deletion fails.
      *
      * @param request - DeleteNamespaceRequest
      *
@@ -479,7 +479,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 删除 Prompt.
+     * Deletes a specified prompt.
      *
      * @param request - DeletePromptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -522,7 +522,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 删除 Prompt.
+     * Deletes a specified prompt.
      *
      * @param request - DeletePromptRequest
      *
@@ -540,7 +540,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 删除 Skill.
+     * Deletes a specified Skill.
      *
      * @param request - DeleteSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -583,7 +583,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 删除 Skill.
+     * Deletes a specified Skill.
      *
      * @param request - DeleteSkillRequest
      *
@@ -601,7 +601,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 通过 OSS 下载 Skill 版本 - 返回 OSS 下载 URL.
+     * Downloads a skill version through OSS and returns the OSS download URL.
      *
      * @param request - DownloadSkillVersionViaOssRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -648,7 +648,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 通过 OSS 下载 Skill 版本 - 返回 OSS 下载 URL.
+     * Downloads a skill version through OSS and returns the OSS download URL.
      *
      * @param request - DownloadSkillVersionViaOssRequest
      *
@@ -666,7 +666,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 强制发布版本.
+     * Force-publishes a version.
      *
      * @param request - ForcePublishSkillVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -717,7 +717,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 强制发布版本.
+     * Force-publishes a version.
      *
      * @param request - ForcePublishSkillVersionRequest
      *
@@ -735,7 +735,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取命名空间详细信息.
+     * Queries the details of an AI Governance Center namespace.
      *
      * @param request - GetNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -774,7 +774,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取命名空间详细信息.
+     * Queries the details of an AI Governance Center namespace.
      *
      * @param request - GetNamespaceRequest
      *
@@ -792,7 +792,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取 Prompt 详情信息.
+     * Retrieves the details of a prompt.
      *
      * @param request - GetPromptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -835,7 +835,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取 Prompt 详情信息.
+     * Retrieves the details of a prompt.
      *
      * @param request - GetPromptRequest
      *
@@ -853,7 +853,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取 Prompt 某个版本的信息.
+     * Query the detailed information of a specified version of a prompt.
      *
      * @param request - GetPromptVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -900,7 +900,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取 Prompt 某个版本的信息.
+     * Query the detailed information of a specified version of a prompt.
      *
      * @param request - GetPromptVersionRequest
      *
@@ -918,7 +918,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取 Skill 详情.
+     * Retrieves the metadata and version information of a skill.
      *
      * @param request - GetSkillDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -961,7 +961,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取 Skill 详情.
+     * Retrieves the metadata and version information of a skill.
      *
      * @param request - GetSkillDetailRequest
      *
@@ -979,7 +979,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取 Skill 导入用 OSS 上传 URL。客户端使用返回的 uploadUrl 执行 PUT 上传后，.
+     * Retrieves a URL for uploading a Skill to OSS. The client uses the returned URL to upload the Skill by performing a PUT request.
      *
      * @param request - GetSkillImportFileUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1022,7 +1022,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取 Skill 导入用 OSS 上传 URL。客户端使用返回的 uploadUrl 执行 PUT 上传后，.
+     * Retrieves a URL for uploading a Skill to OSS. The client uses the returned URL to upload the Skill by performing a PUT request.
      *
      * @param request - GetSkillImportFileUrlRequest
      *
@@ -1040,7 +1040,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取指定版本详情.
+     * Retrieves the details of a specified version.
      *
      * @param request - GetSkillVersionDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1087,7 +1087,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取指定版本详情.
+     * Retrieves the details of a specified version.
      *
      * @param request - GetSkillVersionDetailRequest
      *
@@ -1105,7 +1105,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取命名空间列表.
+     * Lists the namespaces in the AI Governance Center.
      *
      * @param request - ListNamespacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1156,7 +1156,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取命名空间列表.
+     * Lists the namespaces in the AI Governance Center.
      *
      * @param request - ListNamespacesRequest
      *
@@ -1174,7 +1174,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 列出Prompt版本列表.
+     * Lists the versions of a prompt.
      *
      * @param request - ListPromptVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1225,7 +1225,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 列出Prompt版本列表.
+     * Lists the versions of a prompt.
      *
      * @param request - ListPromptVersionsRequest
      *
@@ -1243,7 +1243,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取Prompt列表.
+     * Lists the prompts in a namespace.
      *
      * @param request - ListPromptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1302,7 +1302,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 获取Prompt列表.
+     * Lists the prompts in a namespace.
      *
      * @param request - ListPromptsRequest
      *
@@ -1320,7 +1320,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 列出 Skills.
+     * Lists skills.
      *
      * @param request - ListSkillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1387,7 +1387,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 列出 Skills.
+     * Lists skills.
      *
      * @param request - ListSkillsRequest
      *
@@ -1405,7 +1405,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 下线版本.
+     * Offlines a Skill or a specific version of a Skill.
      *
      * @param request - OfflineSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1456,7 +1456,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 下线版本.
+     * Offlines a Skill or a specific version of a Skill.
      *
      * @param request - OfflineSkillRequest
      *
@@ -1474,7 +1474,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 上线 Skill.
+     * Brings online a Skill or a specific version of a Skill.
      *
      * @param request - OnlineSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1525,7 +1525,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 上线 Skill.
+     * Brings online a Skill or a specific version of a Skill.
      *
      * @param request - OnlineSkillRequest
      *
@@ -1543,7 +1543,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 发布版本.
+     * Publishes a specific version of a Skill.
      *
      * @param request - PublishSkillVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1594,7 +1594,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 发布版本.
+     * Publishes a specific version of a Skill.
      *
      * @param request - PublishSkillVersionRequest
      *
@@ -1612,7 +1612,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 提交 Prompt 版本, 将 Prompt 的草稿版本转化为正式版本.
+     * Publishes a draft version of a prompt as an official version. The specified version must be a draft version.
      *
      * @param request - SubmitPromptVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1659,7 +1659,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 提交 Prompt 版本, 将 Prompt 的草稿版本转化为正式版本.
+     * Publishes a draft version of a prompt as an official version. The specified version must be a draft version.
      *
      * @param request - SubmitPromptVersionRequest
      *
@@ -1677,7 +1677,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 提交 Skill Draft 审核.
+     * Submits a specific version of a skill for review.
      *
      * @param request - SubmitSkillVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1724,7 +1724,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 提交 Skill Draft 审核.
+     * Submits a specific version of a skill for review.
      *
      * @param request - SubmitSkillVersionRequest
      *
@@ -1742,7 +1742,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新命名空间信息.
+     * Updates namespace information.
      *
      * @param request - UpdateNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1797,7 +1797,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新命名空间信息.
+     * Updates namespace information.
      *
      * @param request - UpdateNamespaceRequest
      *
@@ -1815,7 +1815,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新 Prompt 元数据，支持同时更新 description、bizTags、labels。
+     * Modifies the metadata of a prompt, such as the description and business tags.
      *
      * @param tmpReq - UpdatePromptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1880,7 +1880,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新 Prompt 元数据，支持同时更新 description、bizTags、labels。
+     * Modifies the metadata of a prompt, such as the description and business tags.
      *
      * @param request - UpdatePromptRequest
      *
@@ -1898,7 +1898,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新 Prompt 草稿版本内容。只对草稿版本生效，已发布的版本不可修改。
+     * Updates the content of a prompt version. Only the draft version of a prompt can be modified.
      *
      * @param request - UpdatePromptVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1953,7 +1953,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新 Prompt 草稿版本内容。只对草稿版本生效，已发布的版本不可修改。
+     * Updates the content of a prompt version. Only the draft version of a prompt can be modified.
      *
      * @param request - UpdatePromptVersionRequest
      *
@@ -1971,7 +1971,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新业务标签.
+     * Updates business labels.
      *
      * @param request - UpdateSkillBizTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2018,7 +2018,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新业务标签.
+     * Updates business labels.
      *
      * @param request - UpdateSkillBizTagsRequest
      *
@@ -2036,7 +2036,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新 Draft.
+     * Updates a draft.
      *
      * @param request - UpdateSkillDraftRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2087,7 +2087,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新 Draft.
+     * Updates a draft.
      *
      * @param request - UpdateSkillDraftRequest
      *
@@ -2105,7 +2105,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新版本标签.
+     * Updates version labels.
      *
      * @param request - UpdateSkillLabelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2152,7 +2152,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新版本标签.
+     * Updates version labels.
      *
      * @param request - UpdateSkillLabelsRequest
      *
@@ -2170,7 +2170,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新可见性.
+     * Updates the visibility.
      *
      * @param request - UpdateSkillScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2217,7 +2217,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 更新可见性.
+     * Updates the visibility.
      *
      * @param request - UpdateSkillScopeRequest
      *
@@ -2235,7 +2235,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 通过 OSS 上传 Skill (ZIP) - 从 OSS 拉取文件内容后上传到 Nacos.
+     * Uploads a skill (ZIP) from OSS. Retrieves file content from OSS and uploads it to Nacos.
      *
      * @param request - UploadSkillViaOssRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2267,6 +2267,10 @@ class AIRegistry extends OpenApiClient
             @$query['Overwrite'] = $request->overwrite;
         }
 
+        if (null !== $request->targetVersion) {
+            @$query['TargetVersion'] = $request->targetVersion;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2286,7 +2290,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * 通过 OSS 上传 Skill (ZIP) - 从 OSS 拉取文件内容后上传到 Nacos.
+     * Uploads a skill (ZIP) from OSS. Retrieves file content from OSS and uploads it to Nacos.
      *
      * @param request - UploadSkillViaOssRequest
      *

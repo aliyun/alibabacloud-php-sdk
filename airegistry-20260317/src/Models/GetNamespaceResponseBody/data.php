@@ -21,6 +21,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $ipWhitelist;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -32,6 +37,16 @@ class data extends Model
      * @var int
      */
     public $promptCount;
+
+    /**
+     * @var bool
+     */
+    public $publicAccessEnabled;
+
+    /**
+     * @var string
+     */
+    public $publicDomain;
 
     /**
      * @var string
@@ -60,9 +75,12 @@ class data extends Model
     protected $_name = [
         'createdTime' => 'CreatedTime',
         'description' => 'Description',
+        'ipWhitelist' => 'IpWhitelist',
         'name' => 'Name',
         'namespaceId' => 'NamespaceId',
         'promptCount' => 'PromptCount',
+        'publicAccessEnabled' => 'PublicAccessEnabled',
+        'publicDomain' => 'PublicDomain',
         'scanPolicy' => 'ScanPolicy',
         'skillCount' => 'SkillCount',
         'source' => 'Source',
@@ -86,6 +104,10 @@ class data extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->ipWhitelist) {
+            $res['IpWhitelist'] = $this->ipWhitelist;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -96,6 +118,14 @@ class data extends Model
 
         if (null !== $this->promptCount) {
             $res['PromptCount'] = $this->promptCount;
+        }
+
+        if (null !== $this->publicAccessEnabled) {
+            $res['PublicAccessEnabled'] = $this->publicAccessEnabled;
+        }
+
+        if (null !== $this->publicDomain) {
+            $res['PublicDomain'] = $this->publicDomain;
         }
 
         if (null !== $this->scanPolicy) {
@@ -137,6 +167,10 @@ class data extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['IpWhitelist'])) {
+            $model->ipWhitelist = $map['IpWhitelist'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -147,6 +181,14 @@ class data extends Model
 
         if (isset($map['PromptCount'])) {
             $model->promptCount = $map['PromptCount'];
+        }
+
+        if (isset($map['PublicAccessEnabled'])) {
+            $model->publicAccessEnabled = $map['PublicAccessEnabled'];
+        }
+
+        if (isset($map['PublicDomain'])) {
+            $model->publicDomain = $map['PublicDomain'];
         }
 
         if (isset($map['ScanPolicy'])) {

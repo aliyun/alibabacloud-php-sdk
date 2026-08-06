@@ -27,11 +27,17 @@ class UploadSkillViaOssRequest extends Model
      * @var bool
      */
     public $overwrite;
+
+    /**
+     * @var string
+     */
+    public $targetVersion;
     protected $_name = [
         'commitMsg' => 'CommitMsg',
         'namespaceId' => 'NamespaceId',
         'ossObjectName' => 'OssObjectName',
         'overwrite' => 'Overwrite',
+        'targetVersion' => 'TargetVersion',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class UploadSkillViaOssRequest extends Model
 
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
+        }
+
+        if (null !== $this->targetVersion) {
+            $res['TargetVersion'] = $this->targetVersion;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class UploadSkillViaOssRequest extends Model
 
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
+        }
+
+        if (isset($map['TargetVersion'])) {
+            $model->targetVersion = $map['TargetVersion'];
         }
 
         return $model;
