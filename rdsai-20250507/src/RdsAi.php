@@ -68,6 +68,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMonitorDataResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMonitorDataShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOTokenUsageDetailRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOTokenUsageDetailResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOTokenUsageSummaryRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOTokenUsageSummaryResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOUsageDetailExportRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOUsageDetailExportResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeSandboxTemplatesRequest;
@@ -2482,6 +2484,91 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeMOTokenUsageDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看 model operator 实例具体 token 汇总情况.
+     *
+     * @remarks
+     * ### 适用引擎
+     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     *
+     * @param request - DescribeMOTokenUsageSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMOTokenUsageSummaryResponse
+     *
+     * @param DescribeMOTokenUsageSummaryRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeMOTokenUsageSummaryResponse
+     */
+    public function describeMOTokenUsageSummaryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->usageType) {
+            @$query['UsageType'] = $request->usageType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMOTokenUsageSummary',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMOTokenUsageSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看 model operator 实例具体 token 汇总情况.
+     *
+     * @remarks
+     * ### 适用引擎
+     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     *
+     * @param request - DescribeMOTokenUsageSummaryRequest
+     *
+     * @returns DescribeMOTokenUsageSummaryResponse
+     *
+     * @param DescribeMOTokenUsageSummaryRequest $request
+     *
+     * @return DescribeMOTokenUsageSummaryResponse
+     */
+    public function describeMOTokenUsageSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMOTokenUsageSummaryWithOptions($request, $runtime);
     }
 
     /**
