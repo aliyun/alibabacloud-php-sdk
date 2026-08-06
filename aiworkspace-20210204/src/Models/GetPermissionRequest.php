@@ -16,6 +16,16 @@ class GetPermissionRequest extends Model
     /**
      * @var string
      */
+    public $callerAccessKeyId;
+
+    /**
+     * @var string
+     */
+    public $callerSecurityToken;
+
+    /**
+     * @var string
+     */
     public $callerType;
 
     /**
@@ -49,6 +59,8 @@ class GetPermissionRequest extends Model
     public $securityToken;
     protected $_name = [
         'accessibility' => 'Accessibility',
+        'callerAccessKeyId' => 'CallerAccessKeyId',
+        'callerSecurityToken' => 'CallerSecurityToken',
         'callerType' => 'CallerType',
         'callerUid' => 'CallerUid',
         'creator' => 'Creator',
@@ -71,6 +83,14 @@ class GetPermissionRequest extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+
+        if (null !== $this->callerAccessKeyId) {
+            $res['CallerAccessKeyId'] = $this->callerAccessKeyId;
+        }
+
+        if (null !== $this->callerSecurityToken) {
+            $res['CallerSecurityToken'] = $this->callerSecurityToken;
         }
 
         if (null !== $this->callerType) {
@@ -119,6 +139,14 @@ class GetPermissionRequest extends Model
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+
+        if (isset($map['CallerAccessKeyId'])) {
+            $model->callerAccessKeyId = $map['CallerAccessKeyId'];
+        }
+
+        if (isset($map['CallerSecurityToken'])) {
+            $model->callerSecurityToken = $map['CallerSecurityToken'];
         }
 
         if (isset($map['CallerType'])) {

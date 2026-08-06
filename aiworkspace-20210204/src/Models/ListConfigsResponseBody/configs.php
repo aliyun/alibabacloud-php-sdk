@@ -12,6 +12,11 @@ class configs extends Model
     /**
      * @var string
      */
+    public $configId;
+
+    /**
+     * @var string
+     */
     public $configKey;
 
     /**
@@ -34,6 +39,7 @@ class configs extends Model
      */
     public $labels;
     protected $_name = [
+        'configId' => 'ConfigId',
         'configKey' => 'ConfigKey',
         'configValue' => 'ConfigValue',
         'gmtCreateTime' => 'GmtCreateTime',
@@ -52,6 +58,10 @@ class configs extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
+        }
+
         if (null !== $this->configKey) {
             $res['ConfigKey'] = $this->configKey;
         }
@@ -90,6 +100,10 @@ class configs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
+        }
+
         if (isset($map['ConfigKey'])) {
             $model->configKey = $map['ConfigKey'];
         }

@@ -50,6 +50,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateModelVersionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateModelVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateProductOrdersRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateProductOrdersResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreatePromptRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreatePromptResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateRunRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateRunResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceRequest;
@@ -92,6 +94,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionLabelsReques
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeletePromptRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeletePromptResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteRunLabelRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteRunLabelResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteRunRequest;
@@ -139,6 +143,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetModelVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPermissionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPermissionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPermissionShrinkRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPromptRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPromptResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetRunRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetRunResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetWorkspaceRequest;
@@ -183,6 +189,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListPermissionsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListPermissionsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListProductsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListProductsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListPromptsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListPromptsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListQuotasRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListQuotasResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListResourcesRequest;
@@ -245,6 +253,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateModelRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateModelResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateModelVersionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateModelVersionResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdatePromptRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdatePromptResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateRunRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateRunResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceRequest;
@@ -719,7 +729,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
+     * Creates a code configuration in PAI. You can configure a Git code branch and CommitId. After the configuration is created, it can be referenced in DLC jobs.
      *
      * @param request - CreateCodeSourceRequest
      * @param headers - map
@@ -801,7 +811,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
+     * Creates a code configuration in PAI. You can configure a Git code branch and CommitId. After the configuration is created, it can be referenced in DLC jobs.
      *
      * @param request - CreateCodeSourceRequest
      *
@@ -2222,6 +2232,93 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * Creates a prompt.
+     *
+     * @remarks
+     * ## Request description.
+     *
+     * @param request - CreatePromptRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePromptResponse
+     *
+     * @param CreatePromptRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreatePromptResponse
+     */
+    public function createPromptWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->frameworkContent) {
+            @$body['FrameworkContent'] = $request->frameworkContent;
+        }
+
+        if (null !== $request->frameworkType) {
+            @$body['FrameworkType'] = $request->frameworkType;
+        }
+
+        if (null !== $request->promptName) {
+            @$body['PromptName'] = $request->promptName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePrompt',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/prompts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePromptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a prompt.
+     *
+     * @remarks
+     * ## Request description.
+     *
+     * @param request - CreatePromptRequest
+     *
+     * @returns CreatePromptResponse
+     *
+     * @param CreatePromptRequest $request
+     *
+     * @return CreatePromptResponse
+     */
+    public function createPrompt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPromptWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
      *
      * @param request - CreateRunRequest
@@ -3563,6 +3660,79 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * Deletes a prompt.
+     *
+     * @remarks
+     * When calling this operation, note the following:
+     * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+     * - Tag keys cannot start with aliyun, acs, http://, or https://.
+     *
+     * @param request - DeletePromptRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePromptResponse
+     *
+     * @param string              $PromptId
+     * @param DeletePromptRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeletePromptResponse
+     */
+    public function deletePromptWithOptions($PromptId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePrompt',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/prompts/' . Url::percentEncode($PromptId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePromptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a prompt.
+     *
+     * @remarks
+     * When calling this operation, note the following:
+     * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+     * - Tag keys cannot start with aliyun, acs, http://, or https://.
+     *
+     * @param request - DeletePromptRequest
+     *
+     * @returns DeletePromptResponse
+     *
+     * @param string              $PromptId
+     * @param DeletePromptRequest $request
+     *
+     * @return DeletePromptResponse
+     */
+    public function deletePrompt($PromptId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deletePromptWithOptions($PromptId, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a run.
      *
      * @param request - DeleteRunRequest
@@ -3949,7 +4119,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified code source configuration.
+     * Retrieves the details of a code source configuration.
      *
      * @param request - GetCodeSourceRequest
      * @param headers - map
@@ -3986,7 +4156,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified code source configuration.
+     * Retrieves the details of a code source configuration.
      *
      * @param request - GetCodeSourceRequest
      *
@@ -4006,7 +4176,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves the configurations of a workspace.
+     * Retrieves the workspace configuration.
      *
      * @param request - GetConfigRequest
      * @param headers - map
@@ -4057,7 +4227,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves the configurations of a workspace.
+     * Retrieves the workspace configuration.
      *
      * @param request - GetConfigRequest
      *
@@ -4991,6 +5161,14 @@ class AIWorkSpace extends OpenApiClient
             @$query['Accessibility'] = $request->accessibility;
         }
 
+        if (null !== $request->callerAccessKeyId) {
+            @$query['CallerAccessKeyId'] = $request->callerAccessKeyId;
+        }
+
+        if (null !== $request->callerSecurityToken) {
+            @$query['CallerSecurityToken'] = $request->callerSecurityToken;
+        }
+
         if (null !== $request->callerType) {
             @$query['CallerType'] = $request->callerType;
         }
@@ -5057,6 +5235,69 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->getPermissionWithOptions($WorkspaceId, $PermissionCode, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves a prompt.
+     *
+     * @param request - GetPromptRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPromptResponse
+     *
+     * @param string           $PromptId
+     * @param GetPromptRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetPromptResponse
+     */
+    public function getPromptWithOptions($PromptId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPrompt',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/prompts/' . Url::percentEncode($PromptId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPromptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a prompt.
+     *
+     * @param request - GetPromptRequest
+     *
+     * @returns GetPromptResponse
+     *
+     * @param string           $PromptId
+     * @param GetPromptRequest $request
+     *
+     * @return GetPromptResponse
+     */
+    public function getPrompt($PromptId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPromptWithOptions($PromptId, $request, $headers, $runtime);
     }
 
     /**
@@ -5245,7 +5486,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of code source configurations with support for paging, sorting, and filtering.
+     * Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
      *
      * @param request - ListCodeSourcesRequest
      * @param headers - map
@@ -5307,7 +5548,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of code source configurations with support for paging, sorting, and filtering.
+     * Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
      *
      * @param request - ListCodeSourcesRequest
      *
@@ -5326,7 +5567,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists the configurations for a workspace.
+     * Retrieves the list of workspace configurations.
      *
      * @param request - ListConfigsRequest
      * @param headers - map
@@ -5381,7 +5622,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists the configurations for a workspace.
+     * Retrieves the list of workspace configurations.
      *
      * @param request - ListConfigsRequest
      *
@@ -5528,7 +5769,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the files in a dataset.
+     * Queries the list of dataset files.
      *
      * @param tmpReq - ListDatasetFileMetasRequest
      * @param headers - map
@@ -5705,7 +5946,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the files in a dataset.
+     * Queries the list of dataset files.
      *
      * @param request - ListDatasetFileMetasRequest
      *
@@ -5804,7 +6045,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists dataset jobs.
+     * Retrieves a list of dataset tasks.
      *
      * @param request - ListDatasetJobsRequest
      * @param headers - map
@@ -5879,7 +6120,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists dataset jobs.
+     * Retrieves a list of dataset tasks.
      *
      * @param request - ListDatasetJobsRequest
      *
@@ -6912,6 +7153,87 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of prompts.
+     *
+     * @param request - ListPromptsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPromptsResponse
+     *
+     * @param ListPromptsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListPromptsResponse
+     */
+    public function listPromptsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->frameworkType) {
+            @$query['FrameworkType'] = $request->frameworkType;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPrompts',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/prompts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPromptsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of prompts.
+     *
+     * @param request - ListPromptsRequest
+     *
+     * @returns ListPromptsResponse
+     *
+     * @param ListPromptsRequest $request
+     *
+     * @return ListPromptsResponse
+     */
+    public function listPrompts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPromptsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves a list of resource quotas.
      *
      * @param request - ListQuotasRequest
@@ -7426,7 +7748,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists users that can be added as members to a workspace.
+     * Lists users who have not joined a workspace and can be added as workspace members.
      *
      * @param request - ListWorkspaceUsersRequest
      * @param headers - map
@@ -7473,7 +7795,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists users that can be added as members to a workspace.
+     * Lists users who have not joined a workspace and can be added as workspace members.
      *
      * @param request - ListWorkspaceUsersRequest
      *
@@ -8212,7 +8534,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates a code source.
+     * Updates a code source configuration.
      *
      * @param request - UpdateCodeSourceRequest
      * @param headers - map
@@ -8287,7 +8609,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates a code source.
+     * Updates a code source configuration.
      *
      * @param request - UpdateCodeSourceRequest
      *
@@ -9246,6 +9568,87 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->updateModelVersionWithOptions($ModelId, $VersionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the prompt of a dataset.
+     *
+     * @remarks
+     * ## Request description.
+     *
+     * @param request - UpdatePromptRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePromptResponse
+     *
+     * @param string              $PromptId
+     * @param UpdatePromptRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdatePromptResponse
+     */
+    public function updatePromptWithOptions($PromptId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->frameworkContent) {
+            @$body['FrameworkContent'] = $request->frameworkContent;
+        }
+
+        if (null !== $request->frameworkType) {
+            @$body['FrameworkType'] = $request->frameworkType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePrompt',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/prompts/' . Url::percentEncode($PromptId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePromptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the prompt of a dataset.
+     *
+     * @remarks
+     * ## Request description.
+     *
+     * @param request - UpdatePromptRequest
+     *
+     * @returns UpdatePromptResponse
+     *
+     * @param string              $PromptId
+     * @param UpdatePromptRequest $request
+     *
+     * @return UpdatePromptResponse
+     */
+    public function updatePrompt($PromptId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updatePromptWithOptions($PromptId, $request, $headers, $runtime);
     }
 
     /**
