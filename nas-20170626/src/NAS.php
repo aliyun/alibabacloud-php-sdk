@@ -178,10 +178,14 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\DetachVscFromFilesystemsRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DetachVscFromFilesystemsResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DisableAndCleanRecycleBinRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DisableAndCleanRecycleBinResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DisableDataInsightRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DisableDataInsightResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DisableNfsAclRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DisableNfsAclResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DisableSmbAclRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DisableSmbAclResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\EnableDataInsightRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\EnableDataInsightResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\EnableNfsAclRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\EnableNfsAclResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\EnableRecycleBinRequest;
@@ -200,6 +204,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\GetRecycleBinAttributeRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\GetRecycleBinAttributeResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ListAccessPointsRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ListAccessPointsResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListDataInsightDirectoriesRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListDataInsightDirectoriesResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ListDirectoriesAndFilesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ListDirectoriesAndFilesResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ListLifecycleRetrieveJobsRequest;
@@ -7478,6 +7484,69 @@ class NAS extends OpenApiClient
     }
 
     /**
+     * 关闭数据洞察
+     *
+     * @remarks
+     * - 当前邀测使用，如需使用请提交工单申请。
+     *
+     * @param request - DisableDataInsightRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableDataInsightResponse
+     *
+     * @param DisableDataInsightRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DisableDataInsightResponse
+     */
+    public function disableDataInsightWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableDataInsight',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableDataInsightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭数据洞察
+     *
+     * @remarks
+     * - 当前邀测使用，如需使用请提交工单申请。
+     *
+     * @param request - DisableDataInsightRequest
+     *
+     * @returns DisableDataInsightResponse
+     *
+     * @param DisableDataInsightRequest $request
+     *
+     * @return DisableDataInsightResponse
+     */
+    public function disableDataInsight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDataInsightWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables the NFS ACL feature for a file system.
      *
      * @remarks
@@ -7601,6 +7670,69 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableSmbAclWithOptions($request, $runtime);
+    }
+
+    /**
+     * 开启数据洞察
+     *
+     * @remarks
+     * - 当前邀测使用，如需使用请提交工单申请。
+     *
+     * @param request - EnableDataInsightRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableDataInsightResponse
+     *
+     * @param EnableDataInsightRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return EnableDataInsightResponse
+     */
+    public function enableDataInsightWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableDataInsight',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableDataInsightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启数据洞察
+     *
+     * @remarks
+     * - 当前邀测使用，如需使用请提交工单申请。
+     *
+     * @param request - EnableDataInsightRequest
+     *
+     * @returns EnableDataInsightResponse
+     *
+     * @param EnableDataInsightRequest $request
+     *
+     * @return EnableDataInsightResponse
+     */
+    public function enableDataInsight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableDataInsightWithOptions($request, $runtime);
     }
 
     /**
@@ -8216,6 +8348,81 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAccessPointsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据洞察目录结构.
+     *
+     * @remarks
+     * - 当前邀测使用，如需使用请提交工单申请。
+     *
+     * @param request - ListDataInsightDirectoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataInsightDirectoriesResponse
+     *
+     * @param ListDataInsightDirectoriesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListDataInsightDirectoriesResponse
+     */
+    public function listDataInsightDirectoriesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->parentDir) {
+            @$query['ParentDir'] = $request->parentDir;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataInsightDirectories',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataInsightDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据洞察目录结构.
+     *
+     * @remarks
+     * - 当前邀测使用，如需使用请提交工单申请。
+     *
+     * @param request - ListDataInsightDirectoriesRequest
+     *
+     * @returns ListDataInsightDirectoriesResponse
+     *
+     * @param ListDataInsightDirectoriesRequest $request
+     *
+     * @return ListDataInsightDirectoriesResponse
+     */
+    public function listDataInsightDirectories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataInsightDirectoriesWithOptions($request, $runtime);
     }
 
     /**
