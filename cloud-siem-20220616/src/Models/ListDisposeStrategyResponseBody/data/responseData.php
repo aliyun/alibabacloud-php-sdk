@@ -11,6 +11,11 @@ class responseData extends Model
     /**
      * @var string
      */
+    public $alertName;
+
+    /**
+     * @var string
+     */
     public $alertUuid;
 
     /**
@@ -118,6 +123,7 @@ class responseData extends Model
      */
     public $taskUrl;
     protected $_name = [
+        'alertName' => 'AlertName',
         'alertUuid' => 'AlertUuid',
         'aliuid' => 'Aliuid',
         'effectiveStatus' => 'EffectiveStatus',
@@ -156,6 +162,10 @@ class responseData extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->alertName) {
+            $res['AlertName'] = $this->alertName;
+        }
+
         if (null !== $this->alertUuid) {
             $res['AlertUuid'] = $this->alertUuid;
         }
@@ -269,6 +279,10 @@ class responseData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertName'])) {
+            $model->alertName = $map['AlertName'];
+        }
+
         if (isset($map['AlertUuid'])) {
             $model->alertUuid = $map['AlertUuid'];
         }

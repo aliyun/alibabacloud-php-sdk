@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListDisposeStrategyRequest extends Model
+class ListDisposeStrategyShrinkRequest extends Model
 {
     /**
      * @var string
@@ -39,9 +39,9 @@ class ListDisposeStrategyRequest extends Model
     public $entityType;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $entityUuidList;
+    public $entityUuidListShrink;
 
     /**
      * @var string
@@ -149,7 +149,7 @@ class ListDisposeStrategyRequest extends Model
         'endTime' => 'EndTime',
         'entityIdentity' => 'EntityIdentity',
         'entityType' => 'EntityType',
-        'entityUuidList' => 'EntityUuidList',
+        'entityUuidListShrink' => 'EntityUuidList',
         'groupBy' => 'GroupBy',
         'groupKey' => 'GroupKey',
         'incidentUuid' => 'IncidentUuid',
@@ -174,9 +174,6 @@ class ListDisposeStrategyRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->entityUuidList)) {
-            Model::validateArray($this->entityUuidList);
-        }
         parent::validate();
     }
 
@@ -207,15 +204,8 @@ class ListDisposeStrategyRequest extends Model
             $res['EntityType'] = $this->entityType;
         }
 
-        if (null !== $this->entityUuidList) {
-            if (\is_array($this->entityUuidList)) {
-                $res['EntityUuidList'] = [];
-                $n1 = 0;
-                foreach ($this->entityUuidList as $item1) {
-                    $res['EntityUuidList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->entityUuidListShrink) {
+            $res['EntityUuidList'] = $this->entityUuidListShrink;
         }
 
         if (null !== $this->groupBy) {
@@ -334,14 +324,7 @@ class ListDisposeStrategyRequest extends Model
         }
 
         if (isset($map['EntityUuidList'])) {
-            if (!empty($map['EntityUuidList'])) {
-                $model->entityUuidList = [];
-                $n1 = 0;
-                foreach ($map['EntityUuidList'] as $item1) {
-                    $model->entityUuidList[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->entityUuidListShrink = $map['EntityUuidList'];
         }
 
         if (isset($map['GroupBy'])) {

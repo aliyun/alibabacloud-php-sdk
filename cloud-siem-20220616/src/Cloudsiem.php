@@ -143,6 +143,7 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDeliveryRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDeliveryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDisposeStrategyRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDisposeStrategyResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDisposeStrategyShrinkRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListEntitiesRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListEntitiesResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListImportedLogsByProdRequest;
@@ -2857,7 +2858,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of playbooks used in a disposal policy.
+     * Retrieves the list of playbooks used by a disposal policy.
      *
      * @param request - DescribeDisposeStrategyPlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2912,7 +2913,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of playbooks used in a disposal policy.
+     * Retrieves the list of playbooks used by a disposal policy.
      *
      * @param request - DescribeDisposeStrategyPlaybookRequest
      *
@@ -5379,22 +5380,41 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieve a list of system-recommended disposal strategies.
+     * Retrieves the list of system-recommended disposal policies.
      *
-     * @param request - ListDisposeStrategyRequest
+     * @param tmpReq - ListDisposeStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDisposeStrategyResponse
      *
-     * @param ListDisposeStrategyRequest $request
+     * @param ListDisposeStrategyRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return ListDisposeStrategyResponse
      */
-    public function listDisposeStrategyWithOptions($request, $runtime)
+    public function listDisposeStrategyWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListDisposeStrategyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entityUuidList) {
+            $request->entityUuidListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entityUuidList, 'EntityUuidList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         $body = [];
+        if (null !== $request->alertUuid) {
+            @$body['AlertUuid'] = $request->alertUuid;
+        }
+
         if (null !== $request->currentPage) {
             @$body['CurrentPage'] = $request->currentPage;
         }
@@ -5413,6 +5433,18 @@ class Cloudsiem extends OpenApiClient
 
         if (null !== $request->entityType) {
             @$body['EntityType'] = $request->entityType;
+        }
+
+        if (null !== $request->entityUuidListShrink) {
+            @$body['EntityUuidList'] = $request->entityUuidListShrink;
+        }
+
+        if (null !== $request->groupBy) {
+            @$body['GroupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->groupKey) {
+            @$body['GroupKey'] = $request->groupKey;
         }
 
         if (null !== $request->incidentUuid) {
@@ -5443,8 +5475,16 @@ class Cloudsiem extends OpenApiClient
             @$body['PlaybookUuid'] = $request->playbookUuid;
         }
 
+        if (null !== $request->queryMode) {
+            @$body['QueryMode'] = $request->queryMode;
+        }
+
         if (null !== $request->regionId) {
             @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->responseRuleId) {
+            @$body['ResponseRuleId'] = $request->responseRuleId;
         }
 
         if (null !== $request->roleFor) {
@@ -5467,7 +5507,12 @@ class Cloudsiem extends OpenApiClient
             @$body['Status'] = $request->status;
         }
 
+        if (null !== $request->strategyId) {
+            @$body['StrategyId'] = $request->strategyId;
+        }
+
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -5486,7 +5531,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieve a list of system-recommended disposal strategies.
+     * Retrieves the list of system-recommended disposal policies.
      *
      * @param request - ListDisposeStrategyRequest
      *
