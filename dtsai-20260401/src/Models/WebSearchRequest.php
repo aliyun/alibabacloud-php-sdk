@@ -22,10 +22,22 @@ class WebSearchRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $urlScopeDomains;
+
+    /**
+     * @var string
+     */
+    public $urlScopeMode;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'query' => 'Query',
         'regionId' => 'RegionId',
+        'urlScopeDomains' => 'UrlScopeDomains',
+        'urlScopeMode' => 'UrlScopeMode',
     ];
 
     public function validate()
@@ -46,6 +58,14 @@ class WebSearchRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->urlScopeDomains) {
+            $res['UrlScopeDomains'] = $this->urlScopeDomains;
+        }
+
+        if (null !== $this->urlScopeMode) {
+            $res['UrlScopeMode'] = $this->urlScopeMode;
         }
 
         return $res;
@@ -69,6 +89,14 @@ class WebSearchRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['UrlScopeDomains'])) {
+            $model->urlScopeDomains = $map['UrlScopeDomains'];
+        }
+
+        if (isset($map['UrlScopeMode'])) {
+            $model->urlScopeMode = $map['UrlScopeMode'];
         }
 
         return $model;

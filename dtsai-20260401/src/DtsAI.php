@@ -171,7 +171,7 @@ class DtsAI extends OpenApiClient
      *
      * @remarks
      * - Region: Only China (Beijing) is supported.
-     * - Fees: The service is free of charge during the public preview period.
+     * - Fees: Free during the public preview period. No fees are charged.
      *
      * @param Request - CreateDocParserJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -246,7 +246,7 @@ class DtsAI extends OpenApiClient
      *
      * @remarks
      * - Region: Only China (Beijing) is supported.
-     * - Fees: The service is free of charge during the public preview period.
+     * - Fees: Free during the public preview period. No fees are charged.
      *
      * @param Request - CreateDocParserJobRequest
      *
@@ -599,6 +599,14 @@ class DtsAI extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->urlScopeDomains) {
+            @$query['UrlScopeDomains'] = $request->urlScopeDomains;
+        }
+
+        if (null !== $request->urlScopeMode) {
+            @$query['UrlScopeMode'] = $request->urlScopeMode;
         }
 
         $req = new OpenApiRequest([
