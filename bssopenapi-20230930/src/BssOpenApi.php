@@ -1698,7 +1698,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query budget list.
+     * Queries a list of budgets.
      *
      * @param request - DescribeBudgetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1759,7 +1759,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query budget list.
+     * Queries a list of budgets.
      *
      * @param request - DescribeBudgetsRequest
      *
@@ -4226,10 +4226,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the SLA compensation list of a user.
+     * Queries the SLA compensation list for a user.
      *
      * @remarks
-     * Queries the SLA compensation details list of a user. Only data from the last two months is available.
+     * Provides the SLA compensation details list for a user. Only data from the last two months is available.
      *
      * @param request - QueryMonthlySlaListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4298,10 +4298,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the SLA compensation list of a user.
+     * Queries the SLA compensation list for a user.
      *
      * @remarks
-     * Queries the SLA compensation details list of a user. Only data from the last two months is available.
+     * Provides the SLA compensation details list for a user. Only data from the last two months is available.
      *
      * @param request - QueryMonthlySlaListRequest
      *

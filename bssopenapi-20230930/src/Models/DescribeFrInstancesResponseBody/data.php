@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeFrInstancesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeFrInstancesResponseBody\data\autoPurchase;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeFrInstancesResponseBody\data\capacityType;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeFrInstancesResponseBody\data\commodity;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeFrInstancesResponseBody\data\cycleType;
@@ -24,6 +25,11 @@ class data extends Model
      * @var string
      */
     public $accountName;
+
+    /**
+     * @var autoPurchase
+     */
+    public $autoPurchase;
 
     /**
      * @var string
@@ -94,6 +100,11 @@ class data extends Model
      * @var deductRegions[]
      */
     public $deductRegions;
+
+    /**
+     * @var bool
+     */
+    public $enableDeductRule;
 
     /**
      * @var bool
@@ -242,6 +253,7 @@ class data extends Model
     protected $_name = [
         'accountId' => 'AccountId',
         'accountName' => 'AccountName',
+        'autoPurchase' => 'AutoPurchase',
         'capacitiyTypeName' => 'CapacitiyTypeName',
         'capacityType' => 'CapacityType',
         'capacityTypeCode' => 'CapacityTypeCode',
@@ -256,6 +268,7 @@ class data extends Model
         'cycleTypeCode' => 'CycleTypeCode',
         'cycleTypeName' => 'CycleTypeName',
         'deductRegions' => 'DeductRegions',
+        'enableDeductRule' => 'EnableDeductRule',
         'enableExchange' => 'EnableExchange',
         'enableRenew' => 'EnableRenew',
         'enableUpgrade' => 'EnableUpgrade',
@@ -289,6 +302,9 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->autoPurchase) {
+            $this->autoPurchase->validate();
+        }
         if (null !== $this->capacityType) {
             $this->capacityType->validate();
         }
@@ -322,6 +338,10 @@ class data extends Model
 
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+
+        if (null !== $this->autoPurchase) {
+            $res['AutoPurchase'] = null !== $this->autoPurchase ? $this->autoPurchase->toArray($noStream) : $this->autoPurchase;
         }
 
         if (null !== $this->capacitiyTypeName) {
@@ -385,6 +405,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->enableDeductRule) {
+            $res['EnableDeductRule'] = $this->enableDeductRule;
         }
 
         if (null !== $this->enableExchange) {
@@ -522,6 +546,10 @@ class data extends Model
             $model->accountName = $map['AccountName'];
         }
 
+        if (isset($map['AutoPurchase'])) {
+            $model->autoPurchase = autoPurchase::fromMap($map['AutoPurchase']);
+        }
+
         if (isset($map['CapacitiyTypeName'])) {
             $model->capacitiyTypeName = $map['CapacitiyTypeName'];
         }
@@ -583,6 +611,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EnableDeductRule'])) {
+            $model->enableDeductRule = $map['EnableDeductRule'];
         }
 
         if (isset($map['EnableExchange'])) {
