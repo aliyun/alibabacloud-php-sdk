@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageRequest\diskDeviceMapping;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageRequest\features;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageRequest\secureBootOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageRequest\tag;
 
 class CreateImageRequest extends Model
@@ -107,6 +108,11 @@ class CreateImageRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var secureBootOptions
+     */
+    public $secureBootOptions;
+
+    /**
      * @var string
      */
     public $snapshotId;
@@ -135,6 +141,7 @@ class CreateImageRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'secureBootOptions' => 'SecureBootOptions',
         'snapshotId' => 'SnapshotId',
         'tag' => 'Tag',
     ];
@@ -146,6 +153,9 @@ class CreateImageRequest extends Model
         }
         if (null !== $this->features) {
             $this->features->validate();
+        }
+        if (null !== $this->secureBootOptions) {
+            $this->secureBootOptions->validate();
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -237,6 +247,10 @@ class CreateImageRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->secureBootOptions) {
+            $res['SecureBootOptions'] = null !== $this->secureBootOptions ? $this->secureBootOptions->toArray($noStream) : $this->secureBootOptions;
         }
 
         if (null !== $this->snapshotId) {
@@ -346,6 +360,10 @@ class CreateImageRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SecureBootOptions'])) {
+            $model->secureBootOptions = secureBootOptions::fromMap($map['SecureBootOptions']);
         }
 
         if (isset($map['SnapshotId'])) {

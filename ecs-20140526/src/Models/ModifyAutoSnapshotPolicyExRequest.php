@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoSnapshotPolicyExRequest\copyEncryptionConfiguration;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoSnapshotPolicyExRequest\targetTags;
 
 class ModifyAutoSnapshotPolicyExRequest extends Model
 {
@@ -45,6 +46,11 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     public $targetCopyRegions;
 
     /**
+     * @var targetTags[]
+     */
+    public $targetTags;
+
+    /**
      * @var string
      */
     public $autoSnapshotPolicyId;
@@ -81,6 +87,7 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'targetCopyRegions' => 'TargetCopyRegions',
+        'targetTags' => 'TargetTags',
         'autoSnapshotPolicyId' => 'autoSnapshotPolicyId',
         'autoSnapshotPolicyName' => 'autoSnapshotPolicyName',
         'regionId' => 'regionId',
@@ -93,6 +100,9 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     {
         if (null !== $this->copyEncryptionConfiguration) {
             $this->copyEncryptionConfiguration->validate();
+        }
+        if (\is_array($this->targetTags)) {
+            Model::validateArray($this->targetTags);
         }
         parent::validate();
     }
@@ -126,6 +136,17 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
 
         if (null !== $this->targetCopyRegions) {
             $res['TargetCopyRegions'] = $this->targetCopyRegions;
+        }
+
+        if (null !== $this->targetTags) {
+            if (\is_array($this->targetTags)) {
+                $res['TargetTags'] = [];
+                $n1 = 0;
+                foreach ($this->targetTags as $item1) {
+                    $res['TargetTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->autoSnapshotPolicyId) {
@@ -189,6 +210,17 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
 
         if (isset($map['TargetCopyRegions'])) {
             $model->targetCopyRegions = $map['TargetCopyRegions'];
+        }
+
+        if (isset($map['TargetTags'])) {
+            if (!empty($map['TargetTags'])) {
+                $model->targetTags = [];
+                $n1 = 0;
+                foreach ($map['TargetTags'] as $item1) {
+                    $model->targetTags[$n1] = targetTags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['autoSnapshotPolicyId'])) {

@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagesResponseBody\images\image\detectionOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagesResponseBody\images\image\diskDeviceMappings;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagesResponseBody\images\image\features;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagesResponseBody\images\image\secureBootOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagesResponseBody\images\image\tags;
 
 class image extends Model
@@ -153,6 +154,11 @@ class image extends Model
     public $resourceGroupId;
 
     /**
+     * @var secureBootOptions
+     */
+    public $secureBootOptions;
+
+    /**
      * @var int
      */
     public $size;
@@ -210,6 +216,7 @@ class image extends Model
         'productCode' => 'ProductCode',
         'progress' => 'Progress',
         'resourceGroupId' => 'ResourceGroupId',
+        'secureBootOptions' => 'SecureBootOptions',
         'size' => 'Size',
         'status' => 'Status',
         'supplierName' => 'SupplierName',
@@ -228,6 +235,9 @@ class image extends Model
         }
         if (null !== $this->features) {
             $this->features->validate();
+        }
+        if (null !== $this->secureBootOptions) {
+            $this->secureBootOptions->validate();
         }
         if (null !== $this->tags) {
             $this->tags->validate();
@@ -348,6 +358,10 @@ class image extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->secureBootOptions) {
+            $res['SecureBootOptions'] = null !== $this->secureBootOptions ? $this->secureBootOptions->toArray($noStream) : $this->secureBootOptions;
         }
 
         if (null !== $this->size) {
@@ -495,6 +509,10 @@ class image extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SecureBootOptions'])) {
+            $model->secureBootOptions = secureBootOptions::fromMap($map['SecureBootOptions']);
         }
 
         if (isset($map['Size'])) {

@@ -7,9 +7,15 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExResp
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExResponseBody\autoSnapshotPolicies\autoSnapshotPolicy\copyEncryptionConfiguration;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExResponseBody\autoSnapshotPolicies\autoSnapshotPolicy\tags;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExResponseBody\autoSnapshotPolicies\autoSnapshotPolicy\targetTags;
 
 class autoSnapshotPolicy extends Model
 {
+    /**
+     * @var string
+     */
+    public $associationType;
+
     /**
      * @var string
      */
@@ -81,6 +87,11 @@ class autoSnapshotPolicy extends Model
     public $targetCopyRegions;
 
     /**
+     * @var targetTags
+     */
+    public $targetTags;
+
+    /**
      * @var string
      */
     public $timePoints;
@@ -95,6 +106,7 @@ class autoSnapshotPolicy extends Model
      */
     public $volumeNums;
     protected $_name = [
+        'associationType' => 'AssociationType',
         'autoSnapshotPolicyId' => 'AutoSnapshotPolicyId',
         'autoSnapshotPolicyName' => 'AutoSnapshotPolicyName',
         'copiedSnapshotsRetentionDays' => 'CopiedSnapshotsRetentionDays',
@@ -109,6 +121,7 @@ class autoSnapshotPolicy extends Model
         'status' => 'Status',
         'tags' => 'Tags',
         'targetCopyRegions' => 'TargetCopyRegions',
+        'targetTags' => 'TargetTags',
         'timePoints' => 'TimePoints',
         'type' => 'Type',
         'volumeNums' => 'VolumeNums',
@@ -122,12 +135,19 @@ class autoSnapshotPolicy extends Model
         if (null !== $this->tags) {
             $this->tags->validate();
         }
+        if (null !== $this->targetTags) {
+            $this->targetTags->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->associationType) {
+            $res['AssociationType'] = $this->associationType;
+        }
+
         if (null !== $this->autoSnapshotPolicyId) {
             $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
         }
@@ -184,6 +204,10 @@ class autoSnapshotPolicy extends Model
             $res['TargetCopyRegions'] = $this->targetCopyRegions;
         }
 
+        if (null !== $this->targetTags) {
+            $res['TargetTags'] = null !== $this->targetTags ? $this->targetTags->toArray($noStream) : $this->targetTags;
+        }
+
         if (null !== $this->timePoints) {
             $res['TimePoints'] = $this->timePoints;
         }
@@ -207,6 +231,10 @@ class autoSnapshotPolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssociationType'])) {
+            $model->associationType = $map['AssociationType'];
+        }
+
         if (isset($map['AutoSnapshotPolicyId'])) {
             $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
         }
@@ -261,6 +289,10 @@ class autoSnapshotPolicy extends Model
 
         if (isset($map['TargetCopyRegions'])) {
             $model->targetCopyRegions = $map['TargetCopyRegions'];
+        }
+
+        if (isset($map['TargetTags'])) {
+            $model->targetTags = targetTags::fromMap($map['TargetTags']);
         }
 
         if (isset($map['TimePoints'])) {

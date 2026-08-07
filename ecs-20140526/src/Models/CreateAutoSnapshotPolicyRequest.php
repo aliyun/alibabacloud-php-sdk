@@ -7,9 +7,15 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoSnapshotPolicyRequest\copyEncryptionConfiguration;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoSnapshotPolicyRequest\tag;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoSnapshotPolicyRequest\targetTags;
 
 class CreateAutoSnapshotPolicyRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $associationType;
+
     /**
      * @var int
      */
@@ -61,6 +67,11 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $targetCopyRegions;
 
     /**
+     * @var targetTags[]
+     */
+    public $targetTags;
+
+    /**
      * @var string
      */
     public $autoSnapshotPolicyName;
@@ -85,6 +96,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
      */
     public $timePoints;
     protected $_name = [
+        'associationType' => 'AssociationType',
         'copiedSnapshotsRetentionDays' => 'CopiedSnapshotsRetentionDays',
         'copyEncryptionConfiguration' => 'CopyEncryptionConfiguration',
         'enableCrossRegionCopy' => 'EnableCrossRegionCopy',
@@ -95,6 +107,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
         'storageLocationArn' => 'StorageLocationArn',
         'tag' => 'Tag',
         'targetCopyRegions' => 'TargetCopyRegions',
+        'targetTags' => 'TargetTags',
         'autoSnapshotPolicyName' => 'autoSnapshotPolicyName',
         'regionId' => 'regionId',
         'repeatWeekdays' => 'repeatWeekdays',
@@ -110,12 +123,19 @@ class CreateAutoSnapshotPolicyRequest extends Model
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
+        if (\is_array($this->targetTags)) {
+            Model::validateArray($this->targetTags);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->associationType) {
+            $res['AssociationType'] = $this->associationType;
+        }
+
         if (null !== $this->copiedSnapshotsRetentionDays) {
             $res['CopiedSnapshotsRetentionDays'] = $this->copiedSnapshotsRetentionDays;
         }
@@ -163,6 +183,17 @@ class CreateAutoSnapshotPolicyRequest extends Model
             $res['TargetCopyRegions'] = $this->targetCopyRegions;
         }
 
+        if (null !== $this->targetTags) {
+            if (\is_array($this->targetTags)) {
+                $res['TargetTags'] = [];
+                $n1 = 0;
+                foreach ($this->targetTags as $item1) {
+                    $res['TargetTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->autoSnapshotPolicyName) {
             $res['autoSnapshotPolicyName'] = $this->autoSnapshotPolicyName;
         }
@@ -194,6 +225,10 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssociationType'])) {
+            $model->associationType = $map['AssociationType'];
+        }
+
         if (isset($map['CopiedSnapshotsRetentionDays'])) {
             $model->copiedSnapshotsRetentionDays = $map['CopiedSnapshotsRetentionDays'];
         }
@@ -239,6 +274,17 @@ class CreateAutoSnapshotPolicyRequest extends Model
 
         if (isset($map['TargetCopyRegions'])) {
             $model->targetCopyRegions = $map['TargetCopyRegions'];
+        }
+
+        if (isset($map['TargetTags'])) {
+            if (!empty($map['TargetTags'])) {
+                $model->targetTags = [];
+                $n1 = 0;
+                foreach ($map['TargetTags'] as $item1) {
+                    $model->targetTags[$n1] = targetTags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['autoSnapshotPolicyName'])) {
