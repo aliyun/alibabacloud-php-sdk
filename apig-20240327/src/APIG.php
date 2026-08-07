@@ -8212,6 +8212,10 @@ class APIG extends OpenApiClient
             @$query['consumerGroupId'] = $request->consumerGroupId;
         }
 
+        if (null !== $request->consumerGroupNameLike) {
+            @$query['consumerGroupNameLike'] = $request->consumerGroupNameLike;
+        }
+
         if (null !== $request->consumerId) {
             @$query['consumerId'] = $request->consumerId;
         }

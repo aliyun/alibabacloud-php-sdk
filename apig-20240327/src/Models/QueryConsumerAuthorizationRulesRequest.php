@@ -21,6 +21,11 @@ class QueryConsumerAuthorizationRulesRequest extends Model
     /**
      * @var string
      */
+    public $consumerGroupNameLike;
+
+    /**
+     * @var string
+     */
     public $consumerId;
 
     /**
@@ -75,6 +80,7 @@ class QueryConsumerAuthorizationRulesRequest extends Model
     protected $_name = [
         'apiNameLike' => 'apiNameLike',
         'consumerGroupId' => 'consumerGroupId',
+        'consumerGroupNameLike' => 'consumerGroupNameLike',
         'consumerId' => 'consumerId',
         'consumerNameLike' => 'consumerNameLike',
         'environmentId' => 'environmentId',
@@ -102,6 +108,10 @@ class QueryConsumerAuthorizationRulesRequest extends Model
 
         if (null !== $this->consumerGroupId) {
             $res['consumerGroupId'] = $this->consumerGroupId;
+        }
+
+        if (null !== $this->consumerGroupNameLike) {
+            $res['consumerGroupNameLike'] = $this->consumerGroupNameLike;
         }
 
         if (null !== $this->consumerId) {
@@ -165,6 +175,10 @@ class QueryConsumerAuthorizationRulesRequest extends Model
 
         if (isset($map['consumerGroupId'])) {
             $model->consumerGroupId = $map['consumerGroupId'];
+        }
+
+        if (isset($map['consumerGroupNameLike'])) {
+            $model->consumerGroupNameLike = $map['consumerGroupNameLike'];
         }
 
         if (isset($map['consumerId'])) {
