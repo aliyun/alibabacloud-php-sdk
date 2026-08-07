@@ -72,6 +72,11 @@ class nodes extends Model
     /**
      * @var string
      */
+    public $reason;
+
+    /**
+     * @var string
+     */
     public $spotStrategy;
 
     /**
@@ -116,6 +121,7 @@ class nodes extends Model
         'keepAlive' => 'KeepAlive',
         'publicIpAddress' => 'PublicIpAddress',
         'queueName' => 'QueueName',
+        'reason' => 'Reason',
         'spotStrategy' => 'SpotStrategy',
         'stateInSched' => 'StateInSched',
         'status' => 'Status',
@@ -182,6 +188,10 @@ class nodes extends Model
 
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
+        }
+
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
 
         if (null !== $this->spotStrategy) {
@@ -269,6 +279,10 @@ class nodes extends Model
 
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
+        }
+
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
 
         if (isset($map['SpotStrategy'])) {
