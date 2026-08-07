@@ -1,0 +1,48 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Green\V20220926\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class GetUploadContentRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $uploadUrl;
+    protected $_name = [
+        'uploadUrl' => 'UploadUrl',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->uploadUrl) {
+            $res['UploadUrl'] = $this->uploadUrl;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['UploadUrl'])) {
+            $model->uploadUrl = $map['UploadUrl'];
+        }
+
+        return $model;
+    }
+}

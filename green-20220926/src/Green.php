@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Green\V20220926;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddAnswerSampleRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddAnswerSampleResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\AddAppAgentRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\AddAppAgentResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddImageLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddImageLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddImages2LibRequest;
@@ -21,10 +23,14 @@ use AlibabaCloud\SDK\Green\V20220926\Models\CancelStockOssCheckTaskRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CancelStockOssCheckTaskResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ConfirmAiAppScanRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ConfirmAiAppScanResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\CopyAppConfigRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\CopyAppConfigResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CopyServiceConfigRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CopyServiceConfigResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateAnswerLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateAnswerLibResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\CreateAppConfigRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\CreateAppConfigResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateCallbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateCallbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateImageLibRequest;
@@ -39,6 +45,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\DeleteAnswerLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteAnswerLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteAnswerSampleRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteAnswerSampleResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\DeleteAppAgentRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\DeleteAppAgentResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteCallbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteCallbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteFeatureConfigRequest;
@@ -74,6 +82,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\ExportTextScanResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportTextScanResultShrinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetAnswerImportProgressRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetAnswerImportProgressResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAppConfigRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAppConfigResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetBackupBucketsListRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetBackupBucketsListResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetBackupConfigRequest;
@@ -88,6 +98,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetExecuteTimeRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetExecuteTimeResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetFeatureConfigRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetFeatureConfigResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetGuardLogStatsRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetGuardLogStatsResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetImageSceneLabelConfRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetImageSceneLabelConfResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetImageSceneLabelListConfRequest;
@@ -131,6 +143,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetTextScanResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetTextScanResultShrinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetTuneProposalByIdRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetTuneProposalByIdResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadContentRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadContentResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadInfoRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadInfoResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadLinkRequest;
@@ -139,6 +153,10 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetUserBuyStatusRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUserBuyStatusResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListAnswerLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListAnswerLibResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAppConfigHistoryRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAppConfigHistoryResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAppConfigsRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAppConfigsResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListCallbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListCallbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListImageLibRequest;
@@ -162,6 +180,10 @@ use AlibabaCloud\SDK\Green\V20220926\Models\MarkOssV2ResultRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\MarkOssV2ResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAnswerLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAnswerLibResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAppAgentRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAppAgentResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAppInfoRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAppInfoResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyCallbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyCallbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyFeatureConfigRequest;
@@ -171,6 +193,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\ModifyServiceInfoResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\OssCheckResultListRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\OssCheckResultListResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\OssCheckResultListShrinkRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\PublishAppConfigRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\PublishAppConfigResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryAnswerSampleByPageRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryAnswerSampleByPageResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryAnswerSampleByPageShrinkRequest;
@@ -178,6 +202,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackByPageRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackByPageResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\RecoverAppConfigHistoryRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\RecoverAppConfigHistoryResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\StopOnlineTestRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\StopOnlineTestResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateBackupConfigRequest;
@@ -332,6 +358,83 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addAnswerSampleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Adds an agent configuration to an app.
+     *
+     * @param request - AddAppAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddAppAgentResponse
+     *
+     * @param AddAppAgentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddAppAgentResponse
+     */
+    public function addAppAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddAppAgent',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddAppAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds an agent configuration to an app.
+     *
+     * @param request - AddAppAgentRequest
+     *
+     * @returns AddAppAgentResponse
+     *
+     * @param AddAppAgentRequest $request
+     *
+     * @return AddAppAgentResponse
+     */
+    public function addAppAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAppAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -824,6 +927,75 @@ class Green extends OpenApiClient
     }
 
     /**
+     * Copies an App configuration.
+     *
+     * @param request - CopyAppConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CopyAppConfigResponse
+     *
+     * @param CopyAppConfigRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CopyAppConfigResponse
+     */
+    public function copyAppConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CopyAppConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CopyAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Copies an App configuration.
+     *
+     * @param request - CopyAppConfigRequest
+     *
+     * @returns CopyAppConfigResponse
+     *
+     * @param CopyAppConfigRequest $request
+     *
+     * @return CopyAppConfigResponse
+     */
+    public function copyAppConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->copyAppConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Copies a service.
      *
      * @param request - CopyServiceConfigRequest
@@ -1143,6 +1315,79 @@ class Green extends OpenApiClient
     }
 
     /**
+     * Creates an app configuration.
+     *
+     * @param request - CreateAppConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppConfigResponse
+     *
+     * @param CreateAppConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAppConfigResponse
+     */
+    public function createAppConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->sysAppId) {
+            @$query['SysAppId'] = $request->sysAppId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an app configuration.
+     *
+     * @param request - CreateAppConfigRequest
+     *
+     * @returns CreateAppConfigResponse
+     *
+     * @param CreateAppConfigRequest $request
+     *
+     * @return CreateAppConfigResponse
+     */
+    public function createAppConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a message notification.
      *
      * @param request - CreateCallbackRequest
@@ -1297,7 +1542,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Online Test.
+     * Creates an online detection task.
      *
      * @param request - CreateOnlineTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1348,7 +1593,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Online Test.
+     * Creates an online detection task.
      *
      * @param request - CreateOnlineTestRequest
      *
@@ -1606,6 +1851,75 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAnswerSampleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an agent configuration.
+     *
+     * @param request - DeleteAppAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppAgentResponse
+     *
+     * @param DeleteAppAgentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteAppAgentResponse
+     */
+    public function deleteAppAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAppAgent',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAppAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an agent configuration.
+     *
+     * @param request - DeleteAppAgentRequest
+     *
+     * @returns DeleteAppAgentResponse
+     *
+     * @param DeleteAppAgentRequest $request
+     *
+     * @return DeleteAppAgentResponse
+     */
+    public function deleteAppAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -1956,7 +2270,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Delete online test.
+     * Deletes an online detection task.
      *
      * @param request - DeleteOnlineTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1999,7 +2313,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Delete online test.
+     * Deletes an online detection task.
      *
      * @param request - DeleteOnlineTestRequest
      *
@@ -2082,7 +2396,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取oss结果v2.
+     * Retrieves OSS moderation results v2.
+     *
+     * @remarks
+     * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
      *
      * @param request - DescribeOssV2ResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2145,7 +2462,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取oss结果v2.
+     * Retrieves OSS moderation results v2.
+     *
+     * @remarks
+     * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
      *
      * @param request - DescribeOssV2ResultRequest
      *
@@ -2791,6 +3111,79 @@ class Green extends OpenApiClient
     }
 
     /**
+     * Queries the details of an App configuration.
+     *
+     * @param request - GetAppConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppConfigResponse
+     *
+     * @param GetAppConfigRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAppConfigResponse
+     */
+    public function getAppConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appVersion) {
+            @$query['AppVersion'] = $request->appVersion;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an App configuration.
+     *
+     * @param request - GetAppConfigRequest
+     *
+     * @returns GetAppConfigResponse
+     *
+     * @param GetAppConfigRequest $request
+     *
+     * @return GetAppConfigResponse
+     */
+    public function getAppConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the list of user buckets for evidence dumping.
      *
      * @param request - GetBackupBucketsListRequest
@@ -3251,6 +3644,56 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getFeatureConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves log statistics for AI security guardrails.
+     *
+     * @param request - GetGuardLogStatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGuardLogStatsResponse
+     *
+     * @param GetGuardLogStatsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetGuardLogStatsResponse
+     */
+    public function getGuardLogStatsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetGuardLogStats',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGuardLogStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves log statistics for AI security guardrails.
+     *
+     * @param request - GetGuardLogStatsRequest
+     *
+     * @returns GetGuardLogStatsResponse
+     *
+     * @param GetGuardLogStatsRequest $request
+     *
+     * @return GetGuardLogStatsResponse
+     */
+    public function getGuardLogStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGuardLogStatsWithOptions($request, $runtime);
     }
 
     /**
@@ -3832,7 +4275,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the OSS detection status of a user.
+     * Retrieves the OSS detection user status.
      *
      * @param request - GetOssCheckStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3871,7 +4314,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the OSS detection status of a user.
+     * Retrieves the OSS detection user status.
      *
      * @param request - GetOssCheckStatusRequest
      *
@@ -4643,6 +5086,63 @@ class Green extends OpenApiClient
     }
 
     /**
+     * Retrieves the text content of an uploaded file.
+     *
+     * @param request - GetUploadContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUploadContentResponse
+     *
+     * @param GetUploadContentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetUploadContentResponse
+     */
+    public function getUploadContentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->uploadUrl) {
+            @$query['UploadUrl'] = $request->uploadUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUploadContent',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUploadContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the text content of an uploaded file.
+     *
+     * @param request - GetUploadContentRequest
+     *
+     * @returns GetUploadContentResponse
+     *
+     * @param GetUploadContentRequest $request
+     *
+     * @return GetUploadContentResponse
+     */
+    public function getUploadContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUploadContentWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the relevant information for file upload.
      *
      * @param request - GetUploadInfoRequest
@@ -4710,7 +5210,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Obtain an upload link.
+     * Retrieves an upload URL.
      *
      * @param request - GetUploadLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4749,7 +5249,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Obtain an upload link.
+     * Retrieves an upload URL.
      *
      * @param request - GetUploadLinkRequest
      *
@@ -4884,6 +5384,136 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAnswerLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the historical versions of an app.
+     *
+     * @param request - ListAppConfigHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppConfigHistoryResponse
+     *
+     * @param ListAppConfigHistoryRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListAppConfigHistoryResponse
+     */
+    public function listAppConfigHistoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppConfigHistory',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the historical versions of an app.
+     *
+     * @param request - ListAppConfigHistoryRequest
+     *
+     * @returns ListAppConfigHistoryResponse
+     *
+     * @param ListAppConfigHistoryRequest $request
+     *
+     * @return ListAppConfigHistoryResponse
+     */
+    public function listAppConfigHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppConfigHistoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of app configurations.
+     *
+     * @param request - ListAppConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppConfigsResponse
+     *
+     * @param ListAppConfigsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAppConfigsResponse
+     */
+    public function listAppConfigsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->classify) {
+            @$query['Classify'] = $request->classify;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppConfigs',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of app configurations.
+     *
+     * @param request - ListAppConfigsRequest
+     *
+     * @returns ListAppConfigsResponse
+     *
+     * @param ListAppConfigsRequest $request
+     *
+     * @return ListAppConfigsResponse
+     */
+    public function listAppConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppConfigsWithOptions($request, $runtime);
     }
 
     /**
@@ -5420,7 +6050,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Use SSE interface to stream large model calls.
+     * Calls a large language model in streaming mode using the SSE interface.
      *
      * @param request - LlmStreamChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5488,7 +6118,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Use SSE interface to stream large model calls.
+     * Calls a large language model in streaming mode using the SSE interface.
      *
      * @param request - LlmStreamChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5543,7 +6173,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Use SSE interface to stream large model calls.
+     * Calls a large language model in streaming mode using the SSE interface.
      *
      * @param request - LlmStreamChatRequest
      *
@@ -5700,6 +6330,156 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAnswerLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the agent configuration.
+     *
+     * @param request - ModifyAppAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppAgentResponse
+     *
+     * @param ModifyAppAgentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyAppAgentResponse
+     */
+    public function modifyAppAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->enable) {
+            @$body['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAppAgent',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAppAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the agent configuration.
+     *
+     * @param request - ModifyAppAgentRequest
+     *
+     * @returns ModifyAppAgentResponse
+     *
+     * @param ModifyAppAgentRequest $request
+     *
+     * @return ModifyAppAgentResponse
+     */
+    public function modifyAppAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies app information.
+     *
+     * @param request - ModifyAppInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppInfoResponse
+     *
+     * @param ModifyAppInfoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyAppInfoResponse
+     */
+    public function modifyAppInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAppInfo',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies app information.
+     *
+     * @param request - ModifyAppInfoRequest
+     *
+     * @returns ModifyAppInfoResponse
+     *
+     * @param ModifyAppInfoRequest $request
+     *
+     * @return ModifyAppInfoResponse
+     */
+    public function modifyAppInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -6035,6 +6815,87 @@ class Green extends OpenApiClient
     }
 
     /**
+     * Saves and publishes app configurations.
+     *
+     * @param request - PublishAppConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishAppConfigResponse
+     *
+     * @param PublishAppConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PublishAppConfigResponse
+     */
+    public function publishAppConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PublishAppConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PublishAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Saves and publishes app configurations.
+     *
+     * @param request - PublishAppConfigRequest
+     *
+     * @returns PublishAppConfigResponse
+     *
+     * @param PublishAppConfigRequest $request
+     *
+     * @return PublishAppConfigResponse
+     */
+    public function publishAppConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishAppConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries proxy answer samples by paging.
      *
      * @param tmpReq - QueryAnswerSampleByPageRequest
@@ -6252,7 +7113,76 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Abort an online Detection Job.
+     * Reverts an app to a historical version.
+     *
+     * @param request - RecoverAppConfigHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecoverAppConfigHistoryResponse
+     *
+     * @param RecoverAppConfigHistoryRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecoverAppConfigHistoryResponse
+     */
+    public function recoverAppConfigHistoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appVersion) {
+            @$query['AppVersion'] = $request->appVersion;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RecoverAppConfigHistory',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RecoverAppConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Reverts an app to a historical version.
+     *
+     * @param request - RecoverAppConfigHistoryRequest
+     *
+     * @returns RecoverAppConfigHistoryResponse
+     *
+     * @param RecoverAppConfigHistoryRequest $request
+     *
+     * @return RecoverAppConfigHistoryResponse
+     */
+    public function recoverAppConfigHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recoverAppConfigHistoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Aborts an online detection task.
      *
      * @param request - StopOnlineTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6299,7 +7229,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Abort an online Detection Job.
+     * Aborts an online detection task.
      *
      * @param request - StopOnlineTestRequest
      *
@@ -6605,7 +7535,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Batch update OSS detection result feedback.
+     * Updates OSS detection result feedback in batches.
      *
      * @param request - UpdateOssCheckResultsBatchFeedbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6652,7 +7582,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Batch update OSS detection result feedback.
+     * Updates OSS detection result feedback in batches.
      *
      * @param request - UpdateOssCheckResultsBatchFeedbackRequest
      *
@@ -6670,7 +7600,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Update OSS detection result feedback.
+     * Updates the feedback for OSS detection results.
      *
      * @param request - UpdateOssCheckResultsFeedBackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6725,7 +7655,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Update OSS detection result feedback.
+     * Updates the feedback for OSS detection results.
      *
      * @param request - UpdateOssCheckResultsFeedBackRequest
      *
