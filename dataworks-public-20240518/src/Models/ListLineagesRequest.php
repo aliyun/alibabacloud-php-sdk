@@ -39,6 +39,11 @@ class ListLineagesRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $recentDays;
+
+    /**
      * @var string
      */
     public $sortBy;
@@ -59,6 +64,7 @@ class ListLineagesRequest extends Model
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'recentDays' => 'RecentDays',
         'sortBy' => 'SortBy',
         'srcEntityId' => 'SrcEntityId',
         'srcEntityName' => 'SrcEntityName',
@@ -94,6 +100,10 @@ class ListLineagesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->recentDays) {
+            $res['RecentDays'] = $this->recentDays;
         }
 
         if (null !== $this->sortBy) {
@@ -141,6 +151,10 @@ class ListLineagesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['RecentDays'])) {
+            $model->recentDays = $map['RecentDays'];
         }
 
         if (isset($map['SortBy'])) {
