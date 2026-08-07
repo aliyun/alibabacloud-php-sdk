@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsPathMappingRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsPathMappingResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsQuotaResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarOSSAuthorizedAccountRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarOSSAuthorizedAccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddSQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddSQLRateLimitingRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsRequest;
@@ -268,6 +270,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarOSSAuthorizedAccountRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarOSSAuthorizedAccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteRateLimitPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteRateLimitPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteResourceControlRequest;
@@ -1518,6 +1522,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addPolarFsQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 添加冷存授权账号.
+     *
+     * @param request - AddPolarOSSAuthorizedAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddPolarOSSAuthorizedAccountResponse
+     *
+     * @param AddPolarOSSAuthorizedAccountRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AddPolarOSSAuthorizedAccountResponse
+     */
+    public function addPolarOSSAuthorizedAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizedUserIds) {
+            @$query['AuthorizedUserIds'] = $request->authorizedUserIds;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->pfsInstanceId) {
+            @$query['PfsInstanceId'] = $request->pfsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddPolarOSSAuthorizedAccount',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddPolarOSSAuthorizedAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加冷存授权账号.
+     *
+     * @param request - AddPolarOSSAuthorizedAccountRequest
+     *
+     * @returns AddPolarOSSAuthorizedAccountResponse
+     *
+     * @param AddPolarOSSAuthorizedAccountRequest $request
+     *
+     * @return AddPolarOSSAuthorizedAccountResponse
+     */
+    public function addPolarOSSAuthorizedAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addPolarOSSAuthorizedAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -12198,6 +12271,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePolarFsQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除冷存授权账号.
+     *
+     * @param request - DeletePolarOSSAuthorizedAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolarOSSAuthorizedAccountResponse
+     *
+     * @param DeletePolarOSSAuthorizedAccountRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeletePolarOSSAuthorizedAccountResponse
+     */
+    public function deletePolarOSSAuthorizedAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizedUserIds) {
+            @$query['AuthorizedUserIds'] = $request->authorizedUserIds;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->pfsInstanceId) {
+            @$query['PfsInstanceId'] = $request->pfsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePolarOSSAuthorizedAccount',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePolarOSSAuthorizedAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除冷存授权账号.
+     *
+     * @param request - DeletePolarOSSAuthorizedAccountRequest
+     *
+     * @returns DeletePolarOSSAuthorizedAccountResponse
+     *
+     * @param DeletePolarOSSAuthorizedAccountRequest $request
+     *
+     * @return DeletePolarOSSAuthorizedAccountResponse
+     */
+    public function deletePolarOSSAuthorizedAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolarOSSAuthorizedAccountWithOptions($request, $runtime);
     }
 
     /**
