@@ -1,3 +1,30 @@
+2026-08-07 Version: 8.0.0
+- Support API CreateCrawler.
+- Support API CreateSemanticJob.
+- Support API DeleteCrawler.
+- Support API DeleteSemanticJob.
+- Support API DownloadSemanticResults.
+- Support API GetCrawler.
+- Support API GetCrawlerTypeCapabilities.
+- Support API GetSemanticJobDetail.
+- Support API GetSemanticJobLog.
+- Support API KillSemanticJob.
+- Support API ListCrawlerRuns.
+- Support API ListCrawlers.
+- Support API ListSemanticJobRuns.
+- Support API ListSemanticJobs.
+- Support API RunCrawler.
+- Support API RunSemanticJob.
+- Support API StopCrawler.
+- Support API UpdateCrawler.
+- Support API UpdateSkill.
+- Support API UploadSemanticFile.
+- Update API CreateAgent: update request parameters CallableAgents.$' type has changed.
+- Update API CreateAgent: update request parameters Skills.$' type has changed.
+- Update API CreateAgent: update request parameters Tools.$' type has changed.
+- Update API CreateFile: add request parameters OutputList.
+
+
 2026-07-10 Version: 7.8.5
 - Update API CreateAgentSession: add request parameters Params.Meta.InitialConfigOptions.ResourceGroupId.
 - Update API CreateAgentSession: add request parameters Params.Meta.InitialConfigOptions.Skills.

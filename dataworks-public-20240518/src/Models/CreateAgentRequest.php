@@ -5,12 +5,15 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentRequest\callableAgents;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentRequest\skills;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentRequest\tools;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentRequest\visibilityScope;
 
 class CreateAgentRequest extends Model
 {
     /**
-     * @var string[]
+     * @var callableAgents[]
      */
     public $callableAgents;
 
@@ -40,7 +43,7 @@ class CreateAgentRequest extends Model
     public $name;
 
     /**
-     * @var string[]
+     * @var skills[]
      */
     public $skills;
 
@@ -50,7 +53,7 @@ class CreateAgentRequest extends Model
     public $systemPrompt;
 
     /**
-     * @var string[]
+     * @var tools[]
      */
     public $tools;
 
@@ -108,7 +111,7 @@ class CreateAgentRequest extends Model
                 $res['CallableAgents'] = [];
                 $n1 = 0;
                 foreach ($this->callableAgents as $item1) {
-                    $res['CallableAgents'][$n1] = $item1;
+                    $res['CallableAgents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -149,7 +152,7 @@ class CreateAgentRequest extends Model
                 $res['Skills'] = [];
                 $n1 = 0;
                 foreach ($this->skills as $item1) {
-                    $res['Skills'][$n1] = $item1;
+                    $res['Skills'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -164,7 +167,7 @@ class CreateAgentRequest extends Model
                 $res['Tools'] = [];
                 $n1 = 0;
                 foreach ($this->tools as $item1) {
-                    $res['Tools'][$n1] = $item1;
+                    $res['Tools'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -194,7 +197,7 @@ class CreateAgentRequest extends Model
                 $model->callableAgents = [];
                 $n1 = 0;
                 foreach ($map['CallableAgents'] as $item1) {
-                    $model->callableAgents[$n1] = $item1;
+                    $model->callableAgents[$n1] = callableAgents::fromMap($item1);
                     ++$n1;
                 }
             }
@@ -235,7 +238,7 @@ class CreateAgentRequest extends Model
                 $model->skills = [];
                 $n1 = 0;
                 foreach ($map['Skills'] as $item1) {
-                    $model->skills[$n1] = $item1;
+                    $model->skills[$n1] = skills::fromMap($item1);
                     ++$n1;
                 }
             }
@@ -250,7 +253,7 @@ class CreateAgentRequest extends Model
                 $model->tools = [];
                 $n1 = 0;
                 foreach ($map['Tools'] as $item1) {
-                    $model->tools[$n1] = $item1;
+                    $model->tools[$n1] = tools::fromMap($item1);
                     ++$n1;
                 }
             }
