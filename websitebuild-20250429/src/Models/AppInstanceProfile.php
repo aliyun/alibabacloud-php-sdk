@@ -51,6 +51,11 @@ class AppInstanceProfile extends Model
     /**
      * @var string
      */
+    public $icpbaNo;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -116,6 +121,7 @@ class AppInstanceProfile extends Model
         'commodityCode' => 'CommodityCode',
         'customerService' => 'CustomerService',
         'deployArea' => 'DeployArea',
+        'icpbaNo' => 'IcpbaNo',
         'instanceId' => 'InstanceId',
         'openChatBi' => 'OpenChatBi',
         'ordTime' => 'OrdTime',
@@ -168,6 +174,10 @@ class AppInstanceProfile extends Model
 
         if (null !== $this->deployArea) {
             $res['DeployArea'] = $this->deployArea;
+        }
+
+        if (null !== $this->icpbaNo) {
+            $res['IcpbaNo'] = $this->icpbaNo;
         }
 
         if (null !== $this->instanceId) {
@@ -259,6 +269,10 @@ class AppInstanceProfile extends Model
 
         if (isset($map['DeployArea'])) {
             $model->deployArea = $map['DeployArea'];
+        }
+
+        if (isset($map['IcpbaNo'])) {
+            $model->icpbaNo = $map['IcpbaNo'];
         }
 
         if (isset($map['InstanceId'])) {

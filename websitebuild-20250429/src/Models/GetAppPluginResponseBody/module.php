@@ -46,6 +46,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $gitRef;
+
+    /**
+     * @var string
+     */
     public $gmtCreate;
 
     /**
@@ -81,6 +86,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $repositoryUrl;
+
+    /**
+     * @var string
+     */
     public $skillHeader;
 
     /**
@@ -110,6 +120,7 @@ class module extends Model
         'display' => 'Display',
         'enabled' => 'Enabled',
         'extend' => 'Extend',
+        'gitRef' => 'GitRef',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'hooks' => 'Hooks',
@@ -117,6 +128,7 @@ class module extends Model
         'icon' => 'Icon',
         'pluginId' => 'PluginId',
         'pluginName' => 'PluginName',
+        'repositoryUrl' => 'RepositoryUrl',
         'skillHeader' => 'SkillHeader',
         'status' => 'Status',
         'tags' => 'Tags',
@@ -160,6 +172,10 @@ class module extends Model
             $res['Extend'] = $this->extend;
         }
 
+        if (null !== $this->gitRef) {
+            $res['GitRef'] = $this->gitRef;
+        }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
@@ -186,6 +202,10 @@ class module extends Model
 
         if (null !== $this->pluginName) {
             $res['PluginName'] = $this->pluginName;
+        }
+
+        if (null !== $this->repositoryUrl) {
+            $res['RepositoryUrl'] = $this->repositoryUrl;
         }
 
         if (null !== $this->skillHeader) {
@@ -247,6 +267,10 @@ class module extends Model
             $model->extend = $map['Extend'];
         }
 
+        if (isset($map['GitRef'])) {
+            $model->gitRef = $map['GitRef'];
+        }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
@@ -273,6 +297,10 @@ class module extends Model
 
         if (isset($map['PluginName'])) {
             $model->pluginName = $map['PluginName'];
+        }
+
+        if (isset($map['RepositoryUrl'])) {
+            $model->repositoryUrl = $map['RepositoryUrl'];
         }
 
         if (isset($map['SkillHeader'])) {

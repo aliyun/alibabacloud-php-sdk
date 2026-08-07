@@ -21,6 +21,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $extend;
+
+    /**
+     * @var string
+     */
     public $gmtCreate;
 
     /**
@@ -65,6 +70,7 @@ class data extends Model
     protected $_name = [
         'category' => 'Category',
         'description' => 'Description',
+        'extend' => 'Extend',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'hotCount' => 'HotCount',
@@ -90,6 +96,10 @@ class data extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
 
         if (null !== $this->gmtCreate) {
@@ -145,6 +155,10 @@ class data extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
 
         if (isset($map['GmtCreate'])) {

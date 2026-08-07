@@ -1,3 +1,10 @@
+2026-08-07 Version: 2.36.0
+- Support API QueryInspirationBalanceForPartner.
+- Update API GetAppPlugin: add response parameters Body.Module.GitRef.
+- Update API GetAppPlugin: add response parameters Body.Module.RepositoryUrl.
+- Update API ListMarketplaceAppPlugins: add response parameters Body.Module.Data.$.Extend.
+
+
 2026-07-27 Version: 2.35.0
 - Support API CreateAppPlugin.
 - Support API DeleteAppPlugin.
