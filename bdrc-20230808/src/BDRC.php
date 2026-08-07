@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeProductDataRedundancyTypeStat
 use AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeProductsRequest;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeProductsResponse;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeProductsShrinkRequest;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeRegionsRequest;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeResourcesRequest;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeResourcesResponse;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeResourcesShrinkRequest;
@@ -649,7 +651,7 @@ class BDRC extends OpenApiClient
     }
 
     /**
-     * Queries the data protection score status for cloud products.
+     * Queries the data protection score status of cloud services.
      *
      * @param tmpReq - DescribeProductsRequest
      * @param headers - map
@@ -709,7 +711,7 @@ class BDRC extends OpenApiClient
     }
 
     /**
-     * Queries the data protection score status for cloud products.
+     * Queries the data protection score status of cloud services.
      *
      * @param request - DescribeProductsRequest
      *
@@ -725,6 +727,67 @@ class BDRC extends OpenApiClient
         $headers = [];
 
         return $this->describeProductsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries available regions.
+     *
+     * @remarks
+     * BDRC本身是中心化的产品，接口用于部分与Region相关的功能使用。
+     *
+     * @param request - DescribeRegionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRegions',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/regions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries available regions.
+     *
+     * @remarks
+     * BDRC本身是中心化的产品，接口用于部分与Region相关的功能使用。
+     *
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRegionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -843,7 +906,7 @@ class BDRC extends OpenApiClient
     }
 
     /**
-     * Lists all data protection rules.
+     * Queries a list of data protection rules.
      *
      * @param tmpReq - DescribeRulesRequest
      * @param headers - map
@@ -911,7 +974,7 @@ class BDRC extends OpenApiClient
     }
 
     /**
-     * Lists all data protection rules.
+     * Queries a list of data protection rules.
      *
      * @param request - DescribeRulesRequest
      *
@@ -1129,7 +1192,7 @@ class BDRC extends OpenApiClient
     }
 
     /**
-     * Disables the data protection score for a cloud product.
+     * Disables the data protection score for a cloud service.
      *
      * @param request - DisableCheckProductRequest
      * @param headers - map
@@ -1171,7 +1234,7 @@ class BDRC extends OpenApiClient
     }
 
     /**
-     * Disables the data protection score for a cloud product.
+     * Disables the data protection score for a cloud service.
      *
      * @param request - DisableCheckProductRequest
      *
@@ -1251,7 +1314,7 @@ class BDRC extends OpenApiClient
     }
 
     /**
-     * Enables data protection scoring for a cloud product.
+     * Enables data protection scoring for an Alibaba Cloud service.
      *
      * @param request - EnableCheckProductRequest
      * @param headers - map
@@ -1293,7 +1356,7 @@ class BDRC extends OpenApiClient
     }
 
     /**
-     * Enables data protection scoring for a cloud product.
+     * Enables data protection scoring for an Alibaba Cloud service.
      *
      * @param request - EnableCheckProductRequest
      *
