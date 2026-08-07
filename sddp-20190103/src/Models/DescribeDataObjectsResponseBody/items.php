@@ -36,6 +36,11 @@ class items extends Model
     public $dbName;
 
     /**
+     * @var string
+     */
+    public $engineType;
+
+    /**
      * @var int
      */
     public $fileCategoryCode;
@@ -200,6 +205,7 @@ class items extends Model
         'comment' => 'Comment',
         'dataType' => 'DataType',
         'dbName' => 'DbName',
+        'engineType' => 'EngineType',
         'fileCategoryCode' => 'FileCategoryCode',
         'id' => 'Id',
         'instanceDescription' => 'InstanceDescription',
@@ -276,6 +282,10 @@ class items extends Model
 
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+
+        if (null !== $this->engineType) {
+            $res['EngineType'] = $this->engineType;
         }
 
         if (null !== $this->fileCategoryCode) {
@@ -456,6 +466,10 @@ class items extends Model
 
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+
+        if (isset($map['EngineType'])) {
+            $model->engineType = $map['EngineType'];
         }
 
         if (isset($map['FileCategoryCode'])) {

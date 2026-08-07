@@ -34,6 +34,11 @@ class DescribeDataObjectsRequest extends Model
     public $domainId;
 
     /**
+     * @var string
+     */
+    public $engineType;
+
+    /**
      * @var int
      */
     public $featureType;
@@ -163,6 +168,7 @@ class DescribeDataObjectsRequest extends Model
         'currentPage' => 'CurrentPage',
         'dbName' => 'DbName',
         'domainId' => 'DomainId',
+        'engineType' => 'EngineType',
         'featureType' => 'FeatureType',
         'fileCategoryCode' => 'FileCategoryCode',
         'fileType' => 'FileType',
@@ -216,6 +222,10 @@ class DescribeDataObjectsRequest extends Model
 
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
+        }
+
+        if (null !== $this->engineType) {
+            $res['EngineType'] = $this->engineType;
         }
 
         if (null !== $this->featureType) {
@@ -347,6 +357,10 @@ class DescribeDataObjectsRequest extends Model
 
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
+        }
+
+        if (isset($map['EngineType'])) {
+            $model->engineType = $map['EngineType'];
         }
 
         if (isset($map['FeatureType'])) {
