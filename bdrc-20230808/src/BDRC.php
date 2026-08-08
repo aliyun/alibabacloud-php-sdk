@@ -48,6 +48,8 @@ use AlibabaCloud\SDK\BDRC\V20230808\Models\EnableCheckProductRequest;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\EnableCheckProductResponse;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\EnableCheckResourceRequest;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\EnableCheckResourceResponse;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\EnableCrossAccountManagementRequest;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\EnableCrossAccountManagementResponse;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\GetBdrcServiceResponse;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\GetMessageRequest;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\GetMessageResponse;
@@ -55,6 +57,8 @@ use AlibabaCloud\SDK\BDRC\V20230808\Models\GetProtectionPolicyRequest;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\GetProtectionPolicyResponse;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\GetResourceCategoryRequest;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\GetResourceCategoryResponse;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\ListCrossAccountsRequest;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\ListCrossAccountsResponse;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\ListMessagesRequest;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\ListMessagesResponse;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\ListProtectionPoliciesRequest;
@@ -64,6 +68,12 @@ use AlibabaCloud\SDK\BDRC\V20230808\Models\ListProtectionPolicyApplicationsRespo
 use AlibabaCloud\SDK\BDRC\V20230808\Models\ListResourceCategoriesRequest;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\ListResourceCategoriesResponse;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\OpenBdrcServiceResponse;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\PrecheckResourceCountRequest;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\PrecheckResourceCountResponse;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\PrecheckResourceCountShrinkRequest;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\UpdateCrossAccountsRequest;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\UpdateCrossAccountsResponse;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\UpdateCrossAccountsShrinkRequest;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\UpdateProtectionPolicyRequest;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\UpdateProtectionPolicyResponse;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\UpdateProtectionPolicyShrinkRequest;
@@ -1436,6 +1446,61 @@ class BDRC extends OpenApiClient
     }
 
     /**
+     * 开启跨账号管理.
+     *
+     * @param request - EnableCrossAccountManagementRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableCrossAccountManagementResponse
+     *
+     * @param EnableCrossAccountManagementRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return EnableCrossAccountManagementResponse
+     */
+    public function enableCrossAccountManagementWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'EnableCrossAccountManagement',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/cross-accounts/enable-management',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableCrossAccountManagementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启跨账号管理.
+     *
+     * @param request - EnableCrossAccountManagementRequest
+     *
+     * @returns EnableCrossAccountManagementResponse
+     *
+     * @param EnableCrossAccountManagementRequest $request
+     *
+     * @return EnableCrossAccountManagementResponse
+     */
+    public function enableCrossAccountManagement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableCrossAccountManagementWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the status of the Backup and Disaster Recovery Center.
      *
      * @param headers - map
@@ -1656,6 +1721,87 @@ class BDRC extends OpenApiClient
         $headers = [];
 
         return $this->getResourceCategoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建跨账号纳管关系.
+     *
+     * @param request - ListCrossAccountsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCrossAccountsResponse
+     *
+     * @param ListCrossAccountsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCrossAccountsResponse
+     */
+    public function listCrossAccountsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->crossAccountOwnerId) {
+            @$query['CrossAccountOwnerId'] = $request->crossAccountOwnerId;
+        }
+
+        if (null !== $request->managementMode) {
+            @$query['ManagementMode'] = $request->managementMode;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->targetId) {
+            @$query['TargetId'] = $request->targetId;
+        }
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCrossAccounts',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/cross-accounts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCrossAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建跨账号纳管关系.
+     *
+     * @param request - ListCrossAccountsRequest
+     *
+     * @returns ListCrossAccountsResponse
+     *
+     * @param ListCrossAccountsRequest $request
+     *
+     * @return ListCrossAccountsResponse
+     */
+    public function listCrossAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCrossAccountsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2010,6 +2156,152 @@ class BDRC extends OpenApiClient
         $headers = [];
 
         return $this->openBdrcServiceWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 预检查资源数量.
+     *
+     * @param tmpReq - PrecheckResourceCountRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PrecheckResourceCountResponse
+     *
+     * @param PrecheckResourceCountRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PrecheckResourceCountResponse
+     */
+    public function precheckResourceCountWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PrecheckResourceCountShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tagResourceMatchers) {
+            $request->tagResourceMatchersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagResourceMatchers, 'TagResourceMatchers', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagResourceMatchersShrink) {
+            @$body['TagResourceMatchers'] = $request->tagResourceMatchersShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PrecheckResourceCount',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/resources/precheck-count',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PrecheckResourceCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预检查资源数量.
+     *
+     * @param request - PrecheckResourceCountRequest
+     *
+     * @returns PrecheckResourceCountResponse
+     *
+     * @param PrecheckResourceCountRequest $request
+     *
+     * @return PrecheckResourceCountResponse
+     */
+    public function precheckResourceCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->precheckResourceCountWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新跨账号纳管关系.
+     *
+     * @param tmpReq - UpdateCrossAccountsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCrossAccountsResponse
+     *
+     * @param UpdateCrossAccountsRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateCrossAccountsResponse
+     */
+    public function updateCrossAccountsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateCrossAccountsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createTargets) {
+            $request->createTargetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createTargets, 'CreateTargets', 'json');
+        }
+
+        if (null !== $tmpReq->deleteTargets) {
+            $request->deleteTargetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteTargets, 'DeleteTargets', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->createTargetsShrink) {
+            @$body['CreateTargets'] = $request->createTargetsShrink;
+        }
+
+        if (null !== $request->deleteTargetsShrink) {
+            @$body['DeleteTargets'] = $request->deleteTargetsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCrossAccounts',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/cross-accounts',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCrossAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新跨账号纳管关系.
+     *
+     * @param request - UpdateCrossAccountsRequest
+     *
+     * @returns UpdateCrossAccountsResponse
+     *
+     * @param UpdateCrossAccountsRequest $request
+     *
+     * @return UpdateCrossAccountsResponse
+     */
+    public function updateCrossAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateCrossAccountsWithOptions($request, $headers, $runtime);
     }
 
     /**
