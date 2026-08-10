@@ -9,14 +9,22 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\BatchGetMediasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\BatchGetMediasResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateAssetCategoryRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateAssetCategoryResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateInfiniteCanvasRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateInfiniteCanvasResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteAssetCategoryRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteAssetCategoryResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteInfiniteCanvasRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteInfiniteCanvasResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteMediasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteMediasResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GenerateYikeLoginTokenRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GenerateYikeLoginTokenResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetAssetCategoryRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetAssetCategoryResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetImageGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetImageGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetInfiniteCanvasRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetInfiniteCanvasResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaComprehensionJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaComprehensionJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaRequest;
@@ -27,6 +35,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoRenderJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoRenderJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoTranslationJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoTranslationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetYikeAccountCreditRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetYikeAccountCreditResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetYikeJobCreditRequest;
@@ -35,6 +45,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\ImportMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ImportMediaResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListAssetCategoriesRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListAssetCategoriesResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\ListInfiniteCanvasesRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\ListInfiniteCanvasesResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitImageGenerationJobRequest;
@@ -51,6 +63,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoTranslationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoTranslationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateAssetCategoryRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateAssetCategoryResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateInfiniteCanvasRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateInfiniteCanvasResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateMediaResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -231,6 +245,83 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * Creates an infinite canvas.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation is used to query media asset content understanding jobs.
+     *
+     * @param request - CreateInfiniteCanvasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInfiniteCanvasResponse
+     *
+     * @param CreateInfiniteCanvasRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateInfiniteCanvasResponse
+     */
+    public function createInfiniteCanvasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->coverUrl) {
+            @$query['CoverUrl'] = $request->coverUrl;
+        }
+
+        if (null !== $request->productionId) {
+            @$query['ProductionId'] = $request->productionId;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInfiniteCanvas',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInfiniteCanvasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an infinite canvas.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation is used to query media asset content understanding jobs.
+     *
+     * @param request - CreateInfiniteCanvasRequest
+     *
+     * @returns CreateInfiniteCanvasResponse
+     *
+     * @param CreateInfiniteCanvasRequest $request
+     *
+     * @return CreateInfiniteCanvasResponse
+     */
+    public function createInfiniteCanvas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInfiniteCanvasWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a media asset category.
      *
      * @remarks
@@ -291,6 +382,71 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAssetCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an infinite canvas.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation is used to query media asset content understanding jobs.
+     *
+     * @param request - DeleteInfiniteCanvasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInfiniteCanvasResponse
+     *
+     * @param DeleteInfiniteCanvasRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteInfiniteCanvasResponse
+     */
+    public function deleteInfiniteCanvasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->canvasId) {
+            @$query['CanvasId'] = $request->canvasId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInfiniteCanvas',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInfiniteCanvasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an infinite canvas.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation is used to query media asset content understanding jobs.
+     *
+     * @param request - DeleteInfiniteCanvasRequest
+     *
+     * @returns DeleteInfiniteCanvasResponse
+     *
+     * @param DeleteInfiniteCanvasRequest $request
+     *
+     * @return DeleteInfiniteCanvasResponse
+     */
+    public function deleteInfiniteCanvas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInfiniteCanvasWithOptions($request, $runtime);
     }
 
     /**
@@ -356,6 +512,97 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMediasWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a login token for an enterprise account.
+     *
+     * @remarks
+     * >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+     *
+     * @param request - GenerateYikeLoginTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateYikeLoginTokenResponse
+     *
+     * @param GenerateYikeLoginTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GenerateYikeLoginTokenResponse
+     */
+    public function generateYikeLoginTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoCreateProduction) {
+            @$query['AutoCreateProduction'] = $request->autoCreateProduction;
+        }
+
+        if (null !== $request->expires) {
+            @$query['Expires'] = $request->expires;
+        }
+
+        if (null !== $request->nickName) {
+            @$query['NickName'] = $request->nickName;
+        }
+
+        if (null !== $request->productionAuth) {
+            @$query['ProductionAuth'] = $request->productionAuth;
+        }
+
+        if (null !== $request->subUserCredit) {
+            @$query['SubUserCredit'] = $request->subUserCredit;
+        }
+
+        if (null !== $request->tenant) {
+            @$query['Tenant'] = $request->tenant;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateYikeLoginToken',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateYikeLoginTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a login token for an enterprise account.
+     *
+     * @remarks
+     * >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+     *
+     * @param request - GenerateYikeLoginTokenRequest
+     *
+     * @returns GenerateYikeLoginTokenResponse
+     *
+     * @param GenerateYikeLoginTokenRequest $request
+     *
+     * @return GenerateYikeLoginTokenResponse
+     */
+    public function generateYikeLoginToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateYikeLoginTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -473,11 +720,75 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询媒资.
+     * Queries an infinite canvas.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Description
+     * This API is used to query a media asset content understanding job.
+     *
+     * @param request - GetInfiniteCanvasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInfiniteCanvasResponse
+     *
+     * @param GetInfiniteCanvasRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetInfiniteCanvasResponse
+     */
+    public function getInfiniteCanvasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->canvasId) {
+            @$query['CanvasId'] = $request->canvasId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInfiniteCanvas',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInfiniteCanvasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries an infinite canvas.
+     *
+     * @remarks
+     * ## Description
+     * This API is used to query a media asset content understanding job.
+     *
+     * @param request - GetInfiniteCanvasRequest
+     *
+     * @returns GetInfiniteCanvasResponse
+     *
+     * @param GetInfiniteCanvasRequest $request
+     *
+     * @return GetInfiniteCanvasResponse
+     */
+    public function getInfiniteCanvas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInfiniteCanvasWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a media asset.
+     *
+     * @remarks
+     * ## Operation description.
      *
      * @param request - GetMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -524,11 +835,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询媒资.
+     * Queries a media asset.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Operation description.
      *
      * @param request - GetMediaRequest
      *
@@ -729,7 +1039,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询爆款新视频渲染任务
+     * Submits a video rendering and composition task.
      *
      * @param request - GetVideoRenderJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -768,7 +1078,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询爆款新视频渲染任务
+     * Submits a video rendering and composition task.
      *
      * @param request - GetVideoRenderJobRequest
      *
@@ -783,6 +1093,81 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getVideoRenderJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询视频翻译任务
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该API用于根据`JobId`获取视频翻译任务的状态和详细信息。
+     * - `JobId`是必需参数，通过query或form方式传递。
+     * - 如果任务不存在或者不属于当前调用方，则返回`InvalidParameter`错误码与400状态码。
+     * - 成功响应时，HTTP状态码为200，任务对象位于`data.Job`中。
+     * - 当任务完成(`Status=Finished`)时，业务产物可以在`data.Job.Output`字段中找到，需要客户端进行一次JSON解析以获取具体结果。
+     * - 对于多语言目标的任务，直接使用`Output.AiResult.ResultMap`来获取各语言的具体结果；如果仅有一个目标语言，可以通过`data.Job.EditingProjectId`便捷地获取剪辑工程ID。
+     *
+     * @param request - GetVideoTranslationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoTranslationJobResponse
+     *
+     * @param GetVideoTranslationJobRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetVideoTranslationJobResponse
+     */
+    public function getVideoTranslationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoTranslationJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoTranslationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询视频翻译任务
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该API用于根据`JobId`获取视频翻译任务的状态和详细信息。
+     * - `JobId`是必需参数，通过query或form方式传递。
+     * - 如果任务不存在或者不属于当前调用方，则返回`InvalidParameter`错误码与400状态码。
+     * - 成功响应时，HTTP状态码为200，任务对象位于`data.Job`中。
+     * - 当任务完成(`Status=Finished`)时，业务产物可以在`data.Job.Output`字段中找到，需要客户端进行一次JSON解析以获取具体结果。
+     * - 对于多语言目标的任务，直接使用`Output.AiResult.ResultMap`来获取各语言的具体结果；如果仅有一个目标语言，可以通过`data.Job.EditingProjectId`便捷地获取剪辑工程ID。
+     *
+     * @param request - GetVideoTranslationJobRequest
+     *
+     * @returns GetVideoTranslationJobResponse
+     *
+     * @param GetVideoTranslationJobRequest $request
+     *
+     * @return GetVideoTranslationJobResponse
+     */
+    public function getVideoTranslationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoTranslationJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1067,6 +1452,87 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * Queries the list of infinite canvases.
+     *
+     * @remarks
+     * ## Operation description
+     * This API is used to query media asset content understanding jobs.
+     *
+     * @param request - ListInfiniteCanvasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInfiniteCanvasesResponse
+     *
+     * @param ListInfiniteCanvasesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListInfiniteCanvasesResponse
+     */
+    public function listInfiniteCanvasesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInfiniteCanvases',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInfiniteCanvasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of infinite canvases.
+     *
+     * @remarks
+     * ## Operation description
+     * This API is used to query media asset content understanding jobs.
+     *
+     * @param request - ListInfiniteCanvasesRequest
+     *
+     * @returns ListInfiniteCanvasesResponse
+     *
+     * @param ListInfiniteCanvasesRequest $request
+     *
+     * @return ListInfiniteCanvasesResponse
+     */
+    public function listInfiniteCanvases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInfiniteCanvasesWithOptions($request, $runtime);
+    }
+
+    /**
      * Returns media asset information that matches the specified filter conditions.
      *
      * @param request - SearchMediaRequest
@@ -1237,11 +1703,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交媒资内容理解作业.
+     * Submits a media asset content understanding job.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+     * ## Operation description
+     * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitMediaComprehensionJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1292,11 +1758,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交媒资内容理解作业.
+     * Submits a media asset content understanding job.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+     * ## Operation description
+     * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitMediaComprehensionJobRequest
      *
@@ -1314,10 +1780,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交爆款复刻新脚本生成任务
+     * Submits a creative script generation task.
      *
      * @remarks
-     * 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+     * This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
      *
      * @param request - SubmitRemakeScriptJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1364,10 +1830,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交爆款复刻新脚本生成任务
+     * Submits a creative script generation task.
      *
      * @remarks
-     * 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+     * This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
      *
      * @param request - SubmitRemakeScriptJobRequest
      *
@@ -1433,6 +1899,10 @@ class Yike extends OpenApiClient
             @$query['N'] = $request->n;
         }
 
+        if (null !== $request->output) {
+            @$query['Output'] = $request->output;
+        }
+
         if (null !== $request->resolution) {
             @$query['Resolution'] = $request->resolution;
         }
@@ -1482,7 +1952,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交爆款新视频渲染任务
+     * Submits a video rendering and compositing task.
      *
      * @param request - SubmitVideoRenderJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1529,7 +1999,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交爆款新视频渲染任务
+     * Submits a video rendering and compositing task.
      *
      * @param request - SubmitVideoRenderJobRequest
      *
@@ -1716,6 +2186,79 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAssetCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the information of an infinite canvas.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation is used to query media asset content understanding jobs.
+     *
+     * @param request - UpdateInfiniteCanvasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInfiniteCanvasResponse
+     *
+     * @param UpdateInfiniteCanvasRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateInfiniteCanvasResponse
+     */
+    public function updateInfiniteCanvasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->canvasId) {
+            @$query['CanvasId'] = $request->canvasId;
+        }
+
+        if (null !== $request->coverUrl) {
+            @$query['CoverUrl'] = $request->coverUrl;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInfiniteCanvas',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInfiniteCanvasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the information of an infinite canvas.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation is used to query media asset content understanding jobs.
+     *
+     * @param request - UpdateInfiniteCanvasRequest
+     *
+     * @returns UpdateInfiniteCanvasResponse
+     *
+     * @param UpdateInfiniteCanvasRequest $request
+     *
+     * @return UpdateInfiniteCanvasResponse
+     */
+    public function updateInfiniteCanvas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInfiniteCanvasWithOptions($request, $runtime);
     }
 
     /**

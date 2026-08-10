@@ -51,6 +51,11 @@ class SubmitVideoGenerationJobRequest extends Model
     /**
      * @var string
      */
+    public $output;
+
+    /**
+     * @var string
+     */
     public $resolution;
 
     /**
@@ -71,6 +76,7 @@ class SubmitVideoGenerationJobRequest extends Model
         'jobType' => 'JobType',
         'model' => 'Model',
         'n' => 'N',
+        'output' => 'Output',
         'resolution' => 'Resolution',
         'scene' => 'Scene',
         'userData' => 'UserData',
@@ -114,6 +120,10 @@ class SubmitVideoGenerationJobRequest extends Model
 
         if (null !== $this->n) {
             $res['N'] = $this->n;
+        }
+
+        if (null !== $this->output) {
+            $res['Output'] = $this->output;
         }
 
         if (null !== $this->resolution) {
@@ -169,6 +179,10 @@ class SubmitVideoGenerationJobRequest extends Model
 
         if (isset($map['N'])) {
             $model->n = $map['N'];
+        }
+
+        if (isset($map['Output'])) {
+            $model->output = $map['Output'];
         }
 
         if (isset($map['Resolution'])) {
