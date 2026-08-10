@@ -47,11 +47,6 @@ class cities extends Model
      * @var int
      */
     public $region;
-
-    /**
-     * @var int
-     */
-    public $type;
     protected $_name = [
         'cnName' => 'CnName',
         'code' => 'Code',
@@ -61,7 +56,6 @@ class cities extends Model
         'level' => 'Level',
         'parentCode' => 'ParentCode',
         'region' => 'Region',
-        'type' => 'Type',
     ];
 
     public function validate()
@@ -102,10 +96,6 @@ class cities extends Model
 
         if (null !== $this->region) {
             $res['Region'] = $this->region;
-        }
-
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -149,10 +139,6 @@ class cities extends Model
 
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
-        }
-
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

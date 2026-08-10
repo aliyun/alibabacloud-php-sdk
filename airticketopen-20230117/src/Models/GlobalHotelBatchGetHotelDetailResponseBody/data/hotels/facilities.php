@@ -16,16 +16,16 @@ class facilities extends Model
     /**
      * @var string
      */
-    public $facilityId;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $type;
     protected $_name = [
         'description' => 'Description',
-        'facilityId' => 'FacilityId',
         'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -40,12 +40,12 @@ class facilities extends Model
             $res['Description'] = $this->description;
         }
 
-        if (null !== $this->facilityId) {
-            $res['FacilityId'] = $this->facilityId;
-        }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -63,12 +63,12 @@ class facilities extends Model
             $model->description = $map['Description'];
         }
 
-        if (isset($map['FacilityId'])) {
-            $model->facilityId = $map['FacilityId'];
-        }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

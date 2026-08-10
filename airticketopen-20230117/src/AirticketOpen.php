@@ -2963,7 +2963,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 申请退款.
+     * Applies for a refund.
      *
      * @param request - GlobalHotelApplyRefundRequest
      * @param headers - map
@@ -3017,7 +3017,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 申请退款.
+     * Applies for a refund.
      *
      * @param request - GlobalHotelApplyRefundRequest
      *
@@ -3036,7 +3036,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 批量查询酒店详情.
+     * Queries hotel details in batches.
      *
      * @param tmpReq - GlobalHotelBatchGetHotelDetailRequest
      * @param headers - map
@@ -3096,7 +3096,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 批量查询酒店详情.
+     * Queries hotel details in batches.
      *
      * @param request - GlobalHotelBatchGetHotelDetailRequest
      *
@@ -3115,7 +3115,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 取消或退款.
+     * Cancels or refunds an order.
      *
      * @param request - GlobalHotelCancelOrRefundRequest
      * @param headers - map
@@ -3165,7 +3165,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 取消或退款.
+     * Cancels or refunds an order.
      *
      * @param request - GlobalHotelCancelOrRefundRequest
      *
@@ -3253,7 +3253,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 创单并支付.
+     * Creates an order and processes the payment.
      *
      * @param tmpReq - GlobalHotelCreateAndPayRequest
      * @param headers - map
@@ -3329,7 +3329,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 创单并支付.
+     * Creates an order and processes the payment.
      *
      * @param request - GlobalHotelCreateAndPayRequest
      *
@@ -3348,7 +3348,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 创建订单.
+     * Creates an order.
      *
      * @param tmpReq - GlobalHotelCreateOrderRequest
      * @param headers - map
@@ -3424,7 +3424,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 创建订单.
+     * Creates an order.
      *
      * @param request - GlobalHotelCreateOrderRequest
      *
@@ -3443,7 +3443,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 分销支付.
+     * Processes a distribution payment.
      *
      * @param request - GlobalHotelPayRequest
      * @param headers - map
@@ -3493,7 +3493,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 分销支付.
+     * Processes a distribution payment.
      *
      * @param request - GlobalHotelPayRequest
      *
@@ -3512,7 +3512,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 查询酒店报价可用性.
+     * Queries the availability of hotel rate plans.
      *
      * @param tmpReq - GlobalHotelQueryAvailabilityRequest
      * @param headers - map
@@ -3596,7 +3596,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 查询酒店报价可用性.
+     * Queries the availability of hotel rate plans.
      *
      * @param request - GlobalHotelQueryAvailabilityRequest
      *
@@ -3615,7 +3615,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 批量日历报价查询.
+     * Queries calendar-based availability and pricing for hotels in batch.
      *
      * @param tmpReq - GlobalHotelQueryCalendarAvailabilityRequest
      * @param headers - map
@@ -3699,7 +3699,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 批量日历报价查询.
+     * Queries calendar-based availability and pricing for hotels in batch.
      *
      * @param request - GlobalHotelQueryCalendarAvailabilityRequest
      *
@@ -3718,7 +3718,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 查询订单.
+     * Queries an order.
      *
      * @param request - GlobalHotelQueryOrderRequest
      * @param headers - map
@@ -3772,7 +3772,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 查询订单.
+     * Queries an order.
      *
      * @param request - GlobalHotelQueryOrderRequest
      *
@@ -3791,7 +3791,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 分页查询城市行政区划（中英文）.
+     * Queries city administrative divisions by paging (in Chinese and English).
      *
      * @param request - GlobalHotelSearchCityPageRequest
      * @param headers - map
@@ -3849,7 +3849,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 分页查询城市行政区划（中英文）.
+     * Queries city administrative divisions by paging (in Chinese and English).
      *
      * @param request - GlobalHotelSearchCityPageRequest
      *
@@ -3868,7 +3868,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 按城市分页查询酒店列表.
+     * Performs a paged query to retrieve the list of hotels by city with paging.
      *
      * @param request - GlobalHotelSearchHotelListRequest
      * @param headers - map
@@ -3926,7 +3926,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 按城市分页查询酒店列表.
+     * Performs a paged query to retrieve the list of hotels by city with paging.
      *
      * @param request - GlobalHotelSearchHotelListRequest
      *

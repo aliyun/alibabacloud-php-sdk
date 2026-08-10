@@ -27,12 +27,12 @@ class roomStays extends Model
     /**
      * @var string
      */
-    public $roomName;
+    public $status;
     protected $_name = [
         'confirmationId' => 'ConfirmationId',
         'guests' => 'Guests',
         'roomIndex' => 'RoomIndex',
-        'roomName' => 'RoomName',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -65,8 +65,8 @@ class roomStays extends Model
             $res['RoomIndex'] = $this->roomIndex;
         }
 
-        if (null !== $this->roomName) {
-            $res['RoomName'] = $this->roomName;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -99,8 +99,8 @@ class roomStays extends Model
             $model->roomIndex = $map['RoomIndex'];
         }
 
-        if (isset($map['RoomName'])) {
-            $model->roomName = $map['RoomName'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
