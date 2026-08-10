@@ -112,6 +112,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentMcpRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentMcpResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentSubAccountInfoRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentSubAccountInfoResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageMetricsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageMetricsResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentWorkspaceInfoRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentWorkspaceInfoResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeCatalogRequest;
@@ -278,14 +282,14 @@ class Dms extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'us-west-1' => 'dms.us-west-1.aliyuncs.com',
-            'us-east-1' => 'dms.us-east-1.aliyuncs.com',
             'cn-shenzhen' => 'dms.cn-shenzhen.aliyuncs.com',
+            'cn-beijing' => 'dms.cn-beijing.aliyuncs.com',
             'cn-shanghai' => 'dms.cn-shanghai.aliyuncs.com',
             'cn-hongkong' => 'dms.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'dms.cn-hangzhou.aliyuncs.com',
-            'cn-beijing' => 'dms.cn-beijing.aliyuncs.com',
             'ap-southeast-1' => 'dms.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou' => 'dms.cn-hangzhou.aliyuncs.com',
+            'us-west-1' => 'dms.us-west-1.aliyuncs.com',
+            'us-east-1' => 'dms.us-east-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dms', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1074,6 +1078,10 @@ class Dms extends OpenApiClient
             $request->knowledgeConfigListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeConfigList, 'KnowledgeConfigList', 'json');
         }
 
+        if (null !== $tmpReq->knowledgeSemanticConfigList) {
+            $request->knowledgeSemanticConfigListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeSemanticConfigList, 'KnowledgeSemanticConfigList', 'json');
+        }
+
         if (null !== $tmpReq->scheduleTaskConfig) {
             $request->scheduleTaskConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleTaskConfig, 'ScheduleTaskConfig', 'json');
         }
@@ -1109,6 +1117,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->knowledgeConfigListShrink) {
             @$query['KnowledgeConfigList'] = $request->knowledgeConfigListShrink;
+        }
+
+        if (null !== $request->knowledgeSemanticConfigListShrink) {
+            @$query['KnowledgeSemanticConfigList'] = $request->knowledgeSemanticConfigListShrink;
         }
 
         if (null !== $request->name) {
@@ -2934,7 +2946,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a custom agent by custom agent ID.
+     * Retrieves the details of a custom agent by its ID.
      *
      * @param request - DescribeCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2977,7 +2989,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a custom agent by custom agent ID.
+     * Retrieves the details of a custom agent by its ID.
      *
      * @param request - DescribeCustomAgentRequest
      *
@@ -3835,6 +3847,156 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDataAgentSubAccountInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+     *
+     * @remarks
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+     *
+     * @param request - GetDataAgentTaskModelUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataAgentTaskModelUsageResponse
+     *
+     * @param GetDataAgentTaskModelUsageRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetDataAgentTaskModelUsageResponse
+     */
+    public function getDataAgentTaskModelUsageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
+        }
+
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataAgentTaskModelUsage',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataAgentTaskModelUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+     *
+     * @remarks
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+     *
+     * @param request - GetDataAgentTaskModelUsageRequest
+     *
+     * @returns GetDataAgentTaskModelUsageResponse
+     *
+     * @param GetDataAgentTaskModelUsageRequest $request
+     *
+     * @return GetDataAgentTaskModelUsageResponse
+     */
+    public function getDataAgentTaskModelUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataAgentTaskModelUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+     *
+     * @remarks
+     * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+     *
+     * @param request - GetDataAgentTaskModelUsageMetricsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataAgentTaskModelUsageMetricsResponse
+     *
+     * @param GetDataAgentTaskModelUsageMetricsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetDataAgentTaskModelUsageMetricsResponse
+     */
+    public function getDataAgentTaskModelUsageMetricsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
+        }
+
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataAgentTaskModelUsageMetrics',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataAgentTaskModelUsageMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+     *
+     * @remarks
+     * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+     *
+     * @param request - GetDataAgentTaskModelUsageMetricsRequest
+     *
+     * @returns GetDataAgentTaskModelUsageMetricsResponse
+     *
+     * @param GetDataAgentTaskModelUsageMetricsRequest $request
+     *
+     * @return GetDataAgentTaskModelUsageMetricsResponse
+     */
+    public function getDataAgentTaskModelUsageMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataAgentTaskModelUsageMetricsWithOptions($request, $runtime);
     }
 
     /**
@@ -7262,6 +7424,10 @@ class Dms extends OpenApiClient
             $request->knowledgeConfigListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeConfigList, 'KnowledgeConfigList', 'json');
         }
 
+        if (null !== $tmpReq->knowledgeSemanticConfigList) {
+            $request->knowledgeSemanticConfigListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeSemanticConfigList, 'KnowledgeSemanticConfigList', 'json');
+        }
+
         if (null !== $tmpReq->scheduleTaskConfig) {
             $request->scheduleTaskConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleTaskConfig, 'ScheduleTaskConfig', 'json');
         }
@@ -7301,6 +7467,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->knowledgeConfigListShrink) {
             @$query['KnowledgeConfigList'] = $request->knowledgeConfigListShrink;
+        }
+
+        if (null !== $request->knowledgeSemanticConfigListShrink) {
+            @$query['KnowledgeSemanticConfigList'] = $request->knowledgeSemanticConfigListShrink;
         }
 
         if (null !== $request->name) {

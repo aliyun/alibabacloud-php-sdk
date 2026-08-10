@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentResponseBody\data\callbackConfig;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentResponseBody\data\executionConfig;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentResponseBody\data\knowledgeConfigList;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentResponseBody\data\knowledgeSemanticConfigList;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentResponseBody\data\scheduleTaskConfig;
 
 class data extends Model
@@ -91,6 +92,11 @@ class data extends Model
      * @var knowledgeConfigList[]
      */
     public $knowledgeConfigList;
+
+    /**
+     * @var knowledgeSemanticConfigList[]
+     */
+    public $knowledgeSemanticConfigList;
 
     /**
      * @var string
@@ -178,6 +184,7 @@ class data extends Model
         'isScheduleTask' => 'IsScheduleTask',
         'knowledge' => 'Knowledge',
         'knowledgeConfigList' => 'KnowledgeConfigList',
+        'knowledgeSemanticConfigList' => 'KnowledgeSemanticConfigList',
         'modifier' => 'Modifier',
         'modifierUserName' => 'ModifierUserName',
         'name' => 'Name',
@@ -204,6 +211,9 @@ class data extends Model
         }
         if (\is_array($this->knowledgeConfigList)) {
             Model::validateArray($this->knowledgeConfigList);
+        }
+        if (\is_array($this->knowledgeSemanticConfigList)) {
+            Model::validateArray($this->knowledgeSemanticConfigList);
         }
         if (null !== $this->scheduleTaskConfig) {
             $this->scheduleTaskConfig->validate();
@@ -280,6 +290,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->knowledgeConfigList as $item1) {
                     $res['KnowledgeConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->knowledgeSemanticConfigList) {
+            if (\is_array($this->knowledgeSemanticConfigList)) {
+                $res['KnowledgeSemanticConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->knowledgeSemanticConfigList as $item1) {
+                    $res['KnowledgeSemanticConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -418,6 +439,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['KnowledgeConfigList'] as $item1) {
                     $model->knowledgeConfigList[$n1] = knowledgeConfigList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['KnowledgeSemanticConfigList'])) {
+            if (!empty($map['KnowledgeSemanticConfigList'])) {
+                $model->knowledgeSemanticConfigList = [];
+                $n1 = 0;
+                foreach ($map['KnowledgeSemanticConfigList'] as $item1) {
+                    $model->knowledgeSemanticConfigList[$n1] = knowledgeSemanticConfigList::fromMap($item1);
                     ++$n1;
                 }
             }

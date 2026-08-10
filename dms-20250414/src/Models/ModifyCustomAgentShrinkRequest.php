@@ -56,6 +56,11 @@ class ModifyCustomAgentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $knowledgeSemanticConfigListShrink;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -97,6 +102,7 @@ class ModifyCustomAgentShrinkRequest extends Model
         'instruction' => 'Instruction',
         'knowledge' => 'Knowledge',
         'knowledgeConfigListShrink' => 'KnowledgeConfigList',
+        'knowledgeSemanticConfigListShrink' => 'KnowledgeSemanticConfigList',
         'name' => 'Name',
         'relatedSessionId' => 'RelatedSessionId',
         'scheduleTaskConfigShrink' => 'ScheduleTaskConfig',
@@ -148,6 +154,10 @@ class ModifyCustomAgentShrinkRequest extends Model
 
         if (null !== $this->knowledgeConfigListShrink) {
             $res['KnowledgeConfigList'] = $this->knowledgeConfigListShrink;
+        }
+
+        if (null !== $this->knowledgeSemanticConfigListShrink) {
+            $res['KnowledgeSemanticConfigList'] = $this->knowledgeSemanticConfigListShrink;
         }
 
         if (null !== $this->name) {
@@ -223,6 +233,10 @@ class ModifyCustomAgentShrinkRequest extends Model
 
         if (isset($map['KnowledgeConfigList'])) {
             $model->knowledgeConfigListShrink = $map['KnowledgeConfigList'];
+        }
+
+        if (isset($map['KnowledgeSemanticConfigList'])) {
+            $model->knowledgeSemanticConfigListShrink = $map['KnowledgeSemanticConfigList'];
         }
 
         if (isset($map['Name'])) {
