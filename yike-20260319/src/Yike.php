@@ -385,11 +385,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建无限画布.
+     * Creates an infinite canvas.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Operation description
+     * This API operation is used to query media asset content understanding jobs.
      *
      * @param request - CreateInfiniteCanvasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -440,11 +440,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建无限画布.
+     * Creates an infinite canvas.
      *
      * @remarks
-     * ## 请求说明
-     * 该API用于查询媒资内容理解作业。
+     * ## Operation description
+     * This API operation is used to query media asset content understanding jobs.
      *
      * @param request - CreateInfiniteCanvasRequest
      *
@@ -789,7 +789,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 删除无限画布.
+     * Deletes an infinite canvas.
      *
      * @param request - DeleteInfiniteCanvasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -828,7 +828,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 删除无限画布.
+     * Deletes an infinite canvas.
      *
      * @param request - DeleteInfiniteCanvasRequest
      *
@@ -907,7 +907,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取企业账号登录Token.
+     * Retrieves a logon token for an Enterprise Account Center account.
      *
      * @param request - GenerateYikeLoginTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -974,7 +974,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取企业账号登录Token.
+     * Retrieves a logon token for an Enterprise Account Center account.
      *
      * @param request - GenerateYikeLoginTokenRequest
      *
@@ -1055,7 +1055,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询无限画布.
+     * Queries an infinite canvas.
      *
      * @param request - GetInfiniteCanvasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1094,7 +1094,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询无限画布.
+     * Queries an infinite canvas.
      *
      * @param request - GetInfiniteCanvasRequest
      *
@@ -1856,7 +1856,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询无限画布列表.
+     * Queries the list of infinite canvases.
      *
      * @param request - ListInfiniteCanvasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1911,7 +1911,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询无限画布列表.
+     * Queries the list of infinite canvases.
      *
      * @param request - ListInfiniteCanvasesRequest
      *
@@ -2769,12 +2769,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Creates an intelligent video production task for a digital human oral broadcasting scenario. This operation is applicable to video scenarios such as influencer product promotion and knowledge explanation.
+     * Creates an intelligent video production task for digital human oral broadcasting scenarios, applicable to video scenarios such as influencer product promotion and knowledge explanation.
      *
      * @remarks
-     * ## Description
-     * This operation generates a video in which a virtual human delivers an oral broadcast based on the provided text content and other parameters such as digital human information and application scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can use the `UserData` field to pass custom parameters, which are returned as-is in the callback.
-     * Common scenarios: influencer product promotion, knowledge explanation, and similar video scenarios.
+     * ## Request description
+     * This API generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. Specify the text type (raw script or oral broadcast script), output dimensions, and resolution as key configuration items. You can optionally add subtitles or specify output languages. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitYikeAvatarNarratorJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2817,12 +2816,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Creates an intelligent video production task for a digital human oral broadcasting scenario. This operation is applicable to video scenarios such as influencer product promotion and knowledge explanation.
+     * Creates an intelligent video production task for digital human oral broadcasting scenarios, applicable to video scenarios such as influencer product promotion and knowledge explanation.
      *
      * @remarks
-     * ## Description
-     * This operation generates a video in which a virtual human delivers an oral broadcast based on the provided text content and other parameters such as digital human information and application scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can use the `UserData` field to pass custom parameters, which are returned as-is in the callback.
-     * Common scenarios: influencer product promotion, knowledge explanation, and similar video scenarios.
+     * ## Request description
+     * This API generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. Specify the text type (raw script or oral broadcast script), output dimensions, and resolution as key configuration items. You can optionally add subtitles or specify output languages. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitYikeAvatarNarratorJobRequest
      *
@@ -3217,7 +3215,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 更新无限画布信息.
+     * Updates the information of an infinite canvas.
      *
      * @param request - UpdateInfiniteCanvasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3264,7 +3262,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 更新无限画布信息.
+     * Updates the information of an infinite canvas.
      *
      * @param request - UpdateInfiniteCanvasRequest
      *
