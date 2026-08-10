@@ -27,11 +27,17 @@ class timers extends Model
      * @var string
      */
     public $timerStatus;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'bindStatus' => 'BindStatus',
         'id' => 'Id',
         'name' => 'Name',
         'timerStatus' => 'TimerStatus',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class timers extends Model
 
         if (null !== $this->timerStatus) {
             $res['TimerStatus'] = $this->timerStatus;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class timers extends Model
 
         if (isset($map['TimerStatus'])) {
             $model->timerStatus = $map['TimerStatus'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
