@@ -262,6 +262,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecKgCypherShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteDDLRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteDDLResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteDDLShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeShrinkRequest;
@@ -603,6 +606,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListOperationRecordRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListOperationRecordResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListOperationRecordShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPipelinesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPipelinesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPipelinesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectMembersRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectMembersResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectMembersShrinkRequest;
@@ -639,6 +645,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionByUserIdSh
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityClassifyRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityClassifyResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityClassifyShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityIdentifyRecordsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityIdentifyRecordsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityIdentifyRecordsShrinkRequest;
@@ -733,11 +742,17 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeDataServiceApiShrinkR
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeResourcePermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeResourcePermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeResourcePermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SearchKgBySemanticRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SearchKgBySemanticResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SearchKgBySemanticShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitPipelineByIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitPipelineByIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitPipelineByIdShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityRuleTasksRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityRuleTasksResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityRuleTasksShrinkRequest;
@@ -1293,7 +1308,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Adds tenant members by using original user identities.
+     * Adds tenant members by using source users.
      *
      * @param tmpReq - AddTenantMembersBySourceUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1344,7 +1359,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Adds tenant members by using original user identities.
+     * Adds tenant members by using source users.
      *
      * @param request - AddTenantMembersBySourceUserRequest
      *
@@ -7380,6 +7395,83 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeAdHocTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Executes a DDL statement: creates a table on a data source based on the specified data source identifier and DDL statement.
+     *
+     * @param tmpReq - ExecuteDDLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteDDLResponse
+     *
+     * @param ExecuteDDLRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ExecuteDDLResponse
+     */
+    public function executeDDLWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ExecuteDDLShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->DDLCommand) {
+            $request->DDLCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->DDLCommand, 'DDLCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->DDLCommandShrink) {
+            @$body['DDLCommand'] = $request->DDLCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteDDL',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteDDLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes a DDL statement: creates a table on a data source based on the specified data source identifier and DDL statement.
+     *
+     * @param request - ExecuteDDLRequest
+     *
+     * @returns ExecuteDDLResponse
+     *
+     * @param ExecuteDDLRequest $request
+     *
+     * @return ExecuteDDLResponse
+     */
+    public function executeDDL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeDDLWithOptions($request, $runtime);
     }
 
     /**
@@ -17037,6 +17129,83 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+     *
+     * @param tmpReq - ListPipelinesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPipelinesResponse
+     *
+     * @param ListPipelinesRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListPipelinesResponse
+     */
+    public function listPipelinesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListPipelinesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->listCommand) {
+            $request->listCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listCommand, 'ListCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->listCommandShrink) {
+            @$body['ListCommand'] = $request->listCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListPipelines',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+     *
+     * @param request - ListPipelinesRequest
+     *
+     * @returns ListPipelinesResponse
+     *
+     * @param ListPipelinesRequest $request
+     *
+     * @return ListPipelinesResponse
+     */
+    public function listPipelines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPipelinesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of project members.
      *
      * @param tmpReq - ListProjectMembersRequest
@@ -17672,7 +17841,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves permission authorization records with pagination.
+     * Retrieves permission authorization records by page.
      *
      * @param tmpReq - ListResourcePermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17723,7 +17892,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves permission authorization records with pagination.
+     * Retrieves permission authorization records by page.
      *
      * @param request - ListResourcePermissionsRequest
      *
@@ -17876,6 +18045,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRowPermissionByUserIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the data classification list by paging.
+     *
+     * @param tmpReq - ListSecurityClassifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSecurityClassifyResponse
+     *
+     * @param ListSecurityClassifyRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSecurityClassifyResponse
+     */
+    public function listSecurityClassifyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListSecurityClassifyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListSecurityClassify',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSecurityClassifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the data classification list by paging.
+     *
+     * @param request - ListSecurityClassifyRequest
+     *
+     * @returns ListSecurityClassifyResponse
+     *
+     * @param ListSecurityClassifyRequest $request
+     *
+     * @return ListSecurityClassifyResponse
+     */
+    public function listSecurityClassify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSecurityClassifyWithOptions($request, $runtime);
     }
 
     /**
@@ -20149,6 +20387,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Retrieves knowledge graph entity or relationship records through semantic search.
+     *
+     * @param tmpReq - SearchKgBySemanticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchKgBySemanticResponse
+     *
+     * @param SearchKgBySemanticRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SearchKgBySemanticResponse
+     */
+    public function searchKgBySemanticWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SearchKgBySemanticShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->searchCommand) {
+            $request->searchCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchCommand, 'SearchCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->searchCommandShrink) {
+            @$body['SearchCommand'] = $request->searchCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SearchKgBySemantic',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchKgBySemanticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves knowledge graph entity or relationship records through semantic search.
+     *
+     * @param request - SearchKgBySemanticRequest
+     *
+     * @returns SearchKgBySemanticResponse
+     *
+     * @param SearchKgBySemanticRequest $request
+     *
+     * @return SearchKgBySemanticResponse
+     */
+    public function searchKgBySemantic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchKgBySemanticWithOptions($request, $runtime);
+    }
+
+    /**
      * Stops an ad hoc query task.
      *
      * @param request - StopAdHocTaskRequest
@@ -20280,6 +20591,83 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits an integration pipeline task by OAQueryId.
+     *
+     * @param tmpReq - SubmitPipelineByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitPipelineByIdResponse
+     *
+     * @param SubmitPipelineByIdRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitPipelineByIdResponse
+     */
+    public function submitPipelineByIdWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitPipelineByIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->queryId) {
+            $request->queryIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryId, 'QueryId', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->queryIdShrink) {
+            @$body['QueryId'] = $request->queryIdShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitPipelineById',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitPipelineByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits an integration pipeline task by OAQueryId.
+     *
+     * @param request - SubmitPipelineByIdRequest
+     *
+     * @returns SubmitPipelineByIdResponse
+     *
+     * @param SubmitPipelineByIdRequest $request
+     *
+     * @return SubmitPipelineByIdResponse
+     */
+    public function submitPipelineById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitPipelineByIdWithOptions($request, $runtime);
     }
 
     /**

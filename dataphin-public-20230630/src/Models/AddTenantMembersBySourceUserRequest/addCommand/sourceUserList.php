@@ -37,6 +37,11 @@ class sourceUserList extends Model
      * @var string
      */
     public $sourceId;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
     protected $_name = [
         'accountName' => 'AccountName',
         'dingNumber' => 'DingNumber',
@@ -44,6 +49,7 @@ class sourceUserList extends Model
         'mail' => 'Mail',
         'mobilePhone' => 'MobilePhone',
         'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class sourceUserList extends Model
 
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
+        }
+
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class sourceUserList extends Model
 
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
+        }
+
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
 
         return $model;
