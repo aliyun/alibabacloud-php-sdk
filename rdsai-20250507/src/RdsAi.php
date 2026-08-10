@@ -15,6 +15,12 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateApiKeyResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseApiKeyRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseApiKeyResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseMemberRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseMemberResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseWorkspaceRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseWorkspaceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentShrinkRequest;
@@ -33,6 +39,10 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteApiKeyRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteApiKeyResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseMemberRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseMemberResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseWorkspaceRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseWorkspaceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteSandboxTemplateRequest;
@@ -102,6 +112,12 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetStandAloneReportsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetStandAloneReportsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListApiKeysRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListApiKeysResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseApiKeysRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseApiKeysResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseMembersRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseMembersResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseWorkspacesRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseWorkspacesResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentToolsResponse;
@@ -150,6 +166,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RestartInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RestartInstanceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\RevokeContextDatabaseApiKeyRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\RevokeContextDatabaseApiKeyResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StopInstanceRequest;
@@ -157,6 +175,12 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateApiKeyQuotaRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateApiKeyQuotaResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateApiKeyQuotaShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseApiKeyRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseApiKeyResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseMemberRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseMemberResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseWorkspaceRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseWorkspaceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentShrinkRequest;
@@ -178,8 +202,6 @@ class RdsAi extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'us-west-1' => 'rdsai.us-west-1.aliyuncs.com',
-            'eu-central-1' => 'rdsai.eu-central-1.aliyuncs.com',
             'cn-wulanchabu' => 'rdsai.aliyuncs.com',
             'cn-shenzhen' => 'rdsai.aliyuncs.com',
             'cn-shanghai' => 'rdsai.aliyuncs.com',
@@ -192,6 +214,8 @@ class RdsAi extends OpenApiClient
             'ap-southeast-3' => 'rdsai.ap-southeast-3.aliyuncs.com',
             'ap-southeast-1' => 'rdsai.ap-southeast-1.aliyuncs.com',
             'ap-northeast-1' => 'rdsai.ap-northeast-1.aliyuncs.com',
+            'eu-central-1' => 'rdsai.eu-central-1.aliyuncs.com',
+            'us-west-1' => 'rdsai.us-west-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('rdsai', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -677,6 +701,223 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建上下文数据库 API Key.
+     *
+     * @remarks
+     * 创建 API Key（返回明文 apiKey）。
+     *
+     * @param request - CreateContextDatabaseApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContextDatabaseApiKeyResponse
+     *
+     * @param CreateContextDatabaseApiKeyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateContextDatabaseApiKeyResponse
+     */
+    public function createContextDatabaseApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContextDatabaseApiKey',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContextDatabaseApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建上下文数据库 API Key.
+     *
+     * @remarks
+     * 创建 API Key（返回明文 apiKey）。
+     *
+     * @param request - CreateContextDatabaseApiKeyRequest
+     *
+     * @returns CreateContextDatabaseApiKeyResponse
+     *
+     * @param CreateContextDatabaseApiKeyRequest $request
+     *
+     * @return CreateContextDatabaseApiKeyResponse
+     */
+    public function createContextDatabaseApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createContextDatabaseApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建上下文数据库成员.
+     *
+     * @remarks
+     * 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+     *
+     * @param request - CreateContextDatabaseMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContextDatabaseMemberResponse
+     *
+     * @param CreateContextDatabaseMemberRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateContextDatabaseMemberResponse
+     */
+    public function createContextDatabaseMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->generateInitialKey) {
+            @$query['GenerateInitialKey'] = $request->generateInitialKey;
+        }
+
+        if (null !== $request->initialKeyName) {
+            @$query['InitialKeyName'] = $request->initialKeyName;
+        }
+
+        if (null !== $request->memberName) {
+            @$query['MemberName'] = $request->memberName;
+        }
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContextDatabaseMember',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContextDatabaseMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建上下文数据库成员.
+     *
+     * @remarks
+     * 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+     *
+     * @param request - CreateContextDatabaseMemberRequest
+     *
+     * @returns CreateContextDatabaseMemberResponse
+     *
+     * @param CreateContextDatabaseMemberRequest $request
+     *
+     * @return CreateContextDatabaseMemberResponse
+     */
+    public function createContextDatabaseMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createContextDatabaseMemberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建上下文数据库工作区.
+     *
+     * @remarks
+     * 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+     *
+     * @param request - CreateContextDatabaseWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContextDatabaseWorkspaceResponse
+     *
+     * @param CreateContextDatabaseWorkspaceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateContextDatabaseWorkspaceResponse
+     */
+    public function createContextDatabaseWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->memberName) {
+            @$query['MemberName'] = $request->memberName;
+        }
+
+        if (null !== $request->workspaceName) {
+            @$query['WorkspaceName'] = $request->workspaceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContextDatabaseWorkspace',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContextDatabaseWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建上下文数据库工作区.
+     *
+     * @remarks
+     * 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+     *
+     * @param request - CreateContextDatabaseWorkspaceRequest
+     *
+     * @returns CreateContextDatabaseWorkspaceResponse
+     *
+     * @param CreateContextDatabaseWorkspaceRequest $request
+     *
+     * @return CreateContextDatabaseWorkspaceResponse
+     */
+    public function createContextDatabaseWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createContextDatabaseWorkspaceWithOptions($request, $runtime);
     }
 
     /**
@@ -1375,6 +1616,136 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除上下文数据库成员.
+     *
+     * @remarks
+     * 删除成员（硬删除，不可恢复）。
+     *
+     * @param request - DeleteContextDatabaseMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContextDatabaseMemberResponse
+     *
+     * @param DeleteContextDatabaseMemberRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteContextDatabaseMemberResponse
+     */
+    public function deleteContextDatabaseMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContextDatabaseMember',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContextDatabaseMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除上下文数据库成员.
+     *
+     * @remarks
+     * 删除成员（硬删除，不可恢复）。
+     *
+     * @param request - DeleteContextDatabaseMemberRequest
+     *
+     * @returns DeleteContextDatabaseMemberResponse
+     *
+     * @param DeleteContextDatabaseMemberRequest $request
+     *
+     * @return DeleteContextDatabaseMemberResponse
+     */
+    public function deleteContextDatabaseMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContextDatabaseMemberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除上下文数据库工作区.
+     *
+     * @remarks
+     * 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+     *
+     * @param request - DeleteContextDatabaseWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContextDatabaseWorkspaceResponse
+     *
+     * @param DeleteContextDatabaseWorkspaceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteContextDatabaseWorkspaceResponse
+     */
+    public function deleteContextDatabaseWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContextDatabaseWorkspace',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContextDatabaseWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除上下文数据库工作区.
+     *
+     * @remarks
+     * 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+     *
+     * @param request - DeleteContextDatabaseWorkspaceRequest
+     *
+     * @returns DeleteContextDatabaseWorkspaceResponse
+     *
+     * @param DeleteContextDatabaseWorkspaceRequest $request
+     *
+     * @return DeleteContextDatabaseWorkspaceResponse
+     */
+    public function deleteContextDatabaseWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContextDatabaseWorkspaceWithOptions($request, $runtime);
     }
 
     /**
@@ -3399,7 +3770,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of messages in a specific conversation.
+     * Queries the details of specific conversation messages.
      *
      * @param request - GetMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3450,7 +3821,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of messages in a specific conversation.
+     * Queries the details of specific conversation messages.
      *
      * @param request - GetMessagesRequest
      *
@@ -3866,6 +4237,235 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApiKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列出成员名下 API Key.
+     *
+     * @remarks
+     * 列出指定成员名下的 API Key（不返回明文）。
+     *
+     * @param request - ListContextDatabaseApiKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseApiKeysResponse
+     *
+     * @param ListContextDatabaseApiKeysRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListContextDatabaseApiKeysResponse
+     */
+    public function listContextDatabaseApiKeysWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseApiKeys',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出成员名下 API Key.
+     *
+     * @remarks
+     * 列出指定成员名下的 API Key（不返回明文）。
+     *
+     * @param request - ListContextDatabaseApiKeysRequest
+     *
+     * @returns ListContextDatabaseApiKeysResponse
+     *
+     * @param ListContextDatabaseApiKeysRequest $request
+     *
+     * @return ListContextDatabaseApiKeysResponse
+     */
+    public function listContextDatabaseApiKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseApiKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列出工作区成员.
+     *
+     * @remarks
+     * 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+     *
+     * @param request - ListContextDatabaseMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseMembersResponse
+     *
+     * @param ListContextDatabaseMembersRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListContextDatabaseMembersResponse
+     */
+    public function listContextDatabaseMembersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseMembers',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出工作区成员.
+     *
+     * @remarks
+     * 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+     *
+     * @param request - ListContextDatabaseMembersRequest
+     *
+     * @returns ListContextDatabaseMembersResponse
+     *
+     * @param ListContextDatabaseMembersRequest $request
+     *
+     * @return ListContextDatabaseMembersResponse
+     */
+    public function listContextDatabaseMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据workspaceId和状态过滤调用方账号下的工作区列表。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该API用于获取指定条件下的工作区列表。
+     * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
+     * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
+     * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+     *
+     * @param request - ListContextDatabaseWorkspacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseWorkspacesResponse
+     *
+     * @param ListContextDatabaseWorkspacesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListContextDatabaseWorkspacesResponse
+     */
+    public function listContextDatabaseWorkspacesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseWorkspaces',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据workspaceId和状态过滤调用方账号下的工作区列表。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该API用于获取指定条件下的工作区列表。
+     * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
+     * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
+     * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+     *
+     * @param request - ListContextDatabaseWorkspacesRequest
+     *
+     * @returns ListContextDatabaseWorkspacesResponse
+     *
+     * @param ListContextDatabaseWorkspacesRequest $request
+     *
+     * @return ListContextDatabaseWorkspacesResponse
+     */
+    public function listContextDatabaseWorkspaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseWorkspacesWithOptions($request, $runtime);
     }
 
     /**
@@ -5599,6 +6199,77 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 吊销上下文数据库 API Key.
+     *
+     * @remarks
+     * 吊销 API Key。
+     *
+     * @param request - RevokeContextDatabaseApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeContextDatabaseApiKeyResponse
+     *
+     * @param RevokeContextDatabaseApiKeyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RevokeContextDatabaseApiKeyResponse
+     */
+    public function revokeContextDatabaseApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyId) {
+            @$query['KeyId'] = $request->keyId;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeContextDatabaseApiKey',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeContextDatabaseApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 吊销上下文数据库 API Key.
+     *
+     * @remarks
+     * 吊销 API Key。
+     *
+     * @param request - RevokeContextDatabaseApiKeyRequest
+     *
+     * @returns RevokeContextDatabaseApiKeyResponse
+     *
+     * @param RevokeContextDatabaseApiKeyRequest $request
+     *
+     * @return RevokeContextDatabaseApiKeyResponse
+     */
+    public function revokeContextDatabaseApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeContextDatabaseApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * Starts an RDS AI application instance that is in the Stopped state.
      *
      * @remarks
@@ -5829,6 +6500,227 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateApiKeyQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新上下文数据库 API Key 元数据.
+     *
+     * @remarks
+     * 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+     *
+     * @param request - UpdateContextDatabaseApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContextDatabaseApiKeyResponse
+     *
+     * @param UpdateContextDatabaseApiKeyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateContextDatabaseApiKeyResponse
+     */
+    public function updateContextDatabaseApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->keyId) {
+            @$query['KeyId'] = $request->keyId;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContextDatabaseApiKey',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContextDatabaseApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新上下文数据库 API Key 元数据.
+     *
+     * @remarks
+     * 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+     *
+     * @param request - UpdateContextDatabaseApiKeyRequest
+     *
+     * @returns UpdateContextDatabaseApiKeyResponse
+     *
+     * @param UpdateContextDatabaseApiKeyRequest $request
+     *
+     * @return UpdateContextDatabaseApiKeyResponse
+     */
+    public function updateContextDatabaseApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContextDatabaseApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新上下文数据库成员.
+     *
+     * @remarks
+     * 更新成员的角色 / 状态。
+     *
+     * @param request - UpdateContextDatabaseMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContextDatabaseMemberResponse
+     *
+     * @param UpdateContextDatabaseMemberRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateContextDatabaseMemberResponse
+     */
+    public function updateContextDatabaseMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContextDatabaseMember',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContextDatabaseMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新上下文数据库成员.
+     *
+     * @remarks
+     * 更新成员的角色 / 状态。
+     *
+     * @param request - UpdateContextDatabaseMemberRequest
+     *
+     * @returns UpdateContextDatabaseMemberResponse
+     *
+     * @param UpdateContextDatabaseMemberRequest $request
+     *
+     * @return UpdateContextDatabaseMemberResponse
+     */
+    public function updateContextDatabaseMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContextDatabaseMemberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改上下文数据库工作区.
+     *
+     * @remarks
+     * 修改 workspace 名称。
+     *
+     * @param request - UpdateContextDatabaseWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContextDatabaseWorkspaceResponse
+     *
+     * @param UpdateContextDatabaseWorkspaceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateContextDatabaseWorkspaceResponse
+     */
+    public function updateContextDatabaseWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceName) {
+            @$query['WorkspaceName'] = $request->workspaceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContextDatabaseWorkspace',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContextDatabaseWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改上下文数据库工作区.
+     *
+     * @remarks
+     * 修改 workspace 名称。
+     *
+     * @param request - UpdateContextDatabaseWorkspaceRequest
+     *
+     * @returns UpdateContextDatabaseWorkspaceResponse
+     *
+     * @param UpdateContextDatabaseWorkspaceRequest $request
+     *
+     * @return UpdateContextDatabaseWorkspaceResponse
+     */
+    public function updateContextDatabaseWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContextDatabaseWorkspaceWithOptions($request, $runtime);
     }
 
     /**
