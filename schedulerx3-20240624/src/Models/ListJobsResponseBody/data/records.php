@@ -86,6 +86,11 @@ class records extends Model
     /**
      * @var string
      */
+    public $label;
+
+    /**
+     * @var string
+     */
     public $lastExecuteEndTime;
 
     /**
@@ -208,6 +213,7 @@ class records extends Model
         'jobHandler' => 'JobHandler',
         'jobId' => 'JobId',
         'jobType' => 'JobType',
+        'label' => 'Label',
         'lastExecuteEndTime' => 'LastExecuteEndTime',
         'lastExecuteStatus' => 'LastExecuteStatus',
         'maxAttempt' => 'MaxAttempt',
@@ -298,6 +304,10 @@ class records extends Model
 
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
+        }
+
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
 
         if (null !== $this->lastExecuteEndTime) {
@@ -457,6 +467,10 @@ class records extends Model
 
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
+        }
+
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
 
         if (isset($map['LastExecuteEndTime'])) {

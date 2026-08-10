@@ -225,18 +225,18 @@ class SchedulerX3 extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'eu-central-1' => 'schedulerx3.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'schedulerx3.cn-zhangjiakou.aliyuncs.com',
             'cn-shenzhen' => 'schedulerx3.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'schedulerx3.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shanghai' => 'schedulerx3.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'schedulerx3.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'schedulerx3.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'schedulerx3.cn-guangzhou.aliyuncs.com',
-            'cn-chengdu' => 'schedulerx3.cn-chengdu.aliyuncs.com',
             'cn-beijing' => 'schedulerx3.cn-beijing.aliyuncs.com',
-            'ap-southeast-1' => 'schedulerx3.ap-southeast-1.aliyuncs.com',
             'ap-northeast-1' => 'schedulerx3.ap-northeast-1.aliyuncs.com',
+            'cn-chengdu' => 'schedulerx3.cn-chengdu.aliyuncs.com',
+            'cn-shanghai' => 'schedulerx3.cn-shanghai.aliyuncs.com',
+            'cn-guangzhou' => 'schedulerx3.cn-guangzhou.aliyuncs.com',
+            'cn-hongkong' => 'schedulerx3.cn-hongkong.aliyuncs.com',
+            'ap-southeast-1' => 'schedulerx3.ap-southeast-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'schedulerx3.cn-zhangjiakou.aliyuncs.com',
+            'cn-hangzhou' => 'schedulerx3.cn-hangzhou.aliyuncs.com',
+            'eu-central-1' => 'schedulerx3.eu-central-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'schedulerx3.cn-shanghai-finance-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('schedulerx3', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -942,6 +942,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->jobType) {
             @$body['JobType'] = $request->jobType;
+        }
+
+        if (null !== $request->label) {
+            @$body['Label'] = $request->label;
         }
 
         if (null !== $request->maxAttempt) {
@@ -4057,6 +4061,10 @@ class SchedulerX3 extends OpenApiClient
             @$query['JobName'] = $request->jobName;
         }
 
+        if (null !== $request->label) {
+            @$query['Label'] = $request->label;
+        }
+
         if (null !== $request->pageNum) {
             @$query['PageNum'] = $request->pageNum;
         }
@@ -7007,6 +7015,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->jobId) {
             @$body['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->label) {
+            @$body['Label'] = $request->label;
         }
 
         if (null !== $request->maxAttempt) {

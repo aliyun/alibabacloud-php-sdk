@@ -39,6 +39,11 @@ class ListJobsRequest extends Model
     public $jobName;
 
     /**
+     * @var string
+     */
+    public $label;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -64,6 +69,7 @@ class ListJobsRequest extends Model
         'jobHandler' => 'JobHandler',
         'jobId' => 'JobId',
         'jobName' => 'JobName',
+        'label' => 'Label',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'status' => 'Status',
@@ -100,6 +106,10 @@ class ListJobsRequest extends Model
 
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
+        }
+
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
 
         if (null !== $this->pageNum) {
@@ -151,6 +161,10 @@ class ListJobsRequest extends Model
 
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
+        }
+
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
 
         if (isset($map['PageNum'])) {

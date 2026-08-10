@@ -64,6 +64,11 @@ class UpdateJobShrinkRequest extends Model
     public $jobId;
 
     /**
+     * @var string
+     */
+    public $label;
+
+    /**
      * @var int
      */
     public $maxAttempt;
@@ -154,6 +159,7 @@ class UpdateJobShrinkRequest extends Model
         'executorBlockStrategy' => 'ExecutorBlockStrategy',
         'jobHandler' => 'JobHandler',
         'jobId' => 'JobId',
+        'label' => 'Label',
         'maxAttempt' => 'MaxAttempt',
         'maxConcurrency' => 'MaxConcurrency',
         'name' => 'Name',
@@ -222,6 +228,10 @@ class UpdateJobShrinkRequest extends Model
 
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
 
         if (null !== $this->maxAttempt) {
@@ -341,6 +351,10 @@ class UpdateJobShrinkRequest extends Model
 
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
 
         if (isset($map['MaxAttempt'])) {

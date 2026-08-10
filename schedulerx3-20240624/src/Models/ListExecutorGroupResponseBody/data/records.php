@@ -45,6 +45,11 @@ class records extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $enableJobs;
+
+    /**
      * @var string
      */
     public $integrationType;
@@ -101,6 +106,7 @@ class records extends Model
         'cmsWorkspaceId' => 'CmsWorkspaceId',
         'currentJobs' => 'CurrentJobs',
         'description' => 'Description',
+        'enableJobs' => 'EnableJobs',
         'integrationType' => 'IntegrationType',
         'maxJobs' => 'MaxJobs',
         'name' => 'Name',
@@ -157,6 +163,10 @@ class records extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableJobs) {
+            $res['EnableJobs'] = $this->enableJobs;
         }
 
         if (null !== $this->integrationType) {
@@ -243,6 +253,10 @@ class records extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableJobs'])) {
+            $model->enableJobs = $map['EnableJobs'];
         }
 
         if (isset($map['IntegrationType'])) {

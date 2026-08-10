@@ -67,6 +67,11 @@ class CreateJobRequest extends Model
     public $jobType;
 
     /**
+     * @var string
+     */
+    public $label;
+
+    /**
      * @var int
      */
     public $maxAttempt;
@@ -162,6 +167,7 @@ class CreateJobRequest extends Model
         'executorBlockStrategy' => 'ExecutorBlockStrategy',
         'jobHandler' => 'JobHandler',
         'jobType' => 'JobType',
+        'label' => 'Label',
         'maxAttempt' => 'MaxAttempt',
         'maxConcurrency' => 'MaxConcurrency',
         'name' => 'Name',
@@ -240,6 +246,10 @@ class CreateJobRequest extends Model
 
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
+        }
+
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
 
         if (null !== $this->maxAttempt) {
@@ -370,6 +380,10 @@ class CreateJobRequest extends Model
 
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
+        }
+
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
 
         if (isset($map['MaxAttempt'])) {
