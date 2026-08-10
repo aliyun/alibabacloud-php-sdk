@@ -130,6 +130,8 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseOrgMembershipRequ
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseOrgMembershipResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseProjectMembershipRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseProjectMembershipResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseSecurityIPListRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseSecurityIPListResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifySecurityIPListRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifySecurityIPListResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ResetAccountPasswordRequest;
@@ -1393,7 +1395,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+     * Calls the DeleteDBInstance operation to release an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - DeleteDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1436,7 +1438,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+     * Calls the DeleteDBInstance operation to release an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - DeleteDBInstanceRequest
      *
@@ -1454,7 +1456,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes a public endpoint.
+     * Releases a public endpoint.
      *
      * @param request - DeleteEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1509,7 +1511,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes a public endpoint.
+     * Releases a public endpoint.
      *
      * @param request - DeleteEndpointRequest
      *
@@ -2368,7 +2370,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the schema of a database or a table.
+     * Queries the data structure of a database or table by calling the DescribeDBInstanceDataSources operation.
      *
      * @param request - DescribeDBInstanceDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2419,7 +2421,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the schema of a database or a table.
+     * Queries the data structure of a database or table by calling the DescribeDBInstanceDataSources operation.
      *
      * @param request - DescribeDBInstanceDataSourcesRequest
      *
@@ -2437,7 +2439,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Call the DescribeDBInstances API to query a list of DB instances.
+     * Queries the list of clusters.
      *
      * @param request - DescribeDBInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2508,7 +2510,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Call the DescribeDBInstances API to query a list of DB instances.
+     * Queries the list of clusters.
      *
      * @param request - DescribeDBInstancesRequest
      *
@@ -3141,6 +3143,9 @@ class Clickhouse extends OpenApiClient
     /**
      * Calls the DescribeProcessList operation to view queries that are currently running.
      *
+     * @remarks
+     * > This operation supports only community-compatible edition clusters created after December 01, 2021.
+     *
      * @param request - DescribeProcessListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3215,6 +3220,9 @@ class Clickhouse extends OpenApiClient
 
     /**
      * Calls the DescribeProcessList operation to view queries that are currently running.
+     *
+     * @remarks
+     * > This operation supports only community-compatible edition clusters created after December 01, 2021.
      *
      * @param request - DescribeProcessListRequest
      *
@@ -3336,7 +3344,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Call DescribeSlowLogRecords to query slow log records.
+     * Queries slow query log details by calling the DescribeSlowLogRecords operation.
      *
      * @param request - DescribeSlowLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3403,7 +3411,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Call DescribeSlowLogRecords to query slow log records.
+     * Queries slow query log details by calling the DescribeSlowLogRecords operation.
      *
      * @param request - DescribeSlowLogRecordsRequest
      *
@@ -3421,7 +3429,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the slow log trend.
+     * Queries slow log trends by calling the DescribeSlowLogTrend operation.
      *
      * @param request - DescribeSlowLogTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3484,7 +3492,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the slow log trend.
+     * Queries slow log trends by calling the DescribeSlowLogTrend operation.
      *
      * @param request - DescribeSlowLogTrendRequest
      *
@@ -3628,7 +3636,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Terminates a running task.
+     * Stops an ongoing task.
+     *
+     * @remarks
+     * Make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse before you call this operation.
      *
      * @param request - KillProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3679,7 +3690,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Terminates a running task.
+     * Stops an ongoing task.
+     *
+     * @remarks
+     * Make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse before you call this operation.
      *
      * @param request - KillProcessRequest
      *
@@ -4035,7 +4049,7 @@ class Clickhouse extends OpenApiClient
      * Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
+     * >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
      *
      * @param request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4093,7 +4107,7 @@ class Clickhouse extends OpenApiClient
      * Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
+     * >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
      *
      * @param request - ModifyBackupPolicyRequest
      *
@@ -4184,10 +4198,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+     * Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
      *
      * @param tmpReq - ModifyDBInstanceClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4272,10 +4286,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+     * Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
      *
      * @param request - ModifyDBInstanceClassRequest
      *
@@ -4358,7 +4372,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the connection string of a cluster.
+     * Calls the ModifyDBInstanceConnectionString operation to modify the endpoint of a cluster.
      *
      * @param request - ModifyDBInstanceConnectionStringRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4421,7 +4435,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the connection string of a cluster.
+     * Calls the ModifyDBInstanceConnectionString operation to modify the endpoint of a cluster.
      *
      * @param request - ModifyDBInstanceConnectionStringRequest
      *
@@ -4589,7 +4603,80 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the whitelist settings of an ApsaraDB for ClickHouse cluster.
+     * Modifies the whitelist of a Langfuse instance.
+     *
+     * @param request - ModifyLangfuseSecurityIPListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyLangfuseSecurityIPListResponse
+     *
+     * @param ModifyLangfuseSecurityIPListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyLangfuseSecurityIPListResponse
+     */
+    public function modifyLangfuseSecurityIPListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->modifyMode) {
+            @$query['ModifyMode'] = $request->modifyMode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyLangfuseSecurityIPList',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyLangfuseSecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the whitelist of a Langfuse instance.
+     *
+     * @param request - ModifyLangfuseSecurityIPListRequest
+     *
+     * @returns ModifyLangfuseSecurityIPListResponse
+     *
+     * @param ModifyLangfuseSecurityIPListRequest $request
+     *
+     * @return ModifyLangfuseSecurityIPListResponse
+     */
+    public function modifyLangfuseSecurityIPList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyLangfuseSecurityIPListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the whitelist settings of a cluster.
      *
      * @param request - ModifySecurityIPListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4644,7 +4731,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the whitelist settings of an ApsaraDB for ClickHouse cluster.
+     * Modifies the whitelist settings of a cluster.
      *
      * @param request - ModifySecurityIPListRequest
      *
@@ -4804,7 +4891,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+     * Restarts an ApsaraDB for ClickHouse cluster.
      *
      * @param request - RestartDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4847,7 +4934,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+     * Restarts an ApsaraDB for ClickHouse cluster.
      *
      * @param request - RestartDBInstanceRequest
      *
@@ -4865,7 +4952,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Starts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+     * Calls the StartDBInstance operation to start an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - StartDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4908,7 +4995,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Starts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+     * Calls the StartDBInstance operation to start an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - StartDBInstanceRequest
      *
@@ -4926,7 +5013,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Stops an ApsaraDB for ClickHouse Enterprise Edition cluster.
+     * Calls the StopDBInstance operation to pause an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - StopDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4969,7 +5056,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Stops an ApsaraDB for ClickHouse Enterprise Edition cluster.
+     * Calls the StopDBInstance operation to pause an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - StopDBInstanceRequest
      *
@@ -5056,7 +5143,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Updates the minor engine version of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - UpgradeMinorVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5111,7 +5198,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Updates the minor engine version of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - UpgradeMinorVersionRequest
      *
