@@ -86,6 +86,11 @@ class latestTask extends Model
      * @var string
      */
     public $taskEndReason;
+
+    /**
+     * @var string
+     */
+    public $voiceName;
     protected $_name = [
         'callDuration' => 'CallDuration',
         'callDurationDisplay' => 'CallDurationDisplay',
@@ -102,6 +107,7 @@ class latestTask extends Model
         'statusName' => 'StatusName',
         'tagHits' => 'TagHits',
         'taskEndReason' => 'TaskEndReason',
+        'voiceName' => 'VoiceName',
     ];
 
     public function validate()
@@ -205,6 +211,10 @@ class latestTask extends Model
             $res['TaskEndReason'] = $this->taskEndReason;
         }
 
+        if (null !== $this->voiceName) {
+            $res['VoiceName'] = $this->voiceName;
+        }
+
         return $res;
     }
 
@@ -295,6 +305,10 @@ class latestTask extends Model
 
         if (isset($map['TaskEndReason'])) {
             $model->taskEndReason = $map['TaskEndReason'];
+        }
+
+        if (isset($map['VoiceName'])) {
+            $model->voiceName = $map['VoiceName'];
         }
 
         return $model;

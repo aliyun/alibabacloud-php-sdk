@@ -5498,7 +5498,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of contacts blocked for outbound calls.
+     * Retrieves the outbound call blocklist.
      *
      * @param request - GetContactBlockListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5530,6 +5530,10 @@ class OutboundBot extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->searchPattern) {
+            @$query['SearchPattern'] = $request->searchPattern;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5549,7 +5553,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of contacts blocked for outbound calls.
+     * Retrieves the outbound call blocklist.
      *
      * @param request - GetContactBlockListRequest
      *
@@ -5597,6 +5601,10 @@ class OutboundBot extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchPattern) {
+            @$query['SearchPattern'] = $request->searchPattern;
         }
 
         $req = new OpenApiRequest([
@@ -8125,7 +8133,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * View the script list.
+     * Queries the list of scripts.
      *
      * @param request - ListScriptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8180,7 +8188,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * View the script list.
+     * Queries the list of scripts.
      *
      * @param request - ListScriptsRequest
      *

@@ -27,11 +27,17 @@ class GetContactBlockListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $searchPattern;
     protected $_name = [
         'countTotalRow' => 'CountTotalRow',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'searchPattern' => 'SearchPattern',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class GetContactBlockListRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->searchPattern) {
+            $res['SearchPattern'] = $this->searchPattern;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class GetContactBlockListRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SearchPattern'])) {
+            $model->searchPattern = $map['SearchPattern'];
         }
 
         return $model;

@@ -20,6 +20,11 @@ class list_ extends Model
     public $agentLlm;
 
     /**
+     * @var string
+     */
+    public $chatBotId;
+
+    /**
      * @var int
      */
     public $createTime;
@@ -126,6 +131,7 @@ class list_ extends Model
     protected $_name = [
         'agentKey' => 'AgentKey',
         'agentLlm' => 'AgentLlm',
+        'chatBotId' => 'ChatBotId',
         'createTime' => 'CreateTime',
         'debugStatus' => 'DebugStatus',
         'emotionEnable' => 'EmotionEnable',
@@ -166,6 +172,10 @@ class list_ extends Model
 
         if (null !== $this->agentLlm) {
             $res['AgentLlm'] = $this->agentLlm;
+        }
+
+        if (null !== $this->chatBotId) {
+            $res['ChatBotId'] = $this->chatBotId;
         }
 
         if (null !== $this->createTime) {
@@ -269,6 +279,10 @@ class list_ extends Model
 
         if (isset($map['AgentLlm'])) {
             $model->agentLlm = $map['AgentLlm'];
+        }
+
+        if (isset($map['ChatBotId'])) {
+            $model->chatBotId = $map['ChatBotId'];
         }
 
         if (isset($map['CreateTime'])) {
