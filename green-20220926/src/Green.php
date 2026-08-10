@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\AddAnswerSampleRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddAnswerSampleResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddAppAgentRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddAppAgentResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\AddAppConfigRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\AddAppConfigResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddImageLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddImageLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddImages2LibRequest;
@@ -80,6 +82,21 @@ use AlibabaCloud\SDK\Green\V20220926\Models\ExportScanResultShrinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportTextScanResultRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportTextScanResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportTextScanResultShrinkRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppDetailRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppDetailResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppDetailStatRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppDetailStatResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppDetailTopoRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppDetailTopoResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppDetailTopoShrinkRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppNodeDetailRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppNodeDetailResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppOverviewRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppOverviewResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppStatsRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppStatsResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppTraceDetailRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAiAppTraceDetailResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetAnswerImportProgressRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetAnswerImportProgressResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetAppConfigRequest;
@@ -100,6 +117,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetFeatureConfigRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetFeatureConfigResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetGuardLogStatsRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetGuardLogStatsResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetGuardStatusRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetGuardStatusResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetImageSceneLabelConfRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetImageSceneLabelConfResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetImageSceneLabelListConfRequest;
@@ -124,6 +143,10 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckTaskInfoRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckTaskInfoResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetPromptTestResultRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetPromptTestResultResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetQpsStatsRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetQpsStatsResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetRiskStatsRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetRiskStatsResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetScanNumRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetScanNumResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetScanResultRequest;
@@ -151,6 +174,16 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadLinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadLinkResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUserBuyStatusRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUserBuyStatusResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\InitAiAppScanRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\InitAiAppScanResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAiAppByPageRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAiAppByPageResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAiAppRiskEventByPageRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAiAppRiskEventByPageResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAiAppRiskEventRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAiAppRiskEventResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAiAppWarningByPageRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAiAppWarningByPageResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListAnswerLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListAnswerLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListAppConfigHistoryRequest;
@@ -202,12 +235,19 @@ use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackByPageRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackByPageResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\QueryLabelConfigRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\QueryLabelConfigResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\RecoverAppConfigHistoryRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\RecoverAppConfigHistoryResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\StopOnlineTestRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\StopOnlineTestResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateAiAppScanStatusRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateAiAppScanStatusResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateBackupConfigRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateBackupConfigResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateEventStatusRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateEventStatusResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateEventStatusShrinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateImageLibFreeInspectionRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateImageLibFreeInspectionResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateImageLibFreeInspectionShrinkRequest;
@@ -215,6 +255,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\UpdateImageLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateImageLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateKeywordLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateKeywordLibResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateMetaLogRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateMetaLogResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateOssCheckResultsBatchFeedbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateOssCheckResultsBatchFeedbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateOssCheckResultsFeedBackRequest;
@@ -258,10 +300,10 @@ class Green extends OpenApiClient
             'cn-shanghai-finance-1' => 'green.aliyuncs.com',
             'cn-north-2-gov-1' => 'green.aliyuncs.com',
             'cn-shenzhen' => 'green-cip.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai' => 'green-cip.cn-shanghai.aliyuncs.com',
-            'cn-hangzhou' => 'green-cip.cn-hangzhou.aliyuncs.com',
             'cn-beijing' => 'green-cip.cn-beijing.aliyuncs.com',
+            'cn-shanghai' => 'green-cip.cn-shanghai.aliyuncs.com',
             'ap-southeast-1' => 'green-cip.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou' => 'green-cip.cn-hangzhou.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('green', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -435,6 +477,83 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addAppAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an app configuration.
+     *
+     * @param request - AddAppConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddAppConfigResponse
+     *
+     * @param AddAppConfigRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AddAppConfigResponse
+     */
+    public function addAppConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->classify) {
+            @$query['Classify'] = $request->classify;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->sysAppId) {
+            @$query['SysAppId'] = $request->sysAppId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddAppConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an app configuration.
+     *
+     * @param request - AddAppConfigRequest
+     *
+     * @returns AddAppConfigResponse
+     *
+     * @param AddAppConfigRequest $request
+     *
+     * @return AddAppConfigResponse
+     */
+    public function addAppConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAppConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -3050,6 +3169,503 @@ class Green extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of an AI application.
+     *
+     * @param request - GetAiAppDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAiAppDetailResponse
+     *
+     * @param GetAiAppDetailRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAiAppDetailResponse
+     */
+    public function getAiAppDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAiAppDetail',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAiAppDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an AI application.
+     *
+     * @param request - GetAiAppDetailRequest
+     *
+     * @returns GetAiAppDetailResponse
+     *
+     * @param GetAiAppDetailRequest $request
+     *
+     * @return GetAiAppDetailResponse
+     */
+    public function getAiAppDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAiAppDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves statistics for AI application details.
+     *
+     * @param request - GetAiAppDetailStatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAiAppDetailStatResponse
+     *
+     * @param GetAiAppDetailStatRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAiAppDetailStatResponse
+     */
+    public function getAiAppDetailStatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAiAppDetailStat',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAiAppDetailStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves statistics for AI application details.
+     *
+     * @param request - GetAiAppDetailStatRequest
+     *
+     * @returns GetAiAppDetailStatResponse
+     *
+     * @param GetAiAppDetailStatRequest $request
+     *
+     * @return GetAiAppDetailStatResponse
+     */
+    public function getAiAppDetailStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAiAppDetailStatWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the topology of an AI application.
+     *
+     * @param tmpReq - GetAiAppDetailTopoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAiAppDetailTopoResponse
+     *
+     * @param GetAiAppDetailTopoRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAiAppDetailTopoResponse
+     */
+    public function getAiAppDetailTopoWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetAiAppDetailTopoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->timeQuery) {
+            $request->timeQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->timeQuery, 'TimeQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->timeQueryShrink) {
+            @$query['TimeQuery'] = $request->timeQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAiAppDetailTopo',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAiAppDetailTopoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the topology of an AI application.
+     *
+     * @param request - GetAiAppDetailTopoRequest
+     *
+     * @returns GetAiAppDetailTopoResponse
+     *
+     * @param GetAiAppDetailTopoRequest $request
+     *
+     * @return GetAiAppDetailTopoResponse
+     */
+    public function getAiAppDetailTopo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAiAppDetailTopoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of an application node in the agent topology.
+     *
+     * @param request - GetAiAppNodeDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAiAppNodeDetailResponse
+     *
+     * @param GetAiAppNodeDetailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAiAppNodeDetailResponse
+     */
+    public function getAiAppNodeDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->nodeName) {
+            @$query['NodeName'] = $request->nodeName;
+        }
+
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAiAppNodeDetail',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAiAppNodeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an application node in the agent topology.
+     *
+     * @param request - GetAiAppNodeDetailRequest
+     *
+     * @returns GetAiAppNodeDetailResponse
+     *
+     * @param GetAiAppNodeDetailRequest $request
+     *
+     * @return GetAiAppNodeDetailResponse
+     */
+    public function getAiAppNodeDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAiAppNodeDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the overview information of AI applications.
+     *
+     * @param request - GetAiAppOverviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAiAppOverviewResponse
+     *
+     * @param GetAiAppOverviewRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAiAppOverviewResponse
+     */
+    public function getAiAppOverviewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAiAppOverview',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAiAppOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the overview information of AI applications.
+     *
+     * @param request - GetAiAppOverviewRequest
+     *
+     * @returns GetAiAppOverviewResponse
+     *
+     * @param GetAiAppOverviewRequest $request
+     *
+     * @return GetAiAppOverviewResponse
+     */
+    public function getAiAppOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAiAppOverviewWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves statistics data for AI applications.
+     *
+     * @param request - GetAiAppStatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAiAppStatsResponse
+     *
+     * @param GetAiAppStatsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAiAppStatsResponse
+     */
+    public function getAiAppStatsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->byMonth) {
+            @$query['ByMonth'] = $request->byMonth;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAiAppStats',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAiAppStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves statistics data for AI applications.
+     *
+     * @param request - GetAiAppStatsRequest
+     *
+     * @returns GetAiAppStatsResponse
+     *
+     * @param GetAiAppStatsRequest $request
+     *
+     * @return GetAiAppStatsResponse
+     */
+    public function getAiAppStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAiAppStatsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of an app alert.
+     *
+     * @param request - GetAiAppTraceDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAiAppTraceDetailResponse
+     *
+     * @param GetAiAppTraceDetailRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAiAppTraceDetailResponse
+     */
+    public function getAiAppTraceDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->traceId) {
+            @$query['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAiAppTraceDetail',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAiAppTraceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an app alert.
+     *
+     * @param request - GetAiAppTraceDetailRequest
+     *
+     * @returns GetAiAppTraceDetailResponse
+     *
+     * @param GetAiAppTraceDetailRequest $request
+     *
+     * @return GetAiAppTraceDetailResponse
+     */
+    public function getAiAppTraceDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAiAppTraceDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the import progress of proxy answer samples.
      *
      * @param request - GetAnswerImportProgressRequest
@@ -3694,6 +4310,67 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getGuardLogStatsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves statistics information on AI application protection data.
+     *
+     * @param request - GetGuardStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGuardStatusResponse
+     *
+     * @param GetGuardStatusRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetGuardStatusResponse
+     */
+    public function getGuardStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetGuardStatus',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGuardStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves statistics information on AI application protection data.
+     *
+     * @param request - GetGuardStatusRequest
+     *
+     * @returns GetGuardStatusResponse
+     *
+     * @param GetGuardStatusRequest $request
+     *
+     * @return GetGuardStatusResponse
+     */
+    public function getGuardStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGuardStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -4459,6 +5136,140 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPromptTestResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries QPS statistics information.
+     *
+     * @param request - GetQpsStatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQpsStatsResponse
+     *
+     * @param GetQpsStatsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetQpsStatsResponse
+     */
+    public function getQpsStatsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQpsStats',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQpsStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries QPS statistics information.
+     *
+     * @param request - GetQpsStatsRequest
+     *
+     * @returns GetQpsStatsResponse
+     *
+     * @param GetQpsStatsRequest $request
+     *
+     * @return GetQpsStatsResponse
+     */
+    public function getQpsStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQpsStatsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries risk posture statistics.
+     *
+     * @param request - GetRiskStatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRiskStatsResponse
+     *
+     * @param GetRiskStatsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetRiskStatsResponse
+     */
+    public function getRiskStatsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->classify) {
+            @$query['Classify'] = $request->classify;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRiskStats',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRiskStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries risk posture statistics.
+     *
+     * @param request - GetRiskStatsRequest
+     *
+     * @returns GetRiskStatsResponse
+     *
+     * @param GetRiskStatsRequest $request
+     *
+     * @return GetRiskStatsResponse
+     */
+    public function getRiskStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRiskStatsWithOptions($request, $runtime);
     }
 
     /**
@@ -5330,6 +6141,359 @@ class Green extends OpenApiClient
     }
 
     /**
+     * Initializes AI application log scanning and activates the service.
+     *
+     * @param request - InitAiAppScanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitAiAppScanResponse
+     *
+     * @param InitAiAppScanRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InitAiAppScanResponse
+     */
+    public function initAiAppScanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InitAiAppScan',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InitAiAppScanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initializes AI application log scanning and activates the service.
+     *
+     * @param request - InitAiAppScanRequest
+     *
+     * @returns InitAiAppScanResponse
+     *
+     * @param InitAiAppScanRequest $request
+     *
+     * @return InitAiAppScanResponse
+     */
+    public function initAiAppScan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initAiAppScanWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a paginated list of AI applications.
+     *
+     * @param request - ListAiAppByPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAiAppByPageResponse
+     *
+     * @param ListAiAppByPageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAiAppByPageResponse
+     */
+    public function listAiAppByPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAiAppByPage',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAiAppByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a paginated list of AI applications.
+     *
+     * @param request - ListAiAppByPageRequest
+     *
+     * @returns ListAiAppByPageResponse
+     *
+     * @param ListAiAppByPageRequest $request
+     *
+     * @return ListAiAppByPageResponse
+     */
+    public function listAiAppByPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAiAppByPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of risk events for AI applications.
+     *
+     * @param request - ListAiAppRiskEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAiAppRiskEventResponse
+     *
+     * @param ListAiAppRiskEventRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAiAppRiskEventResponse
+     */
+    public function listAiAppRiskEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAiAppRiskEvent',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAiAppRiskEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of risk events for AI applications.
+     *
+     * @param request - ListAiAppRiskEventRequest
+     *
+     * @returns ListAiAppRiskEventResponse
+     *
+     * @param ListAiAppRiskEventRequest $request
+     *
+     * @return ListAiAppRiskEventResponse
+     */
+    public function listAiAppRiskEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAiAppRiskEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a paginated list of risk events for AI applications.
+     *
+     * @param request - ListAiAppRiskEventByPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAiAppRiskEventByPageResponse
+     *
+     * @param ListAiAppRiskEventByPageRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAiAppRiskEventByPageResponse
+     */
+    public function listAiAppRiskEventByPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAiAppRiskEventByPage',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAiAppRiskEventByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a paginated list of risk events for AI applications.
+     *
+     * @param request - ListAiAppRiskEventByPageRequest
+     *
+     * @returns ListAiAppRiskEventByPageResponse
+     *
+     * @param ListAiAppRiskEventByPageRequest $request
+     *
+     * @return ListAiAppRiskEventByPageResponse
+     */
+    public function listAiAppRiskEventByPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAiAppRiskEventByPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the alert list of an application with pagination.
+     *
+     * @param request - ListAiAppWarningByPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAiAppWarningByPageResponse
+     *
+     * @param ListAiAppWarningByPageRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAiAppWarningByPageResponse
+     */
+    public function listAiAppWarningByPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAiAppWarningByPage',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAiAppWarningByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the alert list of an application with pagination.
+     *
+     * @param request - ListAiAppWarningByPageRequest
+     *
+     * @returns ListAiAppWarningByPageResponse
+     *
+     * @param ListAiAppWarningByPageRequest $request
+     *
+     * @return ListAiAppWarningByPageResponse
+     */
+    public function listAiAppWarningByPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAiAppWarningByPageWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of proxy answer libraries.
      *
      * @param request - ListAnswerLibRequest
@@ -6191,7 +7355,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss结果反馈.
+     * Provides feedback on OSS detection results.
+     *
+     * @remarks
+     * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
      *
      * @param request - MarkOssV2ResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6250,7 +7417,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss结果反馈.
+     * Provides feedback on OSS detection results.
+     *
+     * @remarks
+     * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
      *
      * @param request - MarkOssV2ResultRequest
      *
@@ -7113,6 +8283,79 @@ class Green extends OpenApiClient
     }
 
     /**
+     * Queries label configurations.
+     *
+     * @param request - QueryLabelConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryLabelConfigResponse
+     *
+     * @param QueryLabelConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryLabelConfigResponse
+     */
+    public function queryLabelConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->classify) {
+            @$query['Classify'] = $request->classify;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryLabelConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryLabelConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries label configurations.
+     *
+     * @param request - QueryLabelConfigRequest
+     *
+     * @returns QueryLabelConfigResponse
+     *
+     * @param QueryLabelConfigRequest $request
+     *
+     * @return QueryLabelConfigResponse
+     */
+    public function queryLabelConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryLabelConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Reverts an app to a historical version.
      *
      * @param request - RecoverAppConfigHistoryRequest
@@ -7247,6 +8490,71 @@ class Green extends OpenApiClient
     }
 
     /**
+     * Updates the scan status of AI applications.
+     *
+     * @param request - UpdateAiAppScanStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAiAppScanStatusResponse
+     *
+     * @param UpdateAiAppScanStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateAiAppScanStatusResponse
+     */
+    public function updateAiAppScanStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appIds) {
+            @$query['AppIds'] = $request->appIds;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAiAppScanStatus',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAiAppScanStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the scan status of AI applications.
+     *
+     * @param request - UpdateAiAppScanStatusRequest
+     *
+     * @returns UpdateAiAppScanStatusResponse
+     *
+     * @param UpdateAiAppScanStatusRequest $request
+     *
+     * @return UpdateAiAppScanStatusResponse
+     */
+    public function updateAiAppScanStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAiAppScanStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the evidence transfer configuration.
      *
      * @param request - UpdateBackupConfigRequest
@@ -7313,6 +8621,89 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateBackupConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the status of risk events.
+     *
+     * @param tmpReq - UpdateEventStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEventStatusResponse
+     *
+     * @param UpdateEventStatusRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateEventStatusResponse
+     */
+    public function updateEventStatusWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateEventStatusShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->eventIds) {
+            $request->eventIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventIds, 'EventIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->eventIdsShrink) {
+            @$query['EventIds'] = $request->eventIdsShrink;
+        }
+
+        if (null !== $request->operationCode) {
+            @$query['OperationCode'] = $request->operationCode;
+        }
+
+        if (null !== $request->operationParams) {
+            @$query['OperationParams'] = $request->operationParams;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEventStatus',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEventStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the status of risk events.
+     *
+     * @param request - UpdateEventStatusRequest
+     *
+     * @returns UpdateEventStatusResponse
+     *
+     * @param UpdateEventStatusRequest $request
+     *
+     * @return UpdateEventStatusResponse
+     */
+    public function updateEventStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEventStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -7532,6 +8923,75 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateKeywordLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates Meta log information.
+     *
+     * @param request - UpdateMetaLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMetaLogResponse
+     *
+     * @param UpdateMetaLogRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateMetaLogResponse
+     */
+    public function updateMetaLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
+        }
+
+        if (null !== $request->deliveryRegion) {
+            @$query['DeliveryRegion'] = $request->deliveryRegion;
+        }
+
+        if (null !== $request->storage) {
+            @$query['Storage'] = $request->storage;
+        }
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMetaLog',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMetaLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates Meta log information.
+     *
+     * @param request - UpdateMetaLogRequest
+     *
+     * @returns UpdateMetaLogResponse
+     *
+     * @param UpdateMetaLogRequest $request
+     *
+     * @return UpdateMetaLogResponse
+     */
+    public function updateMetaLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMetaLogWithOptions($request, $runtime);
     }
 
     /**
