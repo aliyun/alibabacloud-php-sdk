@@ -46,6 +46,11 @@ class LiveManifestConfig extends Model
     /**
      * @var int
      */
+    public $partHoldBackMs;
+
+    /**
+     * @var int
+     */
     public $presentationDelay;
 
     /**
@@ -70,6 +75,7 @@ class LiveManifestConfig extends Model
         'minBufferTime' => 'MinBufferTime',
         'minUpdatePeriod' => 'MinUpdatePeriod',
         'minVideoBitrate' => 'MinVideoBitrate',
+        'partHoldBackMs' => 'PartHoldBackMs',
         'presentationDelay' => 'PresentationDelay',
         'segmentCount' => 'SegmentCount',
         'segmentTemplateFormat' => 'SegmentTemplateFormat',
@@ -110,6 +116,10 @@ class LiveManifestConfig extends Model
 
         if (null !== $this->minVideoBitrate) {
             $res['MinVideoBitrate'] = $this->minVideoBitrate;
+        }
+
+        if (null !== $this->partHoldBackMs) {
+            $res['PartHoldBackMs'] = $this->partHoldBackMs;
         }
 
         if (null !== $this->presentationDelay) {
@@ -165,6 +175,10 @@ class LiveManifestConfig extends Model
 
         if (isset($map['MinVideoBitrate'])) {
             $model->minVideoBitrate = $map['MinVideoBitrate'];
+        }
+
+        if (isset($map['PartHoldBackMs'])) {
+            $model->partHoldBackMs = $map['PartHoldBackMs'];
         }
 
         if (isset($map['PresentationDelay'])) {

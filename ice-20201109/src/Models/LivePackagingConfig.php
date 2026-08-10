@@ -22,6 +22,11 @@ class LivePackagingConfig extends Model
     /**
      * @var int
      */
+    public $partDurationMs;
+
+    /**
+     * @var int
+     */
     public $segmentDuration;
 
     /**
@@ -31,6 +36,7 @@ class LivePackagingConfig extends Model
     protected $_name = [
         'drmConfig' => 'DrmConfig',
         'liveManifestConfigs' => 'LiveManifestConfigs',
+        'partDurationMs' => 'PartDurationMs',
         'segmentDuration' => 'SegmentDuration',
         'useAudioRenditionGroups' => 'UseAudioRenditionGroups',
     ];
@@ -62,6 +68,10 @@ class LivePackagingConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->partDurationMs) {
+            $res['PartDurationMs'] = $this->partDurationMs;
         }
 
         if (null !== $this->segmentDuration) {
@@ -96,6 +106,10 @@ class LivePackagingConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PartDurationMs'])) {
+            $model->partDurationMs = $map['PartDurationMs'];
         }
 
         if (isset($map['SegmentDuration'])) {

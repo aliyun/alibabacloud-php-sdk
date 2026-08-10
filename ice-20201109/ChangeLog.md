@@ -1,3 +1,6 @@
+2026-08-10 Version: 6.20.1
+- Generated php 2020-11-09 for ICE.
+
 2026-07-16 Version: 6.20.0
 - Support API SubmitCosyVoiceCustomizedVoiceJob.
 
