@@ -9805,7 +9805,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 提供给服务商的灵感值查询接口.
+     * Queries the inspiration value for service providers.
      *
      * @param request - QueryInspirationBalanceForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9848,7 +9848,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 提供给服务商的灵感值查询接口.
+     * Queries the inspiration value for service providers.
      *
      * @param request - QueryInspirationBalanceForPartnerRequest
      *

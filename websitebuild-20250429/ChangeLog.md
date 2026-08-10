@@ -1,3 +1,14 @@
+2026-08-10 Version: 2.36.1
+- Update API GetAppPublishStatus: add response parameters Body.Module.CurrentStepCode.
+- Update API GetAppPublishStatus: add response parameters Body.Module.ErrorStepCode.
+- Update API GetAppPublishStatus: add response parameters Body.Module.OrderTypeCode.
+- Update API GetAppPublishStatus: add response parameters Body.Module.StepCodes.
+- Update API ListAppPublishHistory: add response parameters Body.Module.History.$.CurrentStepCode.
+- Update API ListAppPublishHistory: add response parameters Body.Module.History.$.ErrorStepCode.
+- Update API ListAppPublishHistory: add response parameters Body.Module.History.$.OrderTypeCode.
+- Update API ListAppPublishHistory: add response parameters Body.Module.History.$.StepCodes.
+
+
 2026-08-07 Version: 2.36.0
 - Support API QueryInspirationBalanceForPartner.
 - Update API GetAppPlugin: add response parameters Body.Module.GitRef.

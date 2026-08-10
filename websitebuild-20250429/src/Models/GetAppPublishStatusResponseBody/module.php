@@ -21,6 +21,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $currentStepCode;
+
+    /**
+     * @var string
+     */
     public $deployChannel;
 
     /**
@@ -32,6 +37,11 @@ class module extends Model
      * @var string
      */
     public $errorStep;
+
+    /**
+     * @var string
+     */
+    public $errorStepCode;
 
     /**
      * @var bool
@@ -52,6 +62,11 @@ class module extends Model
      * @var string
      */
     public $orderType;
+
+    /**
+     * @var string
+     */
+    public $orderTypeCode;
 
     /**
      * @var int
@@ -81,6 +96,11 @@ class module extends Model
     /**
      * @var string[]
      */
+    public $stepCodes;
+
+    /**
+     * @var string[]
+     */
     public $steps;
 
     /**
@@ -90,24 +110,31 @@ class module extends Model
     protected $_name = [
         'canQuickRevert' => 'CanQuickRevert',
         'currentStep' => 'CurrentStep',
+        'currentStepCode' => 'CurrentStepCode',
         'deployChannel' => 'DeployChannel',
         'description' => 'Description',
         'errorStep' => 'ErrorStep',
+        'errorStepCode' => 'ErrorStepCode',
         'isFinish' => 'IsFinish',
         'isSuccess' => 'IsSuccess',
         'msg' => 'Msg',
         'orderType' => 'OrderType',
+        'orderTypeCode' => 'OrderTypeCode',
         'percent' => 'Percent',
         'publishNumber' => 'PublishNumber',
         'publishOrderId' => 'PublishOrderId',
         'publishTime' => 'PublishTime',
         'siteId' => 'SiteId',
+        'stepCodes' => 'StepCodes',
         'steps' => 'Steps',
         'subchannel' => 'Subchannel',
     ];
 
     public function validate()
     {
+        if (\is_array($this->stepCodes)) {
+            Model::validateArray($this->stepCodes);
+        }
         if (\is_array($this->steps)) {
             Model::validateArray($this->steps);
         }
@@ -125,6 +152,10 @@ class module extends Model
             $res['CurrentStep'] = $this->currentStep;
         }
 
+        if (null !== $this->currentStepCode) {
+            $res['CurrentStepCode'] = $this->currentStepCode;
+        }
+
         if (null !== $this->deployChannel) {
             $res['DeployChannel'] = $this->deployChannel;
         }
@@ -135,6 +166,10 @@ class module extends Model
 
         if (null !== $this->errorStep) {
             $res['ErrorStep'] = $this->errorStep;
+        }
+
+        if (null !== $this->errorStepCode) {
+            $res['ErrorStepCode'] = $this->errorStepCode;
         }
 
         if (null !== $this->isFinish) {
@@ -151,6 +186,10 @@ class module extends Model
 
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
+        }
+
+        if (null !== $this->orderTypeCode) {
+            $res['OrderTypeCode'] = $this->orderTypeCode;
         }
 
         if (null !== $this->percent) {
@@ -171,6 +210,17 @@ class module extends Model
 
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
+        }
+
+        if (null !== $this->stepCodes) {
+            if (\is_array($this->stepCodes)) {
+                $res['StepCodes'] = [];
+                $n1 = 0;
+                foreach ($this->stepCodes as $item1) {
+                    $res['StepCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->steps) {
@@ -207,6 +257,10 @@ class module extends Model
             $model->currentStep = $map['CurrentStep'];
         }
 
+        if (isset($map['CurrentStepCode'])) {
+            $model->currentStepCode = $map['CurrentStepCode'];
+        }
+
         if (isset($map['DeployChannel'])) {
             $model->deployChannel = $map['DeployChannel'];
         }
@@ -217,6 +271,10 @@ class module extends Model
 
         if (isset($map['ErrorStep'])) {
             $model->errorStep = $map['ErrorStep'];
+        }
+
+        if (isset($map['ErrorStepCode'])) {
+            $model->errorStepCode = $map['ErrorStepCode'];
         }
 
         if (isset($map['IsFinish'])) {
@@ -233,6 +291,10 @@ class module extends Model
 
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
+        }
+
+        if (isset($map['OrderTypeCode'])) {
+            $model->orderTypeCode = $map['OrderTypeCode'];
         }
 
         if (isset($map['Percent'])) {
@@ -253,6 +315,17 @@ class module extends Model
 
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
+        }
+
+        if (isset($map['StepCodes'])) {
+            if (!empty($map['StepCodes'])) {
+                $model->stepCodes = [];
+                $n1 = 0;
+                foreach ($map['StepCodes'] as $item1) {
+                    $model->stepCodes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Steps'])) {

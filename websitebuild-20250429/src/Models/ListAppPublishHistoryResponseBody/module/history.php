@@ -26,6 +26,11 @@ class history extends Model
     /**
      * @var string
      */
+    public $currentStepCode;
+
+    /**
+     * @var string
+     */
     public $deployChannel;
 
     /**
@@ -37,6 +42,11 @@ class history extends Model
      * @var string
      */
     public $errorStep;
+
+    /**
+     * @var string
+     */
+    public $errorStepCode;
 
     /**
      * @var bool
@@ -57,6 +67,11 @@ class history extends Model
      * @var string
      */
     public $orderType;
+
+    /**
+     * @var string
+     */
+    public $orderTypeCode;
 
     /**
      * @var int
@@ -81,6 +96,11 @@ class history extends Model
     /**
      * @var string[]
      */
+    public $stepCodes;
+
+    /**
+     * @var string[]
+     */
     public $steps;
 
     /**
@@ -91,23 +111,30 @@ class history extends Model
         'canQuickRevert' => 'CanQuickRevert',
         'commitHash' => 'CommitHash',
         'currentStep' => 'CurrentStep',
+        'currentStepCode' => 'CurrentStepCode',
         'deployChannel' => 'DeployChannel',
         'description' => 'Description',
         'errorStep' => 'ErrorStep',
+        'errorStepCode' => 'ErrorStepCode',
         'isFinish' => 'IsFinish',
         'isSuccess' => 'IsSuccess',
         'msg' => 'Msg',
         'orderType' => 'OrderType',
+        'orderTypeCode' => 'OrderTypeCode',
         'percent' => 'Percent',
         'publishNumber' => 'PublishNumber',
         'publishOrderId' => 'PublishOrderId',
         'publishTime' => 'PublishTime',
+        'stepCodes' => 'StepCodes',
         'steps' => 'Steps',
         'subchannel' => 'Subchannel',
     ];
 
     public function validate()
     {
+        if (\is_array($this->stepCodes)) {
+            Model::validateArray($this->stepCodes);
+        }
         if (\is_array($this->steps)) {
             Model::validateArray($this->steps);
         }
@@ -129,6 +156,10 @@ class history extends Model
             $res['CurrentStep'] = $this->currentStep;
         }
 
+        if (null !== $this->currentStepCode) {
+            $res['CurrentStepCode'] = $this->currentStepCode;
+        }
+
         if (null !== $this->deployChannel) {
             $res['DeployChannel'] = $this->deployChannel;
         }
@@ -139,6 +170,10 @@ class history extends Model
 
         if (null !== $this->errorStep) {
             $res['ErrorStep'] = $this->errorStep;
+        }
+
+        if (null !== $this->errorStepCode) {
+            $res['ErrorStepCode'] = $this->errorStepCode;
         }
 
         if (null !== $this->isFinish) {
@@ -157,6 +192,10 @@ class history extends Model
             $res['OrderType'] = $this->orderType;
         }
 
+        if (null !== $this->orderTypeCode) {
+            $res['OrderTypeCode'] = $this->orderTypeCode;
+        }
+
         if (null !== $this->percent) {
             $res['Percent'] = $this->percent;
         }
@@ -171,6 +210,17 @@ class history extends Model
 
         if (null !== $this->publishTime) {
             $res['PublishTime'] = $this->publishTime;
+        }
+
+        if (null !== $this->stepCodes) {
+            if (\is_array($this->stepCodes)) {
+                $res['StepCodes'] = [];
+                $n1 = 0;
+                foreach ($this->stepCodes as $item1) {
+                    $res['StepCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->steps) {
@@ -211,6 +261,10 @@ class history extends Model
             $model->currentStep = $map['CurrentStep'];
         }
 
+        if (isset($map['CurrentStepCode'])) {
+            $model->currentStepCode = $map['CurrentStepCode'];
+        }
+
         if (isset($map['DeployChannel'])) {
             $model->deployChannel = $map['DeployChannel'];
         }
@@ -221,6 +275,10 @@ class history extends Model
 
         if (isset($map['ErrorStep'])) {
             $model->errorStep = $map['ErrorStep'];
+        }
+
+        if (isset($map['ErrorStepCode'])) {
+            $model->errorStepCode = $map['ErrorStepCode'];
         }
 
         if (isset($map['IsFinish'])) {
@@ -239,6 +297,10 @@ class history extends Model
             $model->orderType = $map['OrderType'];
         }
 
+        if (isset($map['OrderTypeCode'])) {
+            $model->orderTypeCode = $map['OrderTypeCode'];
+        }
+
         if (isset($map['Percent'])) {
             $model->percent = $map['Percent'];
         }
@@ -253,6 +315,17 @@ class history extends Model
 
         if (isset($map['PublishTime'])) {
             $model->publishTime = $map['PublishTime'];
+        }
+
+        if (isset($map['StepCodes'])) {
+            if (!empty($map['StepCodes'])) {
+                $model->stepCodes = [];
+                $n1 = 0;
+                foreach ($map['StepCodes'] as $item1) {
+                    $model->stepCodes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Steps'])) {
