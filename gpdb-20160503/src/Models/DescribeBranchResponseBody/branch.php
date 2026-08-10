@@ -87,6 +87,11 @@ class branch extends Model
     /**
      * @var string
      */
+    public $spbProjectId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -109,6 +114,7 @@ class branch extends Model
         'projectId' => 'ProjectId',
         'protected' => 'Protected',
         'serviceType' => 'ServiceType',
+        'spbProjectId' => 'SpbProjectId',
         'status' => 'Status',
         'tags' => 'Tags',
     ];
@@ -182,6 +188,10 @@ class branch extends Model
 
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
+        }
+
+        if (null !== $this->spbProjectId) {
+            $res['SpbProjectId'] = $this->spbProjectId;
         }
 
         if (null !== $this->status) {
@@ -268,6 +278,10 @@ class branch extends Model
 
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
+        }
+
+        if (isset($map['SpbProjectId'])) {
+            $model->spbProjectId = $map['SpbProjectId'];
         }
 
         if (isset($map['Status'])) {
