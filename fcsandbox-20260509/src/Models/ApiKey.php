@@ -39,6 +39,16 @@ class ApiKey extends Model
     public $expireTime;
 
     /**
+     * @var IPConfig[]
+     */
+    public $ipBlacklist;
+
+    /**
+     * @var IPConfig[]
+     */
+    public $ipWhitelist;
+
+    /**
      * @var string
      */
     public $lastUsedTime;
@@ -47,6 +57,11 @@ class ApiKey extends Model
      * @var string
      */
     public $resourceGroupID;
+
+    /**
+     * @var string
+     */
+    public $source;
 
     /**
      * @var string
@@ -84,8 +99,11 @@ class ApiKey extends Model
         'apiKeyValue' => 'apiKeyValue',
         'createdTime' => 'createdTime',
         'expireTime' => 'expireTime',
+        'ipBlacklist' => 'ipBlacklist',
+        'ipWhitelist' => 'ipWhitelist',
         'lastUsedTime' => 'lastUsedTime',
         'resourceGroupID' => 'resourceGroupID',
+        'source' => 'source',
         'status' => 'status',
         'teamID' => 'teamID',
         'teamName' => 'teamName',
@@ -96,6 +114,12 @@ class ApiKey extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipBlacklist)) {
+            Model::validateArray($this->ipBlacklist);
+        }
+        if (\is_array($this->ipWhitelist)) {
+            Model::validateArray($this->ipWhitelist);
+        }
         parent::validate();
     }
 
@@ -126,12 +150,38 @@ class ApiKey extends Model
             $res['expireTime'] = $this->expireTime;
         }
 
+        if (null !== $this->ipBlacklist) {
+            if (\is_array($this->ipBlacklist)) {
+                $res['ipBlacklist'] = [];
+                $n1 = 0;
+                foreach ($this->ipBlacklist as $item1) {
+                    $res['ipBlacklist'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->ipWhitelist) {
+            if (\is_array($this->ipWhitelist)) {
+                $res['ipWhitelist'] = [];
+                $n1 = 0;
+                foreach ($this->ipWhitelist as $item1) {
+                    $res['ipWhitelist'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->lastUsedTime) {
             $res['lastUsedTime'] = $this->lastUsedTime;
         }
 
         if (null !== $this->resourceGroupID) {
             $res['resourceGroupID'] = $this->resourceGroupID;
+        }
+
+        if (null !== $this->source) {
+            $res['source'] = $this->source;
         }
 
         if (null !== $this->status) {
@@ -193,12 +243,38 @@ class ApiKey extends Model
             $model->expireTime = $map['expireTime'];
         }
 
+        if (isset($map['ipBlacklist'])) {
+            if (!empty($map['ipBlacklist'])) {
+                $model->ipBlacklist = [];
+                $n1 = 0;
+                foreach ($map['ipBlacklist'] as $item1) {
+                    $model->ipBlacklist[$n1] = IPConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ipWhitelist'])) {
+            if (!empty($map['ipWhitelist'])) {
+                $model->ipWhitelist = [];
+                $n1 = 0;
+                foreach ($map['ipWhitelist'] as $item1) {
+                    $model->ipWhitelist[$n1] = IPConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['lastUsedTime'])) {
             $model->lastUsedTime = $map['lastUsedTime'];
         }
 
         if (isset($map['resourceGroupID'])) {
             $model->resourceGroupID = $map['resourceGroupID'];
+        }
+
+        if (isset($map['source'])) {
+            $model->source = $map['source'];
         }
 
         if (isset($map['status'])) {

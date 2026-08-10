@@ -49,11 +49,11 @@ class FCSandbox extends OpenApiClient
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-shenzhen' => 'fcsandbox.cn-shenzhen.aliyuncs.com',
+            'cn-beijing' => 'fcsandbox.cn-beijing.aliyuncs.com',
             'cn-shanghai' => 'fcsandbox.cn-shanghai.aliyuncs.com',
             'cn-hongkong' => 'fcsandbox.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'fcsandbox.cn-hangzhou.aliyuncs.com',
-            'cn-beijing' => 'fcsandbox.cn-beijing.aliyuncs.com',
             'ap-southeast-1' => 'fcsandbox.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou' => 'fcsandbox.cn-hangzhou.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('fcsandbox', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
