@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $alertNum;
+
+    /**
+     * @var int
+     */
     public $entityNum;
 
     /**
@@ -22,10 +27,17 @@ class data extends Model
      * @var string
      */
     public $entityUuid;
+
+    /**
+     * @var int
+     */
+    public $incidentNum;
     protected $_name = [
+        'alertNum' => 'AlertNum',
         'entityNum' => 'EntityNum',
         'entityType' => 'EntityType',
         'entityUuid' => 'EntityUuid',
+        'incidentNum' => 'IncidentNum',
     ];
 
     public function validate()
@@ -36,6 +48,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->alertNum) {
+            $res['AlertNum'] = $this->alertNum;
+        }
+
         if (null !== $this->entityNum) {
             $res['EntityNum'] = $this->entityNum;
         }
@@ -46,6 +62,10 @@ class data extends Model
 
         if (null !== $this->entityUuid) {
             $res['EntityUuid'] = $this->entityUuid;
+        }
+
+        if (null !== $this->incidentNum) {
+            $res['IncidentNum'] = $this->incidentNum;
         }
 
         return $res;
@@ -59,6 +79,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertNum'])) {
+            $model->alertNum = $map['AlertNum'];
+        }
+
         if (isset($map['EntityNum'])) {
             $model->entityNum = $map['EntityNum'];
         }
@@ -69,6 +93,10 @@ class data extends Model
 
         if (isset($map['EntityUuid'])) {
             $model->entityUuid = $map['EntityUuid'];
+        }
+
+        if (isset($map['IncidentNum'])) {
+            $model->incidentNum = $map['IncidentNum'];
         }
 
         return $model;

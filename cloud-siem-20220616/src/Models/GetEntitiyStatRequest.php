@@ -36,6 +36,11 @@ class GetEntitiyStatRequest extends Model
     /**
      * @var string
      */
+    public $entityUuids;
+
+    /**
+     * @var string
+     */
     public $incidentUuid;
 
     /**
@@ -73,6 +78,7 @@ class GetEntitiyStatRequest extends Model
         'entityName' => 'EntityName',
         'entityType' => 'EntityType',
         'entityUuid' => 'EntityUuid',
+        'entityUuids' => 'EntityUuids',
         'incidentUuid' => 'IncidentUuid',
         'isAsset' => 'IsAsset',
         'isMalwareEntity' => 'IsMalwareEntity',
@@ -108,6 +114,10 @@ class GetEntitiyStatRequest extends Model
 
         if (null !== $this->entityUuid) {
             $res['EntityUuid'] = $this->entityUuid;
+        }
+
+        if (null !== $this->entityUuids) {
+            $res['EntityUuids'] = $this->entityUuids;
         }
 
         if (null !== $this->incidentUuid) {
@@ -167,6 +177,10 @@ class GetEntitiyStatRequest extends Model
 
         if (isset($map['EntityUuid'])) {
             $model->entityUuid = $map['EntityUuid'];
+        }
+
+        if (isset($map['EntityUuids'])) {
+            $model->entityUuids = $map['EntityUuids'];
         }
 
         if (isset($map['IncidentUuid'])) {

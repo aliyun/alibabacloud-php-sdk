@@ -1,3 +1,20 @@
+2026-08-10 Version: 6.2.1
+- Update API GetEntitiyStat: add request parameters EntityUuids.
+- Update API GetEntitiyStat: add response parameters Body.Data.$.AlertNum.
+- Update API GetEntitiyStat: add response parameters Body.Data.$.IncidentNum.
+- Update API ListDisposeStrategy: add request parameters AlertUuid.
+- Update API ListDisposeStrategy: add request parameters EntityUuidList.
+- Update API ListDisposeStrategy: add request parameters GroupBy.
+- Update API ListDisposeStrategy: add request parameters GroupKey.
+- Update API ListDisposeStrategy: add request parameters MaxResults.
+- Update API ListDisposeStrategy: add request parameters NextToken.
+- Update API ListDisposeStrategy: add request parameters QueryMode.
+- Update API ListDisposeStrategy: add request parameters ResponseRuleId.
+- Update API ListDisposeStrategy: add request parameters StrategyId.
+- Update API ListDisposeStrategy: add response parameters Body.Data.Groups.
+- Update API ListDisposeStrategy: add response parameters Body.Data.ResponseData.$.AlertName.
+
+
 2026-08-06 Version: 6.2.1
 - Update API ListDisposeStrategy: add request parameters AlertUuid.
 - Update API ListDisposeStrategy: add request parameters EntityUuidList.
