@@ -125,10 +125,10 @@ class Ddosbgp extends OpenApiClient
             'cn-shenzhen-finance-1' => 'ddosbgp.aliyuncs.com',
             'cn-shanghai-finance-1' => 'ddosbgp.aliyuncs.com',
             'cn-north-2-gov-1' => 'ddosbgp.aliyuncs.com',
-            'us-west-1' => 'ddosbgp.us-west-1.aliyuncs.com',
-            'us-east-1' => 'ddosbgp.us-east-1.aliyuncs.com',
             'cn-hongkong' => 'ddosbgp.cn-hongkong.aliyuncs.com',
             'ap-southeast-1' => 'ddosbgp.ap-southeast-1.aliyuncs.com',
+            'us-west-1' => 'ddosbgp.us-west-1.aliyuncs.com',
+            'us-east-1' => 'ddosbgp.us-east-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ddosbgp', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1307,10 +1307,12 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of all Anti-DDoS Origin instances.
+     * Queries the details of Anti-DDoS Origin instances.
      *
      * @remarks
-     * Retrieves the details of all Anti-DDoS Origin instances.
+     * This operation is used to query the details of all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by paging, such as instance IDs, validity periods, and statuses.
+     * ### QPS limit
+     * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
      *
      * @param request - DescribeInstanceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1397,10 +1399,12 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of all Anti-DDoS Origin instances.
+     * Queries the details of Anti-DDoS Origin instances.
      *
      * @remarks
-     * Retrieves the details of all Anti-DDoS Origin instances.
+     * This operation is used to query the details of all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by paging, such as instance IDs, validity periods, and statuses.
+     * ### QPS limit
+     * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
      *
      * @param request - DescribeInstanceListRequest
      *
@@ -2200,7 +2204,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * Queries whether Simple Log Service is activated.
+     * Queries the activation status of Simple Log Service for the current Alibaba Cloud account.
      *
      * @param request - GetSlsOpenStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2243,7 +2247,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * Queries whether Simple Log Service is activated.
+     * Queries the activation status of Simple Log Service for the current Alibaba Cloud account.
      *
      * @param request - GetSlsOpenStatusRequest
      *
@@ -2261,7 +2265,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * Queries the Anti-DDoS Origin instances for which log analysis is enabled.
+     * Queries Anti-DDoS Origin instances that have log analysis enabled.
      *
      * @param request - ListOpenedAccessLogInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2308,7 +2312,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * Queries the Anti-DDoS Origin instances for which log analysis is enabled.
+     * Queries Anti-DDoS Origin instances that have log analysis enabled.
      *
      * @param request - ListOpenedAccessLogInstancesRequest
      *

@@ -67,6 +67,11 @@ class instanceList extends Model
     /**
      * @var string
      */
+    public $logExt;
+
+    /**
+     * @var string
+     */
     public $product;
 
     /**
@@ -95,6 +100,7 @@ class instanceList extends Model
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
         'ipType' => 'IpType',
+        'logExt' => 'LogExt',
         'product' => 'Product',
         'remark' => 'Remark',
         'resourceGroupId' => 'ResourceGroupId',
@@ -154,6 +160,10 @@ class instanceList extends Model
 
         if (null !== $this->ipType) {
             $res['IpType'] = $this->ipType;
+        }
+
+        if (null !== $this->logExt) {
+            $res['LogExt'] = $this->logExt;
         }
 
         if (null !== $this->product) {
@@ -225,6 +235,10 @@ class instanceList extends Model
 
         if (isset($map['IpType'])) {
             $model->ipType = $map['IpType'];
+        }
+
+        if (isset($map['LogExt'])) {
+            $model->logExt = $map['LogExt'];
         }
 
         if (isset($map['Product'])) {
