@@ -3361,7 +3361,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+     * Performs server-side liveness detection and face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether the user is a real person, compare the face against a retained face image for identity verification, search face libraries to determine whether the face already exists, and automatically register the face to a specified face library after successful verification.
      *
      * @param Request - FaceDuplicationCheckIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3446,6 +3446,10 @@ class Cloudauthintl extends OpenApiClient
             @$body['TargetFacePictureUrl'] = $request->targetFacePictureUrl;
         }
 
+        if (null !== $request->updateFaceIfUserExists) {
+            @$body['UpdateFaceIfUserExists'] = $request->updateFaceIfUserExists;
+        }
+
         if (null !== $request->verifyModel) {
             @$body['VerifyModel'] = $request->verifyModel;
         }
@@ -3470,7 +3474,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+     * Performs server-side liveness detection and face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether the user is a real person, compare the face against a retained face image for identity verification, search face libraries to determine whether the face already exists, and automatically register the face to a specified face library after successful verification.
      *
      * @param Request - FaceDuplicationCheckIntlRequest
      *
@@ -3841,7 +3845,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
+     * Performs real face detection by receiving pre-captured face images through the API operation. The algorithm primarily identifies whether a face is a screen replay or printed photo type of basic render liveness attack, and supports comparison with another face image to authenticate whether they belong to the same person.
      *
      * @remarks
      * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
@@ -3912,6 +3916,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['TargetFacePictureUrl'] = $request->targetFacePictureUrl;
         }
 
+        if (null !== $request->updateFaceIfUserExists) {
+            @$query['UpdateFaceIfUserExists'] = $request->updateFaceIfUserExists;
+        }
+
         if (null !== $request->verifyModel) {
             @$query['VerifyModel'] = $request->verifyModel;
         }
@@ -3945,7 +3953,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
+     * Performs real face detection by receiving pre-captured face images through the API operation. The algorithm primarily identifies whether a face is a screen replay or printed photo type of basic render liveness attack, and supports comparison with another face image to authenticate whether they belong to the same person.
      *
      * @remarks
      * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
@@ -4512,7 +4520,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Initializes an authentication session.
+     * Initializes an authentication process.
      *
      * @param tmpReq - InitializeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4754,6 +4762,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['TemplateType'] = $request->templateType;
         }
 
+        if (null !== $request->updateFaceIfUserExists) {
+            @$query['UpdateFaceIfUserExists'] = $request->updateFaceIfUserExists;
+        }
+
         if (null !== $request->useNFC) {
             @$query['UseNFC'] = $request->useNFC;
         }
@@ -4787,7 +4799,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Initializes an authentication session.
+     * Initializes an authentication process.
      *
      * @param Request - InitializeRequest
      *
@@ -5049,6 +5061,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->templateType) {
             @$query['TemplateType'] = $request->templateType;
+        }
+
+        if (null !== $request->updateFaceIfUserExists) {
+            @$query['UpdateFaceIfUserExists'] = $request->updateFaceIfUserExists;
         }
 
         if (null !== $request->useNFC) {

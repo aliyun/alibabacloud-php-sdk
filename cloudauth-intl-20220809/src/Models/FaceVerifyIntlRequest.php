@@ -86,6 +86,11 @@ class FaceVerifyIntlRequest extends Model
     /**
      * @var string
      */
+    public $updateFaceIfUserExists;
+
+    /**
+     * @var string
+     */
     public $verifyModel;
     protected $_name = [
         'autoRegistration' => 'AutoRegistration',
@@ -103,6 +108,7 @@ class FaceVerifyIntlRequest extends Model
         'targetFacePicture' => 'TargetFacePicture',
         'targetFacePictureFile' => 'TargetFacePictureFile',
         'targetFacePictureUrl' => 'TargetFacePictureUrl',
+        'updateFaceIfUserExists' => 'UpdateFaceIfUserExists',
         'verifyModel' => 'VerifyModel',
     ];
 
@@ -172,6 +178,10 @@ class FaceVerifyIntlRequest extends Model
 
         if (null !== $this->targetFacePictureUrl) {
             $res['TargetFacePictureUrl'] = $this->targetFacePictureUrl;
+        }
+
+        if (null !== $this->updateFaceIfUserExists) {
+            $res['UpdateFaceIfUserExists'] = $this->updateFaceIfUserExists;
         }
 
         if (null !== $this->verifyModel) {
@@ -247,6 +257,10 @@ class FaceVerifyIntlRequest extends Model
 
         if (isset($map['TargetFacePictureUrl'])) {
             $model->targetFacePictureUrl = $map['TargetFacePictureUrl'];
+        }
+
+        if (isset($map['UpdateFaceIfUserExists'])) {
+            $model->updateFaceIfUserExists = $map['UpdateFaceIfUserExists'];
         }
 
         if (isset($map['VerifyModel'])) {

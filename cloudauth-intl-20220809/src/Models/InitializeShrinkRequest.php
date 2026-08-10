@@ -291,6 +291,11 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $updateFaceIfUserExists;
+
+    /**
+     * @var string
+     */
     public $useNFC;
 
     /**
@@ -354,6 +359,7 @@ class InitializeShrinkRequest extends Model
         'templateConfig' => 'TemplateConfig',
         'templateRanCount' => 'TemplateRanCount',
         'templateType' => 'TemplateType',
+        'updateFaceIfUserExists' => 'UpdateFaceIfUserExists',
         'useNFC' => 'UseNFC',
         'verifyModel' => 'VerifyModel',
     ];
@@ -588,6 +594,10 @@ class InitializeShrinkRequest extends Model
 
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
+        }
+
+        if (null !== $this->updateFaceIfUserExists) {
+            $res['UpdateFaceIfUserExists'] = $this->updateFaceIfUserExists;
         }
 
         if (null !== $this->useNFC) {
@@ -831,6 +841,10 @@ class InitializeShrinkRequest extends Model
 
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
+        }
+
+        if (isset($map['UpdateFaceIfUserExists'])) {
+            $model->updateFaceIfUserExists = $map['UpdateFaceIfUserExists'];
         }
 
         if (isset($map['UseNFC'])) {

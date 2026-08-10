@@ -96,6 +96,11 @@ class FaceDuplicationCheckIntlRequest extends Model
     /**
      * @var string
      */
+    public $updateFaceIfUserExists;
+
+    /**
+     * @var string
+     */
     public $verifyModel;
     protected $_name = [
         'autoRegistration' => 'AutoRegistration',
@@ -115,6 +120,7 @@ class FaceDuplicationCheckIntlRequest extends Model
         'sourceFacePictureUrl' => 'SourceFacePictureUrl',
         'targetFacePicture' => 'TargetFacePicture',
         'targetFacePictureUrl' => 'TargetFacePictureUrl',
+        'updateFaceIfUserExists' => 'UpdateFaceIfUserExists',
         'verifyModel' => 'VerifyModel',
     ];
 
@@ -192,6 +198,10 @@ class FaceDuplicationCheckIntlRequest extends Model
 
         if (null !== $this->targetFacePictureUrl) {
             $res['TargetFacePictureUrl'] = $this->targetFacePictureUrl;
+        }
+
+        if (null !== $this->updateFaceIfUserExists) {
+            $res['UpdateFaceIfUserExists'] = $this->updateFaceIfUserExists;
         }
 
         if (null !== $this->verifyModel) {
@@ -275,6 +285,10 @@ class FaceDuplicationCheckIntlRequest extends Model
 
         if (isset($map['TargetFacePictureUrl'])) {
             $model->targetFacePictureUrl = $map['TargetFacePictureUrl'];
+        }
+
+        if (isset($map['UpdateFaceIfUserExists'])) {
+            $model->updateFaceIfUserExists = $map['UpdateFaceIfUserExists'];
         }
 
         if (isset($map['VerifyModel'])) {
