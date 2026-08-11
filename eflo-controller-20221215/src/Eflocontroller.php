@@ -53,6 +53,9 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeInvocationsRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeInvocationsResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNetTestResultRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNetTestResultResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeGroupRefreshTaskRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeGroupRefreshTaskResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeGroupRefreshTaskShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeGroupRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeGroupResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeRequest;
@@ -96,6 +99,12 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListMachineTypesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListMachineTypesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNetTestResultsRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNetTestResultsResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupDriftedNodesRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupDriftedNodesResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupDriftedNodesShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupRefreshTasksRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupRefreshTasksResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupRefreshTasksShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupsRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupsResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListSyslogsRequest;
@@ -109,6 +118,9 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListVscsShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RebootNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RebootNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RebootNodesShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RefreshNodeGroupNodesRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RefreshNodeGroupNodesResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RefreshNodeGroupNodesShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesShrinkRequest;
@@ -149,24 +161,24 @@ class Eflocontroller extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'me-east-1' => 'eflo-controller.me-east-1.aliyuncs.com',
-            'eu-central-1' => 'eflo-controller.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'eflo-controller.cn-zhangjiakou.aliyuncs.com',
             'cn-wulanchabu' => 'eflo-controller.cn-wulanchabu.aliyuncs.com',
-            'cn-shenzhen' => 'eflo-controller.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'eflo-controller.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-beijing' => 'eflo-controller.cn-beijing.aliyuncs.com',
             'cn-shanghai' => 'eflo-controller.cn-shanghai.aliyuncs.com',
-            'cn-huhehaote' => 'eflo-controller.cn-huhehaote.aliyuncs.com',
             'cn-hongkong' => 'eflo-controller.cn-hongkong.aliyuncs.com',
             'cn-heyuan' => 'eflo-controller.cn-heyuan.aliyuncs.com',
-            'cn-hangzhou' => 'eflo-controller.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'eflo-controller.cn-guangzhou.aliyuncs.com',
-            'cn-beijing' => 'eflo-controller.cn-beijing.aliyuncs.com',
-            'ap-southeast-8' => 'eflo-controller.ap-sourtheast-8.aliyuncs.com',
-            'ap-southeast-7' => 'eflo-controller.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-3' => 'eflo-controller.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'eflo-controller.ap-southeast-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'eflo-controller.cn-zhangjiakou.aliyuncs.com',
+            'cn-shenzhen' => 'eflo-controller.cn-shenzhen.aliyuncs.com',
             'ap-northeast-1' => 'eflo-controller.ap-northeast-1.aliyuncs.com',
+            'cn-guangzhou' => 'eflo-controller.cn-guangzhou.aliyuncs.com',
+            'ap-southeast-1' => 'eflo-controller.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'eflo-controller.ap-southeast-3.aliyuncs.com',
+            'cn-huhehaote' => 'eflo-controller.cn-huhehaote.aliyuncs.com',
+            'ap-southeast-7' => 'eflo-controller.ap-southeast-7.aliyuncs.com',
+            'cn-hangzhou' => 'eflo-controller.cn-hangzhou.aliyuncs.com',
+            'ap-southeast-8' => 'eflo-controller.ap-southeast-8.aliyuncs.com',
+            'eu-central-1' => 'eflo-controller.eu-central-1.aliyuncs.com',
+            'me-east-1' => 'eflo-controller.me-east-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'eflo-controller.cn-shanghai-finance-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eflo-controller', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1812,6 +1824,93 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
+     * Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
+     *
+     * @remarks
+     * The returned results include the following:
+     * - The processing status of each node with configuration drift
+     * - The processing result, status, and reason for each node
+     * - The refreshed and skipped properties for each node
+     *
+     * @param tmpReq - DescribeNodeGroupRefreshTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNodeGroupRefreshTaskResponse
+     *
+     * @param DescribeNodeGroupRefreshTaskRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeNodeGroupRefreshTaskResponse
+     */
+    public function describeNodeGroupRefreshTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeNodeGroupRefreshTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeStatuses) {
+            $request->nodeStatusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeStatuses, 'NodeStatuses', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->nodeGroupRefreshTaskId) {
+            @$body['NodeGroupRefreshTaskId'] = $request->nodeGroupRefreshTaskId;
+        }
+
+        if (null !== $request->nodeStatusesShrink) {
+            @$body['NodeStatuses'] = $request->nodeStatusesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNodeGroupRefreshTask',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNodeGroupRefreshTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
+     *
+     * @remarks
+     * The returned results include the following:
+     * - The processing status of each node with configuration drift
+     * - The processing result, status, and reason for each node
+     * - The refreshed and skipped properties for each node
+     *
+     * @param request - DescribeNodeGroupRefreshTaskRequest
+     *
+     * @returns DescribeNodeGroupRefreshTaskResponse
+     *
+     * @param DescribeNodeGroupRefreshTaskRequest $request
+     *
+     * @return DescribeNodeGroupRefreshTaskResponse
+     */
+    public function describeNodeGroupRefreshTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNodeGroupRefreshTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Describes the constraints for a node type.
      *
      * @param request - DescribeNodeTypeRequest
@@ -3104,6 +3203,172 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
+     * Queries nodes with configuration drift within a node group and the drift details.
+     *
+     * @remarks
+     * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+     *
+     * @param tmpReq - ListNodeGroupDriftedNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodeGroupDriftedNodesResponse
+     *
+     * @param ListNodeGroupDriftedNodesRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListNodeGroupDriftedNodesResponse
+     */
+    public function listNodeGroupDriftedNodesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListNodeGroupDriftedNodesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeIds) {
+            $request->nodeIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeIds, 'NodeIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->nodeGroupId) {
+            @$body['NodeGroupId'] = $request->nodeGroupId;
+        }
+
+        if (null !== $request->nodeIdsShrink) {
+            @$body['NodeIds'] = $request->nodeIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListNodeGroupDriftedNodes',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNodeGroupDriftedNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries nodes with configuration drift within a node group and the drift details.
+     *
+     * @remarks
+     * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+     *
+     * @param request - ListNodeGroupDriftedNodesRequest
+     *
+     * @returns ListNodeGroupDriftedNodesResponse
+     *
+     * @param ListNodeGroupDriftedNodesRequest $request
+     *
+     * @return ListNodeGroupDriftedNodesResponse
+     */
+    public function listNodeGroupDriftedNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNodeGroupDriftedNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a paging list of node group configuration refresh tasks.
+     *
+     * @remarks
+     * If you do not know which node group has refresh tasks, you can perform a conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
+     *
+     * @param tmpReq - ListNodeGroupRefreshTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodeGroupRefreshTasksResponse
+     *
+     * @param ListNodeGroupRefreshTasksRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListNodeGroupRefreshTasksResponse
+     */
+    public function listNodeGroupRefreshTasksWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListNodeGroupRefreshTasksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->statuses) {
+            $request->statusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->nodeGroupId) {
+            @$body['NodeGroupId'] = $request->nodeGroupId;
+        }
+
+        if (null !== $request->statusesShrink) {
+            @$body['Statuses'] = $request->statusesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListNodeGroupRefreshTasks',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNodeGroupRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a paging list of node group configuration refresh tasks.
+     *
+     * @remarks
+     * If you do not know which node group has refresh tasks, you can perform a conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
+     *
+     * @param request - ListNodeGroupRefreshTasksRequest
+     *
+     * @returns ListNodeGroupRefreshTasksResponse
+     *
+     * @param ListNodeGroupRefreshTasksRequest $request
+     *
+     * @return ListNodeGroupRefreshTasksResponse
+     */
+    public function listNodeGroupRefreshTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNodeGroupRefreshTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * Query Node Group Information Under the Cluster.
      *
      * @param request - ListNodeGroupsRequest
@@ -3525,6 +3790,91 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rebootNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+     *
+     * @remarks
+     * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+     * Limits:
+     * - A node group can have only one running node group configuration refresh task at a time.
+     * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
+     * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
+     *
+     * @param tmpReq - RefreshNodeGroupNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshNodeGroupNodesResponse
+     *
+     * @param RefreshNodeGroupNodesRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RefreshNodeGroupNodesResponse
+     */
+    public function refreshNodeGroupNodesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RefreshNodeGroupNodesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeIds) {
+            $request->nodeIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeIds, 'NodeIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->maxDisruptiveAction) {
+            @$body['MaxDisruptiveAction'] = $request->maxDisruptiveAction;
+        }
+
+        if (null !== $request->nodeGroupId) {
+            @$body['NodeGroupId'] = $request->nodeGroupId;
+        }
+
+        if (null !== $request->nodeIdsShrink) {
+            @$body['NodeIds'] = $request->nodeIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RefreshNodeGroupNodes',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RefreshNodeGroupNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+     *
+     * @remarks
+     * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+     * Limits:
+     * - A node group can have only one running node group configuration refresh task at a time.
+     * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
+     * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
+     *
+     * @param request - RefreshNodeGroupNodesRequest
+     *
+     * @returns RefreshNodeGroupNodesResponse
+     *
+     * @param RefreshNodeGroupNodesRequest $request
+     *
+     * @return RefreshNodeGroupNodesResponse
+     */
+    public function refreshNodeGroupNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshNodeGroupNodesWithOptions($request, $runtime);
     }
 
     /**
