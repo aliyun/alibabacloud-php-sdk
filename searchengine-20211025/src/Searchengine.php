@@ -207,7 +207,17 @@ class Searchengine extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'ap-southeast-1' => 'searchengine.ap-southeast-1.aliyuncs.com',
+            'cn-beijing' => 'searchengine.cn-beijing.aliyuncs.com',
+            'cn-hangzhou' => 'searchengine.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai' => 'searchengine.cn-shanghai.aliyuncs.com',
+            'cn-shenzhen' => 'searchengine.cn-shenzhen.aliyuncs.com',
+            'cn-hongkong' => 'searchengine.cn-hongkong.aliyuncs.com',
+            'cn-zhangjiakou' => 'searchengine.cn-zhangjiakou.aliyuncs.com',
+            'eu-central-1' => 'searchengine.eu-central-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('searchengine', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -237,13 +247,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Triggers reindexing.
+     * Rebuilds an index.
      *
      * @remarks
      * ## Method
-     *     POST
+     * ```
+     * POST
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/actions/build-index
+     * ```
+     * /openapi/ha3/instances/{instanceId}/actions/build-index
+     * ```
      *
      * @param request - BuildIndexRequest
      * @param headers - map
@@ -318,13 +332,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Triggers reindexing.
+     * Rebuilds an index.
      *
      * @remarks
      * ## Method
-     *     POST
+     * ```
+     * POST
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/actions/build-index
+     * ```
+     * /openapi/ha3/instances/{instanceId}/actions/build-index
+     * ```
      *
      * @param request - BuildIndexRequest
      *
@@ -344,7 +362,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 更换实例资源组.
+     * Changes the resource group of an instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/actions/change-resource-group
+     * ```
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -391,7 +419,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 更换实例资源组.
+     * Changes the resource group of an instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/actions/change-resource-group
+     * ```
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -411,6 +449,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Clones an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/actions/clone
+     * ```
+     *
      * @param request - CloneSqlInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -458,6 +508,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Clones an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/actions/clone
+     * ```
+     *
      * @param request - CloneSqlInstanceRequest
      *
      * @returns CloneSqlInstanceResponse
@@ -478,6 +540,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Creates an alias.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/aliases
+     * ```.
+     *
      * @param request - CreateAliasRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -529,6 +603,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Creates an alias.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/aliases
+     * ```.
+     *
      * @param request - CreateAliasRequest
      *
      * @returns CreateAliasResponse
@@ -547,13 +633,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Creates a cluster.
+     * Add a cluster.
      *
      * @remarks
-     * ### [](#method)Method
-     * `POST`
-     * ### [](#uri)URI
-     * `/openapi/ha3/instances/{instanceId}/clusters`
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/clusters
+     * ```
      *
      * @param request - CreateClusterRequest
      * @param headers - map
@@ -612,13 +702,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Creates a cluster.
+     * Add a cluster.
      *
      * @remarks
-     * ### [](#method)Method
-     * `POST`
-     * ### [](#uri)URI
-     * `/openapi/ha3/instances/{instanceId}/clusters`
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/clusters
+     * ```
      *
      * @param request - CreateClusterRequest
      *
@@ -638,6 +732,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Creates a file directory in an advanced configuration.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir
+     * ```.
+     *
      * @param request - CreateConfigDirRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -684,6 +790,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Creates a file directory in an advanced configuration.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir
+     * ```.
+     *
      * @param request - CreateConfigDirRequest
      *
      * @returns CreateConfigDirResponse
@@ -703,6 +821,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Creates a file with advanced configurations.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+     * ```.
+     *
      * @param request - CreateConfigFileRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -753,6 +883,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Creates a file with advanced configurations.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+     * ```.
+     *
      * @param request - CreateConfigFileRequest
      *
      * @returns CreateConfigFileResponse
@@ -772,7 +914,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Creates data sources.
+     * Creates a data source.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources
+     * ```.
      *
      * @param request - CreateDataSourceRequest
      * @param headers - map
@@ -841,7 +993,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Creates data sources.
+     * Creates a data source.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources
+     * ```.
      *
      * @param request - CreateDataSourceRequest
      *
@@ -861,6 +1023,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Creates a folder.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders
+     * ```.
+     *
      * @param request - CreateFolderRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -911,6 +1085,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Creates a folder.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders
+     * ```.
+     *
      * @param request - CreateFolderRequest
      *
      * @returns CreateFolderResponse
@@ -1051,13 +1237,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Creates a Havenask instance.
+     * Creates a Wentian engine instance.
      *
      * @remarks
-     * ### [](#)Method
-     * `POST`
-     * ### [](#uri)URI
-     * `/api/instances?dryRun=false`
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances
+     * ```.
      *
      * @param request - CreateInstanceRequest
      * @param headers - map
@@ -1115,13 +1305,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Creates a Havenask instance.
+     * Creates a Wentian engine instance.
      *
      * @remarks
-     * ### [](#)Method
-     * `POST`
-     * ### [](#uri)URI
-     * `/api/instances?dryRun=false`
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances
+     * ```.
      *
      * @param request - CreateInstanceRequest
      *
@@ -1140,7 +1334,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 创建模型信息.
+     * Creates a model.
      *
      * @param request - CreateModelRequest
      * @param headers - map
@@ -1193,7 +1387,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 创建模型信息.
+     * Creates a model.
      *
      * @param request - CreateModelRequest
      *
@@ -1213,7 +1407,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Creates a public endpoint.
+     * Enables the public domain name.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/public-url
+     * ```.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1247,7 +1451,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Creates a public endpoint.
+     * Enables the public domain name.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/public-url
+     * ```.
      *
      * @returns CreatePublicUrlResponse
      *
@@ -1264,6 +1478,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Creates an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances
+     * ```.
+     *
      * @param request - CreateSqlInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1310,6 +1536,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Creates an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances
+     * ```.
+     *
      * @param request - CreateSqlInstanceRequest
      *
      * @returns CreateSqlInstanceResponse
@@ -1330,6 +1568,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Creates an index table.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables
+     * ```.
      *
      * @param request - CreateTableRequest
      * @param headers - map
@@ -1416,6 +1664,16 @@ class Searchengine extends OpenApiClient
     /**
      * Creates an index table.
      *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables
+     * ```.
+     *
      * @param request - CreateTableRequest
      *
      * @returns CreateTableResponse
@@ -1434,7 +1692,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 调试模型.
+     * Debugs a model.
      *
      * @param request - DebugModelRequest
      * @param headers - map
@@ -1484,7 +1742,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 调试模型.
+     * Debugs a model.
      *
      * @param request - DebugModelRequest
      *
@@ -1570,6 +1828,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Deletes an alias.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/aliases/{alias}
+     * ```.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1603,6 +1873,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Deletes an alias.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/aliases/{alias}
+     * ```.
+     *
      * @returns DeleteAliasResponse
      *
      * @param string $instanceId
@@ -1619,6 +1901,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Deletes an advanced configuration folder.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir
+     * ```.
+     *
      * @param request - DeleteConfigDirRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1665,6 +1959,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Deletes an advanced configuration folder.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir
+     * ```.
+     *
      * @param request - DeleteConfigDirRequest
      *
      * @returns DeleteConfigDirResponse
@@ -1684,6 +1990,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Deletes an advanced configuration file.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+     * ```.
+     *
      * @param request - DeleteConfigFileRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1730,6 +2048,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Deletes an advanced configuration file.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+     * ```.
+     *
      * @param request - DeleteConfigFileRequest
      *
      * @returns DeleteConfigFileResponse
@@ -1814,6 +2144,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Deletes a folder.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders/{folderId}
+     * ```
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1848,6 +2190,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Deletes a folder.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders/{folderId}
+     * ```
+     *
      * @returns DeleteFolderResponse
      *
      * @param string $instanceId
@@ -2076,7 +2430,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 删除模型.
+     * Deletes a model.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2111,7 +2465,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 删除模型.
+     * Deletes a model.
      *
      * @returns DeleteModelResponse
      *
@@ -2129,7 +2483,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 删除公网域名.
+     * Deletes a public domain name.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/public-url
+     * ```.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2163,7 +2527,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 删除公网域名.
+     * Deletes a public domain name.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/public-url
+     * ```.
      *
      * @returns DeletePublicUrlResponse
      *
@@ -2180,6 +2554,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Deletes an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}
+     * ```
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2214,6 +2600,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Deletes an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}
+     * ```
+     *
      * @returns DeleteSqlInstanceResponse
      *
      * @param string $instanceId
@@ -2231,7 +2629,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Deletes an index table.
+     * Delete an index table.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+     * ```
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2266,7 +2674,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Deletes an index table.
+     * Delete an index table.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+     * ```
      *
      * @returns DeleteTableResponse
      *
@@ -2285,6 +2703,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Queries available regions.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/regions
+     * ```
      *
      * @param request - DescribeRegionsRequest
      * @param headers - map
@@ -2328,6 +2756,16 @@ class Searchengine extends OpenApiClient
     /**
      * Queries available regions.
      *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/regions
+     * ```
+     *
      * @param request - DescribeRegionsRequest
      *
      * @returns DescribeRegionsResponse
@@ -2345,6 +2783,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Executes a SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/actions/execution
+     * ```
+     *
      * @param request - ExecuteSqlInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2412,6 +2862,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Executes a SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/actions/execution
+     * ```
+     *
      * @param request - ExecuteSqlInstanceRequest
      *
      * @returns ExecuteSqlInstanceResponse
@@ -2509,9 +2971,13 @@ class Searchengine extends OpenApiClient
      *
      * @remarks
      * ## Method
-     *     GET
+     * ```
+     * GET
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+     * ```
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+     * ```
      *
      * @param request - GetAdvanceConfigRequest
      * @param headers - map
@@ -2559,9 +3025,13 @@ class Searchengine extends OpenApiClient
      *
      * @remarks
      * ## Method
-     *     GET
+     * ```
+     * GET
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+     * ```
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+     * ```
      *
      * @param request - GetAdvanceConfigRequest
      *
@@ -2586,9 +3056,13 @@ class Searchengine extends OpenApiClient
      *
      * @remarks
      * ## Method
-     *     GET
+     * ```
+     * GET
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+     * ```
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+     * ```
      *
      * @param request - GetAdvanceConfigFileRequest
      * @param headers - map
@@ -2636,9 +3110,13 @@ class Searchengine extends OpenApiClient
      *
      * @remarks
      * ## Method
-     *     GET
+     * ```
+     * GET
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+     * ```
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+     * ```
      *
      * @param request - GetAdvanceConfigFileRequest
      *
@@ -2659,7 +3137,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cluster.
+     * Query a cluster.
      *
      * @remarks
      * ### Method
@@ -2700,7 +3178,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cluster.
+     * Query a cluster.
      *
      * @remarks
      * ### Method
@@ -2852,7 +3330,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 获取数据源部署信息.
+     * Retrieves the deployment information for a data source.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}
+     * ```
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2888,7 +3376,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 获取数据源部署信息.
+     * Retrieves the deployment information for a data source.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}
+     * ```
      *
      * @returns GetDataSourceDeployResponse
      *
@@ -2907,6 +3405,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Retrieves the schema of a database.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/tables/{tableName}/schema
+     * ```
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2941,6 +3451,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Retrieves the schema of a database.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/tables/{tableName}/schema
+     * ```
+     *
      * @returns GetDatabaseSchemaResponse
      *
      * @param string $instanceId
@@ -3025,13 +3547,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the details of an index table version.
+     * Retrieves the details of an index version.
      *
      * @remarks
-     * ## [](#)Method
-     *     GET
-     * ## [](#uri)URI
-     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
+     * ## Method
+     * ```
+     * GET
+     * ```
+     * ## URI
+     * ```
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
+     * ```
      *
      * @param request - GetFileRequest
      * @param headers - map
@@ -3076,13 +3602,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the details of an index table version.
+     * Retrieves the details of an index version.
      *
      * @remarks
-     * ## [](#)Method
-     *     GET
-     * ## [](#uri)URI
-     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
+     * ## Method
+     * ```
+     * GET
+     * ```
+     * ## URI
+     * ```
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
+     * ```
      *
      * @param request - GetFileRequest
      *
@@ -3104,13 +3634,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the information about an index version.
+     * Retrieves the details of an index table version.
      *
      * @remarks
-     * ## [](#)Method
-     *     GET
-     * ## [](#uri)URI
-     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+     * ## Method
+     * ```
+     * GET
+     * ```
+     * ## URI
+     * ```
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+     * ```
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3145,13 +3679,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the information about an index version.
+     * Retrieves the details of an index table version.
      *
      * @remarks
-     * ## [](#)Method
-     *     GET
-     * ## [](#uri)URI
-     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+     * ## Method
+     * ```
+     * GET
+     * ```
+     * ## URI
+     * ```
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+     * ```
      *
      * @returns GetIndexResponse
      *
@@ -3170,6 +3708,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Queries the online effective policy of an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}/indexes/{indexName}/online-strategy
+     * ```
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3207,6 +3755,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Queries the online effective policy of an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}/indexes/{indexName}/online-strategy
+     * ```
      *
      * @returns GetIndexOnlineStrategyResponse
      *
@@ -3291,14 +3849,14 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the details of an instance based on the instance ID.
+     * Retrieves the details of an instance by its ID.
      *
      * @remarks
-     * ### [](#)Method
+     * ### Method
      * ```java
      * GET
      * ```
-     * ### [](#uri)URI
+     * ### URI
      * ```java
      * /openapi/ha3/instances/{instanceId}
      * ```
@@ -3335,14 +3893,14 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the details of an instance based on the instance ID.
+     * Retrieves the details of an instance by its ID.
      *
      * @remarks
-     * ### [](#)Method
+     * ### Method
      * ```java
      * GET
      * ```
-     * ### [](#uri)URI
+     * ### URI
      * ```java
      * /openapi/ha3/instances/{instanceId}
      * ```
@@ -3362,13 +3920,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 通过实例ID和模型名称查询特定模型的详细配置信息。
+     * Queries the detailed configuration of a specific model by instance ID and model name.
      *
      * @remarks
-     * ## 请求说明
-     * - 该API用于获取指定实例下的特定模型的详细信息，包括模型类型、URL、状态等。
-     * - 确保提供的`instanceId`和`modelName`是有效的，否则可能返回错误或找不到资源。
-     * - 返回的数据结构中包含了模型的内容（如请求头、参数等）以及创建和更新时间，有助于了解模型的具体配置及其最新状态。
+     * ## Request description
+     * - This API retrieves the details of a specific model in an instance, such as its model type, URL, and status.
+     * - Ensure that the provided `instanceId` and `modelName` are valid. Otherwise, an error is returned or the resource cannot be found.
+     * - The response includes the model content, such as request headers and parameters. It also contains the creation and update times. This information helps you understand the model\\"s configuration and its current status.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3403,13 +3961,13 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 通过实例ID和模型名称查询特定模型的详细配置信息。
+     * Queries the detailed configuration of a specific model by instance ID and model name.
      *
      * @remarks
-     * ## 请求说明
-     * - 该API用于获取指定实例下的特定模型的详细信息，包括模型类型、URL、状态等。
-     * - 确保提供的`instanceId`和`modelName`是有效的，否则可能返回错误或找不到资源。
-     * - 返回的数据结构中包含了模型的内容（如请求头、参数等）以及创建和更新时间，有助于了解模型的具体配置及其最新状态。
+     * ## Request description
+     * - This API retrieves the details of a specific model in an instance, such as its model type, URL, and status.
+     * - Ensure that the provided `instanceId` and `modelName` are valid. Otherwise, an error is returned or the resource cannot be found.
+     * - The response includes the model content, such as request headers and parameters. It also contains the creation and update times. This information helps you understand the model\\"s configuration and its current status.
      *
      * @returns GetModelResponse
      *
@@ -3427,7 +3985,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Gets the configuration information of a node.
+     * Retrieves the configuration information of a node.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/node-config
+     * ```.
      *
      * @param request - GetNodeConfigRequest
      * @param headers - map
@@ -3478,7 +4046,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Gets the configuration information of a node.
+     * Retrieves the configuration information of a node.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/node-config
+     * ```.
      *
      * @param request - GetNodeConfigRequest
      *
@@ -3498,6 +4076,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Retrieves SQL instance information.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}
+     * ```.
+     *
      * @param request - GetSqlInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3541,6 +4131,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Retrieves SQL instance information.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}
+     * ```.
+     *
      * @param request - GetSqlInstanceRequest
      *
      * @returns GetSqlInstanceResponse
@@ -3561,7 +4163,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the information about an index table.
+     * Get index table information.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+     * ```
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3596,7 +4208,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the information about an index table.
+     * Get index table information.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+     * ```
      *
      * @returns GetTableResponse
      *
@@ -3615,6 +4237,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Queries the status of an index version based on the ID of the full index version.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}/index_versions/{generationId}
+     * ```
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3652,6 +4284,16 @@ class Searchengine extends OpenApiClient
     /**
      * Queries the status of an index version based on the ID of the full index version.
      *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}/index_versions/{generationId}
+     * ```
+     *
      * @returns GetTableGenerationResponse
      *
      * @param string $instanceId
@@ -3669,13 +4311,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the files in an advanced configuration directory.
+     * Retrieves the list of files in an advanced configuration directory.
      *
      * @remarks
-     * ## Method
-     * `GET`
-     * ## URI
-     * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}
+     * ```.
      *
      * @param request - ListAdvanceConfigDirRequest
      * @param headers - map
@@ -3719,13 +4365,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the files in an advanced configuration directory.
+     * Retrieves the list of files in an advanced configuration directory.
      *
      * @remarks
-     * ## Method
-     * `GET`
-     * ## URI
-     * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}
+     * ```.
      *
      * @param request - ListAdvanceConfigDirRequest
      *
@@ -3746,11 +4396,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Obtains a list of advanced configurations.
+     * Retrieves a list of advanced configurations.
      *
      * @remarks
-     * ## Sample requests
-     * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs?type=online
+     * ```
      *
      * @param request - ListAdvanceConfigsRequest
      * @param headers - map
@@ -3813,11 +4469,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Obtains a list of advanced configurations.
+     * Retrieves a list of advanced configurations.
      *
      * @remarks
-     * ## Sample requests
-     * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs?type=online
+     * ```
      *
      * @param request - ListAdvanceConfigsRequest
      *
@@ -3837,6 +4499,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Lists table aliases.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/aliases
+     * ```
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3869,6 +4543,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Lists table aliases.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/aliases
+     * ```
+     *
      * @returns ListAliasesResponse
      *
      * @param string $instanceId
@@ -4285,6 +4971,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Lists the existing databases.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases
+     * ```
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4317,6 +5015,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Lists the existing databases.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases
+     * ```
+     *
      * @returns ListDatabasesResponse
      *
      * @param string $instanceId
@@ -4332,13 +5042,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the historical index versions of a data source.
+     * Retrieves the historical data backflow information of a data source.
      *
      * @remarks
      * ### Method
-     * `GET`
+     * ```java
+     * GET
+     * ```
      * ### URI
-     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}
+     * ```
      *
      * @param request - ListDateSourceGenerationsRequest
      * @param headers - map
@@ -4386,13 +5100,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the historical index versions of a data source.
+     * Retrieves the historical data backflow information of a data source.
      *
      * @remarks
      * ### Method
-     * `GET`
+     * ```java
+     * GET
+     * ```
      * ### URI
-     * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}
+     * ```
      *
      * @param request - ListDateSourceGenerationsRequest
      *
@@ -4413,6 +5131,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Lists data recovery records.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/list-recover-records
+     * ```
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4446,6 +5176,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Lists data recovery records.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/list-recover-records
+     * ```
+     *
      * @returns ListIndexRecoverRecordsResponse
      *
      * @param string $indexName
@@ -4462,13 +5204,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Obtains the index list.
+     * Retrieves a list of indexes.
      *
      * @remarks
      * ## Method
-     *     GET
+     * ```
+     * GET
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/indexes
+     * ```
+     * /openapi/ha3/instances/{instanceId}/indexes
+     * ```
      *
      * @param request - ListIndexesRequest
      * @param headers - map
@@ -4523,13 +5269,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Obtains the index list.
+     * Retrieves a list of indexes.
      *
      * @remarks
      * ## Method
-     *     GET
+     * ```
+     * GET
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/indexes
+     * ```
+     * /openapi/ha3/instances/{instanceId}/indexes
+     * ```
      *
      * @param request - ListIndexesRequest
      *
@@ -4624,13 +5374,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * Retrieves a list of instances.
      *
      * @remarks
-     * ### [](#)Method
-     * `GET`
-     * ### [](#uri)URI
-     * `/openapi/ha3/instances`
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances
+     * ```
      *
      * @param tmpReq - ListInstancesRequest
      * @param headers - map
@@ -4718,13 +5472,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * Retrieves a list of instances.
      *
      * @remarks
-     * ### [](#)Method
-     * `GET`
-     * ### [](#uri)URI
-     * `/openapi/ha3/instances`
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances
+     * ```
      *
      * @param request - ListInstancesRequest
      *
@@ -4743,6 +5501,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Queries the logs of an instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/logs
+     * ```
+     *
      * @param request - ListLogsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4804,6 +5574,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Queries the logs of an instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/logs
+     * ```
+     *
      * @param request - ListLogsRequest
      *
      * @returns ListLogsResponse
@@ -4822,11 +5604,11 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 通过实例ID查询指定条件下的模型列表。
+     * Queries a list of models that meet specified conditions by instance ID.
      *
      * @remarks
-     * ## 请求说明
-     * 本API用于从指定实例中获取模型列表，支持通过模型名称、类型以及分页参数进行筛选。请求时需提供实例ID作为路径参数，其他筛选条件为可选的查询参数。
+     * ## Operation description
+     * This API operation retrieves a list of models from a specified instance. You can filter results by model name, type, and pagination parameters. Provide the instance ID as a path parameter. Other filter conditions are optional query parameters.
      *
      * @param request - ListModelsRequest
      * @param headers - map
@@ -4881,11 +5663,11 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 通过实例ID查询指定条件下的模型列表。
+     * Queries a list of models that meet specified conditions by instance ID.
      *
      * @remarks
-     * ## 请求说明
-     * 本API用于从指定实例中获取模型列表，支持通过模型名称、类型以及分页参数进行筛选。请求时需提供实例ID作为路径参数，其他筛选条件为可选的查询参数。
+     * ## Operation description
+     * This API operation retrieves a list of models from a specified instance. You can filter results by model name, type, and pagination parameters. Provide the instance ID as a path parameter. Other filter conditions are optional query parameters.
      *
      * @param request - ListModelsRequest
      *
@@ -4905,7 +5687,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the details of an online configuration.
+     * Query an online configuration.
      *
      * @remarks
      * ### Method
@@ -4959,7 +5741,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Queries the details of an online configuration.
+     * Query an online configuration.
      *
      * @remarks
      * ### Method
@@ -4990,6 +5772,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Queries pause policies.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/pause-policies
+     * ```
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5022,6 +5816,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Queries pause policies.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/pause-policies
+     * ```
+     *
      * @returns ListPausePolicysResponse
      *
      * @param string $instanceId
@@ -5037,7 +5843,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 召回引擎版使用POST请求获取搜索测试结果.
+     * Retrieves the results of a search test for a Retrieval-Augmented Generation Edition instance by sending a POST request.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/query
+     * ```
      *
      * @param request - ListPostQueryResultRequest
      * @param headers - map
@@ -5086,7 +5902,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 召回引擎版使用POST请求获取搜索测试结果.
+     * Retrieves the results of a search test for a Retrieval-Augmented Generation Edition instance by sending a POST request.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/query
+     * ```
      *
      * @param request - ListPostQueryResultRequest
      *
@@ -5185,7 +6011,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 召回引擎版获取rest查询搜索测试结果.
+     * Retrieves the test results of a REST search query for a Retrieval Engine Edition instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/rest-query
+     * ```
      *
      * @param request - ListRestQueryResultRequest
      * @param headers - map
@@ -5232,7 +6068,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 召回引擎版获取rest查询搜索测试结果.
+     * Retrieves the test results of a REST search query for a Retrieval Engine Edition instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/rest-query
+     * ```
      *
      * @param request - ListRestQueryResultRequest
      *
@@ -5252,7 +6098,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 通过数据源配置获取schema信息.
+     * Retrieves a list of schemas based on a data synchronization configuration.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/schemas
+     * ```
      *
      * @param request - ListSchemasRequest
      * @param headers - map
@@ -5323,7 +6179,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 通过数据源配置获取schema信息.
+     * Retrieves a list of schemas based on a data synchronization configuration.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/schemas
+     * ```
      *
      * @param request - ListSchemasRequest
      *
@@ -5344,6 +6210,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Queries a list of index versions.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}/index_versions
+     * ```
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5380,6 +6256,16 @@ class Searchengine extends OpenApiClient
     /**
      * Queries a list of index versions.
      *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}/index_versions
+     * ```
+     *
      * @returns ListTableGenerationsResponse
      *
      * @param string $instanceId
@@ -5397,6 +6283,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Queries a list of index tables.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables
+     * ```
      *
      * @param request - ListTablesRequest
      * @param headers - map
@@ -5441,6 +6337,16 @@ class Searchengine extends OpenApiClient
     /**
      * Queries a list of index tables.
      *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables
+     * ```
+     *
      * @param request - ListTablesRequest
      *
      * @returns ListTablesResponse
@@ -5459,7 +6365,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 查标签接口.
+     * Queries the tags attached to one or more resources.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/resource-tags
+     * ```
      *
      * @param tmpReq - ListTagResourcesRequest
      * @param headers - map
@@ -5523,7 +6439,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 查标签接口.
+     * Queries the tags attached to one or more resources.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/resource-tags
+     * ```
      *
      * @param request - ListTagResourcesRequest
      *
@@ -5542,7 +6468,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 获取集群任务列表（数据源+集群）.
+     * Retrieves the change history for an instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tasks
+     * ```
      *
      * @param request - ListTasksRequest
      * @param headers - map
@@ -5589,7 +6525,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 获取集群任务列表（数据源+集群）.
+     * Retrieves the change history for an instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * GET
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tasks
+     * ```
      *
      * @param request - ListTasksRequest
      *
@@ -5609,7 +6555,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 向量检索版获取向量查询搜索测试结果.
+     * Retrieves the results of a vector query test in Vector Search Edition.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/vector-query
+     * ```
      *
      * @param request - ListVectorQueryResultRequest
      * @param headers - map
@@ -5666,7 +6622,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 向量检索版获取向量查询搜索测试结果.
+     * Retrieves the results of a vector query test in Vector Search Edition.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/vector-query
+     * ```
      *
      * @param request - ListVectorQueryResultRequest
      *
@@ -5686,6 +6652,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Modifies the content of HTTP or Git files.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+     * ```
+     *
      * @param request - ModifyAdvanceConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5752,6 +6730,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Modifies the content of HTTP or Git files.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+     * ```
+     *
      * @param request - ModifyAdvanceConfigRequest
      *
      * @returns ModifyAdvanceConfigResponse
@@ -5771,13 +6761,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Modifies the advanced configurations.
+     * Modifies a dictionary.
      *
      * @remarks
      * ## Method
-     *     put
+     * ```
+     * PUT
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+     * ```
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+     * ```
      *
      * @param request - ModifyAdvanceConfigFileRequest
      * @param headers - map
@@ -5831,13 +6825,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Modifies the advanced configurations.
+     * Modifies a dictionary.
      *
      * @remarks
      * ## Method
-     *     put
+     * ```
+     * PUT
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+     * ```
+     * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+     * ```
      *
      * @param request - ModifyAdvanceConfigFileRequest
      *
@@ -5858,6 +6856,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Modifies a table alias.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/aliases/{alias}
+     * ```
+     *
      * @param request - ModifyAliasRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5904,6 +6914,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Modifies a table alias.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/aliases/{alias}
+     * ```
+     *
      * @param request - ModifyAliasRequest
      *
      * @returns ModifyAliasResponse
@@ -6004,7 +7026,9 @@ class Searchengine extends OpenApiClient
      *
      * @remarks
      * ## Request syntax
-     *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+     * ```
+     * PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+     * ```
      *
      * @param request - ModifyClusterOfflineConfigRequest
      * @param headers - map
@@ -6083,7 +7107,9 @@ class Searchengine extends OpenApiClient
      *
      * @remarks
      * ## Request syntax
-     *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+     * ```
+     * PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+     * ```
      *
      * @param request - ModifyClusterOfflineConfigRequest
      *
@@ -6182,7 +7208,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 修改数据源部署信息.
+     * Modifies the deployment information of a data source.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}
+     * ```.
      *
      * @param request - ModifyDataSourceDeployRequest
      * @param headers - map
@@ -6253,7 +7289,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 修改数据源部署信息.
+     * Modifies the deployment information of a data source.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}
+     * ```.
      *
      * @param request - ModifyDataSourceDeployRequest
      *
@@ -6364,7 +7410,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 编辑索引表.
+     * Modifies an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+     * ```.
      *
      * @param request - ModifyIndexRequest
      * @param headers - map
@@ -6462,7 +7518,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 编辑索引表.
+     * Modifies an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+     * ```.
      *
      * @param request - ModifyIndexRequest
      *
@@ -6484,6 +7550,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Modifies the online policy of an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}/indexes/{indexName}/online-strategy
+     * ```
      *
      * @param request - ModifyIndexOnlineStrategyRequest
      * @param headers - map
@@ -6530,6 +7606,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Modifies the online policy of an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}/indexes/{indexName}/online-strategy
+     * ```
      *
      * @param request - ModifyIndexOnlineStrategyRequest
      *
@@ -6711,7 +7797,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 修改模型详情，修改模型状态
+     * Modifies the details and status of a model.
      *
      * @param request - ModifyModelRequest
      * @param headers - map
@@ -6765,7 +7851,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 修改模型详情，修改模型状态
+     * Modifies the details and status of a model.
      *
      * @param request - ModifyModelRequest
      *
@@ -6786,7 +7872,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a node.
+     * Modify a node.
      *
      * @remarks
      * ### Method
@@ -6877,7 +7963,7 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a node.
+     * Modify a node.
      *
      * @remarks
      * ### Method
@@ -6994,13 +8080,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 修改实例的密码
+     * Modifies the password of an instance.
      *
      * @remarks
      * ### Method
-     * `PUT`
+     * ```java
+     * PUT
+     * ```
      * ### URI
-     * `/openapi/ha3/instances/{instanceId}/password`
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/password
+     * ```.
      *
      * @param request - ModifyPasswordRequest
      * @param headers - map
@@ -7047,13 +8137,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 修改实例的密码
+     * Modifies the password of an instance.
      *
      * @remarks
      * ### Method
-     * `PUT`
+     * ```java
+     * PUT
+     * ```
      * ### URI
-     * `/openapi/ha3/instances/{instanceId}/password`
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/password
+     * ```.
      *
      * @param request - ModifyPasswordRequest
      *
@@ -7073,6 +8167,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Modifies the pause policy.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/pause-policies
+     * ```
+     *
      * @param request - ModifyPausePolicyRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7114,6 +8220,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Modifies the pause policy.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/pause-policies
+     * ```
+     *
      * @param request - ModifyPausePolicyRequest
      *
      * @returns ModifyPausePolicyResponse
@@ -7132,7 +8250,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 修改公网域名访问白名单.
+     * Modifies the public domain name whitelist.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/public-url-ip-list
+     * ```
      *
      * @param request - ModifyPublicUrlIpListRequest
      * @param headers - map
@@ -7175,7 +8303,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 修改公网域名访问白名单.
+     * Modifies the public domain name whitelist.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/public-url-ip-list
+     * ```
      *
      * @param request - ModifyPublicUrlIpListRequest
      *
@@ -7195,11 +8333,11 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 通过指定实例ID来修改数据节点的副本或分片数量。
+     * Modifies the number of replicas or shards for data nodes in an instance.
      *
      * @remarks
-     * ## 请求说明
-     * 本API允许用户修改特定实例下的数据节点副本数或分片数。请求时，需提供实例ID，并在请求体中指定要修改的`replica`（副本数）或`partition`（分片数）。请注意，这两个参数都是可选的，但至少需要提供其中一个以执行更新操作。
+     * ## Request description
+     * This API lets you modify the number of replicas or shards for data nodes in a specific instance. When you make a request, provide the instance ID. In the request body, specify the number of replicas (`replica`) or shards (`partition`). These parameters are optional, but you must specify at least one of them to update the instance.
      *
      * @param request - ModifySearcherReplicaRequest
      * @param headers - map
@@ -7246,11 +8384,11 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 通过指定实例ID来修改数据节点的副本或分片数量。
+     * Modifies the number of replicas or shards for data nodes in an instance.
      *
      * @remarks
-     * ## 请求说明
-     * 本API允许用户修改特定实例下的数据节点副本数或分片数。请求时，需提供实例ID，并在请求体中指定要修改的`replica`（副本数）或`partition`（分片数）。请注意，这两个参数都是可选的，但至少需要提供其中一个以执行更新操作。
+     * ## Request description
+     * This API lets you modify the number of replicas or shards for data nodes in a specific instance. When you make a request, provide the instance ID. In the request body, specify the number of replicas (`replica`) or shards (`partition`). These parameters are optional, but you must specify at least one of them to update the instance.
      *
      * @param request - ModifySearcherReplicaRequest
      *
@@ -7271,6 +8409,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Modifies an index table.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+     * ```
      *
      * @param request - ModifyTableRequest
      * @param headers - map
@@ -7346,6 +8494,16 @@ class Searchengine extends OpenApiClient
     /**
      * Modifies an index table.
      *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+     * ```
+     *
      * @param request - ModifyTableRequest
      *
      * @returns ModifyTableResponse
@@ -7365,17 +8523,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Publishes a version of advanced configurations.
+     * Publishes an advanced version.
      *
      * @remarks
-     * ## Method
-     * ~~~
+     * ### Method
+     * ```java
      * POST
-     * ~~~
-     * ## URI
-     * ~~~
+     * ```
+     * ### URI
+     * ```java
      * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
-     * ~~~
+     * ```.
      *
      * @param request - PublishAdvanceConfigRequest
      * @param headers - map
@@ -7423,17 +8581,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Publishes a version of advanced configurations.
+     * Publishes an advanced version.
      *
      * @remarks
-     * ## Method
-     * ~~~
+     * ### Method
+     * ```java
      * POST
-     * ~~~
-     * ## URI
-     * ~~~
+     * ```
+     * ### URI
+     * ```java
      * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
-     * ~~~
+     * ```.
      *
      * @param request - PublishAdvanceConfigRequest
      *
@@ -7458,9 +8616,13 @@ class Searchengine extends OpenApiClient
      *
      * @remarks
      * ## Method
-     *     POST
+     * ```
+     * POST
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+     * ```
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+     * ```
      *
      * @param request - PublishIndexVersionRequest
      * @param headers - map
@@ -7508,9 +8670,13 @@ class Searchengine extends OpenApiClient
      *
      * @remarks
      * ## Method
-     *     POST
+     * ```
+     * POST
+     * ```
      * ## URI
-     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+     * ```
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+     * ```
      *
      * @param request - PublishIndexVersionRequest
      *
@@ -7531,6 +8697,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Pushes documents.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/actions/bulk
+     * ```
+     *
      * @param request - PushDocumentsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7574,6 +8752,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Pushes documents.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/actions/bulk
+     * ```
+     *
      * @param request - PushDocumentsRequest
      *
      * @returns PushDocumentsResponse
@@ -7593,13 +8783,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Restores data from an index.
+     * Recovers data from an index.
      *
      * @remarks
      * ### Method
-     * `POST`
+     * ```java
+     * POST
+     * ```
      * ### URI
-     * `/openapi/ha3/instances/{instanceId}/recover-index`
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/recover-index
+     * ```
      *
      * @param request - RecoverIndexRequest
      * @param headers - map
@@ -7618,6 +8812,10 @@ class Searchengine extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->bucket) {
+            @$body['bucket'] = $request->bucket;
+        }
+
         if (null !== $request->buildDeployId) {
             @$body['buildDeployId'] = $request->buildDeployId;
         }
@@ -7632,6 +8830,34 @@ class Searchengine extends OpenApiClient
 
         if (null !== $request->indexName) {
             @$body['indexName'] = $request->indexName;
+        }
+
+        if (null !== $request->odpsAccessId) {
+            @$body['odpsAccessId'] = $request->odpsAccessId;
+        }
+
+        if (null !== $request->odpsAccessKey) {
+            @$body['odpsAccessKey'] = $request->odpsAccessKey;
+        }
+
+        if (null !== $request->odpsPartition) {
+            @$body['odpsPartition'] = $request->odpsPartition;
+        }
+
+        if (null !== $request->odpsProject) {
+            @$body['odpsProject'] = $request->odpsProject;
+        }
+
+        if (null !== $request->odpsTable) {
+            @$body['odpsTable'] = $request->odpsTable;
+        }
+
+        if (null !== $request->outPutType) {
+            @$body['outPutType'] = $request->outPutType;
+        }
+
+        if (null !== $request->path) {
+            @$body['path'] = $request->path;
         }
 
         $req = new OpenApiRequest([
@@ -7654,13 +8880,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * Restores data from an index.
+     * Recovers data from an index.
      *
      * @remarks
      * ### Method
-     * `POST`
+     * ```java
+     * POST
+     * ```
      * ### URI
-     * `/openapi/ha3/instances/{instanceId}/recover-index`
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/recover-index
+     * ```
      *
      * @param request - RecoverIndexRequest
      *
@@ -7681,6 +8911,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Rebuilds an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}/reindex
+     * ```.
      *
      * @param request - ReindexRequest
      * @param headers - map
@@ -7733,6 +8973,16 @@ class Searchengine extends OpenApiClient
 
     /**
      * Rebuilds an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/tables/{tableName}/reindex
+     * ```.
      *
      * @param request - ReindexRequest
      *
@@ -7826,6 +9076,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Renames a folder.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders/{folderId}/name
+     * ```
+     *
      * @param request - RenameFolderRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7869,6 +9131,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Renames a folder.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders/{folderId}/name
+     * ```
+     *
      * @param request - RenameFolderRequest
      *
      * @returns RenameFolderResponse
@@ -7889,6 +9163,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Resumes an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/startIndex
+     * ```
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7922,6 +9208,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Resumes an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/startIndex
+     * ```
+     *
      * @returns StartIndexResponse
      *
      * @param string $instanceId
@@ -7938,6 +9236,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Stops an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/stopIndex
+     * ```
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7971,6 +9281,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Stops an index.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/stopIndex
+     * ```
+     *
      * @returns StopIndexResponse
      *
      * @param string $instanceId
@@ -8060,7 +9382,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 打标签接口.
+     * Adds or updates tags for multiple resources.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/resource-tags
+     * ```
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -8110,7 +9442,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 打标签接口.
+     * Adds or updates tags for multiple resources.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * POST
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/resource-tags
+     * ```
      *
      * @param request - TagResourcesRequest
      *
@@ -8129,7 +9471,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 删标签接口.
+     * Removes tags from a batch of resources.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/resource-tags
+     * ```
      *
      * @param tmpReq - UntagResourcesRequest
      * @param headers - map
@@ -8193,7 +9545,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * 删标签接口.
+     * Removes tags from a batch of resources.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * DELETE
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/resource-tags
+     * ```
      *
      * @param request - UntagResourcesRequest
      *
@@ -8295,6 +9657,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Updates the content of an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/content
+     * ```
+     *
      * @param request - UpdateSqlInstanceContentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8338,6 +9712,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Updates the content of an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/content
+     * ```
+     *
      * @param request - UpdateSqlInstanceContentRequest
      *
      * @returns UpdateSqlInstanceContentResponse
@@ -8358,6 +9744,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Updates the name of an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/name
+     * ```
+     *
      * @param request - UpdateSqlInstanceNameRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8401,6 +9799,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Updates the name of an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/name
+     * ```
+     *
      * @param request - UpdateSqlInstanceNameRequest
      *
      * @returns UpdateSqlInstanceNameResponse
@@ -8421,6 +9831,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Updates the parameters of an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/params
+     * ```
+     *
      * @param request - UpdateSqlInstanceParamsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8480,6 +9902,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * Updates the parameters of an SQL instance.
+     *
+     * @remarks
+     * ### Method
+     * ```java
+     * PUT
+     * ```
+     * ### URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/params
+     * ```
+     *
      * @param request - UpdateSqlInstanceParamsRequest
      *
      * @returns UpdateSqlInstanceParamsResponse

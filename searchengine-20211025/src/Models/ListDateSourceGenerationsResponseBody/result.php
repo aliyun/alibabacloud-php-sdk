@@ -29,6 +29,11 @@ class result extends Model
     public $generation;
 
     /**
+     * @var string
+     */
+    public $outPutType;
+
+    /**
      * @var int[]
      */
     public $partition;
@@ -47,6 +52,7 @@ class result extends Model
         'createTime' => 'createTime',
         'dataDumpRoot' => 'dataDumpRoot',
         'generation' => 'generation',
+        'outPutType' => 'outPutType',
         'partition' => 'partition',
         'status' => 'status',
         'timestamp' => 'timestamp',
@@ -77,6 +83,10 @@ class result extends Model
 
         if (null !== $this->generation) {
             $res['generation'] = $this->generation;
+        }
+
+        if (null !== $this->outPutType) {
+            $res['outPutType'] = $this->outPutType;
         }
 
         if (null !== $this->partition) {
@@ -121,6 +131,10 @@ class result extends Model
 
         if (isset($map['generation'])) {
             $model->generation = $map['generation'];
+        }
+
+        if (isset($map['outPutType'])) {
+            $model->outPutType = $map['outPutType'];
         }
 
         if (isset($map['partition'])) {
