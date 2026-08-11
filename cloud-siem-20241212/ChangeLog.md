@@ -1,3 +1,7 @@
+2026-08-11 Version: 2.6.0
+- Support API ListAlertAggregations.
+
+
 2026-08-06 Version: 2.5.3
 - Update API CreateResponseRule: add request parameters ResponseRuleRemark.
 - Update API ListResponseRules: add response parameters Body.ResponseRules.$.ResponseRuleRemark.

@@ -93,6 +93,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetResponseRuleStatisticRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetResponseRuleStatisticResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetUserConfigRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetUserConfigResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAlertAggregationsRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAlertAggregationsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAlertsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAlertsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAutoDisposeEntitiesRequest;
@@ -1465,7 +1467,7 @@ class Cloudsiem extends OpenApiClient
      * Creates an automatic response rule.
      *
      * @remarks
-     * Some parameters require complex JSON configurations. We provide a helper class with configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
      *
      * @param request - CreateResponseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1555,7 +1557,7 @@ class Cloudsiem extends OpenApiClient
      * Creates an automatic response rule.
      *
      * @remarks
-     * Some parameters require complex JSON configurations. We provide a helper class with configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
      *
      * @param request - CreateResponseRuleRequest
      *
@@ -3920,6 +3922,117 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取告警分组列表.
+     *
+     * @remarks
+     * 入参JsonConfig是一个非常复杂的JSON配置，为此我们提供了辅助工具类帮助具体配置示例，请参考[Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java)。
+     *
+     * @param request - ListAlertAggregationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertAggregationsResponse
+     *
+     * @param ListAlertAggregationsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAlertAggregationsResponse
+     */
+    public function listAlertAggregationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->aggregationType) {
+            @$body['AggregationType'] = $request->aggregationType;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->queryCondition) {
+            @$body['QueryCondition'] = $request->queryCondition;
+        }
+
+        if (null !== $request->queryViewId) {
+            @$body['QueryViewId'] = $request->queryViewId;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAlertAggregations',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAlertAggregationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取告警分组列表.
+     *
+     * @remarks
+     * 入参JsonConfig是一个非常复杂的JSON配置，为此我们提供了辅助工具类帮助具体配置示例，请参考[Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java)。
+     *
+     * @param request - ListAlertAggregationsRequest
+     *
+     * @returns ListAlertAggregationsResponse
+     *
+     * @param ListAlertAggregationsRequest $request
+     *
+     * @return ListAlertAggregationsResponse
+     */
+    public function listAlertAggregations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAlertAggregationsWithOptions($request, $runtime);
     }
 
     /**
@@ -6413,10 +6526,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Paginated query of auto-response rules.
+     * Queries automatic response rules by paging.
      *
      * @remarks
-     * Each user can receive up to two notifications per day between 08:00 and 20:00.
+     * Notifications are subject to frequency and time restrictions.
+     * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
      *
      * @param request - ListResponseRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6503,10 +6617,11 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Paginated query of auto-response rules.
+     * Queries automatic response rules by paging.
      *
      * @remarks
-     * Each user can receive up to two notifications per day between 08:00 and 20:00.
+     * Notifications are subject to frequency and time restrictions.
+     * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
      *
      * @param request - ListResponseRulesRequest
      *
@@ -8875,10 +8990,10 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Updates an automatic response rule.
+     * Updates an automated response rule.
      *
      * @remarks
-     * Some request parameters require complex JSON configurations. We provide a helper utility class with configuration examples.
+     * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
      *
      * @param request - UpdateResponseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8965,10 +9080,10 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Updates an automatic response rule.
+     * Updates an automated response rule.
      *
      * @remarks
-     * Some request parameters require complex JSON configurations. We provide a helper utility class with configuration examples.
+     * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
      *
      * @param request - UpdateResponseRuleRequest
      *
