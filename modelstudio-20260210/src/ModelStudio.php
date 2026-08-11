@@ -45,6 +45,13 @@ use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetTokenPlanOrgInviteConfigReq
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetTokenPlanOrgInviteConfigResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListApiKeysRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListApiKeysResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListModelLimitsRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListModelLimitsResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListModelPermissionsRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListModelPermissionsResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListModelsRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListModelsResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListModelsShrinkRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListOrganizationMembersRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListOrganizationMembersResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListSubscriptionSharedPackagesRequest;
@@ -63,6 +70,11 @@ use AlibabaCloud\SDK\ModelStudio\V20260210\Models\SetTokenPlanOrgInviteConfigReq
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\SetTokenPlanOrgInviteConfigResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateApiKeyRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateApiKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateModelLimitsRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateModelLimitsResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateModelLimitsShrinkRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateModelPermissionsRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateModelPermissionsResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateOrganizationMemberRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateOrganizationMemberResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateOrganizationRequest;
@@ -79,10 +91,12 @@ class ModelStudio extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'eu-central-1' => 'modelstudio.eu-central-1.aliyuncs.com',
-            'cn-hongkong' => 'modelstudio.cn-hongkong.aliyuncs.com',
             'cn-beijing' => 'modelstudio.cn-beijing.aliyuncs.com',
+            'cn-hongkong' => 'modelstudio.cn-hongkong.aliyuncs.com',
             'ap-southeast-1' => 'modelstudio.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'modelstudio.ap-northeast-1.aliyuncs.com',
+            'us-east-1' => 'modelstudio.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'modelstudio.eu-central-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('modelstudio', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1421,6 +1435,289 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
+     * Queries model throttling configurations for a workspace.
+     *
+     * @param request - ListModelLimitsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelLimitsResponse
+     *
+     * @param ListModelLimitsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListModelLimitsResponse
+     */
+    public function listModelLimitsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->model) {
+            @$query['model'] = $request->model;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelLimits',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modelstudio/models/limits',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelLimitsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries model throttling configurations for a workspace.
+     *
+     * @param request - ListModelLimitsRequest
+     *
+     * @returns ListModelLimitsResponse
+     *
+     * @param ListModelLimitsRequest $request
+     *
+     * @return ListModelLimitsResponse
+     */
+    public function listModelLimits($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listModelLimitsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries model authorizations for a workspace.
+     *
+     * @remarks
+     * ## Operation description
+     * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
+     * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
+     * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
+     * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
+     * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
+     * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+     *
+     * @param request - ListModelPermissionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelPermissionsResponse
+     *
+     * @param ListModelPermissionsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListModelPermissionsResponse
+     */
+    public function listModelPermissionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationScope) {
+            @$query['authorizationScope'] = $request->authorizationScope;
+        }
+
+        if (null !== $request->filter) {
+            @$query['filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->modelAction) {
+            @$query['modelAction'] = $request->modelAction;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelPermissions',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modelstudio/models/permissions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries model authorizations for a workspace.
+     *
+     * @remarks
+     * ## Operation description
+     * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
+     * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
+     * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
+     * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
+     * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
+     * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+     *
+     * @param request - ListModelPermissionsRequest
+     *
+     * @returns ListModelPermissionsResponse
+     *
+     * @param ListModelPermissionsRequest $request
+     *
+     * @return ListModelPermissionsResponse
+     */
+    public function listModelPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listModelPermissionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 模型元数据-查询基础模型列表.
+     *
+     * @param tmpReq - ListModelsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelsResponse
+     *
+     * @param ListModelsRequest $tmpReq
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListModelsResponse
+     */
+    public function listModelsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListModelsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->capabilities) {
+            $request->capabilitiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->capabilities, 'capabilities', 'json');
+        }
+
+        if (null !== $tmpReq->features) {
+            $request->featuresShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->features, 'features', 'json');
+        }
+
+        if (null !== $tmpReq->providers) {
+            $request->providersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->providers, 'providers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->capabilitiesShrink) {
+            @$query['capabilities'] = $request->capabilitiesShrink;
+        }
+
+        if (null !== $request->contextWindow) {
+            @$query['contextWindow'] = $request->contextWindow;
+        }
+
+        if (null !== $request->featuresShrink) {
+            @$query['features'] = $request->featuresShrink;
+        }
+
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->model) {
+            @$query['model'] = $request->model;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->providersShrink) {
+            @$query['providers'] = $request->providersShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModels',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modelstudio/models',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型元数据-查询基础模型列表.
+     *
+     * @param request - ListModelsRequest
+     *
+     * @returns ListModelsResponse
+     *
+     * @param ListModelsRequest $request
+     *
+     * @return ListModelsResponse
+     */
+    public function listModels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listModelsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
      *
      * @param request - ListOrganizationMembersRequest
@@ -2021,6 +2318,146 @@ class ModelStudio extends OpenApiClient
         $headers = [];
 
         return $this->updateApiKeyWithOptions($apiKeyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the model throttling configuration for a workspace.
+     *
+     * @param tmpReq - UpdateModelLimitsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateModelLimitsResponse
+     *
+     * @param UpdateModelLimitsRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateModelLimitsResponse
+     */
+    public function updateModelLimitsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateModelLimitsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->workspaceLimits) {
+            $request->workspaceLimitsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workspaceLimits, 'workspaceLimits', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceLimitsShrink) {
+            @$body['workspaceLimits'] = $request->workspaceLimitsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateModelLimits',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modelstudio/models/limits',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateModelLimitsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the model throttling configuration for a workspace.
+     *
+     * @param request - UpdateModelLimitsRequest
+     *
+     * @returns UpdateModelLimitsResponse
+     *
+     * @param UpdateModelLimitsRequest $request
+     *
+     * @return UpdateModelLimitsResponse
+     */
+    public function updateModelLimits($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateModelLimitsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新业务空间模型授权.
+     *
+     * @param request - UpdateModelPermissionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateModelPermissionsResponse
+     *
+     * @param UpdateModelPermissionsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateModelPermissionsResponse
+     */
+    public function updateModelPermissionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accessAllEntities) {
+            @$body['accessAllEntities'] = $request->accessAllEntities;
+        }
+
+        if (null !== $request->models) {
+            @$body['models'] = $request->models;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateModelPermissions',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modelstudio/models/permissions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateModelPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新业务空间模型授权.
+     *
+     * @param request - UpdateModelPermissionsRequest
+     *
+     * @returns UpdateModelPermissionsResponse
+     *
+     * @param UpdateModelPermissionsRequest $request
+     *
+     * @return UpdateModelPermissionsResponse
+     */
+    public function updateModelPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateModelPermissionsWithOptions($request, $headers, $runtime);
     }
 
     /**
