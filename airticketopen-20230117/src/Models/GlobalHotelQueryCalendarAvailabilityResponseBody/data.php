@@ -6,15 +6,9 @@ namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryCalend
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryCalendarAvailabilityResponseBody\data\failedHotels;
 
 class data extends Model
 {
-    /**
-     * @var failedHotels[]
-     */
-    public $failedHotels;
-
     /**
      * @var DataHotelsValue[][]
      */
@@ -25,16 +19,12 @@ class data extends Model
      */
     public $tracerId;
     protected $_name = [
-        'failedHotels' => 'FailedHotels',
         'hotels' => 'Hotels',
         'tracerId' => 'TracerId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->failedHotels)) {
-            Model::validateArray($this->failedHotels);
-        }
         if (\is_array($this->hotels)) {
             Model::validateArray($this->hotels);
         }
@@ -44,17 +34,6 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->failedHotels) {
-            if (\is_array($this->failedHotels)) {
-                $res['FailedHotels'] = [];
-                $n1 = 0;
-                foreach ($this->failedHotels as $item1) {
-                    $res['FailedHotels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->hotels) {
             if (\is_array($this->hotels)) {
                 $res['Hotels'] = [];
@@ -86,17 +65,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FailedHotels'])) {
-            if (!empty($map['FailedHotels'])) {
-                $model->failedHotels = [];
-                $n1 = 0;
-                foreach ($map['FailedHotels'] as $item1) {
-                    $model->failedHotels[$n1] = failedHotels::fromMap($item1);
-                    ++$n1;
-                }
-            }
-        }
-
         if (isset($map['Hotels'])) {
             if (!empty($map['Hotels'])) {
                 $model->hotels = [];

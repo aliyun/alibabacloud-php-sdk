@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue\rooms\lowestSellingPrice;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue\rooms\lowestPrice;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue\rooms\offers;
 
 class rooms extends Model
@@ -16,9 +16,9 @@ class rooms extends Model
     public $standardRoomId;
 
     /**
-     * @var lowestSellingPrice
+     * @var lowestPrice
      */
-    public $lowestSellingPrice;
+    public $lowestPrice;
 
     /**
      * @var offers[]
@@ -26,14 +26,14 @@ class rooms extends Model
     public $offers;
     protected $_name = [
         'standardRoomId' => 'StandardRoomId',
-        'lowestSellingPrice' => 'LowestSellingPrice',
+        'lowestPrice' => 'LowestPrice',
         'offers' => 'Offers',
     ];
 
     public function validate()
     {
-        if (null !== $this->lowestSellingPrice) {
-            $this->lowestSellingPrice->validate();
+        if (null !== $this->lowestPrice) {
+            $this->lowestPrice->validate();
         }
         if (\is_array($this->offers)) {
             Model::validateArray($this->offers);
@@ -48,8 +48,8 @@ class rooms extends Model
             $res['StandardRoomId'] = $this->standardRoomId;
         }
 
-        if (null !== $this->lowestSellingPrice) {
-            $res['LowestSellingPrice'] = null !== $this->lowestSellingPrice ? $this->lowestSellingPrice->toArray($noStream) : $this->lowestSellingPrice;
+        if (null !== $this->lowestPrice) {
+            $res['LowestPrice'] = null !== $this->lowestPrice ? $this->lowestPrice->toArray($noStream) : $this->lowestPrice;
         }
 
         if (null !== $this->offers) {
@@ -78,8 +78,8 @@ class rooms extends Model
             $model->standardRoomId = $map['StandardRoomId'];
         }
 
-        if (isset($map['LowestSellingPrice'])) {
-            $model->lowestSellingPrice = lowestSellingPrice::fromMap($map['LowestSellingPrice']);
+        if (isset($map['LowestPrice'])) {
+            $model->lowestPrice = lowestPrice::fromMap($map['LowestPrice']);
         }
 
         if (isset($map['Offers'])) {

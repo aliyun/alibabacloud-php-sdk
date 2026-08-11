@@ -13,7 +13,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $refundOrderId;
+    public $refundOrderNo;
 
     /**
      * @var totalPenaltyAmount
@@ -30,7 +30,7 @@ class data extends Model
      */
     public $tracerId;
     protected $_name = [
-        'refundOrderId' => 'RefundOrderId',
+        'refundOrderNo' => 'RefundOrderNo',
         'totalPenaltyAmount' => 'TotalPenaltyAmount',
         'totalRefundAmount' => 'TotalRefundAmount',
         'tracerId' => 'TracerId',
@@ -50,8 +50,8 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->refundOrderId) {
-            $res['RefundOrderId'] = $this->refundOrderId;
+        if (null !== $this->refundOrderNo) {
+            $res['RefundOrderNo'] = $this->refundOrderNo;
         }
 
         if (null !== $this->totalPenaltyAmount) {
@@ -77,8 +77,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RefundOrderId'])) {
-            $model->refundOrderId = $map['RefundOrderId'];
+        if (isset($map['RefundOrderNo'])) {
+            $model->refundOrderNo = $map['RefundOrderNo'];
         }
 
         if (isset($map['TotalPenaltyAmount'])) {

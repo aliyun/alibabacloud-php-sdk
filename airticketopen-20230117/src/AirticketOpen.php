@@ -3184,7 +3184,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 取消订单.
+     * Cancels an order.
      *
      * @param request - GlobalHotelCancelOrderRequest
      * @param headers - map
@@ -3234,7 +3234,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 取消订单.
+     * Cancels an order.
      *
      * @param request - GlobalHotelCancelOrderRequest
      *
@@ -3615,7 +3615,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Queries calendar-based availability and pricing for hotels in batch.
+     * Queries calendar-based rate availability for hotels in batch.
      *
      * @param tmpReq - GlobalHotelQueryCalendarAvailabilityRequest
      * @param headers - map
@@ -3699,7 +3699,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Queries calendar-based availability and pricing for hotels in batch.
+     * Queries calendar-based rate availability for hotels in batch.
      *
      * @param request - GlobalHotelQueryCalendarAvailabilityRequest
      *
@@ -3791,7 +3791,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Queries city administrative divisions by paging (in Chinese and English).
+     * Queries city administrative divisions (in Chinese and English) by paging.
      *
      * @param request - GlobalHotelSearchCityPageRequest
      * @param headers - map
@@ -3849,7 +3849,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Queries city administrative divisions by paging (in Chinese and English).
+     * Queries city administrative divisions (in Chinese and English) by paging.
      *
      * @param request - GlobalHotelSearchCityPageRequest
      *
@@ -3868,7 +3868,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the list of hotels by city with paging.
+     * Performs a paged query of the hotel list by city with paging support.
      *
      * @param request - GlobalHotelSearchHotelListRequest
      * @param headers - map
@@ -3926,7 +3926,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the list of hotels by city with paging.
+     * Performs a paged query of the hotel list by city with paging support.
      *
      * @param request - GlobalHotelSearchHotelListRequest
      *
@@ -3945,7 +3945,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 验价.
+     * Validates the price of a hotel offer.
      *
      * @param tmpReq - GlobalHotelValidatePriceRequest
      * @param headers - map
@@ -4017,7 +4017,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 验价.
+     * Validates the price of a hotel offer.
      *
      * @param request - GlobalHotelValidatePriceRequest
      *

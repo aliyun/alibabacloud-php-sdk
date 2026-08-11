@@ -11,9 +11,9 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelApplyRefundRespon
 class data extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $sellRefundOrderId;
+    public $refundOrderNo;
 
     /**
      * @var totalPenaltyAmount
@@ -30,7 +30,7 @@ class data extends Model
      */
     public $tracerId;
     protected $_name = [
-        'sellRefundOrderId' => 'SellRefundOrderId',
+        'refundOrderNo' => 'RefundOrderNo',
         'totalPenaltyAmount' => 'TotalPenaltyAmount',
         'totalRefundAmount' => 'TotalRefundAmount',
         'tracerId' => 'TracerId',
@@ -50,8 +50,8 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->sellRefundOrderId) {
-            $res['SellRefundOrderId'] = $this->sellRefundOrderId;
+        if (null !== $this->refundOrderNo) {
+            $res['RefundOrderNo'] = $this->refundOrderNo;
         }
 
         if (null !== $this->totalPenaltyAmount) {
@@ -77,8 +77,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SellRefundOrderId'])) {
-            $model->sellRefundOrderId = $map['SellRefundOrderId'];
+        if (isset($map['RefundOrderNo'])) {
+            $model->refundOrderNo = $map['RefundOrderNo'];
         }
 
         if (isset($map['TotalPenaltyAmount'])) {

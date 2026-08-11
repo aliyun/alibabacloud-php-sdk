@@ -23,7 +23,7 @@ class data extends Model
     public $externalOrderNo;
 
     /**
-     * @var int
+     * @var string
      */
     public $gmtCreate;
 

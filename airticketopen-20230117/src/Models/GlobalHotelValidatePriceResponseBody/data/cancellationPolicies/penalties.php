@@ -14,7 +14,7 @@ class penalties extends Model
     public $currency;
 
     /**
-     * @var int
+     * @var string
      */
     public $end;
 
@@ -29,7 +29,7 @@ class penalties extends Model
     public $penaltyValue;
 
     /**
-     * @var int
+     * @var string
      */
     public $start;
 

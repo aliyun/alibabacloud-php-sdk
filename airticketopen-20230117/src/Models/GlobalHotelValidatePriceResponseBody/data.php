@@ -6,7 +6,8 @@ namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelValidatePri
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelValidatePriceResponseBody\data\cancellationPolicies;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelValidatePriceResponseBody\data\pricing;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelValidatePriceResponseBody\data\dailyPrices;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelValidatePriceResponseBody\data\totalPrice;
 
 class data extends Model
 {
@@ -16,14 +17,19 @@ class data extends Model
     public $cancellationPolicies;
 
     /**
+     * @var dailyPrices[]
+     */
+    public $dailyPrices;
+
+    /**
      * @var string
      */
     public $itemOfferId;
 
     /**
-     * @var pricing
+     * @var totalPrice
      */
-    public $pricing;
+    public $totalPrice;
 
     /**
      * @var string
@@ -31,8 +37,9 @@ class data extends Model
     public $tracerId;
     protected $_name = [
         'cancellationPolicies' => 'CancellationPolicies',
+        'dailyPrices' => 'DailyPrices',
         'itemOfferId' => 'ItemOfferId',
-        'pricing' => 'Pricing',
+        'totalPrice' => 'TotalPrice',
         'tracerId' => 'TracerId',
     ];
 
@@ -41,8 +48,11 @@ class data extends Model
         if (\is_array($this->cancellationPolicies)) {
             Model::validateArray($this->cancellationPolicies);
         }
-        if (null !== $this->pricing) {
-            $this->pricing->validate();
+        if (\is_array($this->dailyPrices)) {
+            Model::validateArray($this->dailyPrices);
+        }
+        if (null !== $this->totalPrice) {
+            $this->totalPrice->validate();
         }
         parent::validate();
     }
@@ -61,12 +71,23 @@ class data extends Model
             }
         }
 
+        if (null !== $this->dailyPrices) {
+            if (\is_array($this->dailyPrices)) {
+                $res['DailyPrices'] = [];
+                $n1 = 0;
+                foreach ($this->dailyPrices as $item1) {
+                    $res['DailyPrices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->itemOfferId) {
             $res['ItemOfferId'] = $this->itemOfferId;
         }
 
-        if (null !== $this->pricing) {
-            $res['Pricing'] = null !== $this->pricing ? $this->pricing->toArray($noStream) : $this->pricing;
+        if (null !== $this->totalPrice) {
+            $res['TotalPrice'] = null !== $this->totalPrice ? $this->totalPrice->toArray($noStream) : $this->totalPrice;
         }
 
         if (null !== $this->tracerId) {
@@ -95,12 +116,23 @@ class data extends Model
             }
         }
 
+        if (isset($map['DailyPrices'])) {
+            if (!empty($map['DailyPrices'])) {
+                $model->dailyPrices = [];
+                $n1 = 0;
+                foreach ($map['DailyPrices'] as $item1) {
+                    $model->dailyPrices[$n1] = dailyPrices::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ItemOfferId'])) {
             $model->itemOfferId = $map['ItemOfferId'];
         }
 
-        if (isset($map['Pricing'])) {
-            $model->pricing = pricing::fromMap($map['Pricing']);
+        if (isset($map['TotalPrice'])) {
+            $model->totalPrice = totalPrice::fromMap($map['TotalPrice']);
         }
 
         if (isset($map['TracerId'])) {

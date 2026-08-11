@@ -31,7 +31,7 @@ class roomTypes extends Model
     public $roomNameCn;
 
     /**
-     * @var float
+     * @var string
      */
     public $roomSize;
 

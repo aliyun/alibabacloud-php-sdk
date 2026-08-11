@@ -8,7 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryOrderResponseBody\data\itemInfo\cancelPolicy;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryOrderResponseBody\data\itemInfo\dailyPrices;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryOrderResponseBody\data\itemInfo\meal;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryOrderResponseBody\data\itemInfo\sellingTotalPrice;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryOrderResponseBody\data\itemInfo\totalPrice;
 
 class itemInfo extends Model
 {
@@ -48,9 +48,9 @@ class itemInfo extends Model
     public $roomCount;
 
     /**
-     * @var sellingTotalPrice
+     * @var totalPrice
      */
-    public $sellingTotalPrice;
+    public $totalPrice;
     protected $_name = [
         'cancelPolicy' => 'CancelPolicy',
         'checkIn' => 'CheckIn',
@@ -59,7 +59,7 @@ class itemInfo extends Model
         'dailyPrices' => 'DailyPrices',
         'meal' => 'Meal',
         'roomCount' => 'RoomCount',
-        'sellingTotalPrice' => 'SellingTotalPrice',
+        'totalPrice' => 'TotalPrice',
     ];
 
     public function validate()
@@ -73,8 +73,8 @@ class itemInfo extends Model
         if (null !== $this->meal) {
             $this->meal->validate();
         }
-        if (null !== $this->sellingTotalPrice) {
-            $this->sellingTotalPrice->validate();
+        if (null !== $this->totalPrice) {
+            $this->totalPrice->validate();
         }
         parent::validate();
     }
@@ -117,8 +117,8 @@ class itemInfo extends Model
             $res['RoomCount'] = $this->roomCount;
         }
 
-        if (null !== $this->sellingTotalPrice) {
-            $res['SellingTotalPrice'] = null !== $this->sellingTotalPrice ? $this->sellingTotalPrice->toArray($noStream) : $this->sellingTotalPrice;
+        if (null !== $this->totalPrice) {
+            $res['TotalPrice'] = null !== $this->totalPrice ? $this->totalPrice->toArray($noStream) : $this->totalPrice;
         }
 
         return $res;
@@ -167,8 +167,8 @@ class itemInfo extends Model
             $model->roomCount = $map['RoomCount'];
         }
 
-        if (isset($map['SellingTotalPrice'])) {
-            $model->sellingTotalPrice = sellingTotalPrice::fromMap($map['SellingTotalPrice']);
+        if (isset($map['TotalPrice'])) {
+            $model->totalPrice = totalPrice::fromMap($map['TotalPrice']);
         }
 
         return $model;

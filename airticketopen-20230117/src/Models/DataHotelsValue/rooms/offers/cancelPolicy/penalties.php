@@ -9,12 +9,12 @@ use AlibabaCloud\Dara\Model;
 class penalties extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $start;
 
     /**
-     * @var int
+     * @var string
      */
     public $end;
 

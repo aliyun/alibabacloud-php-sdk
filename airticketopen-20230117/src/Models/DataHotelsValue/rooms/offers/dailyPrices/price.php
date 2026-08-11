@@ -2,14 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue\rooms\offers;
+namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue\rooms\offers\dailyPrices;
 
 use AlibabaCloud\Dara\Model;
 
-class sellingTotalPrice extends Model
+class price extends Model
 {
     /**
-     * @var float
+     * @var string
      */
     public $amount;
 

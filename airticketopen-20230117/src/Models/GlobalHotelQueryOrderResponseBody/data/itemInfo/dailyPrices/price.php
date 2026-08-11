@@ -5,41 +5,47 @@
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryOrderResponseBody\data\itemInfo\dailyPrices;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryOrderResponseBody\data\itemInfo\dailyPrices\price\currency;
 
 class price extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $cent;
+    public $amount;
 
     /**
-     * @var currency
+     * @var string
      */
     public $currency;
+
+    /**
+     * @var string
+     */
+    public $tracerId;
     protected $_name = [
-        'cent' => 'Cent',
+        'amount' => 'Amount',
         'currency' => 'Currency',
+        'tracerId' => 'TracerId',
     ];
 
     public function validate()
     {
-        if (null !== $this->currency) {
-            $this->currency->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->cent) {
-            $res['Cent'] = $this->cent;
+        if (null !== $this->amount) {
+            $res['Amount'] = $this->amount;
         }
 
         if (null !== $this->currency) {
-            $res['Currency'] = null !== $this->currency ? $this->currency->toArray($noStream) : $this->currency;
+            $res['Currency'] = $this->currency;
+        }
+
+        if (null !== $this->tracerId) {
+            $res['TracerId'] = $this->tracerId;
         }
 
         return $res;
@@ -53,12 +59,16 @@ class price extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Cent'])) {
-            $model->cent = $map['Cent'];
+        if (isset($map['Amount'])) {
+            $model->amount = $map['Amount'];
         }
 
         if (isset($map['Currency'])) {
-            $model->currency = currency::fromMap($map['Currency']);
+            $model->currency = $map['Currency'];
+        }
+
+        if (isset($map['TracerId'])) {
+            $model->tracerId = $map['TracerId'];
         }
 
         return $model;

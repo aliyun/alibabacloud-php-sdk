@@ -11,9 +11,14 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelQueryOrderRespons
 class refundOrders extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $refundOrderNo;
 
     /**
      * @var string
@@ -24,11 +29,6 @@ class refundOrders extends Model
      * @var string
      */
     public $rejectReason;
-
-    /**
-     * @var string
-     */
-    public $sellRefundOrderNo;
 
     /**
      * @var string
@@ -46,9 +46,9 @@ class refundOrders extends Model
     public $totalRefundAmount;
     protected $_name = [
         'gmtCreate' => 'GmtCreate',
+        'refundOrderNo' => 'RefundOrderNo',
         'refundTransactionId' => 'RefundTransactionId',
         'rejectReason' => 'RejectReason',
-        'sellRefundOrderNo' => 'SellRefundOrderNo',
         'status' => 'Status',
         'totalPenaltyAmount' => 'TotalPenaltyAmount',
         'totalRefundAmount' => 'TotalRefundAmount',
@@ -72,16 +72,16 @@ class refundOrders extends Model
             $res['GmtCreate'] = $this->gmtCreate;
         }
 
+        if (null !== $this->refundOrderNo) {
+            $res['RefundOrderNo'] = $this->refundOrderNo;
+        }
+
         if (null !== $this->refundTransactionId) {
             $res['RefundTransactionId'] = $this->refundTransactionId;
         }
 
         if (null !== $this->rejectReason) {
             $res['RejectReason'] = $this->rejectReason;
-        }
-
-        if (null !== $this->sellRefundOrderNo) {
-            $res['SellRefundOrderNo'] = $this->sellRefundOrderNo;
         }
 
         if (null !== $this->status) {
@@ -111,16 +111,16 @@ class refundOrders extends Model
             $model->gmtCreate = $map['GmtCreate'];
         }
 
+        if (isset($map['RefundOrderNo'])) {
+            $model->refundOrderNo = $map['RefundOrderNo'];
+        }
+
         if (isset($map['RefundTransactionId'])) {
             $model->refundTransactionId = $map['RefundTransactionId'];
         }
 
         if (isset($map['RejectReason'])) {
             $model->rejectReason = $map['RejectReason'];
-        }
-
-        if (isset($map['SellRefundOrderNo'])) {
-            $model->sellRefundOrderNo = $map['SellRefundOrderNo'];
         }
 
         if (isset($map['Status'])) {

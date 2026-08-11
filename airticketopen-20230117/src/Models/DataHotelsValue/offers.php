@@ -6,8 +6,8 @@ namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue\offers\cancelPolicy;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue\offers\sellingDailyPrices;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue\offers\sellingTotalPrice;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue\offers\dailyPrices;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\DataHotelsValue\offers\totalPrice;
 
 class offers extends Model
 {
@@ -37,14 +37,14 @@ class offers extends Model
     public $cancelPolicy;
 
     /**
-     * @var sellingTotalPrice
+     * @var totalPrice
      */
-    public $sellingTotalPrice;
+    public $totalPrice;
 
     /**
-     * @var sellingDailyPrices[]
+     * @var dailyPrices[]
      */
-    public $sellingDailyPrices;
+    public $dailyPrices;
 
     /**
      * @var int
@@ -66,8 +66,8 @@ class offers extends Model
         'mealType' => 'MealType',
         'mealCount' => 'MealCount',
         'cancelPolicy' => 'CancelPolicy',
-        'sellingTotalPrice' => 'SellingTotalPrice',
-        'sellingDailyPrices' => 'SellingDailyPrices',
+        'totalPrice' => 'TotalPrice',
+        'dailyPrices' => 'DailyPrices',
         'availableRooms' => 'AvailableRooms',
         'maxOccupancy' => 'MaxOccupancy',
         'confirmType' => 'ConfirmType',
@@ -78,11 +78,11 @@ class offers extends Model
         if (null !== $this->cancelPolicy) {
             $this->cancelPolicy->validate();
         }
-        if (null !== $this->sellingTotalPrice) {
-            $this->sellingTotalPrice->validate();
+        if (null !== $this->totalPrice) {
+            $this->totalPrice->validate();
         }
-        if (\is_array($this->sellingDailyPrices)) {
-            Model::validateArray($this->sellingDailyPrices);
+        if (\is_array($this->dailyPrices)) {
+            Model::validateArray($this->dailyPrices);
         }
         parent::validate();
     }
@@ -110,16 +110,16 @@ class offers extends Model
             $res['CancelPolicy'] = null !== $this->cancelPolicy ? $this->cancelPolicy->toArray($noStream) : $this->cancelPolicy;
         }
 
-        if (null !== $this->sellingTotalPrice) {
-            $res['SellingTotalPrice'] = null !== $this->sellingTotalPrice ? $this->sellingTotalPrice->toArray($noStream) : $this->sellingTotalPrice;
+        if (null !== $this->totalPrice) {
+            $res['TotalPrice'] = null !== $this->totalPrice ? $this->totalPrice->toArray($noStream) : $this->totalPrice;
         }
 
-        if (null !== $this->sellingDailyPrices) {
-            if (\is_array($this->sellingDailyPrices)) {
-                $res['SellingDailyPrices'] = [];
+        if (null !== $this->dailyPrices) {
+            if (\is_array($this->dailyPrices)) {
+                $res['DailyPrices'] = [];
                 $n1 = 0;
-                foreach ($this->sellingDailyPrices as $item1) {
-                    $res['SellingDailyPrices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->dailyPrices as $item1) {
+                    $res['DailyPrices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -168,16 +168,16 @@ class offers extends Model
             $model->cancelPolicy = cancelPolicy::fromMap($map['CancelPolicy']);
         }
 
-        if (isset($map['SellingTotalPrice'])) {
-            $model->sellingTotalPrice = sellingTotalPrice::fromMap($map['SellingTotalPrice']);
+        if (isset($map['TotalPrice'])) {
+            $model->totalPrice = totalPrice::fromMap($map['TotalPrice']);
         }
 
-        if (isset($map['SellingDailyPrices'])) {
-            if (!empty($map['SellingDailyPrices'])) {
-                $model->sellingDailyPrices = [];
+        if (isset($map['DailyPrices'])) {
+            if (!empty($map['DailyPrices'])) {
+                $model->dailyPrices = [];
                 $n1 = 0;
-                foreach ($map['SellingDailyPrices'] as $item1) {
-                    $model->sellingDailyPrices[$n1] = sellingDailyPrices::fromMap($item1);
+                foreach ($map['DailyPrices'] as $item1) {
+                    $model->dailyPrices[$n1] = dailyPrices::fromMap($item1);
                     ++$n1;
                 }
             }

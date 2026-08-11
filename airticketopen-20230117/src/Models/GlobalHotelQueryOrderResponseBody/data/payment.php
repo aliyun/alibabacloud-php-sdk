@@ -15,7 +15,7 @@ class payment extends Model
     public $amount;
 
     /**
-     * @var int
+     * @var string
      */
     public $gmtPaid;
 
