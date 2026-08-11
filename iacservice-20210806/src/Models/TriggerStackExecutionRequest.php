@@ -32,12 +32,18 @@ class TriggerStackExecutionRequest extends Model
      * @var string
      */
     public $codeVersionId;
+
+    /**
+     * @var string
+     */
+    public $sourceTriggerId;
     protected $_name = [
         'action' => 'action',
         'changedFolders' => 'changedFolders',
         'clientToken' => 'clientToken',
         'codePackagePath' => 'codePackagePath',
         'codeVersionId' => 'codeVersionId',
+        'sourceTriggerId' => 'sourceTriggerId',
     ];
 
     public function validate()
@@ -78,6 +84,10 @@ class TriggerStackExecutionRequest extends Model
             $res['codeVersionId'] = $this->codeVersionId;
         }
 
+        if (null !== $this->sourceTriggerId) {
+            $res['sourceTriggerId'] = $this->sourceTriggerId;
+        }
+
         return $res;
     }
 
@@ -114,6 +124,10 @@ class TriggerStackExecutionRequest extends Model
 
         if (isset($map['codeVersionId'])) {
             $model->codeVersionId = $map['codeVersionId'];
+        }
+
+        if (isset($map['sourceTriggerId'])) {
+            $model->sourceTriggerId = $map['sourceTriggerId'];
         }
 
         return $model;

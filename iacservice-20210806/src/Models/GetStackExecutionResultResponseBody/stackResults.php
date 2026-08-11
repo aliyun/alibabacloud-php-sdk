@@ -17,6 +17,11 @@ class stackResults extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -35,6 +40,7 @@ class stackResults extends Model
     public $stackStatus;
     protected $_name = [
         'deployments' => 'deployments',
+        'errorCode' => 'errorCode',
         'message' => 'message',
         'stackId' => 'stackId',
         'stackName' => 'stackName',
@@ -61,6 +67,10 @@ class stackResults extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->errorCode) {
+            $res['errorCode'] = $this->errorCode;
         }
 
         if (null !== $this->message) {
@@ -99,6 +109,10 @@ class stackResults extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['errorCode'])) {
+            $model->errorCode = $map['errorCode'];
         }
 
         if (isset($map['message'])) {

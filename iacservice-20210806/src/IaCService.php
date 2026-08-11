@@ -93,6 +93,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\GenerateModuleRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GenerateModuleResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetDetectConfigRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetDetectConfigResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetEncryptionConfigRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetEncryptionConfigResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetExecuteStateRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetExecuteStateResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetGroupRequest;
@@ -191,6 +193,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\PublishRegistryModuleVersionRes
 use AlibabaCloud\SDK\IaCService\V20210806\Models\RemoveSharedAccountsRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\RemoveSharedAccountsResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\RemoveSharedAccountsShrinkRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\SetEncryptionConfigRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\SetEncryptionConfigResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\TriggerStackExecutionRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\TriggerStackExecutionResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateDetectConfigRequest;
@@ -1214,9 +1218,9 @@ class IaCService extends OpenApiClient
      * @remarks
      * ## Operation description
      * - This operation creates a new parameter set.
-     * - The name field is required and can be up to 128 characters in length.
-     * - Each element in the parameters array must contain the name field. Other fields are optional.
-     * - Use the clientToken field to ensure the idempotence of the request.
+     * - The `name` field is required and can be up to 128 characters in length.
+     * - Each element in the `parameters` array must contain the `name` field. Other fields are optional.
+     * - Use the `clientToken` field to ensure idempotence of the request.
      * - The request header must contain authentication information to ensure secure access.
      *
      * @param Request - CreateParameterSetRequest
@@ -1276,9 +1280,9 @@ class IaCService extends OpenApiClient
      * @remarks
      * ## Operation description
      * - This operation creates a new parameter set.
-     * - The name field is required and can be up to 128 characters in length.
-     * - Each element in the parameters array must contain the name field. Other fields are optional.
-     * - Use the clientToken field to ensure the idempotence of the request.
+     * - The `name` field is required and can be up to 128 characters in length.
+     * - Each element in the `parameters` array must contain the `name` field. Other fields are optional.
+     * - Use the `clientToken` field to ensure idempotence of the request.
      * - The request header must contain authentication information to ensure secure access.
      *
      * @param Request - CreateParameterSetRequest
@@ -1733,7 +1737,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Creates a node.
+     * Creates a task.
      *
      * @remarks
      * Single-user call frequency: 100 calls per second.
@@ -1850,7 +1854,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Creates a node.
+     * Creates a task.
      *
      * @remarks
      * Single-user call frequency: 100 calls per second.
@@ -3356,6 +3360,61 @@ class IaCService extends OpenApiClient
     }
 
     /**
+     * Retrieves the encryption configuration.
+     *
+     * @param Request - GetEncryptionConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEncryptionConfigResponse
+     *
+     * @param GetEncryptionConfigRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetEncryptionConfigResponse
+     */
+    public function getEncryptionConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetEncryptionConfig',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/encryption/config',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEncryptionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the encryption configuration.
+     *
+     * @param Request - GetEncryptionConfigRequest
+     *
+     * @returns GetEncryptionConfigResponse
+     *
+     * @param GetEncryptionConfigRequest $request
+     *
+     * @return GetEncryptionConfigResponse
+     */
+    public function getEncryptionConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEncryptionConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the result of a Terraform run.
      *
      * @remarks
@@ -3682,10 +3741,10 @@ class IaCService extends OpenApiClient
      * Retrieves the details of a parameter set by parameter set ID.
      *
      * @remarks
-     * ## Description
-     * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
-     * - Authentication is required to call this operation.
-     * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
+     * ## Request description
+     * - This operation retrieves detailed parameter set information by specifying a `parameterSetId`.
+     * - Authentication is required to access this operation.
+     * - If the request is successful, detailed data including the parameter set name, description, and parameter list is returned.
      *
      * @param Request - GetParameterSetRequest
      * @param headers - map
@@ -3725,10 +3784,10 @@ class IaCService extends OpenApiClient
      * Retrieves the details of a parameter set by parameter set ID.
      *
      * @remarks
-     * ## Description
-     * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
-     * - Authentication is required to call this operation.
-     * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
+     * ## Request description
+     * - This operation retrieves detailed parameter set information by specifying a `parameterSetId`.
+     * - Authentication is required to access this operation.
+     * - If the request is successful, detailed data including the parameter set name, description, and parameter list is returned.
      *
      * @param Request - GetParameterSetRequest
      *
@@ -4351,7 +4410,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Retrieves the trigger result of a stack.
+     * Retrieves the trigger result of a Stack.
      *
      * @param Request - GetStackExecutionResultRequest
      * @param headers - map
@@ -4388,7 +4447,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Retrieves the trigger result of a stack.
+     * Retrieves the trigger result of a Stack.
      *
      * @param Request - GetStackExecutionResultRequest
      *
@@ -4411,7 +4470,7 @@ class IaCService extends OpenApiClient
      * Retrieves the details of a task.
      *
      * @remarks
-     * Single-user call frequency: 100 calls per second.
+     * Per-user call frequency: 100 calls per second.
      *
      * @param Request - GetTaskRequest
      * @param headers - map
@@ -4451,7 +4510,7 @@ class IaCService extends OpenApiClient
      * Retrieves the details of a task.
      *
      * @remarks
-     * Single-user call frequency: 100 calls per second.
+     * Per-user call frequency: 100 calls per second.
      *
      * @param Request - GetTaskRequest
      *
@@ -5224,17 +5283,17 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+     * Retrieves the list of templates under the current user, with support for pagination and conditional filtering.
      *
      * @remarks
      * ## Operation description
-     * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
-     * ### Notes
-     * - Use the pageNumber and pageSize parameters to control the number of returned results.
-     * - Use the name parameter to perform a fuzzy match on template names.
-     * - Use the source parameter to filter templates by source, such as OSS import or file upload.
-     * - Use the status parameter to filter templates by status, such as Created or Published.
-     * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
+     * This operation lists all Terraform templates under the current user. You can specify query parameters to implement pagination, fuzzy match template names, filter templates by source or status, and more. You can also filter templates by tags for more granular results.
+     * ### Precautions
+     * - The pagination parameters `pageNumber` and `pageSize` help control the number of returned results.
+     * - Use the `name` parameter to perform a fuzzy match search on template names.
+     * - Use the `source` parameter to filter templates by source (such as OSS import or file upload).
+     * - Use the `status` parameter to filter templates by status (such as created or published).
+     * - Tag filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
      *
      * @param tmpReq - ListModulesRequest
      * @param headers - map
@@ -5306,17 +5365,17 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+     * Retrieves the list of templates under the current user, with support for pagination and conditional filtering.
      *
      * @remarks
      * ## Operation description
-     * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
-     * ### Notes
-     * - Use the pageNumber and pageSize parameters to control the number of returned results.
-     * - Use the name parameter to perform a fuzzy match on template names.
-     * - Use the source parameter to filter templates by source, such as OSS import or file upload.
-     * - Use the status parameter to filter templates by status, such as Created or Published.
-     * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
+     * This operation lists all Terraform templates under the current user. You can specify query parameters to implement pagination, fuzzy match template names, filter templates by source or status, and more. You can also filter templates by tags for more granular results.
+     * ### Precautions
+     * - The pagination parameters `pageNumber` and `pageSize` help control the number of returned results.
+     * - Use the `name` parameter to perform a fuzzy match search on template names.
+     * - Use the `source` parameter to filter templates by source (such as OSS import or file upload).
+     * - Use the `status` parameter to filter templates by status (such as created or published).
+     * - Tag filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
      *
      * @param Request - ListModulesRequest
      *
@@ -5404,10 +5463,10 @@ class IaCService extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+     * This operation queries all parameter sets in the system and supports filtering by keyword and paginated results. Authentication information is required in the request.
      * ### Notes
-     * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
-     * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
+     * - The `keyword` parameter can be used to fuzzy match parameter sets by name or description.
+     * - Pagination is controlled by `pageNumber` and `pageSize`. By default, results start from the first page. The page size is customizable but should be set to a reasonable value to avoid performance issues.
      *
      * @param Request - ListParameterSetsRequest
      * @param headers - map
@@ -5465,10 +5524,10 @@ class IaCService extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+     * This operation queries all parameter sets in the system and supports filtering by keyword and paginated results. Authentication information is required in the request.
      * ### Notes
-     * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
-     * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
+     * - The `keyword` parameter can be used to fuzzy match parameter sets by name or description.
+     * - Pagination is controlled by `pageNumber` and `pageSize`. By default, results start from the first page. The page size is customizable but should be set to a reasonable value to avoid performance issues.
      *
      * @param Request - ListParameterSetsRequest
      *
@@ -5744,7 +5803,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Queries a list of registry modules.
+     * Queries the list of Registry modules.
      *
      * @remarks
      * Single-user call frequency: 200 calls per second.
@@ -5809,7 +5868,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Queries a list of registry modules.
+     * Queries the list of Registry modules.
      *
      * @remarks
      * Single-user call frequency: 200 calls per second.
@@ -6078,7 +6137,7 @@ class IaCService extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
+     * This API allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform Provider version, child class, status, and keyword. The results contain detailed information about resources, including product code, status, status effective version, child class, Terraform Provider version, and resource type code. Paging is supported for handling large amounts of data.
      *
      * @param tmpReq - ListResourceTypesRequest
      * @param headers - map
@@ -6170,7 +6229,7 @@ class IaCService extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
+     * This API allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform Provider version, child class, status, and keyword. The results contain detailed information about resources, including product code, status, status effective version, child class, Terraform Provider version, and resource type code. Paging is supported for handling large amounts of data.
      *
      * @param Request - ListResourceTypesRequest
      *
@@ -6426,10 +6485,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Queries a list of tasks.
+     * Retrieves a list of tasks.
      *
      * @remarks
-     * The maximum number of times that a single user can call this operation per second: 100.
+     * Per-user call frequency: 100 calls per second.
      *
      * @param tmpReq - ListTasksRequest
      * @param headers - map
@@ -6513,10 +6572,10 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Queries a list of tasks.
+     * Retrieves a list of tasks.
      *
      * @remarks
-     * The maximum number of times that a single user can call this operation per second: 100.
+     * Per-user call frequency: 100 calls per second.
      *
      * @param Request - ListTasksRequest
      *
@@ -6936,7 +6995,76 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Trigger Stack execution.
+     * Sets the encryption configuration.
+     *
+     * @param Request - SetEncryptionConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetEncryptionConfigResponse
+     *
+     * @param SetEncryptionConfigRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetEncryptionConfigResponse
+     */
+    public function setEncryptionConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->kmsKeyId) {
+            @$body['kmsKeyId'] = $request->kmsKeyId;
+        }
+
+        if (null !== $request->kmsRegionId) {
+            @$body['kmsRegionId'] = $request->kmsRegionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetEncryptionConfig',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/encryption/config',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SetEncryptionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets the encryption configuration.
+     *
+     * @param Request - SetEncryptionConfigRequest
+     *
+     * @returns SetEncryptionConfigResponse
+     *
+     * @param SetEncryptionConfigRequest $request
+     *
+     * @return SetEncryptionConfigResponse
+     */
+    public function setEncryptionConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->setEncryptionConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Triggers the execution of a stack.
      *
      * @param Request - TriggerStackExecutionRequest
      * @param headers - map
@@ -6974,6 +7102,10 @@ class IaCService extends OpenApiClient
             @$body['codeVersionId'] = $request->codeVersionId;
         }
 
+        if (null !== $request->sourceTriggerId) {
+            @$body['sourceTriggerId'] = $request->sourceTriggerId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -6994,7 +7126,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Trigger Stack execution.
+     * Triggers the execution of a stack.
      *
      * @param Request - TriggerStackExecutionRequest
      *
@@ -7416,9 +7548,9 @@ class IaCService extends OpenApiClient
      * @remarks
      * ## Operation description
      * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
-     * - If the request includes the parameters field, the parameter list in the parameter set is updated.
-     * - The clientToken field can be used to ensure the idempotence of the request.
-     * - The update operation requires a valid parameterSetId as a path parameter.
+     * - If the request includes the `parameters` field, the parameter list in the parameter set is updated.
+     * - The `clientToken` field can be used to ensure the idempotence of the request.
+     * - The update operation requires a valid `parameterSetId` as a path parameter.
      * - The request must include authentication information to pass identity verification.
      *
      * @param Request - UpdateParameterSetAttributeRequest
@@ -7475,9 +7607,9 @@ class IaCService extends OpenApiClient
      * @remarks
      * ## Operation description
      * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
-     * - If the request includes the parameters field, the parameter list in the parameter set is updated.
-     * - The clientToken field can be used to ensure the idempotence of the request.
-     * - The update operation requires a valid parameterSetId as a path parameter.
+     * - If the request includes the `parameters` field, the parameter list in the parameter set is updated.
+     * - The `clientToken` field can be used to ensure the idempotence of the request.
+     * - The update operation requires a valid `parameterSetId` as a path parameter.
      * - The request must include authentication information to pass identity verification.
      *
      * @param Request - UpdateParameterSetAttributeRequest
@@ -7913,7 +8045,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Updates the properties of a task.
+     * Updates the attributes of a node.
      *
      * @remarks
      * Single-user call frequency: 100 calls per second.
@@ -8019,7 +8151,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Updates the properties of a task.
+     * Updates the attributes of a node.
      *
      * @remarks
      * Single-user call frequency: 100 calls per second.
