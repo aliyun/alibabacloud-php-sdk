@@ -53,8 +53,17 @@ use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactQueryDetail
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactQueryDetailResponse;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactQueryPageListRequest;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactQueryPageListResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgCreateNodeRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgCreateNodeResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgCreateNodeShrinkRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgDeleteNodeRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgDeleteNodeResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgDeleteNodeShrinkRequest;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgQueryLoadTreeRequest;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgQueryLoadTreeResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgRenameNodeRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgRenameNodeResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgRenameNodeShrinkRequest;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseRegisterAccountRequest;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseRegisterAccountResponse;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseRoleCreateBizRoleRequest;
@@ -91,7 +100,11 @@ class AccountCenter extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'ap-southeast-1' => 'accountcenter-intl.aliyuncs.com',
+            'cn-hangzhou' => 'accountcenter.cn-hangzhou.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('accountcenter', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -121,7 +134,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 添加私有联系人.
+     * Creates an account contact.
+     *
+     * @remarks
+     * Creates an account contact.
      *
      * @param request - AccountContactAddRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -208,7 +224,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 添加私有联系人.
+     * Creates an account contact.
+     *
+     * @remarks
+     * Creates an account contact.
      *
      * @param request - AccountContactAddRequest
      *
@@ -226,7 +245,7 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 删除私有联系人.
+     * Delete a private contact.
      *
      * @param request - AccountContactDeleteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -281,7 +300,7 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 删除私有联系人.
+     * Delete a private contact.
      *
      * @param request - AccountContactDeleteRequest
      *
@@ -299,7 +318,7 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 修改私有联系人.
+     * Modify a private contact.
      *
      * @param request - AccountContactEditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -390,7 +409,7 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 修改私有联系人.
+     * Modify a private contact.
      *
      * @param request - AccountContactEditRequest
      *
@@ -408,7 +427,7 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 查询联系人详情.
+     * Queries the details of a contact.
      *
      * @param request - AccountContactQueryDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -463,7 +482,7 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 查询联系人详情.
+     * Queries the details of a contact.
      *
      * @param request - AccountContactQueryDetailRequest
      *
@@ -481,7 +500,7 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 查询联系人列表.
+     * Queries the contact list.
      *
      * @param request - AccountContactQueryPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -558,7 +577,7 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 查询联系人列表.
+     * Queries the contact list.
      *
      * @param request - AccountContactQueryPageListRequest
      *
@@ -1750,7 +1769,11 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 增加企业联系人.
+     * Adds an enterprise contact.
+     *
+     * @remarks
+     * Creates an enterprise public contact.
+     * For information about Alibaba Cloud account authorization, refer to [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
      *
      * @param request - EnterpriseContactAddRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1837,7 +1860,11 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 增加企业联系人.
+     * Adds an enterprise contact.
+     *
+     * @remarks
+     * Creates an enterprise public contact.
+     * For information about Alibaba Cloud account authorization, refer to [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
      *
      * @param request - EnterpriseContactAddRequest
      *
@@ -1855,7 +1882,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 删除企业联系人.
+     * Deletes an enterprise contact.
+     *
+     * @remarks
+     * Deletes an enterprise public contact. For information about Alibaba Cloud account authorization, refer to the [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
      *
      * @param request - EnterpriseContactDeleteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1910,7 +1940,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 删除企业联系人.
+     * Deletes an enterprise contact.
+     *
+     * @remarks
+     * Deletes an enterprise public contact. For information about Alibaba Cloud account authorization, refer to the [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
      *
      * @param request - EnterpriseContactDeleteRequest
      *
@@ -1928,7 +1961,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 修改私企业联系人.
+     * Modifies a private enterprise contact.
+     *
+     * @remarks
+     * Modifies a public enterprise contact. For information about primary account authorization, see [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
      *
      * @param request - EnterpriseContactEditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2019,7 +2055,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 修改私企业联系人.
+     * Modifies a private enterprise contact.
+     *
+     * @remarks
+     * Modifies a public enterprise contact. For information about primary account authorization, see [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
      *
      * @param request - EnterpriseContactEditRequest
      *
@@ -2037,7 +2076,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 查询联系人详情.
+     * Queries the details of a contact.
+     *
+     * @remarks
+     * Queries the details of a single enterprise contact.
      *
      * @param request - EnterpriseContactQueryDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2092,7 +2134,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 查询联系人详情.
+     * Queries the details of a contact.
+     *
+     * @remarks
+     * Queries the details of a single enterprise contact.
      *
      * @param request - EnterpriseContactQueryDetailRequest
      *
@@ -2110,7 +2155,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 查询联系人列表.
+     * Query the contact list.
+     *
+     * @remarks
+     * Query enterprise contacts by page.
      *
      * @param request - EnterpriseContactQueryPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2187,7 +2235,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 查询联系人列表.
+     * Query the contact list.
+     *
+     * @remarks
+     * Query enterprise contacts by page.
      *
      * @param request - EnterpriseContactQueryPageListRequest
      *
@@ -2202,6 +2253,224 @@ class AccountCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enterpriseContactQueryPageListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建组织节点.
+     *
+     * @param tmpReq - EnterpriseOrgCreateNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnterpriseOrgCreateNodeResponse
+     *
+     * @param EnterpriseOrgCreateNodeRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnterpriseOrgCreateNodeResponse
+     */
+    public function enterpriseOrgCreateNodeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new EnterpriseOrgCreateNodeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ext) {
+            $request->extShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'Ext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->extShrink) {
+            @$body['Ext'] = $request->extShrink;
+        }
+
+        if (null !== $request->isOpenApi) {
+            @$body['IsOpenApi'] = $request->isOpenApi;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->nodeName) {
+            @$body['NodeName'] = $request->nodeName;
+        }
+
+        if (null !== $request->nodeType) {
+            @$body['NodeType'] = $request->nodeType;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        if (null !== $request->parentNodeId) {
+            @$body['ParentNodeId'] = $request->parentNodeId;
+        }
+
+        if (null !== $request->parentNodeType) {
+            @$body['ParentNodeType'] = $request->parentNodeType;
+        }
+
+        if (null !== $request->showCompleteInfo) {
+            @$body['ShowCompleteInfo'] = $request->showCompleteInfo;
+        }
+
+        if (null !== $request->treeId) {
+            @$body['TreeId'] = $request->treeId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnterpriseOrgCreateNode',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnterpriseOrgCreateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建组织节点.
+     *
+     * @param request - EnterpriseOrgCreateNodeRequest
+     *
+     * @returns EnterpriseOrgCreateNodeResponse
+     *
+     * @param EnterpriseOrgCreateNodeRequest $request
+     *
+     * @return EnterpriseOrgCreateNodeResponse
+     */
+    public function enterpriseOrgCreateNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enterpriseOrgCreateNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除组织节点.
+     *
+     * @param tmpReq - EnterpriseOrgDeleteNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnterpriseOrgDeleteNodeResponse
+     *
+     * @param EnterpriseOrgDeleteNodeRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnterpriseOrgDeleteNodeResponse
+     */
+    public function enterpriseOrgDeleteNodeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new EnterpriseOrgDeleteNodeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ext) {
+            $request->extShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'Ext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->extShrink) {
+            @$body['Ext'] = $request->extShrink;
+        }
+
+        if (null !== $request->isOpenApi) {
+            @$body['IsOpenApi'] = $request->isOpenApi;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->nodeType) {
+            @$body['NodeType'] = $request->nodeType;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        if (null !== $request->showCompleteInfo) {
+            @$body['ShowCompleteInfo'] = $request->showCompleteInfo;
+        }
+
+        if (null !== $request->treeId) {
+            @$body['TreeId'] = $request->treeId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnterpriseOrgDeleteNode',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnterpriseOrgDeleteNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除组织节点.
+     *
+     * @param request - EnterpriseOrgDeleteNodeRequest
+     *
+     * @returns EnterpriseOrgDeleteNodeResponse
+     *
+     * @param EnterpriseOrgDeleteNodeRequest $request
+     *
+     * @return EnterpriseOrgDeleteNodeResponse
+     */
+    public function enterpriseOrgDeleteNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enterpriseOrgDeleteNodeWithOptions($request, $runtime);
     }
 
     /**
@@ -2281,6 +2550,113 @@ class AccountCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enterpriseOrgQueryLoadTreeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重命名组织节点.
+     *
+     * @param tmpReq - EnterpriseOrgRenameNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnterpriseOrgRenameNodeResponse
+     *
+     * @param EnterpriseOrgRenameNodeRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnterpriseOrgRenameNodeResponse
+     */
+    public function enterpriseOrgRenameNodeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new EnterpriseOrgRenameNodeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ext) {
+            $request->extShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'Ext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->extShrink) {
+            @$body['Ext'] = $request->extShrink;
+        }
+
+        if (null !== $request->isOpenApi) {
+            @$body['IsOpenApi'] = $request->isOpenApi;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->nodeName) {
+            @$body['NodeName'] = $request->nodeName;
+        }
+
+        if (null !== $request->nodeType) {
+            @$body['NodeType'] = $request->nodeType;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        if (null !== $request->showCompleteInfo) {
+            @$body['ShowCompleteInfo'] = $request->showCompleteInfo;
+        }
+
+        if (null !== $request->treeId) {
+            @$body['TreeId'] = $request->treeId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnterpriseOrgRenameNode',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnterpriseOrgRenameNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重命名组织节点.
+     *
+     * @param request - EnterpriseOrgRenameNodeRequest
+     *
+     * @returns EnterpriseOrgRenameNodeResponse
+     *
+     * @param EnterpriseOrgRenameNodeRequest $request
+     *
+     * @return EnterpriseOrgRenameNodeResponse
+     */
+    public function enterpriseOrgRenameNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enterpriseOrgRenameNodeWithOptions($request, $runtime);
     }
 
     /**
@@ -3273,7 +3649,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 账号中心发送异步验证邮件.
+     * Sends an asynchronous email verification message to verify the email address of a specified contact.
+     *
+     * @remarks
+     * Sends an asynchronous verification link for a contact\\"s email address. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
      *
      * @param request - SendAsyncEmailCaptchaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3320,7 +3699,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 账号中心发送异步验证邮件.
+     * Sends an asynchronous email verification message to verify the email address of a specified contact.
+     *
+     * @remarks
+     * Sends an asynchronous verification link for a contact\\"s email address. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
      *
      * @param request - SendAsyncEmailCaptchaRequest
      *
@@ -3338,7 +3720,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 账号中心发送异步验证短信
+     * Sends an asynchronous verification SMS to a phone number to verify the phone number of a specified contact.
+     *
+     * @remarks
+     * Sends an asynchronous verification link for a contact\\"s contact information. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
      *
      * @param request - SendAsyncMobileCaptchaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3385,7 +3770,10 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
-     * 账号中心发送异步验证短信
+     * Sends an asynchronous verification SMS to a phone number to verify the phone number of a specified contact.
+     *
+     * @remarks
+     * Sends an asynchronous verification link for a contact\\"s contact information. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
      *
      * @param request - SendAsyncMobileCaptchaRequest
      *
