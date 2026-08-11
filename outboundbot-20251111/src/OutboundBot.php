@@ -80,6 +80,9 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateScriptRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateScriptResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateScriptVersionRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateScriptVersionResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateScriptVersionShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateSubscriptionRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateSubscriptionResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateSubscriptionShrinkRequest;
@@ -132,7 +135,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建克隆音色.
+     * Creates an instance.
      *
      * @param request - CreateCloneVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -179,7 +182,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建克隆音色.
+     * Creates an instance.
      *
      * @param request - CreateCloneVoiceRequest
      *
@@ -197,7 +200,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Creates an instance.
+     * Creates a flash message configuration.
      *
      * @param tmpReq - CreateFlashSmsAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -250,7 +253,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Creates an instance.
+     * Creates a flash message configuration.
      *
      * @param request - CreateFlashSmsAccessProfileRequest
      *
@@ -408,7 +411,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建场景.
+     * Creates an instance.
      *
      * @param request - CreateScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -459,7 +462,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建场景.
+     * Creates an instance.
      *
      * @param request - CreateScriptRequest
      *
@@ -477,7 +480,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建场景配置.
+     * Creates a scenario configuration.
      *
      * @param tmpReq - CreateScriptVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -566,7 +569,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建场景配置.
+     * Creates a scenario configuration.
      *
      * @param request - CreateScriptVersionRequest
      *
@@ -584,7 +587,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建语音接入配置.
+     * Creates an instance.
      *
      * @param tmpReq - CreateVoiceAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -637,7 +640,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建语音接入配置.
+     * Creates an instance.
      *
      * @param request - CreateVoiceAccessProfileRequest
      *
@@ -655,7 +658,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 删除克隆音色.
+     * Deletes a scene.
      *
      * @param request - DeleteCloneVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -698,7 +701,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 删除克隆音色.
+     * Deletes a scene.
      *
      * @param request - DeleteCloneVoiceRequest
      *
@@ -716,7 +719,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 删除闪信配置.
+     * Deletes a flash message configuration.
      *
      * @param request - DeleteFlashSmsAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -759,7 +762,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 删除闪信配置.
+     * Deletes a flash message configuration.
      *
      * @param request - DeleteFlashSmsAccessProfileRequest
      *
@@ -777,7 +780,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an instance.
+     * Retrieves instance details.
      *
      * @param request - DeleteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -816,7 +819,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an instance.
+     * Retrieves instance details.
      *
      * @param request - DeleteInstanceRequest
      *
@@ -901,7 +904,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a scenario.
      *
      * @param request - DeleteScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -944,7 +947,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a scenario.
      *
      * @param request - DeleteScriptRequest
      *
@@ -962,7 +965,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 删除三方语音配置.
+     * Deletes a third-party voice configuration.
      *
      * @param request - DeleteVoiceAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1005,7 +1008,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 删除三方语音配置.
+     * Deletes a third-party voice configuration.
      *
      * @param request - DeleteVoiceAccessProfileRequest
      *
@@ -1023,7 +1026,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 禁用消息订阅.
+     * Disables message subscription.
      *
      * @param request - DisableSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1062,7 +1065,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 禁用消息订阅.
+     * Disables message subscription.
      *
      * @param request - DisableSubscriptionRequest
      *
@@ -1137,7 +1140,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取prompt场景模版.
+     * Retrieves a prompt scenario template.
      *
      * @param request - GetScriptProfileTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1180,7 +1183,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取prompt场景模版.
+     * Retrieves a prompt scenario template.
      *
      * @param request - GetScriptProfileTemplateRequest
      *
@@ -1198,7 +1201,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取MQ配置.
+     * Retrieves the MQ configuration.
      *
      * @param request - GetSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1237,7 +1240,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取MQ配置.
+     * Retrieves the MQ configuration.
      *
      * @param request - GetSubscriptionRequest
      *
@@ -1255,7 +1258,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取克隆音色可用模型列表.
+     * Retrieves the list of available models for voice cloning.
      *
      * @param request - ListCloneVoiceModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1298,7 +1301,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取克隆音色可用模型列表.
+     * Retrieves the list of available models for voice cloning.
      *
      * @param request - ListCloneVoiceModelsRequest
      *
@@ -1316,7 +1319,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取克隆音色列表.
+     * Retrieves the list of cloned voices.
      *
      * @param request - ListCloneVoicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1367,7 +1370,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取克隆音色列表.
+     * Retrieves the list of cloned voices.
      *
      * @param request - ListCloneVoicesRequest
      *
@@ -1385,7 +1388,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取闪信配置列表.
+     * Retrieves the list of flash SMS configurations.
      *
      * @param request - ListFlashSmsAccessProfilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1432,7 +1435,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取闪信配置列表.
+     * Retrieves the list of flash SMS configurations.
      *
      * @param request - ListFlashSmsAccessProfilesRequest
      *
@@ -1450,7 +1453,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取闪信厂商列表.
+     * Retrieves the list of flash message providers.
      *
      * @param request - ListFlashSmsProvidersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1489,7 +1492,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取闪信厂商列表.
+     * Retrieves the list of flash message providers.
      *
      * @param request - ListFlashSmsProvidersRequest
      *
@@ -1507,7 +1510,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取闪信模版列表.
+     * Retrieves flash SMS templates.
      *
      * @param request - ListFlashSmsTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1558,7 +1561,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取闪信模版列表.
+     * Retrieves flash SMS templates.
      *
      * @param request - ListFlashSmsTemplatesRequest
      *
@@ -1641,7 +1644,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the blacklists and whitelists of an outbound robot.
+     * Retrieves the blacklists and whitelists.
      *
      * @param request - ListOutboundCallRestrictionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1692,7 +1695,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the blacklists and whitelists of an outbound robot.
+     * Retrieves the blacklists and whitelists.
      *
      * @param request - ListOutboundCallRestrictionsRequest
      *
@@ -1710,7 +1713,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取场景配置模板列表.
+     * Retrieves the list of scenario configuration templates.
      *
      * @param request - ListScriptProfileTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1753,7 +1756,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取场景配置模板列表.
+     * Retrieves the list of scenario configuration templates.
      *
      * @param request - ListScriptProfileTemplatesRequest
      *
@@ -1771,7 +1774,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取场景列表.
+     * Retrieves the details of an instance.
      *
      * @param tmpReq - ListScriptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1836,7 +1839,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取场景列表.
+     * Retrieves the details of an instance.
      *
      * @param request - ListScriptsRequest
      *
@@ -1854,7 +1857,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 根据流程ID获取场景列表.
+     * Retrieves the list of scenarios associated with a flow by flow ID.
      *
      * @param request - ListScriptsByFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1897,7 +1900,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 根据流程ID获取场景列表.
+     * Retrieves the list of scenarios associated with a flow by flow ID.
      *
      * @param request - ListScriptsByFlowRequest
      *
@@ -1915,7 +1918,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取系统配置列表.
+     * Retrieves the list of system configurations.
      *
      * @param request - ListSystemConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1962,7 +1965,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取系统配置列表.
+     * Retrieves the list of system configurations.
      *
      * @param request - ListSystemConfigsRequest
      *
@@ -1980,7 +1983,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取语音接入配置列表.
+     * Retrieves the list of voice access configurations.
      *
      * @param request - ListVoiceAccessProfilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2027,7 +2030,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取语音接入配置列表.
+     * Retrieves the list of voice access configurations.
      *
      * @param request - ListVoiceAccessProfilesRequest
      *
@@ -2045,7 +2048,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 发布场景.
+     * Updates an instance.
      *
      * @param request - PublishScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2092,7 +2095,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 发布场景.
+     * Updates an instance.
      *
      * @param request - PublishScriptRequest
      *
@@ -2110,7 +2113,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新克隆音色.
+     * Updates an instance.
      *
      * @param request - UpdateCloneVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2157,7 +2160,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新克隆音色.
+     * Updates an instance.
      *
      * @param request - UpdateCloneVoiceRequest
      *
@@ -2175,7 +2178,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新闪信配置.
+     * Updates the flash message configuration.
      *
      * @param tmpReq - UpdateFlashSmsAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2232,7 +2235,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新闪信配置.
+     * Updates the flash message configuration.
      *
      * @param request - UpdateFlashSmsAccessProfileRequest
      *
@@ -2319,7 +2322,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新场景.
+     * Updates an instance.
      *
      * @param request - UpdateScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2370,7 +2373,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新场景.
+     * Updates an instance.
      *
      * @param request - UpdateScriptRequest
      *
@@ -2388,7 +2391,118 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建或更新MQ配置.
+     * 更新场景配置.
+     *
+     * @remarks
+     *
+     * @param tmpReq - UpdateScriptVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateScriptVersionResponse
+     *
+     * @param UpdateScriptVersionRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateScriptVersionResponse
+     */
+    public function updateScriptVersionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateScriptVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->interactionConfig) {
+            $request->interactionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->interactionConfig, 'InteractionConfig', 'json');
+        }
+
+        if (null !== $tmpReq->labelConfigs) {
+            $request->labelConfigsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelConfigs, 'LabelConfigs', 'json');
+        }
+
+        if (null !== $tmpReq->scriptProfile) {
+            $request->scriptProfileShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scriptProfile, 'ScriptProfile', 'json');
+        }
+
+        if (null !== $tmpReq->synthesizerConfig) {
+            $request->synthesizerConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->synthesizerConfig, 'SynthesizerConfig', 'json');
+        }
+
+        if (null !== $tmpReq->transcriberConfig) {
+            $request->transcriberConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transcriberConfig, 'TranscriberConfig', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->interactionConfigShrink) {
+            @$body['InteractionConfig'] = $request->interactionConfigShrink;
+        }
+
+        if (null !== $request->labelConfigsShrink) {
+            @$body['LabelConfigs'] = $request->labelConfigsShrink;
+        }
+
+        if (null !== $request->scriptId) {
+            @$body['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->scriptProfileShrink) {
+            @$body['ScriptProfile'] = $request->scriptProfileShrink;
+        }
+
+        if (null !== $request->synthesizerConfigShrink) {
+            @$body['SynthesizerConfig'] = $request->synthesizerConfigShrink;
+        }
+
+        if (null !== $request->transcriberConfigShrink) {
+            @$body['TranscriberConfig'] = $request->transcriberConfigShrink;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['VersionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateScriptVersion',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateScriptVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新场景配置.
+     *
+     * @remarks
+     *
+     * @param request - UpdateScriptVersionRequest
+     *
+     * @returns UpdateScriptVersionResponse
+     *
+     * @param UpdateScriptVersionRequest $request
+     *
+     * @return UpdateScriptVersionResponse
+     */
+    public function updateScriptVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateScriptVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates or updates a message queue (MQ) configuration.
      *
      * @param tmpReq - UpdateSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2465,7 +2579,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建或更新MQ配置.
+     * Creates or updates a message queue (MQ) configuration.
      *
      * @param request - UpdateSubscriptionRequest
      *
@@ -2483,7 +2597,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新系统配置.
+     * Updates system configurations.
      *
      * @param tmpReq - UpdateSystemConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2536,7 +2650,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新系统配置.
+     * Updates system configurations.
      *
      * @param request - UpdateSystemConfigsRequest
      *
@@ -2554,7 +2668,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新语音接入配置.
+     * Updates an instance.
      *
      * @param tmpReq - UpdateVoiceAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2611,7 +2725,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新语音接入配置.
+     * Updates an instance.
      *
      * @param request - UpdateVoiceAccessProfileRequest
      *
