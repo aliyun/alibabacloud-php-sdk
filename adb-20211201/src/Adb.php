@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CheckFormationSchemaExistsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckFormationSchemaExistsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckSampleDataSetRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckSampleDataSetResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CloseLogSyncToSLSRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CloseLogSyncToSLSResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ConfigureResultExportRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ConfigureResultExportResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ConfigureResultExportShrinkRequest;
@@ -338,6 +340,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\GetKnowledgeRecallRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetKnowledgeRecallResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetLakeStorageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetLakeStorageResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetLogSyncToSLSRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetLogSyncToSLSResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSemanticViewRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSemanticViewResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkAppAttemptLogRequest;
@@ -474,6 +478,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ModifySqlTemplatePositionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifySqlTemplatePositionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyUserEniVswitchOptionsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyUserEniVswitchOptionsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\OpenLogSyncToSLSRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\OpenLogSyncToSLSResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\QueryFormationInstsByTaskIDRequest;
@@ -590,21 +596,21 @@ class Adb extends OpenApiClient
             'eu-west-1-oxs' => 'adb.ap-northeast-1.aliyuncs.com',
             'me-east-1' => 'adb.ap-northeast-1.aliyuncs.com',
             'rus-west-1-pop' => 'adb.ap-northeast-1.aliyuncs.com',
-            'na-south-1' => 'adb.na-south-1.aliyuncs.com',
-            'me-central-1' => 'adb.me-central-1.aliyuncs.com',
-            'eu-west-1' => 'adb.eu-west-1.aliyuncs.com',
-            'eu-central-1' => 'adb.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'adb.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu' => 'adb.cn-wulanchabu.aliyuncs.com',
-            'cn-huhehaote' => 'adb.cn-huhehaote.aliyuncs.com',
-            'cn-guangzhou' => 'adb.cn-guangzhou.aliyuncs.com',
             'cn-chengdu' => 'adb.cn-chengdu.aliyuncs.com',
-            'ap-southeast-7' => 'adb.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-6' => 'adb.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-5' => 'adb.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'adb.ap-southeast-3.aliyuncs.com',
+            'cn-wulanchabu' => 'adb.cn-wulanchabu.aliyuncs.com',
+            'cn-zhangjiakou' => 'adb.cn-zhangjiakou.aliyuncs.com',
             'ap-northeast-2' => 'adb.ap-northeast-2.aliyuncs.com',
             'ap-northeast-1' => 'adb.ap-northeast-1.aliyuncs.com',
+            'cn-guangzhou' => 'adb.cn-guangzhou.aliyuncs.com',
+            'ap-southeast-3' => 'adb.ap-southeast-3.aliyuncs.com',
+            'cn-huhehaote' => 'adb.cn-huhehaote.aliyuncs.com',
+            'ap-southeast-5' => 'adb.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-6' => 'adb.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-7' => 'adb.ap-southeast-7.aliyuncs.com',
+            'eu-west-1' => 'adb.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'adb.eu-central-1.aliyuncs.com',
+            'na-south-1' => 'adb.na-south-1.aliyuncs.com',
+            'me-central-1' => 'adb.me-central-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('adb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1500,6 +1506,81 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkSampleDataSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * Disables log synchronization to Simple Log Service (SLS).
+     *
+     * @remarks
+     * - Central public endpoint: `adb.aliyuncs.com`.
+     * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *
+     * @param request - CloseLogSyncToSLSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseLogSyncToSLSResponse
+     *
+     * @param CloseLogSyncToSLSRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CloseLogSyncToSLSResponse
+     */
+    public function closeLogSyncToSLSWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->logType) {
+            @$query['LogType'] = $request->logType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloseLogSyncToSLS',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloseLogSyncToSLSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables log synchronization to Simple Log Service (SLS).
+     *
+     * @remarks
+     * - Central public endpoint: `adb.aliyuncs.com`.
+     * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *
+     * @param request - CloseLogSyncToSLSRequest
+     *
+     * @returns CloseLogSyncToSLSResponse
+     *
+     * @param CloseLogSyncToSLSRequest $request
+     *
+     * @return CloseLogSyncToSLSResponse
+     */
+    public function closeLogSyncToSLS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeLogSyncToSLSWithOptions($request, $runtime);
     }
 
     /**
@@ -13779,6 +13860,10 @@ class Adb extends OpenApiClient
             @$query['Topk'] = $request->topk;
         }
 
+        if (null !== $request->user) {
+            @$query['User'] = $request->user;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -13880,6 +13965,81 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLakeStorageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the log synchronization configuration.
+     *
+     * @remarks
+     * - Central public endpoint: `adb.aliyuncs.com`.
+     * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *
+     * @param request - GetLogSyncToSLSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLogSyncToSLSResponse
+     *
+     * @param GetLogSyncToSLSRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetLogSyncToSLSResponse
+     */
+    public function getLogSyncToSLSWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->logType) {
+            @$query['LogType'] = $request->logType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLogSyncToSLS',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLogSyncToSLSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the log synchronization configuration.
+     *
+     * @remarks
+     * - Central public endpoint: `adb.aliyuncs.com`.
+     * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *
+     * @param request - GetLogSyncToSLSRequest
+     *
+     * @returns GetLogSyncToSLSResponse
+     *
+     * @param GetLogSyncToSLSRequest $request
+     *
+     * @return GetLogSyncToSLSResponse
+     */
+    public function getLogSyncToSLS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLogSyncToSLSWithOptions($request, $runtime);
     }
 
     /**
@@ -19063,6 +19223,89 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyUserEniVswitchOptionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables log synchronization to Simple Log Service (SLS).
+     *
+     * @remarks
+     * - Central public endpoint: `adb.aliyuncs.com`.
+     * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *
+     * @param request - OpenLogSyncToSLSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenLogSyncToSLSResponse
+     *
+     * @param OpenLogSyncToSLSRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return OpenLogSyncToSLSResponse
+     */
+    public function openLogSyncToSLSWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->logType) {
+            @$query['LogType'] = $request->logType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->targetLogStore) {
+            @$query['TargetLogStore'] = $request->targetLogStore;
+        }
+
+        if (null !== $request->targetProject) {
+            @$query['TargetProject'] = $request->targetProject;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OpenLogSyncToSLS',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OpenLogSyncToSLSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables log synchronization to Simple Log Service (SLS).
+     *
+     * @remarks
+     * - Central public endpoint: `adb.aliyuncs.com`.
+     * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     *
+     * @param request - OpenLogSyncToSLSRequest
+     *
+     * @returns OpenLogSyncToSLSResponse
+     *
+     * @param OpenLogSyncToSLSRequest $request
+     *
+     * @return OpenLogSyncToSLSResponse
+     */
+    public function openLogSyncToSLS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openLogSyncToSLSWithOptions($request, $runtime);
     }
 
     /**

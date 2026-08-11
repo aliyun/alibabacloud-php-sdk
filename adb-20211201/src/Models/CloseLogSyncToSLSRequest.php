@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetKnowledgeRecallRequest extends Model
+class CloseLogSyncToSLSRequest extends Model
 {
     /**
      * @var string
@@ -16,22 +16,16 @@ class GetKnowledgeRecallRequest extends Model
     /**
      * @var string
      */
-    public $question;
-
-    /**
-     * @var int
-     */
-    public $topk;
+    public $logType;
 
     /**
      * @var string
      */
-    public $user;
+    public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'question' => 'Question',
-        'topk' => 'Topk',
-        'user' => 'User',
+        'logType' => 'LogType',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -46,16 +40,12 @@ class GetKnowledgeRecallRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
-        if (null !== $this->question) {
-            $res['Question'] = $this->question;
+        if (null !== $this->logType) {
+            $res['LogType'] = $this->logType;
         }
 
-        if (null !== $this->topk) {
-            $res['Topk'] = $this->topk;
-        }
-
-        if (null !== $this->user) {
-            $res['User'] = $this->user;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -73,16 +63,12 @@ class GetKnowledgeRecallRequest extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
-        if (isset($map['Question'])) {
-            $model->question = $map['Question'];
+        if (isset($map['LogType'])) {
+            $model->logType = $map['LogType'];
         }
 
-        if (isset($map['Topk'])) {
-            $model->topk = $map['Topk'];
-        }
-
-        if (isset($map['User'])) {
-            $model->user = $map['User'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;
