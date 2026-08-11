@@ -1,3 +1,50 @@
+2026-08-11 Version: 2.15.6
+- Update API CreateAuthorizationRule: add request parameters AuthorizationRuleScenarioLabel.
+- Update API CreateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.AuthorizationEndpoint.
+- Update API CreateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.AuthorizationFlow.
+- Update API CreateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.DiscoveryUrl.
+- Update API CreateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.Issuer.
+- Update API CreateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.PkceChallengeMethod.
+- Update API CreateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.PkceEnabled.
+- Update API CreateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.ProviderVendor.
+- Update API GetAuthorizationRule: add response parameters Body.AuthorizationRule.AuthorizationRuleScenarioLabel.
+- Update API GetCloudAccount: add response parameters Body.CloudAccount.CloudAccountRoleCreationType.
+- Update API GetCloudAccount: add response parameters Body.CloudAccount.PrivilegeApplicationIds.
+- Update API GetCloudAccount: add response parameters Body.CloudAccount.PrivilegeHostingError.
+- Update API GetCloudAccount: add response parameters Body.CloudAccount.PrivilegeHostingState.
+- Update API GetCloudAccount: add response parameters Body.CloudAccount.PrivilegeStatus.
+- Update API GetCloudAccountRole: add response parameters Body.CloudAccountRole.CloudAccountRoleCreationType.
+- Update API GetCredentialProvider: add response parameters Body.CredentialProvider.CredentialProviderConfig.OAuthProviderConfig.AuthorizationEndpoint.
+- Update API GetCredentialProvider: add response parameters Body.CredentialProvider.CredentialProviderConfig.OAuthProviderConfig.AuthorizationFlow.
+- Update API GetCredentialProvider: add response parameters Body.CredentialProvider.CredentialProviderConfig.OAuthProviderConfig.DiscoveryUrl.
+- Update API GetCredentialProvider: add response parameters Body.CredentialProvider.CredentialProviderConfig.OAuthProviderConfig.Issuer.
+- Update API GetCredentialProvider: add response parameters Body.CredentialProvider.CredentialProviderConfig.OAuthProviderConfig.PkceChallengeMethod.
+- Update API GetCredentialProvider: add response parameters Body.CredentialProvider.CredentialProviderConfig.OAuthProviderConfig.PkceEnabled.
+- Update API GetCredentialProvider: add response parameters Body.CredentialProvider.CredentialProviderConfig.OAuthProviderConfig.ProviderVendor.
+- Update API GetCredentialProvider: add response parameters Body.CredentialProvider.CredentialProviderConfig.OAuthProviderConfig.SystemRedirectUri.
+- Update API ListAuthorizationRules: add response parameters Body.AuthorizationRules.$.AuthorizationRuleScenarioLabel.
+- Update API ListCloudAccountRoles: add response parameters Body.CloudAccountRoles.$.CloudAccountRoleCreationType.
+- Update API ListCloudAccounts: add response parameters Body.CloudAccounts.$.PrivilegeApplicationIds.
+- Update API ListCloudAccounts: add response parameters Body.CloudAccounts.$.PrivilegeHostingError.
+- Update API ListCloudAccounts: add response parameters Body.CloudAccounts.$.PrivilegeHostingState.
+- Update API ListCloudAccounts: add response parameters Body.CloudAccounts.$.PrivilegeStatus.
+- Update API ListCredentialProviders: add response parameters Body.CredentialProviders.$.CredentialProviderConfig.OAuthProviderConfig.AuthorizationEndpoint.
+- Update API ListCredentialProviders: add response parameters Body.CredentialProviders.$.CredentialProviderConfig.OAuthProviderConfig.AuthorizationFlow.
+- Update API ListCredentialProviders: add response parameters Body.CredentialProviders.$.CredentialProviderConfig.OAuthProviderConfig.DiscoveryUrl.
+- Update API ListCredentialProviders: add response parameters Body.CredentialProviders.$.CredentialProviderConfig.OAuthProviderConfig.Issuer.
+- Update API ListCredentialProviders: add response parameters Body.CredentialProviders.$.CredentialProviderConfig.OAuthProviderConfig.PkceChallengeMethod.
+- Update API ListCredentialProviders: add response parameters Body.CredentialProviders.$.CredentialProviderConfig.OAuthProviderConfig.PkceEnabled.
+- Update API ListCredentialProviders: add response parameters Body.CredentialProviders.$.CredentialProviderConfig.OAuthProviderConfig.ProviderVendor.
+- Update API ListCredentialProviders: add response parameters Body.CredentialProviders.$.CredentialProviderConfig.OAuthProviderConfig.SystemRedirectUri.
+- Update API UpdateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.AuthorizationEndpoint.
+- Update API UpdateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.AuthorizationFlow.
+- Update API UpdateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.DiscoveryUrl.
+- Update API UpdateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.Issuer.
+- Update API UpdateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.PkceChallengeMethod.
+- Update API UpdateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.PkceEnabled.
+- Update API UpdateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.ProviderVendor.
+
+
 2026-07-29 Version: 2.15.5
 - Update API CheckInstanceModuleStatus: add request parameters ResourceLabelKey.
 - Update API CheckInstanceModuleStatus: add request parameters ResourceLabelValue.

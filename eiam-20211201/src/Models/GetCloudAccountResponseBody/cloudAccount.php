@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountResponseBody\cloudAccount\cloudAccountHealthCheckResult;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountResponseBody\cloudAccount\cloudAccountProviderConfig;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountResponseBody\cloudAccount\privilegeHostingError;
 
 class cloudAccount extends Model
 {
@@ -48,6 +49,11 @@ class cloudAccount extends Model
     /**
      * @var string
      */
+    public $cloudAccountRoleCreationType;
+
+    /**
+     * @var string
+     */
     public $cloudAccountSite;
 
     /**
@@ -71,6 +77,26 @@ class cloudAccount extends Model
     public $instanceId;
 
     /**
+     * @var string[]
+     */
+    public $privilegeApplicationIds;
+
+    /**
+     * @var privilegeHostingError
+     */
+    public $privilegeHostingError;
+
+    /**
+     * @var string
+     */
+    public $privilegeHostingState;
+
+    /**
+     * @var string
+     */
+    public $privilegeStatus;
+
+    /**
      * @var int
      */
     public $updateTime;
@@ -82,11 +108,16 @@ class cloudAccount extends Model
         'cloudAccountName' => 'CloudAccountName',
         'cloudAccountProviderConfig' => 'CloudAccountProviderConfig',
         'cloudAccountProviderName' => 'CloudAccountProviderName',
+        'cloudAccountRoleCreationType' => 'CloudAccountRoleCreationType',
         'cloudAccountSite' => 'CloudAccountSite',
         'cloudAccountVendorType' => 'CloudAccountVendorType',
         'createTime' => 'CreateTime',
         'description' => 'Description',
         'instanceId' => 'InstanceId',
+        'privilegeApplicationIds' => 'PrivilegeApplicationIds',
+        'privilegeHostingError' => 'PrivilegeHostingError',
+        'privilegeHostingState' => 'PrivilegeHostingState',
+        'privilegeStatus' => 'PrivilegeStatus',
         'updateTime' => 'UpdateTime',
     ];
 
@@ -97,6 +128,12 @@ class cloudAccount extends Model
         }
         if (null !== $this->cloudAccountProviderConfig) {
             $this->cloudAccountProviderConfig->validate();
+        }
+        if (\is_array($this->privilegeApplicationIds)) {
+            Model::validateArray($this->privilegeApplicationIds);
+        }
+        if (null !== $this->privilegeHostingError) {
+            $this->privilegeHostingError->validate();
         }
         parent::validate();
     }
@@ -132,6 +169,10 @@ class cloudAccount extends Model
             $res['CloudAccountProviderName'] = $this->cloudAccountProviderName;
         }
 
+        if (null !== $this->cloudAccountRoleCreationType) {
+            $res['CloudAccountRoleCreationType'] = $this->cloudAccountRoleCreationType;
+        }
+
         if (null !== $this->cloudAccountSite) {
             $res['CloudAccountSite'] = $this->cloudAccountSite;
         }
@@ -150,6 +191,29 @@ class cloudAccount extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->privilegeApplicationIds) {
+            if (\is_array($this->privilegeApplicationIds)) {
+                $res['PrivilegeApplicationIds'] = [];
+                $n1 = 0;
+                foreach ($this->privilegeApplicationIds as $item1) {
+                    $res['PrivilegeApplicationIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->privilegeHostingError) {
+            $res['PrivilegeHostingError'] = null !== $this->privilegeHostingError ? $this->privilegeHostingError->toArray($noStream) : $this->privilegeHostingError;
+        }
+
+        if (null !== $this->privilegeHostingState) {
+            $res['PrivilegeHostingState'] = $this->privilegeHostingState;
+        }
+
+        if (null !== $this->privilegeStatus) {
+            $res['PrivilegeStatus'] = $this->privilegeStatus;
         }
 
         if (null !== $this->updateTime) {
@@ -195,6 +259,10 @@ class cloudAccount extends Model
             $model->cloudAccountProviderName = $map['CloudAccountProviderName'];
         }
 
+        if (isset($map['CloudAccountRoleCreationType'])) {
+            $model->cloudAccountRoleCreationType = $map['CloudAccountRoleCreationType'];
+        }
+
         if (isset($map['CloudAccountSite'])) {
             $model->cloudAccountSite = $map['CloudAccountSite'];
         }
@@ -213,6 +281,29 @@ class cloudAccount extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['PrivilegeApplicationIds'])) {
+            if (!empty($map['PrivilegeApplicationIds'])) {
+                $model->privilegeApplicationIds = [];
+                $n1 = 0;
+                foreach ($map['PrivilegeApplicationIds'] as $item1) {
+                    $model->privilegeApplicationIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['PrivilegeHostingError'])) {
+            $model->privilegeHostingError = privilegeHostingError::fromMap($map['PrivilegeHostingError']);
+        }
+
+        if (isset($map['PrivilegeHostingState'])) {
+            $model->privilegeHostingState = $map['PrivilegeHostingState'];
+        }
+
+        if (isset($map['PrivilegeStatus'])) {
+            $model->privilegeStatus = $map['PrivilegeStatus'];
         }
 
         if (isset($map['UpdateTime'])) {

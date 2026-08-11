@@ -21,6 +21,11 @@ class CreateAuthorizationRuleRequest extends Model
     /**
      * @var string
      */
+    public $authorizationRuleScenarioLabel;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -40,6 +45,7 @@ class CreateAuthorizationRuleRequest extends Model
     protected $_name = [
         'authorizationResourceScope' => 'AuthorizationResourceScope',
         'authorizationRuleName' => 'AuthorizationRuleName',
+        'authorizationRuleScenarioLabel' => 'AuthorizationRuleScenarioLabel',
         'clientToken' => 'ClientToken',
         'description' => 'Description',
         'instanceId' => 'InstanceId',
@@ -60,6 +66,10 @@ class CreateAuthorizationRuleRequest extends Model
 
         if (null !== $this->authorizationRuleName) {
             $res['AuthorizationRuleName'] = $this->authorizationRuleName;
+        }
+
+        if (null !== $this->authorizationRuleScenarioLabel) {
+            $res['AuthorizationRuleScenarioLabel'] = $this->authorizationRuleScenarioLabel;
         }
 
         if (null !== $this->clientToken) {
@@ -95,6 +105,10 @@ class CreateAuthorizationRuleRequest extends Model
 
         if (isset($map['AuthorizationRuleName'])) {
             $model->authorizationRuleName = $map['AuthorizationRuleName'];
+        }
+
+        if (isset($map['AuthorizationRuleScenarioLabel'])) {
+            $model->authorizationRuleScenarioLabel = $map['AuthorizationRuleScenarioLabel'];
         }
 
         if (isset($map['ClientToken'])) {

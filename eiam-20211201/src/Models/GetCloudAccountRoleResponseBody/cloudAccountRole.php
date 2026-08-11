@@ -17,6 +17,11 @@ class cloudAccountRole extends Model
     /**
      * @var string
      */
+    public $cloudAccountRoleCreationType;
+
+    /**
+     * @var string
+     */
     public $cloudAccountRoleExternalId;
 
     /**
@@ -75,6 +80,7 @@ class cloudAccountRole extends Model
     public $updateTime;
     protected $_name = [
         'cloudAccountId' => 'CloudAccountId',
+        'cloudAccountRoleCreationType' => 'CloudAccountRoleCreationType',
         'cloudAccountRoleExternalId' => 'CloudAccountRoleExternalId',
         'cloudAccountRoleHealth' => 'CloudAccountRoleHealth',
         'cloudAccountRoleHealthCheckResult' => 'CloudAccountRoleHealthCheckResult',
@@ -102,6 +108,10 @@ class cloudAccountRole extends Model
         $res = [];
         if (null !== $this->cloudAccountId) {
             $res['CloudAccountId'] = $this->cloudAccountId;
+        }
+
+        if (null !== $this->cloudAccountRoleCreationType) {
+            $res['CloudAccountRoleCreationType'] = $this->cloudAccountRoleCreationType;
         }
 
         if (null !== $this->cloudAccountRoleExternalId) {
@@ -165,6 +175,10 @@ class cloudAccountRole extends Model
         $model = new self();
         if (isset($map['CloudAccountId'])) {
             $model->cloudAccountId = $map['CloudAccountId'];
+        }
+
+        if (isset($map['CloudAccountRoleCreationType'])) {
+            $model->cloudAccountRoleCreationType = $map['CloudAccountRoleCreationType'];
         }
 
         if (isset($map['CloudAccountRoleExternalId'])) {

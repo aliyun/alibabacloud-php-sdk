@@ -31,6 +31,11 @@ class authorizationRules extends Model
     /**
      * @var string
      */
+    public $authorizationRuleScenarioLabel;
+
+    /**
+     * @var string
+     */
     public $authorizationRuleSubjectId;
 
     /**
@@ -77,6 +82,7 @@ class authorizationRules extends Model
         'authorizationRuleCreationType' => 'AuthorizationRuleCreationType',
         'authorizationRuleId' => 'AuthorizationRuleId',
         'authorizationRuleName' => 'AuthorizationRuleName',
+        'authorizationRuleScenarioLabel' => 'AuthorizationRuleScenarioLabel',
         'authorizationRuleSubjectId' => 'AuthorizationRuleSubjectId',
         'authorizationRuleSubjectScope' => 'AuthorizationRuleSubjectScope',
         'authorizationRuleSubjectType' => 'AuthorizationRuleSubjectType',
@@ -110,6 +116,10 @@ class authorizationRules extends Model
 
         if (null !== $this->authorizationRuleName) {
             $res['AuthorizationRuleName'] = $this->authorizationRuleName;
+        }
+
+        if (null !== $this->authorizationRuleScenarioLabel) {
+            $res['AuthorizationRuleScenarioLabel'] = $this->authorizationRuleScenarioLabel;
         }
 
         if (null !== $this->authorizationRuleSubjectId) {
@@ -173,6 +183,10 @@ class authorizationRules extends Model
 
         if (isset($map['AuthorizationRuleName'])) {
             $model->authorizationRuleName = $map['AuthorizationRuleName'];
+        }
+
+        if (isset($map['AuthorizationRuleScenarioLabel'])) {
+            $model->authorizationRuleScenarioLabel = $map['AuthorizationRuleScenarioLabel'];
         }
 
         if (isset($map['AuthorizationRuleSubjectId'])) {

@@ -712,12 +712,13 @@ class Eiam extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'eu-central-1' => 'eiam.eu-central-1.aliyuncs.com',
             'cn-hongkong' => 'eiam.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'eiam.cn-hangzhou.aliyuncs.com',
-            'ap-southeast-5' => 'eiam.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-1' => 'eiam.ap-southeast-1.aliyuncs.com',
             'ap-northeast-2' => 'eiam.ap-northeast-2.aliyuncs.com',
+            'ap-southeast-1' => 'eiam.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'eiam.ap-southeast-5.aliyuncs.com',
+            'cn-hangzhou' => 'eiam.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'eiam.cn-beijing.aliyuncs.com',
+            'eu-central-1' => 'eiam.eu-central-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eiam', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -2577,6 +2578,10 @@ class Eiam extends OpenApiClient
 
         if (null !== $request->authorizationRuleName) {
             @$query['AuthorizationRuleName'] = $request->authorizationRuleName;
+        }
+
+        if (null !== $request->authorizationRuleScenarioLabel) {
+            @$query['AuthorizationRuleScenarioLabel'] = $request->authorizationRuleScenarioLabel;
         }
 
         if (null !== $request->description) {
@@ -10811,7 +10816,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Query information about an authorization rule.
+     * Queries the information about an authorization rule.
      *
      * @param request - GetAuthorizationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10854,7 +10859,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Query information about an authorization rule.
+     * Queries the information about an authorization rule.
      *
      * @param request - GetAuthorizationRuleRequest
      *
@@ -15101,7 +15106,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries information about one or more cloud accounts by using paging.
+     * Queries one or more cloud accounts by using paging.
      *
      * @param request - ListCloudAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15152,7 +15157,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries information about one or more cloud accounts by using paging.
+     * Queries one or more cloud accounts by using paging.
      *
      * @param request - ListCloudAccountsRequest
      *
@@ -18620,7 +18625,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Removes an application from an authorization rule.
+     * Removes a group from an authorization rule.
      *
      * @param request - RemoveGroupFromAuthorizationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18667,7 +18672,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Removes an application from an authorization rule.
+     * Removes a group from an authorization rule.
      *
      * @param request - RemoveGroupFromAuthorizationRuleRequest
      *
