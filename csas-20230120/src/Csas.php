@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDomainMetaRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDomainMetaResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAcceleratePolicyRequest;
@@ -53,6 +55,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteApprovalProcessesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteApprovalProcessesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDomainMetaRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDomainMetaResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteEnterpriseAcceleratePolicyRequest;
@@ -100,6 +104,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetIdpConfigRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetIdpConfigResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetNacPortalSmsPhoneWhitelistRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetNacPortalSmsPhoneWhitelistResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPADiagnosisTaskRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPADiagnosisTaskResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationRequest;
@@ -136,6 +142,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainMetasRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainMetasResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicDisposalProcessesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicDisposalProcessesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRouteRegionsResponse;
@@ -225,12 +233,16 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserStatusResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDomainMetaRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDomainMetaResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateExcessiveDeviceRegistrationApplicationsStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateExcessiveDeviceRegistrationApplicationsStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateIdpDepartmentRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateIdpDepartmentResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacPortalSmsPhoneWhitelistRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacPortalSmsPhoneWhitelistResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacUserCertStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacUserCertStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRequest;
@@ -263,8 +275,8 @@ class Csas extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'public' => 'csas.aliyuncs.com',
             'cn-hangzhou' => 'csas.aliyuncs.com',
+            'public' => 'csas.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('csas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -583,6 +595,73 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createClientUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a domain name list.
+     *
+     * @remarks
+     * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+     *
+     * @param request - CreateDomainMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDomainMetaResponse
+     *
+     * @param CreateDomainMetaRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDomainMetaResponse
+     */
+    public function createDomainMetaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->listType) {
+            @$body['ListType'] = $request->listType;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDomainMeta',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDomainMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a domain name list.
+     *
+     * @remarks
+     * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+     *
+     * @param request - CreateDomainMetaRequest
+     *
+     * @returns CreateDomainMetaResponse
+     *
+     * @param CreateDomainMetaRequest $request
+     *
+     * @return CreateDomainMetaResponse
+     */
+    public function createDomainMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDomainMetaWithOptions($request, $runtime);
     }
 
     /**
@@ -2055,6 +2134,73 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Deletes a domain name list.
+     *
+     * @remarks
+     * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+     *
+     * @param request - DeleteDomainMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDomainMetaResponse
+     *
+     * @param DeleteDomainMetaRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDomainMetaResponse
+     */
+    public function deleteDomainMetaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->listId) {
+            @$body['ListId'] = $request->listId;
+        }
+
+        if (null !== $request->listType) {
+            @$body['ListType'] = $request->listType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDomainMeta',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDomainMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a domain name list.
+     *
+     * @remarks
+     * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+     *
+     * @param request - DeleteDomainMetaRequest
+     *
+     * @returns DeleteDomainMetaResponse
+     *
+     * @param DeleteDomainMetaRequest $request
+     *
+     * @return DeleteDomainMetaResponse
+     */
+    public function deleteDomainMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDomainMetaWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete a dynamic route from your current Alibaba Cloud account.
      *
      * @param request - DeleteDynamicRouteRequest
@@ -3506,6 +3652,62 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Retrieves the phone number whitelist for visitor admission SMS logon.
+     *
+     * @remarks
+     * Retrieves all phone numbers in the whitelist.
+     *
+     * @param request - GetNacPortalSmsPhoneWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNacPortalSmsPhoneWhitelistResponse
+     *
+     * @param GetNacPortalSmsPhoneWhitelistRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetNacPortalSmsPhoneWhitelistResponse
+     */
+    public function getNacPortalSmsPhoneWhitelistWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetNacPortalSmsPhoneWhitelist',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNacPortalSmsPhoneWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the phone number whitelist for visitor admission SMS logon.
+     *
+     * @remarks
+     * Retrieves all phone numbers in the whitelist.
+     *
+     * @param request - GetNacPortalSmsPhoneWhitelistRequest
+     *
+     * @returns GetNacPortalSmsPhoneWhitelistResponse
+     *
+     * @param GetNacPortalSmsPhoneWhitelistRequest $request
+     *
+     * @return GetNacPortalSmsPhoneWhitelistResponse
+     */
+    public function getNacPortalSmsPhoneWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNacPortalSmsPhoneWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of a private access diagnostic task.
      *
      * @param request - GetPADiagnosisTaskRequest
@@ -4465,6 +4667,85 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConnectorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of domain name lists.
+     *
+     * @remarks
+     * Performs a paged query on the metadata of domain name lists (the header information of domain name blacklists/whitelists, excluding the specific domain name entries within the lists) for the current tenant with paging. You can filter by list type (blacklist/whitelist), perform fuzzy search by name, and specify whether to include system built-in default template lists in the results. Each record includes the number of domain name entries in the list.
+     *
+     * @param request - ListDomainMetasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDomainMetasResponse
+     *
+     * @param ListDomainMetasRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDomainMetasResponse
+     */
+    public function listDomainMetasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->defaultTemplate) {
+            @$query['DefaultTemplate'] = $request->defaultTemplate;
+        }
+
+        if (null !== $request->listType) {
+            @$query['ListType'] = $request->listType;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDomainMetas',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDomainMetasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of domain name lists.
+     *
+     * @remarks
+     * Performs a paged query on the metadata of domain name lists (the header information of domain name blacklists/whitelists, excluding the specific domain name entries within the lists) for the current tenant with paging. You can filter by list type (blacklist/whitelist), perform fuzzy search by name, and specify whether to include system built-in default template lists in the results. Each record includes the number of domain name entries in the list.
+     *
+     * @param request - ListDomainMetasRequest
+     *
+     * @returns ListDomainMetasResponse
+     *
+     * @param ListDomainMetasRequest $request
+     *
+     * @return ListDomainMetasResponse
+     */
+    public function listDomainMetas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDomainMetasWithOptions($request, $runtime);
     }
 
     /**
@@ -7159,6 +7440,71 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Updates the name of a domain name list.
+     *
+     * @param request - UpdateDomainMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDomainMetaResponse
+     *
+     * @param UpdateDomainMetaRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDomainMetaResponse
+     */
+    public function updateDomainMetaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->listId) {
+            @$body['ListId'] = $request->listId;
+        }
+
+        if (null !== $request->listType) {
+            @$body['ListType'] = $request->listType;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDomainMeta',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDomainMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the name of a domain name list.
+     *
+     * @param request - UpdateDomainMetaRequest
+     *
+     * @returns UpdateDomainMetaResponse
+     *
+     * @param UpdateDomainMetaRequest $request
+     *
+     * @return UpdateDomainMetaResponse
+     */
+    public function updateDomainMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDomainMetaWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies a dynamic route in your Alibaba Cloud account.
      *
      * @param request - UpdateDynamicRouteRequest
@@ -7389,6 +7735,73 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateIdpDepartmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the phone number whitelist for visitor access SMS logon.
+     *
+     * @remarks
+     * - A maximum of 1024 phone numbers are supported.
+     * - Duplicate phone numbers are not allowed. Phone numbers in invalid formats are rejected. Only Chinese mainland phone numbers are supported.
+     * - You must update all phone numbers at once. Incremental updates are not supported.
+     *
+     * @param request - UpdateNacPortalSmsPhoneWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNacPortalSmsPhoneWhitelistResponse
+     *
+     * @param UpdateNacPortalSmsPhoneWhitelistRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateNacPortalSmsPhoneWhitelistResponse
+     */
+    public function updateNacPortalSmsPhoneWhitelistWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->phones) {
+            @$query['Phones'] = $request->phones;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNacPortalSmsPhoneWhitelist',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNacPortalSmsPhoneWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the phone number whitelist for visitor access SMS logon.
+     *
+     * @remarks
+     * - A maximum of 1024 phone numbers are supported.
+     * - Duplicate phone numbers are not allowed. Phone numbers in invalid formats are rejected. Only Chinese mainland phone numbers are supported.
+     * - You must update all phone numbers at once. Incremental updates are not supported.
+     *
+     * @param request - UpdateNacPortalSmsPhoneWhitelistRequest
+     *
+     * @returns UpdateNacPortalSmsPhoneWhitelistResponse
+     *
+     * @param UpdateNacPortalSmsPhoneWhitelistRequest $request
+     *
+     * @return UpdateNacPortalSmsPhoneWhitelistResponse
+     */
+    public function updateNacPortalSmsPhoneWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNacPortalSmsPhoneWhitelistWithOptions($request, $runtime);
     }
 
     /**
