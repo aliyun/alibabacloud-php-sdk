@@ -1096,16 +1096,16 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询视频翻译任务
+     * Queries the status and result of a video translation task by the specified ID.
      *
      * @remarks
-     * ## 请求说明
-     * - 该API用于根据`JobId`获取视频翻译任务的状态和详细信息。
-     * - `JobId`是必需参数，通过query或form方式传递。
-     * - 如果任务不存在或者不属于当前调用方，则返回`InvalidParameter`错误码与400状态码。
-     * - 成功响应时，HTTP状态码为200，任务对象位于`data.Job`中。
-     * - 当任务完成(`Status=Finished`)时，业务产物可以在`data.Job.Output`字段中找到，需要客户端进行一次JSON解析以获取具体结果。
-     * - 对于多语言目标的任务，直接使用`Output.AiResult.ResultMap`来获取各语言的具体结果；如果仅有一个目标语言，可以通过`data.Job.EditingProjectId`便捷地获取剪辑工程ID。
+     * ## Request description
+     * - This API retrieves the status and details of a video translation task based on the `JobId`.
+     * - `JobId` is a required parameter, passed through query or form.
+     * - If the task does not exist or does not belong to the current caller, the `InvalidParameter` error code with HTTP status code 400 is returned.
+     * - On a successful response, the HTTP status code is 200, and the task object is located in `data.Job`.
+     * - When the task is completed (`Status=Finished`), the output artifacts can be found in the `data.Job.Output` field. The client needs to perform a JSON parse to obtain the specific results.
+     * - For tasks with multiple target languages, use `Output.AiResult.ResultMap` directly to obtain the specific results for each language. If there is only one target language, you can conveniently obtain the editing project ID through `data.Job.EditingProjectId`.
      *
      * @param request - GetVideoTranslationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1144,16 +1144,16 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询视频翻译任务
+     * Queries the status and result of a video translation task by the specified ID.
      *
      * @remarks
-     * ## 请求说明
-     * - 该API用于根据`JobId`获取视频翻译任务的状态和详细信息。
-     * - `JobId`是必需参数，通过query或form方式传递。
-     * - 如果任务不存在或者不属于当前调用方，则返回`InvalidParameter`错误码与400状态码。
-     * - 成功响应时，HTTP状态码为200，任务对象位于`data.Job`中。
-     * - 当任务完成(`Status=Finished`)时，业务产物可以在`data.Job.Output`字段中找到，需要客户端进行一次JSON解析以获取具体结果。
-     * - 对于多语言目标的任务，直接使用`Output.AiResult.ResultMap`来获取各语言的具体结果；如果仅有一个目标语言，可以通过`data.Job.EditingProjectId`便捷地获取剪辑工程ID。
+     * ## Request description
+     * - This API retrieves the status and details of a video translation task based on the `JobId`.
+     * - `JobId` is a required parameter, passed through query or form.
+     * - If the task does not exist or does not belong to the current caller, the `InvalidParameter` error code with HTTP status code 400 is returned.
+     * - On a successful response, the HTTP status code is 200, and the task object is located in `data.Job`.
+     * - When the task is completed (`Status=Finished`), the output artifacts can be found in the `data.Job.Output` field. The client needs to perform a JSON parse to obtain the specific results.
+     * - For tasks with multiple target languages, use `Output.AiResult.ResultMap` directly to obtain the specific results for each language. If there is only one target language, you can conveniently obtain the editing project ID through `data.Job.EditingProjectId`.
      *
      * @param request - GetVideoTranslationJobRequest
      *
@@ -1484,12 +1484,20 @@ class Yike extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->productionId) {
+            @$query['ProductionId'] = $request->productionId;
+        }
+
         if (null !== $request->sortBy) {
             @$query['SortBy'] = $request->sortBy;
         }
 
         if (null !== $request->sortOrder) {
             @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
 
         $req = new OpenApiRequest([
