@@ -39,6 +39,11 @@ class CreateDatabaseAccountRequest extends Model
     public $password;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -49,6 +54,7 @@ class CreateDatabaseAccountRequest extends Model
         'instanceId' => 'InstanceId',
         'loginAttribute' => 'LoginAttribute',
         'password' => 'Password',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
 
@@ -82,6 +88,10 @@ class CreateDatabaseAccountRequest extends Model
 
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -121,6 +131,10 @@ class CreateDatabaseAccountRequest extends Model
 
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

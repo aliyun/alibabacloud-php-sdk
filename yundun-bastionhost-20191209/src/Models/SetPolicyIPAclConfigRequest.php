@@ -25,6 +25,11 @@ class SetPolicyIPAclConfigRequest extends Model
     public $policyId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -32,6 +37,7 @@ class SetPolicyIPAclConfigRequest extends Model
         'IPAclConfig' => 'IPAclConfig',
         'instanceId' => 'InstanceId',
         'policyId' => 'PolicyId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
 
@@ -56,6 +62,10 @@ class SetPolicyIPAclConfigRequest extends Model
 
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -83,6 +93,10 @@ class SetPolicyIPAclConfigRequest extends Model
 
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

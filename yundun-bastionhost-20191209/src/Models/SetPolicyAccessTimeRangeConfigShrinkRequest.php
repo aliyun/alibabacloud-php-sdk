@@ -24,6 +24,11 @@ class SetPolicyAccessTimeRangeConfigShrinkRequest extends Model
     public $policyId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -31,6 +36,7 @@ class SetPolicyAccessTimeRangeConfigShrinkRequest extends Model
         'accessTimeRangeConfigShrink' => 'AccessTimeRangeConfig',
         'instanceId' => 'InstanceId',
         'policyId' => 'PolicyId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
 
@@ -52,6 +58,10 @@ class SetPolicyAccessTimeRangeConfigShrinkRequest extends Model
 
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -79,6 +89,10 @@ class SetPolicyAccessTimeRangeConfigShrinkRequest extends Model
 
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

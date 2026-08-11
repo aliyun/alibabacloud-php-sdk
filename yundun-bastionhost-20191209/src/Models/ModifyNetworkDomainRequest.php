@@ -35,6 +35,11 @@ class ModifyNetworkDomainRequest extends Model
     public $networkDomainType;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var proxies[]
      */
     public $proxies;
@@ -49,6 +54,7 @@ class ModifyNetworkDomainRequest extends Model
         'networkDomainId' => 'NetworkDomainId',
         'networkDomainName' => 'NetworkDomainName',
         'networkDomainType' => 'NetworkDomainType',
+        'projectId' => 'ProjectId',
         'proxies' => 'Proxies',
         'regionId' => 'RegionId',
     ];
@@ -82,6 +88,10 @@ class ModifyNetworkDomainRequest extends Model
 
         if (null !== $this->networkDomainType) {
             $res['NetworkDomainType'] = $this->networkDomainType;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->proxies) {
@@ -128,6 +138,10 @@ class ModifyNetworkDomainRequest extends Model
 
         if (isset($map['NetworkDomainType'])) {
             $model->networkDomainType = $map['NetworkDomainType'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['Proxies'])) {

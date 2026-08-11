@@ -21,10 +21,16 @@ class RenewAssetOperationTokenRequest extends Model
     /**
      * @var string
      */
+    public $token;
+
+    /**
+     * @var string
+     */
     public $tokenId;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
+        'token' => 'Token',
         'tokenId' => 'TokenId',
     ];
 
@@ -42,6 +48,10 @@ class RenewAssetOperationTokenRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
 
         if (null !== $this->tokenId) {
@@ -65,6 +75,10 @@ class RenewAssetOperationTokenRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
 
         if (isset($map['TokenId'])) {

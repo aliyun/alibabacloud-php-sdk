@@ -31,6 +31,11 @@ class ListOperationHostsRequest extends Model
     /**
      * @var string
      */
+    public $operationProjectId;
+
+    /**
+     * @var string
+     */
     public $pageNumber;
 
     /**
@@ -62,6 +67,7 @@ class ListOperationHostsRequest extends Model
         'hostName' => 'HostName',
         'instanceId' => 'InstanceId',
         'OSType' => 'OSType',
+        'operationProjectId' => 'OperationProjectId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
@@ -92,6 +98,10 @@ class ListOperationHostsRequest extends Model
 
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
+        }
+
+        if (null !== $this->operationProjectId) {
+            $res['OperationProjectId'] = $this->operationProjectId;
         }
 
         if (null !== $this->pageNumber) {
@@ -143,6 +153,10 @@ class ListOperationHostsRequest extends Model
 
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
+        }
+
+        if (isset($map['OperationProjectId'])) {
+            $model->operationProjectId = $map['OperationProjectId'];
         }
 
         if (isset($map['PageNumber'])) {

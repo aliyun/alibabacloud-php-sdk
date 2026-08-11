@@ -29,6 +29,11 @@ class CreatePolicyRequest extends Model
     public $priority;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -37,6 +42,7 @@ class CreatePolicyRequest extends Model
         'instanceId' => 'InstanceId',
         'policyName' => 'PolicyName',
         'priority' => 'Priority',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
 
@@ -62,6 +68,10 @@ class CreatePolicyRequest extends Model
 
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -93,6 +103,10 @@ class CreatePolicyRequest extends Model
 
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

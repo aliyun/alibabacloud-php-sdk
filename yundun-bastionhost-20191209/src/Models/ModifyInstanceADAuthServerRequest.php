@@ -41,7 +41,32 @@ class ModifyInstanceADAuthServerRequest extends Model
     /**
      * @var string
      */
+    public $isDefault;
+
+    /**
+     * @var string
+     */
     public $isSSL;
+
+    /**
+     * @var string
+     */
+    public $isSyncEmailAttr;
+
+    /**
+     * @var string
+     */
+    public $isSyncMobileAttr;
+
+    /**
+     * @var string
+     */
+    public $isSyncNameAttr;
+
+    /**
+     * @var string
+     */
+    public $isSyncOuAsUserGroup;
 
     /**
      * @var string
@@ -76,7 +101,22 @@ class ModifyInstanceADAuthServerRequest extends Model
     /**
      * @var string
      */
+    public $serverName;
+
+    /**
+     * @var string
+     */
     public $standbyServer;
+
+    /**
+     * @var string
+     */
+    public $syncInterval;
+
+    /**
+     * @var string
+     */
+    public $userSourceId;
     protected $_name = [
         'account' => 'Account',
         'baseDN' => 'BaseDN',
@@ -84,14 +124,22 @@ class ModifyInstanceADAuthServerRequest extends Model
         'emailMapping' => 'EmailMapping',
         'filter' => 'Filter',
         'instanceId' => 'InstanceId',
+        'isDefault' => 'IsDefault',
         'isSSL' => 'IsSSL',
+        'isSyncEmailAttr' => 'IsSyncEmailAttr',
+        'isSyncMobileAttr' => 'IsSyncMobileAttr',
+        'isSyncNameAttr' => 'IsSyncNameAttr',
+        'isSyncOuAsUserGroup' => 'IsSyncOuAsUserGroup',
         'mobileMapping' => 'MobileMapping',
         'nameMapping' => 'NameMapping',
         'password' => 'Password',
         'port' => 'Port',
         'regionId' => 'RegionId',
         'server' => 'Server',
+        'serverName' => 'ServerName',
         'standbyServer' => 'StandbyServer',
+        'syncInterval' => 'SyncInterval',
+        'userSourceId' => 'UserSourceId',
     ];
 
     public function validate()
@@ -126,8 +174,28 @@ class ModifyInstanceADAuthServerRequest extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
+        }
+
         if (null !== $this->isSSL) {
             $res['IsSSL'] = $this->isSSL;
+        }
+
+        if (null !== $this->isSyncEmailAttr) {
+            $res['IsSyncEmailAttr'] = $this->isSyncEmailAttr;
+        }
+
+        if (null !== $this->isSyncMobileAttr) {
+            $res['IsSyncMobileAttr'] = $this->isSyncMobileAttr;
+        }
+
+        if (null !== $this->isSyncNameAttr) {
+            $res['IsSyncNameAttr'] = $this->isSyncNameAttr;
+        }
+
+        if (null !== $this->isSyncOuAsUserGroup) {
+            $res['IsSyncOuAsUserGroup'] = $this->isSyncOuAsUserGroup;
         }
 
         if (null !== $this->mobileMapping) {
@@ -154,8 +222,20 @@ class ModifyInstanceADAuthServerRequest extends Model
             $res['Server'] = $this->server;
         }
 
+        if (null !== $this->serverName) {
+            $res['ServerName'] = $this->serverName;
+        }
+
         if (null !== $this->standbyServer) {
             $res['StandbyServer'] = $this->standbyServer;
+        }
+
+        if (null !== $this->syncInterval) {
+            $res['SyncInterval'] = $this->syncInterval;
+        }
+
+        if (null !== $this->userSourceId) {
+            $res['UserSourceId'] = $this->userSourceId;
         }
 
         return $res;
@@ -193,8 +273,28 @@ class ModifyInstanceADAuthServerRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
+        }
+
         if (isset($map['IsSSL'])) {
             $model->isSSL = $map['IsSSL'];
+        }
+
+        if (isset($map['IsSyncEmailAttr'])) {
+            $model->isSyncEmailAttr = $map['IsSyncEmailAttr'];
+        }
+
+        if (isset($map['IsSyncMobileAttr'])) {
+            $model->isSyncMobileAttr = $map['IsSyncMobileAttr'];
+        }
+
+        if (isset($map['IsSyncNameAttr'])) {
+            $model->isSyncNameAttr = $map['IsSyncNameAttr'];
+        }
+
+        if (isset($map['IsSyncOuAsUserGroup'])) {
+            $model->isSyncOuAsUserGroup = $map['IsSyncOuAsUserGroup'];
         }
 
         if (isset($map['MobileMapping'])) {
@@ -221,8 +321,20 @@ class ModifyInstanceADAuthServerRequest extends Model
             $model->server = $map['Server'];
         }
 
+        if (isset($map['ServerName'])) {
+            $model->serverName = $map['ServerName'];
+        }
+
         if (isset($map['StandbyServer'])) {
             $model->standbyServer = $map['StandbyServer'];
+        }
+
+        if (isset($map['SyncInterval'])) {
+            $model->syncInterval = $map['SyncInterval'];
+        }
+
+        if (isset($map['UserSourceId'])) {
+            $model->userSourceId = $map['UserSourceId'];
         }
 
         return $model;

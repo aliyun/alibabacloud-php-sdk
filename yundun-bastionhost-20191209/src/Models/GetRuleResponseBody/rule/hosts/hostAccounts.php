@@ -12,8 +12,14 @@ class hostAccounts extends Model
      * @var string
      */
     public $hostAccountId;
+
+    /**
+     * @var string
+     */
+    public $hostAccountName;
     protected $_name = [
         'hostAccountId' => 'HostAccountId',
+        'hostAccountName' => 'HostAccountName',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class hostAccounts extends Model
         $res = [];
         if (null !== $this->hostAccountId) {
             $res['HostAccountId'] = $this->hostAccountId;
+        }
+
+        if (null !== $this->hostAccountName) {
+            $res['HostAccountName'] = $this->hostAccountName;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class hostAccounts extends Model
         $model = new self();
         if (isset($map['HostAccountId'])) {
             $model->hostAccountId = $map['HostAccountId'];
+        }
+
+        if (isset($map['HostAccountName'])) {
+            $model->hostAccountName = $map['HostAccountName'];
         }
 
         return $model;

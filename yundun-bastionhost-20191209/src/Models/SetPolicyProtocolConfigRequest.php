@@ -20,6 +20,11 @@ class SetPolicyProtocolConfigRequest extends Model
     public $policyId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var protocolConfig
      */
     public $protocolConfig;
@@ -31,6 +36,7 @@ class SetPolicyProtocolConfigRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'policyId' => 'PolicyId',
+        'projectId' => 'ProjectId',
         'protocolConfig' => 'ProtocolConfig',
         'regionId' => 'RegionId',
     ];
@@ -52,6 +58,10 @@ class SetPolicyProtocolConfigRequest extends Model
 
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->protocolConfig) {
@@ -79,6 +89,10 @@ class SetPolicyProtocolConfigRequest extends Model
 
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['ProtocolConfig'])) {

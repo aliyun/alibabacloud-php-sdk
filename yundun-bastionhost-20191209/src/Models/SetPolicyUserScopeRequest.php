@@ -19,6 +19,11 @@ class SetPolicyUserScopeRequest extends Model
     public $policyId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -40,6 +45,7 @@ class SetPolicyUserScopeRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'policyId' => 'PolicyId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'scopeType' => 'ScopeType',
         'userGroupIds' => 'UserGroupIds',
@@ -66,6 +72,10 @@ class SetPolicyUserScopeRequest extends Model
 
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -115,6 +125,10 @@ class SetPolicyUserScopeRequest extends Model
 
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

@@ -24,6 +24,11 @@ class RejectOperationTicketRequest extends Model
     public $operationTicketId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -31,6 +36,7 @@ class RejectOperationTicketRequest extends Model
         'comment' => 'Comment',
         'instanceId' => 'InstanceId',
         'operationTicketId' => 'OperationTicketId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
 
@@ -52,6 +58,10 @@ class RejectOperationTicketRequest extends Model
 
         if (null !== $this->operationTicketId) {
             $res['OperationTicketId'] = $this->operationTicketId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -79,6 +89,10 @@ class RejectOperationTicketRequest extends Model
 
         if (isset($map['OperationTicketId'])) {
             $model->operationTicketId = $map['OperationTicketId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

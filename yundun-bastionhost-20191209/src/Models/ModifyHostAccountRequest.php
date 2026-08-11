@@ -49,6 +49,11 @@ class ModifyHostAccountRequest extends Model
     public $privilegeType;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -66,6 +71,7 @@ class ModifyHostAccountRequest extends Model
         'password' => 'Password',
         'privateKey' => 'PrivateKey',
         'privilegeType' => 'PrivilegeType',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'rotationMode' => 'RotationMode',
     ];
@@ -108,6 +114,10 @@ class ModifyHostAccountRequest extends Model
 
         if (null !== $this->privilegeType) {
             $res['PrivilegeType'] = $this->privilegeType;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -159,6 +169,10 @@ class ModifyHostAccountRequest extends Model
 
         if (isset($map['PrivilegeType'])) {
             $model->privilegeType = $map['PrivilegeType'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

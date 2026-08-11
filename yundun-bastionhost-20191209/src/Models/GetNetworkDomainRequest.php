@@ -24,6 +24,11 @@ class GetNetworkDomainRequest extends Model
     public $networkDomainId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -31,6 +36,7 @@ class GetNetworkDomainRequest extends Model
         'checkProxyState' => 'CheckProxyState',
         'instanceId' => 'InstanceId',
         'networkDomainId' => 'NetworkDomainId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
 
@@ -52,6 +58,10 @@ class GetNetworkDomainRequest extends Model
 
         if (null !== $this->networkDomainId) {
             $res['NetworkDomainId'] = $this->networkDomainId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -79,6 +89,10 @@ class GetNetworkDomainRequest extends Model
 
         if (isset($map['NetworkDomainId'])) {
             $model->networkDomainId = $map['NetworkDomainId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

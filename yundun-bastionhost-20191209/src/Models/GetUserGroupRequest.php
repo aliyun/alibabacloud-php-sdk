@@ -14,6 +14,11 @@ class GetUserGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -24,6 +29,7 @@ class GetUserGroupRequest extends Model
     public $userGroupId;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'userGroupId' => 'UserGroupId',
     ];
@@ -38,6 +44,10 @@ class GetUserGroupRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -61,6 +71,10 @@ class GetUserGroupRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

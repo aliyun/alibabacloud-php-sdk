@@ -44,6 +44,11 @@ class CreateOperationTicketRequest extends Model
     public $isOneTimeEffect;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $protocolName;
@@ -60,6 +65,7 @@ class CreateOperationTicketRequest extends Model
         'effectStartTime' => 'EffectStartTime',
         'instanceId' => 'InstanceId',
         'isOneTimeEffect' => 'IsOneTimeEffect',
+        'projectId' => 'ProjectId',
         'protocolName' => 'ProtocolName',
         'regionId' => 'RegionId',
     ];
@@ -98,6 +104,10 @@ class CreateOperationTicketRequest extends Model
 
         if (null !== $this->isOneTimeEffect) {
             $res['IsOneTimeEffect'] = $this->isOneTimeEffect;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->protocolName) {
@@ -145,6 +155,10 @@ class CreateOperationTicketRequest extends Model
 
         if (isset($map['IsOneTimeEffect'])) {
             $model->isOneTimeEffect = $map['IsOneTimeEffect'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['ProtocolName'])) {

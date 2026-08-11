@@ -19,6 +19,11 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -30,6 +35,7 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     protected $_name = [
         'hostGroupId' => 'HostGroupId',
         'instanceId' => 'InstanceId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'userGroupId' => 'UserGroupId',
     ];
@@ -48,6 +54,10 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -75,6 +85,10 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

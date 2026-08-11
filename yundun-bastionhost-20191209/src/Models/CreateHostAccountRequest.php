@@ -49,6 +49,11 @@ class CreateHostAccountRequest extends Model
     public $privilegeType;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $protocolName;
@@ -71,6 +76,7 @@ class CreateHostAccountRequest extends Model
         'password' => 'Password',
         'privateKey' => 'PrivateKey',
         'privilegeType' => 'PrivilegeType',
+        'projectId' => 'ProjectId',
         'protocolName' => 'ProtocolName',
         'regionId' => 'RegionId',
         'rotationMode' => 'RotationMode',
@@ -114,6 +120,10 @@ class CreateHostAccountRequest extends Model
 
         if (null !== $this->privilegeType) {
             $res['PrivilegeType'] = $this->privilegeType;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->protocolName) {
@@ -169,6 +179,10 @@ class CreateHostAccountRequest extends Model
 
         if (isset($map['PrivilegeType'])) {
             $model->privilegeType = $map['PrivilegeType'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['ProtocolName'])) {

@@ -17,9 +17,15 @@ class GetInstanceADAuthServerRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $userSourceId;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
+        'userSourceId' => 'UserSourceId',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class GetInstanceADAuthServerRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->userSourceId) {
+            $res['UserSourceId'] = $this->userSourceId;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class GetInstanceADAuthServerRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['UserSourceId'])) {
+            $model->userSourceId = $map['UserSourceId'];
         }
 
         return $model;

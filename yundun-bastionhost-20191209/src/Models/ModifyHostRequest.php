@@ -54,6 +54,11 @@ class ModifyHostRequest extends Model
     public $prefKex;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -67,6 +72,7 @@ class ModifyHostRequest extends Model
         'networkDomainId' => 'NetworkDomainId',
         'OSType' => 'OSType',
         'prefKex' => 'PrefKex',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
 
@@ -112,6 +118,10 @@ class ModifyHostRequest extends Model
 
         if (null !== $this->prefKex) {
             $res['PrefKex'] = $this->prefKex;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -163,6 +173,10 @@ class ModifyHostRequest extends Model
 
         if (isset($map['PrefKex'])) {
             $model->prefKex = $map['PrefKex'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

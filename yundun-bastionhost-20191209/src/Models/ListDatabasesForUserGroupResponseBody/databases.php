@@ -61,6 +61,16 @@ class databases extends Model
     /**
      * @var string
      */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $projectName;
+
+    /**
+     * @var string
+     */
     public $source;
 
     /**
@@ -78,6 +88,8 @@ class databases extends Model
         'databasePublicAddress' => 'DatabasePublicAddress',
         'databaseType' => 'DatabaseType',
         'networkDomainId' => 'NetworkDomainId',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
         'source' => 'Source',
         'sourceInstanceId' => 'SourceInstanceId',
     ];
@@ -128,6 +140,14 @@ class databases extends Model
 
         if (null !== $this->networkDomainId) {
             $res['NetworkDomainId'] = $this->networkDomainId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         if (null !== $this->source) {
@@ -187,6 +207,14 @@ class databases extends Model
 
         if (isset($map['NetworkDomainId'])) {
             $model->networkDomainId = $map['NetworkDomainId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         if (isset($map['Source'])) {

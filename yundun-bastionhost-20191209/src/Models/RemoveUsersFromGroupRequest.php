@@ -14,6 +14,11 @@ class RemoveUsersFromGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -29,6 +34,7 @@ class RemoveUsersFromGroupRequest extends Model
     public $userIds;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'userGroupId' => 'UserGroupId',
         'userIds' => 'UserIds',
@@ -44,6 +50,10 @@ class RemoveUsersFromGroupRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -71,6 +81,10 @@ class RemoveUsersFromGroupRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

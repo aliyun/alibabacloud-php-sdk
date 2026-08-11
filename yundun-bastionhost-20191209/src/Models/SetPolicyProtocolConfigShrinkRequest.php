@@ -19,6 +19,11 @@ class SetPolicyProtocolConfigShrinkRequest extends Model
     public $policyId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $protocolConfigShrink;
@@ -30,6 +35,7 @@ class SetPolicyProtocolConfigShrinkRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'policyId' => 'PolicyId',
+        'projectId' => 'ProjectId',
         'protocolConfigShrink' => 'ProtocolConfig',
         'regionId' => 'RegionId',
     ];
@@ -48,6 +54,10 @@ class SetPolicyProtocolConfigShrinkRequest extends Model
 
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->protocolConfigShrink) {
@@ -75,6 +85,10 @@ class SetPolicyProtocolConfigShrinkRequest extends Model
 
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['ProtocolConfig'])) {

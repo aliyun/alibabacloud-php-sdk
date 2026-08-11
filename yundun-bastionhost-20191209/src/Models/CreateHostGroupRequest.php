@@ -24,6 +24,11 @@ class CreateHostGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -31,6 +36,7 @@ class CreateHostGroupRequest extends Model
         'comment' => 'Comment',
         'hostGroupName' => 'HostGroupName',
         'instanceId' => 'InstanceId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
 
@@ -52,6 +58,10 @@ class CreateHostGroupRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -79,6 +89,10 @@ class CreateHostGroupRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

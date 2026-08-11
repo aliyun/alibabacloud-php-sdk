@@ -20,6 +20,11 @@ class AttachDatabaseAccountsToUserGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -31,6 +36,7 @@ class AttachDatabaseAccountsToUserGroupRequest extends Model
     protected $_name = [
         'databases' => 'Databases',
         'instanceId' => 'InstanceId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'userGroupId' => 'UserGroupId',
     ];
@@ -59,6 +65,10 @@ class AttachDatabaseAccountsToUserGroupRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -93,6 +103,10 @@ class AttachDatabaseAccountsToUserGroupRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

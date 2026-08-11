@@ -46,6 +46,11 @@ class hosts extends Model
     /**
      * @var string
      */
+    public $projectName;
+
+    /**
+     * @var string
+     */
     public $source;
 
     /**
@@ -65,6 +70,7 @@ class hosts extends Model
         'hostPrivateAddress' => 'HostPrivateAddress',
         'hostPublicAddress' => 'HostPublicAddress',
         'OSType' => 'OSType',
+        'projectName' => 'ProjectName',
         'source' => 'Source',
         'sourceInstanceId' => 'SourceInstanceId',
         'sourceInstanceState' => 'SourceInstanceState',
@@ -104,6 +110,10 @@ class hosts extends Model
 
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
+        }
+
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         if (null !== $this->source) {
@@ -155,6 +165,10 @@ class hosts extends Model
 
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
+        }
+
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         if (isset($map['Source'])) {

@@ -26,6 +26,11 @@ class ListOperationDatabaseAccountsRequest extends Model
     /**
      * @var string
      */
+    public $operationProjectId;
+
+    /**
+     * @var string
+     */
     public $pageNumber;
 
     /**
@@ -41,6 +46,7 @@ class ListOperationDatabaseAccountsRequest extends Model
         'databaseAccountName' => 'DatabaseAccountName',
         'databaseId' => 'DatabaseId',
         'instanceId' => 'InstanceId',
+        'operationProjectId' => 'OperationProjectId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
@@ -64,6 +70,10 @@ class ListOperationDatabaseAccountsRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->operationProjectId) {
+            $res['OperationProjectId'] = $this->operationProjectId;
         }
 
         if (null !== $this->pageNumber) {
@@ -99,6 +109,10 @@ class ListOperationDatabaseAccountsRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['OperationProjectId'])) {
+            $model->operationProjectId = $map['OperationProjectId'];
         }
 
         if (isset($map['PageNumber'])) {

@@ -396,11 +396,11 @@ class Yundunbastionhost extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'yundun-bastionhost.aliyuncs.com',
             'eu-west-1-oxs' => 'yundun-bastionhost.aliyuncs.com',
             'rus-west-1-pop' => 'yundun-bastionhost.aliyuncs.com',
-            'na-south-1' => 'bastionhost.na-south-1.aliyuncs.com',
             'cn-zhengzhou-jva' => 'yundun-bastionhost.aliyuncs.com',
-            'ap-southeast-7' => 'bastionhost.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-6' => 'bastionhost.ap-southeast-6.aliyuncs.com',
             'ap-northeast-2' => 'bastionhost.ap-northeast-2.aliyuncs.com',
+            'ap-southeast-6' => 'bastionhost.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-7' => 'bastionhost.ap-southeast-7.aliyuncs.com',
+            'na-south-1' => 'bastionhost.na-south-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('yundun-bastionhost', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -431,11 +431,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+     * If an O&M engineer executes a command configured in a command approval control policy, the administrator receives an approval request for the command in the Bastionhost console. The command can be executed only after the administrator approves it. If the approval is rejected, the command cannot be executed.
      *
      * @remarks
-     * Approves an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Approves a command execution request submitted by an O&M engineer.
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - AcceptApproveCommandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -457,6 +457,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -482,11 +486,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * If an O\\\\\\\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+     * If an O&M engineer executes a command configured in a command approval control policy, the administrator receives an approval request for the command in the Bastionhost console. The command can be executed only after the administrator approves it. If the approval is rejected, the command cannot be executed.
      *
      * @remarks
-     * Approves an O\\&M engineer\\"s command execution request as a Bastionhost administrator.
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Approves a command execution request submitted by an O&M engineer.
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - AcceptApproveCommandRequest
      *
@@ -504,11 +508,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Approves an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M application.
+     * If an administrator enables O&M approval in a control policy, an O&M engineer must submit an O&M request and obtain administrator approval before logging on to an asset.
      *
      * @remarks
-     * Approves an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation is used by administrators to approve O&M requests submitted by O&M engineers.
+     * This operation has a single-user QPS limit of 10 requests per second. If this limit is exceeded, API calls are throttled, which may affect your business. Please call this operation appropriately.
      *
      * @param request - AcceptOperationTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -548,6 +552,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['OperationTicketId'] = $request->operationTicketId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -571,11 +579,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Approves an O\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&M application.
+     * If an administrator enables O&M approval in a control policy, an O&M engineer must submit an O&M request and obtain administrator approval before logging on to an asset.
      *
      * @remarks
-     * Approves an O\\&M engineer\\"s O\\&M application as a Bastionhost administrator.
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation is used by administrators to approve O&M requests submitted by O&M engineers.
+     * This operation has a single-user QPS limit of 10 requests per second. If this limit is exceeded, API calls are throttled, which may affect your business. Please call this operation appropriately.
      *
      * @param request - AcceptOperationTicketRequest
      *
@@ -662,12 +670,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Adds one or more hosts to the specified host group.
+     * Adds multiple hosts to a specified asset group in a batch.
      *
      * @remarks
-     * Adds multiple hosts to a host group. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in batch.
-     * # Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     * Adds multiple hosts to a specified host group in a batch. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in a batch.
+     * ### QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
      *
      * @param request - AddHostsToGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -695,6 +703,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -718,12 +730,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Adds one or more hosts to the specified host group.
+     * Adds multiple hosts to a specified asset group in a batch.
      *
      * @remarks
-     * Adds multiple hosts to a host group. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in batch.
-     * # Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     * Adds multiple hosts to a specified host group in a batch. By adding multiple hosts to a host group, you can centrally manage these hosts and grant permissions in a batch.
+     * ### QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
      *
      * @param request - AddHostsToGroupRequest
      *
@@ -806,13 +818,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Add one or more users to a user group.
+     * Adds users to a user group in a batch.
      *
      * @remarks
-     * #
-     * Adds one or more users to a user group. After creating a user group with the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, use this operation to add multiple users at once for centralized permission management.
-     * # Limit
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * ### Operation description
+     * This operation adds users to a user group in a batch. After you create a user group by calling the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, you can call this operation to add multiple users to the user group for batch authorization and management.
+     * ### QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation as appropriate.
      *
      * @param request - AddUsersToGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -830,6 +842,10 @@ class Yundunbastionhost extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -863,13 +879,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Add one or more users to a user group.
+     * Adds users to a user group in a batch.
      *
      * @remarks
-     * #
-     * Adds one or more users to a user group. After creating a user group with the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, use this operation to add multiple users at once for centralized permission management.
-     * # Limit
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * ### Operation description
+     * This operation adds users to a user group in a batch. After you create a user group by calling the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation, you can call this operation to add multiple users to the user group for batch authorization and management.
+     * ### QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation as appropriate.
      *
      * @param request - AddUsersToGroupRequest
      *
@@ -909,6 +925,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -1021,7 +1041,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Grants permissions on databases and database accounts to a user group.
+     * Grants a user group permissions on databases and database accounts.
      *
      * @param request - AttachDatabaseAccountsToUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1043,6 +1063,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -1072,7 +1096,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Grants permissions on databases and database accounts to a user group.
+     * Grants a user group permissions on databases and database accounts.
      *
      * @param request - AttachDatabaseAccountsToUserGroupRequest
      *
@@ -1090,7 +1114,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Associates host accounts with a shared key.
+     * Associates host accounts with a host shared key.
      *
      * @param request - AttachHostAccountsToHostShareKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1118,6 +1142,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -1141,7 +1169,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Associates host accounts with a shared key.
+     * Associates host accounts with a host shared key.
      *
      * @param request - AttachHostAccountsToHostShareKeyRequest
      *
@@ -1228,10 +1256,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Authorizes a user group to manage one or more hosts and host accounts.
+     * Grants a user group permissions on hosts and host accounts.
      *
      * @remarks
-     * After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
+     * After you grant a user group permissions on hosts and host accounts, all users in the user group can access the authorized hosts.
      *
      * @param request - AttachHostAccountsToUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1253,6 +1281,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -1282,10 +1314,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Authorizes a user group to manage one or more hosts and host accounts.
+     * Grants a user group permissions on hosts and host accounts.
      *
      * @remarks
-     * After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
+     * After you grant a user group permissions on hosts and host accounts, all users in the user group can access the authorized hosts.
      *
      * @param request - AttachHostAccountsToUserGroupRequest
      *
@@ -1587,7 +1619,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Imports a database into a Bastionhost instance for centralized O&M management. Supported databases include ApsaraDB RDS, PolarDB, and self-managed MySQL, SQL Server, PostgreSQL, and Oracle databases.
+     * Imports database assets into a bastion host. Supported database types include MySQL, SQL Server, and PostgreSQL for ApsaraDB RDS instances, MySQL, PostgreSQL, and PostgreSQL (Compatible with Oracle) for PolarDB clusters, and MySQL, SQL Server, PostgreSQL, and Oracle for self-managed databases.
      *
      * @param request - CreateDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1647,6 +1679,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PolarDBEndpointType'] = $request->polarDBEndpointType;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -1682,7 +1718,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Imports a database into a Bastionhost instance for centralized O&M management. Supported databases include ApsaraDB RDS, PolarDB, and self-managed MySQL, SQL Server, PostgreSQL, and Oracle databases.
+     * Imports database assets into a bastion host. Supported database types include MySQL, SQL Server, and PostgreSQL for ApsaraDB RDS instances, MySQL, PostgreSQL, and PostgreSQL (Compatible with Oracle) for PolarDB clusters, and MySQL, SQL Server, PostgreSQL, and Oracle for self-managed databases.
      *
      * @param request - CreateDatabaseRequest
      *
@@ -1700,7 +1736,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After a database is created, you can create a database account for the database. After the account is created, O\\\\\\\\\\\\&M engineers can use the account to log on to and perform O\\\\\\\\\\\\&M operations on the database.
+     * After a database is created, you can create a database account for it. After the account is created, O&M engineers can use the account to log on to and manage the database.
      *
      * @param request - CreateDatabaseAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1740,6 +1776,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['Password'] = $request->password;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -1763,7 +1803,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After a database is created, you can create a database account for the database. After the account is created, O\\\\\\\\\\\\&M engineers can use the account to log on to and perform O\\\\\\\\\\\\&M operations on the database.
+     * After a database is created, you can create a database account for it. After the account is created, O&M engineers can use the account to log on to and manage the database.
      *
      * @param request - CreateDatabaseAccountRequest
      *
@@ -1842,7 +1882,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a host in a Bastionhost instance. You can import Elastic Compute Service (ECS) instances, on-premises servers, and third-party cloud servers as hosts for centralized O&M management.
+     * Creates a host in a Bastionhost instance. Bastionhost supports O&M for hosts from different sources, including Alibaba Cloud ECS instances, on-premises IDC servers, and servers on other clouds. Before you perform O&M on a host through Bastionhost, you must first import the host into Bastionhost. You can call this operation to create a host that you want to manage in Bastionhost.
      *
      * @param request - CreateHostRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1898,6 +1938,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['OSType'] = $request->OSType;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -1929,7 +1973,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a host in a Bastionhost instance. You can import Elastic Compute Service (ECS) instances, on-premises servers, and third-party cloud servers as hosts for centralized O&M management.
+     * Creates a host in a Bastionhost instance. Bastionhost supports O&M for hosts from different sources, including Alibaba Cloud ECS instances, on-premises IDC servers, and servers on other clouds. Before you perform O&M on a host through Bastionhost, you must first import the host into Bastionhost. You can call this operation to create a host that you want to manage in Bastionhost.
      *
      * @param request - CreateHostRequest
      *
@@ -1947,7 +1991,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a host account for a host managed by a Bastionhost instance. After you create the host account, Operations and Maintenance (O&M) engineers can use it to log on to the host through Bastionhost.
+     * After you create a host in Bastionhost, you can create a host account for the host to manage the existing account of the host in Bastionhost. After you create a host account, O&M engineers can use the account to log on to the host through Bastionhost for O&M operations.
      *
      * @param request - CreateHostAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1995,6 +2039,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PrivilegeType'] = $request->privilegeType;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->protocolName) {
             @$query['ProtocolName'] = $request->protocolName;
         }
@@ -2026,7 +2074,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a host account for a host managed by a Bastionhost instance. After you create the host account, Operations and Maintenance (O&M) engineers can use it to log on to the host through Bastionhost.
+     * After you create a host in Bastionhost, you can create a host account for the host to manage the existing account of the host in Bastionhost. After you create a host account, O&M engineers can use the account to log on to the host through Bastionhost for O&M operations.
      *
      * @param request - CreateHostAccountRequest
      *
@@ -2044,7 +2092,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can create asset groups based on your business requirements and add assets of the same type to an asset group. This allows you to classify assets and manage multiple assets at a time.
+     * You can create different asset groups based on your business requirements, add assets of the same type to an asset group, and manage assets by category and perform batch operations.
      *
      * @param request - CreateHostGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2072,6 +2120,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -2095,7 +2147,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can create asset groups based on your business requirements and add assets of the same type to an asset group. This allows you to classify assets and manage multiple assets at a time.
+     * You can create different asset groups based on your business requirements, add assets of the same type to an asset group, and manage assets by category and perform batch operations.
      *
      * @param request - CreateHostGroupRequest
      *
@@ -2113,7 +2165,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Bastionhost provides the shared key feature. This feature allows you to manage the private key that is used to log on to a host in a bastion host. This way, you can associate the private key with multiple accounts of the host to make host account management more efficient.
+     * The shared key feature of Bastionhost allows you to store private keys used for host logon in Bastionhost. After being stored, a private key can be shared across multiple host accounts to improve host account management efficiency.
      *
      * @param request - CreateHostShareKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2145,6 +2197,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PrivateKey'] = $request->privateKey;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -2168,7 +2224,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Bastionhost provides the shared key feature. This feature allows you to manage the private key that is used to log on to a host in a bastion host. This way, you can associate the private key with multiple accounts of the host to make host account management more efficient.
+     * The shared key feature of Bastionhost allows you to store private keys used for host logon in Bastionhost. After being stored, a private key can be shared across multiple host accounts to improve host account management efficiency.
      *
      * @param request - CreateHostShareKeyRequest
      *
@@ -2186,7 +2242,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * If you want to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets by using the bastion host.
+     * If you want to perform unified O&M on assets that are distributed across different network environments or that are not connected to the virtual private cloud (VPC) where Bastionhost resides, use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain in Bastionhost and add the proxy server, and then add the assets to the network domain to manage them through Bastionhost.
      *
      * @param request - CreateNetworkDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2218,6 +2274,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['NetworkDomainType'] = $request->networkDomainType;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->proxies) {
             @$query['Proxies'] = $request->proxies;
         }
@@ -2245,7 +2305,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * If you want to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets by using the bastion host.
+     * If you want to perform unified O&M on assets that are distributed across different network environments or that are not connected to the virtual private cloud (VPC) where Bastionhost resides, use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain in Bastionhost and add the proxy server, and then add the assets to the network domain to manage them through Bastionhost.
      *
      * @param request - CreateNetworkDomainRequest
      *
@@ -2263,7 +2323,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates an O&M ticket for a host or database that requires approval before access. If a control policy requires O&M approval, you must create and get a ticket approved before you can perform O&M operations.
+     * Creates an O&M request. When an administrator enables O&M approval in control policies, O&M engineers must create an O&M request and obtain administrator approval before performing O&M operations.
      *
      * @param request - CreateOperationTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2307,6 +2367,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['IsOneTimeEffect'] = $request->isOneTimeEffect;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->protocolName) {
             @$query['ProtocolName'] = $request->protocolName;
         }
@@ -2334,7 +2398,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates an O&M ticket for a host or database that requires approval before access. If a control policy requires O&M approval, you must create and get a ticket approved before you can perform O&M operations.
+     * Creates an O&M request. When an administrator enables O&M approval in control policies, O&M engineers must create an O&M request and obtain administrator approval before performing O&M operations.
      *
      * @param request - CreateOperationTicketRequest
      *
@@ -2352,7 +2416,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\\\\\\\\\\\\\\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\\\\\\\\\\\\\\\\\\\&M security.
+     * Controls O&M behaviors through Settings for command control, command approval, protocol control, and access control policy to effectively prevent users from executing high-risk commands or performing misoperations, ensuring O&M security.
      *
      * @param request - CreatePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2384,6 +2448,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['Priority'] = $request->priority;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -2407,7 +2475,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\\\\\\\\\\\\\\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\\\\\\\\\\\\\\\\\\\&M security.
+     * Controls O&M behaviors through Settings for command control, command approval, protocol control, and access control policy to effectively prevent users from executing high-risk commands or performing misoperations, ensuring O&M security.
      *
      * @param request - CreatePolicyRequest
      *
@@ -2467,6 +2535,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -2683,6 +2755,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -2815,7 +2891,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a database.
+     * Deletes a single database instance.
      *
      * @param request - DeleteDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2837,6 +2913,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -2862,7 +2942,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a database.
+     * Deletes a single database instance.
      *
      * @param request - DeleteDatabaseRequest
      *
@@ -2902,6 +2982,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -2945,7 +3029,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a host.
+     * Deletes a single host.
      *
      * @param request - DeleteHostRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2967,6 +3051,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -2992,7 +3080,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a host.
+     * Deletes a single host.
      *
      * @param request - DeleteHostRequest
      *
@@ -3010,14 +3098,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Removes a host account.
+     * Deletes a single host account.
      *
      * @remarks
-     * ## Usage notes
-     * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
-     * > After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
-     * ## QPS Limit
-     * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
+     * ### Operation description
+     * This operation deletes a single host account. If a host account is no longer in use, call this operation to delete the host account that is configured in Bastionhost.
+     * > After you delete a host account, you must manually enter the host account and password when you log on to the host through Bastionhost.
+     * ### Rate limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered. This may affect your business. Call this operation as needed.
      *
      * @param request - DeleteHostAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3039,6 +3127,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -3064,14 +3156,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Removes a host account.
+     * Deletes a single host account.
      *
      * @remarks
-     * ## Usage notes
-     * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
-     * > After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
-     * ## QPS Limit
-     * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
+     * ### Operation description
+     * This operation deletes a single host account. If a host account is no longer in use, call this operation to delete the host account that is configured in Bastionhost.
+     * > After you delete a host account, you must manually enter the host account and password when you log on to the host through Bastionhost.
+     * ### Rate limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered. This may affect your business. Call this operation as needed.
      *
      * @param request - DeleteHostAccountRequest
      *
@@ -3089,12 +3181,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a host group.
+     * Deletes a single asset group.
      *
      * @remarks
-     * Deletes a single host group. If all hosts in a host group no longer need to be managed through Bastionhost, you can delete the host group using this operation.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation deletes a single host group. When all hosts in a host group on a bastion host no longer need to be maintained through the bastion host, you can call this operation to delete the host group.
+     * ### QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - DeleteHostGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3116,6 +3208,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -3141,12 +3237,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a host group.
+     * Deletes a single asset group.
      *
      * @remarks
-     * Deletes a single host group. If all hosts in a host group no longer need to be managed through Bastionhost, you can delete the host group using this operation.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation deletes a single host group. When all hosts in a host group on a bastion host no longer need to be maintained through the bastion host, you can call this operation to delete the host group.
+     * ### QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - DeleteHostGroupRequest
      *
@@ -3253,6 +3349,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['NetworkDomainId'] = $request->networkDomainId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -3294,7 +3394,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a control policy.
+     * Deletes a single control policy.
      *
      * @param request - DeletePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3316,6 +3416,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->policyId) {
             @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -3341,7 +3445,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a control policy.
+     * Deletes a single control policy.
      *
      * @param request - DeletePolicyRequest
      *
@@ -3377,6 +3481,10 @@ class Yundunbastionhost extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -3489,7 +3597,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a user group from a bastion host.
+     * Deletes a single user group from a bastion host.
      *
      * @param request - DeleteUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3507,6 +3615,10 @@ class Yundunbastionhost extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -3536,7 +3648,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a user group from a bastion host.
+     * Deletes a single user group from a bastion host.
      *
      * @param request - DeleteUserGroupRequest
      *
@@ -3627,6 +3739,9 @@ class Yundunbastionhost extends OpenApiClient
     /**
      * Queries all attribute information of an instance, such as the instance ID and instance description.
      *
+     * @remarks
+     * You can call this operation to purchase an Encryption Service instance. This is a prepaid product, and the operation synchronously deducts the payment.
+     *
      * @param request - DescribeInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3669,6 +3784,9 @@ class Yundunbastionhost extends OpenApiClient
 
     /**
      * Queries all attribute information of an instance, such as the instance ID and instance description.
+     *
+     * @remarks
+     * You can call this operation to purchase an Encryption Service instance. This is a prepaid product, and the operation synchronously deducts the payment.
      *
      * @param request - DescribeInstanceAttributeRequest
      *
@@ -3925,6 +4043,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -3996,6 +4118,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -4130,6 +4256,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -4396,6 +4526,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -4520,6 +4654,10 @@ class Yundunbastionhost extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -4692,6 +4830,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -4763,6 +4905,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -4826,6 +4972,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -4958,6 +5108,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -5021,6 +5175,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -5088,6 +5246,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -5151,6 +5313,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -5222,6 +5388,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userSourceId) {
+            @$query['UserSourceId'] = $request->userSourceId;
         }
 
         $req = new OpenApiRequest([
@@ -5488,6 +5658,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['NetworkDomainId'] = $request->networkDomainId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -5551,6 +5725,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->policyId) {
             @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -5618,6 +5796,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PolicyId'] = $request->policyId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -5683,6 +5865,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PolicyId'] = $request->policyId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -5742,6 +5928,10 @@ class Yundunbastionhost extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -5872,6 +6062,10 @@ class Yundunbastionhost extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -6026,6 +6220,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -6105,6 +6303,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -6265,6 +6467,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -6348,6 +6554,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -6439,6 +6649,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -6528,6 +6742,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -6613,6 +6831,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->protocolName) {
             @$query['ProtocolName'] = $request->protocolName;
         }
@@ -6690,6 +6912,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -6765,6 +6991,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -6848,6 +7078,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -6917,6 +7151,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -6984,6 +7222,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -7063,6 +7305,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -7138,6 +7384,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -7221,6 +7471,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -7292,6 +7546,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -7377,6 +7635,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -7476,6 +7738,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -7563,6 +7829,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -7792,6 +8062,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -7859,6 +8133,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->operationProjectId) {
+            @$query['OperationProjectId'] = $request->operationProjectId;
         }
 
         if (null !== $request->pageNumber) {
@@ -7948,6 +8226,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -8112,6 +8394,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['OSType'] = $request->OSType;
         }
 
+        if (null !== $request->operationProjectId) {
+            @$query['OperationProjectId'] = $request->operationProjectId;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -8177,7 +8463,7 @@ class Yundunbastionhost extends OpenApiClient
      *
      * @remarks
      * Retrieves the list of O&M applications that require approval for an administrator.
-     * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
+     * The queries per second (QPS) limit for a single user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - ListOperationTicketsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8209,6 +8495,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -8236,7 +8526,7 @@ class Yundunbastionhost extends OpenApiClient
      *
      * @remarks
      * Retrieves the list of O&M applications that require approval for an administrator.
-     * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
+     * The queries per second (QPS) limit for a single user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - ListOperationTicketsRequest
      *
@@ -8284,6 +8574,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->policyName) {
             @$query['PolicyName'] = $request->policyName;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -8353,6 +8647,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -8477,7 +8775,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Lists the tags that are attached to one or more Bastionhost instances.
+     * Queries the tags that are bound to one or more Bastionhost instances.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8536,7 +8834,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Lists the tags that are attached to one or more Bastionhost instances.
+     * Queries the tags that are bound to one or more Bastionhost instances.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -8584,6 +8882,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -8657,6 +8959,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -9003,6 +9309,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['NetworkDomainId'] = $request->networkDomainId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -9082,6 +9392,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->password) {
             @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -9181,6 +9495,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PrefKex'] = $request->prefKex;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -9274,6 +9592,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PrivilegeType'] = $request->privilegeType;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -9349,6 +9671,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -9428,6 +9754,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PrivateKey'] = $request->privateKey;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -9495,6 +9825,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -9571,6 +9905,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->port) {
             @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->protocolName) {
@@ -9665,8 +10003,28 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->isDefault) {
+            @$query['IsDefault'] = $request->isDefault;
+        }
+
         if (null !== $request->isSSL) {
             @$query['IsSSL'] = $request->isSSL;
+        }
+
+        if (null !== $request->isSyncEmailAttr) {
+            @$query['IsSyncEmailAttr'] = $request->isSyncEmailAttr;
+        }
+
+        if (null !== $request->isSyncMobileAttr) {
+            @$query['IsSyncMobileAttr'] = $request->isSyncMobileAttr;
+        }
+
+        if (null !== $request->isSyncNameAttr) {
+            @$query['IsSyncNameAttr'] = $request->isSyncNameAttr;
+        }
+
+        if (null !== $request->isSyncOuAsUserGroup) {
+            @$query['IsSyncOuAsUserGroup'] = $request->isSyncOuAsUserGroup;
         }
 
         if (null !== $request->mobileMapping) {
@@ -9693,8 +10051,20 @@ class Yundunbastionhost extends OpenApiClient
             @$query['Server'] = $request->server;
         }
 
+        if (null !== $request->serverName) {
+            @$query['ServerName'] = $request->serverName;
+        }
+
         if (null !== $request->standbyServer) {
             @$query['StandbyServer'] = $request->standbyServer;
+        }
+
+        if (null !== $request->syncInterval) {
+            @$query['SyncInterval'] = $request->syncInterval;
+        }
+
+        if (null !== $request->userSourceId) {
+            @$query['UserSourceId'] = $request->userSourceId;
         }
 
         $req = new OpenApiRequest([
@@ -10017,6 +10387,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['NetworkDomainType'] = $request->networkDomainType;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->proxies) {
             @$query['Proxies'] = $request->proxies;
         }
@@ -10096,6 +10470,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->priority) {
             @$query['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -10181,6 +10559,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -10381,6 +10763,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -10535,6 +10921,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['NetworkDomainId'] = $request->networkDomainId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -10602,6 +10992,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->networkDomainId) {
             @$query['NetworkDomainId'] = $request->networkDomainId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -10742,6 +11136,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -10809,6 +11207,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -10882,6 +11284,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->operationTicketId) {
             @$query['OperationTicketId'] = $request->operationTicketId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -11031,6 +11437,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -11173,6 +11583,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -11251,6 +11665,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
         if (null !== $request->tokenId) {
             @$query['TokenId'] = $request->tokenId;
         }
@@ -11318,6 +11736,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -11395,6 +11817,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PolicyId'] = $request->policyId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -11470,6 +11896,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PolicyId'] = $request->policyId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -11511,7 +11941,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Specifies the assets to which a control policy applies.
+     * Sets the asset scope for a specified control policy.
      *
      * @param request - SetPolicyAssetScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11547,6 +11977,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PolicyId'] = $request->policyId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -11574,7 +12008,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Specifies the assets to which a control policy applies.
+     * Sets the asset scope for a specified control policy.
      *
      * @param request - SetPolicyAssetScopeRequest
      *
@@ -11624,6 +12058,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->policyId) {
             @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {
@@ -11701,6 +12139,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PolicyId'] = $request->policyId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -11772,6 +12214,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['PolicyId'] = $request->policyId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->protocolConfigShrink) {
             @$query['ProtocolConfig'] = $request->protocolConfigShrink;
         }
@@ -11839,6 +12285,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->policyId) {
             @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->regionId) {

@@ -29,6 +29,11 @@ class CreateHostShareKeyRequest extends Model
     public $privateKey;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -37,6 +42,7 @@ class CreateHostShareKeyRequest extends Model
         'instanceId' => 'InstanceId',
         'passPhrase' => 'PassPhrase',
         'privateKey' => 'PrivateKey',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
 
@@ -62,6 +68,10 @@ class CreateHostShareKeyRequest extends Model
 
         if (null !== $this->privateKey) {
             $res['PrivateKey'] = $this->privateKey;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -93,6 +103,10 @@ class CreateHostShareKeyRequest extends Model
 
         if (isset($map['PrivateKey'])) {
             $model->privateKey = $map['PrivateKey'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

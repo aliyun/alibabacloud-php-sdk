@@ -39,6 +39,11 @@ class ListDatabasesRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -54,6 +59,7 @@ class ListDatabasesRequest extends Model
         'networkDomainId' => 'NetworkDomainId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'source' => 'Source',
     ];
@@ -88,6 +94,10 @@ class ListDatabasesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -131,6 +141,10 @@ class ListDatabasesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

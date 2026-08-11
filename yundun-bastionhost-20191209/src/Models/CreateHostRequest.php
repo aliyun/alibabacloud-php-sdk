@@ -59,6 +59,11 @@ class CreateHostRequest extends Model
     public $OSType;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -83,6 +88,7 @@ class CreateHostRequest extends Model
         'instanceRegionId' => 'InstanceRegionId',
         'networkDomainId' => 'NetworkDomainId',
         'OSType' => 'OSType',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'source' => 'Source',
         'sourceInstanceId' => 'SourceInstanceId',
@@ -134,6 +140,10 @@ class CreateHostRequest extends Model
 
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -197,6 +207,10 @@ class CreateHostRequest extends Model
 
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

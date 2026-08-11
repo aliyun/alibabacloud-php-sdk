@@ -47,6 +47,11 @@ class ModifyRuleRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -78,6 +83,7 @@ class ModifyRuleRequest extends Model
         'hostGroups' => 'HostGroups',
         'hosts' => 'Hosts',
         'instanceId' => 'InstanceId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
@@ -155,6 +161,10 @@ class ModifyRuleRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -249,6 +259,10 @@ class ModifyRuleRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

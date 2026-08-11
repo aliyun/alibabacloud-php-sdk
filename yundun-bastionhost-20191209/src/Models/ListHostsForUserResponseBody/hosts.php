@@ -42,6 +42,16 @@ class hosts extends Model
      * @var string
      */
     public $OSType;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $projectName;
     protected $_name = [
         'activeAddressType' => 'ActiveAddressType',
         'comment' => 'Comment',
@@ -50,6 +60,8 @@ class hosts extends Model
         'hostPrivateAddress' => 'HostPrivateAddress',
         'hostPublicAddress' => 'HostPublicAddress',
         'OSType' => 'OSType',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
@@ -86,6 +98,14 @@ class hosts extends Model
 
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -125,6 +145,14 @@ class hosts extends Model
 
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

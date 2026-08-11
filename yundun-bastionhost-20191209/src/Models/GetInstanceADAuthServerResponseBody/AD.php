@@ -41,7 +41,37 @@ class AD extends Model
     /**
      * @var bool
      */
+    public $isDefault;
+
+    /**
+     * @var bool
+     */
     public $isSSL;
+
+    /**
+     * @var bool
+     */
+    public $isSyncEmailAttr;
+
+    /**
+     * @var bool
+     */
+    public $isSyncMobileAttr;
+
+    /**
+     * @var bool
+     */
+    public $isSyncNameAttr;
+
+    /**
+     * @var bool
+     */
+    public $isSyncOuAsUserGroup;
+
+    /**
+     * @var int
+     */
+    public $latestSyncTime;
 
     /**
      * @var string
@@ -66,7 +96,22 @@ class AD extends Model
     /**
      * @var string
      */
+    public $serverName;
+
+    /**
+     * @var string
+     */
     public $standbyServer;
+
+    /**
+     * @var int
+     */
+    public $syncInterval;
+
+    /**
+     * @var string
+     */
+    public $userSourceId;
     protected $_name = [
         'account' => 'Account',
         'baseDN' => 'BaseDN',
@@ -74,12 +119,21 @@ class AD extends Model
         'emailMapping' => 'EmailMapping',
         'filter' => 'Filter',
         'hasPassword' => 'HasPassword',
+        'isDefault' => 'IsDefault',
         'isSSL' => 'IsSSL',
+        'isSyncEmailAttr' => 'IsSyncEmailAttr',
+        'isSyncMobileAttr' => 'IsSyncMobileAttr',
+        'isSyncNameAttr' => 'IsSyncNameAttr',
+        'isSyncOuAsUserGroup' => 'IsSyncOuAsUserGroup',
+        'latestSyncTime' => 'LatestSyncTime',
         'mobileMapping' => 'MobileMapping',
         'nameMapping' => 'NameMapping',
         'port' => 'Port',
         'server' => 'Server',
+        'serverName' => 'ServerName',
         'standbyServer' => 'StandbyServer',
+        'syncInterval' => 'SyncInterval',
+        'userSourceId' => 'UserSourceId',
     ];
 
     public function validate()
@@ -114,8 +168,32 @@ class AD extends Model
             $res['HasPassword'] = $this->hasPassword;
         }
 
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
+        }
+
         if (null !== $this->isSSL) {
             $res['IsSSL'] = $this->isSSL;
+        }
+
+        if (null !== $this->isSyncEmailAttr) {
+            $res['IsSyncEmailAttr'] = $this->isSyncEmailAttr;
+        }
+
+        if (null !== $this->isSyncMobileAttr) {
+            $res['IsSyncMobileAttr'] = $this->isSyncMobileAttr;
+        }
+
+        if (null !== $this->isSyncNameAttr) {
+            $res['IsSyncNameAttr'] = $this->isSyncNameAttr;
+        }
+
+        if (null !== $this->isSyncOuAsUserGroup) {
+            $res['IsSyncOuAsUserGroup'] = $this->isSyncOuAsUserGroup;
+        }
+
+        if (null !== $this->latestSyncTime) {
+            $res['LatestSyncTime'] = $this->latestSyncTime;
         }
 
         if (null !== $this->mobileMapping) {
@@ -134,8 +212,20 @@ class AD extends Model
             $res['Server'] = $this->server;
         }
 
+        if (null !== $this->serverName) {
+            $res['ServerName'] = $this->serverName;
+        }
+
         if (null !== $this->standbyServer) {
             $res['StandbyServer'] = $this->standbyServer;
+        }
+
+        if (null !== $this->syncInterval) {
+            $res['SyncInterval'] = $this->syncInterval;
+        }
+
+        if (null !== $this->userSourceId) {
+            $res['UserSourceId'] = $this->userSourceId;
         }
 
         return $res;
@@ -173,8 +263,32 @@ class AD extends Model
             $model->hasPassword = $map['HasPassword'];
         }
 
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
+        }
+
         if (isset($map['IsSSL'])) {
             $model->isSSL = $map['IsSSL'];
+        }
+
+        if (isset($map['IsSyncEmailAttr'])) {
+            $model->isSyncEmailAttr = $map['IsSyncEmailAttr'];
+        }
+
+        if (isset($map['IsSyncMobileAttr'])) {
+            $model->isSyncMobileAttr = $map['IsSyncMobileAttr'];
+        }
+
+        if (isset($map['IsSyncNameAttr'])) {
+            $model->isSyncNameAttr = $map['IsSyncNameAttr'];
+        }
+
+        if (isset($map['IsSyncOuAsUserGroup'])) {
+            $model->isSyncOuAsUserGroup = $map['IsSyncOuAsUserGroup'];
+        }
+
+        if (isset($map['LatestSyncTime'])) {
+            $model->latestSyncTime = $map['LatestSyncTime'];
         }
 
         if (isset($map['MobileMapping'])) {
@@ -193,8 +307,20 @@ class AD extends Model
             $model->server = $map['Server'];
         }
 
+        if (isset($map['ServerName'])) {
+            $model->serverName = $map['ServerName'];
+        }
+
         if (isset($map['StandbyServer'])) {
             $model->standbyServer = $map['StandbyServer'];
+        }
+
+        if (isset($map['SyncInterval'])) {
+            $model->syncInterval = $map['SyncInterval'];
+        }
+
+        if (isset($map['UserSourceId'])) {
+            $model->userSourceId = $map['UserSourceId'];
         }
 
         return $model;

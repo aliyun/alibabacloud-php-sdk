@@ -64,6 +64,11 @@ class CreateDatabaseRequest extends Model
     public $polarDBEndpointType;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -94,6 +99,7 @@ class CreateDatabaseRequest extends Model
         'instanceMemberId' => 'InstanceMemberId',
         'networkDomainId' => 'NetworkDomainId',
         'polarDBEndpointType' => 'PolarDBEndpointType',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'source' => 'Source',
         'sourceInstanceId' => 'SourceInstanceId',
@@ -150,6 +156,10 @@ class CreateDatabaseRequest extends Model
 
         if (null !== $this->polarDBEndpointType) {
             $res['PolarDBEndpointType'] = $this->polarDBEndpointType;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -221,6 +231,10 @@ class CreateDatabaseRequest extends Model
 
         if (isset($map['PolarDBEndpointType'])) {
             $model->polarDBEndpointType = $map['PolarDBEndpointType'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

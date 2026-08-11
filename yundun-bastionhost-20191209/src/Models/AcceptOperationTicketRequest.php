@@ -39,6 +39,11 @@ class AcceptOperationTicketRequest extends Model
     public $operationTicketId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -49,6 +54,7 @@ class AcceptOperationTicketRequest extends Model
         'effectStartTime' => 'EffectStartTime',
         'instanceId' => 'InstanceId',
         'operationTicketId' => 'OperationTicketId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
 
@@ -82,6 +88,10 @@ class AcceptOperationTicketRequest extends Model
 
         if (null !== $this->operationTicketId) {
             $res['OperationTicketId'] = $this->operationTicketId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -121,6 +131,10 @@ class AcceptOperationTicketRequest extends Model
 
         if (isset($map['OperationTicketId'])) {
             $model->operationTicketId = $map['OperationTicketId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

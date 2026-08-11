@@ -29,6 +29,11 @@ class ListPoliciesRequest extends Model
     public $policyName;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -37,6 +42,7 @@ class ListPoliciesRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'policyName' => 'PolicyName',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
 
@@ -62,6 +68,10 @@ class ListPoliciesRequest extends Model
 
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -93,6 +103,10 @@ class ListPoliciesRequest extends Model
 
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {

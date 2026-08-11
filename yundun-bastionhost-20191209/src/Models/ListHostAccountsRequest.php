@@ -39,6 +39,11 @@ class ListHostAccountsRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $protocolName;
@@ -54,6 +59,7 @@ class ListHostAccountsRequest extends Model
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
         'protocolName' => 'ProtocolName',
         'regionId' => 'RegionId',
     ];
@@ -88,6 +94,10 @@ class ListHostAccountsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->protocolName) {
@@ -131,6 +141,10 @@ class ListHostAccountsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['ProtocolName'])) {

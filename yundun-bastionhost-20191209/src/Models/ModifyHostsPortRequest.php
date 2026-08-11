@@ -24,6 +24,11 @@ class ModifyHostsPortRequest extends Model
     public $port;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $protocolName;
@@ -36,6 +41,7 @@ class ModifyHostsPortRequest extends Model
         'hostIds' => 'HostIds',
         'instanceId' => 'InstanceId',
         'port' => 'Port',
+        'projectId' => 'ProjectId',
         'protocolName' => 'ProtocolName',
         'regionId' => 'RegionId',
     ];
@@ -58,6 +64,10 @@ class ModifyHostsPortRequest extends Model
 
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->protocolName) {
@@ -89,6 +99,10 @@ class ModifyHostsPortRequest extends Model
 
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['ProtocolName'])) {

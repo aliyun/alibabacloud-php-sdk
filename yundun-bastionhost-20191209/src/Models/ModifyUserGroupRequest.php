@@ -19,6 +19,11 @@ class ModifyUserGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -35,6 +40,7 @@ class ModifyUserGroupRequest extends Model
     protected $_name = [
         'comment' => 'Comment',
         'instanceId' => 'InstanceId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'userGroupId' => 'UserGroupId',
         'userGroupName' => 'UserGroupName',
@@ -54,6 +60,10 @@ class ModifyUserGroupRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->regionId) {
@@ -85,6 +95,10 @@ class ModifyUserGroupRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegionId'])) {
