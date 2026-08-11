@@ -1,3 +1,8 @@
+2026-08-11 Version: 4.2.6
+- Update API DescribeBackups: add response parameters Body.Items.$.BackupScheduleType.
+- Update API DescribeDBClusterAttribute: add response parameters Body.DBCluster.LangfuseInstanceIds.
+
+
 2026-06-23 Version: 4.2.5
 - Update API CheckScaleOutBalanced: add request parameters ScalingType.
 

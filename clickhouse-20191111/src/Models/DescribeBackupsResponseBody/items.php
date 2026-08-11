@@ -26,6 +26,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $backupScheduleType;
+
+    /**
+     * @var string
+     */
     public $backupSetInfo;
 
     /**
@@ -61,6 +66,7 @@ class items extends Model
         'backupEndTime' => 'BackupEndTime',
         'backupId' => 'BackupId',
         'backupMethod' => 'BackupMethod',
+        'backupScheduleType' => 'BackupScheduleType',
         'backupSetInfo' => 'BackupSetInfo',
         'backupSize' => 'BackupSize',
         'backupStartTime' => 'BackupStartTime',
@@ -88,6 +94,10 @@ class items extends Model
 
         if (null !== $this->backupMethod) {
             $res['BackupMethod'] = $this->backupMethod;
+        }
+
+        if (null !== $this->backupScheduleType) {
+            $res['BackupScheduleType'] = $this->backupScheduleType;
         }
 
         if (null !== $this->backupSetInfo) {
@@ -139,6 +149,10 @@ class items extends Model
 
         if (isset($map['BackupMethod'])) {
             $model->backupMethod = $map['BackupMethod'];
+        }
+
+        if (isset($map['BackupScheduleType'])) {
+            $model->backupScheduleType = $map['BackupScheduleType'];
         }
 
         if (isset($map['BackupSetInfo'])) {

@@ -236,18 +236,22 @@ class Clickhouse extends OpenApiClient
             'rus-west-1-pop' => 'clickhouse.aliyuncs.com',
             'us-east-1' => 'clickhouse.aliyuncs.com',
             'us-west-1' => 'clickhouse.aliyuncs.com',
-            'me-central-1' => 'clickhouse.me-central-1.aliyuncs.com',
-            'eu-west-1' => 'clickhouse.eu-west-1.aliyuncs.com',
-            'eu-central-1' => 'clickhouse.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'clickhouse.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu' => 'clickhouse.aliyuncs.com',
             'cn-huhehaote' => 'clickhouse.cn-huhehaote.aliyuncs.com',
-            'cn-guangzhou' => 'clickhouse.cn-guangzhou.aliyuncs.com',
-            'cn-chengdu' => 'clickhouse.cn-chengdu.aliyuncs.com',
-            'ap-southeast-6' => 'clickhouse.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-5' => 'clickhouse.ap-southeast-5.aliyuncs.com',
             'ap-southeast-3' => 'clickhouse.aliyuncs.com',
+            'cn-wulanchabu' => 'clickhouse.cn-wulanchabu.aliyuncs.com',
+            'cn-zhangjiakou' => 'clickhouse.cn-zhangjiakou.aliyuncs.com',
             'ap-northeast-1' => 'clickhouse.ap-northeast-1.aliyuncs.com',
+            'cn-chengdu' => 'clickhouse.cn-chengdu.aliyuncs.com',
+            'cn-guangzhou' => 'clickhouse.cn-guangzhou.aliyuncs.com',
+            'ap-southeast-5' => 'clickhouse.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-6' => 'clickhouse.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-8' => 'clickhouse.ap-southeast-8.aliyuncs.com',
+            'us-southeast-1' => 'clickhouse.us-southeast-1.aliyuncs.com',
+            'na-south-1' => 'clickhouse.na-south-1.aliyuncs.com',
+            'eu-central-1' => 'clickhouse.eu-central-1.aliyuncs.com',
+            'eu-west-1' => 'clickhouse.eu-west-1.aliyuncs.com',
+            'me-central-1' => 'clickhouse.me-central-1.aliyuncs.com',
+            'cn-wulanchabu-gic-1' => 'clickhouse.cn-wulanchabu-gic-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('clickhouse', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -865,10 +869,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries whether changing the configuration parameters of an ApsaraDB for ClickHouse community-compatible cluster in XML mode requires a restart.
+     * Calls the CheckModifyConfigNeedRestart operation to check whether modifying configuration parameters in XML mode requires a restart for an ApsaraDB for ClickHouse Community-compatible Edition cluster.
      *
      * @remarks
-     * > 该接口仅支持 2021 年 12 月 01 日之后创建的社区兼容版集群。
+     * >This operation supports only Community-compatible Edition clusters created after December 1, 2021.
      *
      * @param request - CheckModifyConfigNeedRestartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -911,10 +915,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries whether changing the configuration parameters of an ApsaraDB for ClickHouse community-compatible cluster in XML mode requires a restart.
+     * Calls the CheckModifyConfigNeedRestart operation to check whether modifying configuration parameters in XML mode requires a restart for an ApsaraDB for ClickHouse Community-compatible Edition cluster.
      *
      * @remarks
-     * > 该接口仅支持 2021 年 12 月 01 日之后创建的社区兼容版集群。
+     * >This operation supports only Community-compatible Edition clusters created after December 1, 2021.
      *
      * @param request - CheckModifyConfigNeedRestartRequest
      *
@@ -1472,10 +1476,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Create an Alibaba Cloud ClickHouse cluster.
+     * Creates an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * Before you call this API, make sure that you understand the billing method and [price](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
      *
      * @param request - CreateDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1634,10 +1638,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Create an Alibaba Cloud ClickHouse cluster.
+     * Creates an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * Before you call this API, make sure that you understand the billing method and [price](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
      *
      * @param request - CreateDBInstanceRequest
      *
@@ -3346,7 +3350,7 @@ class Clickhouse extends OpenApiClient
      * Queries the backup sets of a specified ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * > The data backup feature is available only on ApsaraDB for ClickHouse clusters running version 21.8 or later.
+     * >Only ApsaraDB for ClickHouse clusters of version 21.8 or later support the data backup feature.
      *
      * @param request - DescribeBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3424,7 +3428,7 @@ class Clickhouse extends OpenApiClient
      * Queries the backup sets of a specified ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * > The data backup feature is available only on ApsaraDB for ClickHouse clusters running version 21.8 or later.
+     * >Only ApsaraDB for ClickHouse clusters of version 21.8 or later support the data backup feature.
      *
      * @param request - DescribeBackupsRequest
      *
@@ -3714,7 +3718,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Retrieves details for a specific ApsaraDB for ClickHouse cluster.
+     * Queries the information of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3769,7 +3773,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Retrieves details for a specific ApsaraDB for ClickHouse cluster.
+     * Queries the information of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterAttributeRequest
      *

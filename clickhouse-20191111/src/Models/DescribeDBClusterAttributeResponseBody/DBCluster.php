@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAttributeResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAttributeResponseBody\DBCluster\langfuseInstanceIds;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAttributeResponseBody\DBCluster\scaleOutStatus;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAttributeResponseBody\DBCluster\tags;
 
@@ -164,6 +165,11 @@ class DBCluster extends Model
      * @var string
      */
     public $isExpired;
+
+    /**
+     * @var langfuseInstanceIds
+     */
+    public $langfuseInstanceIds;
 
     /**
      * @var string
@@ -336,6 +342,7 @@ class DBCluster extends Model
         'extStorageSize' => 'ExtStorageSize',
         'extStorageType' => 'ExtStorageType',
         'isExpired' => 'IsExpired',
+        'langfuseInstanceIds' => 'LangfuseInstanceIds',
         'lbKind' => 'LbKind',
         'lockMode' => 'LockMode',
         'lockReason' => 'LockReason',
@@ -370,6 +377,9 @@ class DBCluster extends Model
     {
         if (\is_array($this->availableUpgradeMajorVersion)) {
             Model::validateArray($this->availableUpgradeMajorVersion);
+        }
+        if (null !== $this->langfuseInstanceIds) {
+            $this->langfuseInstanceIds->validate();
         }
         if (null !== $this->scaleOutStatus) {
             $this->scaleOutStatus->validate();
@@ -513,6 +523,10 @@ class DBCluster extends Model
 
         if (null !== $this->isExpired) {
             $res['IsExpired'] = $this->isExpired;
+        }
+
+        if (null !== $this->langfuseInstanceIds) {
+            $res['LangfuseInstanceIds'] = null !== $this->langfuseInstanceIds ? $this->langfuseInstanceIds->toArray($noStream) : $this->langfuseInstanceIds;
         }
 
         if (null !== $this->lbKind) {
@@ -770,6 +784,10 @@ class DBCluster extends Model
 
         if (isset($map['IsExpired'])) {
             $model->isExpired = $map['IsExpired'];
+        }
+
+        if (isset($map['LangfuseInstanceIds'])) {
+            $model->langfuseInstanceIds = langfuseInstanceIds::fromMap($map['LangfuseInstanceIds']);
         }
 
         if (isset($map['LbKind'])) {
