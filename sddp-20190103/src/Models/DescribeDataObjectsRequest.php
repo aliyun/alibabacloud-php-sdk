@@ -26,6 +26,16 @@ class DescribeDataObjectsRequest extends Model
     /**
      * @var string
      */
+    public $cursor;
+
+    /**
+     * @var string
+     */
+    public $cursorDirection;
+
+    /**
+     * @var string
+     */
     public $dbName;
 
     /**
@@ -166,6 +176,8 @@ class DescribeDataObjectsRequest extends Model
         'APIVersion' => 'APIVersion',
         'bucket' => 'Bucket',
         'currentPage' => 'CurrentPage',
+        'cursor' => 'Cursor',
+        'cursorDirection' => 'CursorDirection',
         'dbName' => 'DbName',
         'domainId' => 'DomainId',
         'engineType' => 'EngineType',
@@ -214,6 +226,14 @@ class DescribeDataObjectsRequest extends Model
 
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->cursor) {
+            $res['Cursor'] = $this->cursor;
+        }
+
+        if (null !== $this->cursorDirection) {
+            $res['CursorDirection'] = $this->cursorDirection;
         }
 
         if (null !== $this->dbName) {
@@ -349,6 +369,14 @@ class DescribeDataObjectsRequest extends Model
 
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['Cursor'])) {
+            $model->cursor = $map['Cursor'];
+        }
+
+        if (isset($map['CursorDirection'])) {
+            $model->cursorDirection = $map['CursorDirection'];
         }
 
         if (isset($map['DbName'])) {

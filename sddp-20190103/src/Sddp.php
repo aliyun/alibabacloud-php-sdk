@@ -125,11 +125,11 @@ class Sddp extends OpenApiClient
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-hongkong' => 'sddp-api.cn-hongkong.aliyuncs.com',
-            'cn-zhangjiakou' => 'sddp.cn-zhangjiakou.aliyuncs.com',
-            'cn-shanghai' => 'sddp.cn-shanghai.aliyuncs.com',
-            'cn-hangzhou' => 'sddp.cn-hangzhou.aliyuncs.com',
-            'ap-southeast-5' => 'sddp.ap-southeast-5.aliyuncs.com',
             'ap-southeast-1' => 'sddp.ap-southeast-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'sddp.cn-zhangjiakou.aliyuncs.com',
+            'ap-southeast-5' => 'sddp.ap-southeast-5.aliyuncs.com',
+            'cn-hangzhou' => 'sddp.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai' => 'sddp.cn-shanghai.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('sddp', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -2245,12 +2245,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * Query data detection results for tables and files.
+     * Queries the data detection results of data tables and files.
      *
      * @remarks
-     * This operation queries data detection results for tables and files, to provide a comprehensive view across all your assets.
+     * Queries the detection results of data tables and files. This allows you to query data detection results of assets from a global perspective.
      * ## QPS limit
-     * The per-user QPS limit for this operation is 10 requests per second. If you exceed this limit, the system throttles your API calls. To prevent business disruptions, call this operation only when necessary.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DescribeDataObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2276,6 +2276,14 @@ class Sddp extends OpenApiClient
 
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->cursor) {
+            @$query['Cursor'] = $request->cursor;
+        }
+
+        if (null !== $request->cursorDirection) {
+            @$query['CursorDirection'] = $request->cursorDirection;
         }
 
         if (null !== $request->dbName) {
@@ -2409,12 +2417,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * Query data detection results for tables and files.
+     * Queries the data detection results of data tables and files.
      *
      * @remarks
-     * This operation queries data detection results for tables and files, to provide a comprehensive view across all your assets.
+     * Queries the detection results of data tables and files. This allows you to query data detection results of assets from a global perspective.
      * ## QPS limit
-     * The per-user QPS limit for this operation is 10 requests per second. If you exceed this limit, the system throttles your API calls. To prevent business disruptions, call this operation only when necessary.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DescribeDataObjectsRequest
      *

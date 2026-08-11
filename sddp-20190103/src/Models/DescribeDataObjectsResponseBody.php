@@ -15,9 +15,34 @@ class DescribeDataObjectsResponseBody extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var bool
+     */
+    public $hasNext;
+
+    /**
+     * @var bool
+     */
+    public $hasPrevious;
+
+    /**
      * @var items[]
      */
     public $items;
+
+    /**
+     * @var string
+     */
+    public $nextCursor;
 
     /**
      * @var int
@@ -27,7 +52,17 @@ class DescribeDataObjectsResponseBody extends Model
     /**
      * @var string
      */
+    public $previousCursor;
+
+    /**
+     * @var string
+     */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $syncStatus;
 
     /**
      * @var int
@@ -35,9 +70,16 @@ class DescribeDataObjectsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'hasNext' => 'HasNext',
+        'hasPrevious' => 'HasPrevious',
         'items' => 'Items',
+        'nextCursor' => 'NextCursor',
         'pageSize' => 'PageSize',
+        'previousCursor' => 'PreviousCursor',
         'requestId' => 'RequestId',
+        'syncStatus' => 'SyncStatus',
         'totalCount' => 'TotalCount',
     ];
 
@@ -56,6 +98,22 @@ class DescribeDataObjectsResponseBody extends Model
             $res['CurrentPage'] = $this->currentPage;
         }
 
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+
+        if (null !== $this->hasNext) {
+            $res['HasNext'] = $this->hasNext;
+        }
+
+        if (null !== $this->hasPrevious) {
+            $res['HasPrevious'] = $this->hasPrevious;
+        }
+
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
@@ -67,12 +125,24 @@ class DescribeDataObjectsResponseBody extends Model
             }
         }
 
+        if (null !== $this->nextCursor) {
+            $res['NextCursor'] = $this->nextCursor;
+        }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->previousCursor) {
+            $res['PreviousCursor'] = $this->previousCursor;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->syncStatus) {
+            $res['SyncStatus'] = $this->syncStatus;
         }
 
         if (null !== $this->totalCount) {
@@ -94,6 +164,22 @@ class DescribeDataObjectsResponseBody extends Model
             $model->currentPage = $map['CurrentPage'];
         }
 
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+
+        if (isset($map['HasNext'])) {
+            $model->hasNext = $map['HasNext'];
+        }
+
+        if (isset($map['HasPrevious'])) {
+            $model->hasPrevious = $map['HasPrevious'];
+        }
+
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
@@ -105,12 +191,24 @@ class DescribeDataObjectsResponseBody extends Model
             }
         }
 
+        if (isset($map['NextCursor'])) {
+            $model->nextCursor = $map['NextCursor'];
+        }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['PreviousCursor'])) {
+            $model->previousCursor = $map['PreviousCursor'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SyncStatus'])) {
+            $model->syncStatus = $map['SyncStatus'];
         }
 
         if (isset($map['TotalCount'])) {
