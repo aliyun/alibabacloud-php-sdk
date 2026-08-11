@@ -63,6 +63,11 @@ class scalingGroup extends Model
     public $diskInit;
 
     /**
+     * @var bool
+     */
+    public $enableHighDensityMode;
+
+    /**
      * @var string
      */
     public $imageId;
@@ -291,6 +296,7 @@ class scalingGroup extends Model
         'deploymentsetId' => 'deploymentset_id',
         'desiredSize' => 'desired_size',
         'diskInit' => 'disk_init',
+        'enableHighDensityMode' => 'enable_high_density_mode',
         'imageId' => 'image_id',
         'imageType' => 'image_type',
         'instanceChargeType' => 'instance_charge_type',
@@ -435,6 +441,10 @@ class scalingGroup extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->enableHighDensityMode) {
+            $res['enable_high_density_mode'] = $this->enableHighDensityMode;
         }
 
         if (null !== $this->imageId) {
@@ -728,6 +738,10 @@ class scalingGroup extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['enable_high_density_mode'])) {
+            $model->enableHighDensityMode = $map['enable_high_density_mode'];
         }
 
         if (isset($map['image_id'])) {

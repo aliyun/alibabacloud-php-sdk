@@ -11,8 +11,14 @@ class rollingPolicy extends Model
     /**
      * @var int
      */
+    public $maxFailedNodes;
+
+    /**
+     * @var int
+     */
     public $maxParallelism;
     protected $_name = [
+        'maxFailedNodes' => 'max_failed_nodes',
         'maxParallelism' => 'max_parallelism',
     ];
 
@@ -24,6 +30,10 @@ class rollingPolicy extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->maxFailedNodes) {
+            $res['max_failed_nodes'] = $this->maxFailedNodes;
+        }
+
         if (null !== $this->maxParallelism) {
             $res['max_parallelism'] = $this->maxParallelism;
         }
@@ -39,6 +49,10 @@ class rollingPolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['max_failed_nodes'])) {
+            $model->maxFailedNodes = $map['max_failed_nodes'];
+        }
+
         if (isset($map['max_parallelism'])) {
             $model->maxParallelism = $map['max_parallelism'];
         }

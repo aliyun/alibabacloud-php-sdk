@@ -16,6 +16,11 @@ class rollingPolicy extends Model
     /**
      * @var int
      */
+    public $maxFailedNodes;
+
+    /**
+     * @var int
+     */
     public $maxParallelism;
 
     /**
@@ -24,6 +29,7 @@ class rollingPolicy extends Model
     public $pausePolicy;
     protected $_name = [
         'batchInterval' => 'batchInterval',
+        'maxFailedNodes' => 'maxFailedNodes',
         'maxParallelism' => 'maxParallelism',
         'pausePolicy' => 'pausePolicy',
     ];
@@ -38,6 +44,10 @@ class rollingPolicy extends Model
         $res = [];
         if (null !== $this->batchInterval) {
             $res['batchInterval'] = $this->batchInterval;
+        }
+
+        if (null !== $this->maxFailedNodes) {
+            $res['maxFailedNodes'] = $this->maxFailedNodes;
         }
 
         if (null !== $this->maxParallelism) {
@@ -61,6 +71,10 @@ class rollingPolicy extends Model
         $model = new self();
         if (isset($map['batchInterval'])) {
             $model->batchInterval = $map['batchInterval'];
+        }
+
+        if (isset($map['maxFailedNodes'])) {
+            $model->maxFailedNodes = $map['maxFailedNodes'];
         }
 
         if (isset($map['maxParallelism'])) {

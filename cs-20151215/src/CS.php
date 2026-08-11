@@ -297,44 +297,46 @@ class CS extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'cs.aliyuncs.com',
             'eu-west-1-oxs' => 'cs.aliyuncs.com',
             'rus-west-1-pop' => 'cs.aliyuncs.com',
-            'us-west-1' => 'cs.us-west-1.aliyuncs.com',
-            'us-southeast-1' => 'cs.us-southeast-1.aliyuncs.com',
-            'us-east-1' => 'cs.us-east-1.aliyuncs.com',
-            'na-south-1' => 'cs.na-south-1.aliyuncs.com',
-            'me-east-1' => 'cs.me-east-1.aliyuncs.com',
-            'me-central-1' => 'cs.me-central-1.aliyuncs.com',
-            'eu-west-1' => 'cs.eu-west-1.aliyuncs.com',
-            'eu-central-1' => 'cs.eu-central-1.aliyuncs.com',
-            'cn-zhengzhou-jva' => 'cs.cn-zhengzhou-jva.aliyuncs.com',
-            'cn-zhangjiakou' => 'cs.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu-gic-1' => 'cs.cn-wulanchabu-gic-1.aliyuncs.com',
-            'cn-wulanchabu' => 'cs.cn-wulanchabu.aliyuncs.com',
-            'cn-wuhan-lr' => 'cs.cn-wuhan-lr.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'cs.cn-shenzhen-finance-1.aliyuncs.com',
-            'cn-shenzhen' => 'cs.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'cs.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shanghai' => 'cs.cn-shanghai.aliyuncs.com',
-            'cn-qingdao' => 'cs.cn-qingdao.aliyuncs.com',
-            'cn-nanjing' => 'cs.cn-nanjing.aliyuncs.com',
-            'cn-huhehaote' => 'cs.cn-huhehaote.aliyuncs.com',
-            'cn-hongkong' => 'cs.cn-hongkong.aliyuncs.com',
-            'cn-heyuan-acdr-1' => 'cs.cn-heyuan-acdr-1.aliyuncs.com',
-            'cn-heyuan' => 'cs.cn-heyuan.aliyuncs.com',
-            'cn-hangzhou-finance' => 'cs.cn-hangzhou-finance.aliyuncs.com',
-            'cn-hangzhou' => 'cs.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'cs.cn-guangzhou.aliyuncs.com',
-            'cn-fuzhou' => 'cs.cn-fuzhou.aliyuncs.com',
-            'cn-chengdu' => 'cs.cn-chengdu.aliyuncs.com',
-            'cn-beijing-finance-1' => 'cs.cn-beijing-finance-1.aliyuncs.com',
             'cn-beijing' => 'cs.cn-beijing.aliyuncs.com',
-            'ap-southeast-7' => 'cs.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-5' => 'cs.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'cs.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-2' => 'cs.ap-southeast-2.aliyuncs.com',
-            'ap-southeast-1' => 'cs.ap-southeast-1.aliyuncs.com',
-            'ap-south-1' => 'cs.ap-south-1.aliyuncs.com',
+            'cn-zhengzhou-jva' => 'cs.cn-zhengzhou-jva.aliyuncs.com',
+            'cn-heyuan' => 'cs.cn-heyuan.aliyuncs.com',
+            'cn-zhangjiakou' => 'cs.cn-zhangjiakou.aliyuncs.com',
             'ap-northeast-2' => 'cs.ap-northeast-2.aliyuncs.com',
             'ap-northeast-1' => 'cs.ap-northeast-1.aliyuncs.com',
+            'ap-southeast-1' => 'cs.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'cs.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'cs.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-7' => 'cs.ap-southeast-7.aliyuncs.com',
+            'cn-wulanchabu' => 'cs.cn-wulanchabu.aliyuncs.com',
+            'cn-qingdao' => 'cs.cn-qingdao.aliyuncs.com',
+            'cn-wuhan-lr' => 'cs.cn-wuhan-lr.aliyuncs.com',
+            'cn-shanghai' => 'cs.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'cs.cn-hongkong.aliyuncs.com',
+            'cn-shenzhen' => 'cs.cn-shenzhen.aliyuncs.com',
+            'cn-nanjing' => 'cs.cn-nanjing.aliyuncs.com',
+            'cn-fuzhou' => 'cs.cn-fuzhou.aliyuncs.com',
+            'cn-chengdu' => 'cs.cn-chengdu.aliyuncs.com',
+            'cn-guangzhou' => 'cs.cn-guangzhou.aliyuncs.com',
+            'cn-huhehaote' => 'cs.cn-huhehaote.aliyuncs.com',
+            'cn-hangzhou' => 'cs.cn-hangzhou.aliyuncs.com',
+            'ap-southeast-8' => 'cs.ap-southeast-8.aliyuncs.com',
+            'cn-zhongwei' => 'cs.cn-zhongwei.aliyuncs.com',
+            'eu-west-2' => 'cs.eu-west-2.aliyuncs.com',
+            'na-south-1' => 'cs.na-south-1.aliyuncs.com',
+            'us-west-1' => 'cs.us-west-1.aliyuncs.com',
+            'us-east-1' => 'cs.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'cs.eu-central-1.aliyuncs.com',
+            'eu-west-1' => 'cs.eu-west-1.aliyuncs.com',
+            'us-southeast-1' => 'cs.us-southeast-1.aliyuncs.com',
+            'me-central-1' => 'cs.me-central-1.aliyuncs.com',
+            'me-east-1' => 'cs.me-east-1.aliyuncs.com',
+            'cn-north-2-gov-1' => 'cs.cn-north-2-gov-1.aliyuncs.com',
+            'cn-heyuan-acdr-1' => 'cs.cn-heyuan-acdr-1.aliyuncs.com',
+            'cn-wulanchabu-gic-1' => 'cs.cn-wulanchabu-gic-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'cs.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-beijing-finance-1' => 'cs.cn-beijing-finance-1.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'cs.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-hangzhou-finance' => 'cs.cn-hangzhou-finance.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cs', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1249,16 +1251,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates an ACK cluster, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, you configure cluster information, cluster components, and ACK-related cloud resources.
+     * Creates an ACK cluster, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When you create a cluster, you configure cluster information, cluster components, and ACK-related cloud resources.
      *
      * @remarks
-     * ### Generate OpenAPI request parameters from the console
-     * When you call the CreateCluster operation to create a cluster, if the API call fails due to incorrect request parameter combinations, you can generate the required request parameter combinations from the console. Perform the following steps:
-     * 1. Log on to the [Container Service console](https://csnew.console.aliyun.com) and choose **Cluster List** in the left-side navigation pane.
-     * 1. On the **Cluster List** page, click **Cluster Template**.
-     * 1. In the dialog box, select the cluster type that you want to create, click Create, and then configure the cluster information on the cluster configuration page.
-     * 1. After the configuration is complete, on the **Confirm Configuration** page, click **Equivalent Code** in the upper-right corner. The dialog box displays the parameter combinations required to create the cluster, which you can copy and use.
-     * >Notice: Starting from July 4, 2026, some request parameters will no longer take effect. For details about the changes and override parameter descriptions, see [Notice on changes to OpenAPI parameters and offline of OpenAPIs for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
+     * ### Generate OpenAPI request parameters by using the console.
      *
      * @param request - CreateClusterRequest
      * @param headers - map
@@ -1708,16 +1704,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates an ACK cluster, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, you configure cluster information, cluster components, and ACK-related cloud resources.
+     * Creates an ACK cluster, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When you create a cluster, you configure cluster information, cluster components, and ACK-related cloud resources.
      *
      * @remarks
-     * ### Generate OpenAPI request parameters from the console
-     * When you call the CreateCluster operation to create a cluster, if the API call fails due to incorrect request parameter combinations, you can generate the required request parameter combinations from the console. Perform the following steps:
-     * 1. Log on to the [Container Service console](https://csnew.console.aliyun.com) and choose **Cluster List** in the left-side navigation pane.
-     * 1. On the **Cluster List** page, click **Cluster Template**.
-     * 1. In the dialog box, select the cluster type that you want to create, click Create, and then configure the cluster information on the cluster configuration page.
-     * 1. After the configuration is complete, on the **Confirm Configuration** page, click **Equivalent Code** in the upper-right corner. The dialog box displays the parameter combinations required to create the cluster, which you can copy and use.
-     * >Notice: Starting from July 4, 2026, some request parameters will no longer take effect. For details about the changes and override parameter descriptions, see [Notice on changes to OpenAPI parameters and offline of OpenAPIs for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
+     * ### Generate OpenAPI request parameters by using the console.
      *
      * @param request - CreateClusterRequest
      *
@@ -1874,7 +1864,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates a node pool for a cluster. A node pool is a logical collection of nodes that share the same attributes, allowing unified management and O&M operations such as node upgrades and elastic scaling. You can further leverage the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs.
+     * A node pool is a logical collection of nodes that share the same attributes, allowing unified management and O&M operations such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
      *
      * @param request - CreateClusterNodePoolRequest
      * @param headers - map
@@ -1977,7 +1967,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Creates a node pool for a cluster. A node pool is a logical collection of nodes that share the same attributes, allowing unified management and O&M operations such as node upgrades and elastic scaling. You can further leverage the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs.
+     * A node pool is a logical collection of nodes that share the same attributes, allowing unified management and O&M operations such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
      *
      * @param request - CreateClusterNodePoolRequest
      *
@@ -3028,7 +3018,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeAddon operation to query information about a specified component based on parameters such as region, cluster type, cluster subtype (profile), cluster version, and component name. The returned information includes whether the component is managed, component category, supported custom parameter schema, compatible OS architectures, and the minimum cluster version required by the component version.
+     * Invokes the DescribeAddon operation to perform a parameter query for information about a specified component based on parameters such as region, cluster type, cluster child class (profile), cluster version, and component name. The returned information includes whether the component is managed, the component categorization, the schema of supported custom parameters, compatible operating system architectures, and the minimum cluster version required by the component version.
      *
      * @param request - DescribeAddonRequest
      * @param headers - map
@@ -3095,7 +3085,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeAddon operation to query information about a specified component based on parameters such as region, cluster type, cluster subtype (profile), cluster version, and component name. The returned information includes whether the component is managed, component category, supported custom parameter schema, compatible OS architectures, and the minimum cluster version required by the component version.
+     * Invokes the DescribeAddon operation to perform a parameter query for information about a specified component based on parameters such as region, cluster type, cluster child class (profile), cluster version, and component name. The returned information includes whether the component is managed, the component categorization, the schema of supported custom parameters, compatible operating system architectures, and the minimum cluster version required by the component version.
      *
      * @param request - DescribeAddonRequest
      *
@@ -3901,11 +3891,11 @@ class CS extends OpenApiClient
      *
      * @remarks
      * - When removing nodes, perform standardized operations through this API or the [Container Service console](https://cs.console.aliyun.com). Do not manually remove nodes by using `kubectl delete node`.
-     * - Do not directly release nodes, remove instances, or allow nodes to be passively released due to subscription instance expires in the ECS or ESS console (or through related APIs). In these cases, nodes are directly stopped and automatically removed from the Container Service console.
-     * - If the node pool has a desired node count configured, the node pool automatically scales out other instances based on the corresponding configuration to maintain the node count at the desired number.
+     * - Do not directly release nodes, remove instances in the ECS or ESS console (or through related APIs), or allow nodes to be passively released due to subscription instance expires. In these cases, nodes are directly stopped and automatically removed from the Container Service console.
+     * - If the node pool has a desired number of nodes configured, the node pool automatically scales out other instances based on the corresponding configuration to maintain the node count at the desired number.
      * - Removing nodes involves Pod migration, which may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up relevant data in advance.
-     * - When removing nodes, ACK executes a drain operation. Ensure that other nodes in the cluster have sufficient resources to avoid application Pods that cannot be scheduling.
-     * - Check the node affinity rules and scheduling policies of Pods on the nodes to be removed to ensure that Pods are not left unschedulable after node removal.
+     * - When removing nodes, ACK executes a drain operation. Ensure that other nodes in the cluster have sufficient resources to avoid application pods being unable to be scheduling.
+     * - Check the node affinity rules and scheduling policies of Pods on the nodes to be removed to ensure that Pods are not unschedulable on other nodes after the node is removed.
      *
      * @param request - DescribeClusterNodePoolsRequest
      * @param headers - map
@@ -3952,11 +3942,11 @@ class CS extends OpenApiClient
      *
      * @remarks
      * - When removing nodes, perform standardized operations through this API or the [Container Service console](https://cs.console.aliyun.com). Do not manually remove nodes by using `kubectl delete node`.
-     * - Do not directly release nodes, remove instances, or allow nodes to be passively released due to subscription instance expires in the ECS or ESS console (or through related APIs). In these cases, nodes are directly stopped and automatically removed from the Container Service console.
-     * - If the node pool has a desired node count configured, the node pool automatically scales out other instances based on the corresponding configuration to maintain the node count at the desired number.
+     * - Do not directly release nodes, remove instances in the ECS or ESS console (or through related APIs), or allow nodes to be passively released due to subscription instance expires. In these cases, nodes are directly stopped and automatically removed from the Container Service console.
+     * - If the node pool has a desired number of nodes configured, the node pool automatically scales out other instances based on the corresponding configuration to maintain the node count at the desired number.
      * - Removing nodes involves Pod migration, which may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up relevant data in advance.
-     * - When removing nodes, ACK executes a drain operation. Ensure that other nodes in the cluster have sufficient resources to avoid application Pods that cannot be scheduling.
-     * - Check the node affinity rules and scheduling policies of Pods on the nodes to be removed to ensure that Pods are not left unschedulable after node removal.
+     * - When removing nodes, ACK executes a drain operation. Ensure that other nodes in the cluster have sufficient resources to avoid application pods being unable to be scheduling.
+     * - Check the node affinity rules and scheduling policies of Pods on the nodes to be removed to ensure that Pods are not unschedulable on other nodes after the node is removed.
      *
      * @param request - DescribeClusterNodePoolsRequest
      *
@@ -6712,7 +6702,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Installs components on nodes. You can configure and specify nodes on which to install components.
+     * Installs node components. You can configure and specify nodes on which to install components.
      *
      * @param request - InstallNodePoolComponentsRequest
      * @param headers - map
@@ -6764,7 +6754,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Installs components on nodes. You can configure and specify nodes on which to install components.
+     * Installs node components. You can configure and specify nodes on which to install components.
      *
      * @param request - InstallNodePoolComponentsRequest
      *
@@ -7910,10 +7900,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a node pool based on the node pool ID by calling the ModifyClusterNodePool operation.
+     * Updates the configuration of a node pool based on the node pool ID by calling the ModifyClusterNodePool operation.
      *
      * @remarks
-     * <notice>Starting from July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Notice on changes to OpenAPI request and response parameters and OpenAPI deprecation for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
+     * <notice>Starting July 04, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Announcement on changes to input and output parameters of OpenAPI operations related to ACK cluster management and the deprecation of specific OpenAPI operations](https://help.aliyun.com/document_detail/2932733.html).</notice>
      *
      * @param request - ModifyClusterNodePoolRequest
      * @param headers - map
@@ -7989,10 +7979,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a node pool based on the node pool ID by calling the ModifyClusterNodePool operation.
+     * Updates the configuration of a node pool based on the node pool ID by calling the ModifyClusterNodePool operation.
      *
      * @remarks
-     * <notice>Starting from July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Notice on changes to OpenAPI request and response parameters and OpenAPI deprecation for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
+     * <notice>Starting July 04, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Announcement on changes to input and output parameters of OpenAPI operations related to ACK cluster management and the deprecation of specific OpenAPI operations](https://help.aliyun.com/document_detail/2932733.html).</notice>
      *
      * @param request - ModifyClusterNodePoolRequest
      *
@@ -8080,7 +8070,7 @@ class CS extends OpenApiClient
      * Modifies the node configurations in a cluster node pool, such as kubelet configurations and rolling update configurations. Modifying node configurations applies changes in batches and restarts kubelet, which may affect node operations and workload execution. Perform this operation during off-peak hours.
      *
      * @remarks
-     * > ACK supports modifying the kubelet configurations of nodes in a node pool. After the modification, the new configurations automatically take effect on existing nodes in the node pool. New nodes added to the node pool also use the new configurations.
+     * > ACK supports modifying the kubelet configurations of nodes in a node pool. After the modification is complete, the configurations automatically take effect on existing nodes in the node pool, and new nodes added to the node pool also use the new configurations.
      *
      * @param request - ModifyNodePoolNodeConfigRequest
      * @param headers - map
@@ -8143,7 +8133,7 @@ class CS extends OpenApiClient
      * Modifies the node configurations in a cluster node pool, such as kubelet configurations and rolling update configurations. Modifying node configurations applies changes in batches and restarts kubelet, which may affect node operations and workload execution. Perform this operation during off-peak hours.
      *
      * @remarks
-     * > ACK supports modifying the kubelet configurations of nodes in a node pool. After the modification, the new configurations automatically take effect on existing nodes in the node pool. New nodes added to the node pool also use the new configurations.
+     * > ACK supports modifying the kubelet configurations of nodes in a node pool. After the modification is complete, the configurations automatically take effect on existing nodes in the node pool, and new nodes added to the node pool also use the new configurations.
      *
      * @param request - ModifyNodePoolNodeConfigRequest
      *
@@ -10738,14 +10728,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Upgrades the kubelet version (which should match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
+     * Upgrades the kubelet version (recommended to match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
      *
      * @remarks
-     * Upgrades the Kubernetes version, operating system version, or container runtime version of nodes in a specified cluster node pool. After you call the UpgradeClusterNodepool operation, the API returns a task_id for the upgrade task. You can manage the task by calling the following task API operations:
+     * Upgrades the Kubernetes version, operating system version, or container runtime version of nodes in a specified cluster node pool. After you successfully call the UpgradeClusterNodepool operation, the API returns a `task_id` for the upgrade task. You can manage the task by calling the following task-related API operations:
      * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
      * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
      * - [Call ResumeTask to resume a paused task](https://help.aliyun.com/document_detail/2667987.html)
-     * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html).
+     * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html)
      *
      * @param request - UpgradeClusterNodepoolRequest
      * @param headers - map
@@ -10817,14 +10807,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Upgrades the kubelet version (which should match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
+     * Upgrades the kubelet version (recommended to match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
      *
      * @remarks
-     * Upgrades the Kubernetes version, operating system version, or container runtime version of nodes in a specified cluster node pool. After you call the UpgradeClusterNodepool operation, the API returns a task_id for the upgrade task. You can manage the task by calling the following task API operations:
+     * Upgrades the Kubernetes version, operating system version, or container runtime version of nodes in a specified cluster node pool. After you successfully call the UpgradeClusterNodepool operation, the API returns a `task_id` for the upgrade task. You can manage the task by calling the following task-related API operations:
      * - [Call DescribeTaskInfo to query task details](https://help.aliyun.com/document_detail/2667985.html)
      * - [Call PauseTask to pause a running task](https://help.aliyun.com/document_detail/2667986.html)
      * - [Call ResumeTask to resume a paused task](https://help.aliyun.com/document_detail/2667987.html)
-     * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html).
+     * - [Call CancelTask to cancel a running task](https://help.aliyun.com/document_detail/2667988.html)
      *
      * @param request - UpgradeClusterNodepoolRequest
      *
