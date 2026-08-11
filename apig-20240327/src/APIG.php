@@ -14,6 +14,10 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\BatchAddConsumerGroupConsumersRequest
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchAddConsumerGroupConsumersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteConsumerAuthorizationRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchExportHttpApisRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchExportHttpApisResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchImportHttpApisRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchImportHttpApisResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchRemoveConsumerGroupConsumersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchRemoveConsumerGroupConsumersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupRequest;
@@ -101,6 +105,10 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelCardRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelCardResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelProviderRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelProviderResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetBatchExportTaskRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetBatchExportTaskResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetBatchImportTaskRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetBatchImportTaskResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerGroupRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerGroupResponse;
@@ -142,6 +150,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelCardsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelCardsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelProvidersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelProvidersResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListBatchExportTasksRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListBatchExportTasksResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupConsumersRequest;
@@ -268,31 +278,31 @@ class APIG extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'us-west-1' => 'apig.us-west-1.aliyuncs.com',
-            'us-east-1' => 'apig.us-east-1.aliyuncs.com',
-            'me-east-1' => 'apig.me-east-1.aliyuncs.com',
-            'me-central-1' => 'apig.me-central-1.aliyuncs.com',
-            'eu-west-1' => 'apig.eu-west-1.aliyuncs.com',
-            'eu-central-1' => 'apig.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'apig.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu' => 'apig.cn-wulanchabu.aliyuncs.com',
-            'cn-shenzhen' => 'apig.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai' => 'apig.cn-shanghai.aliyuncs.com',
-            'cn-qingdao' => 'apig.cn-qingdao.aliyuncs.com',
-            'cn-hongkong' => 'apig.cn-hongkong.aliyuncs.com',
-            'cn-heyuan' => 'apig.cn-heyuan.aliyuncs.com',
-            'cn-hangzhou' => 'apig.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'apig.cn-guangzhou.aliyuncs.com',
-            'cn-chengdu' => 'apig.cn-chengdu.aliyuncs.com',
-            'cn-beijing' => 'apig.cn-beijing.aliyuncs.com',
-            'ap-southeast-7' => 'apig.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-6' => 'apig.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-5' => 'apig.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'apig.ap-southeast-3.aliyuncs.com',
             'ap-southeast-2' => 'apig.ap-southeast-2.aliyuncs.com',
-            'ap-southeast-1' => 'apig.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-6' => 'apig.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-7' => 'apig.ap-southeast-7.aliyuncs.com',
+            'cn-guangzhou' => 'apig.cn-guangzhou.aliyuncs.com',
+            'cn-heyuan' => 'apig.cn-heyuan.aliyuncs.com',
+            'cn-shenzhen' => 'apig.cn-shenzhen.aliyuncs.com',
+            'cn-wulanchabu' => 'apig.cn-wulanchabu.aliyuncs.com',
+            'cn-beijing' => 'apig.cn-beijing.aliyuncs.com',
             'ap-northeast-2' => 'apig.ap-northeast-2.aliyuncs.com',
             'ap-northeast-1' => 'apig.ap-northeast-1.aliyuncs.com',
+            'cn-chengdu' => 'apig.cn-chengdu.aliyuncs.com',
+            'cn-qingdao' => 'apig.cn-qingdao.aliyuncs.com',
+            'cn-shanghai' => 'apig.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'apig.cn-hongkong.aliyuncs.com',
+            'ap-southeast-1' => 'apig.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'apig.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'apig.ap-southeast-5.aliyuncs.com',
+            'cn-zhangjiakou' => 'apig.cn-zhangjiakou.aliyuncs.com',
+            'cn-hangzhou' => 'apig.cn-hangzhou.aliyuncs.com',
+            'us-west-1' => 'apig.us-west-1.aliyuncs.com',
+            'us-east-1' => 'apig.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'apig.eu-central-1.aliyuncs.com',
+            'eu-west-1' => 'apig.eu-west-1.aliyuncs.com',
+            'me-east-1' => 'apig.me-east-1.aliyuncs.com',
+            'me-central-1' => 'apig.me-central-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('apig', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -644,6 +654,176 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->batchDeleteConsumerAuthorizationRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量导出HTTP API.
+     *
+     * @param request - BatchExportHttpApisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchExportHttpApisResponse
+     *
+     * @param BatchExportHttpApisRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchExportHttpApisResponse
+     */
+    public function batchExportHttpApisWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiIds) {
+            @$body['apiIds'] = $request->apiIds;
+        }
+
+        if (null !== $request->apiType) {
+            @$body['apiType'] = $request->apiType;
+        }
+
+        if (null !== $request->extensionConfig) {
+            @$body['extensionConfig'] = $request->extensionConfig;
+        }
+
+        if (null !== $request->format) {
+            @$body['format'] = $request->format;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchExportHttpApis',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-apis/batch-export',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchExportHttpApisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量导出HTTP API.
+     *
+     * @param request - BatchExportHttpApisRequest
+     *
+     * @returns BatchExportHttpApisResponse
+     *
+     * @param BatchExportHttpApisRequest $request
+     *
+     * @return BatchExportHttpApisResponse
+     */
+    public function batchExportHttpApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchExportHttpApisWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量导入HTTP API.
+     *
+     * @param request - BatchImportHttpApisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchImportHttpApisResponse
+     *
+     * @param BatchImportHttpApisRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchImportHttpApisResponse
+     */
+    public function batchImportHttpApisWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->allowUpdate) {
+            @$body['allowUpdate'] = $request->allowUpdate;
+        }
+
+        if (null !== $request->apiType) {
+            @$body['apiType'] = $request->apiType;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['dryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->specFileUrl) {
+            @$body['specFileUrl'] = $request->specFileUrl;
+        }
+
+        if (null !== $request->specOssConfig) {
+            @$body['specOssConfig'] = $request->specOssConfig;
+        }
+
+        if (null !== $request->strategy) {
+            @$body['strategy'] = $request->strategy;
+        }
+
+        if (null !== $request->withGatewayExtension) {
+            @$body['withGatewayExtension'] = $request->withGatewayExtension;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchImportHttpApis',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-apis/batch-import',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchImportHttpApisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量导入HTTP API.
+     *
+     * @param request - BatchImportHttpApisRequest
+     *
+     * @returns BatchImportHttpApisResponse
+     *
+     * @param BatchImportHttpApisRequest $request
+     *
+     * @return BatchImportHttpApisResponse
+     */
+    public function batchImportHttpApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchImportHttpApisWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4265,6 +4445,120 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 查询批量导出任务
+     *
+     * @param request - GetBatchExportTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchExportTaskResponse
+     *
+     * @param string                    $taskId
+     * @param GetBatchExportTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetBatchExportTaskResponse
+     */
+    public function getBatchExportTaskWithOptions($taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetBatchExportTask',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-api-batch-export-tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBatchExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询批量导出任务
+     *
+     * @param request - GetBatchExportTaskRequest
+     *
+     * @returns GetBatchExportTaskResponse
+     *
+     * @param string                    $taskId
+     * @param GetBatchExportTaskRequest $request
+     *
+     * @return GetBatchExportTaskResponse
+     */
+    public function getBatchExportTask($taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getBatchExportTaskWithOptions($taskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询批量操作任务
+     *
+     * @param request - GetBatchImportTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchImportTaskResponse
+     *
+     * @param string                    $taskId
+     * @param GetBatchImportTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetBatchImportTaskResponse
+     */
+    public function getBatchImportTaskWithOptions($taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetBatchImportTask',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-api-batch-import-tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBatchImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询批量操作任务
+     *
+     * @param request - GetBatchImportTaskRequest
+     *
+     * @returns GetBatchImportTaskResponse
+     *
+     * @param string                    $taskId
+     * @param GetBatchImportTaskRequest $request
+     *
+     * @return GetBatchImportTaskResponse
+     */
+    public function getBatchImportTask($taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getBatchImportTaskWithOptions($taskId, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves an API consumer.
      *
      * @param headers - map
@@ -5958,6 +6252,95 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listAiModelProvidersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询批量导出任务列表.
+     *
+     * @param request - ListBatchExportTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBatchExportTasksResponse
+     *
+     * @param ListBatchExportTasksRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListBatchExportTasksResponse
+     */
+    public function listBatchExportTasksWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->statuses) {
+            @$query['statuses'] = $request->statuses;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBatchExportTasks',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-api-batch-export-tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBatchExportTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询批量导出任务列表.
+     *
+     * @param request - ListBatchExportTasksRequest
+     *
+     * @returns ListBatchExportTasksResponse
+     *
+     * @param ListBatchExportTasksRequest $request
+     *
+     * @return ListBatchExportTasksResponse
+     */
+    public function listBatchExportTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listBatchExportTasksWithOptions($request, $headers, $runtime);
     }
 
     /**
