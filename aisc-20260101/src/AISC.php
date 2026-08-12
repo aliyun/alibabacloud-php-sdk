@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\AISC\V20260101;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\AISC\V20260101\Models\CreateSkillFileCheckRequest;
 use AlibabaCloud\SDK\AISC\V20260101\Models\CreateSkillFileCheckResponse;
+use AlibabaCloud\SDK\AISC\V20260101\Models\ListAIAgentEventRequest;
+use AlibabaCloud\SDK\AISC\V20260101\Models\ListAIAgentEventResponse;
 use AlibabaCloud\SDK\AISC\V20260101\Models\ListSubTasksRequest;
 use AlibabaCloud\SDK\AISC\V20260101\Models\ListSubTasksResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -19,7 +21,34 @@ class AISC extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-zhangjiakou' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-wulanchabu' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-shanghai' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-nanjing' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-huhehaote' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-hangzhou' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-guangzhou' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-beijing' => 'aisc.cn-shanghai.aliyuncs.com',
+            'ap-southeast-7' => 'aisc.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-6' => 'aisc.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'aisc.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-1' => 'aisc.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2' => 'aisc.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'aisc.ap-southeast-1.aliyuncs.com',
+            'eu-central-1' => 'aisc.ap-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'aisc.ap-southeast-1.aliyuncs.com',
+            'us-east-1' => 'aisc.ap-southeast-1.aliyuncs.com',
+            'us-west-1' => 'aisc.ap-southeast-1.aliyuncs.com',
+            'me-east-1' => 'aisc.ap-southeast-1.aliyuncs.com',
+            'cn-beijing-finance-1' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-hangzhou-finance' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-heyuan-acdr-1' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'aisc.cn-shanghai.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'aisc.cn-shanghai.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aisc', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -49,7 +78,7 @@ class AISC extends OpenApiClient
     }
 
     /**
-     * 批量发起用户自定义Skill检测.
+     * Initiates batch detection for user-defined skills.
      *
      * @param request - CreateSkillFileCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -88,7 +117,7 @@ class AISC extends OpenApiClient
     }
 
     /**
-     * 批量发起用户自定义Skill检测.
+     * Initiates batch detection for user-defined skills.
      *
      * @param request - CreateSkillFileCheckRequest
      *
@@ -106,7 +135,124 @@ class AISC extends OpenApiClient
     }
 
     /**
-     * 获取子任务信息.
+     * Retrieves a list of agent risk events.
+     *
+     * @param request - ListAIAgentEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAIAgentEventResponse
+     *
+     * @param ListAIAgentEventRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAIAgentEventResponse
+     */
+    public function listAIAgentEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->assetName) {
+            @$query['AssetName'] = $request->assetName;
+        }
+
+        if (null !== $request->assetType) {
+            @$query['AssetType'] = $request->assetType;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->infraInstanceId) {
+            @$query['InfraInstanceId'] = $request->infraInstanceId;
+        }
+
+        if (null !== $request->infraName) {
+            @$query['InfraName'] = $request->infraName;
+        }
+
+        if (null !== $request->infraRegionId) {
+            @$query['InfraRegionId'] = $request->infraRegionId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->riskName) {
+            @$query['RiskName'] = $request->riskName;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->statusList) {
+            @$query['StatusList'] = $request->statusList;
+        }
+
+        if (null !== $request->vendor) {
+            @$query['Vendor'] = $request->vendor;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAIAgentEvent',
+            'version' => '2026-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAIAgentEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of agent risk events.
+     *
+     * @param request - ListAIAgentEventRequest
+     *
+     * @returns ListAIAgentEventResponse
+     *
+     * @param ListAIAgentEventRequest $request
+     *
+     * @return ListAIAgentEventResponse
+     */
+    public function listAIAgentEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAIAgentEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get subtask information.
      *
      * @param request - ListSubTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -157,7 +303,7 @@ class AISC extends OpenApiClient
     }
 
     /**
-     * 获取子任务信息.
+     * Get subtask information.
      *
      * @param request - ListSubTasksRequest
      *
