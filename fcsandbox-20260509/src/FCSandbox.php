@@ -10,24 +10,32 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateApiKeyRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateApiKeyResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTeamRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTeamResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateVolumeRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateVolumeResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteApiKeyRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteApiKeyResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteQuotaResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTeamRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTeamResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteVolumeRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteVolumeResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeApiKeyRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeApiKeyResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeQuotaResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetTeamRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetTeamResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetVolumeRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetVolumeResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListApiKeysRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListApiKeysResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListQuotaResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTeamsRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTeamsResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListVolumesRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListVolumesResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ResetApiKeyRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ResetApiKeyResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateApiKeyRequest;
@@ -36,6 +44,8 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateQuotaResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateTeamRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateTeamResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateVolumeRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateVolumeResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -193,6 +203,62 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->createTeamWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a volume.
+     *
+     * @param request - CreateVolumeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVolumeResponse
+     *
+     * @param CreateVolumeRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateVolumeResponse
+     */
+    public function createVolumeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVolume',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/volumes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a volume.
+     *
+     * @param request - CreateVolumeRequest
+     *
+     * @returns CreateVolumeResponse
+     *
+     * @param CreateVolumeRequest $request
+     *
+     * @return CreateVolumeResponse
+     */
+    public function createVolume($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createVolumeWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -371,6 +437,69 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
+     * 删除 Volume.
+     *
+     * @param request - DeleteVolumeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVolumeResponse
+     *
+     * @param string              $volumeID
+     * @param DeleteVolumeRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteVolumeResponse
+     */
+    public function deleteVolumeWithOptions($volumeID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVolume',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/volumes/' . Url::percentEncode($volumeID) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除 Volume.
+     *
+     * @param request - DeleteVolumeRequest
+     *
+     * @returns DeleteVolumeResponse
+     *
+     * @param string              $volumeID
+     * @param DeleteVolumeRequest $request
+     *
+     * @return DeleteVolumeResponse
+     */
+    public function deleteVolume($volumeID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteVolumeWithOptions($volumeID, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries an API key.
      *
      * @param request - DescribeApiKeyRequest
@@ -543,6 +672,69 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->getTeamWithOptions($teamID, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查看 Volume.
+     *
+     * @param request - GetVolumeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVolumeResponse
+     *
+     * @param string           $volumeID
+     * @param GetVolumeRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetVolumeResponse
+     */
+    public function getVolumeWithOptions($volumeID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVolume',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/volumes/' . Url::percentEncode($volumeID) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看 Volume.
+     *
+     * @param request - GetVolumeRequest
+     *
+     * @returns GetVolumeResponse
+     *
+     * @param string           $volumeID
+     * @param GetVolumeRequest $request
+     *
+     * @return GetVolumeResponse
+     */
+    public function getVolume($volumeID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVolumeWithOptions($volumeID, $request, $headers, $runtime);
     }
 
     /**
@@ -773,6 +965,91 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
+     * 分页查询 Volumes.
+     *
+     * @param request - ListVolumesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVolumesResponse
+     *
+     * @param ListVolumesRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListVolumesResponse
+     */
+    public function listVolumesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceGroupID) {
+            @$query['resourceGroupID'] = $request->resourceGroupID;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        if (null !== $request->userID) {
+            @$query['userID'] = $request->userID;
+        }
+
+        if (null !== $request->volumeName) {
+            @$query['volumeName'] = $request->volumeName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVolumes',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/volumes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVolumesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询 Volumes.
+     *
+     * @param request - ListVolumesRequest
+     *
+     * @returns ListVolumesResponse
+     *
+     * @param ListVolumesRequest $request
+     *
+     * @return ListVolumesResponse
+     */
+    public function listVolumes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listVolumesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Resets an API key.
      *
      * @param request - ResetApiKeyRequest
@@ -999,5 +1276,63 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->updateTeamWithOptions($teamID, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新 Volume.
+     *
+     * @param request - UpdateVolumeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVolumeResponse
+     *
+     * @param string              $volumeID
+     * @param UpdateVolumeRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateVolumeResponse
+     */
+    public function updateVolumeWithOptions($volumeID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVolume',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/volumes/' . Url::percentEncode($volumeID) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 Volume.
+     *
+     * @param request - UpdateVolumeRequest
+     *
+     * @returns UpdateVolumeResponse
+     *
+     * @param string              $volumeID
+     * @param UpdateVolumeRequest $request
+     *
+     * @return UpdateVolumeResponse
+     */
+    public function updateVolume($volumeID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateVolumeWithOptions($volumeID, $request, $headers, $runtime);
     }
 }

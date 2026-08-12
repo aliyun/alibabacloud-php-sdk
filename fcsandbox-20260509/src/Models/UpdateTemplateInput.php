@@ -22,10 +22,16 @@ class UpdateTemplateInput extends Model
      * @var NetworkConfiguration
      */
     public $networkConfiguration;
+
+    /**
+     * @var string
+     */
+    public $teamID;
     protected $_name = [
         'containerConfiguration' => 'containerConfiguration',
         'logConfiguration' => 'logConfiguration',
         'networkConfiguration' => 'networkConfiguration',
+        'teamID' => 'teamID',
     ];
 
     public function validate()
@@ -57,6 +63,10 @@ class UpdateTemplateInput extends Model
             $res['networkConfiguration'] = null !== $this->networkConfiguration ? $this->networkConfiguration->toArray($noStream) : $this->networkConfiguration;
         }
 
+        if (null !== $this->teamID) {
+            $res['teamID'] = $this->teamID;
+        }
+
         return $res;
     }
 
@@ -78,6 +88,10 @@ class UpdateTemplateInput extends Model
 
         if (isset($map['networkConfiguration'])) {
             $model->networkConfiguration = NetworkConfiguration::fromMap($map['networkConfiguration']);
+        }
+
+        if (isset($map['teamID'])) {
+            $model->teamID = $map['teamID'];
         }
 
         return $model;
