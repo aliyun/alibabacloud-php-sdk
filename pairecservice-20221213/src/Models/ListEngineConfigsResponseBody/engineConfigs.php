@@ -56,6 +56,11 @@ class engineConfigs extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $version;
     protected $_name = [
         'configValue' => 'ConfigValue',
@@ -67,6 +72,7 @@ class engineConfigs extends Model
         'gmtReleasedTime' => 'GmtReleasedTime',
         'name' => 'Name',
         'status' => 'Status',
+        'type' => 'Type',
         'version' => 'Version',
     ];
 
@@ -112,6 +118,10 @@ class engineConfigs extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         if (null !== $this->version) {
@@ -163,6 +173,10 @@ class engineConfigs extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         if (isset($map['Version'])) {

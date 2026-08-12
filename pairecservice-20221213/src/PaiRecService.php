@@ -397,9 +397,6 @@ class PaiRecService extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'us-west-1' => 'pairecservice.us-west-1.aliyuncs.com',
-            'us-east-1' => 'pairecservice.us-east-1.aliyuncs.com',
-            'eu-central-1' => 'pairecservice.eu-central-1.aliyuncs.com',
             'cn-shenzhen' => 'pairecservice.cn-shenzhen.aliyuncs.com',
             'cn-shanghai' => 'pairecservice.cn-shanghai.aliyuncs.com',
             'cn-hongkong' => 'pairecservice.cn-hongkong.aliyuncs.com',
@@ -407,6 +404,9 @@ class PaiRecService extends OpenApiClient
             'cn-beijing' => 'pairecservice.cn-beijing.aliyuncs.com',
             'ap-southeast-5' => 'pairecservice.ap-southeast-5.aliyuncs.com',
             'ap-southeast-1' => 'pairecservice.ap-southeast-1.aliyuncs.com',
+            'eu-central-1' => 'pairecservice.eu-central-1.aliyuncs.com',
+            'us-east-1' => 'pairecservice.us-east-1.aliyuncs.com',
+            'us-west-1' => 'pairecservice.us-west-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('pairecservice', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -2036,7 +2036,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates an engine config.
+     * Creates an engine configuration.
      *
      * @param request - CreateEngineConfigRequest
      * @param headers - map
@@ -2074,6 +2074,10 @@ class PaiRecService extends OpenApiClient
             @$body['Name'] = $request->name;
         }
 
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -2094,7 +2098,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates an engine config.
+     * Creates an engine configuration.
      *
      * @param request - CreateEngineConfigRequest
      *
@@ -6571,7 +6575,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Gets the details of an engine configuration.
+     * Retrieves the details of an engine configuration.
      *
      * @param request - GetEngineConfigRequest
      * @param headers - map
@@ -6614,7 +6618,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Gets the details of an engine configuration.
+     * Retrieves the details of an engine configuration.
      *
      * @param request - GetEngineConfigRequest
      *
@@ -7002,7 +7006,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves the schema of a specified data table within a resource.
+     * Retrieves the list of data tables under a data source.
      *
      * @param request - GetInstanceResourceTableRequest
      * @param headers - map
@@ -7041,7 +7045,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves the schema of a specified data table within a resource.
+     * Retrieves the list of data tables under a data source.
      *
      * @param request - GetInstanceResourceTableRequest
      *
@@ -8900,7 +8904,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of engine configurations.
+     * Retrieves the list of engine configurations.
      *
      * @param request - ListEngineConfigsRequest
      * @param headers - map
@@ -8966,7 +8970,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of engine configurations.
+     * Retrieves the list of engine configurations.
      *
      * @param request - ListEngineConfigsRequest
      *
@@ -10166,14 +10170,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * This API returns a list of recall management services for a specified instance.
+     * Queries the list of recall management services under a specified instance.
      *
      * @remarks
-     * ## Description
-     * Call `ListRecallManagementServices` to retrieve a list of recall management services for a specified instance based on parameters such as `InstanceId`, `PageNumber`, and `PageSize`. You can sort the results by creation time or modification time in ascending or descending order.
-     * - **InstanceId** is required. It specifies the target instance.
-     * - The pagination parameters **PageNumber** and **PageSize** control the number of returned items and the page from which to start. This operation returns the first page of results by default.
-     * - Use the **SortBy** and **Order** parameters to customize the sort order of the list.
+     * ## Operation description
+     * By calling the `ListRecallManagementServices` operation, you can retrieve the list of recall management services under a specific instance based on given parameters such as InstanceId, PageNumber, and PageSize. You can sort results by creation time or update time in ascending or descending order.
+     * - **InstanceId** is required and specifies the instance to which the services belong.
+     * - The pagination parameters **PageNumber** and **PageSize** allow you to control the amount of returned data and the page from which to start displaying results. By default, data from the first page is returned.
+     * - Use the **SortBy** and **Order** parameters to customize the sorting of the list.
      *
      * @param request - ListRecallManagementServicesRequest
      * @param headers - map
@@ -10197,6 +10201,10 @@ class PaiRecService extends OpenApiClient
 
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
 
         if (null !== $request->nextToken) {
@@ -10239,14 +10247,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * This API returns a list of recall management services for a specified instance.
+     * Queries the list of recall management services under a specified instance.
      *
      * @remarks
-     * ## Description
-     * Call `ListRecallManagementServices` to retrieve a list of recall management services for a specified instance based on parameters such as `InstanceId`, `PageNumber`, and `PageSize`. You can sort the results by creation time or modification time in ascending or descending order.
-     * - **InstanceId** is required. It specifies the target instance.
-     * - The pagination parameters **PageNumber** and **PageSize** control the number of returned items and the page from which to start. This operation returns the first page of results by default.
-     * - Use the **SortBy** and **Order** parameters to customize the sort order of the list.
+     * ## Operation description
+     * By calling the `ListRecallManagementServices` operation, you can retrieve the list of recall management services under a specific instance based on given parameters such as InstanceId, PageNumber, and PageSize. You can sort results by creation time or update time in ascending or descending order.
+     * - **InstanceId** is required and specifies the instance to which the services belong.
+     * - The pagination parameters **PageNumber** and **PageSize** allow you to control the amount of returned data and the page from which to start displaying results. By default, data from the first page is returned.
+     * - Use the **SortBy** and **Order** parameters to customize the sorting of the list.
      *
      * @param request - ListRecallManagementServicesRequest
      *
@@ -13893,7 +13901,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Updates an engine configuration.
+     * Updates a specific engine configuration.
      *
      * @param request - UpdateEngineConfigRequest
      * @param headers - map
@@ -13932,6 +13940,10 @@ class PaiRecService extends OpenApiClient
             @$body['Name'] = $request->name;
         }
 
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -13952,7 +13964,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Updates an engine configuration.
+     * Updates a specific engine configuration.
      *
      * @param request - UpdateEngineConfigRequest
      *

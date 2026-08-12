@@ -32,12 +32,18 @@ class UpdateEngineConfigRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'configValue' => 'ConfigValue',
         'description' => 'Description',
         'environment' => 'Environment',
         'instanceId' => 'InstanceId',
         'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class UpdateEngineConfigRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class UpdateEngineConfigRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

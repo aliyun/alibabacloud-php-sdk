@@ -52,6 +52,11 @@ class GetEngineConfigResponseBody extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'configValue' => 'ConfigValue',
         'description' => 'Description',
@@ -62,6 +67,7 @@ class GetEngineConfigResponseBody extends Model
         'name' => 'Name',
         'requestId' => 'RequestId',
         'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class GetEngineConfigResponseBody extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class GetEngineConfigResponseBody extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

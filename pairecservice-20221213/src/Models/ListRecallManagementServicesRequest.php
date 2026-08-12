@@ -21,6 +21,11 @@ class ListRecallManagementServicesRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $nextToken;
 
     /**
@@ -45,6 +50,7 @@ class ListRecallManagementServicesRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'maxResults' => 'MaxResults',
+        'name' => 'Name',
         'nextToken' => 'NextToken',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
@@ -66,6 +72,10 @@ class ListRecallManagementServicesRequest extends Model
 
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->nextToken) {
@@ -105,6 +115,10 @@ class ListRecallManagementServicesRequest extends Model
 
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['NextToken'])) {
