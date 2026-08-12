@@ -62,6 +62,11 @@ class CreateInstanceV1Request extends Model
     /**
      * @var bool
      */
+    public $enableAiFunction;
+
+    /**
+     * @var bool
+     */
     public $enableMultiAz;
 
     /**
@@ -183,6 +188,7 @@ class CreateInstanceV1Request extends Model
         'dlfCatalogName' => 'DlfCatalogName',
         'dlfCatalogType' => 'DlfCatalogType',
         'duration' => 'Duration',
+        'enableAiFunction' => 'EnableAiFunction',
         'enableMultiAz' => 'EnableMultiAz',
         'encrypted' => 'Encrypted',
         'frontendNodeGroups' => 'FrontendNodeGroups',
@@ -275,6 +281,10 @@ class CreateInstanceV1Request extends Model
 
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->enableAiFunction) {
+            $res['EnableAiFunction'] = $this->enableAiFunction;
         }
 
         if (null !== $this->enableMultiAz) {
@@ -449,6 +459,10 @@ class CreateInstanceV1Request extends Model
 
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['EnableAiFunction'])) {
+            $model->enableAiFunction = $map['EnableAiFunction'];
         }
 
         if (isset($map['EnableMultiAz'])) {

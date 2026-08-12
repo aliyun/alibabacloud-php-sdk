@@ -201,7 +201,22 @@ class Starrocks extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'ap-southeast-1' => 'starrocks.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'starrocks.ap-southeast-5.aliyuncs.com',
+            'cn-beijing' => 'starrocks.cn-beijing.aliyuncs.com',
+            'cn-hangzhou' => 'starrocks.cn-hangzhou.aliyuncs.com',
+            'cn-hongkong' => 'starrocks.cn-hongkong.aliyuncs.com',
+            'cn-qingdao' => 'starrocks.cn-qingdao.aliyuncs.com',
+            'cn-shanghai' => 'starrocks.cn-shanghai.aliyuncs.com',
+            'cn-shenzhen' => 'starrocks.cn-shenzhen.aliyuncs.com',
+            'cn-wulanchabu' => 'starrocks.cn-wulanchabu.aliyuncs.com',
+            'cn-zhangjiakou' => 'starrocks.cn-zhangjiakou.aliyuncs.com',
+            'us-west-1' => 'starrocks.us-west-1.aliyuncs.com',
+            'us-east-1' => 'starrocks.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'starrocks.eu-central-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('starrocks', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -231,7 +246,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 新增备份策略.
+     * Adds a backup policy.
      *
      * @param request - AddBackupPolicyRequest
      * @param headers - map
@@ -297,7 +312,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 新增备份策略.
+     * Adds a backup policy.
      *
      * @param request - AddBackupPolicyRequest
      *
@@ -316,7 +331,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 新建网关.
+     * Creates a gateway.
+     *
+     * @remarks
+     * The AddGateway operation requires software stack version 1.7.6 or later and at least three front-end (FE) nodes.
      *
      * @param request - AddGatewayRequest
      * @param headers - map
@@ -366,7 +384,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 新建网关.
+     * Creates a gateway.
+     *
+     * @remarks
+     * The AddGateway operation requires software stack version 1.7.6 or later and at least three front-end (FE) nodes.
      *
      * @param request - AddGatewayRequest
      *
@@ -385,7 +406,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * This interface is used to modify the resource group of a Serverless StarRocks instance.
+     * This operation changes the resource group of a Serverless StarRocks instance.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -439,7 +460,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * This interface is used to modify the resource group of a Serverless StarRocks instance.
+     * This operation changes the resource group of a Serverless StarRocks instance.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -458,7 +479,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 校验ABM的资源库存.
+     * Check the inventory of resources.
      *
      * @param request - CheckInventoryRequest
      * @param headers - map
@@ -504,7 +525,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 校验ABM的资源库存.
+     * Check the inventory of resources.
      *
      * @param request - CheckInventoryRequest
      *
@@ -523,7 +544,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 创建Agent资源组.
+     * Creates an Agent compute group.
      *
      * @param request - CreateAgentResourceRequest
      * @param headers - map
@@ -593,7 +614,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 创建Agent资源组.
+     * Creates an Agent compute group.
      *
      * @param request - CreateAgentResourceRequest
      *
@@ -612,7 +633,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Restarts an E-MapReduce (EMR) Serverless StarRocks instance.
+     * Creates a Serverless StarRocks instance.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
      *
      * @param request - CreateInstanceV1Request
      * @param headers - map
@@ -664,6 +688,10 @@ class Starrocks extends OpenApiClient
 
         if (null !== $request->duration) {
             @$body['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->enableAiFunction) {
+            @$body['EnableAiFunction'] = $request->enableAiFunction;
         }
 
         if (null !== $request->enableMultiAz) {
@@ -778,7 +806,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Restarts an E-MapReduce (EMR) Serverless StarRocks instance.
+     * Creates a Serverless StarRocks instance.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
      *
      * @param request - CreateInstanceV1Request
      *
@@ -797,7 +828,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 新建一条弹性规则.
+     * Create a scaling rule.
      *
      * @param request - CreateScalingRuleRequest
      * @param headers - map
@@ -847,7 +878,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 新建一条弹性规则.
+     * Create a scaling rule.
      *
      * @param request - CreateScalingRuleRequest
      *
@@ -866,7 +897,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * This interface is used to create the AliyunServiceRoleForEMRStarRocks role for users.
+     * This operation creates the AliyunServiceRoleForEMRStarRocks role.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -899,7 +930,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * This interface is used to create the AliyunServiceRoleForEMRStarRocks role for users.
+     * This operation creates the AliyunServiceRoleForEMRStarRocks role.
      *
      * @returns CreateServiceLinkedRoleResponse
      *
@@ -914,7 +945,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除数据备份.
+     * Deletes a data backup.
+     *
+     * @remarks
+     * Deletes a data backup.
      *
      * @param request - DeleteBackupRequest
      * @param headers - map
@@ -964,7 +998,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除数据备份.
+     * Deletes a data backup.
+     *
+     * @remarks
+     * Deletes a data backup.
      *
      * @param request - DeleteBackupRequest
      *
@@ -983,7 +1020,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除备份策略.
+     * Deletes a backup policy.
+     *
+     * @remarks
+     * Deletes a backup policy.
      *
      * @param request - DeleteBackupPolicyRequest
      * @param headers - map
@@ -1029,7 +1069,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除备份策略.
+     * Deletes a backup policy.
+     *
+     * @remarks
+     * Deletes a backup policy.
      *
      * @param request - DeleteBackupPolicyRequest
      *
@@ -1048,7 +1091,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除网关.
+     * Deleting a gateway.
+     *
+     * @remarks
+     * Deletes a gateway group. After the gateway group is deleted, its FE nodes are automatically assigned to the default gateway group.
      *
      * @param request - DeleteGatewayRequest
      * @param headers - map
@@ -1094,7 +1140,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除网关.
+     * Deleting a gateway.
+     *
+     * @remarks
+     * Deletes a gateway group. After the gateway group is deleted, its FE nodes are automatically assigned to the default gateway group.
      *
      * @param request - DeleteGatewayRequest
      *
@@ -1113,7 +1162,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除白名单分组.
+     * Deletes an internal network whitelist group.
      *
      * @param request - DeleteInnerIpWhitelistGroupRequest
      * @param headers - map
@@ -1159,7 +1208,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除白名单分组.
+     * Deletes an internal network whitelist group.
      *
      * @param request - DeleteInnerIpWhitelistGroupRequest
      *
@@ -1178,7 +1227,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除一条弹性规则.
+     * Deletes a scaling rule.
      *
      * @param request - DeleteScalingRuleRequest
      * @param headers - map
@@ -1228,7 +1277,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除一条弹性规则.
+     * Deletes a scaling rule.
      *
      * @param request - DeleteScalingRuleRequest
      *
@@ -1247,6 +1296,8 @@ class Starrocks extends OpenApiClient
     }
 
     /**
+     * Queries the available zones in a region.
+     *
      * @param request - DescribeAvailableZonesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1287,6 +1338,8 @@ class Starrocks extends OpenApiClient
     }
 
     /**
+     * Queries the available zones in a region.
+     *
      * @param request - DescribeAvailableZonesRequest
      *
      * @returns DescribeAvailableZonesResponse
@@ -1304,7 +1357,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取备份策略详情.
+     * Retrieve details of backup policies.
+     *
+     * @remarks
+     * Retrieve details of backup policies.
      *
      * @param request - DescribeBackupPoliciesRequest
      * @param headers - map
@@ -1354,7 +1410,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取备份策略详情.
+     * Retrieve details of backup policies.
+     *
+     * @remarks
+     * Retrieve details of backup policies.
      *
      * @param request - DescribeBackupPoliciesRequest
      *
@@ -1373,7 +1432,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取备份详情.
+     * Obtain backup details.
+     *
+     * @remarks
+     * This is an asynchronous interface. Instance restarts are not immediate. After a successful call, the instance first enters the restarting state. The instance is successfully restarted when its status returns to running.
      *
      * @param request - DescribeBackupsRequest
      * @param headers - map
@@ -1443,7 +1505,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取备份详情.
+     * Obtain backup details.
+     *
+     * @remarks
+     * This is an asynchronous interface. Instance restarts are not immediate. After a successful call, the instance first enters the restarting state. The instance is successfully restarted when its status returns to running.
      *
      * @param request - DescribeBackupsRequest
      *
@@ -1462,7 +1527,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询实例配置历史.
+     * Querying instance configuration history.
+     *
+     * @remarks
+     * This is an asynchronous API, meaning the instance restart is not immediate. After a successful call, the instance enters the `restarting` state, and the process completes when its state changes to `running`.
      *
      * @param request - DescribeConfigHistoryRequest
      * @param headers - map
@@ -1528,7 +1596,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询实例配置历史.
+     * Querying instance configuration history.
+     *
+     * @remarks
+     * This is an asynchronous API, meaning the instance restart is not immediate. After a successful call, the instance enters the `restarting` state, and the process completes when its state changes to `running`.
      *
      * @param request - DescribeConfigHistoryRequest
      *
@@ -1547,7 +1618,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取集群事件名称.
+     * Retrieve the cluster event name.
      *
      * @param request - DescribeEventNamesRequest
      * @param headers - map
@@ -1589,7 +1660,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取集群事件名称.
+     * Retrieve the cluster event name.
      *
      * @param request - DescribeEventNamesRequest
      *
@@ -1608,7 +1679,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询白名单分组.
+     * Describes the whitelist groups for a private network.
      *
      * @param request - DescribeInnerIpWhitelistGroupsRequest
      * @param headers - map
@@ -1650,7 +1721,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询白名单分组.
+     * Describes the whitelist groups for a private network.
      *
      * @param request - DescribeInnerIpWhitelistGroupsRequest
      *
@@ -1669,7 +1740,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询实例配置.
+     * Queries instance configurations.
      *
      * @param request - DescribeInstanceConfigsRequest
      * @param headers - map
@@ -1743,7 +1814,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询实例配置.
+     * Queries instance configurations.
      *
      * @param request - DescribeInstanceConfigsRequest
      *
@@ -1762,7 +1833,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取实例的健康诊断结果.
+     * Retrieve instance health diagnosis results.
      *
      * @param request - DescribeInstanceDiagnosisResultRequest
      * @param headers - map
@@ -1824,7 +1895,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取实例的健康诊断结果.
+     * Retrieve instance health diagnosis results.
      *
      * @param request - DescribeInstanceDiagnosisResultRequest
      *
@@ -1843,7 +1914,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取 StarRocks 实例的 Meta Token。
+     * Obtains the meta token for a StarRocks instance.
      *
      * @param request - DescribeInstanceMetaTokenRequest
      * @param headers - map
@@ -1885,7 +1956,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取 StarRocks 实例的 Meta Token。
+     * Obtains the meta token for a StarRocks instance.
      *
      * @param request - DescribeInstanceMetaTokenRequest
      *
@@ -1904,7 +1975,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
+     * This operation queries Serverless StarRocks instances. You can filter the instances by criteria such as instance name and tags.
      *
      * @param tmpReq - DescribeInstancesRequest
      * @param headers - map
@@ -1980,7 +2051,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
+     * This operation queries Serverless StarRocks instances. You can filter the instances by criteria such as instance name and tags.
      *
      * @param request - DescribeInstancesRequest
      *
@@ -1999,7 +2070,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取节点组信息.
+     * Retrieves node group information.
      *
      * @param request - DescribeNodeGroupsRequest
      * @param headers - map
@@ -2075,7 +2146,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取节点组信息.
+     * Retrieves node group information.
      *
      * @param request - DescribeNodeGroupsRequest
      *
@@ -2094,6 +2165,11 @@ class Starrocks extends OpenApiClient
     }
 
     /**
+     * You can view the list of available regions.
+     *
+     * @remarks
+     * This operation is asynchronous. After you call this operation, the instance enters a restarting state but does not restart immediately. The restart is complete when the instance status changes to running.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2125,6 +2201,11 @@ class Starrocks extends OpenApiClient
     }
 
     /**
+     * You can view the list of available regions.
+     *
+     * @remarks
+     * This operation is asynchronous. After you call this operation, the instance enters a restarting state but does not restart immediately. The restart is complete when the instance status changes to running.
+     *
      * @returns DescribeRegionsResponse
      *
      * @return DescribeRegionsResponse
@@ -2138,7 +2219,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 描述Starrocks的资源配置约束
+     * Get resource constraint configurations.
      *
      * @param request - DescribeResourceConstraintsRequest
      * @param headers - map
@@ -2188,7 +2269,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 描述Starrocks的资源配置约束
+     * Get resource constraint configurations.
      *
      * @param request - DescribeResourceConstraintsRequest
      *
@@ -2207,7 +2288,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取 starrocks 实例的系统时区.
+     * Obtain the system time zone of a StarRocks instance.
      *
      * @param request - DescribeSystemTimezoneRequest
      * @param headers - map
@@ -2249,7 +2330,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取 starrocks 实例的系统时区.
+     * Obtain the system time zone of a StarRocks instance.
      *
      * @param request - DescribeSystemTimezoneRequest
      *
@@ -2268,7 +2349,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取时间触发规则信息.
+     * Retrieves the details of time-triggered scaling rules.
      *
      * @param request - DescribeTimeTriggerScalingRulesRequest
      * @param headers - map
@@ -2310,7 +2391,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取时间触发规则信息.
+     * Retrieves the details of time-triggered scaling rules.
      *
      * @param request - DescribeTimeTriggerScalingRulesRequest
      *
@@ -2329,7 +2410,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * StarRocks关闭SSL.
+     * Disables SSL for a StarRocks connection.
      *
      * @param request - DisableSSLConnectionRequest
      * @param headers - map
@@ -2371,7 +2452,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * StarRocks关闭SSL.
+     * Disables SSL for a StarRocks connection.
      *
      * @param request - DisableSSLConnectionRequest
      *
@@ -2390,7 +2471,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 默认网关开启内网SLB.
+     * Enables the internal Server Load Balancer (SLB) for the default gateway of an EMR Serverless StarRocks instance.
+     *
+     * @remarks
+     * The instance must be in the Running state when you call this operation.
      *
      * @param request - EnableInternalSlbRequest
      * @param headers - map
@@ -2432,7 +2516,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 默认网关开启内网SLB.
+     * Enables the internal Server Load Balancer (SLB) for the default gateway of an EMR Serverless StarRocks instance.
+     *
+     * @remarks
+     * The instance must be in the Running state when you call this operation.
      *
      * @param request - EnableInternalSlbRequest
      *
@@ -2451,7 +2538,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 开启Multi AZ.
+     * Enables Multi-AZ deployment.
      *
      * @param request - EnableMultiAzRequest
      * @param headers - map
@@ -2501,7 +2588,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 开启Multi AZ.
+     * Enables Multi-AZ deployment.
      *
      * @param request - EnableMultiAzRequest
      *
@@ -2520,7 +2607,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * StarRocks开启SSL.
+     * Enables SSL for a StarRocks connection.
+     *
+     * @remarks
+     * You can call this operation only when the instance is in the Running state.
      *
      * @param request - EnableSSLConnectionRequest
      * @param headers - map
@@ -2582,7 +2672,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * StarRocks开启SSL.
+     * Enables SSL for a StarRocks connection.
+     *
+     * @remarks
+     * You can call this operation only when the instance is in the Running state.
      *
      * @param request - EnableSSLConnectionRequest
      *
@@ -2601,7 +2694,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取StarRocks集群实例的特性开关.
+     * Retrieves the feature gates for a StarRocks cluster instance.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
      *
      * @param request - GetInstanceFeatureGateRequest
      * @param headers - map
@@ -2643,7 +2739,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取StarRocks集群实例的特性开关.
+     * Retrieves the feature gates for a StarRocks cluster instance.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
      *
      * @param request - GetInstanceFeatureGateRequest
      *
@@ -2662,7 +2761,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取StarRocks 计算组实例的特性开关.
+     * Retrieve the feature gate for a StarRocks compute group instance.
      *
      * @param request - GetNodeGroupFeatureGateRequest
      * @param headers - map
@@ -2708,7 +2807,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取StarRocks 计算组实例的特性开关.
+     * Retrieve the feature gate for a StarRocks compute group instance.
      *
      * @param request - GetNodeGroupFeatureGateRequest
      *
@@ -2727,7 +2826,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 默认网关开启内网SLB.
+     * Enable read/write splitting. The Leader FE node handles write requests, and other nodes handle read requests.
+     *
+     * @remarks
+     * The instance must be in the running state when you call this operation.
      *
      * @param request - IsolateLeaderRequest
      * @param headers - map
@@ -2773,7 +2875,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 默认网关开启内网SLB.
+     * Enable read/write splitting. The Leader FE node handles write requests, and other nodes handle read requests.
+     *
+     * @remarks
+     * The instance must be in the running state when you call this operation.
      *
      * @param request - IsolateLeaderRequest
      *
@@ -2792,7 +2897,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取网关列表.
+     * Lists gateways.
+     *
+     * @remarks
+     * Lists the gateways of a cluster.
      *
      * @param request - ListGatewayRequest
      * @param headers - map
@@ -2834,7 +2942,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取网关列表.
+     * Lists gateways.
+     *
+     * @remarks
+     * Lists the gateways of a cluster.
      *
      * @param request - ListGatewayRequest
      *
@@ -2853,7 +2964,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取操作的详细信息.
+     * Retrieves the details of an operation.
      *
      * @param request - ListOperationActivityRequest
      * @param headers - map
@@ -2899,7 +3010,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取操作的详细信息.
+     * Retrieves the details of an operation.
      *
      * @param request - ListOperationActivityRequest
      *
@@ -2918,7 +3029,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取集群的操作历史.
+     * Retrieves the operation history of a cluster.
      *
      * @param request - ListOperationHistoryRequest
      * @param headers - map
@@ -2988,7 +3099,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取集群的操作历史.
+     * Retrieves the operation history of a cluster.
      *
      * @param request - ListOperationHistoryRequest
      *
@@ -3007,7 +3118,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取集群SSL详情.
+     * Retrieves the ssl certificate details for a cluster.
+     *
+     * @remarks
+     * Retrieves the ssl certificate details for a cluster.
      *
      * @param request - ListSSLDetailsRequest
      * @param headers - map
@@ -3049,7 +3163,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 获取集群SSL详情.
+     * Retrieves the ssl certificate details for a cluster.
+     *
+     * @remarks
+     * Retrieves the ssl certificate details for a cluster.
      *
      * @param request - ListSSLDetailsRequest
      *
@@ -3068,7 +3185,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改实例的付费类型.
+     * Change the billing method for an instance.
+     *
+     * @remarks
+     * Before you call this operation, review the billing methods for Serverless StarRocks and the <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P).
+     * When you call this operation, note the following:
+     * - Only standard instances support changing the number of compute group Compute Units (CUs). Entry-level instances do not support this change.
+     * - Only instances of the standard compute group specification type support increasing the number of disks.
+     * - The instance must be in the Running state.
+     * After you change the CU count, billing changes as follows:
+     * - Pay-as-you-go: You are billed based on the new CU count.
+     * - Subscription: During the current billing cycle, you pay the difference between the old and new configurations. This amount is calculated based on the number of days remaining in the subscription period, starting from 00:00 of the following day.
      *
      * @param request - ModifyChargeTypeRequest
      * @param headers - map
@@ -3130,7 +3257,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改实例的付费类型.
+     * Change the billing method for an instance.
+     *
+     * @remarks
+     * Before you call this operation, review the billing methods for Serverless StarRocks and the <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P).
+     * When you call this operation, note the following:
+     * - Only standard instances support changing the number of compute group Compute Units (CUs). Entry-level instances do not support this change.
+     * - Only instances of the standard compute group specification type support increasing the number of disks.
+     * - The instance must be in the Running state.
+     * After you change the CU count, billing changes as follows:
+     * - Pay-as-you-go: You are billed based on the new CU count.
+     * - Subscription: During the current billing cycle, you pay the difference between the old and new configurations. This amount is calculated based on the number of days remaining in the subscription period, starting from 00:00 of the following day.
      *
      * @param request - ModifyChargeTypeRequest
      *
@@ -3149,17 +3286,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Modifies the number of CUs for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
+     * You can use this API to change the number of Compute Units (CUs) in a compute group of a Serverless StarRocks instance.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances.
-     * Before you call this operation, take note of the following items:
-     * *   You can modify the number of CUs for a warehouse of only StarRocks instances of Standard Edition.
-     * *   You can increase the number of disks only for warehouses of the standard specifications.
-     * *   The instance must be in the Running state.
-     * After you modify the number of CUs for a warehouse, the billing of CUs has the following changes:
-     * *   Pay-as-you-go StarRocks instances: You are charged based on the number of CUs.
-     * *   Subscription StarRocks instances: You are charged additionally based on the price difference between the number of CUs before and after the change and the remaining days of the billing cycle. The billing cycle starts from 00:00 the next day until the end of the subscription period.
+     * Before you call this API, make sure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * When you call this API, note the following:
+     * - This operation is supported only for Standard Edition instances. It is not supported for Starter Edition instances.
+     * - You can increase the number of disks only for instances with a standard compute group specification.
+     * - The instance must be in the Running state.
+     * After you change the number of CUs, the billing for the instance is updated as follows:
+     * - Pay-as-you-go: You are billed based on the new number of CUs.
+     * - Subscription: A supplementary fee is charged. This fee is calculated based on the price difference between the old and new configurations and the remaining subscription period. The remaining period starts at 00:00 on the following day and ends when the subscription expires.
      *
      * @param request - ModifyCuRequest
      * @param headers - map
@@ -3217,17 +3354,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Modifies the number of CUs for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
+     * You can use this API to change the number of Compute Units (CUs) in a compute group of a Serverless StarRocks instance.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances.
-     * Before you call this operation, take note of the following items:
-     * *   You can modify the number of CUs for a warehouse of only StarRocks instances of Standard Edition.
-     * *   You can increase the number of disks only for warehouses of the standard specifications.
-     * *   The instance must be in the Running state.
-     * After you modify the number of CUs for a warehouse, the billing of CUs has the following changes:
-     * *   Pay-as-you-go StarRocks instances: You are charged based on the number of CUs.
-     * *   Subscription StarRocks instances: You are charged additionally based on the price difference between the number of CUs before and after the change and the remaining days of the billing cycle. The billing cycle starts from 00:00 the next day until the end of the subscription period.
+     * Before you call this API, make sure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * When you call this API, note the following:
+     * - This operation is supported only for Standard Edition instances. It is not supported for Starter Edition instances.
+     * - You can increase the number of disks only for instances with a standard compute group specification.
+     * - The instance must be in the Running state.
+     * After you change the number of CUs, the billing for the instance is updated as follows:
+     * - Pay-as-you-go: You are billed based on the new number of CUs.
+     * - Subscription: A supplementary fee is charged. This fee is calculated based on the price difference between the old and new configurations and the remaining subscription period. The remaining period starts at 00:00 on the following day and ends when the subscription expires.
      *
      * @param request - ModifyCuRequest
      *
@@ -3315,16 +3452,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Increases the number of disks for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
+     * Increases the number of disks for the nodes in a compute group of a Serverless StarRocks instance.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances. Before you call this operation, take note of the following items:
-     * *   You can increase the number of disks only for StarRocks instances of Standard Edition.
-     * *   You can increase the number of disks only for warehouses of the standard specifications.
-     * *   The instance must be in the Running state.
-     * After you increase the number of disks for a warehouse, the billing of disks has the following changes:
-     * *   Pay-as-you-go StarRocks instances: You are charged for the disk based on the new disk type.
-     * *   Subscription StarRocks instances: You are charged additionally based on the price difference between the number of disks before and after the change and the remaining days of the billing cycle. The billing cycle starts from 00:00 the next day until the end of the subscription period.
+     * Before you call this operation, make sure you fully understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * Note the following:
+     * - The number of disks can be increased only for standard instances. This operation is not supported for entry-level instances.
+     * - The number of disks can be increased only for instances whose compute group is the Standard Edition (standard).
+     * - The instance must be in the Running state.
+     * After you increase the number of disks, billing changes as follows:
+     * - Pay-as-you-go: You are billed based on the new disk type.
+     * - Subscription: A supplemental fee is calculated. This fee is based on the price difference between the old and new configurations and the remaining days in the billing cycle. The remaining period starts from 00:00 on the following day and ends when the subscription expires.
      *
      * @param request - ModifyDiskNumberRequest
      * @param headers - map
@@ -3382,16 +3520,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Increases the number of disks for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
+     * Increases the number of disks for the nodes in a compute group of a Serverless StarRocks instance.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances. Before you call this operation, take note of the following items:
-     * *   You can increase the number of disks only for StarRocks instances of Standard Edition.
-     * *   You can increase the number of disks only for warehouses of the standard specifications.
-     * *   The instance must be in the Running state.
-     * After you increase the number of disks for a warehouse, the billing of disks has the following changes:
-     * *   Pay-as-you-go StarRocks instances: You are charged for the disk based on the new disk type.
-     * *   Subscription StarRocks instances: You are charged additionally based on the price difference between the number of disks before and after the change and the remaining days of the billing cycle. The billing cycle starts from 00:00 the next day until the end of the subscription period.
+     * Before you call this operation, make sure you fully understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * Note the following:
+     * - The number of disks can be increased only for standard instances. This operation is not supported for entry-level instances.
+     * - The number of disks can be increased only for instances whose compute group is the Standard Edition (standard).
+     * - The instance must be in the Running state.
+     * After you increase the number of disks, billing changes as follows:
+     * - Pay-as-you-go: You are billed based on the new disk type.
+     * - Subscription: A supplemental fee is calculated. This fee is based on the price difference between the old and new configurations and the remaining days in the billing cycle. The remaining period starts from 00:00 on the following day and ends when the subscription expires.
      *
      * @param request - ModifyDiskNumberRequest
      *
@@ -3410,19 +3549,19 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Modifies the disk performance level for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
+     * This operation modifies the disk performance level of the nodes in a compute group of a Serverless StarRocks instance.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/en/product/ecs?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.47c9281fkIZGiB#pricing) of EMR Serverless StarRocks instances.
-     * Before you call this operation, take note of the following items:
-     * *   You can modify the disk performance level only for StarRocks instances of Standard Edition.
-     * *   You can modify the disk performance level only for warehouses of the standard specifications.
-     * *   The instance must be in the Running state.
-     * *   You cannot downgrade the performance level to PL0.
-     * *   The performance level of an Enterprise SSD (ESSD) is limited by the ESSD disk size. If you cannot upgrade the performance level of an ESSD, expand the ESSD and try again. For more information, see [Enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
-     * After the disk performance level is changed, the billing of the disk has the following changes:
-     * *   Pay-as-you-go StarRocks instances: You are charged for the disk based on the new disk type.
-     * *   Subscription StarRocks instances: You are charged additionally based on the price difference between the disk performance level before and after the change and the remaining days of the billing cycle. The billing cycle starts from 00:00 the next day until the end of the subscription period.
+     * Before you call this operation, understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.1837281f3hbi2d#/ecs/detail/vm)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/ecs?_p_lc=1#pricing) of Serverless StarRocks.
+     * Note the following when you call this operation:
+     * - You can upgrade or downgrade disks only for standard instances. This operation is not supported for Starter Edition instances.
+     * - Disk upgrades and downgrades are supported only for instances that have a Standard Edition (standard) compute group.
+     * - The instance must be in the Running state.
+     * - You cannot downgrade the disk performance level (PL) to PL0.
+     * - The performance level of an Enhanced SSD (ESSD) is limited by its capacity. If you cannot upgrade the performance level, increase the disk capacity and try again. For more information, see <props="china">[ESSDs](https://help.aliyun.com/zh/ecs/user-guide/essds)<props="intl">[ESSDs](https://www.alibabacloud.com/help/en/ecs/user-guide/essds).
+     * After you change the disk configuration, the billing is adjusted as follows:
+     * - Pay-as-you-go: You are charged based on the new disk type.
+     * - Subscription: A supplemental fee is calculated based on the price difference between the new and old configurations for the remainder of the billing cycle. The remaining period starts at 00:00 on the next day and ends when the subscription expires.
      *
      * @param request - ModifyDiskPerformanceLevelRequest
      * @param headers - map
@@ -3476,19 +3615,19 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Modifies the disk performance level for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
+     * This operation modifies the disk performance level of the nodes in a compute group of a Serverless StarRocks instance.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/en/product/ecs?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.47c9281fkIZGiB#pricing) of EMR Serverless StarRocks instances.
-     * Before you call this operation, take note of the following items:
-     * *   You can modify the disk performance level only for StarRocks instances of Standard Edition.
-     * *   You can modify the disk performance level only for warehouses of the standard specifications.
-     * *   The instance must be in the Running state.
-     * *   You cannot downgrade the performance level to PL0.
-     * *   The performance level of an Enterprise SSD (ESSD) is limited by the ESSD disk size. If you cannot upgrade the performance level of an ESSD, expand the ESSD and try again. For more information, see [Enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
-     * After the disk performance level is changed, the billing of the disk has the following changes:
-     * *   Pay-as-you-go StarRocks instances: You are charged for the disk based on the new disk type.
-     * *   Subscription StarRocks instances: You are charged additionally based on the price difference between the disk performance level before and after the change and the remaining days of the billing cycle. The billing cycle starts from 00:00 the next day until the end of the subscription period.
+     * Before you call this operation, understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.1837281f3hbi2d#/ecs/detail/vm)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/ecs?_p_lc=1#pricing) of Serverless StarRocks.
+     * Note the following when you call this operation:
+     * - You can upgrade or downgrade disks only for standard instances. This operation is not supported for Starter Edition instances.
+     * - Disk upgrades and downgrades are supported only for instances that have a Standard Edition (standard) compute group.
+     * - The instance must be in the Running state.
+     * - You cannot downgrade the disk performance level (PL) to PL0.
+     * - The performance level of an Enhanced SSD (ESSD) is limited by its capacity. If you cannot upgrade the performance level, increase the disk capacity and try again. For more information, see <props="china">[ESSDs](https://help.aliyun.com/zh/ecs/user-guide/essds)<props="intl">[ESSDs](https://www.alibabacloud.com/help/en/ecs/user-guide/essds).
+     * After you change the disk configuration, the billing is adjusted as follows:
+     * - Pay-as-you-go: You are charged based on the new disk type.
+     * - Subscription: A supplemental fee is calculated based on the price difference between the new and old configurations for the remainder of the billing cycle. The remaining period starts at 00:00 on the next day and ends when the subscription expires.
      *
      * @param request - ModifyDiskPerformanceLevelRequest
      *
@@ -3507,16 +3646,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Expands the disk size for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
+     * Scales out the disk of a compute group node for a Serverless StarRocks instance.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances. Before you call this operation, take note of the following items:
-     * *   You can expand the disk size only for StarRocks instances of Standard Edition.
-     * *   You can expand the disk size only for warehouses of the standard specifications.
-     * *   The instance must be in the Running state.
-     * After you expand the disk size, the billing of disks has the following changes:
-     * *   Pay-as-you-go StarRocks instances: You are charged for the disk based on the new disk size.
-     * *   Subscription StarRocks instances: You are charged additionally based on the price difference between the disk size before and after the change and the remaining days of the billing cycle. The billing cycle starts from 00:00 the next day until the end of the subscription period.
+     * Before you call this operation, ensure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * Note the following:
+     * - Only standard instances support disk scale-out. Entry-level instances do not.
+     * - Only instances that have a compute group of the standard specification type support disk scale-out.
+     * - The instance must be in the Running state.
+     * After you scale out the disk, your billing changes as follows:
+     * - Pay-as-you-go: You are charged based on the new disk size.
+     * - Subscription: You must pay an upgrade fee. The fee is calculated based on the price difference between the old and new configurations and the remaining subscription period. The remaining subscription period is calculated starting from 00:00 on the next day.
      *
      * @param request - ModifyDiskSizeRequest
      * @param headers - map
@@ -3574,16 +3714,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Expands the disk size for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
+     * Scales out the disk of a compute group node for a Serverless StarRocks instance.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances. Before you call this operation, take note of the following items:
-     * *   You can expand the disk size only for StarRocks instances of Standard Edition.
-     * *   You can expand the disk size only for warehouses of the standard specifications.
-     * *   The instance must be in the Running state.
-     * After you expand the disk size, the billing of disks has the following changes:
-     * *   Pay-as-you-go StarRocks instances: You are charged for the disk based on the new disk size.
-     * *   Subscription StarRocks instances: You are charged additionally based on the price difference between the disk size before and after the change and the remaining days of the billing cycle. The billing cycle starts from 00:00 the next day until the end of the subscription period.
+     * Before you call this operation, ensure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * Note the following:
+     * - Only standard instances support disk scale-out. Entry-level instances do not.
+     * - Only instances that have a compute group of the standard specification type support disk scale-out.
+     * - The instance must be in the Running state.
+     * After you scale out the disk, your billing changes as follows:
+     * - Pay-as-you-go: You are charged based on the new disk size.
+     * - Subscription: You must pay an upgrade fee. The fee is calculated based on the price difference between the old and new configurations and the remaining subscription period. The remaining subscription period is calculated starting from 00:00 on the next day.
      *
      * @param request - ModifyDiskSizeRequest
      *
@@ -3602,7 +3743,16 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组的节点磁盘类型.
+     * Change the disk type for nodes in a compute group.
+     *
+     * @remarks
+     * Before you call this operation, review the Serverless StarRocks billing model and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P).
+     * - Only standard instances support disk scaling. Starter instances do not support disk scaling.
+     * - Only instances with a compute group specification type of Standard Edition support disk scaling.
+     * - The instance must be in the Running state.
+     * After disk scaling, billing changes as follows:
+     * - Pay-as-you-go: You are billed based on the new disk size.
+     * - Subscription: During the billing cycle, the additional fee is calculated based on the price difference between the old and new configurations and the remaining days, from 00:00 the next day to the end of the validity period.
      *
      * @param request - ModifyDiskTypeRequest
      * @param headers - map
@@ -3660,7 +3810,16 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组的节点磁盘类型.
+     * Change the disk type for nodes in a compute group.
+     *
+     * @remarks
+     * Before you call this operation, review the Serverless StarRocks billing model and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P).
+     * - Only standard instances support disk scaling. Starter instances do not support disk scaling.
+     * - Only instances with a compute group specification type of Standard Edition support disk scaling.
+     * - The instance must be in the Running state.
+     * After disk scaling, billing changes as follows:
+     * - Pay-as-you-go: You are billed based on the new disk size.
+     * - Subscription: During the billing cycle, the additional fee is calculated based on the price difference between the old and new configurations and the remaining days, from 00:00 the next day to the end of the validity period.
      *
      * @param request - ModifyDiskTypeRequest
      *
@@ -3679,7 +3838,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改/etc/hosts.
+     * Modifies the /etc/hosts file.
      *
      * @param request - ModifyHostAliasRequest
      * @param headers - map
@@ -3727,7 +3886,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改/etc/hosts.
+     * Modifies the /etc/hosts file.
      *
      * @param request - ModifyHostAliasRequest
      *
@@ -3746,7 +3905,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改实例配置.
+     * This API modifies the configuration of a Serverless StarRocks instance.
      *
      * @param request - ModifyInstanceConfigRequest
      * @param headers - map
@@ -3826,7 +3985,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改实例配置.
+     * This API modifies the configuration of a Serverless StarRocks instance.
      *
      * @param request - ModifyInstanceConfigRequest
      *
@@ -3845,7 +4004,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 配置变更预检查，返回此次变更需要重启的计算组ID.
+     * This operation pre-checks modifications to the instance configuration of a Serverless StarRocks instance.
      *
      * @param request - ModifyInstanceConfigPreCheckRequest
      * @param headers - map
@@ -3901,7 +4060,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 配置变更预检查，返回此次变更需要重启的计算组ID.
+     * This operation pre-checks modifications to the instance configuration of a Serverless StarRocks instance.
      *
      * @param request - ModifyInstanceConfigPreCheckRequest
      *
@@ -3920,7 +4079,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改Starrocks实例的可维护时间.
+     * Modifies the maintenance window for a StarRocks instance.
      *
      * @param request - ModifyMaintainableTimeRequest
      * @param headers - map
@@ -3966,7 +4125,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改Starrocks实例的可维护时间.
+     * Modifies the maintenance window for a StarRocks instance.
      *
      * @param request - ModifyMaintainableTimeRequest
      *
@@ -3985,16 +4144,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Modifies the number of nodes in a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
+     * Modifies the number of nodes in a compute group of a Serverless StarRocks instance.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances. Before you call this operation, take note of the following items:
-     * *   You can modify the number of nodes in a warehouse of only StarRocks instances of Standard Edition.
-     * *   The instance must be in the Running state.
-     * *   The number of frontend nodes (FEs) cannot be an even number, and you cannot reduce the number of FE nodes.
-     * After you modify the number of nodes in a warehouse, the billing of nodes has the following changes:
-     * *   Pay-as-you-go StarRocks instances: You are charged based on the number of nodes.
-     * *   Subscription StarRocks instances: You are charged additionally based on the price difference between the number of nodes before and after the change and the remaining days of the billing cycle. The billing cycle starts from 00:00 the next day until the end of the subscription period.
+     * Before using this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * When calling this operation, note the following:
+     * - Only Standard Standard instances support modifying the number of compute group nodes. Basic Standard instances do not support this operation.
+     * - The instance must be in the Running state.
+     * - The number of FE nodes cannot be an even number, and FE nodes do not support scale-in.
+     * After modifying the node count, billing changes are as follows:
+     * - Pay-as-you-go: Billed based on the new node count.
+     * - Subscription: Within the billing cycle, the additional fee is calculated based on the price difference between the old and new configurations and the remaining days (from 00:00 of the next day to the end of the validity period).
      *
      * @param request - ModifyNodeNumberRequest
      * @param headers - map
@@ -4056,16 +4216,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Modifies the number of nodes in a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
+     * Modifies the number of nodes in a compute group of a Serverless StarRocks instance.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of EMR Serverless StarRocks instances. Before you call this operation, take note of the following items:
-     * *   You can modify the number of nodes in a warehouse of only StarRocks instances of Standard Edition.
-     * *   The instance must be in the Running state.
-     * *   The number of frontend nodes (FEs) cannot be an even number, and you cannot reduce the number of FE nodes.
-     * After you modify the number of nodes in a warehouse, the billing of nodes has the following changes:
-     * *   Pay-as-you-go StarRocks instances: You are charged based on the number of nodes.
-     * *   Subscription StarRocks instances: You are charged additionally based on the price difference between the number of nodes before and after the change and the remaining days of the billing cycle. The billing cycle starts from 00:00 the next day until the end of the subscription period.
+     * Before using this operation, make sure that you fully understand the billing method and <props="china">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * When calling this operation, note the following:
+     * - Only Standard Standard instances support modifying the number of compute group nodes. Basic Standard instances do not support this operation.
+     * - The instance must be in the Running state.
+     * - The number of FE nodes cannot be an even number, and FE nodes do not support scale-in.
+     * After modifying the node count, billing changes are as follows:
+     * - Pay-as-you-go: Billed based on the new node count.
+     * - Subscription: Within the billing cycle, the additional fee is calculated based on the price difference between the old and new configurations and the remaining days (from 00:00 of the next day to the end of the validity period).
      *
      * @param request - ModifyNodeNumberRequest
      *
@@ -4153,7 +4314,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改弹性伸缩规则.
+     * Modifies an Auto Scaling rule.
      *
      * @param request - ModifyScalingRuleRequest
      * @param headers - map
@@ -4211,7 +4372,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改弹性伸缩规则.
+     * Modifies an Auto Scaling rule.
      *
      * @param request - ModifyScalingRuleRequest
      *
@@ -4230,7 +4391,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组的节点规格类型.
+     * Modify the node specifications type of the compute group.
      *
      * @param request - ModifySpecTypeRequest
      * @param headers - map
@@ -4288,7 +4449,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组的节点规格类型.
+     * Modify the node specifications type of the compute group.
      *
      * @param request - ModifySpecTypeRequest
      *
@@ -4307,7 +4468,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组中节点规格类型预检查.
+     * Runs a precheck to modify the node specification type for a compute group.
      *
      * @param request - ModifySpecTypePreCheckRequest
      * @param headers - map
@@ -4357,7 +4518,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组中节点规格类型预检查.
+     * Runs a precheck to modify the node specification type for a compute group.
      *
      * @param request - ModifySpecTypePreCheckRequest
      *
@@ -4376,7 +4537,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改 starrocks 用户的密码
+     * Modifies the password for a StarRocks user.
      *
      * @param request - ModifyUserPasswordRequest
      * @param headers - map
@@ -4422,7 +4583,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改 starrocks 用户的密码
+     * Modifies the password for a StarRocks user.
      *
      * @param request - ModifyUserPasswordRequest
      *
@@ -4441,7 +4602,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询开启Multi AZ的价格
+     * Queries the price for enabling multi-zone deployment.
      *
      * @param request - QueryEnableMultiAzPriceRequest
      * @param headers - map
@@ -4491,7 +4652,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询开启Multi AZ的价格
+     * Queries the price for enabling multi-zone deployment.
      *
      * @param request - QueryEnableMultiAzPriceRequest
      *
@@ -4510,7 +4671,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询小版本号.
+     * Queries the latest minor version for the current major version.
      *
      * @param request - QueryMinorVersionRequest
      * @param headers - map
@@ -4556,7 +4717,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询小版本号.
+     * Queries the latest minor version for the current major version.
      *
      * @param request - QueryMinorVersionRequest
      *
@@ -4575,7 +4736,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * StarRocks新购询价接口.
+     * Queries the price for changing the billing method of a StarRocks instance.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * Note the following when you call this operation:
+     * - You can change the number of compute units (CUs) in a compute group only for Standard Edition instances. This feature is not supported for Starter Edition instances.
+     * - You can increase the disk size only for instances that have a standard compute group specification.
+     * - The instance must be in the Running state.
+     * After you change the number of CUs, the billing changes as follows:
+     * - Pay-as-you-go: You are billed based on the new number of CUs.
+     * - Subscription: The system calculates the supplementary fee based on the price difference between the old and new configurations and the remaining days in the billing cycle. The calculation starts from 00:00 on the following day.
      *
      * @param request - QueryModifyChargeTypePriceRequest
      * @param headers - map
@@ -4637,7 +4808,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * StarRocks新购询价接口.
+     * Queries the price for changing the billing method of a StarRocks instance.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you fully understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * Note the following when you call this operation:
+     * - You can change the number of compute units (CUs) in a compute group only for Standard Edition instances. This feature is not supported for Starter Edition instances.
+     * - You can increase the disk size only for instances that have a standard compute group specification.
+     * - The instance must be in the Running state.
+     * After you change the number of CUs, the billing changes as follows:
+     * - Pay-as-you-go: You are billed based on the new number of CUs.
+     * - Subscription: The system calculates the supplementary fee based on the price difference between the old and new configurations and the remaining days in the billing cycle. The calculation starts from 00:00 on the following day.
      *
      * @param request - QueryModifyChargeTypePriceRequest
      *
@@ -4656,7 +4837,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改节点组节点Cu询价.
+     * Queries the price for modifying the CU of compute group nodes.
+     *
+     * @remarks
+     * Before you use this API, understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G) <props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) for Serverless StarRocks.
+     * When you call this API, note the following:
+     * - Only standard instances allow you to modify the number of CUs for compute groups. Entry-level instances do not.
+     * - You can increase the disk size only for instances with a Standard Edition (standard) compute group.
+     * - The instance must be in the Running state.
+     * After you modify the number of CUs, billing changes as follows:
+     * - Pay-as-you-go: Billing is based on the new number of CUs.
+     * - Subscription: The amount to pay is calculated based on the price difference between the old and new configurations for the remainder of the subscription period. This period starts at 00:00 on the following day.
      *
      * @param request - QueryModifyCuPriceRequest
      * @param headers - map
@@ -4710,7 +4901,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改节点组节点Cu询价.
+     * Queries the price for modifying the CU of compute group nodes.
+     *
+     * @remarks
+     * Before you use this API, understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G) <props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) for Serverless StarRocks.
+     * When you call this API, note the following:
+     * - Only standard instances allow you to modify the number of CUs for compute groups. Entry-level instances do not.
+     * - You can increase the disk size only for instances with a Standard Edition (standard) compute group.
+     * - The instance must be in the Running state.
+     * After you modify the number of CUs, billing changes as follows:
+     * - Pay-as-you-go: Billing is based on the new number of CUs.
+     * - Subscription: The amount to pay is calculated based on the price difference between the old and new configurations for the remainder of the subscription period. This period starts at 00:00 on the following day.
      *
      * @param request - QueryModifyCuPriceRequest
      *
@@ -4729,7 +4930,16 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组节点磁盘数量询价.
+     * Retrieve the price for changing the number of disks in a compute group node.
+     *
+     * @remarks
+     * Before you call this operation, review the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) for Serverless StarRocks.
+     * - You can increase the disk count only for Standard Edition instances. You cannot increase the disk count for Starter Edition instances.
+     * - You can increase the disk count only for instances with a compute group specification type of Standard Edition (standard).
+     * - The instance must be in the Running state.
+     * After you increase the disk count, billing changes as follows:
+     * - Pay-as-you-go: Billing is based on the new disk type.
+     * - Subscription: During the billing cycle, the additional fee is calculated based on the price difference between the new and original configurations and the remaining days—from 00:00 the next day to the end of the validity period.
      *
      * @param request - QueryModifyDiskNumberPriceRequest
      * @param headers - map
@@ -4783,7 +4993,16 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组节点磁盘数量询价.
+     * Retrieve the price for changing the number of disks in a compute group node.
+     *
+     * @remarks
+     * Before you call this operation, review the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) for Serverless StarRocks.
+     * - You can increase the disk count only for Standard Edition instances. You cannot increase the disk count for Starter Edition instances.
+     * - You can increase the disk count only for instances with a compute group specification type of Standard Edition (standard).
+     * - The instance must be in the Running state.
+     * After you increase the disk count, billing changes as follows:
+     * - Pay-as-you-go: Billing is based on the new disk type.
+     * - Subscription: During the billing cycle, the additional fee is calculated based on the price difference between the new and original configurations and the remaining days—from 00:00 the next day to the end of the validity period.
      *
      * @param request - QueryModifyDiskNumberPriceRequest
      *
@@ -4802,7 +5021,19 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组节点磁盘性能级别询价.
+     * Queries the price of changing the disk performance level for a compute group node.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and <props="intl">[pricing](https://www.alibabacloud.com/product/ecs?_p_lc=1#pricing) of Serverless StarRocks.
+     * Note the following when you call this operation:
+     * - Only standard instances support disk upgrade or downgrade. Entry-level instances do not.
+     * - Only instances with a standard compute group specification support disk upgrade or downgrade.
+     * - The instance must be in the running state.
+     * - You cannot downgrade the disk to performance level (PL) 0.
+     * - The performance level of an Enhanced SSD (ESSD) is limited by its capacity. If you cannot upgrade the performance level, scale out the disk and try again. For more information, see <props="intl">[ESSDs](https://www.alibabacloud.com/help/en/ecs/user-guide/essds).
+     * After you upgrade or downgrade a disk, the billing changes as follows:
+     * - Pay-as-you-go: You are charged based on the new disk type.
+     * - Subscription: A supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days in the subscription period, starting from 00:00 on the following day.
      *
      * @param request - QueryModifyDiskPerformanceLevelPriceRequest
      * @param headers - map
@@ -4856,7 +5087,19 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组节点磁盘性能级别询价.
+     * Queries the price of changing the disk performance level for a compute group node.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and <props="intl">[pricing](https://www.alibabacloud.com/product/ecs?_p_lc=1#pricing) of Serverless StarRocks.
+     * Note the following when you call this operation:
+     * - Only standard instances support disk upgrade or downgrade. Entry-level instances do not.
+     * - Only instances with a standard compute group specification support disk upgrade or downgrade.
+     * - The instance must be in the running state.
+     * - You cannot downgrade the disk to performance level (PL) 0.
+     * - The performance level of an Enhanced SSD (ESSD) is limited by its capacity. If you cannot upgrade the performance level, scale out the disk and try again. For more information, see <props="intl">[ESSDs](https://www.alibabacloud.com/help/en/ecs/user-guide/essds).
+     * After you upgrade or downgrade a disk, the billing changes as follows:
+     * - Pay-as-you-go: You are charged based on the new disk type.
+     * - Subscription: A supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days in the subscription period, starting from 00:00 on the following day.
      *
      * @param request - QueryModifyDiskPerformanceLevelPriceRequest
      *
@@ -4875,7 +5118,16 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组节点单盘存储大小询价.
+     * Queries the price for modifying the disk size of a single node in a compute group.
+     *
+     * @remarks
+     * Before you call this operation, make sure you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G) <props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks. When you call this operation, note the following:
+     * - Disk scale-out is supported only for standard instances. It is not supported for entry-level instances.
+     * - Disk scale-out is supported only for instances that use the standard compute group specification.
+     * - The instance must be in the Running state.
+     * After you scale out the disk, the billing changes are as follows:
+     * - Pay-as-you-go: You are billed for the new disk size.
+     * - Subscription: A supplementary fee is calculated based on the price difference between the old and new configurations and the remaining days in your subscription. The remaining days are calculated from 00:00 on the next day until the subscription expires.
      *
      * @param request - QueryModifyDiskSizePriceRequest
      * @param headers - map
@@ -4929,7 +5181,16 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组节点单盘存储大小询价.
+     * Queries the price for modifying the disk size of a single node in a compute group.
+     *
+     * @remarks
+     * Before you call this operation, make sure you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G) <props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks. When you call this operation, note the following:
+     * - Disk scale-out is supported only for standard instances. It is not supported for entry-level instances.
+     * - Disk scale-out is supported only for instances that use the standard compute group specification.
+     * - The instance must be in the Running state.
+     * After you scale out the disk, the billing changes are as follows:
+     * - Pay-as-you-go: You are billed for the new disk size.
+     * - Subscription: A supplementary fee is calculated based on the price difference between the old and new configurations and the remaining days in your subscription. The remaining days are calculated from 00:00 on the next day until the subscription expires.
      *
      * @param request - QueryModifyDiskSizePriceRequest
      *
@@ -4948,7 +5209,16 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组节点磁盘类型询价.
+     * Queries the price for modifying the disk type of nodes in a compute group.
+     *
+     * @remarks
+     * Before you call this API, make sure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G) <props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of the Serverless StarRocks product. Take note of the following:
+     * - Only standard instances support disk scale-out. Entry-level instances do not.
+     * - Only instances that have a compute group of the Standard Edition (standard) specification type support disk scale-out.
+     * - Instances must be in the running (Running) state.
+     * After a disk scale-out, the billing changes as follows:
+     * - Pay-as-you-go: You are billed based on the new disk size.
+     * - Subscription: A supplemental fee is calculated based on the price difference between the new and old configurations for the remaining duration of the subscription. The remaining duration is calculated from 00:00 on the next day until the subscription expires.
      *
      * @param request - QueryModifyDiskTypePriceRequest
      * @param headers - map
@@ -5006,7 +5276,16 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改计算组节点磁盘类型询价.
+     * Queries the price for modifying the disk type of nodes in a compute group.
+     *
+     * @remarks
+     * Before you call this API, make sure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G) <props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of the Serverless StarRocks product. Take note of the following:
+     * - Only standard instances support disk scale-out. Entry-level instances do not.
+     * - Only instances that have a compute group of the Standard Edition (standard) specification type support disk scale-out.
+     * - Instances must be in the running (Running) state.
+     * After a disk scale-out, the billing changes as follows:
+     * - Pay-as-you-go: You are billed based on the new disk size.
+     * - Subscription: A supplemental fee is calculated based on the price difference between the new and old configurations for the remaining duration of the subscription. The remaining duration is calculated from 00:00 on the next day until the subscription expires.
      *
      * @param request - QueryModifyDiskTypePriceRequest
      *
@@ -5025,7 +5304,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改节点组节点数量询价.
+     * Queries the price for changing the number of nodes in a compute group.
+     *
+     * @remarks
+     * Before you call this API, make sure you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G) <props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * When you call this API, note the following:
+     * - You can change the number of nodes in a compute group only for standard instances. This operation is not supported for entry-level instances.
+     * - The instance must be in the Running state.
+     * - The number of frontend (FE) nodes cannot be an even number. You cannot scale in FE nodes.
+     * After you change the number of nodes, billing is affected as follows:
+     * - Pay-as-you-go: You are charged based on the new number of nodes.
+     * - Subscription: A supplemental fee is calculated based on the price difference between the old and new configurations and the number of remaining days in the subscription period. The remaining period is calculated from 00:00 of the next day until the subscription expires.
      *
      * @param request - QueryModifyNodeNumberPriceRequest
      * @param headers - map
@@ -5079,7 +5368,17 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改节点组节点数量询价.
+     * Queries the price for changing the number of nodes in a compute group.
+     *
+     * @remarks
+     * Before you call this API, make sure you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G) <props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * When you call this API, note the following:
+     * - You can change the number of nodes in a compute group only for standard instances. This operation is not supported for entry-level instances.
+     * - The instance must be in the Running state.
+     * - The number of frontend (FE) nodes cannot be an even number. You cannot scale in FE nodes.
+     * After you change the number of nodes, billing is affected as follows:
+     * - Pay-as-you-go: You are charged based on the new number of nodes.
+     * - Subscription: A supplemental fee is calculated based on the price difference between the old and new configurations and the number of remaining days in the subscription period. The remaining period is calculated from 00:00 of the next day until the subscription expires.
      *
      * @param request - QueryModifyNodeNumberPriceRequest
      *
@@ -5098,7 +5397,16 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改节点组规格类型询价.
+     * Queries the price to change the specification type of a compute group.
+     *
+     * @remarks
+     * Before you call this operation, ensure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks. Note the following:
+     * - Only standard instances support disk scale-out. Basic instances do not.
+     * - Only instances with the Standard (standard) compute group specification type support disk scale-out.
+     * - The instance must be in the Running state.
+     * After a disk scale-out, the billing changes are as follows:
+     * - Pay-as-you-go: You are billed based on the new disk size.
+     * - Subscription: A supplementary fee is calculated based on the price difference between the old and new configurations and the number of remaining days in the subscription period (from 00:00 on the next day to the end of the validity period).
      *
      * @param request - QueryModifySpecTypePriceRequest
      * @param headers - map
@@ -5152,7 +5460,16 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 修改节点组规格类型询价.
+     * Queries the price to change the specification type of a compute group.
+     *
+     * @remarks
+     * Before you call this operation, ensure that you understand the billing methods and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks. Note the following:
+     * - Only standard instances support disk scale-out. Basic instances do not.
+     * - Only instances with the Standard (standard) compute group specification type support disk scale-out.
+     * - The instance must be in the Running state.
+     * After a disk scale-out, the billing changes are as follows:
+     * - Pay-as-you-go: You are billed based on the new disk size.
+     * - Subscription: A supplementary fee is calculated based on the price difference between the old and new configurations and the number of remaining days in the subscription period (from 00:00 on the next day to the end of the validity period).
      *
      * @param request - QueryModifySpecTypePriceRequest
      *
@@ -5171,7 +5488,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * StarRocks新购询价接口.
+     * An API for querying the price of new StarRocks purchases.
+     *
+     * @remarks
+     * Before you use this API, review the billing model and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) for Serverless StarRocks.
      *
      * @param request - QueryPriceV1Request
      * @param headers - map
@@ -5253,7 +5573,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * StarRocks新购询价接口.
+     * An API for querying the price of new StarRocks purchases.
+     *
+     * @remarks
+     * Before you use this API, review the billing model and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G)<props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) for Serverless StarRocks.
      *
      * @param request - QueryPriceV1Request
      *
@@ -5272,7 +5595,11 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * StarRocks退订包年包月计费实例询价.
+     * Pricing information for unsubscribing from StarRocks subscription instances.
+     *
+     * @remarks
+     * >Danger:
+     * After you release an instance, Alibaba Cloud reclaims all physical resources used by the instance. All associated data is permanently lost and cannot be recovered.
      *
      * @param request - QueryRefundPriceRequest
      * @param headers - map
@@ -5318,7 +5645,11 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * StarRocks退订包年包月计费实例询价.
+     * Pricing information for unsubscribing from StarRocks subscription instances.
+     *
+     * @remarks
+     * >Danger:
+     * After you release an instance, Alibaba Cloud reclaims all physical resources used by the instance. All associated data is permanently lost and cannot be recovered.
      *
      * @param request - QueryRefundPriceRequest
      *
@@ -5337,7 +5668,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询 StarRocks 计费实例的续费价格
+     * Query the renewal price for a StarRocks billing instance.
      *
      * @param request - QueryRenewPriceRequest
      * @param headers - map
@@ -5395,7 +5726,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询 StarRocks 计费实例的续费价格
+     * Query the renewal price for a StarRocks billing instance.
      *
      * @param request - QueryRenewPriceRequest
      *
@@ -5414,7 +5745,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询计算组/集群的未支付订单.
+     * Queries the unpaid orders of a compute group or cluster.
+     *
+     * @remarks
+     * Queries the unpaid orders of a compute group or cluster.
      *
      * @param request - QueryUnpaidOrderRequest
      * @param headers - map
@@ -5464,7 +5798,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 查询计算组/集群的未支付订单.
+     * Queries the unpaid orders of a compute group or cluster.
+     *
+     * @remarks
+     * Queries the unpaid orders of a compute group or cluster.
      *
      * @param request - QueryUnpaidOrderRequest
      *
@@ -5483,7 +5820,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Queries the versions of an E-MapReduce (EMR) Serverless StarRocks instance that the versions that you can upgrade to. The versions of a StarRocks instance include the major version and minor version. You can view the major version and minor version of a StarRocks instance in the Version Information section of the Instance Details tab in the EMR console. You can call this operation to query the minor versions or major versions that the versions that you can upgrade to.
+     * Queries the available upgrade versions for an EMR Serverless StarRocks instance. StarRocks instances have two version layers: a major version and a minor version. You can view both versions in the Version Information section on the Instance Details page in the EMR console. Use the Minor parameter to specify whether to query upgradable minor versions or major versions.
      *
      * @param request - QueryUpgradableVersionsRequest
      * @param headers - map
@@ -5529,7 +5866,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Queries the versions of an E-MapReduce (EMR) Serverless StarRocks instance that the versions that you can upgrade to. The versions of a StarRocks instance include the major version and minor version. You can view the major version and minor version of a StarRocks instance in the Version Information section of the Instance Details tab in the EMR console. You can call this operation to query the minor versions or major versions that the versions that you can upgrade to.
+     * Queries the available upgrade versions for an EMR Serverless StarRocks instance. StarRocks instances have two version layers: a major version and a minor version. You can view both versions in the Version Information section on the Instance Details page in the EMR console. Use the Minor parameter to specify whether to query upgradable minor versions or major versions.
      *
      * @param request - QueryUpgradableVersionsRequest
      *
@@ -5548,7 +5885,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 处理集群事件.
+     * Reboot ECS instances in a cluster.
+     *
+     * @remarks
+     * This operation is asynchronous. The instance does not reboot immediately. After a successful call, the instance enters the Rebooting state. The reboot is complete when the instance status changes to Running.
      *
      * @param request - RebootECSRequest
      * @param headers - map
@@ -5598,7 +5938,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 处理集群事件.
+     * Reboot ECS instances in a cluster.
+     *
+     * @remarks
+     * This operation is asynchronous. The instance does not reboot immediately. After a successful call, the instance enters the Rebooting state. The reboot is complete when the instance status changes to Running.
      *
      * @param request - RebootECSRequest
      *
@@ -5686,7 +6029,11 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 续费实例.
+     * Renews an instance.
+     *
+     * @remarks
+     * Before you call this API, make sure that you fully understand the billing model and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G) <props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * When you call this API, note that only subscription instances can be renewed.
      *
      * @param request - RenewInstanceRequest
      * @param headers - map
@@ -5744,7 +6091,11 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 续费实例.
+     * Renews an instance.
+     *
+     * @remarks
+     * Before you call this API, make sure that you fully understand the billing model and <props="china">[billable items](https://help.aliyun.com/zh/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c4g.11186623.help-menu-28066.d_0_1_1.4db82b05p3Gg0G) <props="intl">[billable items](https://www.alibabacloud.com/help/en/emr/emr-serverless-starrocks/product-overview/billable-items?spm=a2c63.p38356.help-menu-28066.d_0_1_0.3aaf4b0b69jN1P) of Serverless StarRocks.
+     * When you call this API, note that only subscription instances can be renewed.
      *
      * @param request - RenewInstanceRequest
      *
@@ -5834,7 +6185,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 重启指定的node group.
+     * Restarts a specified node group.
+     *
+     * @remarks
+     * This operation is asynchronous. The instance does not restart immediately. After you call the operation successfully, the instance enters the restarting state. When the instance status changes to running, the restart is complete.
      *
      * @param request - RestartNodeGroupRequest
      * @param headers - map
@@ -5884,7 +6238,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 重启指定的node group.
+     * Restarts a specified node group.
+     *
+     * @remarks
+     * This operation is asynchronous. The instance does not restart immediately. After you call the operation successfully, the instance enters the restarting state. When the instance status changes to running, the restart is complete.
      *
      * @param request - RestartNodeGroupRequest
      *
@@ -5903,7 +6260,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 重启集群中的节点.
+     * Restart nodes in a cluster.
+     *
+     * @remarks
+     * This API is asynchronous. The instance restart is not immediate. After a successful call, the instance enters the restarting state. The restart is complete when the returned status is running.
      *
      * @param request - RestartNodesRequest
      * @param headers - map
@@ -5951,7 +6311,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 重启集群中的节点.
+     * Restart nodes in a cluster.
+     *
+     * @remarks
+     * This API is asynchronous. The instance restart is not immediate. After a successful call, the instance enters the restarting state. The restart is complete when the returned status is running.
      *
      * @param request - RestartNodesRequest
      *
@@ -5970,7 +6333,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 从备份中恢复实例.
+     * Restore an instance from a backup.
+     *
+     * @remarks
+     * This is an asynchronous API. The instance does not restart immediately. After you call this API successfully, the instance enters the restarting state. When the instance status changes to running, the restore is complete.
      *
      * @param request - RestoreInstanceRequest
      * @param headers - map
@@ -6056,7 +6422,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 从备份中恢复实例.
+     * Restore an instance from a backup.
+     *
+     * @remarks
+     * This is an asynchronous API. The instance does not restart immediately. After you call this API successfully, the instance enters the restarting state. When the instance status changes to running, the restore is complete.
      *
      * @param request - RestoreInstanceRequest
      *
@@ -6075,7 +6444,11 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 该接口用于恢复来自openlake自动停机的实例。
+     * Resumes an instance automatically stopped by openlake.
+     *
+     * @remarks
+     * >Danger:
+     * When you release an instance, its physical resources are reclaimed. All data on the instance is lost and cannot be recovered.
      *
      * @param request - ResumeInstanceRequest
      * @param headers - map
@@ -6117,7 +6490,11 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 该接口用于恢复来自openlake自动停机的实例。
+     * Resumes an instance automatically stopped by openlake.
+     *
+     * @remarks
+     * >Danger:
+     * When you release an instance, its physical resources are reclaimed. All data on the instance is lost and cannot be recovered.
      *
      * @param request - ResumeInstanceRequest
      *
@@ -6136,7 +6513,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 回滚正在进行中的配置修改.
+     * Rolls back a configuration modification that is currently in progress.
      *
      * @param request - RollbackConfigModificationRequest
      * @param headers - map
@@ -6186,7 +6563,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 回滚正在进行中的配置修改.
+     * Rolls back a configuration modification that is currently in progress.
      *
      * @param request - RollbackConfigModificationRequest
      *
@@ -6205,7 +6582,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 切换主备可用区.
+     * Switches the active and standby zones.
+     *
+     * @remarks
+     * Switches the active and standby zones.
      *
      * @param request - SwitchActiveStandbyZonesRequest
      * @param headers - map
@@ -6251,7 +6631,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 切换主备可用区.
+     * Switches the active and standby zones.
+     *
+     * @remarks
+     * Switches the active and standby zones.
      *
      * @param request - SwitchActiveStandbyZonesRequest
      *
@@ -6270,7 +6653,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Adds a tag to a resource.
+     * Attaches tags to specified resources.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -6324,7 +6707,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Adds a tag to a resource.
+     * Attaches tags to specified resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -6343,7 +6726,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 开启/关闭StarRocks实例的小版本自动更新.
+     * Enables or disables automatic minor version upgrades for a StarRocks instance.
      *
      * @param request - ToggleAutoMinorVersionUpgradeRequest
      * @param headers - map
@@ -6389,7 +6772,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 开启/关闭StarRocks实例的小版本自动更新.
+     * Enables or disables automatic minor version upgrades for a StarRocks instance.
      *
      * @param request - ToggleAutoMinorVersionUpgradeRequest
      *
@@ -6408,7 +6791,11 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 公网SLB开关.
+     * Switches an Internet-facing SLB instance on or off.
+     *
+     * @remarks
+     * >Danger:
+     * After you release an instance, Alibaba Cloud reclaims all physical resources used by the instance. All associated data is permanently lost and cannot be recovered.
      *
      * @param request - TogglePublicSlbRequest
      * @param headers - map
@@ -6458,7 +6845,11 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 公网SLB开关.
+     * Switches an Internet-facing SLB instance on or off.
+     *
+     * @remarks
+     * >Danger:
+     * After you release an instance, Alibaba Cloud reclaims all physical resources used by the instance. All associated data is permanently lost and cannot be recovered.
      *
      * @param request - TogglePublicSlbRequest
      *
@@ -6477,7 +6868,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Removes tags from specified resources.
+     * Detaches tags from multiple resources.
      *
      * @param tmpReq - UnTagResourcesRequest
      * @param headers - map
@@ -6545,7 +6936,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Removes tags from specified resources.
+     * Detaches tags from multiple resources.
      *
      * @param request - UnTagResourcesRequest
      *
@@ -6564,7 +6955,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 更新备份任务描述.
+     * Updates the description of a backup job.
      *
      * @param request - UpdateBackupRequest
      * @param headers - map
@@ -6616,7 +7007,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 更新备份任务描述.
+     * Updates the description of a backup job.
      *
      * @param request - UpdateBackupRequest
      *
@@ -6635,7 +7026,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 更新备份策略.
+     * Updates a backup policy.
      *
      * @param request - UpdateBackupPolicyRequest
      * @param headers - map
@@ -6701,7 +7092,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 更新备份策略.
+     * Updates a backup policy.
      *
      * @param request - UpdateBackupPolicyRequest
      *
@@ -6720,7 +7111,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 更新网关.
+     * Updates the number of gateway nodes.
+     *
+     * @remarks
+     * Updates the number of gateway nodes.
      *
      * @param request - UpdateGatewayRequest
      * @param headers - map
@@ -6774,7 +7168,10 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 更新网关.
+     * Updates the number of gateway nodes.
+     *
+     * @remarks
+     * Updates the number of gateway nodes.
      *
      * @param request - UpdateGatewayRequest
      *
@@ -6793,7 +7190,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 更新白名单分组中的CIDR.
+     * Updates the CIDR blocks in a whitelist group.
      *
      * @param request - UpdateInnerIpWhitelistGroupRequest
      * @param headers - map
@@ -6843,7 +7240,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 更新白名单分组中的CIDR.
+     * Updates the CIDR blocks in a whitelist group.
      *
      * @param request - UpdateInnerIpWhitelistGroupRequest
      *
@@ -6927,7 +7324,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 更新节点组描述信息.
+     * Updates the description of a compute group.
      *
      * @param request - UpdateNodeGroupDescriptionRequest
      * @param headers - map
@@ -6977,7 +7374,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 更新节点组描述信息.
+     * Updates the description of a compute group.
      *
      * @param request - UpdateNodeGroupDescriptionRequest
      *
@@ -6996,7 +7393,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 该接口用于开通/关闭 FE/BE的公网SLB。
+     * Enable or disable the Internet-facing SLB for the FE or BE component.
      *
      * @param request - UpdatePublicNetworkStatusRequest
      * @param headers - map
@@ -7050,7 +7447,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 该接口用于开通/关闭 FE/BE的公网SLB。
+     * Enable or disable the Internet-facing SLB for the FE or BE component.
      *
      * @param request - UpdatePublicNetworkStatusRequest
      *
@@ -7069,7 +7466,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Upgrades the version of an E-MapReduce (EMR) Serverless StarRocks instance. The versions of a StarRocks instance include the major version and minor version. You can view the major version and minor version of a StarRocks instance in the Version Information section of the Instance Details tab in the EMR console. This operation can be used to upgrade the minor version or major version of a StarRocks instance. You can call the QueryUpgradableVersions operation to query the versions that you can upgrade to.
+     * Upgrades the version of a Serverless StarRocks instance. Serverless StarRocks has two levels of version definition: the major version displayed in the "Version" field on the cluster details page, and the minor version displayed in the "Minor Version" field on the cluster details page. This operation can be used to upgrade either the minor version or the major version. You can call the QueryUpgradableVersions operation to query the versions to which a cluster can be upgraded.
      *
      * @remarks
      * The instance must be in the Running state when you call this operation.
@@ -7126,7 +7523,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * Upgrades the version of an E-MapReduce (EMR) Serverless StarRocks instance. The versions of a StarRocks instance include the major version and minor version. You can view the major version and minor version of a StarRocks instance in the Version Information section of the Instance Details tab in the EMR console. This operation can be used to upgrade the minor version or major version of a StarRocks instance. You can call the QueryUpgradableVersions operation to query the versions that you can upgrade to.
+     * Upgrades the version of a Serverless StarRocks instance. Serverless StarRocks has two levels of version definition: the major version displayed in the "Version" field on the cluster details page, and the minor version displayed in the "Minor Version" field on the cluster details page. This operation can be used to upgrade either the minor version or the major version. You can call the QueryUpgradableVersions operation to query the versions to which a cluster can be upgraded.
      *
      * @remarks
      * The instance must be in the Running state when you call this operation.
