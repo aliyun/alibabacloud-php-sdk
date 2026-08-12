@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContextStoreAPIKeyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContextStoreAPIKeyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContextStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContextStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDataPipelineRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDataPipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDeliveryTaskRequest;
@@ -75,6 +77,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextStoreAPIKeyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextStoreAPIKeyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDataPipelineRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDataPipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDatasetRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDeliveryTaskRequest;
@@ -145,6 +149,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetContextRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetContextResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetContextStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetContextStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDataPipelineRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDataPipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDeliveryTaskRequest;
@@ -220,6 +226,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListContextStoreAPIKeysRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListContextStoreAPIKeysResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListContextStoresRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListContextStoresResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListDataPipelinesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListDataPipelinesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDatasetsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDeliveryTasksRequest;
@@ -276,6 +284,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ManageAlertRulesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ManageAlertRulesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\OpenCmsServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\OpenCmsServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\PreviewDataPipelineRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\PreviewDataPipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\QueryAlertRulesRequest;
@@ -304,6 +314,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContextRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContextResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContextStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContextStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDataPipelineRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDataPipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDeliveryTaskRequest;
@@ -350,48 +362,48 @@ class Cms extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'us-west-1' => 'metrics.us-west-1.aliyuncs.com',
-            'us-southeast-1' => 'metrics.us-southeast-1.aliyuncs.com',
-            'us-east-1' => 'metrics.us-east-1.aliyuncs.com',
-            'na-south-1' => 'metrics.na-south-1.aliyuncs.com',
-            'me-east-1' => 'metrics.me-east-1.aliyuncs.com',
-            'me-central-1' => 'metrics.me-central-1.aliyuncs.com',
-            'eu-west-2' => 'metrics.eu-west-2.aliyuncs.com',
-            'eu-west-1' => 'metrics.eu-west-1.aliyuncs.com',
-            'eu-central-1' => 'metrics.eu-central-1.aliyuncs.com',
-            'cn-zhongwei' => 'metrics.cn-zhongwei.aliyuncs.com',
-            'cn-zhengzhou-jva' => 'metrics.cn-zhengzhou-jva.aliyuncs.com',
-            'cn-zhangjiakou' => 'metrics.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu-gic-1' => 'metrics.cn-wulanchabu-gic-1.aliyuncs.com',
-            'cn-wulanchabu' => 'metrics.cn-wulanchabu.aliyuncs.com',
-            'cn-wuhan-lr' => 'metrics.cn-wuhan-lr.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'metrics.cn-shenzhen-finance-1.aliyuncs.com',
-            'cn-shenzhen' => 'metrics.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'metrics.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shanghai' => 'metrics.cn-shanghai.aliyuncs.com',
-            'cn-qingdao' => 'metrics.cn-qingdao.aliyuncs.com',
-            'cn-north-2-gov-1' => 'metrics.cn-north-2-gov-1.aliyuncs.com',
-            'cn-nanjing' => 'metrics.cn-nanjing.aliyuncs.com',
-            'cn-huhehaote' => 'metrics.cn-huhehaote.aliyuncs.com',
-            'cn-hongkong' => 'metrics.cn-hongkong.aliyuncs.com',
-            'cn-heyuan-acdr-1' => 'metrics.cn-heyuan-acdr-1.aliyuncs.com',
-            'cn-heyuan' => 'metrics.cn-heyuan.aliyuncs.com',
-            'cn-hangzhou-finance' => 'metrics.cn-hangzhou-finance.aliyuncs.com',
-            'cn-hangzhou' => 'metrics.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'metrics.cn-guangzhou.aliyuncs.com',
-            'cn-fuzhou' => 'metrics.cn-fuzhou.aliyuncs.com',
-            'cn-chengdu' => 'metrics.cn-chengdu.aliyuncs.com',
-            'cn-beijing-finance-1' => 'metrics.cn-beijing-finance-1.aliyuncs.com',
             'cn-beijing' => 'metrics.cn-beijing.aliyuncs.com',
-            'ap-southeast-8' => 'metrics.ap-southeast-8.aliyuncs.com',
-            'ap-southeast-7' => 'metrics.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-6' => 'metrics.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-5' => 'metrics.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'metrics.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'metrics.ap-southeast-1.aliyuncs.com',
-            'ap-south-1' => 'metrics.ap-south-1.aliyuncs.com',
+            'cn-zhengzhou-jva' => 'metrics.cn-zhengzhou-jva.aliyuncs.com',
+            'cn-heyuan' => 'metrics.cn-heyuan.aliyuncs.com',
+            'cn-zhangjiakou' => 'metrics.cn-zhangjiakou.aliyuncs.com',
             'ap-northeast-2' => 'metrics.ap-northeast-2.aliyuncs.com',
             'ap-northeast-1' => 'metrics.ap-northeast-1.aliyuncs.com',
+            'ap-southeast-1' => 'metrics.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'metrics.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'metrics.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-6' => 'metrics.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-7' => 'metrics.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-8' => 'metrics.ap-southeast-8.aliyuncs.com',
+            'cn-zhongwei' => 'metrics.cn-zhongwei.aliyuncs.com',
+            'cn-wulanchabu' => 'metrics.cn-wulanchabu.aliyuncs.com',
+            'cn-qingdao' => 'metrics.cn-qingdao.aliyuncs.com',
+            'cn-wuhan-lr' => 'metrics.cn-wuhan-lr.aliyuncs.com',
+            'cn-shanghai' => 'metrics.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'metrics.cn-hongkong.aliyuncs.com',
+            'cn-shenzhen' => 'metrics.cn-shenzhen.aliyuncs.com',
+            'cn-nanjing' => 'metrics.cn-nanjing.aliyuncs.com',
+            'cn-fuzhou' => 'metrics.cn-fuzhou.aliyuncs.com',
+            'cn-chengdu' => 'metrics.cn-chengdu.aliyuncs.com',
+            'cn-guangzhou' => 'metrics.cn-guangzhou.aliyuncs.com',
+            'cn-huhehaote' => 'metrics.cn-huhehaote.aliyuncs.com',
+            'cn-hangzhou' => 'metrics.cn-hangzhou.aliyuncs.com',
+            'us-southeast-1' => 'metrics.us-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'metrics.eu-west-1.aliyuncs.com',
+            'eu-west-2' => 'metrics.eu-west-2.aliyuncs.com',
+            'eu-central-1' => 'metrics.eu-central-1.aliyuncs.com',
+            'us-east-1' => 'metrics.us-east-1.aliyuncs.com',
+            'us-west-1' => 'metrics.us-west-1.aliyuncs.com',
+            'na-south-1' => 'metrics.na-south-1.aliyuncs.com',
+            'me-east-1' => 'metrics.me-east-1.aliyuncs.com',
+            'ap-south-1' => 'metrics.ap-south-1.aliyuncs.com',
+            'me-central-1' => 'metrics.me-central-1.aliyuncs.com',
+            'cn-hangzhou-finance' => 'metrics.cn-hangzhou-finance.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'metrics.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-beijing-finance-1' => 'metrics.cn-beijing-finance-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'metrics.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-wulanchabu-gic-1' => 'metrics.cn-wulanchabu-gic-1.aliyuncs.com',
+            'cn-heyuan-acdr-1' => 'metrics.cn-heyuan-acdr-1.aliyuncs.com',
+            'cn-north-2-gov-1' => 'metrics.cn-north-2-gov-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cms', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1263,6 +1275,99 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * Creates a DataPipeline.
+     *
+     * @remarks
+     * Creates a data pipeline in a specified workspace.
+     *
+     * @param request - CreateDataPipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataPipelineResponse
+     *
+     * @param string                    $workspace
+     * @param CreateDataPipelineRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDataPipelineResponse
+     */
+    public function createDataPipelineWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->kind) {
+            @$body['kind'] = $request->kind;
+        }
+
+        if (null !== $request->outputs) {
+            @$body['outputs'] = $request->outputs;
+        }
+
+        if (null !== $request->pipelineName) {
+            @$body['pipelineName'] = $request->pipelineName;
+        }
+
+        if (null !== $request->processors) {
+            @$body['processors'] = $request->processors;
+        }
+
+        if (null !== $request->sinks) {
+            @$body['sinks'] = $request->sinks;
+        }
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataPipeline',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/datapipeline',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a DataPipeline.
+     *
+     * @remarks
+     * Creates a data pipeline in a specified workspace.
+     *
+     * @param request - CreateDataPipelineRequest
+     *
+     * @returns CreateDataPipelineResponse
+     *
+     * @param string                    $workspace
+     * @param CreateDataPipelineRequest $request
+     *
+     * @return CreateDataPipelineResponse
+     */
+    public function createDataPipeline($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDataPipelineWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates a dataset.
      *
      * @param request - CreateDatasetRequest
@@ -2092,7 +2197,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a service for application observability.
+     * Creates an application observability service.
      *
      * @param request - CreateServiceRequest
      * @param headers - map
@@ -2167,7 +2272,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a service for application observability.
+     * Creates an application observability service.
      *
      * @param request - CreateServiceRequest
      *
@@ -2406,7 +2511,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
+     * Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
      *
      * @param request - CreateTicketRequest
      * @param headers - map
@@ -2452,7 +2557,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
+     * Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
      *
      * @param request - CreateTicketRequest
      *
@@ -3089,6 +3194,71 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteContextsWithOptions($workspace, $contextStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a DataPipeline.
+     *
+     * @remarks
+     * Deletes a data pipeline from a specified workspace.
+     *
+     * @param request - DeleteDataPipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataPipelineResponse
+     *
+     * @param string                    $workspace
+     * @param string                    $pipelineName
+     * @param DeleteDataPipelineRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDataPipelineResponse
+     */
+    public function deleteDataPipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataPipeline',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/datapipeline/' . Url::percentEncode($pipelineName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a DataPipeline.
+     *
+     * @remarks
+     * Deletes a data pipeline from a specified workspace.
+     *
+     * @param request - DeleteDataPipelineRequest
+     *
+     * @returns DeleteDataPipelineResponse
+     *
+     * @param string                    $workspace
+     * @param string                    $pipelineName
+     * @param DeleteDataPipelineRequest $request
+     *
+     * @return DeleteDataPipelineResponse
+     */
+    public function deleteDataPipeline($workspace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDataPipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime);
     }
 
     /**
@@ -3838,7 +4008,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes an Application Monitoring service.
+     * Deletes an application observability service.
      *
      * @param request - DeleteServiceRequest
      * @param headers - map
@@ -3876,7 +4046,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes an Application Monitoring service.
+     * Deletes an application observability service.
      *
      * @param request - DeleteServiceRequest
      *
@@ -5402,6 +5572,71 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * Queries a DataPipeline.
+     *
+     * @remarks
+     * Queries the configuration and running status of a data pipeline in a specified workspace.
+     *
+     * @param request - GetDataPipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataPipelineResponse
+     *
+     * @param string                 $workspace
+     * @param string                 $pipelineName
+     * @param GetDataPipelineRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDataPipelineResponse
+     */
+    public function getDataPipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetDataPipeline',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/datapipeline/' . Url::percentEncode($pipelineName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a DataPipeline.
+     *
+     * @remarks
+     * Queries the configuration and running status of a data pipeline in a specified workspace.
+     *
+     * @param request - GetDataPipelineRequest
+     *
+     * @returns GetDataPipelineResponse
+     *
+     * @param string                 $workspace
+     * @param string                 $pipelineName
+     * @param GetDataPipelineRequest $request
+     *
+     * @return GetDataPipelineResponse
+     */
+    public function getDataPipeline($workspace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDataPipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the details of a specified dataset.
      *
      * @param request - GetDatasetRequest
@@ -6406,7 +6641,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an Application Monitoring service.
+     * Queries an application observability service.
      *
      * @param request - GetServiceRequest
      * @param headers - map
@@ -6444,7 +6679,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an Application Monitoring service.
+     * Queries an application observability service.
      *
      * @param request - GetServiceRequest
      *
@@ -7828,6 +8063,79 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listContextStoresWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the list of DataPipelines.
+     *
+     * @remarks
+     * Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+     *
+     * @param request - ListDataPipelinesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataPipelinesResponse
+     *
+     * @param string                   $workspace
+     * @param ListDataPipelinesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDataPipelinesResponse
+     */
+    public function listDataPipelinesWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataPipelines',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/datapipeline',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of DataPipelines.
+     *
+     * @remarks
+     * Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+     *
+     * @param request - ListDataPipelinesRequest
+     *
+     * @returns ListDataPipelinesResponse
+     *
+     * @param string                   $workspace
+     * @param ListDataPipelinesRequest $request
+     *
+     * @return ListDataPipelinesResponse
+     */
+    public function listDataPipelines($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDataPipelinesWithOptions($workspace, $request, $headers, $runtime);
     }
 
     /**
@@ -9384,7 +9692,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of application observability services.
+     * Queries application observability services in batches.
      *
      * @param tmpReq - ListServicesRequest
      * @param headers - map
@@ -9453,7 +9761,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of application observability services.
+     * Queries application observability services in batches.
      *
      * @param request - ListServicesRequest
      *
@@ -9780,6 +10088,107 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->openCmsServiceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Previews a data pipeline.
+     *
+     * @remarks
+     * Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+     *
+     * @param request - PreviewDataPipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreviewDataPipelineResponse
+     *
+     * @param string                     $workspace
+     * @param PreviewDataPipelineRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PreviewDataPipelineResponse
+     */
+    public function previewDataPipelineWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->fromTime) {
+            @$body['fromTime'] = $request->fromTime;
+        }
+
+        if (null !== $request->kind) {
+            @$body['kind'] = $request->kind;
+        }
+
+        if (null !== $request->outputs) {
+            @$body['outputs'] = $request->outputs;
+        }
+
+        if (null !== $request->pipelineName) {
+            @$body['pipelineName'] = $request->pipelineName;
+        }
+
+        if (null !== $request->processors) {
+            @$body['processors'] = $request->processors;
+        }
+
+        if (null !== $request->sinks) {
+            @$body['sinks'] = $request->sinks;
+        }
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
+        }
+
+        if (null !== $request->toTime) {
+            @$body['toTime'] = $request->toTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PreviewDataPipeline',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/datapipeline/preview',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PreviewDataPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Previews a data pipeline.
+     *
+     * @remarks
+     * Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+     *
+     * @param request - PreviewDataPipelineRequest
+     *
+     * @returns PreviewDataPipelineResponse
+     *
+     * @param string                     $workspace
+     * @param PreviewDataPipelineRequest $request
+     *
+     * @return PreviewDataPipelineResponse
+     */
+    public function previewDataPipeline($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->previewDataPipelineWithOptions($workspace, $request, $headers, $runtime);
     }
 
     /**
@@ -10893,6 +11302,101 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateContextStoreWithOptions($workspace, $contextStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates a DataPipeline.
+     *
+     * @remarks
+     * Modifies a specified data pipeline by using a complete candidate configuration.
+     *
+     * @param request - UpdateDataPipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataPipelineResponse
+     *
+     * @param string                    $workspace
+     * @param string                    $pipelineName
+     * @param UpdateDataPipelineRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateDataPipelineResponse
+     */
+    public function updateDataPipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->expectedVersion) {
+            @$body['expectedVersion'] = $request->expectedVersion;
+        }
+
+        if (null !== $request->kind) {
+            @$body['kind'] = $request->kind;
+        }
+
+        if (null !== $request->outputs) {
+            @$body['outputs'] = $request->outputs;
+        }
+
+        if (null !== $request->processors) {
+            @$body['processors'] = $request->processors;
+        }
+
+        if (null !== $request->sinks) {
+            @$body['sinks'] = $request->sinks;
+        }
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataPipeline',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/datapipeline/' . Url::percentEncode($pipelineName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a DataPipeline.
+     *
+     * @remarks
+     * Modifies a specified data pipeline by using a complete candidate configuration.
+     *
+     * @param request - UpdateDataPipelineRequest
+     *
+     * @returns UpdateDataPipelineResponse
+     *
+     * @param string                    $workspace
+     * @param string                    $pipelineName
+     * @param UpdateDataPipelineRequest $request
+     *
+     * @return UpdateDataPipelineResponse
+     */
+    public function updateDataPipeline($workspace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDataPipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime);
     }
 
     /**
