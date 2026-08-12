@@ -38,6 +38,11 @@ class HttpApiDeployConfig extends Model
     public $customDomainInfos;
 
     /**
+     * @var bool
+     */
+    public $enableSystemModels;
+
+    /**
      * @var string[]
      */
     public $envDomainIds;
@@ -97,6 +102,7 @@ class HttpApiDeployConfig extends Model
         'builtinRouteNames' => 'builtinRouteNames',
         'customDomainIds' => 'customDomainIds',
         'customDomainInfos' => 'customDomainInfos',
+        'enableSystemModels' => 'enableSystemModels',
         'envDomainIds' => 'envDomainIds',
         'envDomainInfos' => 'envDomainInfos',
         'environmentId' => 'environmentId',
@@ -190,6 +196,10 @@ class HttpApiDeployConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->enableSystemModels) {
+            $res['enableSystemModels'] = $this->enableSystemModels;
         }
 
         if (null !== $this->envDomainIds) {
@@ -321,6 +331,10 @@ class HttpApiDeployConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['enableSystemModels'])) {
+            $model->enableSystemModels = $map['enableSystemModels'];
         }
 
         if (isset($map['envDomainIds'])) {

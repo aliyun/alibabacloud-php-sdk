@@ -11,6 +11,11 @@ class services extends Model
     /**
      * @var string
      */
+    public $modelName;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -38,6 +43,7 @@ class services extends Model
      */
     public $weight;
     protected $_name = [
+        'modelName' => 'modelName',
         'name' => 'name',
         'port' => 'port',
         'protocol' => 'protocol',
@@ -54,6 +60,10 @@ class services extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->modelName) {
+            $res['modelName'] = $this->modelName;
+        }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -89,6 +99,10 @@ class services extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['modelName'])) {
+            $model->modelName = $map['modelName'];
+        }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

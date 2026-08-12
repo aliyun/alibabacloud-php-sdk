@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class services extends Model
 {
     /**
+     * @var string
+     */
+    public $modelName;
+
+    /**
      * @var int
      */
     public $port;
@@ -33,6 +38,7 @@ class services extends Model
      */
     public $weight;
     protected $_name = [
+        'modelName' => 'modelName',
         'port' => 'port',
         'protocol' => 'protocol',
         'serviceId' => 'serviceId',
@@ -48,6 +54,10 @@ class services extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->modelName) {
+            $res['modelName'] = $this->modelName;
+        }
+
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
@@ -79,6 +89,10 @@ class services extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['modelName'])) {
+            $model->modelName = $map['modelName'];
+        }
+
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }

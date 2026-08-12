@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\Backend\services;
 class Backend extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableSystemModels;
+
+    /**
      * @var string
      */
     public $scene;
@@ -19,6 +24,7 @@ class Backend extends Model
      */
     public $services;
     protected $_name = [
+        'enableSystemModels' => 'enableSystemModels',
         'scene' => 'scene',
         'services' => 'services',
     ];
@@ -34,6 +40,10 @@ class Backend extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableSystemModels) {
+            $res['enableSystemModels'] = $this->enableSystemModels;
+        }
+
         if (null !== $this->scene) {
             $res['scene'] = $this->scene;
         }
@@ -60,6 +70,10 @@ class Backend extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['enableSystemModels'])) {
+            $model->enableSystemModels = $map['enableSystemModels'];
+        }
+
         if (isset($map['scene'])) {
             $model->scene = $map['scene'];
         }

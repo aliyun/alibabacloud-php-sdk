@@ -5327,7 +5327,7 @@ class APIG extends OpenApiClient
      * Retrieves an MCP server.
      *
      * @remarks
-     * The operation supports creating multiple services.
+     * This operation supports creating multiple services.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5364,7 +5364,7 @@ class APIG extends OpenApiClient
      * Retrieves an MCP server.
      *
      * @remarks
-     * The operation supports creating multiple services.
+     * This operation supports creating multiple services.
      *
      * @returns GetMcpServerResponse
      *
@@ -5931,7 +5931,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+     * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
      *
      * @param request - ImportHttpApiRequest
      * @param headers - map
@@ -6025,7 +6025,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+     * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
      *
      * @param request - ImportHttpApiRequest
      *
@@ -7206,7 +7206,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of API operations.
+     * Retrieves the list of API operations.
      *
      * @param request - ListHttpApiOperationsRequest
      * @param headers - map
@@ -7297,7 +7297,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of API operations.
+     * Retrieves the list of API operations.
      *
      * @param request - ListHttpApiOperationsRequest
      *
@@ -7652,7 +7652,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of plug-in mounts.
+     * Retrieves the list of plugin mounts.
      *
      * @param request - ListPluginAttachmentsRequest
      * @param headers - map
@@ -7726,7 +7726,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of plug-in mounts.
+     * Retrieves the list of plugin mounts.
      *
      * @param request - ListPluginAttachmentsRequest
      *
@@ -10439,7 +10439,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a route of an HttpApi.
+     * Updates the route of an HTTP API.
      *
      * @param request - UpdateHttpApiRouteRequest
      * @param headers - map
@@ -10507,7 +10507,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a route of an HttpApi.
+     * Updates the route of an HTTP API.
      *
      * @param request - UpdateHttpApiRouteRequest
      *
