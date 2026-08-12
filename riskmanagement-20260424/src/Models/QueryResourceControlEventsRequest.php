@@ -31,6 +31,11 @@ class QueryResourceControlEventsRequest extends Model
     /**
      * @var string[]
      */
+    public $businessCodes;
+
+    /**
+     * @var string[]
+     */
     public $caseCodesPrefix;
 
     /**
@@ -137,6 +142,7 @@ class QueryResourceControlEventsRequest extends Model
         'actionCodes' => 'ActionCodes',
         'aliyunLang' => 'AliyunLang',
         'businessCode' => 'BusinessCode',
+        'businessCodes' => 'BusinessCodes',
         'caseCodesPrefix' => 'CaseCodesPrefix',
         'current' => 'Current',
         'domain' => 'Domain',
@@ -164,6 +170,9 @@ class QueryResourceControlEventsRequest extends Model
     {
         if (\is_array($this->actionCodes)) {
             Model::validateArray($this->actionCodes);
+        }
+        if (\is_array($this->businessCodes)) {
+            Model::validateArray($this->businessCodes);
         }
         if (\is_array($this->caseCodesPrefix)) {
             Model::validateArray($this->caseCodesPrefix);
@@ -219,6 +228,17 @@ class QueryResourceControlEventsRequest extends Model
 
         if (null !== $this->businessCode) {
             $res['BusinessCode'] = $this->businessCode;
+        }
+
+        if (null !== $this->businessCodes) {
+            if (\is_array($this->businessCodes)) {
+                $res['BusinessCodes'] = [];
+                $n1 = 0;
+                foreach ($this->businessCodes as $item1) {
+                    $res['BusinessCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->caseCodesPrefix) {
@@ -400,6 +420,17 @@ class QueryResourceControlEventsRequest extends Model
 
         if (isset($map['BusinessCode'])) {
             $model->businessCode = $map['BusinessCode'];
+        }
+
+        if (isset($map['BusinessCodes'])) {
+            if (!empty($map['BusinessCodes'])) {
+                $model->businessCodes = [];
+                $n1 = 0;
+                foreach ($map['BusinessCodes'] as $item1) {
+                    $model->businessCodes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['CaseCodesPrefix'])) {

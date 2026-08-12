@@ -31,6 +31,11 @@ class QueryResourceControlEventsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $businessCodesShrink;
+
+    /**
+     * @var string
+     */
     public $caseCodesPrefixShrink;
 
     /**
@@ -137,6 +142,7 @@ class QueryResourceControlEventsShrinkRequest extends Model
         'actionCodesShrink' => 'ActionCodes',
         'aliyunLang' => 'AliyunLang',
         'businessCode' => 'BusinessCode',
+        'businessCodesShrink' => 'BusinessCodes',
         'caseCodesPrefixShrink' => 'CaseCodesPrefix',
         'current' => 'Current',
         'domain' => 'Domain',
@@ -182,6 +188,10 @@ class QueryResourceControlEventsShrinkRequest extends Model
 
         if (null !== $this->businessCode) {
             $res['BusinessCode'] = $this->businessCode;
+        }
+
+        if (null !== $this->businessCodesShrink) {
+            $res['BusinessCodes'] = $this->businessCodesShrink;
         }
 
         if (null !== $this->caseCodesPrefixShrink) {
@@ -293,6 +303,10 @@ class QueryResourceControlEventsShrinkRequest extends Model
 
         if (isset($map['BusinessCode'])) {
             $model->businessCode = $map['BusinessCode'];
+        }
+
+        if (isset($map['BusinessCodes'])) {
+            $model->businessCodesShrink = $map['BusinessCodes'];
         }
 
         if (isset($map['CaseCodesPrefix'])) {

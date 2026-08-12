@@ -103,6 +103,9 @@ class RiskManagement extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'public' => 'riskmanagement.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('riskmanagement', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -132,7 +135,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-绑定授权到机器.
+     * Bindss authorization to machines in Security Center.
      *
      * @param tmpReq - BindAuthToMachineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -181,7 +184,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-绑定授权到机器.
+     * Bindss authorization to machines in Security Center.
      *
      * @param request - BindAuthToMachineRequest
      *
@@ -199,7 +202,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-初始化云安全中心模块规则.
+     * Initializes Security Center module rules.
      *
      * @param tmpReq - CreateSasTrialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -248,7 +251,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-初始化云安全中心模块规则.
+     * Initializes Security Center module rules.
      *
      * @param request - CreateSasTrialRequest
      *
@@ -266,7 +269,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-创建服务关联角色.
+     * Creates a service-linked role for Security Center and authorizes Security Center to access cloud resources.
      *
      * @param tmpReq - CreateServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -315,7 +318,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-创建服务关联角色.
+     * Creates a service-linked role for Security Center and authorizes Security Center to access cloud resources.
      *
      * @param request - CreateServiceLinkedRoleRequest
      *
@@ -333,7 +336,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 创建全盘扫描任务
+     * Creates a full disk scan task.
      *
      * @param request - CreateVirusScanOnceTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -380,7 +383,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 创建全盘扫描任务
+     * Creates a full disk scan task.
      *
      * @param request - CreateVirusScanOnceTaskRequest
      *
@@ -398,7 +401,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-查询云安全中心实例列表.
+     * Queries the list of Security Center instances.
      *
      * @param tmpReq - DescribeCloudCenterInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -447,7 +450,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-查询云安全中心实例列表.
+     * Queries the list of Security Center instances.
      *
      * @param request - DescribeCloudCenterInstancesRequest
      *
@@ -465,7 +468,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-查询服务关联角色状态
+     * Queries the status of a service-linked role for Security Center.
      *
      * @param tmpReq - DescribeServiceLinkedRoleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -514,7 +517,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-查询服务关联角色状态
+     * Queries the status of a service-linked role for Security Center.
      *
      * @param request - DescribeServiceLinkedRoleStatusRequest
      *
@@ -532,7 +535,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-查询安全告警事件.
+     * Queries security alert events in Security Center.
      *
      * @param tmpReq - DescribeSuspEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -581,7 +584,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-查询安全告警事件.
+     * Queries security alert events in Security Center.
      *
      * @param request - DescribeSuspEventsRequest
      *
@@ -599,7 +602,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-查看已购买的云安全中心实例的版本详情.
+     * Queries the edition details of a purchased Security Center instance.
      *
      * @param tmpReq - DescribeVersionConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -648,7 +651,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-查看已购买的云安全中心实例的版本详情.
+     * Queries the edition details of a purchased Security Center instance.
      *
      * @param request - DescribeVersionConfigRequest
      *
@@ -666,7 +669,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取告警记录分析结果.
+     * Retrieves the analysis results of alert records.
      *
      * @param tmpReq - GetAlertRecordAnalysisResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -727,7 +730,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取告警记录分析结果.
+     * Retrieves the analysis results of alert records.
      *
      * @param request - GetAlertRecordAnalysisResultRequest
      *
@@ -745,7 +748,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 调用云安全中心部分接口.
+     * Calls specific Security Center API operations.
      *
      * @param tmpReq - GetAliYunSafeCenterResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -854,7 +857,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 调用云安全中心部分接口.
+     * Calls specific Security Center API operations.
      *
      * @param request - GetAliYunSafeCenterResultRequest
      *
@@ -872,7 +875,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-获取能否试用.
+     * Queries whether a user is eligible for a Security Center free trial.
      *
      * @param tmpReq - GetCanTrySasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -921,7 +924,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-获取能否试用.
+     * Queries whether a user is eligible for a Security Center free trial.
      *
      * @param request - GetCanTrySasRequest
      *
@@ -939,7 +942,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全合规包id.
+     * Retrieves the security compliance package ID.
      *
      * @param request - GetCompliancePackIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -971,7 +974,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全合规包id.
+     * Retrieves the security compliance package ID.
      *
      * @param request - GetCompliancePackIdRequest
      *
@@ -989,7 +992,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取一键处置赋权状态
+     * Retrieves the authorization status for one-click disposal.
      *
      * @param request - GetDisposalToolStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1028,7 +1031,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取一键处置赋权状态
+     * Retrieves the authorization status for one-click disposal.
      *
      * @param request - GetDisposalToolStatusRequest
      *
@@ -1046,7 +1049,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取用户确认安全联系人记录.
+     * Retrieves the record of a user confirming a security contact.
      *
      * @param request - GetNotificationClickRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1078,7 +1081,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取用户确认安全联系人记录.
+     * Retrieves the record of a user confirming a security contact.
      *
      * @param request - GetNotificationClickRecordRequest
      *
@@ -1096,7 +1099,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全联系人全部信息.
+     * Retrieves all information about security contacts.
      *
      * @param request - GetNotificationContactsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1128,7 +1131,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全联系人全部信息.
+     * Retrieves all information about security contacts.
      *
      * @param request - GetNotificationContactsRequest
      *
@@ -1146,7 +1149,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全联系人待处理数.
+     * Retrieves the number of pending items for security contacts.
      *
      * @param request - GetNotificationPendNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1178,7 +1181,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全联系人待处理数.
+     * Retrieves the number of pending items for security contacts.
      *
      * @param request - GetNotificationPendNumberRequest
      *
@@ -1196,7 +1199,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询云资源管控事件详情.
+     * Queries the details of cloud resource control events.
      *
      * @param tmpReq - GetResourceControlEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1249,7 +1252,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询云资源管控事件详情.
+     * Queries the details of cloud resource control events.
      *
      * @param request - GetResourceControlEventRequest
      *
@@ -1267,7 +1270,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全体检基础信息.
+     * Retrieves the basic information of a security check.
      *
      * @param request - GetSecurityCheckBaseInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1299,7 +1302,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全体检基础信息.
+     * Retrieves the basic information of a security check.
      *
      * @param request - GetSecurityCheckBaseInfoRequest
      *
@@ -1317,7 +1320,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全检查结果基础信息.
+     * Retrieves the basic information of security check results.
      *
      * @param request - GetSecurityCheckResultBaseInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1349,7 +1352,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全检查结果基础信息.
+     * Retrieves the basic information of security check results.
      *
      * @param request - GetSecurityCheckResultBaseInfoRequest
      *
@@ -1367,7 +1370,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全优化建议列表.
+     * Retrieves a list of security optimization suggestions.
      *
      * @param tmpReq - GetSecuritySuggestionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1412,7 +1415,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全优化建议列表.
+     * Retrieves a list of security optimization suggestions.
      *
      * @param request - GetSecuritySuggestionListRequest
      *
@@ -1430,7 +1433,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全优化建议条数.
+     * Retrieves the number of security optimization suggestions.
      *
      * @param request - GetSecuritySuggestionNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1462,7 +1465,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取安全优化建议条数.
+     * Retrieves the number of security optimization suggestions.
      *
      * @param request - GetSecuritySuggestionNumberRequest
      *
@@ -1480,7 +1483,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取服务关联角色状态
+     * Retrieves the status of a service-linked role.
      *
      * @param request - GetServiceLinkedRoleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1519,7 +1522,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 获取服务关联角色状态
+     * Retrieves the status of a service-linked role.
      *
      * @param request - GetServiceLinkedRoleStatusRequest
      *
@@ -1537,7 +1540,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-获取有效抵扣实例.
+     * Retrieves valid deductible instances for Security Center.
      *
      * @param tmpReq - GetValidDeductInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1586,7 +1589,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-获取有效抵扣实例.
+     * Retrieves valid deductible instances for Security Center.
      *
      * @param request - GetValidDeductInstancesRequest
      *
@@ -1604,7 +1607,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-初始化云安全中心模块规则.
+     * Initializes module rules for Security Center.
      *
      * @param tmpReq - InitSasModuleRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1661,7 +1664,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-初始化云安全中心模块规则.
+     * Initializes module rules for Security Center.
      *
      * @param request - InitSasModuleRuleRequest
      *
@@ -1679,7 +1682,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询全盘扫描结果.
+     * Queries the results of a full disk scan.
      *
      * @param request - ListVirusScanMachineEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1738,7 +1741,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询全盘扫描结果.
+     * Queries the results of a full disk scan.
      *
      * @param request - ListVirusScanMachineEventRequest
      *
@@ -1756,7 +1759,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-开启试用套餐.
+     * Starts a free trial of Security Center.
      *
      * @param request - OpenTrialPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1799,7 +1802,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-开启试用套餐.
+     * Starts a free trial of Security Center.
      *
      * @param request - OpenTrialPackageRequest
      *
@@ -1817,7 +1820,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询账号安全事件.
+     * Queries account security events.
      *
      * @param request - QueryAccountSafetyIncidentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1888,7 +1891,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询账号安全事件.
+     * Queries account security events.
      *
      * @param request - QueryAccountSafetyIncidentRequest
      *
@@ -1906,7 +1909,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询云上安全指南的订阅状态
+     * Queries the subscription status of the cloud security guide.
      *
      * @param request - QueryGuideSubStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1938,7 +1941,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询云上安全指南的订阅状态
+     * Queries the subscription status of the cloud security guide.
      *
      * @param request - QueryGuideSubStatusRequest
      *
@@ -1956,7 +1959,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询云资源管控事件.
+     * Queries cloud resource control events.
      *
      * @param tmpReq - QueryResourceControlEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1975,6 +1978,10 @@ class RiskManagement extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->actionCodes) {
             $request->actionCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionCodes, 'ActionCodes', 'json');
+        }
+
+        if (null !== $tmpReq->businessCodes) {
+            $request->businessCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->businessCodes, 'BusinessCodes', 'json');
         }
 
         if (null !== $tmpReq->caseCodesPrefix) {
@@ -2028,6 +2035,10 @@ class RiskManagement extends OpenApiClient
 
         if (null !== $request->businessCode) {
             @$query['BusinessCode'] = $request->businessCode;
+        }
+
+        if (null !== $request->businessCodesShrink) {
+            @$query['BusinessCodes'] = $request->businessCodesShrink;
         }
 
         if (null !== $request->caseCodesPrefixShrink) {
@@ -2133,7 +2144,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询云资源管控事件.
+     * Queries cloud resource control events.
      *
      * @param request - QueryResourceControlEventsRequest
      *
@@ -2151,7 +2162,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询安全体检简报.
+     * Queries the security check brief.
      *
      * @param request - QuerySecurityCheckReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2183,7 +2194,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询安全体检简报.
+     * Queries the security check brief.
      *
      * @param request - QuerySecurityCheckReportRequest
      *
@@ -2201,7 +2212,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 开启处置工具授权.
+     * Enables disposal tool authorization.
      *
      * @param request - StartDisposalToolServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2240,7 +2251,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 开启处置工具授权.
+     * Enables disposal tool authorization.
      *
      * @param request - StartDisposalToolServiceRequest
      *
@@ -2258,7 +2269,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 开启安全体检
+     * Enables security check.
      *
      * @param request - StartSecurityCheckServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2290,7 +2301,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 开启安全体检
+     * Enables security check.
      *
      * @param request - StartSecurityCheckServiceRequest
      *
@@ -2308,7 +2319,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 申请解封
+     * Submits an unblocking request.
      *
      * @param tmpReq - SubmitApplyRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2373,7 +2384,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 申请解封
+     * Submits an unblocking request.
      *
      * @param request - SubmitApplyRecordRequest
      *
@@ -2391,7 +2402,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-更新后付费绑定关系.
+     * Updates the pay-as-you-go binding relationship for Security Center.
      *
      * @param tmpReq - UpdatePostPaidBindRelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2440,7 +2451,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * sas-更新后付费绑定关系.
+     * Updates the pay-as-you-go binding relationship for Security Center.
      *
      * @param request - UpdatePostPaidBindRelRequest
      *
@@ -2458,7 +2469,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 更新体检结果.
+     * Updates the health check result.
      *
      * @param request - UpdateSecurityCheckResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2490,7 +2501,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 更新体检结果.
+     * Updates the health check result.
      *
      * @param request - UpdateSecurityCheckResultRequest
      *
