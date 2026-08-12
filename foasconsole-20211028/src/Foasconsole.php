@@ -81,7 +81,28 @@ class Foasconsole extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'central';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-qingdao' => 'foasconsole.cn-qingdao.aliyuncs.com',
+            'cn-wulanchabu' => 'foasconsole.cn-wulanchabu.aliyuncs.com',
+            'cn-beijing' => 'foasconsole.cn-beijing.aliyuncs.com',
+            'cn-shanghai' => 'foasconsole.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'foasconsole.cn-hongkong.aliyuncs.com',
+            'cn-zhangjiakou' => 'foasconsole.cn-zhangjiakou.aliyuncs.com',
+            'cn-shenzhen' => 'foasconsole.cn-shenzhen.aliyuncs.com',
+            'ap-northeast-1' => 'foasconsole.ap-northeast-1.aliyuncs.com',
+            'ap-southeast-1' => 'foasconsole.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'foasconsole.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'foasconsole.ap-southeast-5.aliyuncs.com',
+            'cn-hangzhou' => 'foasconsole.cn-hangzhou.aliyuncs.com',
+            'us-east-1' => 'foasconsole.us-east-1.aliyuncs.com',
+            'eu-west-1' => 'foasconsole.eu-west-1.aliyuncs.com',
+            'us-west-1' => 'foasconsole.us-west-1.aliyuncs.com',
+            'eu-central-1' => 'foasconsole.eu-central-1.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'foasconsole.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'foasconsole.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-north-2-gov-1' => 'foasconsole.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('foasconsole', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -111,7 +132,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * 开通弹性计算.
+     * Converts a subscription instance to a hybrid billing instance.
+     *
+     * @remarks
+     * *Before using this API, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Realtime Compute for Apache Flink.**
      *
      * @param tmpReq - ConvertHybridInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -164,7 +188,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * 开通弹性计算.
+     * Converts a subscription instance to a hybrid billing instance.
+     *
+     * @remarks
+     * *Before using this API, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Realtime Compute for Apache Flink.**
      *
      * @param request - ConvertHybridInstanceRequest
      *
@@ -182,7 +209,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of a workspace from pay-as-you-go to subscription.
+     * Converts a pay-as-you-go workspace to a subscription workspace.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-pay-as-you-go-to-subscription) of fully managed Flink.**
      *
      * @param tmpReq - ConvertInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -255,7 +285,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of a workspace from pay-as-you-go to subscription.
+     * Converts a pay-as-you-go workspace to a subscription workspace.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-pay-as-you-go-to-subscription) of fully managed Flink.**
      *
      * @param request - ConvertInstanceRequest
      *
@@ -273,7 +306,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of a workspace from subscription to pay-as-you-go.
+     * Converts a subscription instance to pay-as-you-go.
+     *
+     * @remarks
+     * Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-subscription-to-pay-as-you-go) of Alibaba Cloud Realtime Compute for Apache Flink.
      *
      * @param request - ConvertPrepayInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -316,7 +352,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of a workspace from subscription to pay-as-you-go.
+     * Converts a subscription instance to pay-as-you-go.
+     *
+     * @remarks
+     * Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-subscription-to-pay-as-you-go) of Alibaba Cloud Realtime Compute for Apache Flink.
      *
      * @param request - ConvertPrepayInstanceRequest
      *
@@ -334,7 +373,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Creates a subscription workspace or a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+     * Creates a subscription or pay-as-you-go fully managed Flink workspace.
+     *
+     * @remarks
+     * *Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink before you call this operation.**
      *
      * @param tmpReq - CreateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -475,7 +517,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Creates a subscription workspace or a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+     * Creates a subscription or pay-as-you-go fully managed Flink workspace.
+     *
+     * @remarks
+     * *Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink before you call this operation.**
      *
      * @param request - CreateInstanceRequest
      *
@@ -493,7 +538,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Creates a namespace in a Realtime Compute for Apache Flink workspace.
+     * Creates a workspace in a fully managed Flink instance.
      *
      * @param tmpReq - CreateNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -554,7 +599,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Creates a namespace in a Realtime Compute for Apache Flink workspace.
+     * Creates a workspace in a fully managed Flink instance.
      *
      * @param request - CreateNamespaceRequest
      *
@@ -572,7 +617,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Deletes a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+     * Releases a pay-as-you-go Realtime Compute for Apache Flink workspace.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/refund-policy) of Realtime Compute for Apache Flink.**
      *
      * @param request - DeleteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -615,7 +663,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Deletes a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+     * Releases a pay-as-you-go Realtime Compute for Apache Flink workspace.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/refund-policy) of Realtime Compute for Apache Flink.**
      *
      * @param request - DeleteInstanceRequest
      *
@@ -633,7 +684,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Deletes a namespace.
+     * Deletes a project workspace.
      *
      * @param request - DeleteNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -680,7 +731,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Deletes a namespace.
+     * Deletes a project workspace.
      *
      * @param request - DeleteNamespaceRequest
      *
@@ -698,7 +749,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the details of one or more Realtime Compute for Apache Flink workspaces.
+     * Queries the details of one or more fully managed Flink workspaces.
      *
      * @param tmpReq - DescribeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -739,7 +790,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the details of one or more Realtime Compute for Apache Flink workspaces.
+     * Queries the details of one or more fully managed Flink workspaces.
      *
      * @param request - DescribeInstancesRequest
      *
@@ -757,7 +808,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the information about a namespace that belongs to a workspace.
+     * Queries the namespace information of a specified instance.
      *
      * @param tmpReq - DescribeNamespacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -798,7 +849,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the information about a namespace that belongs to a workspace.
+     * Queries the namespace information of a specified instance.
      *
      * @param request - DescribeNamespacesRequest
      *
@@ -816,9 +867,8 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the regions that are available in which Realtime Compute for Apache Flink is supported.
+     * Retrieves information about regions that support purchases of fully managed Flink.
      *
-     * @param request - DescribeSupportedRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSupportedRegionsResponse
@@ -846,7 +896,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the regions that are available in which Realtime Compute for Apache Flink is supported.
+     * Retrieves information about regions that support purchases of fully managed Flink.
      *
      * @returns DescribeSupportedRegionsResponse
      *
@@ -860,7 +910,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Obtains the zones that are supported by Realtime Compute for Apache Flink.
+     * Retrieves information about zones that are available for purchase.
      *
      * @param request - DescribeSupportedZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -895,7 +945,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Obtains the zones that are supported by Realtime Compute for Apache Flink.
+     * Retrieves information about zones that are available for purchase.
      *
      * @param request - DescribeSupportedZonesRequest
      *
@@ -913,7 +963,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the tags of specified resources. You can query the key of a tag by tag value, or query the value of a tag by tag key. You can also obtain information about all tags that you use in a workspace in the console of fully managed Flink.
+     * Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -968,7 +1018,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the tags of specified resources. You can query the key of a tag by tag value, or query the value of a tag by tag key. You can also obtain information about all tags that you use in a workspace in the console of fully managed Flink.
+     * Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -986,7 +1036,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * 对按量弹性实例修改resource quota.
+     * Modifies the maximum pay-as-you-go resource limit for a hybrid billing instance.
+     *
+     * @remarks
+     * Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
      *
      * @param tmpReq - ModifyElasticResourceSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1039,7 +1092,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * 对按量弹性实例修改resource quota.
+     * Modifies the maximum pay-as-you-go resource limit for a hybrid billing instance.
+     *
+     * @remarks
+     * Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
      *
      * @param request - ModifyElasticResourceSpecRequest
      *
@@ -1057,7 +1113,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Scale in or out a workspace to reconfigure resources for the workspace.
+     * Scales up or scales down the resources of a workspace.
+     *
+     * @remarks
+     * Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
      *
      * @param tmpReq - ModifyInstanceSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1138,7 +1197,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Scale in or out a workspace to reconfigure resources for the workspace.
+     * Scales up or scales down the resources of a workspace.
+     *
+     * @remarks
+     * Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
      *
      * @param request - ModifyInstanceSpecRequest
      *
@@ -1156,7 +1218,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * 修改集群交换机.
+     * Modifies the vSwitches available to a Flink workspace.
+     *
+     * @remarks
+     * Before using this operation, make sure that you fully understand the restrictions on [modifying vSwitches](https://www.alibabacloud.com/help/en/flink/user-guide/modify-a-vswitch) in Realtime Compute for Apache Flink.
      *
      * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
      *
@@ -1216,7 +1281,10 @@ class Foasconsole extends OpenApiClient
 
     // Deprecated
     /**
-     * 修改集群交换机.
+     * Modifies the vSwitches available to a Flink workspace.
+     *
+     * @remarks
+     * Before using this operation, make sure that you fully understand the restrictions on [modifying vSwitches](https://www.alibabacloud.com/help/en/flink/user-guide/modify-a-vswitch) in Realtime Compute for Apache Flink.
      *
      * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
      *
@@ -1236,7 +1304,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * 修改namespace资源，包含按量和包年包月、混合计费.
+     * Modifies the resource configurations of a project namespace in a pay-as-you-go, subscription, or hybrid billing workspace.
+     *
+     * @remarks
+     * >When calling this operation, note the following: - The order status must be normal, that is, OrderType=NORMAL. - When decreasing the quota, the specified resource specification quantity cannot be less than the quantity already in use. For details about the project resource specifications before and after the change, call [DescribeNamespaces](https://help.aliyun.com/document_detail/323441.html).
      *
      * @param tmpReq - ModifyNamespaceSpecV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1307,7 +1378,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * 修改namespace资源，包含按量和包年包月、混合计费.
+     * Modifies the resource configurations of a project namespace in a pay-as-you-go, subscription, or hybrid billing workspace.
+     *
+     * @remarks
+     * >When calling this operation, note the following: - The order status must be normal, that is, OrderType=NORMAL. - When decreasing the quota, the specified resource specification quantity cannot be less than the quantity already in use. For details about the project resource specifications before and after the change, call [DescribeNamespaces](https://help.aliyun.com/document_detail/323441.html).
      *
      * @param request - ModifyNamespaceSpecV2Request
      *
@@ -1325,7 +1399,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of the computing resources of a subscription fully managed Flink workspace. If the number of computing resources after the modification is less than the current number of computing resources, the scale-in operation is performed. If the number of computing resources after the modification is larger than the current number of computing resources, the scale-out operation is performed.
+     * Modifies the compute resource specifications of a subscription Realtime Compute for Apache Flink instance. If the new specifications are smaller than the current specifications, a scale-in operation is performed. If the new specifications are larger than the current specifications, a scale-out operation is performed.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/subscription) of Realtime Compute for Apache Flink.**
      *
      * @deprecated openAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead
      *
@@ -1405,7 +1482,10 @@ class Foasconsole extends OpenApiClient
 
     // Deprecated
     /**
-     * Modifies the configuration of the computing resources of a subscription fully managed Flink workspace. If the number of computing resources after the modification is less than the current number of computing resources, the scale-in operation is performed. If the number of computing resources after the modification is larger than the current number of computing resources, the scale-out operation is performed.
+     * Modifies the compute resource specifications of a subscription Realtime Compute for Apache Flink instance. If the new specifications are smaller than the current specifications, a scale-in operation is performed. If the new specifications are larger than the current specifications, a scale-out operation is performed.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/subscription) of Realtime Compute for Apache Flink.**
      *
      * @deprecated openAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead
      *
@@ -1425,7 +1505,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Modifies the resource configurations of a namespace in a subscription workspace.
+     * Modifies the specifications of a namespace in a subscription instance.
      *
      * @deprecated openAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead
      *
@@ -1485,7 +1565,7 @@ class Foasconsole extends OpenApiClient
 
     // Deprecated
     /**
-     * Modifies the resource configurations of a namespace in a subscription workspace.
+     * Modifies the specifications of a namespace in a subscription instance.
      *
      * @deprecated openAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead
      *
@@ -1505,7 +1585,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the fee of switching the billing method of a workspace from pay-as-you-go to subscription.
+     * Queries the price for converting a pay-as-you-go instance to a subscription instance.
      *
      * @param tmpReq - QueryConvertInstancePriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1578,7 +1658,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the fee of switching the billing method of a workspace from pay-as-you-go to subscription.
+     * Queries the price for converting a pay-as-you-go instance to a subscription instance.
      *
      * @param request - QueryConvertInstancePriceRequest
      *
@@ -1596,7 +1676,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Obtains the estimated refund after the billing method of your Realtime Compute for Apache Flink workspace is changed from subscription to pay-as-you-go. After you change the billing method of your workspace to pay-as-you-go, bills are generated on an hourly basis.
+     * Queries the estimated refund amount after converting your Flink instance from subscription to pay-as-you-go. After the conversion, your usage is metered hourly and bills are generated accordingly.
      *
      * @param request - QueryConvertPrepayInstancePriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1639,7 +1719,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Obtains the estimated refund after the billing method of your Realtime Compute for Apache Flink workspace is changed from subscription to pay-as-you-go. After you change the billing method of your workspace to pay-as-you-go, bills are generated on an hourly basis.
+     * Queries the estimated refund amount after converting your Flink instance from subscription to pay-as-you-go. After the conversion, your usage is metered hourly and bills are generated accordingly.
      *
      * @param request - QueryConvertPrepayInstancePriceRequest
      *
@@ -1657,7 +1737,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the fee of creating a workspace.
+     * Retrieves the price of a workspace for the current account.
      *
      * @param tmpReq - QueryCreateInstancePriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1774,7 +1854,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the fee of creating a workspace.
+     * Retrieves the price of a workspace for the current account.
      *
      * @param request - QueryCreateInstancePriceRequest
      *
@@ -1792,7 +1872,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the fee of modifying the resource configuration of a workspace.
+     * Queries the price for upgrading or downgrading an instance.
      *
      * @param tmpReq - QueryModifyInstancePriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1873,7 +1953,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the fee of modifying the resource configuration of a workspace.
+     * Queries the price for upgrading or downgrading an instance.
      *
      * @param request - QueryModifyInstancePriceRequest
      *
@@ -1891,7 +1971,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the fee of renewing a subscription workspace.
+     * Queries the renewal price of a subscription workspace.
      *
      * @param request - QueryRenewInstancePriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1950,7 +2030,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Queries the fee of renewing a subscription workspace.
+     * Queries the renewal price of a subscription workspace.
      *
      * @param request - QueryRenewInstancePriceRequest
      *
@@ -1968,7 +2048,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Renews a subscription workspace of Realtime Compute for Apache Flink.
+     * Renews a subscription Realtime Compute for Apache Flink workspace.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of Realtime Compute for Apache Flink.**
      *
      * @param request - RenewInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2027,7 +2110,10 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Renews a subscription workspace of Realtime Compute for Apache Flink.
+     * Renews a subscription Realtime Compute for Apache Flink workspace.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of Realtime Compute for Apache Flink.**
      *
      * @param request - RenewInstanceRequest
      *
@@ -2045,7 +2131,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Adds tags to specified resources.
+     * Call this API to add tags to resources.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2096,7 +2182,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Adds tags to specified resources.
+     * Call this API to add tags to resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -2114,7 +2200,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Removes tags from specified resources.
+     * Deletes resource tags.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2169,7 +2255,7 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * Removes tags from specified resources.
+     * Deletes resource tags.
      *
      * @param request - UntagResourcesRequest
      *

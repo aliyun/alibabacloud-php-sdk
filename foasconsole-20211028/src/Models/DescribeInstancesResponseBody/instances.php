@@ -172,6 +172,11 @@ class instances extends Model
     public $storage;
 
     /**
+     * @var bool
+     */
+    public $supportDisasterRecoveryDrill;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -236,6 +241,7 @@ class instances extends Model
         'resourceId' => 'ResourceId',
         'resourceSpec' => 'ResourceSpec',
         'storage' => 'Storage',
+        'supportDisasterRecoveryDrill' => 'SupportDisasterRecoveryDrill',
         'tags' => 'Tags',
         'uid' => 'Uid',
         'vSwitchIds' => 'VSwitchIds',
@@ -439,6 +445,10 @@ class instances extends Model
             $res['Storage'] = null !== $this->storage ? $this->storage->toArray($noStream) : $this->storage;
         }
 
+        if (null !== $this->supportDisasterRecoveryDrill) {
+            $res['SupportDisasterRecoveryDrill'] = $this->supportDisasterRecoveryDrill;
+        }
+
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
@@ -638,6 +648,10 @@ class instances extends Model
 
         if (isset($map['Storage'])) {
             $model->storage = storage::fromMap($map['Storage']);
+        }
+
+        if (isset($map['SupportDisasterRecoveryDrill'])) {
+            $model->supportDisasterRecoveryDrill = $map['SupportDisasterRecoveryDrill'];
         }
 
         if (isset($map['Tags'])) {

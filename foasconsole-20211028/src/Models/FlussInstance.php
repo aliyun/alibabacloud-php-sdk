@@ -29,6 +29,11 @@ class FlussInstance extends Model
     public $diskSize;
 
     /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -74,6 +79,16 @@ class FlussInstance extends Model
     public $tabletServerType;
 
     /**
+     * @var int
+     */
+    public $tieringPostCu;
+
+    /**
+     * @var int
+     */
+    public $tieringPreCu;
+
+    /**
      * @var string
      */
     public $uid;
@@ -92,6 +107,7 @@ class FlussInstance extends Model
         'clusterStatus' => 'ClusterStatus',
         'consoleUrl' => 'ConsoleUrl',
         'diskSize' => 'DiskSize',
+        'ha' => 'Ha',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
         'orderState' => 'OrderState',
@@ -101,6 +117,8 @@ class FlussInstance extends Model
         'tabletServerModel' => 'TabletServerModel',
         'tabletServerNum' => 'TabletServerNum',
         'tabletServerType' => 'TabletServerType',
+        'tieringPostCu' => 'TieringPostCu',
+        'tieringPreCu' => 'TieringPreCu',
         'uid' => 'Uid',
         'vSwitches' => 'VSwitches',
         'vpcId' => 'VpcId',
@@ -134,6 +152,10 @@ class FlussInstance extends Model
 
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
+        }
+
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
         }
 
         if (null !== $this->instanceId) {
@@ -170,6 +192,14 @@ class FlussInstance extends Model
 
         if (null !== $this->tabletServerType) {
             $res['TabletServerType'] = $this->tabletServerType;
+        }
+
+        if (null !== $this->tieringPostCu) {
+            $res['TieringPostCu'] = $this->tieringPostCu;
+        }
+
+        if (null !== $this->tieringPreCu) {
+            $res['TieringPreCu'] = $this->tieringPreCu;
         }
 
         if (null !== $this->uid) {
@@ -218,6 +248,10 @@ class FlussInstance extends Model
             $model->diskSize = $map['DiskSize'];
         }
 
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -252,6 +286,14 @@ class FlussInstance extends Model
 
         if (isset($map['TabletServerType'])) {
             $model->tabletServerType = $map['TabletServerType'];
+        }
+
+        if (isset($map['TieringPostCu'])) {
+            $model->tieringPostCu = $map['TieringPostCu'];
+        }
+
+        if (isset($map['TieringPreCu'])) {
+            $model->tieringPreCu = $map['TieringPreCu'];
         }
 
         if (isset($map['Uid'])) {
