@@ -19,6 +19,11 @@ class DescribeHybridCloudGroupsRequest extends Model
     public $clusterProxyType;
 
     /**
+     * @var string
+     */
+    public $groupDisplayName;
+
+    /**
      * @var int
      */
     public $groupName;
@@ -55,6 +60,7 @@ class DescribeHybridCloudGroupsRequest extends Model
     protected $_name = [
         'clusterId' => 'ClusterId',
         'clusterProxyType' => 'ClusterProxyType',
+        'groupDisplayName' => 'GroupDisplayName',
         'groupName' => 'GroupName',
         'groupType' => 'GroupType',
         'instanceId' => 'InstanceId',
@@ -78,6 +84,10 @@ class DescribeHybridCloudGroupsRequest extends Model
 
         if (null !== $this->clusterProxyType) {
             $res['ClusterProxyType'] = $this->clusterProxyType;
+        }
+
+        if (null !== $this->groupDisplayName) {
+            $res['GroupDisplayName'] = $this->groupDisplayName;
         }
 
         if (null !== $this->groupName) {
@@ -125,6 +135,10 @@ class DescribeHybridCloudGroupsRequest extends Model
 
         if (isset($map['ClusterProxyType'])) {
             $model->clusterProxyType = $map['ClusterProxyType'];
+        }
+
+        if (isset($map['GroupDisplayName'])) {
+            $model->groupDisplayName = $map['GroupDisplayName'];
         }
 
         if (isset($map['GroupName'])) {

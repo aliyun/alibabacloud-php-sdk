@@ -16,12 +16,22 @@ class details extends Model
     /**
      * @var bool
      */
+    public $agenticApisec;
+
+    /**
+     * @var bool
+     */
     public $antiScan;
 
     /**
      * @var int
      */
     public $antiScanTemplateMaxCount;
+
+    /**
+     * @var bool
+     */
+    public $apisec;
 
     /**
      * @var int
@@ -186,6 +196,16 @@ class details extends Model
     /**
      * @var bool
      */
+    public $hybridCloud;
+
+    /**
+     * @var int
+     */
+    public $hybridCloudNodeExtend;
+
+    /**
+     * @var bool
+     */
     public $ipBlacklist;
 
     /**
@@ -227,6 +247,11 @@ class details extends Model
      * @var int
      */
     public $qpsBillingCap;
+
+    /**
+     * @var bool
+     */
+    public $resourceDirectory;
 
     /**
      * @var bool
@@ -284,8 +309,10 @@ class details extends Model
     public $whitelistTemplateMaxCount;
     protected $_name = [
         'aclRuleMaxIpCount' => 'AclRuleMaxIpCount',
+        'agenticApisec' => 'AgenticApisec',
         'antiScan' => 'AntiScan',
         'antiScanTemplateMaxCount' => 'AntiScanTemplateMaxCount',
+        'apisec' => 'Apisec',
         'backendMaxCount' => 'BackendMaxCount',
         'baseWafGroup' => 'BaseWafGroup',
         'baseWafGroupRuleInTemplateMaxCount' => 'BaseWafGroupRuleInTemplateMaxCount',
@@ -318,6 +345,8 @@ class details extends Model
         'gslb' => 'Gslb',
         'httpPorts' => 'HttpPorts',
         'httpsPorts' => 'HttpsPorts',
+        'hybridCloud' => 'HybridCloud',
+        'hybridCloudNodeExtend' => 'HybridCloudNodeExtend',
         'ipBlacklist' => 'IpBlacklist',
         'ipBlacklistIpInRuleMaxCount' => 'IpBlacklistIpInRuleMaxCount',
         'ipBlacklistRuleInTemplateMaxCount' => 'IpBlacklistRuleInTemplateMaxCount',
@@ -327,6 +356,7 @@ class details extends Model
         'majorProtection' => 'MajorProtection',
         'majorProtectionTemplateMaxCount' => 'MajorProtectionTemplateMaxCount',
         'qpsBillingCap' => 'QpsBillingCap',
+        'resourceDirectory' => 'ResourceDirectory',
         'tamperproof' => 'Tamperproof',
         'tamperproofRuleInTemplateMaxCount' => 'TamperproofRuleInTemplateMaxCount',
         'tamperproofTemplateMaxCount' => 'TamperproofTemplateMaxCount',
@@ -352,12 +382,20 @@ class details extends Model
             $res['AclRuleMaxIpCount'] = $this->aclRuleMaxIpCount;
         }
 
+        if (null !== $this->agenticApisec) {
+            $res['AgenticApisec'] = $this->agenticApisec;
+        }
+
         if (null !== $this->antiScan) {
             $res['AntiScan'] = $this->antiScan;
         }
 
         if (null !== $this->antiScanTemplateMaxCount) {
             $res['AntiScanTemplateMaxCount'] = $this->antiScanTemplateMaxCount;
+        }
+
+        if (null !== $this->apisec) {
+            $res['Apisec'] = $this->apisec;
         }
 
         if (null !== $this->backendMaxCount) {
@@ -488,6 +526,14 @@ class details extends Model
             $res['HttpsPorts'] = $this->httpsPorts;
         }
 
+        if (null !== $this->hybridCloud) {
+            $res['HybridCloud'] = $this->hybridCloud;
+        }
+
+        if (null !== $this->hybridCloudNodeExtend) {
+            $res['HybridCloudNodeExtend'] = $this->hybridCloudNodeExtend;
+        }
+
         if (null !== $this->ipBlacklist) {
             $res['IpBlacklist'] = $this->ipBlacklist;
         }
@@ -522,6 +568,10 @@ class details extends Model
 
         if (null !== $this->qpsBillingCap) {
             $res['QpsBillingCap'] = $this->qpsBillingCap;
+        }
+
+        if (null !== $this->resourceDirectory) {
+            $res['ResourceDirectory'] = $this->resourceDirectory;
         }
 
         if (null !== $this->tamperproof) {
@@ -583,12 +633,20 @@ class details extends Model
             $model->aclRuleMaxIpCount = $map['AclRuleMaxIpCount'];
         }
 
+        if (isset($map['AgenticApisec'])) {
+            $model->agenticApisec = $map['AgenticApisec'];
+        }
+
         if (isset($map['AntiScan'])) {
             $model->antiScan = $map['AntiScan'];
         }
 
         if (isset($map['AntiScanTemplateMaxCount'])) {
             $model->antiScanTemplateMaxCount = $map['AntiScanTemplateMaxCount'];
+        }
+
+        if (isset($map['Apisec'])) {
+            $model->apisec = $map['Apisec'];
         }
 
         if (isset($map['BackendMaxCount'])) {
@@ -719,6 +777,14 @@ class details extends Model
             $model->httpsPorts = $map['HttpsPorts'];
         }
 
+        if (isset($map['HybridCloud'])) {
+            $model->hybridCloud = $map['HybridCloud'];
+        }
+
+        if (isset($map['HybridCloudNodeExtend'])) {
+            $model->hybridCloudNodeExtend = $map['HybridCloudNodeExtend'];
+        }
+
         if (isset($map['IpBlacklist'])) {
             $model->ipBlacklist = $map['IpBlacklist'];
         }
@@ -753,6 +819,10 @@ class details extends Model
 
         if (isset($map['QpsBillingCap'])) {
             $model->qpsBillingCap = $map['QpsBillingCap'];
+        }
+
+        if (isset($map['ResourceDirectory'])) {
+            $model->resourceDirectory = $map['ResourceDirectory'];
         }
 
         if (isset($map['Tamperproof'])) {
