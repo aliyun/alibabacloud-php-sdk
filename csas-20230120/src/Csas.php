@@ -189,6 +189,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesForUserGroupR
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesForUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListRiskItemsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListRiskItemsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListSoftwareForUserDeviceRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListSoftwareForUserDeviceResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationRequest;
@@ -253,6 +255,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRiskStatusRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRiskStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUninstallApplicationsStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUninstallApplicationsStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesSharingStatusRequest;
@@ -6030,6 +6034,117 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Queries the list of risk events under the current Alibaba Cloud account.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation performs paging query of risk events based on specified conditional criteria.
+     * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
+     * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
+     * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
+     * - Fuzzy matching is supported for `PolicyName` and `Username`.
+     * - The response includes the total number of risk events that match the query conditions and their details.
+     *
+     * @param request - ListRiskItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRiskItemsResponse
+     *
+     * @param ListRiskItemsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListRiskItemsResponse
+     */
+    public function listRiskItemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
+        }
+
+        if (null !== $request->riskCategory) {
+            @$query['RiskCategory'] = $request->riskCategory;
+        }
+
+        if (null !== $request->riskId) {
+            @$query['RiskId'] = $request->riskId;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->riskScene) {
+            @$query['RiskScene'] = $request->riskScene;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->statusList) {
+            @$query['StatusList'] = $request->statusList;
+        }
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRiskItems',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRiskItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of risk events under the current Alibaba Cloud account.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation performs paging query of risk events based on specified conditional criteria.
+     * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
+     * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
+     * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
+     * - Fuzzy matching is supported for `PolicyName` and `Username`.
+     * - The response includes the total number of risk events that match the query conditions and their details.
+     *
+     * @param request - ListRiskItemsRequest
+     *
+     * @returns ListRiskItemsResponse
+     *
+     * @param ListRiskItemsRequest $request
+     *
+     * @return ListRiskItemsResponse
+     */
+    public function listRiskItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRiskItemsWithOptions($request, $runtime);
+    }
+
+    /**
      * Lists the software installed on a user device.
      *
      * @param request - ListSoftwareForUserDeviceRequest
@@ -8254,6 +8369,95 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRegistrationPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the current handling status and conclusion of a specified risk event.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+     * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
+     * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
+     * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
+     * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+     *
+     * @param request - UpdateRiskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRiskStatusResponse
+     *
+     * @param UpdateRiskStatusRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateRiskStatusResponse
+     */
+    public function updateRiskStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->riskConfirm) {
+            @$body['RiskConfirm'] = $request->riskConfirm;
+        }
+
+        if (null !== $request->riskConfirmDesc) {
+            @$body['RiskConfirmDesc'] = $request->riskConfirmDesc;
+        }
+
+        if (null !== $request->riskId) {
+            @$body['RiskId'] = $request->riskId;
+        }
+
+        if (null !== $request->riskScene) {
+            @$body['RiskScene'] = $request->riskScene;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRiskStatus',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRiskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the current handling status and conclusion of a specified risk event.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+     * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
+     * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
+     * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
+     * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+     *
+     * @param request - UpdateRiskStatusRequest
+     *
+     * @returns UpdateRiskStatusResponse
+     *
+     * @param UpdateRiskStatusRequest $request
+     *
+     * @return UpdateRiskStatusResponse
+     */
+    public function updateRiskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRiskStatusWithOptions($request, $runtime);
     }
 
     /**
