@@ -2788,6 +2788,15 @@ class Cloudsiem extends OpenApiClient
     public function describeDisposeAndPlaybookWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->availableOnly) {
+            @$query['AvailableOnly'] = $request->availableOnly;
+        }
+
+        if (null !== $request->entityUuidList) {
+            @$query['EntityUuidList'] = $request->entityUuidList;
+        }
+
         $body = [];
         if (null !== $request->currentPage) {
             @$body['CurrentPage'] = $request->currentPage;
@@ -2822,6 +2831,7 @@ class Cloudsiem extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -5384,7 +5394,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of system-recommended disposal policies.
+     * Retrieves the list of system-recommended response policies.
      *
      * @param tmpReq - ListDisposeStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5535,7 +5545,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of system-recommended disposal policies.
+     * Retrieves the list of system-recommended response policies.
      *
      * @param request - ListDisposeStrategyRequest
      *

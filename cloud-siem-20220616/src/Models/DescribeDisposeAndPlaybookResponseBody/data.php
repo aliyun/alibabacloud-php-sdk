@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeDisposeAndPlaybookRespon
 class data extends Model
 {
     /**
+     * @var bool
+     */
+    public $available;
+
+    /**
      * @var pageInfo
      */
     public $pageInfo;
@@ -20,6 +25,7 @@ class data extends Model
      */
     public $responseData;
     protected $_name = [
+        'available' => 'Available',
         'pageInfo' => 'PageInfo',
         'responseData' => 'ResponseData',
     ];
@@ -38,6 +44,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->available) {
+            $res['Available'] = $this->available;
+        }
+
         if (null !== $this->pageInfo) {
             $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
@@ -64,6 +74,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Available'])) {
+            $model->available = $map['Available'];
+        }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }

@@ -46,6 +46,11 @@ class responseData extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
     public $errorMessage;
 
     /**
@@ -130,6 +135,7 @@ class responseData extends Model
         'entity' => 'Entity',
         'entityId' => 'EntityId',
         'entityType' => 'EntityType',
+        'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'finishTime' => 'FinishTime',
         'gmtCreate' => 'GmtCreate',
@@ -195,6 +201,10 @@ class responseData extends Model
 
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
+        }
+
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
 
         if (null !== $this->errorMessage) {
@@ -312,6 +322,10 @@ class responseData extends Model
 
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
+        }
+
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
 
         if (isset($map['ErrorMessage'])) {

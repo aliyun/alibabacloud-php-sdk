@@ -35,6 +35,11 @@ class responseData extends Model
     public $entityType;
 
     /**
+     * @var string
+     */
+    public $entityUuid;
+
+    /**
      * @var string[]
      */
     public $opcodeMap;
@@ -59,6 +64,7 @@ class responseData extends Model
         'entityId' => 'EntityId',
         'entityInfo' => 'EntityInfo',
         'entityType' => 'EntityType',
+        'entityUuid' => 'EntityUuid',
         'opcodeMap' => 'OpcodeMap',
         'opcodeSet' => 'OpcodeSet',
         'playbookList' => 'PlaybookList',
@@ -111,6 +117,10 @@ class responseData extends Model
 
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
+        }
+
+        if (null !== $this->entityUuid) {
+            $res['EntityUuid'] = $this->entityUuid;
         }
 
         if (null !== $this->opcodeMap) {
@@ -189,6 +199,10 @@ class responseData extends Model
 
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
+        }
+
+        if (isset($map['EntityUuid'])) {
+            $model->entityUuid = $map['EntityUuid'];
         }
 
         if (isset($map['OpcodeMap'])) {

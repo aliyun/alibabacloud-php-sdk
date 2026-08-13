@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeDisposeAndPlaybookRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $availableOnly;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -22,6 +27,11 @@ class DescribeDisposeAndPlaybookRequest extends Model
      * @var string
      */
     public $entityUuid;
+
+    /**
+     * @var string
+     */
+    public $entityUuidList;
 
     /**
      * @var string
@@ -48,9 +58,11 @@ class DescribeDisposeAndPlaybookRequest extends Model
      */
     public $roleType;
     protected $_name = [
+        'availableOnly' => 'AvailableOnly',
         'currentPage' => 'CurrentPage',
         'entityType' => 'EntityType',
         'entityUuid' => 'EntityUuid',
+        'entityUuidList' => 'EntityUuidList',
         'incidentUuid' => 'IncidentUuid',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
@@ -66,6 +78,10 @@ class DescribeDisposeAndPlaybookRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->availableOnly) {
+            $res['AvailableOnly'] = $this->availableOnly;
+        }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -76,6 +92,10 @@ class DescribeDisposeAndPlaybookRequest extends Model
 
         if (null !== $this->entityUuid) {
             $res['EntityUuid'] = $this->entityUuid;
+        }
+
+        if (null !== $this->entityUuidList) {
+            $res['EntityUuidList'] = $this->entityUuidList;
         }
 
         if (null !== $this->incidentUuid) {
@@ -109,6 +129,10 @@ class DescribeDisposeAndPlaybookRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableOnly'])) {
+            $model->availableOnly = $map['AvailableOnly'];
+        }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -119,6 +143,10 @@ class DescribeDisposeAndPlaybookRequest extends Model
 
         if (isset($map['EntityUuid'])) {
             $model->entityUuid = $map['EntityUuid'];
+        }
+
+        if (isset($map['EntityUuidList'])) {
+            $model->entityUuidList = $map['EntityUuidList'];
         }
 
         if (isset($map['IncidentUuid'])) {
