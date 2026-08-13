@@ -5,6 +5,17 @@
 namespace AlibabaCloud\SDK\OutboundBot\V20251111;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AbortCampaignRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AbortCampaignResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AbortCasesRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AbortCasesResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AbortCasesShrinkRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AppendCasesRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AppendCasesResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AppendCasesShrinkRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateCampaignRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateCampaignResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateCampaignShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateCloneVoiceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateCloneVoiceResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateFlashSmsAccessProfileRequest;
@@ -38,12 +49,16 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteVoiceAccessProfileReques
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteVoiceAccessProfileResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DisableSubscriptionRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DisableSubscriptionResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCampaignRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCampaignResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetScriptProfileTemplateRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetScriptProfileTemplateResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetSubscriptionRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetSubscriptionResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCampaignsRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCampaignsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCloneVoiceModelsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCloneVoiceModelsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCloneVoicesRequest;
@@ -69,8 +84,14 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListSystemConfigsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListSystemConfigsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListVoiceAccessProfilesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListVoiceAccessProfilesResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\PauseCampaignRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\PauseCampaignResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\PublishScriptRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\PublishScriptResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ResumeCampaignRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ResumeCampaignResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\SubmitCampaignRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\SubmitCampaignResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateCloneVoiceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateCloneVoiceResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateFlashSmsAccessProfileRequest;
@@ -132,6 +153,368 @@ class OutboundBot extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Stops an outbound call campaign.
+     *
+     * @remarks
+     *
+     * @param request - AbortCampaignRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AbortCampaignResponse
+     *
+     * @param AbortCampaignRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AbortCampaignResponse
+     */
+    public function abortCampaignWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->campaignId) {
+            @$query['CampaignId'] = $request->campaignId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AbortCampaign',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AbortCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Stops an outbound call campaign.
+     *
+     * @remarks
+     *
+     * @param request - AbortCampaignRequest
+     *
+     * @returns AbortCampaignResponse
+     *
+     * @param AbortCampaignRequest $request
+     *
+     * @return AbortCampaignResponse
+     */
+    public function abortCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->abortCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * Stops an outbound call case.
+     *
+     * @remarks
+     *
+     * @param tmpReq - AbortCasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AbortCasesResponse
+     *
+     * @param AbortCasesRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AbortCasesResponse
+     */
+    public function abortCasesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AbortCasesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->phoneNumbers) {
+            $request->phoneNumbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->phoneNumbers, 'PhoneNumbers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->campaignId) {
+            @$query['CampaignId'] = $request->campaignId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->phoneNumbersShrink) {
+            @$query['PhoneNumbers'] = $request->phoneNumbersShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AbortCases',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AbortCasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Stops an outbound call case.
+     *
+     * @remarks
+     *
+     * @param request - AbortCasesRequest
+     *
+     * @returns AbortCasesResponse
+     *
+     * @param AbortCasesRequest $request
+     *
+     * @return AbortCasesResponse
+     */
+    public function abortCases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->abortCasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Appends contacts to an outbound call campaign.
+     *
+     * @remarks
+     *
+     * @param tmpReq - AppendCasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AppendCasesResponse
+     *
+     * @param AppendCasesRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AppendCasesResponse
+     */
+    public function appendCasesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AppendCasesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cases) {
+            $request->casesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cases, 'Cases', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->campaignId) {
+            @$query['CampaignId'] = $request->campaignId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->casesShrink) {
+            @$body['Cases'] = $request->casesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AppendCases',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AppendCasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Appends contacts to an outbound call campaign.
+     *
+     * @remarks
+     *
+     * @param request - AppendCasesRequest
+     *
+     * @returns AppendCasesResponse
+     *
+     * @param AppendCasesRequest $request
+     *
+     * @return AppendCasesResponse
+     */
+    public function appendCases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->appendCasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an outbound call task.
+     *
+     * @remarks
+     *
+     * @param tmpReq - CreateCampaignRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCampaignResponse
+     *
+     * @param CreateCampaignRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCampaignResponse
+     */
+    public function createCampaignWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCampaignShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cases) {
+            $request->casesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cases, 'Cases', 'json');
+        }
+
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->attemptOrder) {
+            @$query['AttemptOrder'] = $request->attemptOrder;
+        }
+
+        if (null !== $request->callableTime) {
+            @$query['CallableTime'] = $request->callableTime;
+        }
+
+        if (null !== $request->caseFileKey) {
+            @$query['CaseFileKey'] = $request->caseFileKey;
+        }
+
+        if (null !== $request->dialingTimeoutSeconds) {
+            @$query['DialingTimeoutSeconds'] = $request->dialingTimeoutSeconds;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->fixedQuota) {
+            @$query['FixedQuota'] = $request->fixedQuota;
+        }
+
+        if (null !== $request->flashSmsParameters) {
+            @$query['FlashSmsParameters'] = $request->flashSmsParameters;
+        }
+
+        if (null !== $request->holidayRestricted) {
+            @$query['HolidayRestricted'] = $request->holidayRestricted;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxAttemptCount) {
+            @$query['MaxAttemptCount'] = $request->maxAttemptCount;
+        }
+
+        if (null !== $request->minAttemptInterval) {
+            @$query['MinAttemptInterval'] = $request->minAttemptInterval;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->numbersShrink) {
+            @$query['Numbers'] = $request->numbersShrink;
+        }
+
+        if (null !== $request->redialRestrictions) {
+            @$query['RedialRestrictions'] = $request->redialRestrictions;
+        }
+
+        if (null !== $request->runUntilEndTime) {
+            @$query['RunUntilEndTime'] = $request->runUntilEndTime;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->weight) {
+            @$query['Weight'] = $request->weight;
+        }
+
+        $body = [];
+        if (null !== $request->casesShrink) {
+            @$body['Cases'] = $request->casesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCampaign',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an outbound call task.
+     *
+     * @remarks
+     *
+     * @param request - CreateCampaignRequest
+     *
+     * @returns CreateCampaignResponse
+     *
+     * @param CreateCampaignRequest $request
+     *
+     * @return CreateCampaignResponse
+     */
+    public function createCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCampaignWithOptions($request, $runtime);
     }
 
     /**
@@ -1083,6 +1466,67 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of an outbound campaign.
+     *
+     * @param request - GetCampaignRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCampaignResponse
+     *
+     * @param GetCampaignRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetCampaignResponse
+     */
+    public function getCampaignWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->campaignId) {
+            @$query['CampaignId'] = $request->campaignId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCampaign',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an outbound campaign.
+     *
+     * @param request - GetCampaignRequest
+     *
+     * @returns GetCampaignResponse
+     *
+     * @param GetCampaignRequest $request
+     *
+     * @return GetCampaignResponse
+     */
+    public function getCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCampaignWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of an instance.
      *
      * @param request - GetInstanceRequest
@@ -1255,6 +1699,99 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSubscriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of outbound call campaigns.
+     *
+     * @remarks
+     *
+     * @param request - ListCampaignsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCampaignsResponse
+     *
+     * @param ListCampaignsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListCampaignsResponse
+     */
+    public function listCampaignsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actualStartTimeFrom) {
+            @$query['ActualStartTimeFrom'] = $request->actualStartTimeFrom;
+        }
+
+        if (null !== $request->actualStartTimeTo) {
+            @$query['ActualStartTimeTo'] = $request->actualStartTimeTo;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->plannedStartTimeFrom) {
+            @$query['PlannedStartTimeFrom'] = $request->plannedStartTimeFrom;
+        }
+
+        if (null !== $request->plannedStartTimeTo) {
+            @$query['PlannedStartTimeTo'] = $request->plannedStartTimeTo;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCampaigns',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCampaignsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of outbound call campaigns.
+     *
+     * @remarks
+     *
+     * @param request - ListCampaignsRequest
+     *
+     * @returns ListCampaignsResponse
+     *
+     * @param ListCampaignsRequest $request
+     *
+     * @return ListCampaignsResponse
+     */
+    public function listCampaigns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCampaignsWithOptions($request, $runtime);
     }
 
     /**
@@ -2048,6 +2585,67 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Pauses an outbound call campaign.
+     *
+     * @param request - PauseCampaignRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PauseCampaignResponse
+     *
+     * @param PauseCampaignRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PauseCampaignResponse
+     */
+    public function pauseCampaignWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->campaignId) {
+            @$query['CampaignId'] = $request->campaignId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PauseCampaign',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PauseCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Pauses an outbound call campaign.
+     *
+     * @param request - PauseCampaignRequest
+     *
+     * @returns PauseCampaignResponse
+     *
+     * @param PauseCampaignRequest $request
+     *
+     * @return PauseCampaignResponse
+     */
+    public function pauseCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pauseCampaignWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates an instance.
      *
      * @param request - PublishScriptRequest
@@ -2110,6 +2708,136 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->publishScriptWithOptions($request, $runtime);
+    }
+
+    /**
+     * 恢复外呼活动.
+     *
+     * @remarks
+     *
+     * @param request - ResumeCampaignRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeCampaignResponse
+     *
+     * @param ResumeCampaignRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ResumeCampaignResponse
+     */
+    public function resumeCampaignWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->campaignId) {
+            @$query['CampaignId'] = $request->campaignId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeCampaign',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumeCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 恢复外呼活动.
+     *
+     * @remarks
+     *
+     * @param request - ResumeCampaignRequest
+     *
+     * @returns ResumeCampaignResponse
+     *
+     * @param ResumeCampaignRequest $request
+     *
+     * @return ResumeCampaignResponse
+     */
+    public function resumeCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交外呼活动.
+     *
+     * @remarks
+     *
+     * @param request - SubmitCampaignRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitCampaignResponse
+     *
+     * @param SubmitCampaignRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitCampaignResponse
+     */
+    public function submitCampaignWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->campaignId) {
+            @$query['CampaignId'] = $request->campaignId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitCampaign',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交外呼活动.
+     *
+     * @remarks
+     *
+     * @param request - SubmitCampaignRequest
+     *
+     * @returns SubmitCampaignResponse
+     *
+     * @param SubmitCampaignRequest $request
+     *
+     * @return SubmitCampaignResponse
+     */
+    public function submitCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitCampaignWithOptions($request, $runtime);
     }
 
     /**
@@ -2391,7 +3119,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新场景配置.
+     * Updates the scenario configuration.
      *
      * @remarks
      *
@@ -2482,7 +3210,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 更新场景配置.
+     * Updates the scenario configuration.
      *
      * @remarks
      *
