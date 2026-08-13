@@ -81,6 +81,11 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopRayHistoryServerRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopRayHistoryServerResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobTemplateRequest;
@@ -142,24 +147,24 @@ class Paidlc extends OpenApiClient
             'eu-west-1-oxs' => 'pai-dlc.aliyuncs.com',
             'me-east-1' => 'pai-dlc.aliyuncs.com',
             'rus-west-1-pop' => 'pai-dlc.aliyuncs.com',
-            'us-west-1' => 'pai-dlc.us-west-1.aliyuncs.com',
-            'us-southeast-1' => 'pai-dlc.us-southeast-1.aliyuncs.com',
-            'us-east-1' => 'pai-dlc.us-east-1.aliyuncs.com',
-            'eu-central-1' => 'pai-dlc.eu-central-1.aliyuncs.com',
             'cn-wulanchabu' => 'pai-dlc.cn-wulanchabu.aliyuncs.com',
-            'cn-shenzhen' => 'pai-dlc.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'pai-dlc.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-beijing' => 'pai-dlc.cn-beijing.aliyuncs.com',
             'cn-shanghai' => 'pai-dlc.cn-shanghai.aliyuncs.com',
             'cn-hongkong' => 'pai-dlc.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'pai-dlc.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'pai-dlc.cn-guangzhou.aliyuncs.com',
-            'cn-beijing' => 'pai-dlc.cn-beijing.aliyuncs.com',
-            'ap-southeast-8' => 'pai-dlc.ap-southeast-8.aliyuncs.com',
-            'ap-southeast-7' => 'pai-dlc.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-5' => 'pai-dlc.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'pai-dlc.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'pai-dlc.ap-southeast-1.aliyuncs.com',
+            'cn-shenzhen' => 'pai-dlc.cn-shenzhen.aliyuncs.com',
             'ap-northeast-1' => 'pai-dlc.ap-northeast-1.aliyuncs.com',
+            'cn-guangzhou' => 'pai-dlc.cn-guangzhou.aliyuncs.com',
+            'ap-southeast-1' => 'pai-dlc.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'pai-dlc.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'pai-dlc.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-7' => 'pai-dlc.ap-southeast-7.aliyuncs.com',
+            'cn-hangzhou' => 'pai-dlc.cn-hangzhou.aliyuncs.com',
+            'ap-southeast-8' => 'pai-dlc.ap-southeast-8.aliyuncs.com',
+            'us-east-1' => 'pai-dlc.us-east-1.aliyuncs.com',
+            'us-southeast-1' => 'pai-dlc.us-southeast-1.aliyuncs.com',
+            'us-west-1' => 'pai-dlc.us-west-1.aliyuncs.com',
+            'eu-central-1' => 'pai-dlc.eu-central-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'pai-dlc.cn-shanghai-finance-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('pai-dlc', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -190,11 +195,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+     * Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
      *
      * @remarks
-     * Make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
-     * >Notice: The total length of CreateJob request parameters (including system-generated parameters) cannot exceed 65,536 bytes.
+     * Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
      *
      * @param request - CreateJobRequest
      * @param headers - map
@@ -336,11 +340,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+     * Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
      *
      * @remarks
-     * Make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
-     * >Notice: The total length of CreateJob request parameters (including system-generated parameters) cannot exceed 65,536 bytes.
+     * Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
      *
      * @param request - CreateJobRequest
      *
@@ -3329,6 +3332,168 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->stopTensorboardWithOptions($TensorboardId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates and attaches tags to specified resources.
+     *
+     * @remarks
+     * Before attaching tags, Alibaba Cloud checks the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
+     *
+     * @param request - TagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/tags',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates and attaches tags to specified resources.
+     *
+     * @remarks
+     * Before attaching tags, Alibaba Cloud checks the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Unbinds tags from a specified list of resources.
+     *
+     * @param tmpReq - UntagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UntagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'ResourceId', 'json');
+        }
+
+        if (null !== $tmpReq->tagKey) {
+            $request->tagKeyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'TagKey', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['ResourceId'] = $request->resourceIdShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKeyShrink) {
+            @$query['TagKey'] = $request->tagKeyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/tags',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Unbinds tags from a specified list of resources.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
