@@ -11,6 +11,11 @@ class executionConfig extends Model
     /**
      * @var bool
      */
+    public $forbiddenAppendDataSource;
+
+    /**
+     * @var bool
+     */
     public $skipAskHuman;
 
     /**
@@ -28,6 +33,7 @@ class executionConfig extends Model
      */
     public $skipWebReportConfirm;
     protected $_name = [
+        'forbiddenAppendDataSource' => 'ForbiddenAppendDataSource',
         'skipAskHuman' => 'SkipAskHuman',
         'skipPlan' => 'SkipPlan',
         'skipSqlConfirm' => 'SkipSqlConfirm',
@@ -42,6 +48,10 @@ class executionConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->forbiddenAppendDataSource) {
+            $res['ForbiddenAppendDataSource'] = $this->forbiddenAppendDataSource;
+        }
+
         if (null !== $this->skipAskHuman) {
             $res['SkipAskHuman'] = $this->skipAskHuman;
         }
@@ -69,6 +79,10 @@ class executionConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ForbiddenAppendDataSource'])) {
+            $model->forbiddenAppendDataSource = $map['ForbiddenAppendDataSource'];
+        }
+
         if (isset($map['SkipAskHuman'])) {
             $model->skipAskHuman = $map['SkipAskHuman'];
         }

@@ -782,7 +782,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * ConfigDataAgentMemory.
+     * Configures memory generation and usage for a DataAgent.
      *
      * @param request - ConfigDataAgentMemoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -829,7 +829,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * ConfigDataAgentMemory.
+     * Configures memory generation and usage for a DataAgent.
      *
      * @param request - ConfigDataAgentMemoryRequest
      *
@@ -2946,7 +2946,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a custom agent by its ID.
+     * Retrieves the details of a custom agent by custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2989,7 +2989,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a custom agent by its ID.
+     * Retrieves the details of a custom agent by custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      *
@@ -3853,7 +3853,7 @@ class Dms extends OpenApiClient
      * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
      *
      * @remarks
-     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
      *
      * @param request - GetDataAgentTaskModelUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3879,6 +3879,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->payLevel) {
+            @$query['PayLevel'] = $request->payLevel;
         }
 
         if (null !== $request->regionId) {
@@ -3907,7 +3911,7 @@ class Dms extends OpenApiClient
      * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
      *
      * @remarks
-     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
      *
      * @param request - GetDataAgentTaskModelUsageRequest
      *
@@ -3954,6 +3958,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->payLevel) {
+            @$query['PayLevel'] = $request->payLevel;
         }
 
         if (null !== $request->regionId) {

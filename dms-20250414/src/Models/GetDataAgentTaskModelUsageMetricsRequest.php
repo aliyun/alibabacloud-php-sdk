@@ -26,11 +26,17 @@ class GetDataAgentTaskModelUsageMetricsRequest extends Model
     /**
      * @var string
      */
+    public $payLevel;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'beginTime' => 'BeginTime',
         'DMSUnit' => 'DMSUnit',
         'endTime' => 'EndTime',
+        'payLevel' => 'PayLevel',
         'regionId' => 'RegionId',
     ];
 
@@ -52,6 +58,10 @@ class GetDataAgentTaskModelUsageMetricsRequest extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->payLevel) {
+            $res['PayLevel'] = $this->payLevel;
         }
 
         if (null !== $this->regionId) {
@@ -79,6 +89,10 @@ class GetDataAgentTaskModelUsageMetricsRequest extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['PayLevel'])) {
+            $model->payLevel = $map['PayLevel'];
         }
 
         if (isset($map['RegionId'])) {
