@@ -12,6 +12,11 @@ class DescribeVpcFirewallZoneResponseBody extends Model
     /**
      * @var string
      */
+    public $firewallServiceMode;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -19,6 +24,7 @@ class DescribeVpcFirewallZoneResponseBody extends Model
      */
     public $zoneList;
     protected $_name = [
+        'firewallServiceMode' => 'FirewallServiceMode',
         'requestId' => 'RequestId',
         'zoneList' => 'ZoneList',
     ];
@@ -34,6 +40,10 @@ class DescribeVpcFirewallZoneResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->firewallServiceMode) {
+            $res['FirewallServiceMode'] = $this->firewallServiceMode;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -67,6 +77,10 @@ class DescribeVpcFirewallZoneResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FirewallServiceMode'])) {
+            $model->firewallServiceMode = $map['FirewallServiceMode'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

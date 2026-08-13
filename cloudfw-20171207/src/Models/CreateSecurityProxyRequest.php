@@ -12,6 +12,16 @@ class CreateSecurityProxyRequest extends Model
     /**
      * @var string
      */
+    public $firewallServiceMode;
+
+    /**
+     * @var string[]
+     */
+    public $firewallServiceZones;
+
+    /**
+     * @var string
+     */
     public $firewallSwitch;
 
     /**
@@ -69,6 +79,8 @@ class CreateSecurityProxyRequest extends Model
      */
     public $vswitchId;
     protected $_name = [
+        'firewallServiceMode' => 'FirewallServiceMode',
+        'firewallServiceZones' => 'FirewallServiceZones',
         'firewallSwitch' => 'FirewallSwitch',
         'fwVswitchZoneId' => 'FwVswitchZoneId',
         'lang' => 'Lang',
@@ -85,6 +97,9 @@ class CreateSecurityProxyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->firewallServiceZones)) {
+            Model::validateArray($this->firewallServiceZones);
+        }
         if (\is_array($this->natRouteEntryList)) {
             Model::validateArray($this->natRouteEntryList);
         }
@@ -94,6 +109,21 @@ class CreateSecurityProxyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->firewallServiceMode) {
+            $res['FirewallServiceMode'] = $this->firewallServiceMode;
+        }
+
+        if (null !== $this->firewallServiceZones) {
+            if (\is_array($this->firewallServiceZones)) {
+                $res['FirewallServiceZones'] = [];
+                $n1 = 0;
+                foreach ($this->firewallServiceZones as $item1) {
+                    $res['FirewallServiceZones'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->firewallSwitch) {
             $res['FirewallSwitch'] = $this->firewallSwitch;
         }
@@ -160,6 +190,21 @@ class CreateSecurityProxyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FirewallServiceMode'])) {
+            $model->firewallServiceMode = $map['FirewallServiceMode'];
+        }
+
+        if (isset($map['FirewallServiceZones'])) {
+            if (!empty($map['FirewallServiceZones'])) {
+                $model->firewallServiceZones = [];
+                $n1 = 0;
+                foreach ($map['FirewallServiceZones'] as $item1) {
+                    $model->firewallServiceZones[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['FirewallSwitch'])) {
             $model->firewallSwitch = $map['FirewallSwitch'];
         }

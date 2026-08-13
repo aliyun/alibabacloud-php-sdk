@@ -43,7 +43,17 @@ class ModifyAddressBookShrinkRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var string
@@ -86,7 +96,9 @@ class ModifyAddressBookShrinkRequest extends Model
         'assetMemberUidsShrink' => 'AssetMemberUids',
         'assetRegionResourceTypesShrink' => 'AssetRegionResourceTypes',
         'autoAddTagEcs' => 'AutoAddTagEcs',
+        'clientToken' => 'ClientToken',
         'description' => 'Description',
+        'dryRun' => 'DryRun',
         'groupName' => 'GroupName',
         'groupUuid' => 'GroupUuid',
         'lang' => 'Lang',
@@ -151,8 +163,16 @@ class ModifyAddressBookShrinkRequest extends Model
             $res['AutoAddTagEcs'] = $this->autoAddTagEcs;
         }
 
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->groupName) {
@@ -239,8 +259,16 @@ class ModifyAddressBookShrinkRequest extends Model
             $model->autoAddTagEcs = $map['AutoAddTagEcs'];
         }
 
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['GroupName'])) {

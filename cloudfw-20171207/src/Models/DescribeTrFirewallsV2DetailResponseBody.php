@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2DetailResponseBody\trAttachmentZones;
 
 class DescribeTrFirewallsV2DetailResponseBody extends Model
 {
@@ -12,6 +13,11 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
      * @var string
      */
     public $cenId;
+
+    /**
+     * @var string
+     */
+    public $firewallAttachmentZone;
 
     /**
      * @var string
@@ -42,6 +48,16 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
      * @var string
      */
     public $firewallName;
+
+    /**
+     * @var string
+     */
+    public $firewallServiceMode;
+
+    /**
+     * @var string[]
+     */
+    public $firewallServiceZones;
 
     /**
      * @var string
@@ -104,17 +120,25 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
     public $trAttachmentSlaveZone;
 
     /**
+     * @var trAttachmentZones[]
+     */
+    public $trAttachmentZones;
+
+    /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
         'cenId' => 'CenId',
+        'firewallAttachmentZone' => 'FirewallAttachmentZone',
         'firewallDescription' => 'FirewallDescription',
         'firewallEniId' => 'FirewallEniId',
         'firewallEniVpcId' => 'FirewallEniVpcId',
         'firewallEniVswitchId' => 'FirewallEniVswitchId',
         'firewallId' => 'FirewallId',
         'firewallName' => 'FirewallName',
+        'firewallServiceMode' => 'FirewallServiceMode',
+        'firewallServiceZones' => 'FirewallServiceZones',
         'firewallStatus' => 'FirewallStatus',
         'firewallSubnetCidr' => 'FirewallSubnetCidr',
         'firewallSwitchStatus' => 'FirewallSwitchStatus',
@@ -127,11 +151,18 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
         'trAttachmentMasterZone' => 'TrAttachmentMasterZone',
         'trAttachmentSlaveCidr' => 'TrAttachmentSlaveCidr',
         'trAttachmentSlaveZone' => 'TrAttachmentSlaveZone',
+        'trAttachmentZones' => 'TrAttachmentZones',
         'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->firewallServiceZones)) {
+            Model::validateArray($this->firewallServiceZones);
+        }
+        if (\is_array($this->trAttachmentZones)) {
+            Model::validateArray($this->trAttachmentZones);
+        }
         parent::validate();
     }
 
@@ -140,6 +171,10 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
         $res = [];
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
+        }
+
+        if (null !== $this->firewallAttachmentZone) {
+            $res['FirewallAttachmentZone'] = $this->firewallAttachmentZone;
         }
 
         if (null !== $this->firewallDescription) {
@@ -164,6 +199,21 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
 
         if (null !== $this->firewallName) {
             $res['FirewallName'] = $this->firewallName;
+        }
+
+        if (null !== $this->firewallServiceMode) {
+            $res['FirewallServiceMode'] = $this->firewallServiceMode;
+        }
+
+        if (null !== $this->firewallServiceZones) {
+            if (\is_array($this->firewallServiceZones)) {
+                $res['FirewallServiceZones'] = [];
+                $n1 = 0;
+                foreach ($this->firewallServiceZones as $item1) {
+                    $res['FirewallServiceZones'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->firewallStatus) {
@@ -214,6 +264,17 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
             $res['TrAttachmentSlaveZone'] = $this->trAttachmentSlaveZone;
         }
 
+        if (null !== $this->trAttachmentZones) {
+            if (\is_array($this->trAttachmentZones)) {
+                $res['TrAttachmentZones'] = [];
+                $n1 = 0;
+                foreach ($this->trAttachmentZones as $item1) {
+                    $res['TrAttachmentZones'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
         }
@@ -231,6 +292,10 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
         $model = new self();
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
+        }
+
+        if (isset($map['FirewallAttachmentZone'])) {
+            $model->firewallAttachmentZone = $map['FirewallAttachmentZone'];
         }
 
         if (isset($map['FirewallDescription'])) {
@@ -255,6 +320,21 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
 
         if (isset($map['FirewallName'])) {
             $model->firewallName = $map['FirewallName'];
+        }
+
+        if (isset($map['FirewallServiceMode'])) {
+            $model->firewallServiceMode = $map['FirewallServiceMode'];
+        }
+
+        if (isset($map['FirewallServiceZones'])) {
+            if (!empty($map['FirewallServiceZones'])) {
+                $model->firewallServiceZones = [];
+                $n1 = 0;
+                foreach ($map['FirewallServiceZones'] as $item1) {
+                    $model->firewallServiceZones[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['FirewallStatus'])) {
@@ -303,6 +383,17 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
 
         if (isset($map['TrAttachmentSlaveZone'])) {
             $model->trAttachmentSlaveZone = $map['TrAttachmentSlaveZone'];
+        }
+
+        if (isset($map['TrAttachmentZones'])) {
+            if (!empty($map['TrAttachmentZones'])) {
+                $model->trAttachmentZones = [];
+                $n1 = 0;
+                foreach ($map['TrAttachmentZones'] as $item1) {
+                    $model->trAttachmentZones[$n1] = trAttachmentZones::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TransitRouterId'])) {

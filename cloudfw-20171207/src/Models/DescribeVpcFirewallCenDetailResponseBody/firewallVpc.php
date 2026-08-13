@@ -16,6 +16,16 @@ class firewallVpc extends Model
     /**
      * @var string
      */
+    public $firewallServiceMode;
+
+    /**
+     * @var string[]
+     */
+    public $firewallServiceZones;
+
+    /**
+     * @var string
+     */
     public $standbyZoneId;
 
     /**
@@ -49,6 +59,8 @@ class firewallVpc extends Model
     public $zoneId;
     protected $_name = [
         'allowConfiguration' => 'AllowConfiguration',
+        'firewallServiceMode' => 'FirewallServiceMode',
+        'firewallServiceZones' => 'FirewallServiceZones',
         'standbyZoneId' => 'StandbyZoneId',
         'vpcCidr' => 'VpcCidr',
         'vpcId' => 'VpcId',
@@ -60,6 +72,9 @@ class firewallVpc extends Model
 
     public function validate()
     {
+        if (\is_array($this->firewallServiceZones)) {
+            Model::validateArray($this->firewallServiceZones);
+        }
         parent::validate();
     }
 
@@ -68,6 +83,21 @@ class firewallVpc extends Model
         $res = [];
         if (null !== $this->allowConfiguration) {
             $res['AllowConfiguration'] = $this->allowConfiguration;
+        }
+
+        if (null !== $this->firewallServiceMode) {
+            $res['FirewallServiceMode'] = $this->firewallServiceMode;
+        }
+
+        if (null !== $this->firewallServiceZones) {
+            if (\is_array($this->firewallServiceZones)) {
+                $res['FirewallServiceZones'] = [];
+                $n1 = 0;
+                foreach ($this->firewallServiceZones as $item1) {
+                    $res['FirewallServiceZones'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->standbyZoneId) {
@@ -111,6 +141,21 @@ class firewallVpc extends Model
         $model = new self();
         if (isset($map['AllowConfiguration'])) {
             $model->allowConfiguration = $map['AllowConfiguration'];
+        }
+
+        if (isset($map['FirewallServiceMode'])) {
+            $model->firewallServiceMode = $map['FirewallServiceMode'];
+        }
+
+        if (isset($map['FirewallServiceZones'])) {
+            if (!empty($map['FirewallServiceZones'])) {
+                $model->firewallServiceZones = [];
+                $n1 = 0;
+                foreach ($map['FirewallServiceZones'] as $item1) {
+                    $model->firewallServiceZones[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['StandbyZoneId'])) {

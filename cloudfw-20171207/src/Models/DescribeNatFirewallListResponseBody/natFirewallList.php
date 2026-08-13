@@ -20,6 +20,16 @@ class natFirewallList extends Model
     public $errorDetail;
 
     /**
+     * @var string
+     */
+    public $firewallServiceMode;
+
+    /**
+     * @var string[]
+     */
+    public $firewallServiceZones;
+
+    /**
      * @var int
      */
     public $memberUid;
@@ -91,6 +101,8 @@ class natFirewallList extends Model
     protected $_name = [
         'aliUid' => 'AliUid',
         'errorDetail' => 'ErrorDetail',
+        'firewallServiceMode' => 'FirewallServiceMode',
+        'firewallServiceZones' => 'FirewallServiceZones',
         'memberUid' => 'MemberUid',
         'natGatewayId' => 'NatGatewayId',
         'natGatewayName' => 'NatGatewayName',
@@ -109,6 +121,9 @@ class natFirewallList extends Model
 
     public function validate()
     {
+        if (\is_array($this->firewallServiceZones)) {
+            Model::validateArray($this->firewallServiceZones);
+        }
         if (\is_array($this->natRouteEntryList)) {
             Model::validateArray($this->natRouteEntryList);
         }
@@ -124,6 +139,21 @@ class natFirewallList extends Model
 
         if (null !== $this->errorDetail) {
             $res['ErrorDetail'] = $this->errorDetail;
+        }
+
+        if (null !== $this->firewallServiceMode) {
+            $res['FirewallServiceMode'] = $this->firewallServiceMode;
+        }
+
+        if (null !== $this->firewallServiceZones) {
+            if (\is_array($this->firewallServiceZones)) {
+                $res['FirewallServiceZones'] = [];
+                $n1 = 0;
+                foreach ($this->firewallServiceZones as $item1) {
+                    $res['FirewallServiceZones'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->memberUid) {
@@ -206,6 +236,21 @@ class natFirewallList extends Model
 
         if (isset($map['ErrorDetail'])) {
             $model->errorDetail = $map['ErrorDetail'];
+        }
+
+        if (isset($map['FirewallServiceMode'])) {
+            $model->firewallServiceMode = $map['FirewallServiceMode'];
+        }
+
+        if (isset($map['FirewallServiceZones'])) {
+            if (!empty($map['FirewallServiceZones'])) {
+                $model->firewallServiceZones = [];
+                $n1 = 0;
+                foreach ($map['FirewallServiceZones'] as $item1) {
+                    $model->firewallServiceZones[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['MemberUid'])) {

@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class ModifyControlPolicyResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'requestId' => 'RequestId',
     ];
 
@@ -24,6 +30,10 @@ class ModifyControlPolicyResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,6 +49,10 @@ class ModifyControlPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

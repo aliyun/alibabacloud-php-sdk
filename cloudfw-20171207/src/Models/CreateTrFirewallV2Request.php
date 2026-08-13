@@ -16,12 +16,27 @@ class CreateTrFirewallV2Request extends Model
     /**
      * @var string
      */
+    public $firewallAttachmentZone;
+
+    /**
+     * @var string
+     */
     public $firewallDescription;
 
     /**
      * @var string
      */
     public $firewallName;
+
+    /**
+     * @var string
+     */
+    public $firewallServiceMode;
+
+    /**
+     * @var string[]
+     */
+    public $firewallServiceZones;
 
     /**
      * @var string
@@ -79,13 +94,21 @@ class CreateTrFirewallV2Request extends Model
     public $trAttachmentSlaveZone;
 
     /**
+     * @var string[]
+     */
+    public $trAttachmentZones;
+
+    /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
         'cenId' => 'CenId',
+        'firewallAttachmentZone' => 'FirewallAttachmentZone',
         'firewallDescription' => 'FirewallDescription',
         'firewallName' => 'FirewallName',
+        'firewallServiceMode' => 'FirewallServiceMode',
+        'firewallServiceZones' => 'FirewallServiceZones',
         'firewallSubnetCidr' => 'FirewallSubnetCidr',
         'firewallVpcCidr' => 'FirewallVpcCidr',
         'firewallVpcId' => 'FirewallVpcId',
@@ -97,11 +120,18 @@ class CreateTrFirewallV2Request extends Model
         'trAttachmentMasterZone' => 'TrAttachmentMasterZone',
         'trAttachmentSlaveCidr' => 'TrAttachmentSlaveCidr',
         'trAttachmentSlaveZone' => 'TrAttachmentSlaveZone',
+        'trAttachmentZones' => 'TrAttachmentZones',
         'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->firewallServiceZones)) {
+            Model::validateArray($this->firewallServiceZones);
+        }
+        if (\is_array($this->trAttachmentZones)) {
+            Model::validateArray($this->trAttachmentZones);
+        }
         parent::validate();
     }
 
@@ -112,12 +142,31 @@ class CreateTrFirewallV2Request extends Model
             $res['CenId'] = $this->cenId;
         }
 
+        if (null !== $this->firewallAttachmentZone) {
+            $res['FirewallAttachmentZone'] = $this->firewallAttachmentZone;
+        }
+
         if (null !== $this->firewallDescription) {
             $res['FirewallDescription'] = $this->firewallDescription;
         }
 
         if (null !== $this->firewallName) {
             $res['FirewallName'] = $this->firewallName;
+        }
+
+        if (null !== $this->firewallServiceMode) {
+            $res['FirewallServiceMode'] = $this->firewallServiceMode;
+        }
+
+        if (null !== $this->firewallServiceZones) {
+            if (\is_array($this->firewallServiceZones)) {
+                $res['FirewallServiceZones'] = [];
+                $n1 = 0;
+                foreach ($this->firewallServiceZones as $item1) {
+                    $res['FirewallServiceZones'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->firewallSubnetCidr) {
@@ -164,6 +213,17 @@ class CreateTrFirewallV2Request extends Model
             $res['TrAttachmentSlaveZone'] = $this->trAttachmentSlaveZone;
         }
 
+        if (null !== $this->trAttachmentZones) {
+            if (\is_array($this->trAttachmentZones)) {
+                $res['TrAttachmentZones'] = [];
+                $n1 = 0;
+                foreach ($this->trAttachmentZones as $item1) {
+                    $res['TrAttachmentZones'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
         }
@@ -183,12 +243,31 @@ class CreateTrFirewallV2Request extends Model
             $model->cenId = $map['CenId'];
         }
 
+        if (isset($map['FirewallAttachmentZone'])) {
+            $model->firewallAttachmentZone = $map['FirewallAttachmentZone'];
+        }
+
         if (isset($map['FirewallDescription'])) {
             $model->firewallDescription = $map['FirewallDescription'];
         }
 
         if (isset($map['FirewallName'])) {
             $model->firewallName = $map['FirewallName'];
+        }
+
+        if (isset($map['FirewallServiceMode'])) {
+            $model->firewallServiceMode = $map['FirewallServiceMode'];
+        }
+
+        if (isset($map['FirewallServiceZones'])) {
+            if (!empty($map['FirewallServiceZones'])) {
+                $model->firewallServiceZones = [];
+                $n1 = 0;
+                foreach ($map['FirewallServiceZones'] as $item1) {
+                    $model->firewallServiceZones[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['FirewallSubnetCidr'])) {
@@ -233,6 +312,17 @@ class CreateTrFirewallV2Request extends Model
 
         if (isset($map['TrAttachmentSlaveZone'])) {
             $model->trAttachmentSlaveZone = $map['TrAttachmentSlaveZone'];
+        }
+
+        if (isset($map['TrAttachmentZones'])) {
+            if (!empty($map['TrAttachmentZones'])) {
+                $model->trAttachmentZones = [];
+                $n1 = 0;
+                foreach ($map['TrAttachmentZones'] as $item1) {
+                    $model->trAttachmentZones[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TransitRouterId'])) {

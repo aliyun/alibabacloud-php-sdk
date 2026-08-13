@@ -581,30 +581,30 @@ class Cloudfw extends OpenApiClient
         $this->_endpointMap = [
             'ap-southeast-1' => 'cloudfw.ap-southeast-1.aliyuncs.com',
             'cn-hangzhou' => 'cloudfw.cn-hangzhou.aliyuncs.com',
-            'us-west-1' => 'cloudfw.aliyuncs.com',
-            'us-east-1' => 'cloudfw.aliyuncs.com',
-            'me-east-1' => 'cloudfw.aliyuncs.com',
-            'eu-west-1' => 'cloudfw.aliyuncs.com',
-            'eu-central-1' => 'cloudfw.aliyuncs.com',
-            'cn-zhangjiakou' => 'cloudfw.aliyuncs.com',
-            'cn-wulanchabu' => 'cloudfw.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'cloudfw.aliyuncs.com',
-            'cn-shenzhen' => 'cloudfw.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'cloudfw.aliyuncs.com',
-            'cn-shanghai' => 'cloudfw.aliyuncs.com',
             'cn-qingdao' => 'cloudfw.aliyuncs.com',
-            'cn-north-2-gov-1' => 'cloudfw.aliyuncs.com',
+            'cn-zhangjiakou' => 'cloudfw.aliyuncs.com',
             'cn-huhehaote' => 'cloudfw.aliyuncs.com',
-            'cn-hongkong' => 'cloudfw.aliyuncs.com',
+            'cn-wulanchabu' => 'cloudfw.aliyuncs.com',
             'cn-heyuan' => 'cloudfw.aliyuncs.com',
-            'cn-hangzhou-finance' => 'cloudfw.aliyuncs.com',
-            'cn-guangzhou' => 'cloudfw.aliyuncs.com',
             'cn-chengdu' => 'cloudfw.aliyuncs.com',
-            'cn-beijing-finance-1' => 'cloudfw.aliyuncs.com',
-            'cn-beijing' => 'cloudfw.aliyuncs.com',
+            'ap-northeast-1' => 'cloudfw.aliyuncs.com',
             'ap-southeast-5' => 'cloudfw.aliyuncs.com',
             'ap-southeast-3' => 'cloudfw.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-1' => 'cloudfw.aliyuncs.com',
+            'cn-shenzhen' => 'cloudfw.aliyuncs.com',
+            'cn-beijing' => 'cloudfw.aliyuncs.com',
+            'cn-shanghai' => 'cloudfw.aliyuncs.com',
+            'cn-guangzhou' => 'cloudfw.aliyuncs.com',
+            'cn-hongkong' => 'cloudfw.aliyuncs.com',
+            'us-east-1' => 'cloudfw.aliyuncs.com',
+            'us-west-1' => 'cloudfw.aliyuncs.com',
+            'eu-west-1' => 'cloudfw.aliyuncs.com',
+            'eu-central-1' => 'cloudfw.aliyuncs.com',
+            'me-east-1' => 'cloudfw.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'cloudfw.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'cloudfw.aliyuncs.com',
+            'cn-hangzhou-finance' => 'cloudfw.aliyuncs.com',
+            'cn-beijing-finance-1' => 'cloudfw.aliyuncs.com',
+            'cn-north-2-gov-1' => 'cloudfw.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloudfw', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -837,8 +837,8 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * You can call this operation to create a policy that allows, denies, or monitors traffic that passes through Cloud Firewall.
-     * ## Rate limit
-     * The single-user queries per second (QPS) limit for this operation is 10. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Call this operation as needed.
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation properly.
      *
      * @param request - AddControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -864,6 +864,10 @@ class Cloudfw extends OpenApiClient
 
         if (null !== $request->applicationNameList) {
             @$query['ApplicationNameList'] = $request->applicationNameList;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->description) {
@@ -896,6 +900,10 @@ class Cloudfw extends OpenApiClient
 
         if (null !== $request->domainResolveType) {
             @$query['DomainResolveType'] = $request->domainResolveType;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->endTime) {
@@ -977,8 +985,8 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * You can call this operation to create a policy that allows, denies, or monitors traffic that passes through Cloud Firewall.
-     * ## Rate limit
-     * The single-user queries per second (QPS) limit for this operation is 10. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Call this operation as needed.
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation properly.
      *
      * @param request - AddControlPolicyRequest
      *
@@ -999,7 +1007,10 @@ class Cloudfw extends OpenApiClient
      * Adds a DNS firewall access control list (ACL).
      *
      * @remarks
-     * Creates an access control policy that allows, denies, or monitors traffic that passes through a NAT firewall.
+     * Creates a DNS firewall access control policy to allow, deny, or monitor traffic that passes through the DNS firewall.
+     * ## Quota description
+     * DNS firewall policies are counted independently in the DNS policy table (counted separately by IP version), but they **share the same quota upper limit** with Internet access control policies (determined by the Cloud Firewall edition). If the number of address combinations after a single policy is expanded exceeds the limit, or the total number of user policies exceeds the limit, the error ErrorAclExtendedCountExceed (-200139) is returned.
+     * > The value returned by DescribeAclCheckQuota is the quota for ACL policy check (inspection) times, which is unrelated to firewall policy count quota and cannot be used to predict whether the quota for this operation is sufficient. Confirm firewall policy count quota in the Cloud Firewall console.
      *
      * @param request - AddDnsFirewallPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1085,7 +1096,10 @@ class Cloudfw extends OpenApiClient
      * Adds a DNS firewall access control list (ACL).
      *
      * @remarks
-     * Creates an access control policy that allows, denies, or monitors traffic that passes through a NAT firewall.
+     * Creates a DNS firewall access control policy to allow, deny, or monitor traffic that passes through the DNS firewall.
+     * ## Quota description
+     * DNS firewall policies are counted independently in the DNS policy table (counted separately by IP version), but they **share the same quota upper limit** with Internet access control policies (determined by the Cloud Firewall edition). If the number of address combinations after a single policy is expanded exceeds the limit, or the total number of user policies exceeds the limit, the error ErrorAclExtendedCountExceed (-200139) is returned.
+     * > The value returned by DescribeAclCheckQuota is the quota for ACL policy check (inspection) times, which is unrelated to firewall policy count quota and cannot be used to predict whether the quota for this operation is sufficient. Confirm firewall policy count quota in the Cloud Firewall console.
      *
      * @param request - AddDnsFirewallPolicyRequest
      *
@@ -1171,9 +1185,12 @@ class Cloudfw extends OpenApiClient
      * Adds member accounts to Cloud Firewall.
      *
      * @remarks
-     * Adds member accounts to Cloud Firewall. The caller must be a delegated administrator (DA) or management account (MA) of the resource directory. Call DescribeInstanceRdAccounts to verify your identity before calling this operation.
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
+     * Adds member accounts to Cloud Firewall.
+     * ## Before you begin
+     * - The caller\\"s Alibaba Cloud account must be a delegated administrator (DA) or management account (MA) of a resource directory. Otherwise, the error ErrorInstanceAliuidNotDaMa (-103313) is returned. Call DescribeInstanceRdAccounts to verify the identity of the current account.
+     * - The member UID to be added must belong to the same resource directory. Otherwise, the error ErrorInstanceMemberNotBelongRd (-103308) is returned.
+     * ## Rate limit
+     * The single-user queries per second (QPS) limit for this operation is 10. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Call this operation as appropriate.
      *
      * @param request - AddInstanceMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1215,9 +1232,12 @@ class Cloudfw extends OpenApiClient
      * Adds member accounts to Cloud Firewall.
      *
      * @remarks
-     * Adds member accounts to Cloud Firewall. The caller must be a delegated administrator (DA) or management account (MA) of the resource directory. Call DescribeInstanceRdAccounts to verify your identity before calling this operation.
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
+     * Adds member accounts to Cloud Firewall.
+     * ## Before you begin
+     * - The caller\\"s Alibaba Cloud account must be a delegated administrator (DA) or management account (MA) of a resource directory. Otherwise, the error ErrorInstanceAliuidNotDaMa (-103313) is returned. Call DescribeInstanceRdAccounts to verify the identity of the current account.
+     * - The member UID to be added must belong to the same resource directory. Otherwise, the error ErrorInstanceMemberNotBelongRd (-103308) is returned.
+     * ## Rate limit
+     * The single-user queries per second (QPS) limit for this operation is 10. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Call this operation as appropriate.
      *
      * @param request - AddInstanceMembersRequest
      *
@@ -1521,8 +1541,8 @@ class Cloudfw extends OpenApiClient
      * Creates an ACK cluster connector.
      *
      * @remarks
-     * ## Rate limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Manage your calls properly.
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered. This may affect your business. Call this operation as needed.
      *
      * @param request - CreateAckClusterConnectorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1596,8 +1616,8 @@ class Cloudfw extends OpenApiClient
      * Creates an ACK cluster connector.
      *
      * @remarks
-     * ## Rate limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Manage your calls properly.
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered. This may affect your business. Call this operation as needed.
      *
      * @param request - CreateAckClusterConnectorRequest
      *
@@ -1810,10 +1830,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates an IPS Private IP Tracing configuration. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
+     * Creates an IPS Private IP Tracing association.
      *
      * @remarks
-     * Creates an IPS private network association. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
+     * Creates an IPS Private IP Tracing association for an Internet NAT gateway that is already protected by Cloud Firewall.
+     * ## Before you begin
+     * - The target NAT gateway must already be managed by Cloud Firewall and asset synchronization must be complete. Asset synchronization is an asynchronous task. If you call this operation before synchronization is complete for a newly created NAT gateway, error code -103204 is returned.
+     * - If SNAT is configured for the NAT gateway, you must enable session logs first. Otherwise, error code -103583 is returned.
      *
      * @param request - CreateIpsPrivateAssocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1856,10 +1879,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates an IPS Private IP Tracing configuration. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
+     * Creates an IPS Private IP Tracing association.
      *
      * @remarks
-     * Creates an IPS private network association. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
+     * Creates an IPS Private IP Tracing association for an Internet NAT gateway that is already protected by Cloud Firewall.
+     * ## Before you begin
+     * - The target NAT gateway must already be managed by Cloud Firewall and asset synchronization must be complete. Asset synchronization is an asynchronous task. If you call this operation before synchronization is complete for a newly created NAT gateway, error code -103204 is returned.
+     * - If SNAT is configured for the NAT gateway, you must enable session logs first. Otherwise, error code -103583 is returned.
      *
      * @param request - CreateIpsPrivateAssocRequest
      *
@@ -2297,6 +2323,14 @@ class Cloudfw extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->firewallServiceMode) {
+            @$query['FirewallServiceMode'] = $request->firewallServiceMode;
+        }
+
+        if (null !== $request->firewallServiceZones) {
+            @$query['FirewallServiceZones'] = $request->firewallServiceZones;
+        }
+
         if (null !== $request->firewallSwitch) {
             @$query['FirewallSwitch'] = $request->firewallSwitch;
         }
@@ -2443,7 +2477,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a VPC firewall for a transit router. Prerequisites: (1) Purchase Cloud Firewall. (2) A Cloud Enterprise Network (CEN) instance is created and an Enterprise Edition transit router is enabled. (3) The transit router is synchronized to Cloud Firewall.
+     * Creates a VPC firewall for a transit router. Before you begin: (1) Purchase Cloud Firewall. (2) Create a Cloud Enterprise Network (CEN) instance and enable an Enterprise Edition forwarding router. (3) Synchronize the transit router to Cloud Firewall.
+     *
+     * @remarks
+     * Creates a virtual private cloud (VPC) firewall for an Enterprise Edition transit router (TR). Before calling this operation, create a CEN instance and an Enterprise Edition transit router in the CEN console, and synchronize the TR to Cloud Firewall. Then call this operation with the CEN ID, TransitRouterId, RegionNo, and RouteMode parameters.
      *
      * @param request - CreateTrFirewallV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2463,12 +2500,24 @@ class Cloudfw extends OpenApiClient
             @$query['CenId'] = $request->cenId;
         }
 
+        if (null !== $request->firewallAttachmentZone) {
+            @$query['FirewallAttachmentZone'] = $request->firewallAttachmentZone;
+        }
+
         if (null !== $request->firewallDescription) {
             @$query['FirewallDescription'] = $request->firewallDescription;
         }
 
         if (null !== $request->firewallName) {
             @$query['FirewallName'] = $request->firewallName;
+        }
+
+        if (null !== $request->firewallServiceMode) {
+            @$query['FirewallServiceMode'] = $request->firewallServiceMode;
+        }
+
+        if (null !== $request->firewallServiceZones) {
+            @$query['FirewallServiceZones'] = $request->firewallServiceZones;
         }
 
         if (null !== $request->firewallSubnetCidr) {
@@ -2515,6 +2564,10 @@ class Cloudfw extends OpenApiClient
             @$query['TrAttachmentSlaveZone'] = $request->trAttachmentSlaveZone;
         }
 
+        if (null !== $request->trAttachmentZones) {
+            @$query['TrAttachmentZones'] = $request->trAttachmentZones;
+        }
+
         if (null !== $request->transitRouterId) {
             @$query['TransitRouterId'] = $request->transitRouterId;
         }
@@ -2538,7 +2591,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a VPC firewall for a transit router. Prerequisites: (1) Purchase Cloud Firewall. (2) A Cloud Enterprise Network (CEN) instance is created and an Enterprise Edition transit router is enabled. (3) The transit router is synchronized to Cloud Firewall.
+     * Creates a VPC firewall for a transit router. Before you begin: (1) Purchase Cloud Firewall. (2) Create a Cloud Enterprise Network (CEN) instance and enable an Enterprise Edition forwarding router. (3) Synchronize the transit router to Cloud Firewall.
+     *
+     * @remarks
+     * Creates a virtual private cloud (VPC) firewall for an Enterprise Edition transit router (TR). Before calling this operation, create a CEN instance and an Enterprise Edition transit router in the CEN console, and synchronize the TR to Cloud Firewall. Then call this operation with the CEN ID, TransitRouterId, RegionNo, and RouteMode parameters.
      *
      * @param request - CreateTrFirewallV2Request
      *
@@ -2556,7 +2612,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a routing rule for a VPC firewall for a transit router. Prerequisites: Activate Cloud Firewall → Create a CEN instance → Create an Enterprise Edition transit router → Add VPCs to the transit router route table → Call CreateTrFirewallV2 to create a VPC firewall for the transit router.
+     * Creates a routing rule for a VPC firewall for a transit router. **[Prerequisites]** Activate Cloud Firewall → Create a Cloud Enterprise Network (CEN) instance → Create an Enterprise Edition transit router → Add VPCs to the transit router route table → Call CreateTrFirewallV2 to create a VPC firewall for the transit router.
      *
      * @param tmpReq - CreateTrFirewallV2RoutePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2629,7 +2685,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a routing rule for a VPC firewall for a transit router. Prerequisites: Activate Cloud Firewall → Create a CEN instance → Create an Enterprise Edition transit router → Add VPCs to the transit router route table → Call CreateTrFirewallV2 to create a VPC firewall for the transit router.
+     * Creates a routing rule for a VPC firewall for a transit router. **[Prerequisites]** Activate Cloud Firewall → Create a Cloud Enterprise Network (CEN) instance → Create an Enterprise Edition transit router → Add VPCs to the transit router route table → Call CreateTrFirewallV2 to create a VPC firewall for the transit router.
      *
      * @param request - CreateTrFirewallV2RoutePolicyRequest
      *
@@ -2647,12 +2703,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a virtual private cloud (VPC) firewall to protect mutual access traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
+     * Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
      *
      * @remarks
-     * This operation is used to create a virtual private cloud (VPC) firewall for VPC-connected instances in a CEN instance. The VPC firewall protects mutual access traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect mutual access traffic between VBRs, between CCNs, or between VBRs and CCNs. **Prerequisites**: (1) Invoke the Cbn CreateCen operation to create a CEN instance. (2) Create at least two VPCs. (3) Invoke the Cbn AttachCenChildInstance operation to associate the VPCs with the CEN instance. (4) Ensure that no conflicting RouteMaps or transit router (TR) routing entries exist in the CEN instance. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * This operation is used to create a virtual private cloud (VPC) firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The virtual private cloud (VPC) firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. **Prerequisites**: (1) Invoke the Cbn CreateCen operation to create a CEN instance. (2) Create at least two VPCs. (3) Invoke the Cbn AttachCenChildInstance operation to associate the VPCs with the CEN instance. (4) Make sure no conflicting RouteMaps or transit router (TR) routing entries exist in the CEN instance. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
      * ## Rate limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
+     * The single-user queries per second (QPS) limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
      *
      * @param request - CreateVpcFirewallCenConfigureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2678,6 +2734,10 @@ class Cloudfw extends OpenApiClient
 
         if (null !== $request->firewallVSwitchCidrBlock) {
             @$query['FirewallVSwitchCidrBlock'] = $request->firewallVSwitchCidrBlock;
+        }
+
+        if (null !== $request->firewallVSwitchZoneId) {
+            @$query['FirewallVSwitchZoneId'] = $request->firewallVSwitchZoneId;
         }
 
         if (null !== $request->firewallVpcCidrBlock) {
@@ -2735,12 +2795,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a virtual private cloud (VPC) firewall to protect mutual access traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
+     * Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
      *
      * @remarks
-     * This operation is used to create a virtual private cloud (VPC) firewall for VPC-connected instances in a CEN instance. The VPC firewall protects mutual access traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect mutual access traffic between VBRs, between CCNs, or between VBRs and CCNs. **Prerequisites**: (1) Invoke the Cbn CreateCen operation to create a CEN instance. (2) Create at least two VPCs. (3) Invoke the Cbn AttachCenChildInstance operation to associate the VPCs with the CEN instance. (4) Ensure that no conflicting RouteMaps or transit router (TR) routing entries exist in the CEN instance. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * This operation is used to create a virtual private cloud (VPC) firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The virtual private cloud (VPC) firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. **Prerequisites**: (1) Invoke the Cbn CreateCen operation to create a CEN instance. (2) Create at least two VPCs. (3) Invoke the Cbn AttachCenChildInstance operation to associate the VPCs with the CEN instance. (4) Make sure no conflicting RouteMaps or transit router (TR) routing entries exist in the CEN instance. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
      * ## Rate limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
+     * The single-user queries per second (QPS) limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
      *
      * @param request - CreateVpcFirewallCenConfigureRequest
      *
@@ -4327,7 +4387,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes the specified NAT firewall.
+     * Deletes a NAT firewall.
      *
      * @param request - DeleteSecurityProxyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4370,7 +4430,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes the specified NAT firewall.
+     * Deletes a NAT firewall.
      *
      * @param request - DeleteSecurityProxyRequest
      *
@@ -4449,13 +4509,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a VPC firewall that protects traffic between network instances in a Cloud Enterprise Network (CEN) and a specified VPC.
+     * Deletes a virtual private cloud (VPC) firewall that protects mutual access traffic between a network instance in a Cloud Enterprise Network (CEN) instance and a specified VPC.
      *
      * @remarks
-     * This operation deletes a VPC firewall. The VPC firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in a Cloud Enterprise Network (CEN) and a specified VPC.
-     * Before calling this operation, call [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) to create a VPC firewall.
+     * This operation is used to delete a virtual private cloud (VPC) firewall that protects mutual access traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in a CEN instance and a specified VPC.
+     * Before you invoke this operation, you must have already created a VPC border firewall by invoking the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
      * ## QPS limit
-     * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation as needed.
      *
      * @param request - DeleteVpcFirewallCenConfigureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4502,13 +4562,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a VPC firewall that protects traffic between network instances in a Cloud Enterprise Network (CEN) and a specified VPC.
+     * Deletes a virtual private cloud (VPC) firewall that protects mutual access traffic between a network instance in a Cloud Enterprise Network (CEN) instance and a specified VPC.
      *
      * @remarks
-     * This operation deletes a VPC firewall. The VPC firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in a Cloud Enterprise Network (CEN) and a specified VPC.
-     * Before calling this operation, call [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) to create a VPC firewall.
+     * This operation is used to delete a virtual private cloud (VPC) firewall that protects mutual access traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in a CEN instance and a specified VPC.
+     * Before you invoke this operation, you must have already created a VPC border firewall by invoking the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
      * ## QPS limit
-     * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation as needed.
      *
      * @param request - DeleteVpcFirewallCenConfigureRequest
      *
@@ -4810,7 +4870,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the list of regions for synchronization nodes.
+     * Queries the list of regions for sync nodes.
      *
      * @param request - DescribeAccessInstanceRegionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4845,7 +4905,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the list of regions for synchronization nodes.
+     * Queries the list of regions for sync nodes.
      *
      * @param request - DescribeAccessInstanceRegionListRequest
      *
@@ -4863,7 +4923,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the progress of a synchronization node task.
+     * Queries the task progress of a synchronization node.
      *
      * @param request - DescribeAccessInstanceTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4898,7 +4958,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the progress of a synchronization node task.
+     * Queries the task progress of a synchronization node.
      *
      * @param request - DescribeAccessInstanceTaskRequest
      *
@@ -6103,7 +6163,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the risk levels of assets.
+     * Retrieves the risk level list of assets.
      *
      * @param request - DescribeAssetRiskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6154,7 +6214,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the risk levels of assets.
+     * Retrieves the risk level list of assets.
      *
      * @param request - DescribeAssetRiskListRequest
      *
@@ -6675,9 +6735,7 @@ class Cloudfw extends OpenApiClient
      * Retrieves information about all access control policies.
      *
      * @remarks
-     * This operation performs a paged query for information about access control policies.
-     * ## QPS limit
-     * The queries per second (QPS) limit for this operation is 10 for a single user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+     * This operation is typically used for paging query of access control policy information.
      *
      * @param request - DescribeControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6771,9 +6829,7 @@ class Cloudfw extends OpenApiClient
      * Retrieves information about all access control policies.
      *
      * @remarks
-     * This operation performs a paged query for information about access control policies.
-     * ## QPS limit
-     * The queries per second (QPS) limit for this operation is 10 for a single user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+     * This operation is typically used for paging query of access control policy information.
      *
      * @param request - DescribeControlPolicyRequest
      *
@@ -6791,7 +6847,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the domain name parse results of an access control policy.
+     * Queries the domain name resolution results of an access control policy.
      *
      * @param request - DescribeControlPolicyDomainResolveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6826,7 +6882,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the domain name parse results of an access control policy.
+     * Queries the domain name resolution results of an access control policy.
      *
      * @param request - DescribeControlPolicyDomainResolveRequest
      *
@@ -7460,7 +7516,7 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * ### QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - DescribeFirewallTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7519,7 +7575,7 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * ### QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - DescribeFirewallTaskRequest
      *
@@ -9379,7 +9435,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries Cloud Firewall threat detection events.
+     * Queries information about compromise awareness events in Cloud Firewall.
      *
      * @param request - DescribeInvadeEventListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9482,7 +9538,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries Cloud Firewall threat detection events.
+     * Queries information about compromise awareness events in Cloud Firewall.
      *
      * @param request - DescribeInvadeEventListRequest
      *
@@ -10249,7 +10305,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries NAT firewall details.
+     * Retrieves the details of NAT firewalls.
      *
      * @param request - DescribeNatFirewallListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10328,7 +10384,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries NAT firewall details.
+     * Retrieves the details of NAT firewalls.
      *
      * @param request - DescribeNatFirewallListRequest
      *
@@ -11647,7 +11703,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of outbound domains.
+     * Retrieves the details of an outbound domain.
      *
      * @param request - DescribeOutgoingDomainDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11750,7 +11806,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of outbound domains.
+     * Retrieves the details of an outbound domain.
      *
      * @param request - DescribeOutgoingDomainDetailRequest
      *
@@ -15254,6 +15310,9 @@ class Cloudfw extends OpenApiClient
     /**
      * Retrieves the details of a VPC firewall for a transit router.
      *
+     * @remarks
+     * Queries the details of a VPC firewall for an Enterprise Edition transit router. You can obtain the FirewallId by calling DescribeTrFirewallsV2List. If no firewall has been created, prepare an Enterprise Edition transit router in the Cloud Enterprise Network (CEN) console first, and then call CreateTrFirewallV2 to create the firewall and obtain the FirewallId.
+     *
      * @param request - DescribeTrFirewallsV2DetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15296,6 +15355,9 @@ class Cloudfw extends OpenApiClient
 
     /**
      * Retrieves the details of a VPC firewall for a transit router.
+     *
+     * @remarks
+     * Queries the details of a VPC firewall for an Enterprise Edition transit router. You can obtain the FirewallId by calling DescribeTrFirewallsV2List. If no firewall has been created, prepare an Enterprise Edition transit router in the Cloud Enterprise Network (CEN) console first, and then call CreateTrFirewallV2 to create the firewall and obtain the FirewallId.
      *
      * @param request - DescribeTrFirewallsV2DetailRequest
      *
@@ -16074,12 +16136,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves version information for a user.
+     * Retrieves the version information of a user.
      *
      * @remarks
-     * This operation queries information about your Cloud Firewall instance.
+     * This operation is used to query and retrieve Cloud Firewall instance information for a user.
      * ## QPS limit
-     * This operation is limited to 10 queries per second (QPS) per user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DescribeUserBuyVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16118,12 +16180,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves version information for a user.
+     * Retrieves the version information of a user.
      *
      * @remarks
-     * This operation queries information about your Cloud Firewall instance.
+     * This operation is used to query and retrieve Cloud Firewall instance information for a user.
      * ## QPS limit
-     * This operation is limited to 10 queries per second (QPS) per user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DescribeUserBuyVersionRequest
      *
@@ -16271,7 +16333,7 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DescribeVpcFirewallAccessDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16382,7 +16444,7 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DescribeVpcFirewallAccessDetailRequest
      *
@@ -16665,12 +16727,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a VPC firewall that protects traffic between a network instance in a Cloud Enterprise Network (CEN) and a specified VPC.
+     * Queries the details of a virtual private cloud (VPC) firewall that protects traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
      *
      * @remarks
-     * You can call this operation to query the details of a VPC firewall. The VPC firewall protects traffic between a specified VPC and a network instance in a Cloud Enterprise Network (CEN). The network instance can be a VPC, a Virtual Border Router (VBR), or a Cloud Connect Network (CCN) instance.
+     * This operation is used to query the details of a virtual private cloud (VPC) firewall. The VPC firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in a CEN instance and a specified VPC.
      * ## QPS limit
-     * This operation has a queries per second (QPS) limit of 10 for each user. If you exceed the limit, your API calls are throttled. This may affect your business. We recommend that you call this operation at a reasonable rate.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
      *
      * @param request - DescribeVpcFirewallCenDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16721,12 +16783,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a VPC firewall that protects traffic between a network instance in a Cloud Enterprise Network (CEN) and a specified VPC.
+     * Queries the details of a virtual private cloud (VPC) firewall that protects traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
      *
      * @remarks
-     * You can call this operation to query the details of a VPC firewall. The VPC firewall protects traffic between a specified VPC and a network instance in a Cloud Enterprise Network (CEN). The network instance can be a VPC, a Virtual Border Router (VBR), or a Cloud Connect Network (CCN) instance.
+     * This operation is used to query the details of a virtual private cloud (VPC) firewall. The VPC firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in a CEN instance and a specified VPC.
      * ## QPS limit
-     * This operation has a queries per second (QPS) limit of 10 for each user. If you exceed the limit, your API calls are throttled. This may affect your business. We recommend that you call this operation at a reasonable rate.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
      *
      * @param request - DescribeVpcFirewallCenDetailRequest
      *
@@ -16948,12 +17010,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves all access control policies for a specific VPC boundary firewall.
+     * Queries all access control policy information for a specified virtual private cloud (VPC) firewall.
      *
      * @remarks
-     * This operation queries the access control policies for a VPC firewall. A VPC firewall uses different access control policies to protect traffic between two VPCs that are connected via Cloud Enterprise Network (CEN) or Express Connect.
-     * ## QPS limit
-     * The QPS limit for this operation is 10 requests per second per account. If you exceed this limit, your API calls are throttled.
+     * This operation is used to query access control policies of virtual private cloud (VPC) firewalls. Virtual private cloud (VPC) firewalls use different access control policies when protecting traffic between two VPCs connected through Cloud Enterprise Network (CEN) or traffic between two VPCs connected through Express Connect.
      *
      * @param request - DescribeVpcFirewallControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17040,12 +17100,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves all access control policies for a specific VPC boundary firewall.
+     * Queries all access control policy information for a specified virtual private cloud (VPC) firewall.
      *
      * @remarks
-     * This operation queries the access control policies for a VPC firewall. A VPC firewall uses different access control policies to protect traffic between two VPCs that are connected via Cloud Enterprise Network (CEN) or Express Connect.
-     * ## QPS limit
-     * The QPS limit for this operation is 10 requests per second per account. If you exceed this limit, your API calls are throttled.
+     * This operation is used to query access control policies of virtual private cloud (VPC) firewalls. Virtual private cloud (VPC) firewalls use different access control policies when protecting traffic between two VPCs connected through Cloud Enterprise Network (CEN) or traffic between two VPCs connected through Express Connect.
      *
      * @param request - DescribeVpcFirewallControlPolicyRequest
      *
@@ -17899,11 +17957,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves a summary of VPC firewalls.
+     * Retrieves the summary information of VPC firewalls.
      *
      * @remarks
      * ### QPS limit
-     * The queries per second (QPS) limit for this API operation is 10 for each user. If you exceed this limit, API calls are throttled. This can affect your business. Plan your API calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DescribeVpcFirewallSummaryInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17950,11 +18008,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves a summary of VPC firewalls.
+     * Retrieves the summary information of VPC firewalls.
      *
      * @remarks
      * ### QPS limit
-     * The queries per second (QPS) limit for this API operation is 10 for each user. If you exceed this limit, API calls are throttled. This can affect your business. Plan your API calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DescribeVpcFirewallSummaryInfoRequest
      *
@@ -18156,7 +18214,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Describes the available zones for a VPC firewall.
+     * Queries the list of zones available for a VPC firewall.
      *
      * @param request - DescribeVpcFirewallZoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18219,7 +18277,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Describes the available zones for a VPC firewall.
+     * Queries the list of zones available for a VPC firewall.
      *
      * @param request - DescribeVpcFirewallZoneRequest
      *
@@ -18768,8 +18826,6 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * This operation is used to modify an address book.
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
      *
      * @param tmpReq - ModifyAddressBookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18819,8 +18875,16 @@ class Cloudfw extends OpenApiClient
             @$query['AutoAddTagEcs'] = $request->autoAddTagEcs;
         }
 
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->groupName) {
@@ -18874,8 +18938,6 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * This operation is used to modify an address book.
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - ModifyAddressBookRequest
      *
@@ -18963,9 +19025,9 @@ class Cloudfw extends OpenApiClient
      * Modifies the configurations of an access control policy.
      *
      * @remarks
-     * This operation modifies the configurations of an access control policy that allows, denies, or monitors traffic passing through Cloud Firewall.
+     * This operation is used to modify the configurations of an access control policy that allows, denies, or monitors traffic through Cloud Firewall.
      * ## QPS limit
-     * Each user can call this operation up to 10 times per second. If the limit is exceeded, API calls are throttled. This may affect your business. Plan your calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - ModifyControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18995,6 +19057,10 @@ class Cloudfw extends OpenApiClient
 
         if (null !== $request->applicationNameList) {
             @$query['ApplicationNameList'] = $request->applicationNameList;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->description) {
@@ -19027,6 +19093,10 @@ class Cloudfw extends OpenApiClient
 
         if (null !== $request->domainResolveType) {
             @$query['DomainResolveType'] = $request->domainResolveType;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->endTime) {
@@ -19095,9 +19165,9 @@ class Cloudfw extends OpenApiClient
      * Modifies the configurations of an access control policy.
      *
      * @remarks
-     * This operation modifies the configurations of an access control policy that allows, denies, or monitors traffic passing through Cloud Firewall.
+     * This operation is used to modify the configurations of an access control policy that allows, denies, or monitors traffic through Cloud Firewall.
      * ## QPS limit
-     * Each user can call this operation up to 10 times per second. If the limit is exceeded, API calls are throttled. This may affect your business. Plan your calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - ModifyControlPolicyRequest
      *
@@ -19274,7 +19344,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the default intrusion prevention system (IPS) configuration.
+     * Modifies the default IPS configuration.
      *
      * @param request - ModifyDefaultIPSConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19337,7 +19407,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the default intrusion prevention system (IPS) configuration.
+     * Modifies the default IPS configuration.
      *
      * @param request - ModifyDefaultIPSConfigRequest
      *
@@ -19358,7 +19428,7 @@ class Cloudfw extends OpenApiClient
      * Modifies a DNS firewall rule.
      *
      * @remarks
-     * Modifies a policy that allows, denies, or monitors traffic that passes through the DNS firewall.
+     * Modifies a DNS firewall access control policy to allow, deny, or monitor DNS firewall traffic.
      *
      * @param request - ModifyDnsFirewallPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19440,7 +19510,7 @@ class Cloudfw extends OpenApiClient
      * Modifies a DNS firewall rule.
      *
      * @remarks
-     * Modifies a policy that allows, denies, or monitors traffic that passes through the DNS firewall.
+     * Modifies a DNS firewall access control policy to allow, deny, or monitor DNS firewall traffic.
      *
      * @param request - ModifyDnsFirewallPolicyRequest
      *
@@ -20560,7 +20630,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a VPC firewall for a transit router. Prerequisites: Create a Cloud Enterprise Network (CEN) Enterprise Edition transit router, call CreateTrFirewallV2 to create a VPC firewall for the transit router, and obtain the FirewallId before calling this operation.
+     * Modifies the configuration of a VPC firewall for a transit router. Before you call this operation, create a Cloud Enterprise Network (CEN) Enterprise Edition transit router and then call CreateTrFirewallV2 to create a VPC firewall for the transit router. You can obtain the FirewallId and then call this operation.
+     *
+     * @remarks
+     * Modifies the configuration of a VPC firewall for an Enterprise Edition transit router. Before you call this operation, create an Enterprise Edition transit router in the CEN console and call CreateTrFirewallV2 to create the firewall. You can call DescribeTrFirewallsV2List to obtain the FirewallId.
      *
      * @param request - ModifyTrFirewallV2ConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20607,7 +20680,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a VPC firewall for a transit router. Prerequisites: Create a Cloud Enterprise Network (CEN) Enterprise Edition transit router, call CreateTrFirewallV2 to create a VPC firewall for the transit router, and obtain the FirewallId before calling this operation.
+     * Modifies the configuration of a VPC firewall for a transit router. Before you call this operation, create a Cloud Enterprise Network (CEN) Enterprise Edition transit router and then call CreateTrFirewallV2 to create a VPC firewall for the transit router. You can obtain the FirewallId and then call this operation.
+     *
+     * @remarks
+     * Modifies the configuration of a VPC firewall for an Enterprise Edition transit router. Before you call this operation, create an Enterprise Edition transit router in the CEN console and call CreateTrFirewallV2 to create the firewall. You can call DescribeTrFirewallsV2List to obtain the FirewallId.
      *
      * @param request - ModifyTrFirewallV2ConfigurationRequest
      *
@@ -20625,10 +20701,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the scope of a routing policy for a VPC firewall that is created for a Transit Router (TR).
+     * Modifies the route policy scope of a VPC firewall for a transit router.
      *
      * @remarks
-     * You can modify the policy scope for *point-to-multipoint* and *multipoint-to-multipoint* scenarios, but not for *point-to-point* scenarios.
+     * Supports modifications for *point-to-multipoint* and *multipoint interconnection* scenarios. Modifications for *point-to-point* scenarios are not supported.
      *
      * @param tmpReq - ModifyTrFirewallV2RoutePolicyScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20697,10 +20773,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the scope of a routing policy for a VPC firewall that is created for a Transit Router (TR).
+     * Modifies the route policy scope of a VPC firewall for a transit router.
      *
      * @remarks
-     * You can modify the policy scope for *point-to-multipoint* and *multipoint-to-multipoint* scenarios, but not for *point-to-point* scenarios.
+     * Supports modifications for *point-to-multipoint* and *multipoint interconnection* scenarios. Modifications for *point-to-point* scenarios are not supported.
      *
      * @param request - ModifyTrFirewallV2RoutePolicyScopeRequest
      *
@@ -21208,12 +21284,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a VPC firewall that protects traffic between two VPCs connected by an Express Connect circuit.
+     * Modifies the configurations of a virtual private cloud (VPC) firewall that controls traffic between two VPCs connected by using an Express Connect circuit.
      *
      * @remarks
-     * This operation modifies the configuration of a VPC firewall that protects traffic between two VPCs connected by an Express Connect circuit. Before you call this operation, you must create a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * This operation is used to modify the configurations of a virtual private cloud (VPC) firewall that controls traffic between two VPCs connected by using an Express Connect circuit.
+     * Before you invoke this operation, make sure that you have created a virtual private cloud (VPC) firewall by invoking the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
      * ## QPS limit
-     * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. You should plan your calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
      *
      * @param request - ModifyVpcFirewallConfigureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21272,12 +21349,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a VPC firewall that protects traffic between two VPCs connected by an Express Connect circuit.
+     * Modifies the configurations of a virtual private cloud (VPC) firewall that controls traffic between two VPCs connected by using an Express Connect circuit.
      *
      * @remarks
-     * This operation modifies the configuration of a VPC firewall that protects traffic between two VPCs connected by an Express Connect circuit. Before you call this operation, you must create a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * This operation is used to modify the configurations of a virtual private cloud (VPC) firewall that controls traffic between two VPCs connected by using an Express Connect circuit.
+     * Before you invoke this operation, make sure that you have created a virtual private cloud (VPC) firewall by invoking the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
      * ## QPS limit
-     * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. You should plan your calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
      *
      * @param request - ModifyVpcFirewallConfigureRequest
      *
@@ -21705,13 +21783,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables a VPC firewall. A VPC firewall protects traffic between two VPCs that are connected by an Express Connect circuit.
+     * Modifies the status of a virtual private cloud (VPC) firewall that protects traffic between two VPCs connected through Express Connect.
      *
      * @remarks
-     * This API call modifies the status of a VPC firewall. A VPC firewall protects traffic between two virtual private clouds (VPCs) that are connected by an Express Connect circuit. When the VPC firewall is enabled, it protects traffic between the two VPCs. When the VPC firewall is disabled, it no longer protects traffic between the two VPCs.
-     * Before you make this API call, you must create a VPC firewall using the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) API call.
+     * This operation is used to modify the status of a virtual private cloud (VPC) firewall that protects traffic between two VPCs connected through Express Connect. After you enable the VPC firewall, traffic between the two VPCs connected through Express Connect is protected by the VPC firewall. After you disable the VPC firewall, the VPC firewall no longer protects traffic between the two VPCs connected through Express Connect.
+     * Before you invoke this operation, make sure that you have invoked the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation to create a virtual private cloud (VPC) firewall.
      * ## QPS limit
-     * The queries per second (QPS) limit for this API call is 10 for each Alibaba Cloud account. If you exceed the limit, your API calls are throttled, which may affect your business. Plan your API calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
      *
      * @param request - ModifyVpcFirewallSwitchStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21762,13 +21840,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables a VPC firewall. A VPC firewall protects traffic between two VPCs that are connected by an Express Connect circuit.
+     * Modifies the status of a virtual private cloud (VPC) firewall that protects traffic between two VPCs connected through Express Connect.
      *
      * @remarks
-     * This API call modifies the status of a VPC firewall. A VPC firewall protects traffic between two virtual private clouds (VPCs) that are connected by an Express Connect circuit. When the VPC firewall is enabled, it protects traffic between the two VPCs. When the VPC firewall is disabled, it no longer protects traffic between the two VPCs.
-     * Before you make this API call, you must create a VPC firewall using the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) API call.
+     * This operation is used to modify the status of a virtual private cloud (VPC) firewall that protects traffic between two VPCs connected through Express Connect. After you enable the VPC firewall, traffic between the two VPCs connected through Express Connect is protected by the VPC firewall. After you disable the VPC firewall, the VPC firewall no longer protects traffic between the two VPCs connected through Express Connect.
+     * Before you invoke this operation, make sure that you have invoked the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation to create a virtual private cloud (VPC) firewall.
      * ## QPS limit
-     * The queries per second (QPS) limit for this API call is 10 for each Alibaba Cloud account. If you exceed the limit, your API calls are throttled, which may affect your business. Plan your API calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
      *
      * @param request - ModifyVpcFirewallSwitchStatusRequest
      *

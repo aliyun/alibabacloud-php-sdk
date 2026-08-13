@@ -26,6 +26,11 @@ class AddControlPolicyRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -62,6 +67,11 @@ class AddControlPolicyRequest extends Model
      * @var string
      */
     public $domainResolveType;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var int
@@ -136,6 +146,7 @@ class AddControlPolicyRequest extends Model
         'aclAction' => 'AclAction',
         'applicationName' => 'ApplicationName',
         'applicationNameList' => 'ApplicationNameList',
+        'clientToken' => 'ClientToken',
         'description' => 'Description',
         'destPort' => 'DestPort',
         'destPortGroup' => 'DestPortGroup',
@@ -144,6 +155,7 @@ class AddControlPolicyRequest extends Model
         'destinationType' => 'DestinationType',
         'direction' => 'Direction',
         'domainResolveType' => 'DomainResolveType',
+        'dryRun' => 'DryRun',
         'endTime' => 'EndTime',
         'ipVersion' => 'IpVersion',
         'lang' => 'Lang',
@@ -193,6 +205,10 @@ class AddControlPolicyRequest extends Model
             }
         }
 
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -223,6 +239,10 @@ class AddControlPolicyRequest extends Model
 
         if (null !== $this->domainResolveType) {
             $res['DomainResolveType'] = $this->domainResolveType;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->endTime) {
@@ -318,6 +338,10 @@ class AddControlPolicyRequest extends Model
             }
         }
 
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -348,6 +372,10 @@ class AddControlPolicyRequest extends Model
 
         if (isset($map['DomainResolveType'])) {
             $model->domainResolveType = $map['DomainResolveType'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EndTime'])) {

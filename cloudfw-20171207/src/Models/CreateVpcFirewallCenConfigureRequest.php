@@ -26,6 +26,11 @@ class CreateVpcFirewallCenConfigureRequest extends Model
     /**
      * @var string
      */
+    public $firewallVSwitchZoneId;
+
+    /**
+     * @var string
+     */
     public $firewallVpcCidrBlock;
 
     /**
@@ -71,6 +76,7 @@ class CreateVpcFirewallCenConfigureRequest extends Model
         'cenId' => 'CenId',
         'firewallSwitch' => 'FirewallSwitch',
         'firewallVSwitchCidrBlock' => 'FirewallVSwitchCidrBlock',
+        'firewallVSwitchZoneId' => 'FirewallVSwitchZoneId',
         'firewallVpcCidrBlock' => 'FirewallVpcCidrBlock',
         'firewallVpcStandbyZoneId' => 'FirewallVpcStandbyZoneId',
         'firewallVpcZoneId' => 'FirewallVpcZoneId',
@@ -100,6 +106,10 @@ class CreateVpcFirewallCenConfigureRequest extends Model
 
         if (null !== $this->firewallVSwitchCidrBlock) {
             $res['FirewallVSwitchCidrBlock'] = $this->firewallVSwitchCidrBlock;
+        }
+
+        if (null !== $this->firewallVSwitchZoneId) {
+            $res['FirewallVSwitchZoneId'] = $this->firewallVSwitchZoneId;
         }
 
         if (null !== $this->firewallVpcCidrBlock) {
@@ -159,6 +169,10 @@ class CreateVpcFirewallCenConfigureRequest extends Model
 
         if (isset($map['FirewallVSwitchCidrBlock'])) {
             $model->firewallVSwitchCidrBlock = $map['FirewallVSwitchCidrBlock'];
+        }
+
+        if (isset($map['FirewallVSwitchZoneId'])) {
+            $model->firewallVSwitchZoneId = $map['FirewallVSwitchZoneId'];
         }
 
         if (isset($map['FirewallVpcCidrBlock'])) {
