@@ -35,6 +35,11 @@ class CreateSupabaseProjectRequest extends Model
     public $engineVersion;
 
     /**
+     * @var bool
+     */
+    public $lightweight;
+
+    /**
      * @var string
      */
     public $payType;
@@ -99,6 +104,7 @@ class CreateSupabaseProjectRequest extends Model
         'clientToken' => 'ClientToken',
         'diskPerformanceLevel' => 'DiskPerformanceLevel',
         'engineVersion' => 'EngineVersion',
+        'lightweight' => 'Lightweight',
         'payType' => 'PayType',
         'period' => 'Period',
         'projectName' => 'ProjectName',
@@ -142,6 +148,10 @@ class CreateSupabaseProjectRequest extends Model
 
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+
+        if (null !== $this->lightweight) {
+            $res['Lightweight'] = $this->lightweight;
         }
 
         if (null !== $this->payType) {
@@ -228,6 +238,10 @@ class CreateSupabaseProjectRequest extends Model
 
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+
+        if (isset($map['Lightweight'])) {
+            $model->lightweight = $map['Lightweight'];
         }
 
         if (isset($map['PayType'])) {

@@ -61,6 +61,11 @@ class GetSupabaseProjectResponseBody extends Model
     /**
      * @var string
      */
+    public $lightweight;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -148,6 +153,7 @@ class GetSupabaseProjectResponseBody extends Model
         'engineVersion' => 'EngineVersion',
         'eni' => 'Eni',
         'instanceVersion' => 'InstanceVersion',
+        'lightweight' => 'Lightweight',
         'payType' => 'PayType',
         'privateConnectUrl' => 'PrivateConnectUrl',
         'projectDescription' => 'ProjectDescription',
@@ -212,6 +218,10 @@ class GetSupabaseProjectResponseBody extends Model
 
         if (null !== $this->instanceVersion) {
             $res['InstanceVersion'] = $this->instanceVersion;
+        }
+
+        if (null !== $this->lightweight) {
+            $res['Lightweight'] = $this->lightweight;
         }
 
         if (null !== $this->payType) {
@@ -327,6 +337,10 @@ class GetSupabaseProjectResponseBody extends Model
 
         if (isset($map['InstanceVersion'])) {
             $model->instanceVersion = $map['InstanceVersion'];
+        }
+
+        if (isset($map['Lightweight'])) {
+            $model->lightweight = $map['Lightweight'];
         }
 
         if (isset($map['PayType'])) {
