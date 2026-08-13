@@ -97,8 +97,8 @@ class VoiceNavigator extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'cn-shanghai' => 'voicenavigator.cn-shanghai.aliyuncs.com',
             'cn-hangzhou' => 'voicenavigator.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai' => 'voicenavigator.cn-shanghai.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('voicenavigator', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -380,7 +380,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Collects a number entered by a user during a call.
+     * Collects digits.
      *
      * @param request - CollectedNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -435,7 +435,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Collects a number entered by a user during a call.
+     * Collects digits.
      *
      * @param request - CollectedNumberRequest
      *
@@ -1222,7 +1222,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Queries the TTS configuration.
+     * Queries the text-to-speech (TTS) configuration.
      *
      * @param request - DescribeTTSConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1237,7 +1237,15 @@ class VoiceNavigator extends OpenApiClient
     public function describeTTSConfigWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceOwnerId) {
+            @$query['InstanceOwnerId'] = $request->instanceOwnerId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1246,7 +1254,7 @@ class VoiceNavigator extends OpenApiClient
             'version' => '2018-06-12',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -1257,7 +1265,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Queries the TTS configuration.
+     * Queries the text-to-speech (TTS) configuration.
      *
      * @param request - DescribeTTSConfigRequest
      *
@@ -1275,7 +1283,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Use this API to continue a conversation with an intelligent assistant by processing a user\\"s utterance.
+     * Initiates a conversation.
      *
      * @param request - DialogueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1342,7 +1350,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Use this API to continue a conversation with an intelligent assistant by processing a user\\"s utterance.
+     * Initiates a conversation.
      *
      * @param request - DialogueRequest
      *
@@ -2438,6 +2446,10 @@ class VoiceNavigator extends OpenApiClient
 
         if (null !== $request->appKey) {
             @$query['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->backgroundMusicName) {
+            @$query['BackgroundMusicName'] = $request->backgroundMusicName;
         }
 
         if (null !== $request->engine) {

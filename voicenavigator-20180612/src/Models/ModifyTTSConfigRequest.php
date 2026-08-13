@@ -21,6 +21,11 @@ class ModifyTTSConfigRequest extends Model
     /**
      * @var string
      */
+    public $backgroundMusicName;
+
+    /**
+     * @var string
+     */
     public $engine;
 
     /**
@@ -70,6 +75,7 @@ class ModifyTTSConfigRequest extends Model
     protected $_name = [
         'aliCustomizedVoice' => 'AliCustomizedVoice',
         'appKey' => 'AppKey',
+        'backgroundMusicName' => 'BackgroundMusicName',
         'engine' => 'Engine',
         'engineXunfei' => 'EngineXunfei',
         'extParams' => 'ExtParams',
@@ -96,6 +102,10 @@ class ModifyTTSConfigRequest extends Model
 
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+
+        if (null !== $this->backgroundMusicName) {
+            $res['BackgroundMusicName'] = $this->backgroundMusicName;
         }
 
         if (null !== $this->engine) {
@@ -155,6 +165,10 @@ class ModifyTTSConfigRequest extends Model
 
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
+        }
+
+        if (isset($map['BackgroundMusicName'])) {
+            $model->backgroundMusicName = $map['BackgroundMusicName'];
         }
 
         if (isset($map['Engine'])) {
