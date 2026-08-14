@@ -66,6 +66,11 @@ class DescribeAuditLogRecordsRequest extends Model
     /**
      * @var string
      */
+    public $processId;
+
+    /**
+     * @var string
+     */
     public $proxyUser;
 
     /**
@@ -119,6 +124,7 @@ class DescribeAuditLogRecordsRequest extends Model
         'ownerId' => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'processId' => 'ProcessId',
         'proxyUser' => 'ProxyUser',
         'queryKeyword' => 'QueryKeyword',
         'regionId' => 'RegionId',
@@ -180,6 +186,10 @@ class DescribeAuditLogRecordsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->processId) {
+            $res['ProcessId'] = $this->processId;
         }
 
         if (null !== $this->proxyUser) {
@@ -271,6 +281,10 @@ class DescribeAuditLogRecordsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ProcessId'])) {
+            $model->processId = $map['ProcessId'];
         }
 
         if (isset($map['ProxyUser'])) {

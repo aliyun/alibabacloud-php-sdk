@@ -6672,11 +6672,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the SQL Audit Log of a cluster.
+     * Queries the SQL audit logs of a cluster.
      *
      * @remarks
-     * - SQL Audit Log entries can be queried only when SQL audit is enabled, and only entries from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only entries recorded after re-enabling are available. SQL Audit Log does not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
-     * - For the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+     * - SQL audit logs can be queried only when SQL audit is enabled, and only logs from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only logs generated after re-enabling can be queried. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+     * - For the service registration of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAuditLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6736,6 +6736,10 @@ class Adb extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->processId) {
+            @$query['ProcessId'] = $request->processId;
+        }
+
         if (null !== $request->proxyUser) {
             @$query['ProxyUser'] = $request->proxyUser;
         }
@@ -6791,11 +6795,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the SQL Audit Log of a cluster.
+     * Queries the SQL audit logs of a cluster.
      *
      * @remarks
-     * - SQL Audit Log entries can be queried only when SQL audit is enabled, and only entries from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only entries recorded after re-enabling are available. SQL Audit Log does not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
-     * - For the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+     * - SQL audit logs can be queried only when SQL audit is enabled, and only logs from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only logs generated after re-enabling can be queried. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+     * - For the service registration of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAuditLogRecordsRequest
      *
