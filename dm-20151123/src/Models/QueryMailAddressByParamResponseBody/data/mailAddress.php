@@ -21,6 +21,11 @@ class mailAddress extends Model
     /**
      * @var string
      */
+    public $addressType;
+
+    /**
+     * @var string
+     */
     public $configSetId;
 
     /**
@@ -56,6 +61,11 @@ class mailAddress extends Model
     /**
      * @var string
      */
+    public $mailAddressVerificationStatus;
+
+    /**
+     * @var string
+     */
     public $monthCount;
 
     /**
@@ -76,10 +86,16 @@ class mailAddress extends Model
     /**
      * @var string
      */
+    public $senderAddress;
+
+    /**
+     * @var string
+     */
     public $sendtype;
     protected $_name = [
         'accountName' => 'AccountName',
         'accountStatus' => 'AccountStatus',
+        'addressType' => 'AddressType',
         'configSetId' => 'ConfigSetId',
         'configSetName' => 'ConfigSetName',
         'createTime' => 'CreateTime',
@@ -87,10 +103,12 @@ class mailAddress extends Model
         'dailyReqCount' => 'DailyReqCount',
         'domainStatus' => 'DomainStatus',
         'mailAddressId' => 'MailAddressId',
+        'mailAddressVerificationStatus' => 'MailAddressVerificationStatus',
         'monthCount' => 'MonthCount',
         'monthReqCount' => 'MonthReqCount',
         'replyAddress' => 'ReplyAddress',
         'replyStatus' => 'ReplyStatus',
+        'senderAddress' => 'SenderAddress',
         'sendtype' => 'Sendtype',
     ];
 
@@ -108,6 +126,10 @@ class mailAddress extends Model
 
         if (null !== $this->accountStatus) {
             $res['AccountStatus'] = $this->accountStatus;
+        }
+
+        if (null !== $this->addressType) {
+            $res['AddressType'] = $this->addressType;
         }
 
         if (null !== $this->configSetId) {
@@ -138,6 +160,10 @@ class mailAddress extends Model
             $res['MailAddressId'] = $this->mailAddressId;
         }
 
+        if (null !== $this->mailAddressVerificationStatus) {
+            $res['MailAddressVerificationStatus'] = $this->mailAddressVerificationStatus;
+        }
+
         if (null !== $this->monthCount) {
             $res['MonthCount'] = $this->monthCount;
         }
@@ -152,6 +178,10 @@ class mailAddress extends Model
 
         if (null !== $this->replyStatus) {
             $res['ReplyStatus'] = $this->replyStatus;
+        }
+
+        if (null !== $this->senderAddress) {
+            $res['SenderAddress'] = $this->senderAddress;
         }
 
         if (null !== $this->sendtype) {
@@ -175,6 +205,10 @@ class mailAddress extends Model
 
         if (isset($map['AccountStatus'])) {
             $model->accountStatus = $map['AccountStatus'];
+        }
+
+        if (isset($map['AddressType'])) {
+            $model->addressType = $map['AddressType'];
         }
 
         if (isset($map['ConfigSetId'])) {
@@ -205,6 +239,10 @@ class mailAddress extends Model
             $model->mailAddressId = $map['MailAddressId'];
         }
 
+        if (isset($map['MailAddressVerificationStatus'])) {
+            $model->mailAddressVerificationStatus = $map['MailAddressVerificationStatus'];
+        }
+
         if (isset($map['MonthCount'])) {
             $model->monthCount = $map['MonthCount'];
         }
@@ -219,6 +257,10 @@ class mailAddress extends Model
 
         if (isset($map['ReplyStatus'])) {
             $model->replyStatus = $map['ReplyStatus'];
+        }
+
+        if (isset($map['SenderAddress'])) {
+            $model->senderAddress = $map['SenderAddress'];
         }
 
         if (isset($map['Sendtype'])) {

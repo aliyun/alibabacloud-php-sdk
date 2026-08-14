@@ -189,10 +189,11 @@ class Dm extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
+            'ap-southeast-1' => 'dm.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'dm.ap-southeast-2.aliyuncs.com',
+            'cn-hangzhou' => 'dm.aliyuncs.com',
             'us-east-1' => 'dm.us-east-1.aliyuncs.com',
             'eu-central-1' => 'dm.eu-central-1.aliyuncs.com',
-            'cn-hangzhou' => 'dm.aliyuncs.com',
-            'ap-southeast-1' => 'dm.ap-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dm', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1395,7 +1396,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Create a mail address.
+     * Creates a sender address.
      *
      * @param Request - CreateMailAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1413,6 +1414,10 @@ class Dm extends OpenApiClient
         $query = [];
         if (null !== $request->accountName) {
             @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->addressType) {
+            @$query['AddressType'] = $request->addressType;
         }
 
         if (null !== $request->ownerId) {
@@ -1454,7 +1459,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Create a mail address.
+     * Creates a sender address.
      *
      * @param Request - CreateMailAddressRequest
      *
@@ -4779,7 +4784,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries a list of sender addresses.
+     * Queries the list of sender addresses.
      *
      * @param Request - QueryMailAddressByParamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4842,7 +4847,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries a list of sender addresses.
+     * Queries the list of sender addresses.
      *
      * @param Request - QueryMailAddressByParamRequest
      *
@@ -5683,7 +5688,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves sending statistics that match specified criteria.
+     * Retrieves sending data based on specified conditions.
      *
      * @param Request - SenderStatisticsByTagNameAndBatchIDRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5762,7 +5767,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves sending statistics that match specified criteria.
+     * Retrieves sending data based on specified conditions.
      *
      * @param Request - SenderStatisticsByTagNameAndBatchIDRequest
      *

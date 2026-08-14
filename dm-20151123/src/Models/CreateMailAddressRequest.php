@@ -14,6 +14,11 @@ class CreateMailAddressRequest extends Model
     public $accountName;
 
     /**
+     * @var string
+     */
+    public $addressType;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -39,6 +44,7 @@ class CreateMailAddressRequest extends Model
     public $sendtype;
     protected $_name = [
         'accountName' => 'AccountName',
+        'addressType' => 'AddressType',
         'ownerId' => 'OwnerId',
         'replyAddress' => 'ReplyAddress',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -56,6 +62,10 @@ class CreateMailAddressRequest extends Model
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+
+        if (null !== $this->addressType) {
+            $res['AddressType'] = $this->addressType;
         }
 
         if (null !== $this->ownerId) {
@@ -91,6 +101,10 @@ class CreateMailAddressRequest extends Model
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+
+        if (isset($map['AddressType'])) {
+            $model->addressType = $map['AddressType'];
         }
 
         if (isset($map['OwnerId'])) {
