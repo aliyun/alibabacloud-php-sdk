@@ -1,3 +1,7 @@
+2026-08-14 Version: 2.16.0
+- Support API ExecuteInstanceFailover.
+
+
 2026-08-11 Version: 2.15.6
 - Update API CreateAuthorizationRule: add request parameters AuthorizationRuleScenarioLabel.
 - Update API CreateCredentialProvider: add request parameters CredentialProviderConfig.OAuthProviderConfig.AuthorizationEndpoint.

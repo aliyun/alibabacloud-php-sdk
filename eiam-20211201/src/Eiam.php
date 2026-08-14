@@ -271,6 +271,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ExecIdentityProviderMetadataUrlResolutionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ExecIdentityProviderMetadataUrlResolutionResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ExecuteInstanceFailoverRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ExecuteInstanceFailoverResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateDownloadUrlForSynchronizationJobRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateDownloadUrlForSynchronizationJobResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateFileImportTemplateRequest;
@@ -9797,6 +9799,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->execIdentityProviderMetadataUrlResolutionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 执行容灾切换.
+     *
+     * @param request - ExecuteInstanceFailoverRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteInstanceFailoverResponse
+     *
+     * @param ExecuteInstanceFailoverRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ExecuteInstanceFailoverResponse
+     */
+    public function executeInstanceFailoverWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceFailoverStatus) {
+            @$query['InstanceFailoverStatus'] = $request->instanceFailoverStatus;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteInstanceFailover',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteInstanceFailoverResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 执行容灾切换.
+     *
+     * @param request - ExecuteInstanceFailoverRequest
+     *
+     * @returns ExecuteInstanceFailoverResponse
+     *
+     * @param ExecuteInstanceFailoverRequest $request
+     *
+     * @return ExecuteInstanceFailoverResponse
+     */
+    public function executeInstanceFailover($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeInstanceFailoverWithOptions($request, $runtime);
     }
 
     /**
