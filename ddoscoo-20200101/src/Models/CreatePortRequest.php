@@ -29,6 +29,11 @@ class CreatePortRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $ipMode;
+
+    /**
      * @var int
      */
     public $proxyEnable;
@@ -42,6 +47,7 @@ class CreatePortRequest extends Model
         'frontendPort' => 'FrontendPort',
         'frontendProtocol' => 'FrontendProtocol',
         'instanceId' => 'InstanceId',
+        'ipMode' => 'IpMode',
         'proxyEnable' => 'ProxyEnable',
         'realServers' => 'RealServers',
     ];
@@ -71,6 +77,10 @@ class CreatePortRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->ipMode) {
+            $res['IpMode'] = $this->ipMode;
         }
 
         if (null !== $this->proxyEnable) {
@@ -113,6 +123,10 @@ class CreatePortRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['IpMode'])) {
+            $model->ipMode = $map['IpMode'];
         }
 
         if (isset($map['ProxyEnable'])) {

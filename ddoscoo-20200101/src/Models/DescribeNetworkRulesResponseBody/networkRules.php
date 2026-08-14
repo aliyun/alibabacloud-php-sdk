@@ -24,6 +24,11 @@ class networkRules extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $ipMode;
+
+    /**
      * @var bool
      */
     public $isAutoCreate;
@@ -61,6 +66,7 @@ class networkRules extends Model
         'backendPort' => 'BackendPort',
         'frontendPort' => 'FrontendPort',
         'instanceId' => 'InstanceId',
+        'ipMode' => 'IpMode',
         'isAutoCreate' => 'IsAutoCreate',
         'payloadRuleEnable' => 'PayloadRuleEnable',
         'protocol' => 'Protocol',
@@ -91,6 +97,10 @@ class networkRules extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->ipMode) {
+            $res['IpMode'] = $this->ipMode;
         }
 
         if (null !== $this->isAutoCreate) {
@@ -149,6 +159,10 @@ class networkRules extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['IpMode'])) {
+            $model->ipMode = $map['IpMode'];
         }
 
         if (isset($map['IsAutoCreate'])) {

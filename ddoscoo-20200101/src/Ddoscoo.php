@@ -404,6 +404,10 @@ class Ddoscoo extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'ap-southeast-1' => 'ddoscoo.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou' => 'ddoscoo.cn-hangzhou.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ddoscoo', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -433,8 +437,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - AddAutoCcBlacklistRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -480,8 +482,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - AddAutoCcBlacklistRequest
      *
      * @returns AddAutoCcBlacklistResponse
@@ -498,14 +498,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
-     * @remarks
-     * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
-     * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - AddAutoCcWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -551,14 +543,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
-     * @remarks
-     * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
-     * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - AddAutoCcWhitelistRequest
      *
      * @returns AddAutoCcWhitelistResponse
@@ -575,7 +559,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Associates an SSL certificate with the forwarding rule of a website.
+     * 绑定证书.
      *
      * @param request - AssociateWebCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -638,7 +622,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Associates an SSL certificate with the forwarding rule of a website.
+     * 绑定证书.
      *
      * @param request - AssociateWebCertRequest
      *
@@ -656,7 +640,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds an object to a scenario-specific custom policy for protection.
+     * 绑定场景策略生效对象
      *
      * @param request - AttachSceneDefenseObjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -703,7 +687,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds an object to a scenario-specific custom policy for protection.
+     * 绑定场景策略生效对象
      *
      * @param request - AttachSceneDefenseObjectRequest
      *
@@ -721,7 +705,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the global mitigation policy feature, including the feature status and settings.
+     * 配置安全概要属性.
      *
      * @param request - ConfigDomainSecurityProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -768,7 +752,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the global mitigation policy feature, including the feature status and settings.
+     * 配置安全概要属性.
      *
      * @param request - ConfigDomainSecurityProfileRequest
      *
@@ -786,7 +770,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures an Anti-DDoS global mitigation policy.
+     * 配置全局模板规则.
      *
      * @param request - ConfigL7GlobalRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -829,7 +813,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures an Anti-DDoS global mitigation policy.
+     * 配置全局模板规则.
      *
      * @param request - ConfigL7GlobalRuleRequest
      *
@@ -847,10 +831,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures a back-to-origin policy for the forwarding rule of a website.
-     *
-     * @remarks
-     * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+     * 设置域名接入回源策略.
      *
      * @param request - ConfigL7RsPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -901,10 +882,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures a back-to-origin policy for the forwarding rule of a website.
-     *
-     * @remarks
-     * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+     * 设置域名接入回源策略.
      *
      * @param request - ConfigL7RsPolicyRequest
      *
@@ -922,7 +900,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the settings for back-to-origin persistent connections for a domain name.
+     * 配置长连接.
      *
      * @param request - ConfigL7UsKeepaliveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -969,7 +947,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the settings for back-to-origin persistent connections for a domain name.
+     * 配置长连接.
      *
      * @param request - ConfigL7UsKeepaliveRequest
      *
@@ -987,7 +965,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
+     * 4层带宽限速 客户专用.
      *
      * @param request - ConfigLayer4RealLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1030,7 +1008,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
+     * 4层带宽限速 客户专用.
      *
      * @param request - ConfigLayer4RealLimitRequest
      *
@@ -1048,7 +1026,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds a description to a port forwarding rule.
+     * 设置端口接入备注.
      *
      * @param request - ConfigLayer4RemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1087,7 +1065,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds a description to a port forwarding rule.
+     * 设置端口接入备注.
      *
      * @param request - ConfigLayer4RemarkRequest
      *
@@ -1105,7 +1083,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the origin redundancy mode for a port forwarding rule.
+     * 设置端口接入回源主备模式.
      *
      * @param request - ConfigLayer4RuleBakModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1148,7 +1126,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the origin redundancy mode for a port forwarding rule.
+     * 设置端口接入回源主备模式.
      *
      * @param request - ConfigLayer4RuleBakModeRequest
      *
@@ -1166,7 +1144,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
+     * 设置端口接入策略.
      *
      * @param request - ConfigLayer4RulePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1205,7 +1183,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
+     * 设置端口接入策略.
      *
      * @param request - ConfigLayer4RulePolicyRequest
      *
@@ -1223,7 +1201,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures blocked locations for an Anti-DDoS Proxy instance.
+     * 设置区域封禁
      *
      * @param request - ConfigNetworkRegionBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1266,7 +1244,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures blocked locations for an Anti-DDoS Proxy instance.
+     * 设置区域封禁
      *
      * @param request - ConfigNetworkRegionBlockRequest
      *
@@ -1284,7 +1262,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
+     * 配置端口接入规则.
      *
      * @param request - ConfigNetworkRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1323,7 +1301,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
+     * 配置端口接入规则.
      *
      * @param request - ConfigNetworkRulesRequest
      *
@@ -1341,12 +1319,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
-     *
-     * @remarks
-     * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 配置UDP反射.
      *
      * @param request - ConfigUdpReflectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1393,12 +1366,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
-     *
-     * @remarks
-     * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 配置UDP反射.
      *
      * @param request - ConfigUdpReflectRequest
      *
@@ -1416,7 +1384,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates or modifies the custom frequency control rule of a website.
+     * 配置新版基于匹配条件的cc规则.
      *
      * @param request - ConfigWebCCRuleV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1463,7 +1431,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates or modifies the custom frequency control rule of a website.
+     * 配置新版基于匹配条件的cc规则.
      *
      * @param request - ConfigWebCCRuleV2Request
      *
@@ -1481,7 +1449,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the mode of the Frequency Control policy for a website.
+     * 设置WEB CC防护模板
      *
      * @param request - ConfigWebCCTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1528,7 +1496,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the mode of the Frequency Control policy for a website.
+     * 设置WEB CC防护模板
      *
      * @param request - ConfigWebCCTemplateRequest
      *
@@ -1546,7 +1514,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the IP address whitelist and blacklist for a website.
+     * 设置防护黑白名单.
      *
      * @param request - ConfigWebIpSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1597,7 +1565,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the IP address whitelist and blacklist for a website.
+     * 设置防护黑白名单.
      *
      * @param request - ConfigWebIpSetRequest
      *
@@ -1615,8 +1583,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
-     *
      * @param request - CreateAsyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1662,8 +1628,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
-     *
      * @param request - CreateAsyncTaskRequest
      *
      * @returns CreateAsyncTaskResponse
@@ -1680,7 +1644,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a forwarding rule for a website.
+     * 域名资源.
      *
      * @param request - CreateDomainResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1739,7 +1703,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a forwarding rule for a website.
+     * 域名资源.
      *
      * @param request - CreateDomainResourceRequest
      *
@@ -1757,7 +1721,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a port forwarding rule.
+     * 创建全局端口防护规则.
      *
      * @param request - CreateNetworkRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1773,6 +1737,10 @@ class Ddoscoo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->ipMode) {
+            @$query['IpMode'] = $request->ipMode;
+        }
+
         if (null !== $request->networkRules) {
             @$query['NetworkRules'] = $request->networkRules;
         }
@@ -1796,7 +1764,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a port forwarding rule.
+     * 创建全局端口防护规则.
      *
      * @param request - CreateNetworkRulesRequest
      *
@@ -1814,10 +1782,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a port forwarding rule.
-     *
-     * @remarks
-     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     * Terraform创建端口.
      *
      * @param request - CreatePortRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1849,6 +1814,10 @@ class Ddoscoo extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->ipMode) {
+            @$query['IpMode'] = $request->ipMode;
+        }
+
         if (null !== $request->proxyEnable) {
             @$query['ProxyEnable'] = $request->proxyEnable;
         }
@@ -1876,10 +1845,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a port forwarding rule.
-     *
-     * @remarks
-     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     * Terraform创建端口.
      *
      * @param request - CreatePortRequest
      *
@@ -1897,8 +1863,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a scenario-specific custom policy.
-     *
      * @param request - CreateSceneDefensePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1948,8 +1912,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a scenario-specific custom policy.
-     *
      * @param request - CreateSceneDefensePolicyRequest
      *
      * @returns CreateSceneDefensePolicyResponse
@@ -1966,8 +1928,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a scheduling rule for Sec-Traffic Manager.
-     *
      * @param request - CreateSchedulerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2021,8 +1981,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a scheduling rule for Sec-Traffic Manager.
-     *
      * @param request - CreateSchedulerRuleRequest
      *
      * @returns CreateSchedulerRuleResponse
@@ -2039,12 +1997,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds tags to multiple Anti-DDoS Proxy instances at a time.
-     *
-     * @remarks
-     * You can call the CreateTagResources operation to add tags to multiple Anti-DDoS Proxy instances at a time.
-     * ### [](#qps-)Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 创建资源标签.
      *
      * @param request - CreateTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2099,12 +2052,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Adds tags to multiple Anti-DDoS Proxy instances at a time.
-     *
-     * @remarks
-     * You can call the CreateTagResources operation to add tags to multiple Anti-DDoS Proxy instances at a time.
-     * ### [](#qps-)Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 创建资源标签.
      *
      * @param request - CreateTagResourcesRequest
      *
@@ -2122,8 +2070,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a custom frequency control rule for a website.
-     *
      * @deprecated openAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
      *
      * @param request - CreateWebCCRuleRequest
@@ -2196,8 +2142,6 @@ class Ddoscoo extends OpenApiClient
 
     // Deprecated
     /**
-     * Creates a custom frequency control rule for a website.
-     *
      * @deprecated openAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
      *
      * @param request - CreateWebCCRuleRequest
@@ -2216,8 +2160,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a forwarding rule for a website.
-     *
      * @param request - CreateWebRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2279,8 +2221,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates a forwarding rule for a website.
-     *
      * @param request - CreateWebRuleRequest
      *
      * @returns CreateWebRuleResponse
@@ -2297,8 +2237,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes an asynchronous export task.
-     *
      * @param request - DeleteAsyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2340,8 +2278,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes an asynchronous export task.
-     *
      * @param request - DeleteAsyncTaskRequest
      *
      * @returns DeleteAsyncTaskResponse
@@ -2358,8 +2294,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - DeleteAutoCcBlacklistRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2405,8 +2339,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - DeleteAutoCcBlacklistRequest
      *
      * @returns DeleteAutoCcBlacklistResponse
@@ -2423,8 +2355,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Removes IP addresses from the IP address whitelist of an Anti-DDoS Proxy instance.
-     *
      * @param request - DeleteAutoCcWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2466,8 +2396,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Removes IP addresses from the IP address whitelist of an Anti-DDoS Proxy instance.
-     *
      * @param request - DeleteAutoCcWhitelistRequest
      *
      * @returns DeleteAutoCcWhitelistResponse
@@ -2484,7 +2412,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes a specified forwarding rule of a website.
+     * 删除域名资源.
      *
      * @param request - DeleteDomainResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2523,7 +2451,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes a specified forwarding rule of a website.
+     * 删除域名资源.
      *
      * @param request - DeleteDomainResourceRequest
      *
@@ -2541,7 +2469,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
+     * 删除端口转发规则.
      *
      * @param request - DeleteNetworkRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2580,7 +2508,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
+     * 删除端口转发规则.
      *
      * @param request - DeleteNetworkRuleRequest
      *
@@ -2598,12 +2526,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes the specified port forwarding rule.
-     *
-     * @remarks
-     * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
-     * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     *
      * @param request - DeletePortRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2657,12 +2579,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes the specified port forwarding rule.
-     *
-     * @remarks
-     * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
-     * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     *
      * @param request - DeletePortRequest
      *
      * @returns DeletePortResponse
@@ -2679,8 +2595,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes a scenario-specific custom policy.
-     *
      * @param request - DeleteSceneDefensePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2718,8 +2632,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes a scenario-specific custom policy.
-     *
      * @param request - DeleteSceneDefensePolicyRequest
      *
      * @returns DeleteSceneDefensePolicyResponse
@@ -2736,8 +2648,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes a scheduling rule of Sec-Traffic Manager.
-     *
      * @param request - DeleteSchedulerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2779,8 +2689,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes a scheduling rule of Sec-Traffic Manager.
-     *
      * @param request - DeleteSchedulerRuleRequest
      *
      * @returns DeleteSchedulerRuleResponse
@@ -2797,14 +2705,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
-     *
-     * @remarks
-     * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
-     * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DeleteTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2862,14 +2762,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
-     *
-     * @remarks
-     * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
-     * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DeleteTagResourcesRequest
      *
      * @returns DeleteTagResourcesResponse
@@ -2886,8 +2778,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes a custom frequency control rule of a website.
-     *
      * @deprecated openAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead
      *
      * @param request - DeleteWebCCRuleRequest
@@ -2936,8 +2826,6 @@ class Ddoscoo extends OpenApiClient
 
     // Deprecated
     /**
-     * Deletes a custom frequency control rule of a website.
-     *
      * @deprecated openAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead
      *
      * @param request - DeleteWebCCRuleRequest
@@ -2956,7 +2844,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes custom frequency control rules of a website.
+     * 删除新版cc规则.
      *
      * @param request - DeleteWebCCRuleV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3003,7 +2891,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes custom frequency control rules of a website.
+     * 删除新版cc规则.
      *
      * @param request - DeleteWebCCRuleV2Request
      *
@@ -3021,12 +2909,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes the custom rules of the Static Page Caching policy for a website.
-     *
-     * @remarks
-     * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 删除缓存规则.
      *
      * @param request - DeleteWebCacheCustomRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3073,12 +2956,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes the custom rules of the Static Page Caching policy for a website.
-     *
-     * @remarks
-     * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 删除缓存规则.
      *
      * @param request - DeleteWebCacheCustomRuleRequest
      *
@@ -3096,7 +2974,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes the accurate access control rules that are created for a website.
+     * 删除精准域名规则.
      *
      * @param request - DeleteWebPreciseAccessRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3143,7 +3021,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes the accurate access control rules that are created for a website.
+     * 删除精准域名规则.
      *
      * @param request - DeleteWebPreciseAccessRuleRequest
      *
@@ -3161,8 +3039,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes a forwarding rule of a website.
-     *
      * @param request - DeleteWebRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3204,8 +3080,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deletes a forwarding rule of a website.
-     *
      * @param request - DeleteWebRuleRequest
      *
      * @returns DeleteWebRuleResponse
@@ -3222,13 +3096,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-     *
-     * @remarks
-     * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeAsyncTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3274,13 +3141,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-     *
-     * @remarks
-     * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeAsyncTasksRequest
      *
      * @returns DescribeAsyncTasksResponse
@@ -3297,8 +3157,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the peak QPS of DDoS attacks within the specific period of time.
-     *
      * @param request - DescribeAttackAnalysisMaxQpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3344,8 +3202,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the peak QPS of DDoS attacks within the specific period of time.
-     *
      * @param request - DescribeAttackAnalysisMaxQpsRequest
      *
      * @returns DescribeAttackAnalysisMaxQpsResponse
@@ -3362,8 +3218,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - DescribeAutoCcBlacklistRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3417,8 +3271,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - DescribeAutoCcBlacklistRequest
      *
      * @returns DescribeAutoCcBlacklistResponse
@@ -3435,8 +3287,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Proxy instance.
-     *
      * @param request - DescribeAutoCcListCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3478,8 +3328,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Proxy instance.
-     *
      * @param request - DescribeAutoCcListCountRequest
      *
      * @returns DescribeAutoCcListCountResponse
@@ -3496,8 +3344,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries IP addresses in the IP address whitelist of an Anti-DDoS Proxy instance.
-     *
      * @param request - DescribeAutoCcWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3547,8 +3393,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries IP addresses in the IP address whitelist of an Anti-DDoS Proxy instance.
-     *
      * @param request - DescribeAutoCcWhitelistRequest
      *
      * @returns DescribeAutoCcWhitelistResponse
@@ -3565,8 +3409,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the back-to-origin CIDR blocks of Anti-DDoS Proxy.
-     *
      * @param request - DescribeBackSourceCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3612,8 +3454,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the back-to-origin CIDR blocks of Anti-DDoS Proxy.
-     *
      * @param request - DescribeBackSourceCidrRequest
      *
      * @returns DescribeBackSourceCidrResponse
@@ -3630,8 +3470,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *
      * @param request - DescribeBlackholeStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3669,8 +3507,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *
      * @param request - DescribeBlackholeStatusRequest
      *
      * @returns DescribeBlackholeStatusResponse
@@ -3687,14 +3523,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
-     *
-     * @remarks
-     * You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeBlockStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3736,14 +3564,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
-     *
-     * @remarks
-     * You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeBlockStatusRequest
      *
      * @returns DescribeBlockStatusResponse
@@ -3825,12 +3645,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
-     *
-     * @remarks
-     * This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.
-     * >  If you want to query the certificate that is in use for the current domain name, you can call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the values of the CertName and CertRegion parameters. Then, you can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service to query the ID and other details of the certificate by using the value of the CertName parameter.
-     *
      * @param request - DescribeCertsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3872,12 +3686,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
-     *
-     * @remarks
-     * This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.
-     * >  If you want to query the certificate that is in use for the current domain name, you can call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the values of the CertName and CertRegion parameters. Then, you can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service to query the ID and other details of the certificate by using the value of the CertName parameter.
-     *
      * @param request - DescribeCertsRequest
      *
      * @returns DescribeCertsResponse
@@ -3894,8 +3702,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the CNAME reuse information about websites.
-     *
      * @param request - DescribeCnameReusesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3937,8 +3743,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the CNAME reuse information about websites.
-     *
      * @param request - DescribeCnameReusesRequest
      *
      * @returns DescribeCnameReusesResponse
@@ -3955,7 +3759,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the attack events launched against one or more Anti-DDoS Proxy instances.
+     * 查询DDoS事件.
      *
      * @param request - DescribeDDoSEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4014,7 +3818,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the attack events launched against one or more Anti-DDoS Proxy instances.
+     * 查询DDoS事件.
      *
      * @param request - DescribeDDoSEventsRequest
      *
@@ -4032,13 +3836,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries DDoS attack events.
-     *
-     * @remarks
-     * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeDDosAllEventListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4096,13 +3893,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries DDoS attack events.
-     *
-     * @remarks
-     * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeDDosAllEventListRequest
      *
      * @returns DescribeDDosAllEventListResponse
@@ -4119,11 +3909,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the source region from which a volumetric attack is initiated.
-     *
-     * @remarks
-     * > This operation is suitable only for volumetric attacks.
-     *
      * @param request - DescribeDDosEventAreaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4173,11 +3958,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the source region from which a volumetric attack is initiated.
-     *
-     * @remarks
-     * > This operation is suitable only for volumetric attacks.
-     *
      * @param request - DescribeDDosEventAreaRequest
      *
      * @returns DescribeDDosEventAreaResponse
@@ -4194,11 +3974,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the attack type details of a volumetric attack.
-     *
-     * @remarks
-     * > This operation is suitable only for volumetric attacks.
-     *
      * @param request - DescribeDDosEventAttackTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4244,11 +4019,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the attack type details of a volumetric attack.
-     *
-     * @remarks
-     * > This operation is suitable only for volumetric attacks.
-     *
      * @param request - DescribeDDosEventAttackTypeRequest
      *
      * @returns DescribeDDosEventAttackTypeResponse
@@ -4265,11 +4035,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Internet service provider (ISP) information about a volumetric attack.
-     *
-     * @remarks
-     * > This operation is suitable only for volumetric attacks.
-     *
      * @param request - DescribeDDosEventIspRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4319,11 +4084,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Internet service provider (ISP) information about a volumetric attack.
-     *
-     * @remarks
-     * > This operation is suitable only for volumetric attacks.
-     *
      * @param request - DescribeDDosEventIspRequest
      *
      * @returns DescribeDDosEventIspResponse
@@ -4340,8 +4100,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
-     *
      * @param request - DescribeDDosEventMaxRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4387,8 +4145,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
-     *
      * @param request - DescribeDDosEventMaxRequest
      *
      * @returns DescribeDDosEventMaxResponse
@@ -4405,11 +4161,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the source IP address from which a volumetric attack is initiated.
-     *
-     * @remarks
-     * > This operation is suitable only for volumetric attacks.
-     *
      * @param request - DescribeDDosEventSrcIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4459,11 +4210,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the source IP address from which a volumetric attack is initiated.
-     *
-     * @remarks
-     * > This operation is suitable only for volumetric attacks.
-     *
      * @param request - DescribeDDosEventSrcIpRequest
      *
      * @returns DescribeDDosEventSrcIpResponse
@@ -4480,14 +4226,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
-     *
-     * @remarks
-     * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
-     * >  This operation is suitable only for Anti-DDoS Proxy (Outside Chinese Mainland).
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeDefenseCountStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4525,14 +4263,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
-     *
-     * @remarks
-     * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
-     * >  This operation is suitable only for Anti-DDoS Proxy (Outside Chinese Mainland).
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeDefenseCountStatisticsRequest
      *
      * @returns DescribeDefenseCountStatisticsResponse
@@ -4549,11 +4279,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the advanced mitigation logs of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
-     *
-     * @remarks
-     * > This operation is suitable only for Anti-DDoS Premium.
-     *
      * @param request - DescribeDefenseRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4611,11 +4336,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the advanced mitigation logs of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
-     *
-     * @remarks
-     * > This operation is suitable only for Anti-DDoS Premium.
-     *
      * @param request - DescribeDefenseRecordsRequest
      *
      * @returns DescribeDefenseRecordsResponse
@@ -4632,7 +4352,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the number of request packets received by the destination ports of the attacked IP address that is protected by Anti-DDoS Proxy.
+     * 查询目的端口事件.
      *
      * @param request - DescribeDestinationPortEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4687,7 +4407,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the number of request packets received by the destination ports of the attacked IP address that is protected by Anti-DDoS Proxy.
+     * 查询目的端口事件.
      *
      * @param request - DescribeDestinationPortEventRequest
      *
@@ -4705,8 +4425,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the attack events launched against a website.
-     *
      * @param request - DescribeDomainAttackEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4764,8 +4482,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the attack events launched against a website.
-     *
      * @param request - DescribeDomainAttackEventsRequest
      *
      * @returns DescribeDomainAttackEventsResponse
@@ -4782,7 +4498,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the bandwidths of a website.
+     * 查询域名业务带宽流量.
      *
      * @param request - DescribeDomainBpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4837,7 +4553,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the bandwidths of a website.
+     * 查询域名业务带宽流量.
      *
      * @param request - DescribeDomainBpsRequest
      *
@@ -4912,7 +4628,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about HTTP/2 fingerprints of a website.
+     * 查询HTTP2指纹.
      *
      * @param request - DescribeDomainH2FingerprintRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4967,7 +4683,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about HTTP/2 fingerprints of a website.
+     * 查询HTTP2指纹.
      *
      * @param request - DescribeDomainH2FingerprintRequest
      *
@@ -4985,8 +4701,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
-     *
      * @param request - DescribeDomainOverviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5036,8 +4750,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
-     *
      * @param request - DescribeDomainOverviewRequest
      *
      * @returns DescribeDomainOverviewResponse
@@ -5054,8 +4766,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on the queries per second (QPS) of a website.
-     *
      * @param request - DescribeDomainQPSListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5109,8 +4819,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on the queries per second (QPS) of a website.
-     *
      * @param request - DescribeDomainQPSListRequest
      *
      * @returns DescribeDomainQPSListResponse
@@ -5127,14 +4835,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a forwarding rule.
-     *
-     * @remarks
-     * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
-     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     * ### Limits
-     * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeDomainResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5188,14 +4888,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a forwarding rule.
-     *
-     * @remarks
-     * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
-     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     * ### Limits
-     * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeDomainResourceRequest
      *
      * @returns DescribeDomainResourceResponse
@@ -5212,7 +4904,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the global mitigation policy for a domain name.
+     * 查询安全概要属性开关.
      *
      * @param request - DescribeDomainSecurityProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5251,7 +4943,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the global mitigation policy for a domain name.
+     * 查询安全概要属性开关.
      *
      * @param request - DescribeDomainSecurityProfileRequest
      *
@@ -5269,7 +4961,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on HTTP status codes of a website within a specified period of time.
+     * 查询各类响应状态码统计信息.
      *
      * @param request - DescribeDomainStatusCodeCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5320,7 +5012,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on HTTP status codes of a website within a specified period of time.
+     * 查询各类响应状态码统计信息.
      *
      * @param request - DescribeDomainStatusCodeCountRequest
      *
@@ -5338,7 +5030,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on HTTP status codes of a website.
+     * 查询网站业务的响应状态码统计信息.
      *
      * @param request - DescribeDomainStatusCodeListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5397,7 +5089,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on HTTP status codes of a website.
+     * 查询网站业务的响应状态码统计信息.
      *
      * @param request - DescribeDomainStatusCodeListRequest
      *
@@ -5415,8 +5107,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
-     *
      * @param request - DescribeDomainTopAttackListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5466,8 +5156,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
-     *
      * @param request - DescribeDomainTopAttackListRequest
      *
      * @returns DescribeDomainTopAttackListResponse
@@ -5484,7 +5172,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about the fingerprints of top N clients that access a website.
+     * 查询域名 top fingerprint.
      *
      * @param request - DescribeDomainTopFingerprintRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5547,7 +5235,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about the fingerprints of top N clients that access a website.
+     * 查询域名 top fingerprint.
      *
      * @param request - DescribeDomainTopFingerprintRequest
      *
@@ -5565,7 +5253,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about top N HTTP methods of a website.
+     * 查询域名 top HttpMethod.
      *
      * @param request - DescribeDomainTopHttpMethodRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5624,7 +5312,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about top N HTTP methods of a website.
+     * 查询域名 top HttpMethod.
      *
      * @param request - DescribeDomainTopHttpMethodRequest
      *
@@ -5642,7 +5330,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about top N referers of a website.
+     * 查询域名top referer.
      *
      * @param request - DescribeDomainTopRefererRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5701,7 +5389,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about top N referers of a website.
+     * 查询域名top referer.
      *
      * @param request - DescribeDomainTopRefererRequest
      *
@@ -5719,7 +5407,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about top user agents of a website.
+     * 查询top user agent.
      *
      * @param request - DescribeDomainTopUserAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5778,7 +5466,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about top user agents of a website.
+     * 查询top user agent.
      *
      * @param request - DescribeDomainTopUserAgentRequest
      *
@@ -5796,8 +5484,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the areas and countries from which requests are sent to a website within a specified period of time.
-     *
      * @param request - DescribeDomainViewSourceCountriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5847,8 +5533,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the areas and countries from which requests are sent to a website within a specified period of time.
-     *
      * @param request - DescribeDomainViewSourceCountriesRequest
      *
      * @returns DescribeDomainViewSourceCountriesResponse
@@ -5865,8 +5549,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
-     *
      * @param request - DescribeDomainViewSourceProvincesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5916,8 +5598,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
-     *
      * @param request - DescribeDomainViewSourceProvincesRequest
      *
      * @returns DescribeDomainViewSourceProvincesResponse
@@ -5934,8 +5614,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
-     *
      * @param request - DescribeDomainViewTopCostTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5989,8 +5667,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
-     *
      * @param request - DescribeDomainViewTopCostTimeRequest
      *
      * @returns DescribeDomainViewTopCostTimeResponse
@@ -6007,8 +5683,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the top N URLs that receive the most requests within a specified period of time.
-     *
      * @param request - DescribeDomainViewTopUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6066,8 +5740,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the top N URLs that receive the most requests within a specified period of time.
-     *
      * @param request - DescribeDomainViewTopUrlRequest
      *
      * @returns DescribeDomainViewTopUrlResponse
@@ -6084,8 +5756,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries domain names for which forwarding rules are created.
-     *
      * @param request - DescribeDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6127,8 +5797,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries domain names for which forwarding rules are created.
-     *
      * @param request - DescribeDomainsRequest
      *
      * @returns DescribeDomainsResponse
@@ -6145,11 +5813,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *
      * @param request - DescribeElasticBandwidthSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6187,11 +5850,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *
      * @param request - DescribeElasticBandwidthSpecRequest
      *
      * @returns DescribeElasticBandwidthSpecResponse
@@ -6208,7 +5866,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
+     * 高防弹性qps曲线图.
      *
      * @param request - DescribeElasticQpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6263,7 +5921,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
+     * 高防弹性qps曲线图.
      *
      * @param request - DescribeElasticQpsRequest
      *
@@ -6281,7 +5939,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the burstable QPS details of an Anti-DDoS Proxy instance.
+     * 查询qps日95流量图.
      *
      * @param request - DescribeElasticQpsRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6328,7 +5986,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the burstable QPS details of an Anti-DDoS Proxy instance.
+     * 查询qps日95流量图.
      *
      * @param request - DescribeElasticQpsRecordRequest
      *
@@ -6346,7 +6004,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the custom header that is specified for a domain name.
+     * 获取header.
      *
      * @param request - DescribeHeadersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6389,7 +6047,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the custom header that is specified for a domain name.
+     * 获取header.
      *
      * @param request - DescribeHeadersRequest
      *
@@ -6407,7 +6065,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
+     * 查询健康检查列表.
      *
      * @param request - DescribeHealthCheckListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6446,7 +6104,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
+     * 查询健康检查列表.
      *
      * @param request - DescribeHealthCheckListRequest
      *
@@ -6464,8 +6122,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the health status of an origin server.
-     *
      * @param request - DescribeHealthCheckStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6503,8 +6159,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the health status of an origin server.
-     *
      * @param request - DescribeHealthCheckStatusRequest
      *
      * @returns DescribeHealthCheckStatusResponse
@@ -6521,13 +6175,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *
-     * @remarks
-     * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeInstanceDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6565,13 +6212,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *
-     * @remarks
-     * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeInstanceDetailsRequest
      *
      * @returns DescribeInstanceDetailsResponse
@@ -6588,7 +6228,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
+     * 查询实例扩展信息用户terraform.
      *
      * @param request - DescribeInstanceExtRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6635,7 +6275,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
+     * 查询实例扩展信息用户terraform.
      *
      * @param request - DescribeInstanceExtRequest
      *
@@ -6653,8 +6293,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * The description of the instance.
-     *
      * @param request - DescribeInstanceIdsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6700,8 +6338,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * The description of the instance.
-     *
      * @param request - DescribeInstanceIdsRequest
      *
      * @returns DescribeInstanceIdsResponse
@@ -6718,13 +6354,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *
-     * @remarks
-     * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeInstanceSpecsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6762,13 +6391,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *
-     * @remarks
-     * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeInstanceSpecsRequest
      *
      * @returns DescribeInstanceSpecsResponse
@@ -6785,8 +6407,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
-     *
      * @param request - DescribeInstanceStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6824,8 +6444,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
-     *
      * @param request - DescribeInstanceStatisticsRequest
      *
      * @returns DescribeInstanceStatisticsResponse
@@ -6842,8 +6460,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the status of a specified Anti-DDoS Proxy instance.
-     *
      * @param request - DescribeInstanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6885,8 +6501,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the status of a specified Anti-DDoS Proxy instance.
-     *
      * @param request - DescribeInstanceStatusRequest
      *
      * @returns DescribeInstanceStatusResponse
@@ -6904,9 +6518,6 @@ class Ddoscoo extends OpenApiClient
 
     /**
      * 查询实例列表.
-     *
-     * @remarks
-     * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
      *
      * @param request - DescribeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6991,9 +6602,6 @@ class Ddoscoo extends OpenApiClient
     /**
      * 查询实例列表.
      *
-     * @remarks
-     * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
-     *
      * @param request - DescribeInstancesRequest
      *
      * @returns DescribeInstancesResponse
@@ -7010,7 +6618,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries an Anti-DDoS global mitigation policy.
+     * 展示全局模板规则.
      *
      * @param request - DescribeL7GlobalRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7053,7 +6661,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries an Anti-DDoS global mitigation policy.
+     * 展示全局模板规则.
      *
      * @param request - DescribeL7GlobalRuleRequest
      *
@@ -7071,7 +6679,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the back-to-origin policies for the forwarding rule of a website.
+     * 查询域名接入回源策略.
      *
      * @param request - DescribeL7RsPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7118,7 +6726,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the back-to-origin policies for the forwarding rule of a website.
+     * 查询域名接入回源策略.
      *
      * @param request - DescribeL7RsPolicyRequest
      *
@@ -7136,7 +6744,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of back-to-origin persistent connections of a domain name.
+     * 查询长连接.
      *
      * @param request - DescribeL7UsKeepaliveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7175,7 +6783,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of back-to-origin persistent connections of a domain name.
+     * 查询长连接.
      *
      * @param request - DescribeL7UsKeepaliveRequest
      *
@@ -7193,8 +6801,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the back-to-origin settings of a port forwarding rule.
-     *
      * @param request - DescribeLayer4RulePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7232,8 +6838,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the back-to-origin settings of a port forwarding rule.
-     *
      * @param request - DescribeLayer4RulePolicyRequest
      *
      * @returns DescribeLayer4RulePolicyResponse
@@ -7250,8 +6854,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Checks whether a Logstore is created for Anti-DDoS Proxy.
-     *
      * @param request - DescribeLogStoreExistStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7289,8 +6891,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Checks whether a Logstore is created for Anti-DDoS Proxy.
-     *
      * @param request - DescribeLogStoreExistStatusRequest
      *
      * @returns DescribeLogStoreExistStatusResponse
@@ -7307,8 +6907,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - DescribeNetworkRegionBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7346,8 +6944,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - DescribeNetworkRegionBlockRequest
      *
      * @returns DescribeNetworkRegionBlockResponse
@@ -7364,8 +6960,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
-     *
      * @param request - DescribeNetworkRuleAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7403,8 +6997,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
-     *
      * @param request - DescribeNetworkRuleAttributesRequest
      *
      * @returns DescribeNetworkRuleAttributesResponse
@@ -7421,7 +7013,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries port forwarding rules.
+     * 查询端口转发规则.
      *
      * @param request - DescribeNetworkRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7476,7 +7068,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries port forwarding rules.
+     * 查询端口转发规则.
      *
      * @param request - DescribeNetworkRulesRequest
      *
@@ -7494,12 +7086,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of Anti-DDoS Proxy (Chinese Mainland).
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     * You can query operations performed on Anti-DDoS Proxy (Chinese Mainland), such as configuring the burstable protection bandwidth, deactivating blackhole filtering, configuring the near-origin traffic diversion feature, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
-     *
      * @param request - DescribeOpEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7561,12 +7147,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of Anti-DDoS Proxy (Chinese Mainland).
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     * You can query operations performed on Anti-DDoS Proxy (Chinese Mainland), such as configuring the burstable protection bandwidth, deactivating blackhole filtering, configuring the near-origin traffic diversion feature, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
-     *
      * @param request - DescribeOpEntitiesRequest
      *
      * @returns DescribeOpEntitiesResponse
@@ -7583,10 +7163,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
-     * @remarks
-     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     * Terraform 查询端口.
      *
      * @param request - DescribePortRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7641,10 +7218,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
-     * @remarks
-     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     * Terraform 查询端口.
      *
      * @param request - DescribePortRequest
      *
@@ -7662,12 +7236,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-     *
-     * @remarks
-     * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 查询端口攻击最大峰值
      *
      * @param request - DescribePortAttackMaxFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7718,12 +7287,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-     *
-     * @remarks
-     * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 查询端口攻击最大峰值
      *
      * @param request - DescribePortAttackMaxFlowRequest
      *
@@ -7741,8 +7305,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of the Intelligent Protection policy for non-website services.
-     *
      * @param request - DescribePortAutoCcStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7780,8 +7342,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of the Intelligent Protection policy for non-website services.
-     *
      * @param request - DescribePortAutoCcStatusRequest
      *
      * @returns DescribePortAutoCcStatusResponse
@@ -7798,8 +7358,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - DescribePortCcAttackTopIPRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7849,8 +7407,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - DescribePortCcAttackTopIPRequest
      *
      * @returns DescribePortCcAttackTopIPResponse
@@ -7867,7 +7423,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
+     * 查询端口连接数统计
      *
      * @param request - DescribePortConnsCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7922,7 +7478,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
+     * 查询端口连接数统计
      *
      * @param request - DescribePortConnsCountRequest
      *
@@ -7940,7 +7496,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
+     * 查询端口连接列表.
      *
      * @param request - DescribePortConnsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7999,7 +7555,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
+     * 查询端口连接列表.
      *
      * @param request - DescribePortConnsListRequest
      *
@@ -8017,8 +7573,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the traffic data of one or more Anti-DDoS Proxy instances.
-     *
      * @param request - DescribePortFlowListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8072,8 +7626,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the traffic data of one or more Anti-DDoS Proxy instances.
-     *
      * @param request - DescribePortFlowListRequest
      *
      * @returns DescribePortFlowListResponse
@@ -8090,8 +7642,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Proxy instances.
-     *
      * @param request - DescribePortMaxConnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8141,8 +7691,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Proxy instances.
-     *
      * @param request - DescribePortMaxConnsRequest
      *
      * @returns DescribePortMaxConnsResponse
@@ -8159,8 +7707,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-     *
      * @param request - DescribePortViewSourceCountriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8210,8 +7756,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-     *
      * @param request - DescribePortViewSourceCountriesRequest
      *
      * @returns DescribePortViewSourceCountriesResponse
@@ -8228,14 +7772,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-     *
-     * @remarks
-     * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-     * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribePortViewSourceIspsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8285,14 +7821,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-     *
-     * @remarks
-     * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-     * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribePortViewSourceIspsRequest
      *
      * @returns DescribePortViewSourceIspsResponse
@@ -8309,8 +7837,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-     *
      * @param request - DescribePortViewSourceProvincesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8360,8 +7886,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-     *
      * @param request - DescribePortViewSourceProvincesRequest
      *
      * @returns DescribePortViewSourceProvincesResponse
@@ -8378,14 +7902,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the protected objects of a scenario-specific custom policy.
-     *
-     * @remarks
-     * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
-     * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](https://help.aliyun.com/document_detail/159779.html) operation.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeSceneDefenseObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8427,14 +7943,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the protected objects of a scenario-specific custom policy.
-     *
-     * @remarks
-     * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
-     * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](https://help.aliyun.com/document_detail/159779.html) operation.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeSceneDefenseObjectsRequest
      *
      * @returns DescribeSceneDefenseObjectsResponse
@@ -8451,13 +7959,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a scenario-specific custom policy.
-     *
-     * @remarks
-     * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeSceneDefensePoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8503,13 +8004,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a scenario-specific custom policy.
-     *
-     * @remarks
-     * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeSceneDefensePoliciesRequest
      *
      * @returns DescribeSceneDefensePoliciesResponse
@@ -8526,8 +8020,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the scheduling rules of Sec-Traffic Manager.
-     *
      * @param request - DescribeSchedulerRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8577,8 +8069,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the scheduling rules of Sec-Traffic Manager.
-     *
      * @param request - DescribeSchedulerRulesRequest
      *
      * @returns DescribeSchedulerRulesResponse
@@ -8595,7 +8085,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the destination rate limit events.
+     * 查询目的限速事件列表.
      *
      * @param request - DescribeSlaEventListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8654,7 +8144,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the destination rate limit events.
+     * 查询目的限速事件列表.
      *
      * @param request - DescribeSlaEventListRequest
      *
@@ -8672,8 +8162,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries whether Anti-DDoS Proxy is authorized to access Simple Log Service.
-     *
      * @param request - DescribeSlsAuthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8711,8 +8199,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries whether Anti-DDoS Proxy is authorized to access Simple Log Service.
-     *
      * @param request - DescribeSlsAuthStatusRequest
      *
      * @returns DescribeSlsAuthStatusResponse
@@ -8729,7 +8215,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries information about the Logstore of the Anti-DDoS Proxy instance, such as the log storage capacity and log storage duration.
+     * 查询全量日志信息.
      *
      * @param request - DescribeSlsLogstoreInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8768,7 +8254,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries information about the Logstore of the Anti-DDoS Proxy instance, such as the log storage capacity and log storage duration.
+     * 查询全量日志信息.
      *
      * @param request - DescribeSlsLogstoreInfoRequest
      *
@@ -8786,8 +8272,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Checks whether Simple Log Service is activated.
-     *
      * @param request - DescribeSlsOpenStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8825,8 +8309,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Checks whether Simple Log Service is activated.
-     *
      * @param request - DescribeSlsOpenStatusRequest
      *
      * @returns DescribeSlsOpenStatusResponse
@@ -8843,13 +8325,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
-     *
-     * @remarks
-     * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeStsGrantStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8891,13 +8366,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
-     *
-     * @remarks
-     * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeStsGrantStatusRequest
      *
      * @returns DescribeStsGrantStatusResponse
@@ -8914,13 +8382,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the details of the bills for the burstable clean bandwidth.
-     *
-     * @remarks
-     * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
-     * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 查询系统日志.
      *
      * @param request - DescribeSystemLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8979,13 +8441,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the details of the bills for the burstable clean bandwidth.
-     *
-     * @remarks
-     * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
-     * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 查询系统日志.
      *
      * @param request - DescribeSystemLogRequest
      *
@@ -9003,14 +8459,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
-     *
-     * @remarks
-     * You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
-     * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9064,14 +8512,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
-     *
-     * @remarks
-     * You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
-     * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeTagKeysRequest
      *
      * @returns DescribeTagKeysResponse
@@ -9088,14 +8528,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *
-     * @remarks
-     * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
-     * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9153,14 +8585,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *
-     * @remarks
-     * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
-     * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeTagResourcesRequest
      *
      * @returns DescribeTagResourcesResponse
@@ -9177,7 +8601,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+     * 新峰值接口.
      *
      * @param request - DescribeTotalAttackMaxFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9228,7 +8652,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+     * 新峰值接口.
      *
      * @param request - DescribeTotalAttackMaxFlowRequest
      *
@@ -9246,8 +8670,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - DescribeUdpReflectRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9289,8 +8711,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
      * @param request - DescribeUdpReflectRequest
      *
      * @returns DescribeUdpReflectResponse
@@ -9307,8 +8727,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the total quota and remaining quota for blackhole filtering deactivation.
-     *
      * @param request - DescribeUnBlackholeCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9346,8 +8764,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the total quota and remaining quota for blackhole filtering deactivation.
-     *
      * @param request - DescribeUnBlackholeCountRequest
      *
      * @returns DescribeUnBlackholeCountResponse
@@ -9364,10 +8780,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     * 查询解封次数.
      *
      * @param request - DescribeUnBlockCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9406,10 +8819,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     * 查询解封次数.
      *
      * @param request - DescribeUnBlockCountRequest
      *
@@ -9427,12 +8837,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Checks whether the log analysis feature is enabled for all domain names.
-     *
-     * @remarks
-     * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 查询域名的全量日志分发状态
      *
      * @param request - DescribeWebAccessLogDispatchStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9479,12 +8884,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Checks whether the log analysis feature is enabled for all domain names.
-     *
-     * @remarks
-     * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 查询域名的全量日志分发状态
      *
      * @param request - DescribeWebAccessLogDispatchStatusRequest
      *
@@ -9502,8 +8902,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the remaining quota that allows you to clear the Logstore.
-     *
      * @param request - DescribeWebAccessLogEmptyCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9541,8 +8939,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the remaining quota that allows you to clear the Logstore.
-     *
      * @param request - DescribeWebAccessLogEmptyCountRequest
      *
      * @returns DescribeWebAccessLogEmptyCountResponse
@@ -9559,8 +8955,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about the log analysis feature for a website, such as the feature status and the Simple Log Service project and Logstore that are used.
-     *
      * @param request - DescribeWebAccessLogStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9602,8 +8996,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about the log analysis feature for a website, such as the feature status and the Simple Log Service project and Logstore that are used.
-     *
      * @param request - DescribeWebAccessLogStatusRequest
      *
      * @returns DescribeWebAccessLogStatusResponse
@@ -9620,8 +9012,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-     *
      * @param request - DescribeWebAccessModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9659,8 +9049,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-     *
      * @param request - DescribeWebAccessModeRequest
      *
      * @returns DescribeWebAccessModeResponse
@@ -9677,8 +9065,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Location Blacklist (Domain Names) configurations for websites.
-     *
      * @param request - DescribeWebAreaBlockConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9720,8 +9106,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Location Blacklist (Domain Names) configurations for websites.
-     *
      * @param request - DescribeWebAreaBlockConfigsRequest
      *
      * @returns DescribeWebAreaBlockConfigsResponse
@@ -9738,8 +9122,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the custom frequency control rules that are created for a website.
-     *
      * @deprecated openAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
      *
      * @param request - DescribeWebCCRulesRequest
@@ -9792,8 +9174,6 @@ class Ddoscoo extends OpenApiClient
 
     // Deprecated
     /**
-     * Queries the custom frequency control rules that are created for a website.
-     *
      * @deprecated openAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
      *
      * @param request - DescribeWebCCRulesRequest
@@ -9812,7 +9192,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the custom frequency control rules that are created for a website.
+     * 查询新版cc规则.
      *
      * @param request - DescribeWebCCRulesV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9863,7 +9243,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the custom frequency control rules that are created for a website.
+     * 查询新版cc规则.
      *
      * @param request - DescribeWebCCRulesV2Request
      *
@@ -9881,13 +9261,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Static Page Caching configuration of websites.
-     *
-     * @remarks
-     * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeWebCacheConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9929,13 +9302,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the Static Page Caching configuration of websites.
-     *
-     * @remarks
-     * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - DescribeWebCacheConfigsRequest
      *
      * @returns DescribeWebCacheConfigsResponse
@@ -9952,8 +9318,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the status of each mitigation policy for a website.
-     *
      * @param request - DescribeWebCcProtectSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9995,8 +9359,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the status of each mitigation policy for a website.
-     *
      * @param request - DescribeWebCcProtectSwitchRequest
      *
      * @returns DescribeWebCcProtectSwitchResponse
@@ -10013,8 +9375,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the supported custom ports of a website.
-     *
      * @param request - DescribeWebCustomPortsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10052,8 +9412,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the supported custom ports of a website.
-     *
      * @param request - DescribeWebCustomPortsRequest
      *
      * @returns DescribeWebCustomPortsResponse
@@ -10070,7 +9428,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
+     * 查询网站业务关联的DDoS高防实例信息.
      *
      * @param request - DescribeWebInstanceRelationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10113,7 +9471,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
+     * 查询网站业务关联的DDoS高防实例信息.
      *
      * @param request - DescribeWebInstanceRelationsRequest
      *
@@ -10131,7 +9489,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the accurate access control rules that are created for websites.
+     * 查询网站业务精确访问控制规则.
      *
      * @param request - DescribeWebPreciseAccessRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10178,7 +9536,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the accurate access control rules that are created for websites.
+     * 查询网站业务精确访问控制规则.
      *
      * @param request - DescribeWebPreciseAccessRuleRequest
      *
@@ -10196,7 +9554,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
+     * 查询报表top IP.
      *
      * @param request - DescribeWebReportTopIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10255,7 +9613,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
+     * 查询报表top IP.
      *
      * @param request - DescribeWebReportTopIpRequest
      *
@@ -10273,13 +9631,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Query Configuration of Website Business Forwarding Rules.
-     *
-     * @remarks
-     * This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
-     * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
-     * ### QPS Limit
-     * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
+     * 查询域名接入规则.
      *
      * @param request - DescribeWebRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10342,13 +9694,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Query Configuration of Website Business Forwarding Rules.
-     *
-     * @remarks
-     * This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
-     * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
-     * ### QPS Limit
-     * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
+     * 查询域名接入规则.
      *
      * @param request - DescribeWebRulesRequest
      *
@@ -10366,7 +9712,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Removes a protected object from a scenario-specific custom policy.
+     * 查询场景策略防护对象
      *
      * @param request - DetachSceneDefenseObjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10413,7 +9759,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Removes a protected object from a scenario-specific custom policy.
+     * 查询场景策略防护对象
      *
      * @param request - DetachSceneDefenseObjectRequest
      *
@@ -10431,8 +9777,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Disables a scenario-specific custom policy.
-     *
      * @param request - DisableSceneDefensePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10470,8 +9814,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Disables a scenario-specific custom policy.
-     *
      * @param request - DisableSceneDefensePolicyRequest
      *
      * @returns DisableSceneDefensePolicyResponse
@@ -10488,8 +9830,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Disables the log analysis feature for a website.
-     *
      * @param request - DisableWebAccessLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10531,8 +9871,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Disables the log analysis feature for a website.
-     *
      * @param request - DisableWebAccessLogConfigRequest
      *
      * @returns DisableWebAccessLogConfigResponse
@@ -10549,8 +9887,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Disables frequency control for a website.
-     *
      * @param request - DisableWebCCRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10592,8 +9928,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Disables frequency control for a website.
-     *
      * @param request - DisableWebCCRequest
      *
      * @returns DisableWebCCResponse
@@ -10610,8 +9944,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Disables custom frequency control rules for a website.
-     *
      * @param request - DisableWebCCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10653,8 +9985,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Disables custom frequency control rules for a website.
-     *
      * @param request - DisableWebCCRuleRequest
      *
      * @returns DisableWebCCRuleResponse
@@ -10671,7 +10001,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * 查询CC黑名单.
      *
      * @param request - EmptyAutoCcBlacklistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10710,7 +10040,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * 查询CC黑名单.
      *
      * @param request - EmptyAutoCcBlacklistRequest
      *
@@ -10728,7 +10058,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * 清空CC白名单.
      *
      * @param request - EmptyAutoCcWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10767,7 +10097,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * 清空CC白名单.
      *
      * @param request - EmptyAutoCcWhitelistRequest
      *
@@ -10785,7 +10115,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
+     * 清空全量日志库.
      *
      * @param request - EmptySlsLogstoreRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10824,7 +10154,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
+     * 清空全量日志库.
      *
      * @param request - EmptySlsLogstoreRequest
      *
@@ -10842,8 +10172,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables a scenario-specific custom policy.
-     *
      * @param request - EnableSceneDefensePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10881,8 +10209,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables a scenario-specific custom policy.
-     *
      * @param request - EnableSceneDefensePolicyRequest
      *
      * @returns EnableSceneDefensePolicyResponse
@@ -10899,8 +10225,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables the log analysis feature for a website.
-     *
      * @param request - EnableWebAccessLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10942,8 +10266,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables the log analysis feature for a website.
-     *
      * @param request - EnableWebAccessLogConfigRequest
      *
      * @returns EnableWebAccessLogConfigResponse
@@ -10960,8 +10282,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables the Frequency Control policy for a website.
-     *
      * @param request - EnableWebCCRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11003,8 +10323,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables the Frequency Control policy for a website.
-     *
      * @param request - EnableWebCCRequest
      *
      * @returns EnableWebCCResponse
@@ -11021,8 +10339,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables custom frequency control rules for a website.
-     *
      * @param request - EnableWebCCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11064,8 +10380,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables custom frequency control rules for a website.
-     *
      * @param request - EnableWebCCRuleRequest
      *
      * @returns EnableWebCCRuleResponse
@@ -11082,10 +10396,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Switches between the metering methods of the burstable clean bandwidth feature.
-     *
-     * @remarks
-     * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+     * 95计费切换模式.
      *
      * @param request - ModifyBizBandWidthModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11128,10 +10439,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Switches between the metering methods of the burstable clean bandwidth feature.
-     *
-     * @remarks
-     * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+     * 95计费切换模式.
      *
      * @param request - ModifyBizBandWidthModeRequest
      *
@@ -11149,8 +10457,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deactivates blackhole filtering that is triggered on an instance.
-     *
      * @param request - ModifyBlackholeStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11192,8 +10498,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Deactivates blackhole filtering that is triggered on an instance.
-     *
      * @param request - ModifyBlackholeStatusRequest
      *
      * @returns ModifyBlackholeStatusResponse
@@ -11210,11 +10514,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *
      * @param request - ModifyBlockStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11264,11 +10563,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *
      * @param request - ModifyBlockStatusRequest
      *
      * @returns ModifyBlockStatusResponse
@@ -11285,11 +10579,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables CNAME reuse for a website.
-     *
-     * @remarks
-     * > This operation is suitable only for Anti-DDoS Premium.
-     *
      * @param request - ModifyCnameReuseRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11339,11 +10628,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables CNAME reuse for a website.
-     *
-     * @remarks
-     * > This operation is suitable only for Anti-DDoS Premium.
-     *
      * @param request - ModifyCnameReuseRequest
      *
      * @returns ModifyCnameReuseResponse
@@ -11360,7 +10644,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the forwarding rule of a website.
+     * 修改域名接入资源.
      *
      * @param request - ModifyDomainResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11419,7 +10703,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the forwarding rule of a website.
+     * 修改域名接入资源.
      *
      * @param request - ModifyDomainResourceRequest
      *
@@ -11437,11 +10721,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *
      * @param request - ModifyElasticBandWidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11483,11 +10762,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *
      * @param request - ModifyElasticBandWidthRequest
      *
      * @returns ModifyElasticBandWidthResponse
@@ -11504,10 +10778,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+     * 修改弹性业务带宽.
      *
      * @param request - ModifyElasticBizBandWidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11554,10 +10825,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+     * 修改弹性业务带宽.
      *
      * @param request - ModifyElasticBizBandWidthRequest
      *
@@ -11575,10 +10843,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
-     *
-     * @remarks
-     * You can enable burstable QPS only for IPv4 instances.
+     * 开启/关闭弹性QPS 首次模式直接生效.
      *
      * @param request - ModifyElasticBizQpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11625,10 +10890,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
-     *
-     * @remarks
-     * You can enable burstable QPS only for IPv4 instances.
+     * 开启/关闭弹性QPS 首次模式直接生效.
      *
      * @param request - ModifyElasticBizQpsRequest
      *
@@ -11646,8 +10908,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the log storage duration for Anti-DDoS Proxy.
-     *
      * @param request - ModifyFullLogTtlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11689,8 +10949,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the log storage duration for Anti-DDoS Proxy.
-     *
      * @param request - ModifyFullLogTtlRequest
      *
      * @returns ModifyFullLogTtlResponse
@@ -11707,7 +10965,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * 流量标记.
      *
      * @param request - ModifyHeadersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11758,7 +11016,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * 流量标记.
      *
      * @param request - ModifyHeadersRequest
      *
@@ -11776,8 +11034,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
-     *
      * @param request - ModifyHealthCheckConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11827,8 +11083,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
-     *
      * @param request - ModifyHealthCheckConfigRequest
      *
      * @returns ModifyHealthCheckConfigResponse
@@ -11845,11 +11099,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables HTTP/2 for the forwarding rule of a website.
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *
      * @param request - ModifyHttp2EnableRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11895,11 +11144,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables HTTP/2 for the forwarding rule of a website.
-     *
-     * @remarks
-     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *
      * @param request - ModifyHttp2EnableRequest
      *
      * @returns ModifyHttp2EnableResponse
@@ -11916,7 +11160,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Instance adjustment, similar to BSS adjustment.
+     * 实例变配  类似bss的变配.
      *
      * @param request - ModifyInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12011,7 +11255,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Instance adjustment, similar to BSS adjustment.
+     * 实例变配  类似bss的变配.
      *
      * @param request - ModifyInstanceRequest
      *
@@ -12029,7 +11273,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the description of an Anti-DDoS Proxy instance.
+     * 修改实例备注.
      *
      * @param request - ModifyInstanceRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12072,7 +11316,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the description of an Anti-DDoS Proxy instance.
+     * 修改实例备注.
      *
      * @param request - ModifyInstanceRemarkRequest
      *
@@ -12090,7 +11334,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
+     * 编辑端口转发规则的会话保持和DDoS防护策略设置.
      *
      * @param request - ModifyNetworkRuleAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12145,7 +11389,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
+     * 编辑端口转发规则的会话保持和DDoS防护策略设置.
      *
      * @param request - ModifyNetworkRuleAttributeRequest
      *
@@ -12163,11 +11407,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
-     *
-     * @remarks
-     * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
-     *
      * @param request - ModifyOcspStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12209,11 +11448,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
-     *
-     * @remarks
-     * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
-     *
      * @param request - ModifyOcspStatusRequest
      *
      * @returns ModifyOcspStatusResponse
@@ -12230,10 +11464,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies a port forwarding rule.
-     *
-     * @remarks
-     * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     * 修改端口接入配置.
      *
      * @param request - ModifyPortRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12292,10 +11523,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies a port forwarding rule.
-     *
-     * @remarks
-     * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     * 修改端口接入配置.
      *
      * @param request - ModifyPortRequest
      *
@@ -12313,8 +11541,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the Intelligent Protection configuration of a non-website service.
-     *
      * @param request - ModifyPortAutoCcStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12360,8 +11586,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the Intelligent Protection configuration of a non-website service.
-     *
      * @param request - ModifyPortAutoCcStatusRequest
      *
      * @returns ModifyPortAutoCcStatusResponse
@@ -12378,7 +11602,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Switches between the metering methods of the burstable clean bandwidth feature.
+     * 修改弹性qps模式.
      *
      * @param request - ModifyQpsModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12421,7 +11645,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Switches between the metering methods of the burstable clean bandwidth feature.
+     * 修改弹性qps模式.
      *
      * @param request - ModifyQpsModeRequest
      *
@@ -12439,8 +11663,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies a scenario-specific custom policy.
-     *
      * @param request - ModifySceneDefensePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12494,8 +11716,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies a scenario-specific custom policy.
-     *
      * @param request - ModifySceneDefensePolicyRequest
      *
      * @returns ModifySceneDefensePolicyResponse
@@ -12512,8 +11732,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the scheduling rule of Sec-Traffic Manager.
-     *
      * @param request - ModifySchedulerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12567,8 +11785,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the scheduling rule of Sec-Traffic Manager.
-     *
      * @param request - ModifySchedulerRuleRequest
      *
      * @returns ModifySchedulerRuleResponse
@@ -12585,7 +11801,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
+     * 修改证书配置.
      *
      * @param request - ModifyTlsConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12632,7 +11848,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
+     * 修改证书配置.
      *
      * @param request - ModifyTlsConfigRequest
      *
@@ -12650,8 +11866,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Changes the mode of the intelligent protection feature for a website.
-     *
      * @param request - ModifyWebAIProtectModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12697,8 +11911,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Changes the mode of the intelligent protection feature for a website.
-     *
      * @param request - ModifyWebAIProtectModeRequest
      *
      * @returns ModifyWebAIProtectModeResponse
@@ -12715,8 +11927,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Intelligent Protection policy for a website.
-     *
      * @param request - ModifyWebAIProtectSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12762,8 +11972,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Intelligent Protection policy for a website.
-     *
      * @param request - ModifyWebAIProtectSwitchRequest
      *
      * @returns ModifyWebAIProtectSwitchResponse
@@ -12780,8 +11988,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-     *
      * @param request - ModifyWebAccessModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12823,8 +12029,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-     *
      * @param request - ModifyWebAccessModeRequest
      *
      * @returns ModifyWebAccessModeResponse
@@ -12841,8 +12045,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
-     *
      * @param request - ModifyWebAreaBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12888,8 +12090,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
-     *
      * @param request - ModifyWebAreaBlockRequest
      *
      * @returns ModifyWebAreaBlockResponse
@@ -12906,13 +12106,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
-     *
-     * @remarks
-     * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - ModifyWebAreaBlockSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12958,13 +12151,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
-     *
-     * @remarks
-     * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - ModifyWebAreaBlockSwitchRequest
      *
      * @returns ModifyWebAreaBlockSwitchResponse
@@ -12981,7 +12167,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the HTTP flood mitigation feature for a website.
+     * 统一全局CC开关.
      *
      * @param request - ModifyWebCCGlobalSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13024,7 +12210,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the HTTP flood mitigation feature for a website.
+     * 统一全局CC开关.
      *
      * @param request - ModifyWebCCGlobalSwitchRequest
      *
@@ -13042,8 +12228,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the custom frequency control rule of a website.
-     *
      * @deprecated openAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
      *
      * @param request - ModifyWebCCRuleRequest
@@ -13116,8 +12300,6 @@ class Ddoscoo extends OpenApiClient
 
     // Deprecated
     /**
-     * Modifies the custom frequency control rule of a website.
-     *
      * @deprecated openAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
      *
      * @param request - ModifyWebCCRuleRequest
@@ -13136,8 +12318,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the custom rule of the Static Page Caching policy for a website.
-     *
      * @param request - ModifyWebCacheCustomRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13183,8 +12363,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the custom rule of the Static Page Caching policy for a website.
-     *
      * @param request - ModifyWebCacheCustomRuleRequest
      *
      * @returns ModifyWebCacheCustomRuleResponse
@@ -13201,8 +12379,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Changes the cache mode of the Static Page Caching policy for a website.
-     *
      * @param request - ModifyWebCacheModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13248,8 +12424,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Changes the cache mode of the Static Page Caching policy for a website.
-     *
      * @param request - ModifyWebCacheModeRequest
      *
      * @returns ModifyWebCacheModeResponse
@@ -13266,13 +12440,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Static Page Caching policy for a website.
-     *
-     * @remarks
-     * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - ModifyWebCacheSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13318,13 +12485,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Static Page Caching policy for a website.
-     *
-     * @remarks
-     * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *
      * @param request - ModifyWebCacheSwitchRequest
      *
      * @returns ModifyWebCacheSwitchResponse
@@ -13341,8 +12501,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
-     *
      * @param request - ModifyWebIpSetSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13388,8 +12546,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
-     *
      * @param request - ModifyWebIpSetSwitchRequest
      *
      * @returns ModifyWebIpSetSwitchResponse
@@ -13406,8 +12562,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates or modifies an accurate access control rule of a website.
-     *
      * @param request - ModifyWebPreciseAccessRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13457,8 +12611,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Creates or modifies an accurate access control rule of a website.
-     *
      * @param request - ModifyWebPreciseAccessRuleRequest
      *
      * @returns ModifyWebPreciseAccessRuleResponse
@@ -13475,8 +12627,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables accurate access control for a website.
-     *
      * @param request - ModifyWebPreciseAccessSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13522,8 +12672,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Enables or disables accurate access control for a website.
-     *
      * @param request - ModifyWebPreciseAccessSwitchRequest
      *
      * @returns ModifyWebPreciseAccessSwitchResponse
@@ -13540,11 +12688,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the forwarding rule of a website.
-     *
-     * @remarks
-     * ## Debugging
-     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=ddoscoo\\&api=ModifyWebRule\\&type=RPC\\&version=2020-01-01)
+     * 修改已经创建的网站业务转发规则.
      *
      * @param request - ModifyWebRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13607,11 +12751,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the forwarding rule of a website.
-     *
-     * @remarks
-     * ## Debugging
-     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=ddoscoo\\&api=ModifyWebRule\\&type=RPC\\&version=2020-01-01)
+     * 修改已经创建的网站业务转发规则.
      *
      * @param request - ModifyWebRuleRequest
      *
@@ -13629,11 +12769,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
-     * @remarks
-     * The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @param request - ReleaseInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13671,11 +12806,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
-     * @remarks
-     * The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @param request - ReleaseInstanceRequest
      *
      * @returns ReleaseInstanceResponse
@@ -13692,13 +12822,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
-     *
-     * @remarks
-     * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
-     * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](https://help.aliyun.com/document_detail/157479.html) operation.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 切换流量调度器.
      *
      * @param request - SwitchSchedulerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13745,13 +12869,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
-     *
-     * @remarks
-     * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
-     * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](https://help.aliyun.com/document_detail/157479.html) operation.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * 切换流量调度器.
      *
      * @param request - SwitchSchedulerRuleRequest
      *

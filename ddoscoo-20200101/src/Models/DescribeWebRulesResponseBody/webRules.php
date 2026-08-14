@@ -142,6 +142,11 @@ class webRules extends Model
     public $userCertName;
 
     /**
+     * @var bool
+     */
+    public $wafProtectionEnable;
+
+    /**
      * @var string[]
      */
     public $whiteList;
@@ -172,6 +177,7 @@ class webRules extends Model
         'sslProtocols' => 'SslProtocols',
         'tls13CustomCiphers' => 'Tls13CustomCiphers',
         'userCertName' => 'UserCertName',
+        'wafProtectionEnable' => 'WafProtectionEnable',
         'whiteList' => 'WhiteList',
     ];
 
@@ -343,6 +349,10 @@ class webRules extends Model
             $res['UserCertName'] = $this->userCertName;
         }
 
+        if (null !== $this->wafProtectionEnable) {
+            $res['WafProtectionEnable'] = $this->wafProtectionEnable;
+        }
+
         if (null !== $this->whiteList) {
             if (\is_array($this->whiteList)) {
                 $res['WhiteList'] = [];
@@ -502,6 +512,10 @@ class webRules extends Model
 
         if (isset($map['UserCertName'])) {
             $model->userCertName = $map['UserCertName'];
+        }
+
+        if (isset($map['WafProtectionEnable'])) {
+            $model->wafProtectionEnable = $map['WafProtectionEnable'];
         }
 
         if (isset($map['WhiteList'])) {

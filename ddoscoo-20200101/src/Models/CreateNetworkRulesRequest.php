@@ -11,8 +11,14 @@ class CreateNetworkRulesRequest extends Model
     /**
      * @var string
      */
+    public $ipMode;
+
+    /**
+     * @var string
+     */
     public $networkRules;
     protected $_name = [
+        'ipMode' => 'IpMode',
         'networkRules' => 'NetworkRules',
     ];
 
@@ -24,6 +30,10 @@ class CreateNetworkRulesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ipMode) {
+            $res['IpMode'] = $this->ipMode;
+        }
+
         if (null !== $this->networkRules) {
             $res['NetworkRules'] = $this->networkRules;
         }
@@ -39,6 +49,10 @@ class CreateNetworkRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IpMode'])) {
+            $model->ipMode = $map['IpMode'];
+        }
+
         if (isset($map['NetworkRules'])) {
             $model->networkRules = $map['NetworkRules'];
         }
