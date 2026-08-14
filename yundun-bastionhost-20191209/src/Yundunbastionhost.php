@@ -33,6 +33,16 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachHostGroupAccountsT
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachHostGroupAccountsToUserGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachHostGroupAccountsToUserRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachHostGroupAccountsToUserResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachMembersToProjectRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachMembersToProjectResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachProjectManagersToProjectAuthorizationRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachProjectManagersToProjectAuthorizationResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachProjectsToProjectAuthorizationRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachProjectsToProjectAuthorizationResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachProjectsToReviewRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachProjectsToReviewRuleResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachReviewersToReviewRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachReviewersToReviewRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceSecurityGroupsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceSecurityGroupsResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceWhiteListRequest;
@@ -57,6 +67,14 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateOperationTicketReq
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateOperationTicketResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreatePolicyResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateProjectAuthorizationRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateProjectAuthorizationResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateProjectNotifyReceiverRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateProjectNotifyReceiverResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateProjectRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateReviewRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateReviewRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateRuleRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateUserGroupRequest;
@@ -81,6 +99,14 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteNetworkDomainReque
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteNetworkDomainResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeletePolicyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeletePolicyResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteProjectAuthorizationsRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteProjectAuthorizationsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteProjectNotifyReceiversRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteProjectNotifyReceiversResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteProjectsRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteProjectsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteReviewRulesRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteReviewRulesResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteRuleRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DeleteUserGroupRequest;
@@ -109,6 +135,16 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachHostGroupAccountsF
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachHostGroupAccountsFromUserGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachHostGroupAccountsFromUserRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachHostGroupAccountsFromUserResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachMembersFromProjectRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachMembersFromProjectResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachProjectManagersFromProjectAuthorizationRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachProjectManagersFromProjectAuthorizationResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachProjectsFromProjectAuthorizationRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachProjectsFromProjectAuthorizationResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachProjectsFromReviewRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachProjectsFromReviewRuleResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachReviewersFromReviewRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DetachReviewersFromReviewRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DisableInstancePublicAccessRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DisableInstancePublicAccessResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DisableRuleRequest;
@@ -151,6 +187,12 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyUserScopeRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetPolicyUserScopeResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetProjectAuthorizationRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetProjectAuthorizationResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetProjectRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetProjectResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetReviewRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetReviewRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetRuleRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserGroupRequest;
@@ -204,6 +246,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListImportableKMSSecrets
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListImportableKMSSecretsForHostResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListInstanceRdMembersRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListInstanceRdMembersResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListMembersNotForProjectRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListMembersNotForProjectResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListNetworkDomainsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListNetworkDomainsResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationDatabaseAccountsRequest;
@@ -218,6 +262,20 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationTicketsRequ
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListOperationTicketsResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListPoliciesRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListPoliciesResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectAuthorizationsRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectAuthorizationsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectNotifyReceiversRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectNotifyReceiversResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectsForProjectAuthorizationPrincipalRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectsForProjectAuthorizationPrincipalResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectsNotForProjectAuthorizationRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectsNotForProjectAuthorizationResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectsNotForReviewRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectsNotForReviewRuleResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectsRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListReviewRulesRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListReviewRulesResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListRulesRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListRulesResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTagKeysRequest;
@@ -226,6 +284,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTodoOpsTaskApprovalsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListTodoOpsTaskApprovalsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUserGroupsForUserRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUserGroupsForUserResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUserGroupsResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListUserPublicKeysRequest;
@@ -238,6 +298,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyDatabaseAccountReq
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyDatabaseAccountResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyDatabaseRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyDatabaseResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyDatabasesProjectRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyDatabasesProjectResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostAccountRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostAccountResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostGroupRequest;
@@ -250,6 +312,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostShareKeyReques
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostShareKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostsPortRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostsPortResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostsProjectRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyHostsProjectResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceADAuthServerRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceADAuthServerResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyInstanceAttributeRequest;
@@ -262,6 +326,14 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyNetworkDomainReque
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyNetworkDomainResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyPolicyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyPolicyResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyProjectAuthorizationRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyProjectAuthorizationResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyProjectNotifyReceiverRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyProjectNotifyReceiverResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyProjectRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyProjectResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyReviewRuleRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyReviewRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyRuleRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ModifyUserGroupRequest;
@@ -1473,6 +1545,351 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * Associates members with a project.
+     *
+     * @param request - AttachMembersToProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachMembersToProjectResponse
+     *
+     * @param AttachMembersToProjectRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AttachMembersToProjectResponse
+     */
+    public function attachMembersToProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->memberIds) {
+            @$query['MemberIds'] = $request->memberIds;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachMembersToProject',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachMembersToProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Associates members with a project.
+     *
+     * @param request - AttachMembersToProjectRequest
+     *
+     * @returns AttachMembersToProjectResponse
+     *
+     * @param AttachMembersToProjectRequest $request
+     *
+     * @return AttachMembersToProjectResponse
+     */
+    public function attachMembersToProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachMembersToProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Associates project authorization administrators.
+     *
+     * @param request - AttachProjectManagersToProjectAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachProjectManagersToProjectAuthorizationResponse
+     *
+     * @param AttachProjectManagersToProjectAuthorizationRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return AttachProjectManagersToProjectAuthorizationResponse
+     */
+    public function attachProjectManagersToProjectAuthorizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationId) {
+            @$query['AuthorizationId'] = $request->authorizationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->principals) {
+            @$query['Principals'] = $request->principals;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachProjectManagersToProjectAuthorization',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachProjectManagersToProjectAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Associates project authorization administrators.
+     *
+     * @param request - AttachProjectManagersToProjectAuthorizationRequest
+     *
+     * @returns AttachProjectManagersToProjectAuthorizationResponse
+     *
+     * @param AttachProjectManagersToProjectAuthorizationRequest $request
+     *
+     * @return AttachProjectManagersToProjectAuthorizationResponse
+     */
+    public function attachProjectManagersToProjectAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachProjectManagersToProjectAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Specifies manageable projects in a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2 for the corresponding project authorization.
+     *
+     * @param request - AttachProjectsToProjectAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachProjectsToProjectAuthorizationResponse
+     *
+     * @param AttachProjectsToProjectAuthorizationRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return AttachProjectsToProjectAuthorizationResponse
+     */
+    public function attachProjectsToProjectAuthorizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationId) {
+            @$query['AuthorizationId'] = $request->authorizationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectIds) {
+            @$query['ProjectIds'] = $request->projectIds;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachProjectsToProjectAuthorization',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachProjectsToProjectAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Specifies manageable projects in a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2 for the corresponding project authorization.
+     *
+     * @param request - AttachProjectsToProjectAuthorizationRequest
+     *
+     * @returns AttachProjectsToProjectAuthorizationResponse
+     *
+     * @param AttachProjectsToProjectAuthorizationRequest $request
+     *
+     * @return AttachProjectsToProjectAuthorizationResponse
+     */
+    public function attachProjectsToProjectAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachProjectsToProjectAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Associates projects with the scope of an audit policy. This operation can be invoked only when the ScopeType parameter returned by the GetReviewRule operation is 2.
+     *
+     * @param request - AttachProjectsToReviewRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachProjectsToReviewRuleResponse
+     *
+     * @param AttachProjectsToReviewRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AttachProjectsToReviewRuleResponse
+     */
+    public function attachProjectsToReviewRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectIds) {
+            @$query['ProjectIds'] = $request->projectIds;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reviewRuleId) {
+            @$query['ReviewRuleId'] = $request->reviewRuleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachProjectsToReviewRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachProjectsToReviewRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Associates projects with the scope of an audit policy. This operation can be invoked only when the ScopeType parameter returned by the GetReviewRule operation is 2.
+     *
+     * @param request - AttachProjectsToReviewRuleRequest
+     *
+     * @returns AttachProjectsToReviewRuleResponse
+     *
+     * @param AttachProjectsToReviewRuleRequest $request
+     *
+     * @return AttachProjectsToReviewRuleResponse
+     */
+    public function attachProjectsToReviewRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachProjectsToReviewRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Associates auditors with an audit policy.
+     *
+     * @param request - AttachReviewersToReviewRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachReviewersToReviewRuleResponse
+     *
+     * @param AttachReviewersToReviewRuleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AttachReviewersToReviewRuleResponse
+     */
+    public function attachReviewersToReviewRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->principals) {
+            @$query['Principals'] = $request->principals;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reviewRuleId) {
+            @$query['ReviewRuleId'] = $request->reviewRuleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachReviewersToReviewRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachReviewersToReviewRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Associates auditors with an audit policy.
+     *
+     * @param request - AttachReviewersToReviewRuleRequest
+     *
+     * @returns AttachReviewersToReviewRuleResponse
+     *
+     * @param AttachReviewersToReviewRuleRequest $request
+     *
+     * @return AttachReviewersToReviewRuleResponse
+     */
+    public function attachReviewersToReviewRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachReviewersToReviewRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Configures the security groups that control inbound and outbound network traffic for a Bastionhost instance.
      *
      * @param request - ConfigInstanceSecurityGroupsRequest
@@ -2493,6 +2910,302 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * Creates a project.
+     *
+     * @param request - CreateProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProjectResponse
+     *
+     * @param CreateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->memberIds) {
+            @$query['MemberIds'] = $request->memberIds;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProject',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a project.
+     *
+     * @param request - CreateProjectRequest
+     *
+     * @returns CreateProjectResponse
+     *
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a project authorization.
+     *
+     * @param request - CreateProjectAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProjectAuthorizationResponse
+     *
+     * @param CreateProjectAuthorizationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateProjectAuthorizationResponse
+     */
+    public function createProjectAuthorizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->scopeType) {
+            @$query['ScopeType'] = $request->scopeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProjectAuthorization',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProjectAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a project authorization.
+     *
+     * @param request - CreateProjectAuthorizationRequest
+     *
+     * @returns CreateProjectAuthorizationResponse
+     *
+     * @param CreateProjectAuthorizationRequest $request
+     *
+     * @return CreateProjectAuthorizationResponse
+     */
+    public function createProjectAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a notification recipient for a project.
+     *
+     * @param request - CreateProjectNotifyReceiverRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProjectNotifyReceiverResponse
+     *
+     * @param CreateProjectNotifyReceiverRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateProjectNotifyReceiverResponse
+     */
+    public function createProjectNotifyReceiverWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProjectNotifyReceiver',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProjectNotifyReceiverResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a notification recipient for a project.
+     *
+     * @param request - CreateProjectNotifyReceiverRequest
+     *
+     * @returns CreateProjectNotifyReceiverResponse
+     *
+     * @param CreateProjectNotifyReceiverRequest $request
+     *
+     * @return CreateProjectNotifyReceiverResponse
+     */
+    public function createProjectNotifyReceiver($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectNotifyReceiverWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an audit policy.
+     *
+     * @param request - CreateReviewRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateReviewRuleResponse
+     *
+     * @param CreateReviewRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateReviewRuleResponse
+     */
+    public function createReviewRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->scopeType) {
+            @$query['ScopeType'] = $request->scopeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateReviewRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateReviewRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an audit policy.
+     *
+     * @param request - CreateReviewRuleRequest
+     *
+     * @returns CreateReviewRuleResponse
+     *
+     * @param CreateReviewRuleRequest $request
+     *
+     * @return CreateReviewRuleResponse
+     */
+    public function createReviewRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createReviewRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * You can create authorization rules to authorize multiple users to manage assets. You can also specify a validity period for an authorization rule. This way, you can manage users and assets in a more efficient manner and limit the time periods during which users can access assets.
      *
      * @param request - CreateRuleRequest
@@ -3460,6 +4173,266 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a project authorization.
+     *
+     * @param request - DeleteProjectAuthorizationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectAuthorizationsResponse
+     *
+     * @param DeleteProjectAuthorizationsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteProjectAuthorizationsResponse
+     */
+    public function deleteProjectAuthorizationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationIds) {
+            @$query['AuthorizationIds'] = $request->authorizationIds;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProjectAuthorizations',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProjectAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a project authorization.
+     *
+     * @param request - DeleteProjectAuthorizationsRequest
+     *
+     * @returns DeleteProjectAuthorizationsResponse
+     *
+     * @param DeleteProjectAuthorizationsRequest $request
+     *
+     * @return DeleteProjectAuthorizationsResponse
+     */
+    public function deleteProjectAuthorizations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectAuthorizationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes notification recipients from a project.
+     *
+     * @param request - DeleteProjectNotifyReceiversRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectNotifyReceiversResponse
+     *
+     * @param DeleteProjectNotifyReceiversRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteProjectNotifyReceiversResponse
+     */
+    public function deleteProjectNotifyReceiversWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->receiverIds) {
+            @$query['ReceiverIds'] = $request->receiverIds;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProjectNotifyReceivers',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProjectNotifyReceiversResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes notification recipients from a project.
+     *
+     * @param request - DeleteProjectNotifyReceiversRequest
+     *
+     * @returns DeleteProjectNotifyReceiversResponse
+     *
+     * @param DeleteProjectNotifyReceiversRequest $request
+     *
+     * @return DeleteProjectNotifyReceiversResponse
+     */
+    public function deleteProjectNotifyReceivers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectNotifyReceiversWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes projects in batches.
+     *
+     * @param request - DeleteProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectsResponse
+     *
+     * @param DeleteProjectsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteProjectsResponse
+     */
+    public function deleteProjectsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectIds) {
+            @$query['ProjectIds'] = $request->projectIds;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProjects',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes projects in batches.
+     *
+     * @param request - DeleteProjectsRequest
+     *
+     * @returns DeleteProjectsResponse
+     *
+     * @param DeleteProjectsRequest $request
+     *
+     * @return DeleteProjectsResponse
+     */
+    public function deleteProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an audit policy.
+     *
+     * @param request - DeleteReviewRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteReviewRulesResponse
+     *
+     * @param DeleteReviewRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteReviewRulesResponse
+     */
+    public function deleteReviewRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reviewRuleIds) {
+            @$query['ReviewRuleIds'] = $request->reviewRuleIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteReviewRules',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteReviewRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an audit policy.
+     *
+     * @param request - DeleteReviewRulesRequest
+     *
+     * @returns DeleteReviewRulesResponse
+     *
+     * @param DeleteReviewRulesRequest $request
+     *
+     * @return DeleteReviewRulesResponse
+     */
+    public function deleteReviewRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteReviewRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -4445,6 +5418,351 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * Removes members from a project.
+     *
+     * @param request - DetachMembersFromProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachMembersFromProjectResponse
+     *
+     * @param DetachMembersFromProjectRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DetachMembersFromProjectResponse
+     */
+    public function detachMembersFromProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->memberIds) {
+            @$query['MemberIds'] = $request->memberIds;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachMembersFromProject',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DetachMembersFromProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes members from a project.
+     *
+     * @param request - DetachMembersFromProjectRequest
+     *
+     * @returns DetachMembersFromProjectResponse
+     *
+     * @param DetachMembersFromProjectRequest $request
+     *
+     * @return DetachMembersFromProjectResponse
+     */
+    public function detachMembersFromProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachMembersFromProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes a project administrator from project authorization management.
+     *
+     * @param request - DetachProjectManagersFromProjectAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachProjectManagersFromProjectAuthorizationResponse
+     *
+     * @param DetachProjectManagersFromProjectAuthorizationRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return DetachProjectManagersFromProjectAuthorizationResponse
+     */
+    public function detachProjectManagersFromProjectAuthorizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationId) {
+            @$query['AuthorizationId'] = $request->authorizationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->principalIds) {
+            @$query['PrincipalIds'] = $request->principalIds;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachProjectManagersFromProjectAuthorization',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DetachProjectManagersFromProjectAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes a project administrator from project authorization management.
+     *
+     * @param request - DetachProjectManagersFromProjectAuthorizationRequest
+     *
+     * @returns DetachProjectManagersFromProjectAuthorizationResponse
+     *
+     * @param DetachProjectManagersFromProjectAuthorizationRequest $request
+     *
+     * @return DetachProjectManagersFromProjectAuthorizationResponse
+     */
+    public function detachProjectManagersFromProjectAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachProjectManagersFromProjectAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes projects from the scope of a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2.
+     *
+     * @param request - DetachProjectsFromProjectAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachProjectsFromProjectAuthorizationResponse
+     *
+     * @param DetachProjectsFromProjectAuthorizationRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return DetachProjectsFromProjectAuthorizationResponse
+     */
+    public function detachProjectsFromProjectAuthorizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationId) {
+            @$query['AuthorizationId'] = $request->authorizationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectIds) {
+            @$query['ProjectIds'] = $request->projectIds;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachProjectsFromProjectAuthorization',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DetachProjectsFromProjectAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes projects from the scope of a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2.
+     *
+     * @param request - DetachProjectsFromProjectAuthorizationRequest
+     *
+     * @returns DetachProjectsFromProjectAuthorizationResponse
+     *
+     * @param DetachProjectsFromProjectAuthorizationRequest $request
+     *
+     * @return DetachProjectsFromProjectAuthorizationResponse
+     */
+    public function detachProjectsFromProjectAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachProjectsFromProjectAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes projects from the scope of an audit policy. This operation can be called only when the ScopeType parameter in the corresponding audit policy returned by the GetReviewRule operation has a value of 2.
+     *
+     * @param request - DetachProjectsFromReviewRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachProjectsFromReviewRuleResponse
+     *
+     * @param DetachProjectsFromReviewRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DetachProjectsFromReviewRuleResponse
+     */
+    public function detachProjectsFromReviewRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectIds) {
+            @$query['ProjectIds'] = $request->projectIds;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reviewRuleId) {
+            @$query['ReviewRuleId'] = $request->reviewRuleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachProjectsFromReviewRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DetachProjectsFromReviewRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes projects from the scope of an audit policy. This operation can be called only when the ScopeType parameter in the corresponding audit policy returned by the GetReviewRule operation has a value of 2.
+     *
+     * @param request - DetachProjectsFromReviewRuleRequest
+     *
+     * @returns DetachProjectsFromReviewRuleResponse
+     *
+     * @param DetachProjectsFromReviewRuleRequest $request
+     *
+     * @return DetachProjectsFromReviewRuleResponse
+     */
+    public function detachProjectsFromReviewRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachProjectsFromReviewRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Unbinds an auditor from an audit rule.
+     *
+     * @param request - DetachReviewersFromReviewRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachReviewersFromReviewRuleResponse
+     *
+     * @param DetachReviewersFromReviewRuleRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DetachReviewersFromReviewRuleResponse
+     */
+    public function detachReviewersFromReviewRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->principalIds) {
+            @$query['PrincipalIds'] = $request->principalIds;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reviewRuleId) {
+            @$query['ReviewRuleId'] = $request->reviewRuleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachReviewersFromReviewRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DetachReviewersFromReviewRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Unbinds an auditor from an audit rule.
+     *
+     * @param request - DetachReviewersFromReviewRuleRequest
+     *
+     * @returns DetachReviewersFromReviewRuleResponse
+     *
+     * @param DetachReviewersFromReviewRuleRequest $request
+     *
+     * @return DetachReviewersFromReviewRuleResponse
+     */
+    public function detachReviewersFromReviewRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachReviewersFromReviewRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables public network access for a Bastionhost instance.
      *
      * @param request - DisableInstancePublicAccessRequest
@@ -4575,7 +5893,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Enables the public access switch for a specified Bastionhost instance.
+     * Enables public network access for a specified Bastionhost instance.
      *
      * @param request - EnableInstancePublicAccessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4618,7 +5936,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Enables the public access switch for a specified Bastionhost instance.
+     * Enables public network access for a specified Bastionhost instance.
      *
      * @param request - EnableInstancePublicAccessRequest
      *
@@ -5907,6 +7225,201 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPolicyUserScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a specified project.
+     *
+     * @param request - GetProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectResponse
+     *
+     * @param GetProjectRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetProjectResponse
+     */
+    public function getProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetProject',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a specified project.
+     *
+     * @param request - GetProjectRequest
+     *
+     * @returns GetProjectResponse
+     *
+     * @param GetProjectRequest $request
+     *
+     * @return GetProjectResponse
+     */
+    public function getProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a project authorization.
+     *
+     * @param request - GetProjectAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectAuthorizationResponse
+     *
+     * @param GetProjectAuthorizationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetProjectAuthorizationResponse
+     */
+    public function getProjectAuthorizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationId) {
+            @$query['AuthorizationId'] = $request->authorizationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetProjectAuthorization',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProjectAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a project authorization.
+     *
+     * @param request - GetProjectAuthorizationRequest
+     *
+     * @returns GetProjectAuthorizationResponse
+     *
+     * @param GetProjectAuthorizationRequest $request
+     *
+     * @return GetProjectAuthorizationResponse
+     */
+    public function getProjectAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of an audit policy.
+     *
+     * @param request - GetReviewRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetReviewRuleResponse
+     *
+     * @param GetReviewRuleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetReviewRuleResponse
+     */
+    public function getReviewRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reviewRuleId) {
+            @$query['ReviewRuleId'] = $request->reviewRuleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetReviewRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetReviewRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an audit policy.
+     *
+     * @param request - GetReviewRuleRequest
+     *
+     * @returns GetReviewRuleResponse
+     *
+     * @param GetReviewRuleRequest $request
+     *
+     * @return GetReviewRuleResponse
+     */
+    public function getReviewRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getReviewRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -8026,6 +9539,87 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * Queries the list of members that are not occupied by other projects.
+     *
+     * @param request - ListMembersNotForProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMembersNotForProjectResponse
+     *
+     * @param ListMembersNotForProjectRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListMembersNotForProjectResponse
+     */
+    public function listMembersNotForProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skip) {
+            @$query['Skip'] = $request->skip;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMembersNotForProject',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMembersNotForProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of members that are not occupied by other projects.
+     *
+     * @param request - ListMembersNotForProjectRequest
+     *
+     * @returns ListMembersNotForProjectResponse
+     *
+     * @param ListMembersNotForProjectRequest $request
+     *
+     * @return ListMembersNotForProjectResponse
+     */
+    public function listMembersNotForProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMembersNotForProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Lists the network domains configured in a Bastionhost instance. Network domains define the connectivity between Bastionhost and the hosts or databases that it manages.
      *
      * @param request - ListNetworkDomainsRequest
@@ -8621,6 +10215,557 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * 查询项目授权列表.
+     *
+     * @param request - ListProjectAuthorizationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectAuthorizationsResponse
+     *
+     * @param ListProjectAuthorizationsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListProjectAuthorizationsResponse
+     */
+    public function listProjectAuthorizationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skip) {
+            @$query['Skip'] = $request->skip;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProjectAuthorizations',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProjectAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询项目授权列表.
+     *
+     * @param request - ListProjectAuthorizationsRequest
+     *
+     * @returns ListProjectAuthorizationsResponse
+     *
+     * @param ListProjectAuthorizationsRequest $request
+     *
+     * @return ListProjectAuthorizationsResponse
+     */
+    public function listProjectAuthorizations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectAuthorizationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of notification recipients for a project.
+     *
+     * @param request - ListProjectNotifyReceiversRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectNotifyReceiversResponse
+     *
+     * @param ListProjectNotifyReceiversRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListProjectNotifyReceiversResponse
+     */
+    public function listProjectNotifyReceiversWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skip) {
+            @$query['Skip'] = $request->skip;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProjectNotifyReceivers',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProjectNotifyReceiversResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of notification recipients for a project.
+     *
+     * @param request - ListProjectNotifyReceiversRequest
+     *
+     * @returns ListProjectNotifyReceiversResponse
+     *
+     * @param ListProjectNotifyReceiversRequest $request
+     *
+     * @return ListProjectNotifyReceiversResponse
+     */
+    public function listProjectNotifyReceivers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectNotifyReceiversWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询项目列表.
+     *
+     * @param request - ListProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjectsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skip) {
+            @$query['Skip'] = $request->skip;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProjects',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询项目列表.
+     *
+     * @param request - ListProjectsRequest
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of projects that the current user can manage.
+     *
+     * @param request - ListProjectsForProjectAuthorizationPrincipalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectsForProjectAuthorizationPrincipalResponse
+     *
+     * @param ListProjectsForProjectAuthorizationPrincipalRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return ListProjectsForProjectAuthorizationPrincipalResponse
+     */
+    public function listProjectsForProjectAuthorizationPrincipalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skip) {
+            @$query['Skip'] = $request->skip;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProjectsForProjectAuthorizationPrincipal',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProjectsForProjectAuthorizationPrincipalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of projects that the current user can manage.
+     *
+     * @param request - ListProjectsForProjectAuthorizationPrincipalRequest
+     *
+     * @returns ListProjectsForProjectAuthorizationPrincipalResponse
+     *
+     * @param ListProjectsForProjectAuthorizationPrincipalRequest $request
+     *
+     * @return ListProjectsForProjectAuthorizationPrincipalResponse
+     */
+    public function listProjectsForProjectAuthorizationPrincipal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectsForProjectAuthorizationPrincipalWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of projects that are not associated with a project authorization.
+     *
+     * @param request - ListProjectsNotForProjectAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectsNotForProjectAuthorizationResponse
+     *
+     * @param ListProjectsNotForProjectAuthorizationRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListProjectsNotForProjectAuthorizationResponse
+     */
+    public function listProjectsNotForProjectAuthorizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationId) {
+            @$query['AuthorizationId'] = $request->authorizationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skip) {
+            @$query['Skip'] = $request->skip;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProjectsNotForProjectAuthorization',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProjectsNotForProjectAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of projects that are not associated with a project authorization.
+     *
+     * @param request - ListProjectsNotForProjectAuthorizationRequest
+     *
+     * @returns ListProjectsNotForProjectAuthorizationResponse
+     *
+     * @param ListProjectsNotForProjectAuthorizationRequest $request
+     *
+     * @return ListProjectsNotForProjectAuthorizationResponse
+     */
+    public function listProjectsNotForProjectAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectsNotForProjectAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of projects that are not associated with an audit policy.
+     *
+     * @param request - ListProjectsNotForReviewRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectsNotForReviewRuleResponse
+     *
+     * @param ListProjectsNotForReviewRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListProjectsNotForReviewRuleResponse
+     */
+    public function listProjectsNotForReviewRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reviewRuleId) {
+            @$query['ReviewRuleId'] = $request->reviewRuleId;
+        }
+
+        if (null !== $request->skip) {
+            @$query['Skip'] = $request->skip;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProjectsNotForReviewRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProjectsNotForReviewRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of projects that are not associated with an audit policy.
+     *
+     * @param request - ListProjectsNotForReviewRuleRequest
+     *
+     * @returns ListProjectsNotForReviewRuleResponse
+     *
+     * @param ListProjectsNotForReviewRuleRequest $request
+     *
+     * @return ListProjectsNotForReviewRuleResponse
+     */
+    public function listProjectsNotForReviewRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectsNotForReviewRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of audit policies.
+     *
+     * @param request - ListReviewRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListReviewRulesResponse
+     *
+     * @param ListReviewRulesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListReviewRulesResponse
+     */
+    public function listReviewRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skip) {
+            @$query['Skip'] = $request->skip;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListReviewRules',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListReviewRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of audit policies.
+     *
+     * @param request - ListReviewRulesRequest
+     *
+     * @returns ListReviewRulesResponse
+     *
+     * @param ListReviewRulesRequest $request
+     *
+     * @return ListReviewRulesResponse
+     */
+    public function listReviewRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listReviewRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of authorization rules of a bastion host.
      *
      * @param request - ListRulesRequest
@@ -9007,6 +11152,91 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUserGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of user groups that a user has joined.
+     *
+     * @param request - ListUserGroupsForUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserGroupsForUserResponse
+     *
+     * @param ListUserGroupsForUserRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListUserGroupsForUserResponse
+     */
+    public function listUserGroupsForUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pagingOff) {
+            @$query['PagingOff'] = $request->pagingOff;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserGroupsForUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of user groups that a user has joined.
+     *
+     * @param request - ListUserGroupsForUserRequest
+     *
+     * @returns ListUserGroupsForUserResponse
+     *
+     * @param ListUserGroupsForUserRequest $request
+     *
+     * @return ListUserGroupsForUserResponse
+     */
+    public function listUserGroupsForUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserGroupsForUserWithOptions($request, $runtime);
     }
 
     /**
@@ -9439,6 +11669,79 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * Moves database instances to a different project in batches.
+     *
+     * @param request - ModifyDatabasesProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDatabasesProjectResponse
+     *
+     * @param ModifyDatabasesProjectRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyDatabasesProjectResponse
+     */
+    public function modifyDatabasesProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->databaseIds) {
+            @$query['DatabaseIds'] = $request->databaseIds;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->targetProjectId) {
+            @$query['TargetProjectId'] = $request->targetProjectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDatabasesProject',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDatabasesProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Moves database instances to a different project in batches.
+     *
+     * @param request - ModifyDatabasesProjectRequest
+     *
+     * @returns ModifyDatabasesProjectResponse
+     *
+     * @param ModifyDatabasesProjectRequest $request
+     *
+     * @return ModifyDatabasesProjectResponse
+     */
+    public function modifyDatabasesProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDatabasesProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies information about a host. The information includes the address, name, and description of the host and the operating system that the host runs.
      *
      * @remarks
@@ -9544,7 +11847,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Modifies a host account on a host managed by a Bastionhost instance. You can update the account name, password, or SSH private key used for host logon.
+     * Modifies host account information, including the name, password, and private key of a host account.
      *
      * @param request - ModifyHostAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9623,7 +11926,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Modifies a host account on a host managed by a Bastionhost instance. You can update the account name, password, or SSH private key used for host logon.
+     * Modifies host account information, including the name, password, and private key of a host account.
      *
      * @param request - ModifyHostAccountRequest
      *
@@ -9963,6 +12266,79 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * Moves hosts to a different project in a batch.
+     *
+     * @param request - ModifyHostsProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyHostsProjectResponse
+     *
+     * @param ModifyHostsProjectRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyHostsProjectResponse
+     */
+    public function modifyHostsProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hostIds) {
+            @$query['HostIds'] = $request->hostIds;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->targetProjectId) {
+            @$query['TargetProjectId'] = $request->targetProjectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyHostsProject',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyHostsProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Moves hosts to a different project in a batch.
+     *
+     * @param request - ModifyHostsProjectRequest
+     *
+     * @returns ModifyHostsProjectResponse
+     *
+     * @param ModifyHostsProjectRequest $request
+     *
+     * @return ModifyHostsProjectResponse
+     */
+    public function modifyHostsProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHostsProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the settings of the Active Directory (AD) authentication server of a bastion host.
      *
      * @param request - ModifyInstanceADAuthServerRequest
@@ -10106,6 +12482,9 @@ class Yundunbastionhost extends OpenApiClient
     /**
      * Modifies the information of a specified bastion host instance.
      *
+     * @remarks
+     * You can call this operation to purchase an Encryption Service instance. This is a prepaid product, and the operation deducts the fee synchronously.
+     *
      * @param request - ModifyInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10152,6 +12531,9 @@ class Yundunbastionhost extends OpenApiClient
 
     /**
      * Modifies the information of a specified bastion host instance.
+     *
+     * @remarks
+     * You can call this operation to purchase an Encryption Service instance. This is a prepaid product, and the operation deducts the fee synchronously.
      *
      * @param request - ModifyInstanceAttributeRequest
      *
@@ -10514,6 +12896,314 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies a project.
+     *
+     * @param request - ModifyProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyProjectResponse
+     *
+     * @param ModifyProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyProjectResponse
+     */
+    public function modifyProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->memberIds) {
+            @$query['MemberIds'] = $request->memberIds;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyProject',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a project.
+     *
+     * @param request - ModifyProjectRequest
+     *
+     * @returns ModifyProjectResponse
+     *
+     * @param ModifyProjectRequest $request
+     *
+     * @return ModifyProjectResponse
+     */
+    public function modifyProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies project authorization.
+     *
+     * @param request - ModifyProjectAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyProjectAuthorizationResponse
+     *
+     * @param ModifyProjectAuthorizationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyProjectAuthorizationResponse
+     */
+    public function modifyProjectAuthorizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationId) {
+            @$query['AuthorizationId'] = $request->authorizationId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->scopeType) {
+            @$query['ScopeType'] = $request->scopeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyProjectAuthorization',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyProjectAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies project authorization.
+     *
+     * @param request - ModifyProjectAuthorizationRequest
+     *
+     * @returns ModifyProjectAuthorizationResponse
+     *
+     * @param ModifyProjectAuthorizationRequest $request
+     *
+     * @return ModifyProjectAuthorizationResponse
+     */
+    public function modifyProjectAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyProjectAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the notification recipient of a project.
+     *
+     * @param request - ModifyProjectNotifyReceiverRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyProjectNotifyReceiverResponse
+     *
+     * @param ModifyProjectNotifyReceiverRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyProjectNotifyReceiverResponse
+     */
+    public function modifyProjectNotifyReceiverWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
+        }
+
+        if (null !== $request->receiverId) {
+            @$query['ReceiverId'] = $request->receiverId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyProjectNotifyReceiver',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyProjectNotifyReceiverResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the notification recipient of a project.
+     *
+     * @param request - ModifyProjectNotifyReceiverRequest
+     *
+     * @returns ModifyProjectNotifyReceiverResponse
+     *
+     * @param ModifyProjectNotifyReceiverRequest $request
+     *
+     * @return ModifyProjectNotifyReceiverResponse
+     */
+    public function modifyProjectNotifyReceiver($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyProjectNotifyReceiverWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies an audit policy.
+     *
+     * @param request - ModifyReviewRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyReviewRuleResponse
+     *
+     * @param ModifyReviewRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyReviewRuleResponse
+     */
+    public function modifyReviewRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reviewRuleId) {
+            @$query['ReviewRuleId'] = $request->reviewRuleId;
+        }
+
+        if (null !== $request->scopeType) {
+            @$query['ScopeType'] = $request->scopeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyReviewRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyReviewRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies an audit policy.
+     *
+     * @param request - ModifyReviewRuleRequest
+     *
+     * @returns ModifyReviewRuleResponse
+     *
+     * @param ModifyReviewRuleRequest $request
+     *
+     * @return ModifyReviewRuleResponse
+     */
+    public function modifyReviewRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyReviewRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -12569,7 +15259,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Removes tags from one or more Bastionhost instances. You can remove specific tag key-value pairs or all tags at once.
+     * Unbinds and deletes tags from a specified Bastionhost instance in batches.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12624,7 +15314,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Removes tags from one or more Bastionhost instances. You can remove specific tag key-value pairs or all tags at once.
+     * Unbinds and deletes tags from a specified Bastionhost instance in batches.
      *
      * @param request - UntagResourcesRequest
      *
