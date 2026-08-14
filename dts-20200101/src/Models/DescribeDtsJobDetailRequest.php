@@ -11,6 +11,11 @@ class DescribeDtsJobDetailRequest extends Model
     /**
      * @var string
      */
+    public $dbObjectOutputType;
+
+    /**
+     * @var string
+     */
     public $dtsInstanceID;
 
     /**
@@ -43,6 +48,7 @@ class DescribeDtsJobDetailRequest extends Model
      */
     public $zeroEtlJob;
     protected $_name = [
+        'dbObjectOutputType' => 'DbObjectOutputType',
         'dtsInstanceID' => 'DtsInstanceID',
         'dtsJobId' => 'DtsJobId',
         'regionId' => 'RegionId',
@@ -60,6 +66,10 @@ class DescribeDtsJobDetailRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dbObjectOutputType) {
+            $res['DbObjectOutputType'] = $this->dbObjectOutputType;
+        }
+
         if (null !== $this->dtsInstanceID) {
             $res['DtsInstanceID'] = $this->dtsInstanceID;
         }
@@ -99,6 +109,10 @@ class DescribeDtsJobDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DbObjectOutputType'])) {
+            $model->dbObjectOutputType = $map['DbObjectOutputType'];
+        }
+
         if (isset($map['DtsInstanceID'])) {
             $model->dtsInstanceID = $map['DtsInstanceID'];
         }

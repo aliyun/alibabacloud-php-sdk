@@ -22,6 +22,7 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\structureDataCheckStatus;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\structureInitializationStatus;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\tagList;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\timeWindowDataCheckStatus;
 
 class dtsJobList extends Model
 {
@@ -304,6 +305,11 @@ class dtsJobList extends Model
      * @var tagList[]
      */
     public $tagList;
+
+    /**
+     * @var timeWindowDataCheckStatus
+     */
+    public $timeWindowDataCheckStatus;
     protected $_name = [
         'appName' => 'AppName',
         'beginTimestamp' => 'BeginTimestamp',
@@ -361,6 +367,7 @@ class dtsJobList extends Model
         'structureDataCheckStatus' => 'StructureDataCheckStatus',
         'structureInitializationStatus' => 'StructureInitializationStatus',
         'tagList' => 'TagList',
+        'timeWindowDataCheckStatus' => 'TimeWindowDataCheckStatus',
     ];
 
     public function validate()
@@ -415,6 +422,9 @@ class dtsJobList extends Model
         }
         if (\is_array($this->tagList)) {
             Model::validateArray($this->tagList);
+        }
+        if (null !== $this->timeWindowDataCheckStatus) {
+            $this->timeWindowDataCheckStatus->validate();
         }
         parent::validate();
     }
@@ -658,6 +668,10 @@ class dtsJobList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->timeWindowDataCheckStatus) {
+            $res['TimeWindowDataCheckStatus'] = null !== $this->timeWindowDataCheckStatus ? $this->timeWindowDataCheckStatus->toArray($noStream) : $this->timeWindowDataCheckStatus;
         }
 
         return $res;
@@ -907,6 +921,10 @@ class dtsJobList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TimeWindowDataCheckStatus'])) {
+            $model->timeWindowDataCheckStatus = timeWindowDataCheckStatus::fromMap($map['TimeWindowDataCheckStatus']);
         }
 
         return $model;

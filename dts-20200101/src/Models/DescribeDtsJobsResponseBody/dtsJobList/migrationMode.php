@@ -37,6 +37,11 @@ class migrationMode extends Model
      * @var bool
      */
     public $structureInitialization;
+
+    /**
+     * @var bool
+     */
+    public $timeWindowCheck;
     protected $_name = [
         'dataInitialization' => 'DataInitialization',
         'dataSynchronization' => 'DataSynchronization',
@@ -44,6 +49,7 @@ class migrationMode extends Model
         'incDataCheck' => 'IncDataCheck',
         'structureDataCheck' => 'StructureDataCheck',
         'structureInitialization' => 'StructureInitialization',
+        'timeWindowCheck' => 'TimeWindowCheck',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class migrationMode extends Model
 
         if (null !== $this->structureInitialization) {
             $res['StructureInitialization'] = $this->structureInitialization;
+        }
+
+        if (null !== $this->timeWindowCheck) {
+            $res['TimeWindowCheck'] = $this->timeWindowCheck;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class migrationMode extends Model
 
         if (isset($map['StructureInitialization'])) {
             $model->structureInitialization = $map['StructureInitialization'];
+        }
+
+        if (isset($map['TimeWindowCheck'])) {
+            $model->timeWindowCheck = $map['TimeWindowCheck'];
         }
 
         return $model;

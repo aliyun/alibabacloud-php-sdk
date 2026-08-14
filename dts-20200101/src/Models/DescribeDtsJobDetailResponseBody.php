@@ -106,6 +106,21 @@ class DescribeDtsJobDetailResponseBody extends Model
     /**
      * @var string
      */
+    public $dbObjectOssUrl;
+
+    /**
+     * @var string
+     */
+    public $dbObjectOssUrlExpireTime;
+
+    /**
+     * @var int
+     */
+    public $dbObjectSize;
+
+    /**
+     * @var string
+     */
     public $dedicatedClusterId;
 
     /**
@@ -340,6 +355,9 @@ class DescribeDtsJobDetailResponseBody extends Model
         'dataSynchronizationStatus' => 'DataSynchronizationStatus',
         'databaseCount' => 'DatabaseCount',
         'dbObject' => 'DbObject',
+        'dbObjectOssUrl' => 'DbObjectOssUrl',
+        'dbObjectOssUrlExpireTime' => 'DbObjectOssUrlExpireTime',
+        'dbObjectSize' => 'DbObjectSize',
         'dedicatedClusterId' => 'DedicatedClusterId',
         'delay' => 'Delay',
         'demoJob' => 'DemoJob',
@@ -490,6 +508,18 @@ class DescribeDtsJobDetailResponseBody extends Model
 
         if (null !== $this->dbObject) {
             $res['DbObject'] = $this->dbObject;
+        }
+
+        if (null !== $this->dbObjectOssUrl) {
+            $res['DbObjectOssUrl'] = $this->dbObjectOssUrl;
+        }
+
+        if (null !== $this->dbObjectOssUrlExpireTime) {
+            $res['DbObjectOssUrlExpireTime'] = $this->dbObjectOssUrlExpireTime;
+        }
+
+        if (null !== $this->dbObjectSize) {
+            $res['DbObjectSize'] = $this->dbObjectSize;
         }
 
         if (null !== $this->dedicatedClusterId) {
@@ -759,6 +789,18 @@ class DescribeDtsJobDetailResponseBody extends Model
 
         if (isset($map['DbObject'])) {
             $model->dbObject = $map['DbObject'];
+        }
+
+        if (isset($map['DbObjectOssUrl'])) {
+            $model->dbObjectOssUrl = $map['DbObjectOssUrl'];
+        }
+
+        if (isset($map['DbObjectOssUrlExpireTime'])) {
+            $model->dbObjectOssUrlExpireTime = $map['DbObjectOssUrlExpireTime'];
+        }
+
+        if (isset($map['DbObjectSize'])) {
+            $model->dbObjectSize = $map['DbObjectSize'];
         }
 
         if (isset($map['DedicatedClusterId'])) {

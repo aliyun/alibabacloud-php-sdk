@@ -78,6 +78,21 @@ class subDistributedJob extends Model
     public $dbObject;
 
     /**
+     * @var string
+     */
+    public $dbObjectOssUrl;
+
+    /**
+     * @var string
+     */
+    public $dbObjectOssUrlExpireTime;
+
+    /**
+     * @var int
+     */
+    public $dbObjectSize;
+
+    /**
      * @var int
      */
     public $delay;
@@ -268,6 +283,9 @@ class subDistributedJob extends Model
         'dataSynchronizationStatus' => 'DataSynchronizationStatus',
         'databaseCount' => 'DatabaseCount',
         'dbObject' => 'DbObject',
+        'dbObjectOssUrl' => 'DbObjectOssUrl',
+        'dbObjectOssUrlExpireTime' => 'DbObjectOssUrlExpireTime',
+        'dbObjectSize' => 'DbObjectSize',
         'delay' => 'Delay',
         'destNetType' => 'DestNetType',
         'destinationEndpoint' => 'DestinationEndpoint',
@@ -401,6 +419,18 @@ class subDistributedJob extends Model
 
         if (null !== $this->dbObject) {
             $res['DbObject'] = $this->dbObject;
+        }
+
+        if (null !== $this->dbObjectOssUrl) {
+            $res['DbObjectOssUrl'] = $this->dbObjectOssUrl;
+        }
+
+        if (null !== $this->dbObjectOssUrlExpireTime) {
+            $res['DbObjectOssUrlExpireTime'] = $this->dbObjectOssUrlExpireTime;
+        }
+
+        if (null !== $this->dbObjectSize) {
+            $res['DbObjectSize'] = $this->dbObjectSize;
         }
 
         if (null !== $this->delay) {
@@ -614,6 +644,18 @@ class subDistributedJob extends Model
 
         if (isset($map['DbObject'])) {
             $model->dbObject = $map['DbObject'];
+        }
+
+        if (isset($map['DbObjectOssUrl'])) {
+            $model->dbObjectOssUrl = $map['DbObjectOssUrl'];
+        }
+
+        if (isset($map['DbObjectOssUrlExpireTime'])) {
+            $model->dbObjectOssUrlExpireTime = $map['DbObjectOssUrlExpireTime'];
+        }
+
+        if (isset($map['DbObjectSize'])) {
+            $model->dbObjectSize = $map['DbObjectSize'];
         }
 
         if (isset($map['Delay'])) {
