@@ -26,7 +26,10 @@ class Tingwu extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-beijing' => 'tingwu.cn-beijing.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('tingwu', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -56,7 +59,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 创建听悟任务
+     * Create offline transcription and real-time meeting tasks in Tingwu.
      *
      * @param request - CreateTaskRequest
      * @param headers - map
@@ -116,7 +119,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 创建听悟任务
+     * Create offline transcription and real-time meeting tasks in Tingwu.
      *
      * @param request - CreateTaskRequest
      *
@@ -135,7 +138,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 创建热词词表.
+     * Creates a custom vocabulary of transcription phrases.
      *
      * @param request - CreateTranscriptionPhrasesRequest
      * @param headers - map
@@ -185,7 +188,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 创建热词词表.
+     * Creates a custom vocabulary of transcription phrases.
      *
      * @param request - CreateTranscriptionPhrasesRequest
      *
@@ -204,7 +207,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 删除词表.
+     * Deletes phrase tables.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -238,7 +241,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 删除词表.
+     * Deletes phrase tables.
      *
      * @returns DeleteTranscriptionPhrasesResponse
      *
@@ -255,7 +258,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 查询听悟任务信息.
+     * Query the job status and job result.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -289,7 +292,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 查询听悟任务信息.
+     * Query the job status and job result.
      *
      * @returns GetTaskInfoResponse
      *
@@ -306,7 +309,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 查询热词词表信息.
+     * Queries information about hotword lists.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -340,7 +343,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 查询热词词表信息.
+     * Queries information about hotword lists.
      *
      * @returns GetTranscriptionPhrasesResponse
      *
@@ -357,7 +360,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 列举用户所有热词词表信息.
+     * Lists all of a user\\"s hot phrase lists.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -390,7 +393,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 列举用户所有热词词表信息.
+     * Lists all of a user\\"s hot phrase lists.
      *
      * @returns ListTranscriptionPhrasesResponse
      *
@@ -405,7 +408,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 更新热词词表.
+     * Update a hotword list.
      *
      * @param request - UpdateTranscriptionPhrasesRequest
      * @param headers - map
@@ -456,7 +459,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 更新热词词表.
+     * Update a hotword list.
      *
      * @param request - UpdateTranscriptionPhrasesRequest
      *

@@ -22,10 +22,16 @@ class translation extends Model
      * @var string[]
      */
     public $targetLanguages;
+
+    /**
+     * @var bool
+     */
+    public $translateLlmSceneEnabled;
     protected $_name = [
         'additionalStreamOutputLevel' => 'AdditionalStreamOutputLevel',
         'outputLevel' => 'OutputLevel',
         'targetLanguages' => 'TargetLanguages',
+        'translateLlmSceneEnabled' => 'TranslateLlmSceneEnabled',
     ];
 
     public function validate()
@@ -58,6 +64,10 @@ class translation extends Model
             }
         }
 
+        if (null !== $this->translateLlmSceneEnabled) {
+            $res['TranslateLlmSceneEnabled'] = $this->translateLlmSceneEnabled;
+        }
+
         return $res;
     }
 
@@ -86,6 +96,10 @@ class translation extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TranslateLlmSceneEnabled'])) {
+            $model->translateLlmSceneEnabled = $map['TranslateLlmSceneEnabled'];
         }
 
         return $model;

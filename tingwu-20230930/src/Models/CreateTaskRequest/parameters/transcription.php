@@ -30,6 +30,11 @@ class transcription extends Model
     public $diarizationEnabled;
 
     /**
+     * @var bool
+     */
+    public $disfluencyEnabled;
+
+    /**
      * @var string
      */
     public $model;
@@ -58,6 +63,7 @@ class transcription extends Model
         'audioEventDetectionEnabled' => 'AudioEventDetectionEnabled',
         'diarization' => 'Diarization',
         'diarizationEnabled' => 'DiarizationEnabled',
+        'disfluencyEnabled' => 'DisfluencyEnabled',
         'model' => 'Model',
         'outputLevel' => 'OutputLevel',
         'phraseId' => 'PhraseId',
@@ -90,6 +96,10 @@ class transcription extends Model
 
         if (null !== $this->diarizationEnabled) {
             $res['DiarizationEnabled'] = $this->diarizationEnabled;
+        }
+
+        if (null !== $this->disfluencyEnabled) {
+            $res['DisfluencyEnabled'] = $this->disfluencyEnabled;
         }
 
         if (null !== $this->model) {
@@ -137,6 +147,10 @@ class transcription extends Model
 
         if (isset($map['DiarizationEnabled'])) {
             $model->diarizationEnabled = $map['DiarizationEnabled'];
+        }
+
+        if (isset($map['DisfluencyEnabled'])) {
+            $model->disfluencyEnabled = $map['DisfluencyEnabled'];
         }
 
         if (isset($map['Model'])) {
