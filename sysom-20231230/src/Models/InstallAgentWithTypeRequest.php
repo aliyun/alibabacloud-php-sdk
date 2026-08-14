@@ -6,9 +6,15 @@ namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentWithTypeRequest\instances;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentWithTypeRequest\tag;
 
 class InstallAgentWithTypeRequest extends Model
 {
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
     /**
      * @var string
      */
@@ -34,6 +40,7 @@ class InstallAgentWithTypeRequest extends Model
      */
     public $instances;
     protected $_name = [
+        'tag' => 'Tag',
         'agentId' => 'agentId',
         'agentVersion' => 'agentVersion',
         'configId' => 'configId',
@@ -43,6 +50,9 @@ class InstallAgentWithTypeRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         if (\is_array($this->instances)) {
             Model::validateArray($this->instances);
         }
@@ -52,6 +62,17 @@ class InstallAgentWithTypeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->agentId) {
             $res['agentId'] = $this->agentId;
         }
@@ -90,6 +111,17 @@ class InstallAgentWithTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['agentId'])) {
             $model->agentId = $map['agentId'];
         }

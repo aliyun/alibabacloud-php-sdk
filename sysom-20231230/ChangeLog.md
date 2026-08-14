@@ -1,3 +1,7 @@
+2026-08-14 Version: 1.17.1
+- Update API InstallAgentWithType: add request parameters body.Tag.
+
+
 2026-07-06 Version: 1.17.0
 - Support API UninstallAgentWithType.
 - Support API UpgradeAgentWithType.

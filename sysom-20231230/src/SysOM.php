@@ -615,12 +615,12 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 创建集群Vpc端点连接.
+     * Creates a VPC endpoint connection for a cluster.
      *
      * @remarks
-     * - 需配合aliyun-tea-openapi-inner包的call_sseapi接口使用
-     * - 需要按通用LLM服务输入参数填充参数，转为string后赋给llmParamString
-     * - 返回数据需将string转为dict后使用，参考通用LLM服务返回格式
+     * - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
+     * - Populate parameters according to the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+     * - Convert the returned string to a dictionary before use. Refer to the general LLM service response format.
      *
      * @param request - CreateClusterVpcEndpointConnectionRequest
      * @param headers - map
@@ -670,12 +670,12 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 创建集群Vpc端点连接.
+     * Creates a VPC endpoint connection for a cluster.
      *
      * @remarks
-     * - 需配合aliyun-tea-openapi-inner包的call_sseapi接口使用
-     * - 需要按通用LLM服务输入参数填充参数，转为string后赋给llmParamString
-     * - 返回数据需将string转为dict后使用，参考通用LLM服务返回格式
+     * - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
+     * - Populate parameters according to the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+     * - Convert the returned string to a dictionary before use. Refer to the general LLM service response format.
      *
      * @param request - CreateClusterVpcEndpointConnectionRequest
      *
@@ -3202,10 +3202,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 在指定的实例上安装 Agent.
+     * Installs an Agent on a specified instance.
      *
      * @remarks
-     * 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
      *
      * @param request - InstallAgentWithTypeRequest
      * @param headers - map
@@ -3223,6 +3223,10 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
+        }
+
         if (null !== $request->agentId) {
             @$body['agentId'] = $request->agentId;
         }
@@ -3263,10 +3267,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 在指定的实例上安装 Agent.
+     * Installs an Agent on a specified instance.
      *
      * @remarks
-     * 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
      *
      * @param request - InstallAgentWithTypeRequest
      *
@@ -5296,10 +5300,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 卸载 SysOM Agent.
+     * Uninstalls a specified version of a component.
      *
      * @remarks
-     * 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     * Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
      *
      * @param request - UninstallAgentWithTypeRequest
      * @param headers - map
@@ -5353,10 +5357,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 卸载 SysOM Agent.
+     * Uninstalls a specified version of a component.
      *
      * @remarks
-     * 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     * Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
      *
      * @param request - UninstallAgentWithTypeRequest
      *
@@ -5896,10 +5900,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 更新 SysOM Agent.
+     * Updates the version of an installed component to a specified version.
      *
      * @remarks
-     * 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     * Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
      *
      * @param request - UpgradeAgentWithTypeRequest
      * @param headers - map
@@ -5953,10 +5957,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 更新 SysOM Agent.
+     * Updates the version of an installed component to a specified version.
      *
      * @remarks
-     * 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     * Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
      *
      * @param request - UpgradeAgentWithTypeRequest
      *
