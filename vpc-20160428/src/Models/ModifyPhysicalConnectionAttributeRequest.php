@@ -24,6 +24,11 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $downDelayTime;
+
+    /**
      * @var string
      */
     public $lineOperator;
@@ -86,6 +91,7 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
         'circuitCode' => 'CircuitCode',
         'clientToken' => 'ClientToken',
         'description' => 'Description',
+        'downDelayTime' => 'DownDelayTime',
         'lineOperator' => 'LineOperator',
         'name' => 'Name',
         'ownerAccount' => 'OwnerAccount',
@@ -118,6 +124,10 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->downDelayTime) {
+            $res['DownDelayTime'] = $this->downDelayTime;
         }
 
         if (null !== $this->lineOperator) {
@@ -189,6 +199,10 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DownDelayTime'])) {
+            $model->downDelayTime = $map['DownDelayTime'];
         }
 
         if (isset($map['LineOperator'])) {

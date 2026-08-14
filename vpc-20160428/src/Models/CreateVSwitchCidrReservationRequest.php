@@ -20,6 +20,11 @@ class CreateVSwitchCidrReservationRequest extends Model
     public $dryRun;
 
     /**
+     * @var int
+     */
+    public $ipPrefixNumber;
+
+    /**
      * @var string
      */
     public $ipVersion;
@@ -86,6 +91,7 @@ class CreateVSwitchCidrReservationRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
+        'ipPrefixNumber' => 'IpPrefixNumber',
         'ipVersion' => 'IpVersion',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -118,6 +124,10 @@ class CreateVSwitchCidrReservationRequest extends Model
 
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->ipPrefixNumber) {
+            $res['IpPrefixNumber'] = $this->ipPrefixNumber;
         }
 
         if (null !== $this->ipVersion) {
@@ -196,6 +206,10 @@ class CreateVSwitchCidrReservationRequest extends Model
 
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['IpPrefixNumber'])) {
+            $model->ipPrefixNumber = $map['IpPrefixNumber'];
         }
 
         if (isset($map['IpVersion'])) {

@@ -63,6 +63,16 @@ class physicalConnectionType extends Model
     /**
      * @var string
      */
+    public $deviceFeaturesSelected;
+
+    /**
+     * @var int
+     */
+    public $downDelayTime;
+
+    /**
+     * @var string
+     */
     public $enabledTime;
 
     /**
@@ -220,6 +230,8 @@ class physicalConnectionType extends Model
         'circuitCode' => 'CircuitCode',
         'creationTime' => 'CreationTime',
         'description' => 'Description',
+        'deviceFeaturesSelected' => 'DeviceFeaturesSelected',
+        'downDelayTime' => 'DownDelayTime',
         'enabledTime' => 'EnabledTime',
         'endTime' => 'EndTime',
         'expectSpec' => 'ExpectSpec',
@@ -304,6 +316,14 @@ class physicalConnectionType extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->deviceFeaturesSelected) {
+            $res['DeviceFeaturesSelected'] = $this->deviceFeaturesSelected;
+        }
+
+        if (null !== $this->downDelayTime) {
+            $res['DownDelayTime'] = $this->downDelayTime;
         }
 
         if (null !== $this->enabledTime) {
@@ -475,6 +495,14 @@ class physicalConnectionType extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DeviceFeaturesSelected'])) {
+            $model->deviceFeaturesSelected = $map['DeviceFeaturesSelected'];
+        }
+
+        if (isset($map['DownDelayTime'])) {
+            $model->downDelayTime = $map['DownDelayTime'];
         }
 
         if (isset($map['EnabledTime'])) {

@@ -1,3 +1,10 @@
+2026-08-14 Version: 7.2.4
+- Update API CreateVSwitchCidrReservation: add request parameters IpPrefixNumber.
+- Update API DescribePhysicalConnections: add response parameters Body.PhysicalConnectionSet.$.DeviceFeaturesSelected.
+- Update API DescribePhysicalConnections: add response parameters Body.PhysicalConnectionSet.$.DownDelayTime.
+- Update API ModifyPhysicalConnectionAttribute: add request parameters DownDelayTime.
+
+
 2026-07-28 Version: 7.2.3
 - Update API CreateFlowLog: add request parameters LogFormat.
 - Update API CreateSslVpnServer: add request parameters DnsServers.
