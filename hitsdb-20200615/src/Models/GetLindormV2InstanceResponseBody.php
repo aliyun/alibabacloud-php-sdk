@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponseBody\engineList;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponseBody\singleZoneRiskAlert;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponseBody\storageUsage;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponseBody\whiteIpList;
 
@@ -167,6 +168,11 @@ class GetLindormV2InstanceResponseBody extends Model
     public $serviceType;
 
     /**
+     * @var singleZoneRiskAlert
+     */
+    public $singleZoneRiskAlert;
+
+    /**
      * @var string
      */
     public $standbyVSwitchId;
@@ -237,6 +243,7 @@ class GetLindormV2InstanceResponseBody extends Model
         'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
         'serviceType' => 'ServiceType',
+        'singleZoneRiskAlert' => 'SingleZoneRiskAlert',
         'standbyVSwitchId' => 'StandbyVSwitchId',
         'standbyZoneId' => 'StandbyZoneId',
         'storageUsage' => 'StorageUsage',
@@ -251,6 +258,9 @@ class GetLindormV2InstanceResponseBody extends Model
     {
         if (\is_array($this->engineList)) {
             Model::validateArray($this->engineList);
+        }
+        if (null !== $this->singleZoneRiskAlert) {
+            $this->singleZoneRiskAlert->validate();
         }
         if (null !== $this->storageUsage) {
             $this->storageUsage->validate();
@@ -396,6 +406,10 @@ class GetLindormV2InstanceResponseBody extends Model
 
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
+        }
+
+        if (null !== $this->singleZoneRiskAlert) {
+            $res['SingleZoneRiskAlert'] = null !== $this->singleZoneRiskAlert ? $this->singleZoneRiskAlert->toArray($noStream) : $this->singleZoneRiskAlert;
         }
 
         if (null !== $this->standbyVSwitchId) {
@@ -582,6 +596,10 @@ class GetLindormV2InstanceResponseBody extends Model
 
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
+        }
+
+        if (isset($map['SingleZoneRiskAlert'])) {
+            $model->singleZoneRiskAlert = singleZoneRiskAlert::fromMap($map['SingleZoneRiskAlert']);
         }
 
         if (isset($map['StandbyVSwitchId'])) {

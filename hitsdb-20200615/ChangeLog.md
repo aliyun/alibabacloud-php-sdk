@@ -1,3 +1,11 @@
+2026-08-14 Version: 4.15.1
+- Update API CheckLdpsColumnarIndexStatus: add response parameters Body.Mode.
+- Update API GetLindormInstance: add response parameters Body.SingleZoneRiskAlert.
+- Update API GetLindormV2Instance: add response parameters Body.SingleZoneRiskAlert.
+- Update API UpdateLindormInstanceAttribute: add request parameters DispositionType.
+- Update API UpdateLindormInstanceAttribute: add request parameters PlannedCompletionDate.
+
+
 2026-07-17 Version: 4.15.0
 - Support API GetComputeEngineJobDetail.
 - Support API GetComputeEngineJobLog.

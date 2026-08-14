@@ -16,6 +16,11 @@ class UpdateLindormInstanceAttributeRequest extends Model
     /**
      * @var string
      */
+    public $dispositionType;
+
+    /**
+     * @var string
+     */
     public $instanceAlias;
 
     /**
@@ -36,6 +41,11 @@ class UpdateLindormInstanceAttributeRequest extends Model
     /**
      * @var string
      */
+    public $plannedCompletionDate;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -49,10 +59,12 @@ class UpdateLindormInstanceAttributeRequest extends Model
     public $securityToken;
     protected $_name = [
         'deletionProtection' => 'DeletionProtection',
+        'dispositionType' => 'DispositionType',
         'instanceAlias' => 'InstanceAlias',
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'plannedCompletionDate' => 'PlannedCompletionDate',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
@@ -70,6 +82,10 @@ class UpdateLindormInstanceAttributeRequest extends Model
             $res['DeletionProtection'] = $this->deletionProtection;
         }
 
+        if (null !== $this->dispositionType) {
+            $res['DispositionType'] = $this->dispositionType;
+        }
+
         if (null !== $this->instanceAlias) {
             $res['InstanceAlias'] = $this->instanceAlias;
         }
@@ -84,6 +100,10 @@ class UpdateLindormInstanceAttributeRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->plannedCompletionDate) {
+            $res['PlannedCompletionDate'] = $this->plannedCompletionDate;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -113,6 +133,10 @@ class UpdateLindormInstanceAttributeRequest extends Model
             $model->deletionProtection = $map['DeletionProtection'];
         }
 
+        if (isset($map['DispositionType'])) {
+            $model->dispositionType = $map['DispositionType'];
+        }
+
         if (isset($map['InstanceAlias'])) {
             $model->instanceAlias = $map['InstanceAlias'];
         }
@@ -127,6 +151,10 @@ class UpdateLindormInstanceAttributeRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PlannedCompletionDate'])) {
+            $model->plannedCompletionDate = $map['PlannedCompletionDate'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

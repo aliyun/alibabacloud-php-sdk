@@ -14,6 +14,11 @@ class CheckLdpsColumnarIndexStatusResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @var bool
      */
     public $opened;
@@ -24,6 +29,7 @@ class CheckLdpsColumnarIndexStatusResponseBody extends Model
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
+        'mode' => 'Mode',
         'opened' => 'Opened',
         'requestId' => 'RequestId',
     ];
@@ -38,6 +44,10 @@ class CheckLdpsColumnarIndexStatusResponseBody extends Model
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
 
         if (null !== $this->opened) {
@@ -61,6 +71,10 @@ class CheckLdpsColumnarIndexStatusResponseBody extends Model
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
 
         if (isset($map['Opened'])) {
