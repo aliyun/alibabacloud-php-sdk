@@ -17,9 +17,15 @@ class intent extends Model
      * @var string
      */
     public $goal;
+
+    /**
+     * @var string
+     */
+    public $script;
     protected $_name = [
         'channel' => 'Channel',
         'goal' => 'Goal',
+        'script' => 'Script',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class intent extends Model
 
         if (null !== $this->goal) {
             $res['Goal'] = $this->goal;
+        }
+
+        if (null !== $this->script) {
+            $res['Script'] = $this->script;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class intent extends Model
 
         if (isset($map['Goal'])) {
             $model->goal = $map['Goal'];
+        }
+
+        if (isset($map['Script'])) {
+            $model->script = $map['Script'];
         }
 
         return $model;

@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Aidge\V20260428\Models\VideoGenerationRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\VideoGenerationRequest\input\assetBindings;
 
 class input extends Model
 {
+    /**
+     * @var assetBindings[]
+     */
+    public $assetBindings;
+
     /**
      * @var mixed[]
      */
@@ -23,6 +29,7 @@ class input extends Model
      */
     public $title;
     protected $_name = [
+        'assetBindings' => 'AssetBindings',
         'extra' => 'Extra',
         'images' => 'Images',
         'title' => 'Title',
@@ -30,6 +37,9 @@ class input extends Model
 
     public function validate()
     {
+        if (\is_array($this->assetBindings)) {
+            Model::validateArray($this->assetBindings);
+        }
         if (\is_array($this->extra)) {
             Model::validateArray($this->extra);
         }
@@ -42,6 +52,17 @@ class input extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->assetBindings) {
+            if (\is_array($this->assetBindings)) {
+                $res['AssetBindings'] = [];
+                $n1 = 0;
+                foreach ($this->assetBindings as $item1) {
+                    $res['AssetBindings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->extra) {
             if (\is_array($this->extra)) {
                 $res['Extra'] = [];
@@ -77,6 +98,17 @@ class input extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetBindings'])) {
+            if (!empty($map['AssetBindings'])) {
+                $model->assetBindings = [];
+                $n1 = 0;
+                foreach ($map['AssetBindings'] as $item1) {
+                    $model->assetBindings[$n1] = assetBindings::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Extra'])) {
             if (!empty($map['Extra'])) {
                 $model->extra = [];

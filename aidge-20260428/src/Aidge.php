@@ -15,6 +15,9 @@ use AlibabaCloud\SDK\Aidge\V20260428\Models\CategoryAttributeMatchResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\CategoryAttributeMatchShrinkRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\CategoryMatchRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\CategoryMatchResponse;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\DiduiAreaDeductionRequest;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\DiduiAreaDeductionResponse;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\DiduiAreaDeductionShrinkRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\DocumentTranslateRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\DocumentTranslateResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageCroppingRequest;
@@ -46,6 +49,9 @@ use AlibabaCloud\SDK\Aidge\V20260428\Models\PackageWeightSizeCheckResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\PrepaidTextTranslateRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\PrepaidTextTranslateResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\PrepaidTextTranslateShrinkRequest;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\ProductHotspotDetectionRequest;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\ProductHotspotDetectionResponse;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\ProductHotspotDetectionShrinkRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\QueryAsyncTaskResultRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\QueryAsyncTaskResultResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\SizeChartDetectRequest;
@@ -649,6 +655,101 @@ class Aidge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->categoryMatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * 地堆面积推理.
+     *
+     * @remarks
+     * ## 请求说明
+     * **请确保在使用该接口前，已充分了解地堆面积推理产品的收费方式和[价格](https://www.aliyun.com/price/product#/ecs/detail)。**
+     * - 本接口用于通过提供的地堆整体图、SKU知识库以及商品在图片中的位置信息来推断地堆的实际尺寸（两条边的长度）及其占地面积。
+     * - 确保提供的`RagId`对应的知识库属于调用者且状态为可用(`AVAILABLE`)。
+     * - `Products`数组中至少包含一个商品项，并且每个商品项下的`Boxes`也至少需要定义一个边界框。
+     * - 所有坐标值均采用0到1000之间的归一化坐标系表示，请确保输入时满足`Left < Right`与`Top < Bottom`的关系。
+     * - 调用此API时请设置合理的超时时间（建议不超过300秒），以避免因网络延迟或处理复杂度高导致的操作失败。
+     * - 对于正式环境下的调用，请使用POP Action方式接入；内部REST地址主要用于开发测试阶段的联调工作。
+     *
+     * @param tmpReq - DiduiAreaDeductionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DiduiAreaDeductionResponse
+     *
+     * @param DiduiAreaDeductionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DiduiAreaDeductionResponse
+     */
+    public function diduiAreaDeductionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DiduiAreaDeductionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->products) {
+            $request->productsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->products, 'Products', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->productsShrink) {
+            @$query['Products'] = $request->productsShrink;
+        }
+
+        if (null !== $request->ragId) {
+            @$query['RagId'] = $request->ragId;
+        }
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
+        }
+
+        if (null !== $request->targetImageUrl) {
+            @$query['TargetImageUrl'] = $request->targetImageUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DiduiAreaDeduction',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DiduiAreaDeductionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 地堆面积推理.
+     *
+     * @remarks
+     * ## 请求说明
+     * **请确保在使用该接口前，已充分了解地堆面积推理产品的收费方式和[价格](https://www.aliyun.com/price/product#/ecs/detail)。**
+     * - 本接口用于通过提供的地堆整体图、SKU知识库以及商品在图片中的位置信息来推断地堆的实际尺寸（两条边的长度）及其占地面积。
+     * - 确保提供的`RagId`对应的知识库属于调用者且状态为可用(`AVAILABLE`)。
+     * - `Products`数组中至少包含一个商品项，并且每个商品项下的`Boxes`也至少需要定义一个边界框。
+     * - 所有坐标值均采用0到1000之间的归一化坐标系表示，请确保输入时满足`Left < Right`与`Top < Bottom`的关系。
+     * - 调用此API时请设置合理的超时时间（建议不超过300秒），以避免因网络延迟或处理复杂度高导致的操作失败。
+     * - 对于正式环境下的调用，请使用POP Action方式接入；内部REST地址主要用于开发测试阶段的联调工作。
+     *
+     * @param request - DiduiAreaDeductionRequest
+     *
+     * @returns DiduiAreaDeductionResponse
+     *
+     * @param DiduiAreaDeductionRequest $request
+     *
+     * @return DiduiAreaDeductionResponse
+     */
+    public function diduiAreaDeduction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->diduiAreaDeductionWithOptions($request, $runtime);
     }
 
     /**
@@ -2376,6 +2477,99 @@ class Aidge extends OpenApiClient
     }
 
     /**
+     * Automatically identifies and locates specified products in an image based on a multimodal foundation model.
+     *
+     * @remarks
+     * ## Request description
+     * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the product hotzone recognition service.**
+     * This API automatically identifies and locates specified products in a target scene image based on the provided target scene image and product reference images, and outputs the product name and normalized bounding box. Each request takes one target scene image and a set of product reference images. If the same case has multiple target images, call the operation separately for each target image.
+     * ### Precautions
+     * - Image URLs must use HTTPS and be accessible by the server.
+     * - Common image formats such as JPEG, PNG, and WebP are supported.
+     * - Each image should not exceed 2 MB.
+     * - When using signed URLs, set the validity period to at least 30 minutes.
+     * - If the same case has multiple target scene images, call the operation separately for each target image. The reference image list can be reused.
+     *
+     * @param tmpReq - ProductHotspotDetectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ProductHotspotDetectionResponse
+     *
+     * @param ProductHotspotDetectionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ProductHotspotDetectionResponse
+     */
+    public function productHotspotDetectionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ProductHotspotDetectionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->referenceImageUrls) {
+            $request->referenceImageUrlsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->referenceImageUrls, 'ReferenceImageUrls', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->referenceImageUrlsShrink) {
+            @$query['ReferenceImageUrls'] = $request->referenceImageUrlsShrink;
+        }
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
+        }
+
+        if (null !== $request->targetImageUrl) {
+            @$query['TargetImageUrl'] = $request->targetImageUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ProductHotspotDetection',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ProductHotspotDetectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Automatically identifies and locates specified products in an image based on a multimodal foundation model.
+     *
+     * @remarks
+     * ## Request description
+     * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the product hotzone recognition service.**
+     * This API automatically identifies and locates specified products in a target scene image based on the provided target scene image and product reference images, and outputs the product name and normalized bounding box. Each request takes one target scene image and a set of product reference images. If the same case has multiple target images, call the operation separately for each target image.
+     * ### Precautions
+     * - Image URLs must use HTTPS and be accessible by the server.
+     * - Common image formats such as JPEG, PNG, and WebP are supported.
+     * - Each image should not exceed 2 MB.
+     * - When using signed URLs, set the validity period to at least 30 minutes.
+     * - If the same case has multiple target scene images, call the operation separately for each target image. The reference image list can be reused.
+     *
+     * @param request - ProductHotspotDetectionRequest
+     *
+     * @returns ProductHotspotDetectionResponse
+     *
+     * @param ProductHotspotDetectionRequest $request
+     *
+     * @return ProductHotspotDetectionResponse
+     */
+    public function productHotspotDetection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->productHotspotDetectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the result of an asynchronous task. The API name on the POP gateway is QueryAsyncTaskResult.
      *
      * @remarks
@@ -3069,25 +3263,25 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * The E-commerce AI Video Generation Agent is designed for e-commerce merchants and platforms. Based on product main images, titles, selling points, and other information, it automatically generates 5–30 second product showcase short videos, helping customers efficiently produce and distribute e-commerce content. The product supports multiple resolution outputs such as 720P and 1080P, supports both single-product quick calls and multi-product batch generation, catering to both daily operations and large-scale product content production needs. Currently, it covers all apparel categories (tops, pants, skirts, suits, underwear, swimwear, etc.) and is gradually expanding to skincare, cosmetics, food and beverages, home appliances, and other core e-commerce categories.
+     * Invokes the e-commerce AI video generation agent for e-commerce merchants and platforms. Based on product main images, titles, selling points, and other information, it automatically generates 5–30 second product showcase short videos, helping customers efficiently produce and distribute e-commerce content. The service supports multiple resolution outputs such as 720P and 1080P, single-product quick invocation and multi-product batch generation, catering to both daily operations and large-scale product content production needs. Currently overwrites all apparel categories (tops, pants, skirts, suits, underwear, swimwear, etc.), and is gradually expanding to skincare, cosmetics, food and beverages, home appliances, and other core e-commerce categories.
      *
      * @remarks
      * # Scenarios
-     * - Sellers/platforms batch-generate product short videos: Supports multiple video aspect ratios and sizes (3:4, 9:16), suitable for product detail page video slots, product homepage displays, information feed placements, short video content marketing, campaign material, and other scenarios.
-     * - New product launches with rapid initial video material generation: When merchants have a large number of new products to list, they only need to upload product images and titles to quickly generate product showcase videos, model try-on videos, voiceover explanation videos, and other content, helping merchants rapidly complete material deployment during the launch phase.
+     * - Batch generation of product short videos for sellers/platforms: Supports multiple video aspect ratios and sizes (3:4, 9:16), suitable for product detail page video slots, product homepage display, information feed placement, short video content marketing, campaign material, and other scenarios.
+     * - Quick generation of initial video assets for new product launches: When merchants have a large number of new products to list, they only need to upload product images and titles to quickly generate product showcase videos, model try-on videos, voiceover explanation videos, and other content, helping merchants rapidly complete asset creation during the launch phase.
      * - High-fidelity apparel display: Generates model showcase videos that closely resemble real commercial photography based on product main images, with optimized capabilities for silhouette reproduction, fabric texture preservation, accurate color rendering, and consistent detail stability. Supports common e-commerce display methods such as garment try-on, turning, walking, close-up shots, and multi-angle switching.
-     * - High-quality commercial photography models: Includes 20+ built-in target audience model libraries covering plus-size women, plus-size men, swimwear, youthful style, smart casual commuter, young casual, business menswear, sports and fitness, and other body types, skin tones, and ethnicities. Supports standing poses, side views, walking displays, partial close-ups, and other commercial photography expressions.
-     * - Standard product explanations and other high-frequency e-commerce scenarios: Suitable for standardized product categories such as skincare, cosmetics, personal care small appliances, food and beverages, household cleaning products, and 3C digital products. Can quickly generate product explanation videos based on product main images, titles, selling point information, and explanation scripts.
-     * - Multi-product, multi-selling-point testing to improve placement efficiency: For information feed advertising, short video placement, and content marketing scenarios, quickly generates multiple versions of video materials, enabling enterprises to validate conversion effects of different selling points and presentation formats at low cost, improving placement ROI.
+     * - High-quality commercial photography models: Includes 20+ built-in target audience model libraries covering plus-size women, plus-size men, swimwear, youthful style, smart casual commute, young casual, business menswear, sports and fitness, and other body types, skin tones, and ethnicities. Supports standing poses, side views, walking displays, partial close-ups, and other commercial photography expressions.
+     * - Standard product explanation and other high-frequency e-commerce scenarios: Applicable to standardized product categories such as skincare, cosmetics, personal care small appliances, food and beverages, household cleaning products, and 3C digital products. Quickly generates product explanation videos based on product main images, titles, selling points, and explanation scripts.
+     * - Multi-product and multi-selling-point testing to improve placement efficiency: For information feed advertising, short video placement, and content marketing scenarios, quickly generates multiple versions of video assets, enabling enterprises to validate conversion effects of different selling points and presentation formats at low cost, improving placement ROI.
      * # Features
-     * - Fully automated end-to-end batch generation with zero Prompt threshold: Callers only need to provide product image URLs and titles. The system automatically completes the entire process from product understanding, storyboard planning to video generation, without manual Prompt writing, template selection, or repeated parameter tuning. Built-in multi-Agent capabilities including product understanding, visual quality inspection, script planning, and cinematography direction significantly lower the usage barrier.
-     * - Highly stable generation with low discard rate: Uses a deterministic generation pipeline and multi-layer quality control mechanisms to output usable materials with fewer retries, reducing invalid generation and resource waste, making overall production costs more controllable.
-     * - E-commerce-specific product fidelity capability: Built-in multi-round quality inspection Agent locks product state throughout video generation (e.g., zippers won\\"t be unzipped, sleeves won\\"t be lowered, prints won\\"t disappear), ensuring product consistency through multi-layer defense of "script rewriting + explicit constraint injection + failure-aware retry."
-     * - Reference image priority + 6-axis consistency verification: Uses a Reference-Image-First generation paradigm with the original product image as the sole visual truth source. Automatically performs 6-dimensional VL diagnostics (color drift, pattern loss, contour deviation, structural addition/removal, model matching, stain detection), fundamentally preventing generated images from deviating from the product.
-     * - Flexible storyboard arrangement and duration control: Supports adjustable video duration of 5–30 seconds. The Agent autonomously plans independent storyboards to showcase product effects in different scenarios. Also supports fixed scene mode for in-depth product presentation under a unified visual style.
+     * - Fully automated end-to-end batch generation with zero prompt threshold: Callers only need to provide product image URLs and titles. The system automatically completes the entire process from product understanding, storyboard planning, to video generation without manual prompt writing, template selection, or repeated parameter tuning. Built-in multi-agent capabilities including product understanding, visual quality inspection, script planning, and cinematography direction significantly lower the usage barrier.
+     * - Highly stable generation with low waste rate: Uses a deterministic generation pipeline and multi-layer quality control mechanism to output usable assets with fewer retries, reducing invalid generation and resource waste, making overall production costs more controllable.
+     * - E-commerce-specific product fidelity: Built-in multi-round quality inspection agents lock product state throughout video generation (e.g., zippers won\\"t be unzipped, sleeves won\\"t be lowered, prints won\\"t disappear), ensuring product consistency through multi-layer defense of "script rewriting + explicit constraint injection + failure-aware retry."
+     * - Reference image priority + 6-axis consistency verification: Adopts a Reference-Image-First generation paradigm using the original product image as the sole visual truth source, automatically performing 6-dimensional VL diagnostics (color drift, pattern loss, contour deviation, structural addition/removal, model matching, stain detection), fundamentally eliminating the problem of generated images not resembling the product.
+     * - Flexible storyboard arrangement and duration control: Supports adjustable video duration of 5–30 seconds. The agent autonomously plans independent storyboards to showcase product effects in different scenarios. Also supports fixed scene mode for in-depth product presentation under a unified visual style.
      * - Cinematic camera movement capabilities: Built-in advanced camera modes including bullet time, Grammy-style slow motion, 360° orbital rotation, and full-body model rotation display, achieving deterministic output through segmented precise control.
-     * - Model library and customization services: Built-in multi-type model resource library. Supports merchants specifying fixed models, customizing exclusive model personas, and long-term brand visual identity binding to ensure brand visual consistency.
-     * - Adapted for high-frequency e-commerce content scenarios: Supports multiple resolutions such as 720P and 1080P, and multiple aspect ratios such as 3:4 and 9:16. Suitable for product detail page video slots, product homepage video displays, waterfall/information feed placements, campaign materials, and new product and promotional video generation.
+     * - Model library and customization services: Built-in multi-type model resource library supporting merchants in specifying fixed models, customizing exclusive model personas, and long-term brand visual identity binding to ensure brand visual consistency.
+     * - Adapted to high-frequency e-commerce content scenarios: Supports multiple resolutions such as 720P and 1080P, and multiple aspect ratios such as 3:4 and 9:16, suitable for product detail page video slots, product homepage video display, waterfall/information feed placement, campaign material, and new product and promotional video generation.
      *
      * @param tmpReq - VideoGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3148,25 +3342,25 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * The E-commerce AI Video Generation Agent is designed for e-commerce merchants and platforms. Based on product main images, titles, selling points, and other information, it automatically generates 5–30 second product showcase short videos, helping customers efficiently produce and distribute e-commerce content. The product supports multiple resolution outputs such as 720P and 1080P, supports both single-product quick calls and multi-product batch generation, catering to both daily operations and large-scale product content production needs. Currently, it covers all apparel categories (tops, pants, skirts, suits, underwear, swimwear, etc.) and is gradually expanding to skincare, cosmetics, food and beverages, home appliances, and other core e-commerce categories.
+     * Invokes the e-commerce AI video generation agent for e-commerce merchants and platforms. Based on product main images, titles, selling points, and other information, it automatically generates 5–30 second product showcase short videos, helping customers efficiently produce and distribute e-commerce content. The service supports multiple resolution outputs such as 720P and 1080P, single-product quick invocation and multi-product batch generation, catering to both daily operations and large-scale product content production needs. Currently overwrites all apparel categories (tops, pants, skirts, suits, underwear, swimwear, etc.), and is gradually expanding to skincare, cosmetics, food and beverages, home appliances, and other core e-commerce categories.
      *
      * @remarks
      * # Scenarios
-     * - Sellers/platforms batch-generate product short videos: Supports multiple video aspect ratios and sizes (3:4, 9:16), suitable for product detail page video slots, product homepage displays, information feed placements, short video content marketing, campaign material, and other scenarios.
-     * - New product launches with rapid initial video material generation: When merchants have a large number of new products to list, they only need to upload product images and titles to quickly generate product showcase videos, model try-on videos, voiceover explanation videos, and other content, helping merchants rapidly complete material deployment during the launch phase.
+     * - Batch generation of product short videos for sellers/platforms: Supports multiple video aspect ratios and sizes (3:4, 9:16), suitable for product detail page video slots, product homepage display, information feed placement, short video content marketing, campaign material, and other scenarios.
+     * - Quick generation of initial video assets for new product launches: When merchants have a large number of new products to list, they only need to upload product images and titles to quickly generate product showcase videos, model try-on videos, voiceover explanation videos, and other content, helping merchants rapidly complete asset creation during the launch phase.
      * - High-fidelity apparel display: Generates model showcase videos that closely resemble real commercial photography based on product main images, with optimized capabilities for silhouette reproduction, fabric texture preservation, accurate color rendering, and consistent detail stability. Supports common e-commerce display methods such as garment try-on, turning, walking, close-up shots, and multi-angle switching.
-     * - High-quality commercial photography models: Includes 20+ built-in target audience model libraries covering plus-size women, plus-size men, swimwear, youthful style, smart casual commuter, young casual, business menswear, sports and fitness, and other body types, skin tones, and ethnicities. Supports standing poses, side views, walking displays, partial close-ups, and other commercial photography expressions.
-     * - Standard product explanations and other high-frequency e-commerce scenarios: Suitable for standardized product categories such as skincare, cosmetics, personal care small appliances, food and beverages, household cleaning products, and 3C digital products. Can quickly generate product explanation videos based on product main images, titles, selling point information, and explanation scripts.
-     * - Multi-product, multi-selling-point testing to improve placement efficiency: For information feed advertising, short video placement, and content marketing scenarios, quickly generates multiple versions of video materials, enabling enterprises to validate conversion effects of different selling points and presentation formats at low cost, improving placement ROI.
+     * - High-quality commercial photography models: Includes 20+ built-in target audience model libraries covering plus-size women, plus-size men, swimwear, youthful style, smart casual commute, young casual, business menswear, sports and fitness, and other body types, skin tones, and ethnicities. Supports standing poses, side views, walking displays, partial close-ups, and other commercial photography expressions.
+     * - Standard product explanation and other high-frequency e-commerce scenarios: Applicable to standardized product categories such as skincare, cosmetics, personal care small appliances, food and beverages, household cleaning products, and 3C digital products. Quickly generates product explanation videos based on product main images, titles, selling points, and explanation scripts.
+     * - Multi-product and multi-selling-point testing to improve placement efficiency: For information feed advertising, short video placement, and content marketing scenarios, quickly generates multiple versions of video assets, enabling enterprises to validate conversion effects of different selling points and presentation formats at low cost, improving placement ROI.
      * # Features
-     * - Fully automated end-to-end batch generation with zero Prompt threshold: Callers only need to provide product image URLs and titles. The system automatically completes the entire process from product understanding, storyboard planning to video generation, without manual Prompt writing, template selection, or repeated parameter tuning. Built-in multi-Agent capabilities including product understanding, visual quality inspection, script planning, and cinematography direction significantly lower the usage barrier.
-     * - Highly stable generation with low discard rate: Uses a deterministic generation pipeline and multi-layer quality control mechanisms to output usable materials with fewer retries, reducing invalid generation and resource waste, making overall production costs more controllable.
-     * - E-commerce-specific product fidelity capability: Built-in multi-round quality inspection Agent locks product state throughout video generation (e.g., zippers won\\"t be unzipped, sleeves won\\"t be lowered, prints won\\"t disappear), ensuring product consistency through multi-layer defense of "script rewriting + explicit constraint injection + failure-aware retry."
-     * - Reference image priority + 6-axis consistency verification: Uses a Reference-Image-First generation paradigm with the original product image as the sole visual truth source. Automatically performs 6-dimensional VL diagnostics (color drift, pattern loss, contour deviation, structural addition/removal, model matching, stain detection), fundamentally preventing generated images from deviating from the product.
-     * - Flexible storyboard arrangement and duration control: Supports adjustable video duration of 5–30 seconds. The Agent autonomously plans independent storyboards to showcase product effects in different scenarios. Also supports fixed scene mode for in-depth product presentation under a unified visual style.
+     * - Fully automated end-to-end batch generation with zero prompt threshold: Callers only need to provide product image URLs and titles. The system automatically completes the entire process from product understanding, storyboard planning, to video generation without manual prompt writing, template selection, or repeated parameter tuning. Built-in multi-agent capabilities including product understanding, visual quality inspection, script planning, and cinematography direction significantly lower the usage barrier.
+     * - Highly stable generation with low waste rate: Uses a deterministic generation pipeline and multi-layer quality control mechanism to output usable assets with fewer retries, reducing invalid generation and resource waste, making overall production costs more controllable.
+     * - E-commerce-specific product fidelity: Built-in multi-round quality inspection agents lock product state throughout video generation (e.g., zippers won\\"t be unzipped, sleeves won\\"t be lowered, prints won\\"t disappear), ensuring product consistency through multi-layer defense of "script rewriting + explicit constraint injection + failure-aware retry."
+     * - Reference image priority + 6-axis consistency verification: Adopts a Reference-Image-First generation paradigm using the original product image as the sole visual truth source, automatically performing 6-dimensional VL diagnostics (color drift, pattern loss, contour deviation, structural addition/removal, model matching, stain detection), fundamentally eliminating the problem of generated images not resembling the product.
+     * - Flexible storyboard arrangement and duration control: Supports adjustable video duration of 5–30 seconds. The agent autonomously plans independent storyboards to showcase product effects in different scenarios. Also supports fixed scene mode for in-depth product presentation under a unified visual style.
      * - Cinematic camera movement capabilities: Built-in advanced camera modes including bullet time, Grammy-style slow motion, 360° orbital rotation, and full-body model rotation display, achieving deterministic output through segmented precise control.
-     * - Model library and customization services: Built-in multi-type model resource library. Supports merchants specifying fixed models, customizing exclusive model personas, and long-term brand visual identity binding to ensure brand visual consistency.
-     * - Adapted for high-frequency e-commerce content scenarios: Supports multiple resolutions such as 720P and 1080P, and multiple aspect ratios such as 3:4 and 9:16. Suitable for product detail page video slots, product homepage video displays, waterfall/information feed placements, campaign materials, and new product and promotional video generation.
+     * - Model library and customization services: Built-in multi-type model resource library supporting merchants in specifying fixed models, customizing exclusive model personas, and long-term brand visual identity binding to ensure brand visual consistency.
+     * - Adapted to high-frequency e-commerce content scenarios: Supports multiple resolutions such as 720P and 1080P, and multiple aspect ratios such as 3:4 and 9:16, suitable for product detail page video slots, product homepage video display, waterfall/information feed placement, campaign material, and new product and promotional video generation.
      *
      * @param request - VideoGenerationRequest
      *
