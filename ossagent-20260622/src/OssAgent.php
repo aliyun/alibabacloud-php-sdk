@@ -22,7 +22,7 @@ class OssAgent extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ossagent', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -52,7 +52,7 @@ class OssAgent extends OpenApiClient
     }
 
     /**
-     * 聊天流式接口.
+     * Initiates a streaming chat session.
      *
      * @param request - ChatRequest
      * @param headers - map
@@ -111,7 +111,7 @@ class OssAgent extends OpenApiClient
     }
 
     /**
-     * 聊天流式接口.
+     * Initiates a streaming chat session.
      *
      * @param request - ChatRequest
      * @param headers - map
@@ -157,7 +157,7 @@ class OssAgent extends OpenApiClient
     }
 
     /**
-     * 聊天流式接口.
+     * Initiates a streaming chat session.
      *
      * @param request - ChatRequest
      *
@@ -176,7 +176,7 @@ class OssAgent extends OpenApiClient
     }
 
     /**
-     * 工具确认接口.
+     * Confirms a tool calling operation.
      *
      * @param request - ConfirmRequest
      * @param headers - map
@@ -247,7 +247,7 @@ class OssAgent extends OpenApiClient
     }
 
     /**
-     * 工具确认接口.
+     * Confirms a tool calling operation.
      *
      * @param request - ConfirmRequest
      * @param headers - map
@@ -305,7 +305,7 @@ class OssAgent extends OpenApiClient
     }
 
     /**
-     * 工具确认接口.
+     * Confirms a tool calling operation.
      *
      * @param request - ConfirmRequest
      *
@@ -324,7 +324,7 @@ class OssAgent extends OpenApiClient
     }
 
     /**
-     * 聊天中断接口.
+     * Interrupts a chat session.
      *
      * @param request - InterruptRequest
      * @param headers - map
@@ -361,7 +361,7 @@ class OssAgent extends OpenApiClient
     }
 
     /**
-     * 聊天中断接口.
+     * Interrupts a chat session.
      *
      * @param request - InterruptRequest
      *
