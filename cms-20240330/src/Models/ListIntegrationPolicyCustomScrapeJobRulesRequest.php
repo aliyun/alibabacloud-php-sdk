@@ -14,6 +14,11 @@ class ListIntegrationPolicyCustomScrapeJobRulesRequest extends Model
     public $addonReleaseName;
 
     /**
+     * @var string
+     */
+    public $collectorReleaseName;
+
+    /**
      * @var bool
      */
     public $encryptYaml;
@@ -24,6 +29,7 @@ class ListIntegrationPolicyCustomScrapeJobRulesRequest extends Model
     public $namespace;
     protected $_name = [
         'addonReleaseName' => 'addonReleaseName',
+        'collectorReleaseName' => 'collectorReleaseName',
         'encryptYaml' => 'encryptYaml',
         'namespace' => 'namespace',
     ];
@@ -38,6 +44,10 @@ class ListIntegrationPolicyCustomScrapeJobRulesRequest extends Model
         $res = [];
         if (null !== $this->addonReleaseName) {
             $res['addonReleaseName'] = $this->addonReleaseName;
+        }
+
+        if (null !== $this->collectorReleaseName) {
+            $res['collectorReleaseName'] = $this->collectorReleaseName;
         }
 
         if (null !== $this->encryptYaml) {
@@ -61,6 +71,10 @@ class ListIntegrationPolicyCustomScrapeJobRulesRequest extends Model
         $model = new self();
         if (isset($map['addonReleaseName'])) {
             $model->addonReleaseName = $map['addonReleaseName'];
+        }
+
+        if (isset($map['collectorReleaseName'])) {
+            $model->collectorReleaseName = $map['collectorReleaseName'];
         }
 
         if (isset($map['encryptYaml'])) {

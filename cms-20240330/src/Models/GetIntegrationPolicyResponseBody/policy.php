@@ -13,6 +13,11 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationPolicyResponseBody\polic
 class policy extends Model
 {
     /**
+     * @var string[]
+     */
+    public $addonNames;
+
+    /**
      * @var bindResource
      */
     public $bindResource;
@@ -72,6 +77,7 @@ class policy extends Model
      */
     public $workspace;
     protected $_name = [
+        'addonNames' => 'addonNames',
         'bindResource' => 'bindResource',
         'csUmodelStatus' => 'csUmodelStatus',
         'entityGroup' => 'entityGroup',
@@ -88,6 +94,9 @@ class policy extends Model
 
     public function validate()
     {
+        if (\is_array($this->addonNames)) {
+            Model::validateArray($this->addonNames);
+        }
         if (null !== $this->bindResource) {
             $this->bindResource->validate();
         }
@@ -106,6 +115,17 @@ class policy extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addonNames) {
+            if (\is_array($this->addonNames)) {
+                $res['addonNames'] = [];
+                $n1 = 0;
+                foreach ($this->addonNames as $item1) {
+                    $res['addonNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->bindResource) {
             $res['bindResource'] = null !== $this->bindResource ? $this->bindResource->toArray($noStream) : $this->bindResource;
         }
@@ -172,6 +192,17 @@ class policy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['addonNames'])) {
+            if (!empty($map['addonNames'])) {
+                $model->addonNames = [];
+                $n1 = 0;
+                foreach ($map['addonNames'] as $item1) {
+                    $model->addonNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['bindResource'])) {
             $model->bindResource = bindResource::fromMap($map['bindResource']);
         }
