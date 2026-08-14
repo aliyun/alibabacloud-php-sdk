@@ -22,10 +22,16 @@ class ModelRouterQueryUserListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $phone;
     protected $_name = [
         'keyword' => 'keyword',
         'pageIndex' => 'pageIndex',
         'pageSize' => 'pageSize',
+        'phone' => 'phone',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ModelRouterQueryUserListRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->phone) {
+            $res['phone'] = $this->phone;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ModelRouterQueryUserListRequest extends Model
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['phone'])) {
+            $model->phone = $map['phone'];
         }
 
         return $model;

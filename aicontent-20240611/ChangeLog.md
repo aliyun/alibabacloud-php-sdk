@@ -1,3 +1,7 @@
+2026-08-14 Version: 6.7.1
+- Update API ModelRouterQueryUserList: add request parameters phone.
+
+
 2026-08-04 Version: 6.7.0
 - Support API ModelRouterBatchCreateMemberApiKeys.
 - Support API ModelRouterBatchCreateModel.
