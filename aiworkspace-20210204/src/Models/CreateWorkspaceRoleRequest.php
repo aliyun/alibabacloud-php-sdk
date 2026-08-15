@@ -23,10 +23,16 @@ class CreateWorkspaceRoleRequest extends Model
      * @var string
      */
     public $roleType;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'modulePermissions' => 'ModulePermissions',
         'roleName' => 'RoleName',
         'roleType' => 'RoleType',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -59,6 +65,10 @@ class CreateWorkspaceRoleRequest extends Model
             $res['RoleType'] = $this->roleType;
         }
 
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+
         return $res;
     }
 
@@ -87,6 +97,10 @@ class CreateWorkspaceRoleRequest extends Model
 
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
+        }
+
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

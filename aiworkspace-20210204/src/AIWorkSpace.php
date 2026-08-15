@@ -317,14 +317,8 @@ class AIWorkSpace extends OpenApiClient
             'eu-west-1-oxs' => 'aiworkspace.aliyuncs.com',
             'me-east-1' => 'aiworkspace.aliyuncs.com',
             'rus-west-1-pop' => 'aiworkspace.aliyuncs.com',
-            'us-west-1' => 'aiworkspace.us-west-1.aliyuncs.com',
-            'us-southeast-1' => 'aiworkspace.us-southeast-1.aliyuncs.com',
-            'us-east-1' => 'aiworkspace.us-east-1.aliyuncs.com',
-            'na-south-1' => 'aiworkspace.na-south-1.aliyuncs.com',
-            'eu-central-1' => 'aiworkspace.eu-central-1.aliyuncs.com',
             'cn-wulanchabu' => 'aiworkspace.cn-wulanchabu.aliyuncs.com',
             'cn-shenzhen' => 'aiworkspace.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'aiworkspace.cn-shanghai-finance-1.aliyuncs.com',
             'cn-shanghai' => 'aiworkspace.cn-shanghai.aliyuncs.com',
             'cn-hongkong' => 'aiworkspace.cn-hongkong.aliyuncs.com',
             'cn-heyuan' => 'aiworkspace.cn-heyuan.aliyuncs.com',
@@ -335,9 +329,15 @@ class AIWorkSpace extends OpenApiClient
             'ap-southeast-7' => 'aiworkspace.ap-southeast-7.aliyuncs.com',
             'ap-southeast-3' => 'aiworkspace.ap-southeast-3.aliyuncs.com',
             'ap-southeast-1' => 'aiworkspace.ap-southeast-1.aliyuncs.com',
-            'ap-south-1' => 'aiworkspace.ap-south-1.aliyuncs.com',
             'ap-northeast-2' => 'aiworkspace.ap-northeast-2.aliyuncs.com',
             'ap-northeast-1' => 'aiworkspace.ap-northeast-1.aliyuncs.com',
+            'eu-central-1' => 'aiworkspace.eu-central-1.aliyuncs.com',
+            'na-south-1' => 'aiworkspace.na-south-1.aliyuncs.com',
+            'us-east-1' => 'aiworkspace.us-east-1.aliyuncs.com',
+            'us-southeast-1' => 'aiworkspace.us-southeast-1.aliyuncs.com',
+            'us-west-1' => 'aiworkspace.us-west-1.aliyuncs.com',
+            'ap-south-1' => 'aiworkspace.ap-south-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'aiworkspace.cn-shanghai-finance-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aiworkspace', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -491,6 +491,10 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->sourceType) {
             @$body['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
 
         if (null !== $request->workspaceId) {
@@ -2319,7 +2323,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
+     * Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
      *
      * @param request - CreateRunRequest
      * @param headers - map
@@ -2381,7 +2385,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
+     * Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
      *
      * @param request - CreateRunRequest
      *
@@ -2573,6 +2577,10 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->roleType) {
             @$body['RoleType'] = $request->roleType;
+        }
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
 
         $req = new OpenApiRequest([

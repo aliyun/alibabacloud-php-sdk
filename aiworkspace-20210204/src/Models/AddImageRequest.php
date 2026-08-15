@@ -57,6 +57,11 @@ class AddImageRequest extends Model
     /**
      * @var string
      */
+    public $userId;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'accessibility' => 'Accessibility',
@@ -68,6 +73,7 @@ class AddImageRequest extends Model
         'size' => 'Size',
         'sourceId' => 'SourceId',
         'sourceType' => 'SourceType',
+        'userId' => 'UserId',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -123,6 +129,10 @@ class AddImageRequest extends Model
 
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         if (null !== $this->workspaceId) {
@@ -181,6 +191,10 @@ class AddImageRequest extends Model
 
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         if (isset($map['WorkspaceId'])) {
