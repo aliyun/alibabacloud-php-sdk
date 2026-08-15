@@ -36,6 +36,11 @@ class details extends Model
     /**
      * @var int
      */
+    public $durationMs;
+
+    /**
+     * @var int
+     */
     public $inputTokens;
 
     /**
@@ -77,12 +82,18 @@ class details extends Model
      * @var int
      */
     public $totalTokens;
+
+    /**
+     * @var int
+     */
+    public $ttftMs;
     protected $_name = [
         'apiKeyName' => 'ApiKeyName',
         'cachedTokens' => 'CachedTokens',
         'changeTime' => 'ChangeTime',
         'creditChange' => 'CreditChange',
         'description' => 'Description',
+        'durationMs' => 'DurationMs',
         'inputTokens' => 'InputTokens',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
@@ -92,6 +103,7 @@ class details extends Model
         'requestId' => 'RequestId',
         'taskId' => 'TaskId',
         'totalTokens' => 'TotalTokens',
+        'ttftMs' => 'TtftMs',
     ];
 
     public function validate()
@@ -120,6 +132,10 @@ class details extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->durationMs) {
+            $res['DurationMs'] = $this->durationMs;
         }
 
         if (null !== $this->inputTokens) {
@@ -158,6 +174,10 @@ class details extends Model
             $res['TotalTokens'] = $this->totalTokens;
         }
 
+        if (null !== $this->ttftMs) {
+            $res['TtftMs'] = $this->ttftMs;
+        }
+
         return $res;
     }
 
@@ -187,6 +207,10 @@ class details extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DurationMs'])) {
+            $model->durationMs = $map['DurationMs'];
         }
 
         if (isset($map['InputTokens'])) {
@@ -223,6 +247,10 @@ class details extends Model
 
         if (isset($map['TotalTokens'])) {
             $model->totalTokens = $map['TotalTokens'];
+        }
+
+        if (isset($map['TtftMs'])) {
+            $model->ttftMs = $map['TtftMs'];
         }
 
         return $model;

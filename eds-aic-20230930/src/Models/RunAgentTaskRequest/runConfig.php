@@ -2,36 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyScheduledTaskRequest;
+namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskRequest;
 
 use AlibabaCloud\Dara\Model;
 
 class runConfig extends Model
 {
     /**
-     * @var string
-     */
-    public $extraParams;
-
-    /**
-     * @var int
-     */
-    public $maxSteps;
-
-    /**
      * @var string[]
      */
     public $skills;
-
-    /**
-     * @var int
-     */
-    public $timeoutSeconds;
     protected $_name = [
-        'extraParams' => 'ExtraParams',
-        'maxSteps' => 'MaxSteps',
         'skills' => 'Skills',
-        'timeoutSeconds' => 'TimeoutSeconds',
     ];
 
     public function validate()
@@ -45,14 +27,6 @@ class runConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->extraParams) {
-            $res['ExtraParams'] = $this->extraParams;
-        }
-
-        if (null !== $this->maxSteps) {
-            $res['MaxSteps'] = $this->maxSteps;
-        }
-
         if (null !== $this->skills) {
             if (\is_array($this->skills)) {
                 $res['Skills'] = [];
@@ -62,10 +36,6 @@ class runConfig extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (null !== $this->timeoutSeconds) {
-            $res['TimeoutSeconds'] = $this->timeoutSeconds;
         }
 
         return $res;
@@ -79,14 +49,6 @@ class runConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExtraParams'])) {
-            $model->extraParams = $map['ExtraParams'];
-        }
-
-        if (isset($map['MaxSteps'])) {
-            $model->maxSteps = $map['MaxSteps'];
-        }
-
         if (isset($map['Skills'])) {
             if (!empty($map['Skills'])) {
                 $model->skills = [];
@@ -96,10 +58,6 @@ class runConfig extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['TimeoutSeconds'])) {
-            $model->timeoutSeconds = $map['TimeoutSeconds'];
         }
 
         return $model;

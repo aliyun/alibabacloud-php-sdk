@@ -5,10 +5,9 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskRequest\runConfig;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskRequest\targets;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskShrinkRequest\targets;
 
-class RunAgentTaskRequest extends Model
+class RunAgentTaskShrinkRequest extends Model
 {
     /**
      * @var string
@@ -26,9 +25,9 @@ class RunAgentTaskRequest extends Model
     public $maxSteps;
 
     /**
-     * @var runConfig
+     * @var string
      */
-    public $runConfig;
+    public $runConfigShrink;
 
     /**
      * @var string
@@ -58,7 +57,7 @@ class RunAgentTaskRequest extends Model
         'bizRegionId' => 'BizRegionId',
         'instanceIds' => 'InstanceIds',
         'maxSteps' => 'MaxSteps',
-        'runConfig' => 'RunConfig',
+        'runConfigShrink' => 'RunConfig',
         'scheduleId' => 'ScheduleId',
         'targets' => 'Targets',
         'taskConfigId' => 'TaskConfigId',
@@ -70,9 +69,6 @@ class RunAgentTaskRequest extends Model
     {
         if (\is_array($this->instanceIds)) {
             Model::validateArray($this->instanceIds);
-        }
-        if (null !== $this->runConfig) {
-            $this->runConfig->validate();
         }
         if (\is_array($this->targets)) {
             Model::validateArray($this->targets);
@@ -102,8 +98,8 @@ class RunAgentTaskRequest extends Model
             $res['MaxSteps'] = $this->maxSteps;
         }
 
-        if (null !== $this->runConfig) {
-            $res['RunConfig'] = null !== $this->runConfig ? $this->runConfig->toArray($noStream) : $this->runConfig;
+        if (null !== $this->runConfigShrink) {
+            $res['RunConfig'] = $this->runConfigShrink;
         }
 
         if (null !== $this->scheduleId) {
@@ -164,7 +160,7 @@ class RunAgentTaskRequest extends Model
         }
 
         if (isset($map['RunConfig'])) {
-            $model->runConfig = runConfig::fromMap($map['RunConfig']);
+            $model->runConfigShrink = $map['RunConfig'];
         }
 
         if (isset($map['ScheduleId'])) {

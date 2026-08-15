@@ -1,3 +1,41 @@
+2026-08-15 Version: 4.26.0
+- Support API CreateAICloudPhone.
+- Support API CreateScheduledTask.
+- Support API DeleteScheduledTask.
+- Support API DescribeScheduledTaskExecutions.
+- Support API DescribeScheduledTasks.
+- Support API ModifyInstanceGroupSpec.
+- Support API ModifyScheduledTask.
+- Update API DescribeAndroidInstanceGroups: add request parameters SortKey.
+- Update API DescribeAndroidInstanceGroups: add request parameters SortType.
+- Update API DescribeCloudPhoneNodes: add request parameters SortKey.
+- Update API DescribeCloudPhoneNodes: add request parameters SortType.
+- Update API DescribeCloudPhoneNodes: add response parameters Body.NodeModel.$.Channel.
+- Update API DescribeCloudPhoneNodes: add response parameters Body.NodeModel.$.PackageId.
+- Update API DescribeCreditDetail: add request parameters MaxResults.
+- Update API DescribeCreditDetail: add request parameters NextToken.
+- Update API DescribeCreditDetail: add response parameters Body.Data.NextToken.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.ApiKeyName.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.CachedTokens.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.DurationMs.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.InputTokens.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.InstanceName.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.ModelId.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.OutputTokens.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.RequestId.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.TotalTokens.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.TtftMs.
+- Update API DescribeJVSInstance: add response parameters Body.PendingUpgradeCount.
+- Update API DescribeJVSInstance: add response parameters Body.Data.$.AgentVersion.
+- Update API DescribeJVSInstance: add response parameters Body.Data.$.InstalledSkills.
+- Update API DescribeMobileAgentPackage: add response parameters Body.PackageList.$.PeriodEndTime.
+- Update API DescribeMobileAgentPackage: add response parameters Body.PackageList.$.PeriodStartTime.
+- Update API ModifyJVSInstance: add request parameters AgentVersion.
+- Update API ModifyJVSInstance: add request parameters ImageId.
+- Update API RenewMobileAgentPackage: add request parameters ClientToken.
+- Update API RunAgentTask: add request parameters RunConfig.
+
+
 2026-07-31 Version: 4.26.0
 - Support API CreateAICloudPhone.
 - Support API CreateScheduledTask.

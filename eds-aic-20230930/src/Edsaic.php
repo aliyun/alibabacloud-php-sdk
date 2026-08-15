@@ -179,6 +179,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyDisplayConfigResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyDisplayConfigShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyInstanceChargeTypeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyInstanceChargeTypeResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyInstanceGroupSpecRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyInstanceGroupSpecResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyJVSInstanceRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyJVSInstanceResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyKeyPairNameRequest;
@@ -218,6 +220,7 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResumeAgentTaskRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResumeAgentTaskResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunCommandResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunSyncCommandRequest;
@@ -266,8 +269,8 @@ class Edsaic extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'cn-shanghai' => 'eds-aic.cn-shanghai.aliyuncs.com',
             'ap-southeast-1' => 'eds-aic.ap-southeast-1.aliyuncs.com',
+            'cn-shanghai' => 'eds-aic.cn-shanghai.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eds-aic', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -2979,7 +2982,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Deletes an agent scheduled task.
+     * Deletes a scheduled task of an agent.
      *
      * @param request - DeleteScheduledTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3018,7 +3021,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Deletes an agent scheduled task.
+     * Deletes a scheduled task of an agent.
      *
      * @param request - DeleteScheduledTaskRequest
      *
@@ -4840,7 +4843,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries the list of scheduled tasks for an agent.
+     * Queries the list of agent scheduled tasks.
      *
      * @param request - DescribeScheduledTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4907,7 +4910,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries the list of scheduled tasks for an agent.
+     * Queries the list of agent scheduled tasks.
      *
      * @param request - DescribeScheduledTasksRequest
      *
@@ -6989,6 +6992,75 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * Changes the specifications of instance groups. Currently, only specification upgrades are supported. Specification downgrades are not supported.
+     *
+     * @param request - ModifyInstanceGroupSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceGroupSpecResponse
+     *
+     * @param ModifyInstanceGroupSpecRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyInstanceGroupSpecResponse
+     */
+    public function modifyInstanceGroupSpecWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->instanceGroupIds) {
+            @$query['InstanceGroupIds'] = $request->instanceGroupIds;
+        }
+
+        if (null !== $request->instanceGroupSpec) {
+            @$query['InstanceGroupSpec'] = $request->instanceGroupSpec;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceGroupSpec',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceGroupSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Changes the specifications of instance groups. Currently, only specification upgrades are supported. Specification downgrades are not supported.
+     *
+     * @param request - ModifyInstanceGroupSpecRequest
+     *
+     * @returns ModifyInstanceGroupSpecResponse
+     *
+     * @param ModifyInstanceGroupSpecRequest $request
+     *
+     * @return ModifyInstanceGroupSpecResponse
+     */
+    public function modifyInstanceGroupSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceGroupSpecWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the configuration of a JVS instance.
      *
      * @param request - ModifyJVSInstanceRequest
@@ -8085,7 +8157,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Renews a mobile agent package.
+     * Renews a resource plan.
      *
      * @param request - RenewMobileAgentPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8107,6 +8179,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->autoRenew) {
             @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->mobileAgentPackageIds) {
@@ -8148,7 +8224,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Renews a mobile agent package.
+     * Renews a resource plan.
      *
      * @param request - RenewMobileAgentPackageRequest
      *
@@ -8310,21 +8386,27 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Triggers an Agent to execute an AI automation task on Mobile nodes.
+     * Triggers an Agent on Mobile nodes to execute an AI automation task.
      *
-     * @param request - RunAgentTaskRequest
+     * @param tmpReq - RunAgentTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RunAgentTaskResponse
      *
-     * @param RunAgentTaskRequest $request
+     * @param RunAgentTaskRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
      * @return RunAgentTaskResponse
      */
-    public function runAgentTaskWithOptions($request, $runtime)
+    public function runAgentTaskWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new RunAgentTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->runConfig) {
+            $request->runConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runConfig, 'RunConfig', 'json');
+        }
+
         $query = [];
         if (null !== $request->bizRegionId) {
             @$query['BizRegionId'] = $request->bizRegionId;
@@ -8336,6 +8418,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->maxSteps) {
             @$query['MaxSteps'] = $request->maxSteps;
+        }
+
+        if (null !== $request->runConfigShrink) {
+            @$query['RunConfig'] = $request->runConfigShrink;
         }
 
         if (null !== $request->scheduleId) {
@@ -8377,7 +8463,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Triggers an Agent to execute an AI automation task on Mobile nodes.
+     * Triggers an Agent on Mobile nodes to execute an AI automation task.
      *
      * @param request - RunAgentTaskRequest
      *

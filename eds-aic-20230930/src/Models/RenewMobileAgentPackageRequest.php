@@ -19,6 +19,11 @@ class RenewMobileAgentPackageRequest extends Model
     public $autoRenew;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var string[]
      */
     public $mobileAgentPackageIds;
@@ -45,6 +50,7 @@ class RenewMobileAgentPackageRequest extends Model
     protected $_name = [
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
+        'clientToken' => 'ClientToken',
         'mobileAgentPackageIds' => 'MobileAgentPackageIds',
         'paidCallbackUrl' => 'PaidCallbackUrl',
         'period' => 'Period',
@@ -69,6 +75,10 @@ class RenewMobileAgentPackageRequest extends Model
 
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->mobileAgentPackageIds) {
@@ -115,6 +125,10 @@ class RenewMobileAgentPackageRequest extends Model
 
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['MobileAgentPackageIds'])) {

@@ -35,6 +35,11 @@ class nodeModel extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $chargeType;
 
     /**
@@ -91,6 +96,11 @@ class nodeModel extends Model
      * @var string
      */
     public $nodeName;
+
+    /**
+     * @var string
+     */
+    public $packageId;
 
     /**
      * @var int
@@ -151,6 +161,7 @@ class nodeModel extends Model
         'bandwidthPackageStatus' => 'BandwidthPackageStatus',
         'bandwidthPackageType' => 'BandwidthPackageType',
         'bizTags' => 'BizTags',
+        'channel' => 'Channel',
         'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
         'gmtCreate' => 'GmtCreate',
@@ -163,6 +174,7 @@ class nodeModel extends Model
         'networkType' => 'NetworkType',
         'nodeId' => 'NodeId',
         'nodeName' => 'NodeName',
+        'packageId' => 'PackageId',
         'phoneCount' => 'PhoneCount',
         'phoneDataInfo' => 'PhoneDataInfo',
         'regionId' => 'RegionId',
@@ -219,6 +231,10 @@ class nodeModel extends Model
             }
         }
 
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
+        }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -272,6 +288,10 @@ class nodeModel extends Model
 
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
+        }
+
+        if (null !== $this->packageId) {
+            $res['PackageId'] = $this->packageId;
         }
 
         if (null !== $this->phoneCount) {
@@ -359,6 +379,10 @@ class nodeModel extends Model
             }
         }
 
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
+        }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
@@ -412,6 +436,10 @@ class nodeModel extends Model
 
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
+        }
+
+        if (isset($map['PackageId'])) {
+            $model->packageId = $map['PackageId'];
         }
 
         if (isset($map['PhoneCount'])) {
