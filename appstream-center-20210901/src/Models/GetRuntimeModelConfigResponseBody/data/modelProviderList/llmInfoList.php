@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeModelConfigResponseBody\data\modelProviderList;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeModelConfigResponseBody\data\modelProviderList\llmInfoList\creditMultiplier;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeModelConfigResponseBody\data\modelProviderList\llmInfoList\inferenceMetadata;
 
 class llmInfoList extends Model
 {
+    /**
+     * @var creditMultiplier
+     */
+    public $creditMultiplier;
+
     /**
      * @var string
      */
@@ -44,6 +50,7 @@ class llmInfoList extends Model
      */
     public $riskType;
     protected $_name = [
+        'creditMultiplier' => 'CreditMultiplier',
         'description' => 'Description',
         'features' => 'Features',
         'inferenceMetadata' => 'InferenceMetadata',
@@ -55,6 +62,9 @@ class llmInfoList extends Model
 
     public function validate()
     {
+        if (null !== $this->creditMultiplier) {
+            $this->creditMultiplier->validate();
+        }
         if (\is_array($this->features)) {
             Model::validateArray($this->features);
         }
@@ -67,6 +77,10 @@ class llmInfoList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->creditMultiplier) {
+            $res['CreditMultiplier'] = null !== $this->creditMultiplier ? $this->creditMultiplier->toArray($noStream) : $this->creditMultiplier;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -113,6 +127,10 @@ class llmInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreditMultiplier'])) {
+            $model->creditMultiplier = creditMultiplier::fromMap($map['CreditMultiplier']);
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

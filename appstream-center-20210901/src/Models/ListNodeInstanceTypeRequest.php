@@ -14,6 +14,11 @@ class ListNodeInstanceTypeRequest extends Model
     public $bizRegionId;
 
     /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
      * @var float
      */
     public $cpu;
@@ -89,6 +94,7 @@ class ListNodeInstanceTypeRequest extends Model
     public $sortType;
     protected $_name = [
         'bizRegionId' => 'BizRegionId',
+        'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
         'gpu' => 'Gpu',
         'gpuMemory' => 'GpuMemory',
@@ -116,6 +122,10 @@ class ListNodeInstanceTypeRequest extends Model
         $res = [];
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
+        }
+
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
 
         if (null !== $this->cpu) {
@@ -191,6 +201,10 @@ class ListNodeInstanceTypeRequest extends Model
         $model = new self();
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
+        }
+
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
 
         if (isset($map['Cpu'])) {

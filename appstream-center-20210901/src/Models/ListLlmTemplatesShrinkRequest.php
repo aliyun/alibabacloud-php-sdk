@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListLlmTemplatesShrinkRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $bizType;
+
+    /**
      * @var string
      */
     public $llmCode;
@@ -37,13 +42,20 @@ class ListLlmTemplatesShrinkRequest extends Model
      * @var string
      */
     public $providerTemplateId;
+
+    /**
+     * @var bool
+     */
+    public $smartModel;
     protected $_name = [
+        'bizType' => 'BizType',
         'llmCode' => 'LlmCode',
         'llmTemplateIdsShrink' => 'LlmTemplateIds',
         'modelTemplateId' => 'ModelTemplateId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'providerTemplateId' => 'ProviderTemplateId',
+        'smartModel' => 'SmartModel',
     ];
 
     public function validate()
@@ -54,6 +66,10 @@ class ListLlmTemplatesShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
+
         if (null !== $this->llmCode) {
             $res['LlmCode'] = $this->llmCode;
         }
@@ -78,6 +94,10 @@ class ListLlmTemplatesShrinkRequest extends Model
             $res['ProviderTemplateId'] = $this->providerTemplateId;
         }
 
+        if (null !== $this->smartModel) {
+            $res['SmartModel'] = $this->smartModel;
+        }
+
         return $res;
     }
 
@@ -89,6 +109,10 @@ class ListLlmTemplatesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
+
         if (isset($map['LlmCode'])) {
             $model->llmCode = $map['LlmCode'];
         }
@@ -111,6 +135,10 @@ class ListLlmTemplatesShrinkRequest extends Model
 
         if (isset($map['ProviderTemplateId'])) {
             $model->providerTemplateId = $map['ProviderTemplateId'];
+        }
+
+        if (isset($map['SmartModel'])) {
+            $model->smartModel = $map['SmartModel'];
         }
 
         return $model;

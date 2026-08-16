@@ -31,7 +31,32 @@ class ListWuyingServerRequest extends Model
     /**
      * @var string
      */
+    public $createTimeEnd;
+
+    /**
+     * @var string
+     */
+    public $createTimeStart;
+
+    /**
+     * @var string
+     */
+    public $expiredTimeEnd;
+
+    /**
+     * @var string
+     */
+    public $expiredTimeStart;
+
+    /**
+     * @var string
+     */
     public $imageId;
+
+    /**
+     * @var string
+     */
+    public $networkInterfaceIp;
 
     /**
      * @var string
@@ -82,12 +107,22 @@ class ListWuyingServerRequest extends Model
      * @var string
      */
     public $wuyingServerNameOrId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'addVirtualNodePoolStatusList' => 'AddVirtualNodePoolStatusList',
         'bizRegionId' => 'BizRegionId',
         'bizType' => 'BizType',
         'chargeType' => 'ChargeType',
+        'createTimeEnd' => 'CreateTimeEnd',
+        'createTimeStart' => 'CreateTimeStart',
+        'expiredTimeEnd' => 'ExpiredTimeEnd',
+        'expiredTimeStart' => 'ExpiredTimeStart',
         'imageId' => 'ImageId',
+        'networkInterfaceIp' => 'NetworkInterfaceIp',
         'officeSiteId' => 'OfficeSiteId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -98,6 +133,7 @@ class ListWuyingServerRequest extends Model
         'virtualNodePoolId' => 'VirtualNodePoolId',
         'wuyingServerIdList' => 'WuyingServerIdList',
         'wuyingServerNameOrId' => 'WuyingServerNameOrId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -140,8 +176,28 @@ class ListWuyingServerRequest extends Model
             $res['ChargeType'] = $this->chargeType;
         }
 
+        if (null !== $this->createTimeEnd) {
+            $res['CreateTimeEnd'] = $this->createTimeEnd;
+        }
+
+        if (null !== $this->createTimeStart) {
+            $res['CreateTimeStart'] = $this->createTimeStart;
+        }
+
+        if (null !== $this->expiredTimeEnd) {
+            $res['ExpiredTimeEnd'] = $this->expiredTimeEnd;
+        }
+
+        if (null !== $this->expiredTimeStart) {
+            $res['ExpiredTimeStart'] = $this->expiredTimeStart;
+        }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->networkInterfaceIp) {
+            $res['NetworkInterfaceIp'] = $this->networkInterfaceIp;
         }
 
         if (null !== $this->officeSiteId) {
@@ -198,6 +254,10 @@ class ListWuyingServerRequest extends Model
             $res['WuyingServerNameOrId'] = $this->wuyingServerNameOrId;
         }
 
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
+
         return $res;
     }
 
@@ -232,8 +292,28 @@ class ListWuyingServerRequest extends Model
             $model->chargeType = $map['ChargeType'];
         }
 
+        if (isset($map['CreateTimeEnd'])) {
+            $model->createTimeEnd = $map['CreateTimeEnd'];
+        }
+
+        if (isset($map['CreateTimeStart'])) {
+            $model->createTimeStart = $map['CreateTimeStart'];
+        }
+
+        if (isset($map['ExpiredTimeEnd'])) {
+            $model->expiredTimeEnd = $map['ExpiredTimeEnd'];
+        }
+
+        if (isset($map['ExpiredTimeStart'])) {
+            $model->expiredTimeStart = $map['ExpiredTimeStart'];
+        }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['NetworkInterfaceIp'])) {
+            $model->networkInterfaceIp = $map['NetworkInterfaceIp'];
         }
 
         if (isset($map['OfficeSiteId'])) {
@@ -288,6 +368,10 @@ class ListWuyingServerRequest extends Model
 
         if (isset($map['WuyingServerNameOrId'])) {
             $model->wuyingServerNameOrId = $map['WuyingServerNameOrId'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

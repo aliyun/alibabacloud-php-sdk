@@ -207,6 +207,11 @@ class wuyingServerList extends Model
      * @var string
      */
     public $wuyingServerName;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'addVirtualNodePoolStatus' => 'AddVirtualNodePoolStatus',
         'aliUid' => 'AliUid',
@@ -247,6 +252,7 @@ class wuyingServerList extends Model
         'vkVersion' => 'VkVersion',
         'wuyingServerId' => 'WuyingServerId',
         'wuyingServerName' => 'WuyingServerName',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -486,6 +492,10 @@ class wuyingServerList extends Model
             $res['WuyingServerName'] = $this->wuyingServerName;
         }
 
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
+
         return $res;
     }
 
@@ -700,6 +710,10 @@ class wuyingServerList extends Model
 
         if (isset($map['WuyingServerName'])) {
             $model->wuyingServerName = $map['WuyingServerName'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

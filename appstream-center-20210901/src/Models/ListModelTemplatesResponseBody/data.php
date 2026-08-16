@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $agentPlatform;
+
+    /**
+     * @var string
+     */
     public $agentProvider;
 
     /**
@@ -29,6 +34,11 @@ class data extends Model
     public $hasModel;
 
     /**
+     * @var int
+     */
+    public $modelCount;
+
+    /**
      * @var string
      */
     public $modelTemplateId;
@@ -37,13 +47,33 @@ class data extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $refScope;
+
+    /**
+     * @var int
+     */
+    public $userCount;
+
+    /**
+     * @var int
+     */
+    public $userGroupCount;
     protected $_name = [
+        'agentPlatform' => 'AgentPlatform',
         'agentProvider' => 'AgentProvider',
         'config' => 'Config',
         'description' => 'Description',
         'hasModel' => 'HasModel',
+        'modelCount' => 'ModelCount',
         'modelTemplateId' => 'ModelTemplateId',
         'name' => 'Name',
+        'refScope' => 'RefScope',
+        'userCount' => 'UserCount',
+        'userGroupCount' => 'UserGroupCount',
     ];
 
     public function validate()
@@ -54,6 +84,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentPlatform) {
+            $res['AgentPlatform'] = $this->agentPlatform;
+        }
+
         if (null !== $this->agentProvider) {
             $res['AgentProvider'] = $this->agentProvider;
         }
@@ -70,12 +104,28 @@ class data extends Model
             $res['HasModel'] = $this->hasModel;
         }
 
+        if (null !== $this->modelCount) {
+            $res['ModelCount'] = $this->modelCount;
+        }
+
         if (null !== $this->modelTemplateId) {
             $res['ModelTemplateId'] = $this->modelTemplateId;
         }
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->refScope) {
+            $res['RefScope'] = $this->refScope;
+        }
+
+        if (null !== $this->userCount) {
+            $res['UserCount'] = $this->userCount;
+        }
+
+        if (null !== $this->userGroupCount) {
+            $res['UserGroupCount'] = $this->userGroupCount;
         }
 
         return $res;
@@ -89,6 +139,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentPlatform'])) {
+            $model->agentPlatform = $map['AgentPlatform'];
+        }
+
         if (isset($map['AgentProvider'])) {
             $model->agentProvider = $map['AgentProvider'];
         }
@@ -105,12 +159,28 @@ class data extends Model
             $model->hasModel = $map['HasModel'];
         }
 
+        if (isset($map['ModelCount'])) {
+            $model->modelCount = $map['ModelCount'];
+        }
+
         if (isset($map['ModelTemplateId'])) {
             $model->modelTemplateId = $map['ModelTemplateId'];
         }
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['RefScope'])) {
+            $model->refScope = $map['RefScope'];
+        }
+
+        if (isset($map['UserCount'])) {
+            $model->userCount = $map['UserCount'];
+        }
+
+        if (isset($map['UserGroupCount'])) {
+            $model->userGroupCount = $map['UserGroupCount'];
         }
 
         return $model;

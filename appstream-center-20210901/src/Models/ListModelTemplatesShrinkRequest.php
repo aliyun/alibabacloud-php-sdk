@@ -14,9 +14,19 @@ class ListModelTemplatesShrinkRequest extends Model
     public $agentPlatform;
 
     /**
+     * @var string[]
+     */
+    public $agentPlatformList;
+
+    /**
      * @var string
      */
     public $agentProvider;
+
+    /**
+     * @var string[]
+     */
+    public $agentProviderList;
 
     /**
      * @var int
@@ -34,6 +44,11 @@ class ListModelTemplatesShrinkRequest extends Model
     public $modelTemplateIdListShrink;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -42,18 +57,39 @@ class ListModelTemplatesShrinkRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $refScope;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'agentPlatform' => 'AgentPlatform',
+        'agentPlatformList' => 'AgentPlatformList',
         'agentProvider' => 'AgentProvider',
+        'agentProviderList' => 'AgentProviderList',
         'bizType' => 'BizType',
         'hasModel' => 'HasModel',
         'modelTemplateIdListShrink' => 'ModelTemplateIdList',
+        'name' => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'refScope' => 'RefScope',
+        'source' => 'Source',
     ];
 
     public function validate()
     {
+        if (\is_array($this->agentPlatformList)) {
+            Model::validateArray($this->agentPlatformList);
+        }
+        if (\is_array($this->agentProviderList)) {
+            Model::validateArray($this->agentProviderList);
+        }
         parent::validate();
     }
 
@@ -64,8 +100,30 @@ class ListModelTemplatesShrinkRequest extends Model
             $res['AgentPlatform'] = $this->agentPlatform;
         }
 
+        if (null !== $this->agentPlatformList) {
+            if (\is_array($this->agentPlatformList)) {
+                $res['AgentPlatformList'] = [];
+                $n1 = 0;
+                foreach ($this->agentPlatformList as $item1) {
+                    $res['AgentPlatformList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->agentProvider) {
             $res['AgentProvider'] = $this->agentProvider;
+        }
+
+        if (null !== $this->agentProviderList) {
+            if (\is_array($this->agentProviderList)) {
+                $res['AgentProviderList'] = [];
+                $n1 = 0;
+                foreach ($this->agentProviderList as $item1) {
+                    $res['AgentProviderList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->bizType) {
@@ -80,12 +138,24 @@ class ListModelTemplatesShrinkRequest extends Model
             $res['ModelTemplateIdList'] = $this->modelTemplateIdListShrink;
         }
 
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->refScope) {
+            $res['RefScope'] = $this->refScope;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -103,8 +173,30 @@ class ListModelTemplatesShrinkRequest extends Model
             $model->agentPlatform = $map['AgentPlatform'];
         }
 
+        if (isset($map['AgentPlatformList'])) {
+            if (!empty($map['AgentPlatformList'])) {
+                $model->agentPlatformList = [];
+                $n1 = 0;
+                foreach ($map['AgentPlatformList'] as $item1) {
+                    $model->agentPlatformList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AgentProvider'])) {
             $model->agentProvider = $map['AgentProvider'];
+        }
+
+        if (isset($map['AgentProviderList'])) {
+            if (!empty($map['AgentProviderList'])) {
+                $model->agentProviderList = [];
+                $n1 = 0;
+                foreach ($map['AgentProviderList'] as $item1) {
+                    $model->agentProviderList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['BizType'])) {
@@ -119,12 +211,24 @@ class ListModelTemplatesShrinkRequest extends Model
             $model->modelTemplateIdListShrink = $map['ModelTemplateIdList'];
         }
 
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['RefScope'])) {
+            $model->refScope = $map['RefScope'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

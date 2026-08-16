@@ -27,11 +27,17 @@ class UpdateModelTemplateRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $refScope;
     protected $_name = [
         'config' => 'Config',
         'description' => 'Description',
         'modelTemplateId' => 'ModelTemplateId',
         'name' => 'Name',
+        'refScope' => 'RefScope',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class UpdateModelTemplateRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->refScope) {
+            $res['RefScope'] = $this->refScope;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class UpdateModelTemplateRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['RefScope'])) {
+            $model->refScope = $map['RefScope'];
         }
 
         return $model;

@@ -287,7 +287,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 为研发主机分配辅助私有IP.
+     * Assigns secondary private IP addresses to a development host.
      *
      * @param request - AssignWuyingServerPrivateAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -330,7 +330,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 为研发主机分配辅助私有IP.
+     * Assigns secondary private IP addresses to a development host.
      *
      * @param request - AssignWuyingServerPrivateAddressesRequest
      *
@@ -348,10 +348,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Add or remove assigned users for a delivery group. Only users added as assigned users can access cloud applications.
+     * 為交付群組新增或移除指派使用者。只有新增至指派使用者的使用者才可存取雲端應用程式。
      *
      * @remarks
-     * > After changing the assigned users, the selected users will receive corresponding notification emails. Generally, it takes about 2 minutes for the changes to take effect on the client.
+     * > 變更指派使用者後，選取的使用者將收到相應的通知電子郵件。一般需要等待約 2 分鐘，變更才會在終端機生效。
      *
      * @param tmpReq - AuthorizeInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -431,10 +431,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Add or remove assigned users for a delivery group. Only users added as assigned users can access cloud applications.
+     * 為交付群組新增或移除指派使用者。只有新增至指派使用者的使用者才可存取雲端應用程式。
      *
      * @remarks
-     * > After changing the assigned users, the selected users will receive corresponding notification emails. Generally, it takes about 2 minutes for the changes to take effect on the client.
+     * > 變更指派使用者後，選取的使用者將收到相應的通知電子郵件。一般需要等待約 2 分鐘，變更才會在終端機生效。
      *
      * @param request - AuthorizeInstanceGroupRequest
      *
@@ -455,8 +455,8 @@ class Appstreamcenter extends OpenApiClient
      * Creates LLM templates in batches.
      *
      * @remarks
-     * You can create model templates in batches under a model provider template in the Wuying Agent Management Center. You can add multiple models at a time and specify one of them as the default model. Existing models are automatically skipped and are not created again.
-     * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can batch create model templates under a model provider template in the Wuying Agent Management Center. Multiple models can be added at a time, and one of them can be specified as the default model. Existing models are automatically skipped and not created again.
+     * Before using this operation, make sure you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - BatchCreateLlmTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -506,8 +506,8 @@ class Appstreamcenter extends OpenApiClient
      * Creates LLM templates in batches.
      *
      * @remarks
-     * You can create model templates in batches under a model provider template in the Wuying Agent Management Center. You can add multiple models at a time and specify one of them as the default model. Existing models are automatically skipped and are not created again.
-     * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can batch create model templates under a model provider template in the Wuying Agent Management Center. Multiple models can be added at a time, and one of them can be specified as the default model. Existing models are automatically skipped and not created again.
+     * Before using this operation, make sure you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - BatchCreateLlmTemplatesRequest
      *
@@ -528,9 +528,9 @@ class Appstreamcenter extends OpenApiClient
      * Configures the model group for a resource group.
      *
      * @remarks
-     * You can assign a model group to the resources associated with agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model group serves as the inference engine for tasks executed by agents within the resource group.
+     * You can assign a model group to the resources that belong to agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model group serves as the inference engine for agents within the resource group to execute tasks.
      * When an agent runtime has its own model group configured and the resource group it belongs to also has a model group configured, the model group bound to the resource group takes effect. The resource group setting has a higher priority than the agent runtime setting.
-     * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
      *
      * @param request - ConfigResourceGroupModelTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -576,9 +576,9 @@ class Appstreamcenter extends OpenApiClient
      * Configures the model group for a resource group.
      *
      * @remarks
-     * You can assign a model group to the resources associated with agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model group serves as the inference engine for tasks executed by agents within the resource group.
+     * You can assign a model group to the resources that belong to agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model group serves as the inference engine for agents within the resource group to execute tasks.
      * When an agent runtime has its own model group configured and the resource group it belongs to also has a model group configured, the model group bound to the resource group takes effect. The resource group setting has a higher priority than the agent runtime setting.
-     * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
      *
      * @param request - ConfigResourceGroupModelTemplateRequest
      *
@@ -600,7 +600,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * You can configure third-party channels for Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. These channels serve as extended Agent communication methods beyond the AgentIM channel.
-     * Before using this operation, make sure you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - ConfigRuntimeChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -671,7 +671,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * You can configure third-party channels for Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. These channels serve as extended Agent communication methods beyond the AgentIM channel.
-     * Before using this operation, make sure you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - ConfigRuntimeChannelRequest
      *
@@ -693,7 +693,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * You can authorize model groups for Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. The model groups serve as inference engines for Agent task execution.
-     * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before calling this operation.
      *
      * @param request - ConfigRuntimeModelTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -744,7 +744,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * You can authorize model groups for Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. The model groups serve as inference engines for Agent task execution.
-     * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before calling this operation.
      *
      * @param request - ConfigRuntimeModelTemplateRequest
      *
@@ -765,8 +765,8 @@ class Appstreamcenter extends OpenApiClient
      * Creates a delivery group.
      *
      * @remarks
-     * Make sure that you are familiar with the [billing and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Cloud Application before you call this operation.
-     * A delivery group is a logical grouping for delivering cloud applications to end users. It includes the underlying cloud application resources, images that contain cloud applications, resource management policies, and user assignment settings. For details, see [Publish a delivery group](https://help.aliyun.com/document_detail/426046.html).
+     * Make sure that you are familiar with the [billing methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING CloudApp before you call this operation.
+     * A delivery group is a logical grouping for delivering cloud applications to end users. It includes underlying cloud application resources, images that contain cloud applications, resource management policies, and user allocation settings. For details, see [Publish a delivery group](https://help.aliyun.com/document_detail/426046.html).
      *
      * @param tmpReq - CreateAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -952,8 +952,8 @@ class Appstreamcenter extends OpenApiClient
      * Creates a delivery group.
      *
      * @remarks
-     * Make sure that you are familiar with the [billing and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Cloud Application before you call this operation.
-     * A delivery group is a logical grouping for delivering cloud applications to end users. It includes the underlying cloud application resources, images that contain cloud applications, resource management policies, and user assignment settings. For details, see [Publish a delivery group](https://help.aliyun.com/document_detail/426046.html).
+     * Make sure that you are familiar with the [billing methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING CloudApp before you call this operation.
+     * A delivery group is a logical grouping for delivering cloud applications to end users. It includes underlying cloud application resources, images that contain cloud applications, resource management policies, and user allocation settings. For details, see [Publish a delivery group](https://help.aliyun.com/document_detail/426046.html).
      *
      * @param request - CreateAppInstanceGroupRequest
      *
@@ -971,7 +971,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Creates a custom image from a deployed WUYING instance. You can use the custom image to quickly create more WUYING instances with the same configurations, without having to repeatedly configure the instance environment each time.
+     * Creates a custom image from a deployed WUYING instance to quickly create more instances with the same configuration, avoiding repetitive environment setup each time.
      *
      * @param request - CreateImageByInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1048,7 +1048,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Creates a custom image from a deployed WUYING instance. You can use the custom image to quickly create more WUYING instances with the same configurations, without having to repeatedly configure the instance environment each time.
+     * Creates a custom image from a deployed WUYING instance to quickly create more instances with the same configuration, avoiding repetitive environment setup each time.
      *
      * @param request - CreateImageByInstanceRequest
      *
@@ -1131,11 +1131,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Create Model Provider Template.
+     * Creates a model provider template for model creation.
      *
      * @remarks
-     * You can create a model provider template under a model template in the Wuying Agent Management Center. This template is used to configure the connection information and keys for model services (such as Alibaba Cloud Bailian, Token Plan, and Moonshot) that Agents can call. After creation, the model provider template is automatically associated with the specified model template.
-     * Make sure you are fully familiar with the operations and usage of the Wuying Agent Management Center before calling this API.
+     * You can create a model provider template under Model Templates in the WUYING Agent Management Center. This template is used to configure connection information and keys for model services (such as Alibaba Cloud Bailian, Token Plan, and Moonshot) that an Agent can invoke. After model creation, the model provider template is automatically associated with the specified model template.
+     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before you invoke this operation.
      *
      * @param request - CreateModelProviderTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1210,11 +1210,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Create Model Provider Template.
+     * Creates a model provider template for model creation.
      *
      * @remarks
-     * You can create a model provider template under a model template in the Wuying Agent Management Center. This template is used to configure the connection information and keys for model services (such as Alibaba Cloud Bailian, Token Plan, and Moonshot) that Agents can call. After creation, the model provider template is automatically associated with the specified model template.
-     * Make sure you are fully familiar with the operations and usage of the Wuying Agent Management Center before calling this API.
+     * You can create a model provider template under Model Templates in the WUYING Agent Management Center. This template is used to configure connection information and keys for model services (such as Alibaba Cloud Bailian, Token Plan, and Moonshot) that an Agent can invoke. After model creation, the model provider template is automatically associated with the specified model template.
+     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before you invoke this operation.
      *
      * @param request - CreateModelProviderTemplateRequest
      *
@@ -1236,7 +1236,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * You can create a model group in the WUYING Agent Management Center to manage the model providers and model scope that an Agent can invoke. After creation, you can attach the model group to a cloud computer as the inference engine configuration for Agent task execution.
-     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
+     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before invoking this operation.
      *
      * @param request - CreateModelTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1272,6 +1272,10 @@ class Appstreamcenter extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->refScope) {
+            @$query['RefScope'] = $request->refScope;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1295,7 +1299,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * You can create a model group in the WUYING Agent Management Center to manage the model providers and model scope that an Agent can invoke. After creation, you can attach the model group to a cloud computer as the inference engine configuration for Agent task execution.
-     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
+     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before invoking this operation.
      *
      * @param request - CreateModelTemplateRequest
      *
@@ -1317,8 +1321,8 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * 1. A project corresponds to the resource configuration module in the CloudFlow console.
-     * 2. If the ContentId specified in the request parameters has multiple versions, this API operation <notice>uses the default version</notice> for binding.
-     * 3. This operation succeeds only when the default version of the content is in an available state.
+     * 2. When the ContentId input parameter has multiple versions, this API <notice>uses the default version</notice> for binding.
+     * 3. This operation succeeds only when the default version of the Content is in an available state.
      *
      * @param request - CreateWuyingServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1468,8 +1472,8 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * 1. A project corresponds to the resource configuration module in the CloudFlow console.
-     * 2. If the ContentId specified in the request parameters has multiple versions, this API operation <notice>uses the default version</notice> for binding.
-     * 3. This operation succeeds only when the default version of the content is in an available state.
+     * 2. When the ContentId input parameter has multiple versions, this API <notice>uses the default version</notice> for binding.
+     * 3. This operation succeeds only when the default version of the Content is in an available state.
      *
      * @param request - CreateWuyingServerRequest
      *
@@ -1487,7 +1491,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Deletes a pay-as-you-go resource-based delivery group.
+     * Deletes a pay-as-you-go delivery group of the resource-based type.
      *
      * @remarks
      * > This operation does not support deleting delivery groups that use subscription resources.
@@ -1533,7 +1537,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Deletes a pay-as-you-go resource-based delivery group.
+     * Deletes a pay-as-you-go delivery group of the resource-based type.
      *
      * @remarks
      * > This operation does not support deleting delivery groups that use subscription resources.
@@ -1557,7 +1561,7 @@ class Appstreamcenter extends OpenApiClient
      * Deletes a specified application instance.
      *
      * @remarks
-     * Only instances in the init or idle state can be deleted. This operation is available only to specific customers.
+     * Only instances in the initializing or idle state can be deleted. This operation is available only to specific customers.
      *
      * @param request - DeleteAppInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1607,7 +1611,7 @@ class Appstreamcenter extends OpenApiClient
      * Deletes a specified application instance.
      *
      * @remarks
-     * Only instances in the init or idle state can be deleted. This operation is available only to specific customers.
+     * Only instances in the initializing or idle state can be deleted. This operation is available only to specific customers.
      *
      * @param request - DeleteAppInstancesRequest
      *
@@ -1625,13 +1629,13 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Deletes a custom AppStream image.
+     * Deletes a custom WUYING image.
      *
      * @remarks
-     * - You can delete only custom images that belong to you.
-     * - For images associated with the AppStream Cloud Computer Pool, AppStream Cloud Application, or AppStream Workstation product lines, you must ensure that no AppStream instances are using the image before you can delete it.
-     * - If an AppStream Cloud Desktop template references an image, the template is also deleted when the image is deleted.
-     * - If an image is available in multiple regions, deleting the image removes it from all regions.
+     * - You can delete only custom images that belong to your account.
+     * - For images associated with WUYING Cloud Computer Pool, WUYING Cloud Application, or WUYING Workspace product lines, ensure that no WUYING instances are using the image before you delete it.
+     * - If a WUYING Cloud Desktop template references the image, the template is also deleted when the image is deleted.
+     * - For images that span multiple regions, deleting the image removes it from all regions.
      *
      * @param request - DeleteImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1670,13 +1674,13 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Deletes a custom AppStream image.
+     * Deletes a custom WUYING image.
      *
      * @remarks
-     * - You can delete only custom images that belong to you.
-     * - For images associated with the AppStream Cloud Computer Pool, AppStream Cloud Application, or AppStream Workstation product lines, you must ensure that no AppStream instances are using the image before you can delete it.
-     * - If an AppStream Cloud Desktop template references an image, the template is also deleted when the image is deleted.
-     * - If an image is available in multiple regions, deleting the image removes it from all regions.
+     * - You can delete only custom images that belong to your account.
+     * - For images associated with WUYING Cloud Computer Pool, WUYING Cloud Application, or WUYING Workspace product lines, ensure that no WUYING instances are using the image before you delete it.
+     * - If a WUYING Cloud Desktop template references the image, the template is also deleted when the image is deleted.
+     * - For images that span multiple regions, deleting the image removes it from all regions.
      *
      * @param request - DeleteImageRequest
      *
@@ -1697,8 +1701,8 @@ class Appstreamcenter extends OpenApiClient
      * Deletes an LLM template.
      *
      * @remarks
-     * You can delete a model template that has been created under a model provider template in the Wuying Agent Management Center. Before deletion, ensure that the model is not the default model of an associated model group. Otherwise, the deletion fails. After deletion, the model configurations of associated cloud computers are automatically refreshed.
-     * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can delete a model template that has been created under a model service provider template in the WUYING Agent Management Center. Before deletion, ensure that the model is not the default model of an associated model group. Otherwise, the deletion fails. After deletion, the model configurations of associated cloud computers are automatically refreshed.
+     * Before using this operation, make sure you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - DeleteLlmTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1740,8 +1744,8 @@ class Appstreamcenter extends OpenApiClient
      * Deletes an LLM template.
      *
      * @remarks
-     * You can delete a model template that has been created under a model provider template in the Wuying Agent Management Center. Before deletion, ensure that the model is not the default model of an associated model group. Otherwise, the deletion fails. After deletion, the model configurations of associated cloud computers are automatically refreshed.
-     * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can delete a model template that has been created under a model service provider template in the WUYING Agent Management Center. Before deletion, ensure that the model is not the default model of an associated model group. Otherwise, the deletion fails. After deletion, the model configurations of associated cloud computers are automatically refreshed.
+     * Before using this operation, make sure you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - DeleteLlmTemplateRequest
      *
@@ -1762,8 +1766,8 @@ class Appstreamcenter extends OpenApiClient
      * Deletes a model provider template.
      *
      * @remarks
-     * You can delete a model provider template that has been created under model templates in the WUYING Agent Management Center. Before deletion, make sure that the model provider is not the provider of the default model and is not a system preset type provider (such as WUYING credits package). After deletion, the associated models and key configurations are also removed.
-     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * You can delete a model provider template that has been created under model templates in the WUYING Agent Management Center. Before deletion, ensure that the model provider is not the provider of the default model and is not a system preset type provider (such as WUYING credit package). After deletion, the associated models and key configurations are also removed.
+     * Before using this operation, make sure you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - DeleteModelProviderTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1805,8 +1809,8 @@ class Appstreamcenter extends OpenApiClient
      * Deletes a model provider template.
      *
      * @remarks
-     * You can delete a model provider template that has been created under model templates in the WUYING Agent Management Center. Before deletion, make sure that the model provider is not the provider of the default model and is not a system preset type provider (such as WUYING credits package). After deletion, the associated models and key configurations are also removed.
-     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * You can delete a model provider template that has been created under model templates in the WUYING Agent Management Center. Before deletion, ensure that the model provider is not the provider of the default model and is not a system preset type provider (such as WUYING credit package). After deletion, the associated models and key configurations are also removed.
+     * Before using this operation, make sure you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - DeleteModelProviderTemplateRequest
      *
@@ -1952,7 +1956,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Configure LogShipper for Simple Log Service.
+     * Configures SLS log delivery.
      *
      * @param request - DeliverToUserSlsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2014,7 +2018,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Configure LogShipper for Simple Log Service.
+     * Configures SLS log delivery.
      *
      * @param request - DeliverToUserSlsRequest
      *
@@ -2032,7 +2036,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询研发主机详情.
+     * Queries the details of a development workstation.
      *
      * @param request - DescribeWuyingServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2071,7 +2075,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询研发主机详情.
+     * Queries the details of a development workstation.
      *
      * @param request - DescribeWuyingServerRequest
      *
@@ -2214,9 +2218,9 @@ class Appstreamcenter extends OpenApiClient
      * Retrieves connection credentials for a cloud application.
      *
      * @remarks
-     * This operation requires multiple invokes (at least two) to obtain the connection credentials.
-     * On the first invoke, an application instance is allocated to the specified convenience account and the application is started. A startup task ID (`TaskID`) is returned.
-     * On subsequent invokes, pass the `TaskID` request parameter to query whether the task is complete. When the returned task status (`TaskStatus`) is completed (`Finished`), the connection credentials (`Ticket`) are also returned.
+     * This operation requires multiple calls (at least two) to obtain the connection credentials.
+     * On the first call, an application instance is allocated to the specified convenience account and the application is started. A startup task ID (`TaskID`) is returned.
+     * On subsequent calls, pass the `TaskID` request parameter to query whether the task is complete. When the returned task status (`TaskStatus`) is completed (`Finished`), the connection credentials (`Ticket`) are also returned.
      *
      * @param request - GetConnectionTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2306,9 +2310,9 @@ class Appstreamcenter extends OpenApiClient
      * Retrieves connection credentials for a cloud application.
      *
      * @remarks
-     * This operation requires multiple invokes (at least two) to obtain the connection credentials.
-     * On the first invoke, an application instance is allocated to the specified convenience account and the application is started. A startup task ID (`TaskID`) is returned.
-     * On subsequent invokes, pass the `TaskID` request parameter to query whether the task is complete. When the returned task status (`TaskStatus`) is completed (`Finished`), the connection credentials (`Ticket`) are also returned.
+     * This operation requires multiple calls (at least two) to obtain the connection credentials.
+     * On the first call, an application instance is allocated to the specified convenience account and the application is started. A startup task ID (`TaskID`) is returned.
+     * On subsequent calls, pass the `TaskID` request parameter to query whether the task is complete. When the returned task status (`TaskStatus`) is completed (`Finished`), the connection credentials (`Ticket`) are also returned.
      *
      * @param request - GetConnectionTicketRequest
      *
@@ -2391,7 +2395,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * You can query the details of a specified model provider template in the WUYING Agent Management Center, including the provider name, description, and connection configuration list.
-     * Before you call this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - GetModelProviderTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2434,7 +2438,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * You can query the details of a specified model provider template in the WUYING Agent Management Center, including the provider name, description, and connection configuration list.
-     * Before you call this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - GetModelProviderTemplateRequest
      *
@@ -2452,7 +2456,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of an over-the-air update task, including the available version and version description.
+     * Queries the details of an over-the-air update task, including the available version and release notes.
      *
      * @param request - GetOtaTaskByTaskIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2491,7 +2495,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of an over-the-air update task, including the available version and version description.
+     * Queries the details of an over-the-air update task, including the available version and release notes.
      *
      * @param request - GetOtaTaskByTaskIdRequest
      *
@@ -2666,7 +2670,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the third-party channel configurations of an Agent runtime.
      *
      * @remarks
-     * You can query the third-party channel configuration status of Agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center.
+     * You can query the third-party channel configuration status of Agents such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center.
      * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - GetRuntimeChannelRequest
@@ -2725,7 +2729,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the third-party channel configurations of an Agent runtime.
      *
      * @remarks
-     * You can query the third-party channel configuration status of Agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center.
+     * You can query the third-party channel configuration status of Agents such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center.
      * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - GetRuntimeChannelRequest
@@ -2747,7 +2751,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the model configuration details of a cloud computer.
      *
      * @remarks
-     * You can query the model configuration details currently bound to a specified cloud computer in the Wuying Agent Management Center, including model groups, model provider lists, and associated model information. After you enable the risk information mode, you can also identify differences between the end user\\"s actual configuration and the configuration delivered by the administrator.
+     * You can query the model configuration details currently bound to a specified cloud computer in the Wuying Agent Management Center, including model groups, model provider lists, and associated model information. After enabling the risk information mode, you can also identify differences between the end user\\"s actual configuration and the configuration delivered by the administrator.
      *
      * @param request - GetRuntimeModelConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2805,7 +2809,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the model configuration details of a cloud computer.
      *
      * @remarks
-     * You can query the model configuration details currently bound to a specified cloud computer in the Wuying Agent Management Center, including model groups, model provider lists, and associated model information. After you enable the risk information mode, you can also identify differences between the end user\\"s actual configuration and the configuration delivered by the administrator.
+     * You can query the model configuration details currently bound to a specified cloud computer in the Wuying Agent Management Center, including model groups, model provider lists, and associated model information. After enabling the risk information mode, you can also identify differences between the end user\\"s actual configuration and the configuration delivered by the administrator.
      *
      * @param request - GetRuntimeModelConfigRequest
      *
@@ -2823,7 +2827,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of multiple delivery groups. This operation does not specify a particular delivery group but queries the details of all delivery groups that meet the specified conditions.
+     * Queries the details of multiple delivery groups that meet specified conditions, without specifying a particular delivery group.
      *
      * @param request - ListAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2916,7 +2920,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of multiple delivery groups. This operation does not specify a particular delivery group but queries the details of all delivery groups that meet the specified conditions.
+     * Queries the details of multiple delivery groups that meet specified conditions, without specifying a particular delivery group.
      *
      * @param request - ListAppInstanceGroupRequest
      *
@@ -3098,7 +3102,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the binding information between users and resources.
+     * Queries the bindng information between users and resources.
      *
      * @param request - ListBindInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3161,7 +3165,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the binding information between users and resources.
+     * Queries the bindng information between users and resources.
      *
      * @param request - ListBindInfoRequest
      *
@@ -3195,6 +3199,10 @@ class Appstreamcenter extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentImOnlineStatus) {
+            @$query['AgentImOnlineStatus'] = $request->agentImOnlineStatus;
+        }
+
         if (null !== $request->agentInstanceStatuses) {
             @$query['AgentInstanceStatuses'] = $request->agentInstanceStatuses;
         }
@@ -3207,12 +3215,28 @@ class Appstreamcenter extends OpenApiClient
             @$query['AgentPlatform'] = $request->agentPlatform;
         }
 
+        if (null !== $request->agentPlatformList) {
+            @$query['AgentPlatformList'] = $request->agentPlatformList;
+        }
+
         if (null !== $request->agentProvider) {
             @$query['AgentProvider'] = $request->agentProvider;
         }
 
+        if (null !== $request->agentProviderList) {
+            @$query['AgentProviderList'] = $request->agentProviderList;
+        }
+
+        if (null !== $request->agentTemplateIds) {
+            @$query['AgentTemplateIds'] = $request->agentTemplateIds;
+        }
+
         if (null !== $request->authUsers) {
             @$query['AuthUsers'] = $request->authUsers;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
 
         if (null !== $request->bizType) {
@@ -3261,6 +3285,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->modelTemplateId) {
             @$query['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
 
         if (null !== $request->pageNumber) {
@@ -3459,11 +3487,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries a list of LLM templates.
+     * Queries the list of LLM templates.
      *
      * @remarks
-     * You can use paging to retrieve the list of model templates under a model provider template in the Wuying Agent Management Center. You can filter results by model group ID, model provider template ID, model template ID, and model encoding. When you query by model group dimension, the default model is automatically pinned to the top.
-     * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can query the list of model templates under a model provider template in the Wuying Agent Management Center with paging. Filtering by model group ID, model provider template ID, model template ID, and model encoding is supported. When querying by model group dimension, the default model is automatically placed at the top.
+     * Before using this operation, make sure you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param tmpReq - ListLlmTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3485,6 +3513,10 @@ class Appstreamcenter extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
         if (null !== $request->llmCode) {
             @$query['LlmCode'] = $request->llmCode;
         }
@@ -3509,6 +3541,10 @@ class Appstreamcenter extends OpenApiClient
             @$query['ProviderTemplateId'] = $request->providerTemplateId;
         }
 
+        if (null !== $request->smartModel) {
+            @$query['SmartModel'] = $request->smartModel;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3528,11 +3564,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries a list of LLM templates.
+     * Queries the list of LLM templates.
      *
      * @remarks
-     * You can use paging to retrieve the list of model templates under a model provider template in the Wuying Agent Management Center. You can filter results by model group ID, model provider template ID, model template ID, and model encoding. When you query by model group dimension, the default model is automatically pinned to the top.
-     * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can query the list of model templates under a model provider template in the Wuying Agent Management Center with paging. Filtering by model group ID, model provider template ID, model template ID, and model encoding is supported. When querying by model group dimension, the default model is automatically placed at the top.
+     * Before using this operation, make sure you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - ListLlmTemplatesRequest
      *
@@ -3550,7 +3586,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询模型提供商 Endpoint 列表.
+     * Queries the list of model provider endpoints.
      *
      * @param request - ListModelProviderEndpointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3601,7 +3637,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询模型提供商 Endpoint 列表.
+     * Queries the list of model provider endpoints.
      *
      * @param request - ListModelProviderEndpointsRequest
      *
@@ -3622,8 +3658,8 @@ class Appstreamcenter extends OpenApiClient
      * Queries the list of model provider templates.
      *
      * @remarks
-     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. You can filter results by provider name, model group ID, and provider template ID. Paging is supported.
-     * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Paging is controlled by the PageSize and PageNumber parameters.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param tmpReq - ListModelProviderTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3699,8 +3735,8 @@ class Appstreamcenter extends OpenApiClient
      * Queries the list of model provider templates.
      *
      * @remarks
-     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. You can filter results by provider name, model group ID, and provider template ID. Paging is supported.
-     * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Paging is controlled by the PageSize and PageNumber parameters.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - ListModelProviderTemplatesRequest
      *
@@ -3721,8 +3757,8 @@ class Appstreamcenter extends OpenApiClient
      * Queries the list of resource groups associated with a model group.
      *
      * @remarks
-     * You can call this operation to query the list of resource groups authorized by a model group in the Wuying Agent Management Center.
-     * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can call this operation to query the list of resource groups authorized by a model group in the WUYING Agent Management Center.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - ListModelTemplateResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3776,8 +3812,8 @@ class Appstreamcenter extends OpenApiClient
      * Queries the list of resource groups associated with a model group.
      *
      * @remarks
-     * You can call this operation to query the list of resource groups authorized by a model group in the Wuying Agent Management Center.
-     * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can call this operation to query the list of resource groups authorized by a model group in the WUYING Agent Management Center.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - ListModelTemplateResourceGroupRequest
      *
@@ -3795,11 +3831,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries a list of model templates.
+     * Queries the list of model templates.
      *
      * @remarks
-     * You can use paged query to retrieve model groups that have been created in the Wuying Agent Management Center, with paging support. You can filter results by Agent provider, Agent platform, template group ID, and whether models have been configured.
-     * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can query the model groups created in the WUYING Agent Management Center with paging. Filtering is supported by Agent provider, Agent platform, template group ID, and whether models have been configured.
+     * Before using this operation, make sure you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param tmpReq - ListModelTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3825,8 +3861,16 @@ class Appstreamcenter extends OpenApiClient
             @$query['AgentPlatform'] = $request->agentPlatform;
         }
 
+        if (null !== $request->agentPlatformList) {
+            @$query['AgentPlatformList'] = $request->agentPlatformList;
+        }
+
         if (null !== $request->agentProvider) {
             @$query['AgentProvider'] = $request->agentProvider;
+        }
+
+        if (null !== $request->agentProviderList) {
+            @$query['AgentProviderList'] = $request->agentProviderList;
         }
 
         if (null !== $request->bizType) {
@@ -3841,12 +3885,24 @@ class Appstreamcenter extends OpenApiClient
             @$query['ModelTemplateIdList'] = $request->modelTemplateIdListShrink;
         }
 
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->refScope) {
+            @$query['RefScope'] = $request->refScope;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
 
         $req = new OpenApiRequest([
@@ -3868,11 +3924,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries a list of model templates.
+     * Queries the list of model templates.
      *
      * @remarks
-     * You can use paged query to retrieve model groups that have been created in the Wuying Agent Management Center, with paging support. You can filter results by Agent provider, Agent platform, template group ID, and whether models have been configured.
-     * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can query the model groups created in the WUYING Agent Management Center with paging. Filtering is supported by Agent provider, Agent platform, template group ID, and whether models have been configured.
+     * Before using this operation, make sure you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - ListModelTemplatesRequest
      *
@@ -3908,6 +3964,10 @@ class Appstreamcenter extends OpenApiClient
         $query = [];
         if (null !== $request->bizRegionId) {
             @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
 
         if (null !== $request->cpu) {
@@ -4221,7 +4281,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the regions supported by WUYING Cloud Application.
      *
      * @remarks
-     * > The regions returned by this operation are not necessarily all available regions. For information about available regions, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
+     * > The regions returned by this operation are not all available regions. For information about available regions, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
      *
      * @param request - ListRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4267,7 +4327,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the regions supported by WUYING Cloud Application.
      *
      * @remarks
-     * > The regions returned by this operation are not necessarily all available regions. For information about available regions, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
+     * > The regions returned by this operation are not all available regions. For information about available regions, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
      *
      * @param request - ListRegionsRequest
      *
@@ -4285,7 +4345,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the tag list of one or more specified cloud resources.
+     * Queries the tags of one or more specified cloud resources.
      *
      * @param request - ListTagCloudResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4340,7 +4400,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the tag list of one or more specified cloud resources.
+     * Queries the tags of one or more specified cloud resources.
      *
      * @param request - ListTagCloudResourcesRequest
      *
@@ -4403,6 +4463,9 @@ class Appstreamcenter extends OpenApiClient
     /**
      * Queries the list of workstations.
      *
+     * @remarks
+     * Retrieves the list of WUYING workstations.
+     *
      * @param request - ListWuyingServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4434,8 +4497,28 @@ class Appstreamcenter extends OpenApiClient
             @$body['ChargeType'] = $request->chargeType;
         }
 
+        if (null !== $request->createTimeEnd) {
+            @$body['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+
+        if (null !== $request->createTimeStart) {
+            @$body['CreateTimeStart'] = $request->createTimeStart;
+        }
+
+        if (null !== $request->expiredTimeEnd) {
+            @$body['ExpiredTimeEnd'] = $request->expiredTimeEnd;
+        }
+
+        if (null !== $request->expiredTimeStart) {
+            @$body['ExpiredTimeStart'] = $request->expiredTimeStart;
+        }
+
         if (null !== $request->imageId) {
             @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->networkInterfaceIp) {
+            @$body['NetworkInterfaceIp'] = $request->networkInterfaceIp;
         }
 
         if (null !== $request->officeSiteId) {
@@ -4478,6 +4561,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['WuyingServerNameOrId'] = $request->wuyingServerNameOrId;
         }
 
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
+        }
+
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
@@ -4501,6 +4588,9 @@ class Appstreamcenter extends OpenApiClient
     /**
      * Queries the list of workstations.
      *
+     * @remarks
+     * Retrieves the list of WUYING workstations.
+     *
      * @param request - ListWuyingServerRequest
      *
      * @returns ListWuyingServerResponse
@@ -4517,10 +4607,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Logs off all sessions in a pay-as-you-go delivery group that has scheduled auto scaling policies enabled.
+     * Logs off all sessions in a pay-as-you-go delivery group that has scheduled auto scaling enabled.
      *
      * @remarks
-     * > This operation is applicable only to pay-as-you-go resource delivery groups that have scheduled auto scaling policies enabled, and can be called successfully only outside the scaling time periods configured in the scheduled auto scaling policies.
+     * > This operation applies only to pay-as-you-go resource delivery groups that have scheduled auto scaling enabled. The operation can be called only outside the scaling time periods specified in the scheduled auto scaling policy.
      *
      * @param request - LogOffAllSessionsInAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4563,10 +4653,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Logs off all sessions in a pay-as-you-go delivery group that has scheduled auto scaling policies enabled.
+     * Logs off all sessions in a pay-as-you-go delivery group that has scheduled auto scaling enabled.
      *
      * @remarks
-     * > This operation is applicable only to pay-as-you-go resource delivery groups that have scheduled auto scaling policies enabled, and can be called successfully only outside the scaling time periods configured in the scheduled auto scaling policies.
+     * > This operation applies only to pay-as-you-go resource delivery groups that have scheduled auto scaling enabled. The operation can be called only outside the scaling time periods specified in the scheduled auto scaling policy.
      *
      * @param request - LogOffAllSessionsInAppInstanceGroupRequest
      *
@@ -4584,7 +4674,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the General Policy of a delivery group, including the number of concurrent sessions and the session retention duration after disconnection.
+     * Modifies the general policy of a delivery group, including the number of concurrent sessions and the session disconnection retention duration.
      *
      * @param tmpReq - ModifyAppInstanceGroupAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4683,7 +4773,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the General Policy of a delivery group, including the number of concurrent sessions and the session retention duration after disconnection.
+     * Modifies the general policy of a delivery group, including the number of concurrent sessions and the session disconnection retention duration.
      *
      * @param request - ModifyAppInstanceGroupAttributeRequest
      *
@@ -4958,12 +5048,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the scaling mode of a delivery group, including fixed quantity (no elastic scaling), scheduled scaling, and automatic scaling.
+     * Modifies the elastic mode of a delivery group, including fixed quantity (no elastic scaling), scheduled scaling, and automatic scaling.
      *
      * @remarks
-     * You can configure the scaling pattern for WUYING Cloud Application resources in Settings:
+     * You can configure the elastic pattern for WUYING Cloud Application resources in Settings:
      * - Fixed quantity: Elastic scaling is not used.
-     * - Automatic scaling: Automatically scales resources based on the number of connected sessions and the idle duration without session connections.
+     * - Automatic scaling: Automatically scales resources based on the number of connected sessions and the duration without session connections.
      * - Scheduled scaling: Executes resource scaling during specified time periods on specified dates.
      * Before using this operation, make sure that you fully understand the [billing method and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Cloud Application.
      *
@@ -5026,12 +5116,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the scaling mode of a delivery group, including fixed quantity (no elastic scaling), scheduled scaling, and automatic scaling.
+     * Modifies the elastic mode of a delivery group, including fixed quantity (no elastic scaling), scheduled scaling, and automatic scaling.
      *
      * @remarks
-     * You can configure the scaling pattern for WUYING Cloud Application resources in Settings:
+     * You can configure the elastic pattern for WUYING Cloud Application resources in Settings:
      * - Fixed quantity: Elastic scaling is not used.
-     * - Automatic scaling: Automatically scales resources based on the number of connected sessions and the idle duration without session connections.
+     * - Automatic scaling: Automatically scales resources based on the number of connected sessions and the duration without session connections.
      * - Scheduled scaling: Executes resource scaling during specified time periods on specified dates.
      * Before using this operation, make sure that you fully understand the [billing method and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Cloud Application.
      *
@@ -5051,7 +5141,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of an administrator account, such as whether to enable resource expiration reminders.
+     * Modifies the administrator account configuration, such as whether to enable resource expiration reminders.
      *
      * @param request - ModifyTenantConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5090,7 +5180,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of an administrator account, such as whether to enable resource expiration reminders.
+     * Modifies the administrator account configuration, such as whether to enable resource expiration reminders.
      *
      * @param request - ModifyTenantConfigRequest
      *
@@ -5108,7 +5198,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the properties of a cloud graphics workstation.
+     * Modifies the properties of a workstation.
      *
      * @param request - ModifyWuyingServerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5159,7 +5249,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the properties of a cloud graphics workstation.
+     * Modifies the properties of a workstation.
      *
      * @param request - ModifyWuyingServerAttributeRequest
      *
@@ -5177,7 +5267,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on allocated users added to a delivery group.
+     * Queries the allocated users added to a delivery group by paging.
      *
      * @param request - PageListAppInstanceGroupUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5228,7 +5318,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on allocated users added to a delivery group.
+     * Queries the allocated users added to a delivery group by paging.
      *
      * @param request - PageListAppInstanceGroupUserRequest
      *
@@ -5249,8 +5339,8 @@ class Appstreamcenter extends OpenApiClient
      * Removes model groups from a resource group.
      *
      * @remarks
-     * You can authorize model groups for resources that belong to Agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model groups serve as inference engines for Agents to execute tasks within the resource group.
-     * When an Agent runtime has its own model group configured and the resource group it belongs to also has a model group configured, the model group bound to the resource group takes effect. The resource group setting takes priority over the Agent runtime setting.
+     * You can authorize model groups for resources that belong to Agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. These model groups serve as inference engines for Agents to execute tasks within the resource group.
+     * When an Agent runtime has its own model group configured and the resource group it belongs to also has a model group configured, the model group bound to the resource group takes effect. The resource group setting has a higher priority than the Agent runtime setting.
      * When you remove the model group from the resource group to which an Agent runtime belongs, the model group configured on the Agent runtime itself automatically takes effect.
      * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
@@ -5298,8 +5388,8 @@ class Appstreamcenter extends OpenApiClient
      * Removes model groups from a resource group.
      *
      * @remarks
-     * You can authorize model groups for resources that belong to Agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model groups serve as inference engines for Agents to execute tasks within the resource group.
-     * When an Agent runtime has its own model group configured and the resource group it belongs to also has a model group configured, the model group bound to the resource group takes effect. The resource group setting takes priority over the Agent runtime setting.
+     * You can authorize model groups for resources that belong to Agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. These model groups serve as inference engines for Agents to execute tasks within the resource group.
+     * When an Agent runtime has its own model group configured and the resource group it belongs to also has a model group configured, the model group bound to the resource group takes effect. The resource group setting has a higher priority than the Agent runtime setting.
      * When you remove the model group from the resource group to which an Agent runtime belongs, the model group configured on the Agent runtime itself automatically takes effect.
      * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
@@ -5319,10 +5409,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes a third-party channel configuration from an agent runtime.
+     * Removes a third-party channel configuration from the Agent runtime.
      *
      * @remarks
-     * You can call this operation to remove a specific third-party channel configuration from an agent runtime such as JVS Computer, OpenClaw, or Hermes Agent in the Wuying Agent Management Center. After the configuration is removed, the agent can no longer use the third-party channel for conversations.
+     * You can call this operation to remove a specific third-party channel configuration from Agents such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. After the removal, the Agent cannot use the third-party channel for conversations.
      * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - RemoveRuntimeChannelRequest
@@ -5378,10 +5468,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes a third-party channel configuration from an agent runtime.
+     * Removes a third-party channel configuration from the Agent runtime.
      *
      * @remarks
-     * You can call this operation to remove a specific third-party channel configuration from an agent runtime such as JVS Computer, OpenClaw, or Hermes Agent in the Wuying Agent Management Center. After the configuration is removed, the agent can no longer use the third-party channel for conversations.
+     * You can call this operation to remove a specific third-party channel configuration from Agents such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. After the removal, the Agent cannot use the third-party channel for conversations.
      * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - RemoveRuntimeChannelRequest
@@ -5400,11 +5490,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes model groups from Agent runtime resources.
+     * Removes a model group from an Agent runtime resource.
      *
      * @remarks
-     * You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
-     * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before calling this operation.
+     * You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
+     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
      *
      * @param request - RemoveRuntimeModelTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5451,11 +5541,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes model groups from Agent runtime resources.
+     * Removes a model group from an Agent runtime resource.
      *
      * @remarks
-     * You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
-     * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before calling this operation.
+     * You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
+     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
      *
      * @param request - RemoveRuntimeModelTemplateRequest
      *
@@ -5476,7 +5566,7 @@ class Appstreamcenter extends OpenApiClient
      * Renews a delivery group.
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the [Billable methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Workspace.
+     * Before you call this operation, make sure that you fully understand the [billing and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Workspace.
      *
      * @param tmpReq - RenewAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5556,7 +5646,7 @@ class Appstreamcenter extends OpenApiClient
      * Renews a delivery group.
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the [Billable methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Workspace.
+     * Before you call this operation, make sure that you fully understand the [billing and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Workspace.
      *
      * @param request - RenewAppInstanceGroupRequest
      *
@@ -5647,7 +5737,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Restarts a workstation.
+     * Restarts a cloud graphics workstation.
      *
      * @param request - RestartWuyingServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5693,7 +5783,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Restarts a workstation.
+     * Restarts a cloud graphics workstation.
      *
      * @param request - RestartWuyingServerRequest
      *
@@ -5920,7 +6010,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Creates and attaches tags to cloud resources. If a tag already exists on a resource, the tag value is updated.
+     * Creates and attaches tags to cloud resources. For resources that already have the specified tags, updates the tag values.
      *
      * @param request - TagCloudResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5967,7 +6057,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Creates and attaches tags to cloud resources. If a tag already exists on a resource, the tag value is updated.
+     * Creates and attaches tags to cloud resources. For resources that already have the specified tags, updates the tag values.
      *
      * @param request - TagCloudResourcesRequest
      *
@@ -5985,7 +6075,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 解绑研发主机的辅助私有IP.
+     * Unbinds secondary private IP addresses from a development host.
      *
      * @param request - UnassignWuyingServerPrivateAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6028,7 +6118,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 解绑研发主机的辅助私有IP.
+     * Unbinds secondary private IP addresses from a development host.
      *
      * @param request - UnassignWuyingServerPrivateAddressesRequest
      *
@@ -6187,8 +6277,8 @@ class Appstreamcenter extends OpenApiClient
      * Updates the image of a delivery group.
      *
      * @remarks
-     * >Warning: After the image update starts, sessions of end users who are accessing cloud applications will be disconnected. Proceed with caution to avoid data loss for end users.
-     * > After the update is published, changes typically take about 2 minutes to take effect on the end user side.
+     * >Warning: After the image update starts, sessions of end users accessing cloud applications will be disconnected. Proceed with caution to avoid data loss for end users.
+     * > After the update is published, changes typically take about 2 minutes to take effect on the client.
      *
      * @param request - UpdateAppInstanceGroupImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6242,8 +6332,8 @@ class Appstreamcenter extends OpenApiClient
      * Updates the image of a delivery group.
      *
      * @remarks
-     * >Warning: After the image update starts, sessions of end users who are accessing cloud applications will be disconnected. Proceed with caution to avoid data loss for end users.
-     * > After the update is published, changes typically take about 2 minutes to take effect on the end user side.
+     * >Warning: After the image update starts, sessions of end users accessing cloud applications will be disconnected. Proceed with caution to avoid data loss for end users.
+     * > After the update is published, changes typically take about 2 minutes to take effect on the client.
      *
      * @param request - UpdateAppInstanceGroupImageRequest
      *
@@ -6264,8 +6354,8 @@ class Appstreamcenter extends OpenApiClient
      * Updates a model provider template.
      *
      * @remarks
-     * You can update a model provider template that has been created in the Wuying Agent Management Center, including the template name, description, model service connection configuration, and Wuying security proxy switch. Partial field updates are supported. You only need to pass in the fields that you want to modify.
-     * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can update a model provider template that has been created in the WUYING Agent Management Center, including the template name, description, model service connection configuration, and WUYING security proxy switch. Partial field updates are supported. You only need to pass in the fields that you want to modify.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param tmpReq - UpdateModelProviderTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6331,8 +6421,8 @@ class Appstreamcenter extends OpenApiClient
      * Updates a model provider template.
      *
      * @remarks
-     * You can update a model provider template that has been created in the Wuying Agent Management Center, including the template name, description, model service connection configuration, and Wuying security proxy switch. Partial field updates are supported. You only need to pass in the fields that you want to modify.
-     * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can update a model provider template that has been created in the WUYING Agent Management Center, including the template name, description, model service connection configuration, and WUYING security proxy switch. Partial field updates are supported. You only need to pass in the fields that you want to modify.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - UpdateModelProviderTemplateRequest
      *
@@ -6353,8 +6443,8 @@ class Appstreamcenter extends OpenApiClient
      * Updates a model template.
      *
      * @remarks
-     * You can update a model group that has been created in the Wuying Agent Management Center, including the group name, description, and model configuration information. The updated configuration automatically takes effect on associated cloud desktops.
-     * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can update a model group that has been created in the WUYING Agent Management Center, including the group name, description, and model configuration information. You can modify the default model of a model group by updating the Config field. The updated configuration automatically takes effect on associated cloud desktops.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - UpdateModelTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6386,6 +6476,10 @@ class Appstreamcenter extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->refScope) {
+            @$query['RefScope'] = $request->refScope;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -6408,8 +6502,8 @@ class Appstreamcenter extends OpenApiClient
      * Updates a model template.
      *
      * @remarks
-     * You can update a model group that has been created in the Wuying Agent Management Center, including the group name, description, and model configuration information. The updated configuration automatically takes effect on associated cloud desktops.
-     * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can update a model group that has been created in the WUYING Agent Management Center, including the group name, description, and model configuration information. You can modify the default model of a model group by updating the Config field. The updated configuration automatically takes effect on associated cloud desktops.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - UpdateModelTemplateRequest
      *

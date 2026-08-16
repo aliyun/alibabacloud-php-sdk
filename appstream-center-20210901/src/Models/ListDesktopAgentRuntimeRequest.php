@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListDesktopAgentRuntimeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $agentImOnlineStatus;
+
+    /**
      * @var string[]
      */
     public $agentInstanceStatuses;
@@ -24,6 +29,11 @@ class ListDesktopAgentRuntimeRequest extends Model
     public $agentPlatform;
 
     /**
+     * @var string[]
+     */
+    public $agentPlatformList;
+
+    /**
      * @var string
      */
     public $agentProvider;
@@ -31,7 +41,22 @@ class ListDesktopAgentRuntimeRequest extends Model
     /**
      * @var string[]
      */
+    public $agentProviderList;
+
+    /**
+     * @var string[]
+     */
+    public $agentTemplateIds;
+
+    /**
+     * @var string[]
+     */
     public $authUsers;
+
+    /**
+     * @var string
+     */
+    public $bizRegionId;
 
     /**
      * @var int
@@ -94,6 +119,11 @@ class ListDesktopAgentRuntimeRequest extends Model
     public $modelTemplateId;
 
     /**
+     * @var string
+     */
+    public $officeSiteId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -113,11 +143,16 @@ class ListDesktopAgentRuntimeRequest extends Model
      */
     public $resourceIds;
     protected $_name = [
+        'agentImOnlineStatus' => 'AgentImOnlineStatus',
         'agentInstanceStatuses' => 'AgentInstanceStatuses',
         'agentInstanceVersions' => 'AgentInstanceVersions',
         'agentPlatform' => 'AgentPlatform',
+        'agentPlatformList' => 'AgentPlatformList',
         'agentProvider' => 'AgentProvider',
+        'agentProviderList' => 'AgentProviderList',
+        'agentTemplateIds' => 'AgentTemplateIds',
         'authUsers' => 'AuthUsers',
+        'bizRegionId' => 'BizRegionId',
         'bizType' => 'BizType',
         'channelConfigure' => 'ChannelConfigure',
         'deploymentSource' => 'DeploymentSource',
@@ -130,6 +165,7 @@ class ListDesktopAgentRuntimeRequest extends Model
         'managementStatus' => 'ManagementStatus',
         'modelConfigure' => 'ModelConfigure',
         'modelTemplateId' => 'ModelTemplateId',
+        'officeSiteId' => 'OfficeSiteId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
@@ -143,6 +179,15 @@ class ListDesktopAgentRuntimeRequest extends Model
         }
         if (\is_array($this->agentInstanceVersions)) {
             Model::validateArray($this->agentInstanceVersions);
+        }
+        if (\is_array($this->agentPlatformList)) {
+            Model::validateArray($this->agentPlatformList);
+        }
+        if (\is_array($this->agentProviderList)) {
+            Model::validateArray($this->agentProviderList);
+        }
+        if (\is_array($this->agentTemplateIds)) {
+            Model::validateArray($this->agentTemplateIds);
         }
         if (\is_array($this->authUsers)) {
             Model::validateArray($this->authUsers);
@@ -165,6 +210,10 @@ class ListDesktopAgentRuntimeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentImOnlineStatus) {
+            $res['AgentImOnlineStatus'] = $this->agentImOnlineStatus;
+        }
+
         if (null !== $this->agentInstanceStatuses) {
             if (\is_array($this->agentInstanceStatuses)) {
                 $res['AgentInstanceStatuses'] = [];
@@ -191,8 +240,41 @@ class ListDesktopAgentRuntimeRequest extends Model
             $res['AgentPlatform'] = $this->agentPlatform;
         }
 
+        if (null !== $this->agentPlatformList) {
+            if (\is_array($this->agentPlatformList)) {
+                $res['AgentPlatformList'] = [];
+                $n1 = 0;
+                foreach ($this->agentPlatformList as $item1) {
+                    $res['AgentPlatformList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->agentProvider) {
             $res['AgentProvider'] = $this->agentProvider;
+        }
+
+        if (null !== $this->agentProviderList) {
+            if (\is_array($this->agentProviderList)) {
+                $res['AgentProviderList'] = [];
+                $n1 = 0;
+                foreach ($this->agentProviderList as $item1) {
+                    $res['AgentProviderList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->agentTemplateIds) {
+            if (\is_array($this->agentTemplateIds)) {
+                $res['AgentTemplateIds'] = [];
+                $n1 = 0;
+                foreach ($this->agentTemplateIds as $item1) {
+                    $res['AgentTemplateIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->authUsers) {
@@ -204,6 +286,10 @@ class ListDesktopAgentRuntimeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->bizRegionId) {
+            $res['BizRegionId'] = $this->bizRegionId;
         }
 
         if (null !== $this->bizType) {
@@ -275,6 +361,10 @@ class ListDesktopAgentRuntimeRequest extends Model
             $res['ModelTemplateId'] = $this->modelTemplateId;
         }
 
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -309,6 +399,10 @@ class ListDesktopAgentRuntimeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentImOnlineStatus'])) {
+            $model->agentImOnlineStatus = $map['AgentImOnlineStatus'];
+        }
+
         if (isset($map['AgentInstanceStatuses'])) {
             if (!empty($map['AgentInstanceStatuses'])) {
                 $model->agentInstanceStatuses = [];
@@ -335,8 +429,41 @@ class ListDesktopAgentRuntimeRequest extends Model
             $model->agentPlatform = $map['AgentPlatform'];
         }
 
+        if (isset($map['AgentPlatformList'])) {
+            if (!empty($map['AgentPlatformList'])) {
+                $model->agentPlatformList = [];
+                $n1 = 0;
+                foreach ($map['AgentPlatformList'] as $item1) {
+                    $model->agentPlatformList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AgentProvider'])) {
             $model->agentProvider = $map['AgentProvider'];
+        }
+
+        if (isset($map['AgentProviderList'])) {
+            if (!empty($map['AgentProviderList'])) {
+                $model->agentProviderList = [];
+                $n1 = 0;
+                foreach ($map['AgentProviderList'] as $item1) {
+                    $model->agentProviderList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AgentTemplateIds'])) {
+            if (!empty($map['AgentTemplateIds'])) {
+                $model->agentTemplateIds = [];
+                $n1 = 0;
+                foreach ($map['AgentTemplateIds'] as $item1) {
+                    $model->agentTemplateIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['AuthUsers'])) {
@@ -348,6 +475,10 @@ class ListDesktopAgentRuntimeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['BizRegionId'])) {
+            $model->bizRegionId = $map['BizRegionId'];
         }
 
         if (isset($map['BizType'])) {
@@ -417,6 +548,10 @@ class ListDesktopAgentRuntimeRequest extends Model
 
         if (isset($map['ModelTemplateId'])) {
             $model->modelTemplateId = $map['ModelTemplateId'];
+        }
+
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
 
         if (isset($map['PageNumber'])) {

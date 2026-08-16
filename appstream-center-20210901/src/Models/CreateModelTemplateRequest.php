@@ -32,12 +32,18 @@ class CreateModelTemplateRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $refScope;
     protected $_name = [
         'agentPlatform' => 'AgentPlatform',
         'agentProvider' => 'AgentProvider',
         'bizType' => 'BizType',
         'description' => 'Description',
         'name' => 'Name',
+        'refScope' => 'RefScope',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class CreateModelTemplateRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->refScope) {
+            $res['RefScope'] = $this->refScope;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class CreateModelTemplateRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['RefScope'])) {
+            $model->refScope = $map['RefScope'];
         }
 
         return $model;

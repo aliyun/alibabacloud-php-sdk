@@ -11,6 +11,11 @@ class agentImInfo extends Model
     /**
      * @var string
      */
+    public $agentImOnlineStatus;
+
+    /**
+     * @var string
+     */
     public $agentImStatus;
 
     /**
@@ -18,6 +23,7 @@ class agentImInfo extends Model
      */
     public $cloudSpaceStatus;
     protected $_name = [
+        'agentImOnlineStatus' => 'AgentImOnlineStatus',
         'agentImStatus' => 'AgentImStatus',
         'cloudSpaceStatus' => 'CloudSpaceStatus',
     ];
@@ -30,6 +36,10 @@ class agentImInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentImOnlineStatus) {
+            $res['AgentImOnlineStatus'] = $this->agentImOnlineStatus;
+        }
+
         if (null !== $this->agentImStatus) {
             $res['AgentImStatus'] = $this->agentImStatus;
         }
@@ -49,6 +59,10 @@ class agentImInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentImOnlineStatus'])) {
+            $model->agentImOnlineStatus = $map['AgentImOnlineStatus'];
+        }
+
         if (isset($map['AgentImStatus'])) {
             $model->agentImStatus = $map['AgentImStatus'];
         }
