@@ -1,0 +1,178 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Wss\V20211221\Models;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeRunIdDeductionsResponseBody\deductions;
+
+class DescribeRunIdDeductionsResponseBody extends Model
+{
+    /**
+     * @var deductions[]
+     */
+    public $deductions;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var int
+     */
+    public $totalUsedTime;
+
+    /**
+     * @var string
+     */
+    public $totalUsedTimeDecimal;
+    protected $_name = [
+        'deductions' => 'Deductions',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
+        'totalUsedTime' => 'TotalUsedTime',
+        'totalUsedTimeDecimal' => 'TotalUsedTimeDecimal',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->deductions)) {
+            Model::validateArray($this->deductions);
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->deductions) {
+            if (\is_array($this->deductions)) {
+                $res['Deductions'] = [];
+                $n1 = 0;
+                foreach ($this->deductions as $item1) {
+                    $res['Deductions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+
+        if (null !== $this->totalUsedTime) {
+            $res['TotalUsedTime'] = $this->totalUsedTime;
+        }
+
+        if (null !== $this->totalUsedTimeDecimal) {
+            $res['TotalUsedTimeDecimal'] = $this->totalUsedTimeDecimal;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Deductions'])) {
+            if (!empty($map['Deductions'])) {
+                $model->deductions = [];
+                $n1 = 0;
+                foreach ($map['Deductions'] as $item1) {
+                    $model->deductions[$n1] = deductions::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+
+        if (isset($map['TotalUsedTime'])) {
+            $model->totalUsedTime = $map['TotalUsedTime'];
+        }
+
+        if (isset($map['TotalUsedTimeDecimal'])) {
+            $model->totalUsedTimeDecimal = $map['TotalUsedTimeDecimal'];
+        }
+
+        return $model;
+    }
+}

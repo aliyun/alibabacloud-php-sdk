@@ -6,9 +6,20 @@ namespace AlibabaCloud\SDK\Wss\V20211221\Models\DescribeCreditUsageInfoResponseB
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeCreditUsageInfoResponseBody\usageInfoList\usageInfo\creditTrendList;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeCreditUsageInfoResponseBody\usageInfoList\usageInfo\remainCreditInfo;
 
 class usageInfo extends Model
 {
+    /**
+     * @var int
+     */
+    public $availableAmount;
+
+    /**
+     * @var string[]
+     */
+    public $contactGroupNames;
+
     /**
      * @var creditTrendList[]
      */
@@ -40,6 +51,11 @@ class usageInfo extends Model
     public $dayUsedCredit;
 
     /**
+     * @var string
+     */
+    public $lastTriggeredAt;
+
+    /**
      * @var int
      */
     public $periodTotalCredit;
@@ -53,6 +69,11 @@ class usageInfo extends Model
      * @var int
      */
     public $remainCredit;
+
+    /**
+     * @var remainCreditInfo
+     */
+    public $remainCreditInfo;
 
     /**
      * @var string
@@ -84,15 +105,19 @@ class usageInfo extends Model
      */
     public $weekUsedCredit;
     protected $_name = [
+        'availableAmount' => 'AvailableAmount',
+        'contactGroupNames' => 'ContactGroupNames',
         'creditTrendList' => 'CreditTrendList',
         'currentInstanceId' => 'CurrentInstanceId',
         'currentRemainCredit' => 'CurrentRemainCredit',
         'currentTotalCredit' => 'CurrentTotalCredit',
         'currentUsedCredit' => 'CurrentUsedCredit',
         'dayUsedCredit' => 'DayUsedCredit',
+        'lastTriggeredAt' => 'LastTriggeredAt',
         'periodTotalCredit' => 'PeriodTotalCredit',
         'periodUsedCredit' => 'PeriodUsedCredit',
         'remainCredit' => 'RemainCredit',
+        'remainCreditInfo' => 'RemainCreditInfo',
         'todayUsed' => 'TodayUsed',
         'totalCredit' => 'TotalCredit',
         'totalUsed' => 'TotalUsed',
@@ -103,8 +128,14 @@ class usageInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->contactGroupNames)) {
+            Model::validateArray($this->contactGroupNames);
+        }
         if (\is_array($this->creditTrendList)) {
             Model::validateArray($this->creditTrendList);
+        }
+        if (null !== $this->remainCreditInfo) {
+            $this->remainCreditInfo->validate();
         }
         parent::validate();
     }
@@ -112,6 +143,21 @@ class usageInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->availableAmount) {
+            $res['AvailableAmount'] = $this->availableAmount;
+        }
+
+        if (null !== $this->contactGroupNames) {
+            if (\is_array($this->contactGroupNames)) {
+                $res['ContactGroupNames'] = [];
+                $n1 = 0;
+                foreach ($this->contactGroupNames as $item1) {
+                    $res['ContactGroupNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->creditTrendList) {
             if (\is_array($this->creditTrendList)) {
                 $res['CreditTrendList'] = [];
@@ -143,6 +189,10 @@ class usageInfo extends Model
             $res['DayUsedCredit'] = $this->dayUsedCredit;
         }
 
+        if (null !== $this->lastTriggeredAt) {
+            $res['LastTriggeredAt'] = $this->lastTriggeredAt;
+        }
+
         if (null !== $this->periodTotalCredit) {
             $res['PeriodTotalCredit'] = $this->periodTotalCredit;
         }
@@ -153,6 +203,10 @@ class usageInfo extends Model
 
         if (null !== $this->remainCredit) {
             $res['RemainCredit'] = $this->remainCredit;
+        }
+
+        if (null !== $this->remainCreditInfo) {
+            $res['RemainCreditInfo'] = null !== $this->remainCreditInfo ? $this->remainCreditInfo->toArray($noStream) : $this->remainCreditInfo;
         }
 
         if (null !== $this->todayUsed) {
@@ -190,6 +244,21 @@ class usageInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableAmount'])) {
+            $model->availableAmount = $map['AvailableAmount'];
+        }
+
+        if (isset($map['ContactGroupNames'])) {
+            if (!empty($map['ContactGroupNames'])) {
+                $model->contactGroupNames = [];
+                $n1 = 0;
+                foreach ($map['ContactGroupNames'] as $item1) {
+                    $model->contactGroupNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['CreditTrendList'])) {
             if (!empty($map['CreditTrendList'])) {
                 $model->creditTrendList = [];
@@ -221,6 +290,10 @@ class usageInfo extends Model
             $model->dayUsedCredit = $map['DayUsedCredit'];
         }
 
+        if (isset($map['LastTriggeredAt'])) {
+            $model->lastTriggeredAt = $map['LastTriggeredAt'];
+        }
+
         if (isset($map['PeriodTotalCredit'])) {
             $model->periodTotalCredit = $map['PeriodTotalCredit'];
         }
@@ -231,6 +304,10 @@ class usageInfo extends Model
 
         if (isset($map['RemainCredit'])) {
             $model->remainCredit = $map['RemainCredit'];
+        }
+
+        if (isset($map['RemainCreditInfo'])) {
+            $model->remainCreditInfo = remainCreditInfo::fromMap($map['RemainCreditInfo']);
         }
 
         if (isset($map['TodayUsed'])) {
