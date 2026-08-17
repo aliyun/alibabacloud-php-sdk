@@ -142,6 +142,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainItemsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainItemsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainMetasRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainMetasResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicDisposalProcessesRequest;
@@ -4671,6 +4673,85 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConnectorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询域名条目.
+     *
+     * @remarks
+     * 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+     *
+     * @param request - ListDomainItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDomainItemsResponse
+     *
+     * @param ListDomainItemsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDomainItemsResponse
+     */
+    public function listDomainItemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->itemValue) {
+            @$query['ItemValue'] = $request->itemValue;
+        }
+
+        if (null !== $request->listId) {
+            @$query['ListId'] = $request->listId;
+        }
+
+        if (null !== $request->listType) {
+            @$query['ListType'] = $request->listType;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDomainItems',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDomainItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询域名条目.
+     *
+     * @remarks
+     * 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+     *
+     * @param request - ListDomainItemsRequest
+     *
+     * @returns ListDomainItemsResponse
+     *
+     * @param ListDomainItemsRequest $request
+     *
+     * @return ListDomainItemsResponse
+     */
+    public function listDomainItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDomainItemsWithOptions($request, $runtime);
     }
 
     /**
