@@ -28,6 +28,11 @@ class usageInfo extends Model
     /**
      * @var string
      */
+    public $currentInstanceExpiredTime;
+
+    /**
+     * @var string
+     */
     public $currentInstanceId;
 
     /**
@@ -108,6 +113,7 @@ class usageInfo extends Model
         'availableAmount' => 'AvailableAmount',
         'contactGroupNames' => 'ContactGroupNames',
         'creditTrendList' => 'CreditTrendList',
+        'currentInstanceExpiredTime' => 'CurrentInstanceExpiredTime',
         'currentInstanceId' => 'CurrentInstanceId',
         'currentRemainCredit' => 'CurrentRemainCredit',
         'currentTotalCredit' => 'CurrentTotalCredit',
@@ -167,6 +173,10 @@ class usageInfo extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->currentInstanceExpiredTime) {
+            $res['CurrentInstanceExpiredTime'] = $this->currentInstanceExpiredTime;
         }
 
         if (null !== $this->currentInstanceId) {
@@ -268,6 +278,10 @@ class usageInfo extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['CurrentInstanceExpiredTime'])) {
+            $model->currentInstanceExpiredTime = $map['CurrentInstanceExpiredTime'];
         }
 
         if (isset($map['CurrentInstanceId'])) {
