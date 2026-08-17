@@ -27,11 +27,29 @@ class ImageRemoveRequest extends Model
      * @var int[]
      */
     public $objectRemoveElements;
+
+    /**
+     * @var string
+     */
+    public $position;
+
+    /**
+     * @var string[]
+     */
+    public $userImage;
+
+    /**
+     * @var string[]
+     */
+    public $userText;
     protected $_name = [
         'imageUrl' => 'ImageUrl',
         'mask' => 'Mask',
         'nonObjectRemoveElements' => 'NonObjectRemoveElements',
         'objectRemoveElements' => 'ObjectRemoveElements',
+        'position' => 'Position',
+        'userImage' => 'UserImage',
+        'userText' => 'UserText',
     ];
 
     public function validate()
@@ -41,6 +59,12 @@ class ImageRemoveRequest extends Model
         }
         if (\is_array($this->objectRemoveElements)) {
             Model::validateArray($this->objectRemoveElements);
+        }
+        if (\is_array($this->userImage)) {
+            Model::validateArray($this->userImage);
+        }
+        if (\is_array($this->userText)) {
+            Model::validateArray($this->userText);
         }
         parent::validate();
     }
@@ -73,6 +97,32 @@ class ImageRemoveRequest extends Model
                 $n1 = 0;
                 foreach ($this->objectRemoveElements as $item1) {
                     $res['ObjectRemoveElements'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->position) {
+            $res['Position'] = $this->position;
+        }
+
+        if (null !== $this->userImage) {
+            if (\is_array($this->userImage)) {
+                $res['UserImage'] = [];
+                $n1 = 0;
+                foreach ($this->userImage as $item1) {
+                    $res['UserImage'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->userText) {
+            if (\is_array($this->userText)) {
+                $res['UserText'] = [];
+                $n1 = 0;
+                foreach ($this->userText as $item1) {
+                    $res['UserText'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -114,6 +164,32 @@ class ImageRemoveRequest extends Model
                 $n1 = 0;
                 foreach ($map['ObjectRemoveElements'] as $item1) {
                     $model->objectRemoveElements[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Position'])) {
+            $model->position = $map['Position'];
+        }
+
+        if (isset($map['UserImage'])) {
+            if (!empty($map['UserImage'])) {
+                $model->userImage = [];
+                $n1 = 0;
+                foreach ($map['UserImage'] as $item1) {
+                    $model->userImage[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['UserText'])) {
+            if (!empty($map['UserText'])) {
+                $model->userText = [];
+                $n1 = 0;
+                foreach ($map['UserText'] as $item1) {
+                    $model->userText[$n1] = $item1;
                     ++$n1;
                 }
             }

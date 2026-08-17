@@ -27,11 +27,29 @@ class ImageRemoveShrinkRequest extends Model
      * @var string
      */
     public $objectRemoveElementsShrink;
+
+    /**
+     * @var string
+     */
+    public $position;
+
+    /**
+     * @var string
+     */
+    public $userImageShrink;
+
+    /**
+     * @var string
+     */
+    public $userTextShrink;
     protected $_name = [
         'imageUrl' => 'ImageUrl',
         'mask' => 'Mask',
         'nonObjectRemoveElementsShrink' => 'NonObjectRemoveElements',
         'objectRemoveElementsShrink' => 'ObjectRemoveElements',
+        'position' => 'Position',
+        'userImageShrink' => 'UserImage',
+        'userTextShrink' => 'UserText',
     ];
 
     public function validate()
@@ -56,6 +74,18 @@ class ImageRemoveShrinkRequest extends Model
 
         if (null !== $this->objectRemoveElementsShrink) {
             $res['ObjectRemoveElements'] = $this->objectRemoveElementsShrink;
+        }
+
+        if (null !== $this->position) {
+            $res['Position'] = $this->position;
+        }
+
+        if (null !== $this->userImageShrink) {
+            $res['UserImage'] = $this->userImageShrink;
+        }
+
+        if (null !== $this->userTextShrink) {
+            $res['UserText'] = $this->userTextShrink;
         }
 
         return $res;
@@ -83,6 +113,18 @@ class ImageRemoveShrinkRequest extends Model
 
         if (isset($map['ObjectRemoveElements'])) {
             $model->objectRemoveElementsShrink = $map['ObjectRemoveElements'];
+        }
+
+        if (isset($map['Position'])) {
+            $model->position = $map['Position'];
+        }
+
+        if (isset($map['UserImage'])) {
+            $model->userImageShrink = $map['UserImage'];
+        }
+
+        if (isset($map['UserText'])) {
+            $model->userTextShrink = $map['UserText'];
         }
 
         return $model;
