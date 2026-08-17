@@ -98,7 +98,24 @@ class EhpcInstant extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shenzhen' => 'ehpcinstant.cn-shenzhen.aliyuncs.com',
+            'cn-wulanchabu' => 'ehpcinstant.cn-wulanchabu.aliyuncs.com',
+            'cn-beijing' => 'ehpcinstant.cn-beijing.aliyuncs.com',
+            'ap-northeast-2' => 'ehpcinstant.ap-northeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'ehpcinstant.ap-northeast-1.aliyuncs.com',
+            'cn-chengdu' => 'ehpcinstant.cn-chengdu.aliyuncs.com',
+            'cn-shanghai' => 'ehpcinstant.cn-shanghai.aliyuncs.com',
+            'cn-guangzhou' => 'ehpcinstant.cn-guangzhou.aliyuncs.com',
+            'cn-hongkong' => 'ehpcinstant.cn-hongkong.aliyuncs.com',
+            'cn-heyuan' => 'ehpcinstant.cn-heyuan.aliyuncs.com',
+            'ap-southeast-1' => 'ehpcinstant.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'ehpcinstant.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'ehpcinstant.ap-southeast-5.aliyuncs.com',
+            'cn-hangzhou' => 'ehpcinstant.cn-hangzhou.aliyuncs.com',
+            'eu-central-1' => 'ehpcinstant.eu-central-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ehpcinstant', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -215,10 +232,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Create a E-HPC execution plan.
+     * Creates an E-HPC execution plan.
      *
      * @remarks
-     * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
+     * *Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
      *
      * @param tmpReq - CreateActionPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -307,10 +324,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Create a E-HPC execution plan.
+     * Creates an E-HPC execution plan.
      *
      * @remarks
-     * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
+     * *Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
      *
      * @param request - CreateActionPlanRequest
      *
@@ -328,7 +345,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Create a E-HPC Instant job.
+     * Creates an E-HPC Instant job.
      *
      * @param tmpReq - CreateJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -382,6 +399,10 @@ class EhpcInstant extends OpenApiClient
             @$query['JobScheduler'] = $request->jobScheduler;
         }
 
+        if (null !== $request->jobTemplateId) {
+            @$query['JobTemplateId'] = $request->jobTemplateId;
+        }
+
         if (null !== $request->securityPolicyShrink) {
             @$query['SecurityPolicy'] = $request->securityPolicyShrink;
         }
@@ -409,7 +430,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Create a E-HPC Instant job.
+     * Creates an E-HPC Instant job.
      *
      * @param request - CreateJobRequest
      *
@@ -908,7 +929,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Query job logs.
+     * Retrieves the logs for a job.
      *
      * @param request - DescribeJobResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -967,7 +988,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Query job logs.
+     * Retrieves the logs for a job.
      *
      * @param request - DescribeJobResultsRequest
      *
@@ -985,7 +1006,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Querying Execution Plan Details.
+     * Queries the details of an execution plan.
      *
      * @param request - GetActionPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1024,7 +1045,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Querying Execution Plan Details.
+     * Queries the details of an execution plan.
      *
      * @param request - GetActionPlanRequest
      *
@@ -1115,7 +1136,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Obtains the information about an image.
+     * Get image details.
      *
      * @param tmpReq - GetImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1172,7 +1193,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Obtains the information about an image.
+     * Get image details.
      *
      * @param request - GetImageRequest
      *
@@ -1190,7 +1211,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Obtains the details of an execution job.
+     * Retrieves the details of an execution job.
      *
      * @param request - GetJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1229,7 +1250,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Obtains the details of an execution job.
+     * Retrieves the details of an execution job.
      *
      * @param request - GetJobRequest
      *
@@ -1247,7 +1268,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业保留时长
+     * Retrieves the job record retention period.
      *
      * @param request - GetJobRecordDurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1279,7 +1300,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业保留时长
+     * Retrieves the job record retention period.
      *
      * @param request - GetJobRecordDurationRequest
      *
@@ -1297,7 +1318,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a resource pool.
+     * Retrieves the details of a specified resource pool.
      *
      * @param request - GetPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1336,7 +1357,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a resource pool.
+     * Retrieves the details of a specified resource pool.
      *
      * @param request - GetPoolRequest
      *
@@ -1567,7 +1588,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Querying Global Executor Information.
+     * Queries information about global executors.
      *
      * @param tmpReq - ListExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1620,7 +1641,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Querying Global Executor Information.
+     * Queries information about global executors.
      *
      * @param request - ListExecutorsRequest
      *
@@ -1729,10 +1750,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries job executor information.
+     * Retrieves information about job executors.
      *
      * @remarks
-     * Queries job executor information.
+     * Retrieves information about job executors.
      *
      * @param request - ListJobExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1783,10 +1804,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries job executor information.
+     * Retrieves information about job executors.
      *
      * @remarks
-     * Queries job executor information.
+     * Retrieves information about job executors.
      *
      * @param request - ListJobExecutorsRequest
      *
@@ -1804,7 +1825,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries the jobs in a cluster.
+     * Returns a list of jobs.
      *
      * @param tmpReq - ListJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1865,7 +1886,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries the jobs in a cluster.
+     * Returns a list of jobs.
      *
      * @param request - ListJobsRequest
      *
@@ -1883,7 +1904,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries the resource pool list.
+     * Lists resource pools.
      *
      * @param tmpReq - ListPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1936,7 +1957,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries the resource pool list.
+     * Lists resource pools.
      *
      * @param request - ListPoolsRequest
      *
@@ -2358,7 +2379,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 更新作业保留时长
+     * Updates the job record duration.
      *
      * @param request - UpdateJobRecordDurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2397,7 +2418,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 更新作业保留时长
+     * Updates the job record duration.
      *
      * @param request - UpdateJobRecordDurationRequest
      *
@@ -2415,7 +2436,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Update the resource pool configuration.
+     * Updates the configuration of a resource pool.
      *
      * @param tmpReq - UpdatePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2472,7 +2493,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Update the resource pool configuration.
+     * Updates the configuration of a resource pool.
      *
      * @param request - UpdatePoolRequest
      *

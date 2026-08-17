@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\taskExecutor;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\taskExecutor\VM\environmentVars;
 
 class VM extends Model
 {
@@ -12,6 +13,11 @@ class VM extends Model
      * @var string
      */
     public $appId;
+
+    /**
+     * @var environmentVars[]
+     */
+    public $environmentVars;
 
     /**
      * @var string
@@ -34,6 +40,7 @@ class VM extends Model
     public $script;
     protected $_name = [
         'appId' => 'AppId',
+        'environmentVars' => 'EnvironmentVars',
         'image' => 'Image',
         'password' => 'Password',
         'prologScript' => 'PrologScript',
@@ -42,6 +49,9 @@ class VM extends Model
 
     public function validate()
     {
+        if (\is_array($this->environmentVars)) {
+            Model::validateArray($this->environmentVars);
+        }
         parent::validate();
     }
 
@@ -50,6 +60,17 @@ class VM extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+
+        if (null !== $this->environmentVars) {
+            if (\is_array($this->environmentVars)) {
+                $res['EnvironmentVars'] = [];
+                $n1 = 0;
+                foreach ($this->environmentVars as $item1) {
+                    $res['EnvironmentVars'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->image) {
@@ -81,6 +102,17 @@ class VM extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+
+        if (isset($map['EnvironmentVars'])) {
+            if (!empty($map['EnvironmentVars'])) {
+                $model->environmentVars = [];
+                $n1 = 0;
+                foreach ($map['EnvironmentVars'] as $item1) {
+                    $model->environmentVars[$n1] = environmentVars::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Image'])) {

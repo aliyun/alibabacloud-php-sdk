@@ -38,6 +38,11 @@ class CreateJobRequest extends Model
     public $jobScheduler;
 
     /**
+     * @var string
+     */
+    public $jobTemplateId;
+
+    /**
      * @var securityPolicy
      */
     public $securityPolicy;
@@ -52,6 +57,7 @@ class CreateJobRequest extends Model
         'jobDescription' => 'JobDescription',
         'jobName' => 'JobName',
         'jobScheduler' => 'JobScheduler',
+        'jobTemplateId' => 'JobTemplateId',
         'securityPolicy' => 'SecurityPolicy',
         'tasks' => 'Tasks',
     ];
@@ -94,6 +100,10 @@ class CreateJobRequest extends Model
 
         if (null !== $this->jobScheduler) {
             $res['JobScheduler'] = $this->jobScheduler;
+        }
+
+        if (null !== $this->jobTemplateId) {
+            $res['JobTemplateId'] = $this->jobTemplateId;
         }
 
         if (null !== $this->securityPolicy) {
@@ -140,6 +150,10 @@ class CreateJobRequest extends Model
 
         if (isset($map['JobScheduler'])) {
             $model->jobScheduler = $map['JobScheduler'];
+        }
+
+        if (isset($map['JobTemplateId'])) {
+            $model->jobTemplateId = $map['JobTemplateId'];
         }
 
         if (isset($map['SecurityPolicy'])) {

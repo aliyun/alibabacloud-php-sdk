@@ -36,6 +36,11 @@ class CreateJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $jobTemplateId;
+
+    /**
+     * @var string
+     */
     public $securityPolicyShrink;
 
     /**
@@ -48,6 +53,7 @@ class CreateJobShrinkRequest extends Model
         'jobDescription' => 'JobDescription',
         'jobName' => 'JobName',
         'jobScheduler' => 'JobScheduler',
+        'jobTemplateId' => 'JobTemplateId',
         'securityPolicyShrink' => 'SecurityPolicy',
         'tasksShrink' => 'Tasks',
     ];
@@ -78,6 +84,10 @@ class CreateJobShrinkRequest extends Model
 
         if (null !== $this->jobScheduler) {
             $res['JobScheduler'] = $this->jobScheduler;
+        }
+
+        if (null !== $this->jobTemplateId) {
+            $res['JobTemplateId'] = $this->jobTemplateId;
         }
 
         if (null !== $this->securityPolicyShrink) {
@@ -117,6 +127,10 @@ class CreateJobShrinkRequest extends Model
 
         if (isset($map['JobScheduler'])) {
             $model->jobScheduler = $map['JobScheduler'];
+        }
+
+        if (isset($map['JobTemplateId'])) {
+            $model->jobTemplateId = $map['JobTemplateId'];
         }
 
         if (isset($map['SecurityPolicy'])) {

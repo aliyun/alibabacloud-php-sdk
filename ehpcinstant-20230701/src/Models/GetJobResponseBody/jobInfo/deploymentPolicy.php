@@ -31,6 +31,11 @@ class deploymentPolicy extends Model
     public $pool;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -39,6 +44,7 @@ class deploymentPolicy extends Model
         'level' => 'Level',
         'network' => 'Network',
         'pool' => 'Pool',
+        'priority' => 'Priority',
         'tags' => 'Tags',
     ];
 
@@ -70,6 +76,10 @@ class deploymentPolicy extends Model
 
         if (null !== $this->pool) {
             $res['Pool'] = $this->pool;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->tags) {
@@ -108,6 +118,10 @@ class deploymentPolicy extends Model
 
         if (isset($map['Pool'])) {
             $model->pool = $map['Pool'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['Tags'])) {
