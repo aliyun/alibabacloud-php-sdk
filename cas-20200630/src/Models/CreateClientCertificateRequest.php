@@ -25,6 +25,11 @@ class CreateClientCertificateRequest extends Model
     public $aliasName;
 
     /**
+     * @var bool
+     */
+    public $asynchronousFlag;
+
+    /**
      * @var int
      */
     public $beforeTime;
@@ -122,6 +127,7 @@ class CreateClientCertificateRequest extends Model
         'afterTime' => 'AfterTime',
         'algorithm' => 'Algorithm',
         'aliasName' => 'AliasName',
+        'asynchronousFlag' => 'AsynchronousFlag',
         'beforeTime' => 'BeforeTime',
         'clientToken' => 'ClientToken',
         'commonName' => 'CommonName',
@@ -164,6 +170,10 @@ class CreateClientCertificateRequest extends Model
 
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+
+        if (null !== $this->asynchronousFlag) {
+            $res['AsynchronousFlag'] = $this->asynchronousFlag;
         }
 
         if (null !== $this->beforeTime) {
@@ -270,6 +280,10 @@ class CreateClientCertificateRequest extends Model
 
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
+        }
+
+        if (isset($map['AsynchronousFlag'])) {
+            $model->asynchronousFlag = $map['AsynchronousFlag'];
         }
 
         if (isset($map['BeforeTime'])) {

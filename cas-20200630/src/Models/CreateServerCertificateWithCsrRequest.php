@@ -20,6 +20,11 @@ class CreateServerCertificateWithCsrRequest extends Model
     public $algorithm;
 
     /**
+     * @var bool
+     */
+    public $asynchronousFlag;
+
+    /**
      * @var int
      */
     public $beforeTime;
@@ -111,6 +116,7 @@ class CreateServerCertificateWithCsrRequest extends Model
     protected $_name = [
         'afterTime' => 'AfterTime',
         'algorithm' => 'Algorithm',
+        'asynchronousFlag' => 'AsynchronousFlag',
         'beforeTime' => 'BeforeTime',
         'commonName' => 'CommonName',
         'country' => 'Country',
@@ -148,6 +154,10 @@ class CreateServerCertificateWithCsrRequest extends Model
 
         if (null !== $this->algorithm) {
             $res['Algorithm'] = $this->algorithm;
+        }
+
+        if (null !== $this->asynchronousFlag) {
+            $res['AsynchronousFlag'] = $this->asynchronousFlag;
         }
 
         if (null !== $this->beforeTime) {
@@ -246,6 +256,10 @@ class CreateServerCertificateWithCsrRequest extends Model
 
         if (isset($map['Algorithm'])) {
             $model->algorithm = $map['Algorithm'];
+        }
+
+        if (isset($map['AsynchronousFlag'])) {
+            $model->asynchronousFlag = $map['AsynchronousFlag'];
         }
 
         if (isset($map['BeforeTime'])) {
