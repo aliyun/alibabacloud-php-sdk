@@ -12,7 +12,27 @@ class UpdateAlertDestinationRequest extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
+    public $appSecret;
+
+    /**
+     * @var string[]
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
     public $id;
+
+    /**
+     * @var bool
+     */
+    public $imbot;
 
     /**
      * @var string
@@ -34,7 +54,11 @@ class UpdateAlertDestinationRequest extends Model
      */
     public $target;
     protected $_name = [
+        'appId' => 'app_id',
+        'appSecret' => 'app_secret',
+        'groupId' => 'group_id',
         'id' => 'id',
+        'imbot' => 'imbot',
         'name' => 'name',
         'params' => 'params',
         'source' => 'source',
@@ -43,6 +67,9 @@ class UpdateAlertDestinationRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->groupId)) {
+            Model::validateArray($this->groupId);
+        }
         if (null !== $this->params) {
             $this->params->validate();
         }
@@ -52,8 +79,31 @@ class UpdateAlertDestinationRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['app_id'] = $this->appId;
+        }
+
+        if (null !== $this->appSecret) {
+            $res['app_secret'] = $this->appSecret;
+        }
+
+        if (null !== $this->groupId) {
+            if (\is_array($this->groupId)) {
+                $res['group_id'] = [];
+                $n1 = 0;
+                foreach ($this->groupId as $item1) {
+                    $res['group_id'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+
+        if (null !== $this->imbot) {
+            $res['imbot'] = $this->imbot;
         }
 
         if (null !== $this->name) {
@@ -83,8 +133,31 @@ class UpdateAlertDestinationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['app_id'])) {
+            $model->appId = $map['app_id'];
+        }
+
+        if (isset($map['app_secret'])) {
+            $model->appSecret = $map['app_secret'];
+        }
+
+        if (isset($map['group_id'])) {
+            if (!empty($map['group_id'])) {
+                $model->groupId = [];
+                $n1 = 0;
+                foreach ($map['group_id'] as $item1) {
+                    $model->groupId[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+
+        if (isset($map['imbot'])) {
+            $model->imbot = $map['imbot'];
         }
 
         if (isset($map['name'])) {

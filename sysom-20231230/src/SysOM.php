@@ -487,6 +487,22 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->appId) {
+            @$body['app_id'] = $request->appId;
+        }
+
+        if (null !== $request->appSecret) {
+            @$body['app_secret'] = $request->appSecret;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['group_id'] = $request->groupId;
+        }
+
+        if (null !== $request->imbot) {
+            @$body['imbot'] = $request->imbot;
+        }
+
         if (null !== $request->name) {
             @$body['name'] = $request->name;
         }
@@ -5400,8 +5416,24 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->appId) {
+            @$body['app_id'] = $request->appId;
+        }
+
+        if (null !== $request->appSecret) {
+            @$body['app_secret'] = $request->appSecret;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['group_id'] = $request->groupId;
+        }
+
         if (null !== $request->id) {
             @$body['id'] = $request->id;
+        }
+
+        if (null !== $request->imbot) {
+            @$body['imbot'] = $request->imbot;
         }
 
         if (null !== $request->name) {
