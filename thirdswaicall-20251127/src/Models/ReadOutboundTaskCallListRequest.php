@@ -29,9 +29,19 @@ class ReadOutboundTaskCallListRequest extends Model
     public $callStartTimeEnd;
 
     /**
+     * @var string
+     */
+    public $callerUacAccountId;
+
+    /**
      * @var int
      */
     public $current;
+
+    /**
+     * @var string
+     */
+    public $currentWorkspaceId;
 
     /**
      * @var string
@@ -77,7 +87,9 @@ class ReadOutboundTaskCallListRequest extends Model
         'callEndTimeEnd' => 'CallEndTimeEnd',
         'callStartTimeBegin' => 'CallStartTimeBegin',
         'callStartTimeEnd' => 'CallStartTimeEnd',
+        'callerUacAccountId' => 'CallerUacAccountId',
         'current' => 'Current',
+        'currentWorkspaceId' => 'CurrentWorkspaceId',
         'customerNameOrPhone' => 'CustomerNameOrPhone',
         'displayStatusList' => 'DisplayStatusList',
         'labelTags' => 'LabelTags',
@@ -118,8 +130,16 @@ class ReadOutboundTaskCallListRequest extends Model
             $res['CallStartTimeEnd'] = $this->callStartTimeEnd;
         }
 
+        if (null !== $this->callerUacAccountId) {
+            $res['CallerUacAccountId'] = $this->callerUacAccountId;
+        }
+
         if (null !== $this->current) {
             $res['Current'] = $this->current;
+        }
+
+        if (null !== $this->currentWorkspaceId) {
+            $res['CurrentWorkspaceId'] = $this->currentWorkspaceId;
         }
 
         if (null !== $this->customerNameOrPhone) {
@@ -195,8 +215,16 @@ class ReadOutboundTaskCallListRequest extends Model
             $model->callStartTimeEnd = $map['CallStartTimeEnd'];
         }
 
+        if (isset($map['CallerUacAccountId'])) {
+            $model->callerUacAccountId = $map['CallerUacAccountId'];
+        }
+
         if (isset($map['Current'])) {
             $model->current = $map['Current'];
+        }
+
+        if (isset($map['CurrentWorkspaceId'])) {
+            $model->currentWorkspaceId = $map['CurrentWorkspaceId'];
         }
 
         if (isset($map['CustomerNameOrPhone'])) {

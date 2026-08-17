@@ -14,11 +14,23 @@ class QueryTaskConcurrencyRequest extends Model
     public $applicationCode;
 
     /**
+     * @var string
+     */
+    public $callerUacAccountId;
+
+    /**
+     * @var string
+     */
+    public $currentWorkspaceId;
+
+    /**
      * @var int
      */
     public $taskId;
     protected $_name = [
         'applicationCode' => 'ApplicationCode',
+        'callerUacAccountId' => 'CallerUacAccountId',
+        'currentWorkspaceId' => 'CurrentWorkspaceId',
         'taskId' => 'TaskId',
     ];
 
@@ -32,6 +44,14 @@ class QueryTaskConcurrencyRequest extends Model
         $res = [];
         if (null !== $this->applicationCode) {
             $res['ApplicationCode'] = $this->applicationCode;
+        }
+
+        if (null !== $this->callerUacAccountId) {
+            $res['CallerUacAccountId'] = $this->callerUacAccountId;
+        }
+
+        if (null !== $this->currentWorkspaceId) {
+            $res['CurrentWorkspaceId'] = $this->currentWorkspaceId;
         }
 
         if (null !== $this->taskId) {
@@ -51,6 +71,14 @@ class QueryTaskConcurrencyRequest extends Model
         $model = new self();
         if (isset($map['ApplicationCode'])) {
             $model->applicationCode = $map['ApplicationCode'];
+        }
+
+        if (isset($map['CallerUacAccountId'])) {
+            $model->callerUacAccountId = $map['CallerUacAccountId'];
+        }
+
+        if (isset($map['CurrentWorkspaceId'])) {
+            $model->currentWorkspaceId = $map['CurrentWorkspaceId'];
         }
 
         if (isset($map['TaskId'])) {

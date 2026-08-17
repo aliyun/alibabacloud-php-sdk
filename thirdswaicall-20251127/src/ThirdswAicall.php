@@ -72,6 +72,14 @@ class ThirdswAicall extends OpenApiClient
             @$body['CalledNumber'] = $request->calledNumber;
         }
 
+        if (null !== $request->callerUacAccountId) {
+            @$body['CallerUacAccountId'] = $request->callerUacAccountId;
+        }
+
+        if (null !== $request->currentWorkspaceId) {
+            @$body['CurrentWorkspaceId'] = $request->currentWorkspaceId;
+        }
+
         if (null !== $request->customerName) {
             @$body['CustomerName'] = $request->customerName;
         }
@@ -143,6 +151,14 @@ class ThirdswAicall extends OpenApiClient
         $body = [];
         if (null !== $request->applicationCode) {
             @$body['ApplicationCode'] = $request->applicationCode;
+        }
+
+        if (null !== $request->callerUacAccountId) {
+            @$body['CallerUacAccountId'] = $request->callerUacAccountId;
+        }
+
+        if (null !== $request->currentWorkspaceId) {
+            @$body['CurrentWorkspaceId'] = $request->currentWorkspaceId;
         }
 
         if (null !== $request->taskId) {
@@ -228,8 +244,16 @@ class ThirdswAicall extends OpenApiClient
             @$body['CallStartTimeEnd'] = $request->callStartTimeEnd;
         }
 
+        if (null !== $request->callerUacAccountId) {
+            @$body['CallerUacAccountId'] = $request->callerUacAccountId;
+        }
+
         if (null !== $request->current) {
             @$body['Current'] = $request->current;
+        }
+
+        if (null !== $request->currentWorkspaceId) {
+            @$body['CurrentWorkspaceId'] = $request->currentWorkspaceId;
         }
 
         if (null !== $request->customerNameOrPhone) {

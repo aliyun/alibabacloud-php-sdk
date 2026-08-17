@@ -16,6 +16,16 @@ class CreateCallOutboundInstantRequest extends Model
     /**
      * @var string
      */
+    public $callerUacAccountId;
+
+    /**
+     * @var string
+     */
+    public $currentWorkspaceId;
+
+    /**
+     * @var string
+     */
     public $customerName;
 
     /**
@@ -34,6 +44,8 @@ class CreateCallOutboundInstantRequest extends Model
     public $taskId;
     protected $_name = [
         'calledNumber' => 'CalledNumber',
+        'callerUacAccountId' => 'CallerUacAccountId',
+        'currentWorkspaceId' => 'CurrentWorkspaceId',
         'customerName' => 'CustomerName',
         'encryptCall' => 'EncryptCall',
         'promptVariables' => 'PromptVariables',
@@ -50,6 +62,14 @@ class CreateCallOutboundInstantRequest extends Model
         $res = [];
         if (null !== $this->calledNumber) {
             $res['CalledNumber'] = $this->calledNumber;
+        }
+
+        if (null !== $this->callerUacAccountId) {
+            $res['CallerUacAccountId'] = $this->callerUacAccountId;
+        }
+
+        if (null !== $this->currentWorkspaceId) {
+            $res['CurrentWorkspaceId'] = $this->currentWorkspaceId;
         }
 
         if (null !== $this->customerName) {
@@ -81,6 +101,14 @@ class CreateCallOutboundInstantRequest extends Model
         $model = new self();
         if (isset($map['CalledNumber'])) {
             $model->calledNumber = $map['CalledNumber'];
+        }
+
+        if (isset($map['CallerUacAccountId'])) {
+            $model->callerUacAccountId = $map['CallerUacAccountId'];
+        }
+
+        if (isset($map['CurrentWorkspaceId'])) {
+            $model->currentWorkspaceId = $map['CurrentWorkspaceId'];
         }
 
         if (isset($map['CustomerName'])) {
