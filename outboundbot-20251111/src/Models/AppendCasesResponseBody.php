@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\OutboundBot\V20251111\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AppendCasesResponseBody\data;
 
 class AppendCasesResponseBody extends Model
 {
@@ -12,6 +13,11 @@ class AppendCasesResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var data[]
+     */
+    public $data;
 
     /**
      * @var int
@@ -39,6 +45,7 @@ class AppendCasesResponseBody extends Model
     public $success;
     protected $_name = [
         'code' => 'Code',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message' => 'Message',
         'params' => 'Params',
@@ -48,6 +55,9 @@ class AppendCasesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
         if (\is_array($this->params)) {
             Model::validateArray($this->params);
         }
@@ -59,6 +69,17 @@ class AppendCasesResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->data) {
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->httpStatusCode) {
@@ -101,6 +122,17 @@ class AppendCasesResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+
+        if (isset($map['Data'])) {
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['Data'] as $item1) {
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['HttpStatusCode'])) {

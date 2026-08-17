@@ -2711,7 +2711,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 恢复外呼活动.
+     * Resumes an outbound campaign.
      *
      * @remarks
      *
@@ -2756,7 +2756,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 恢复外呼活动.
+     * Resumes an outbound campaign.
      *
      * @remarks
      *
@@ -2776,7 +2776,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 提交外呼活动.
+     * Submits an outbound call campaign.
      *
      * @remarks
      *
@@ -2821,7 +2821,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 提交外呼活动.
+     * Submits an outbound call campaign.
      *
      * @remarks
      *
