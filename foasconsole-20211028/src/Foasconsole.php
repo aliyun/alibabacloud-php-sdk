@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Foasconsole\V20211028;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CloseFlinkAiServiceRequest;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CloseFlinkAiServiceResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ConvertHybridInstanceRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ConvertHybridInstanceResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ConvertHybridInstanceShrinkRequest;
@@ -32,8 +34,14 @@ use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeNamespacesShrinkReques
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeSupportedRegionsResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeSupportedZonesRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeSupportedZonesResponse;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\GetFlinkAiServiceFreeQuotaRequest;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\GetFlinkAiServiceFreeQuotaResponse;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\GetFlinkAiServiceRequest;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\GetFlinkAiServiceResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyAiServiceProtectionRequest;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyAiServiceProtectionResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyElasticResourceSpecRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyElasticResourceSpecResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyElasticResourceSpecShrinkRequest;
@@ -52,6 +60,8 @@ use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyPrepayInstanceSpecShrink
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyPrepayNamespaceSpecRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyPrepayNamespaceSpecResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyPrepayNamespaceSpecShrinkRequest;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\OpenFlinkAiServiceRequest;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\OpenFlinkAiServiceResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryConvertInstancePriceRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryConvertInstancePriceResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryConvertInstancePriceShrinkRequest;
@@ -129,6 +139,63 @@ class Foasconsole extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Disables the Flink AI service.
+     *
+     * @param request - CloseFlinkAiServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseFlinkAiServiceResponse
+     *
+     * @param CloseFlinkAiServiceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CloseFlinkAiServiceResponse
+     */
+    public function closeFlinkAiServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CloseFlinkAiService',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloseFlinkAiServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables the Flink AI service.
+     *
+     * @param request - CloseFlinkAiServiceRequest
+     *
+     * @returns CloseFlinkAiServiceResponse
+     *
+     * @param CloseFlinkAiServiceRequest $request
+     *
+     * @return CloseFlinkAiServiceResponse
+     */
+    public function closeFlinkAiService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeFlinkAiServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -963,6 +1030,120 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * Retrieves the status of the Flink AI service.
+     *
+     * @param request - GetFlinkAiServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFlinkAiServiceResponse
+     *
+     * @param GetFlinkAiServiceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetFlinkAiServiceResponse
+     */
+    public function getFlinkAiServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetFlinkAiService',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFlinkAiServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the status of the Flink AI service.
+     *
+     * @param request - GetFlinkAiServiceRequest
+     *
+     * @returns GetFlinkAiServiceResponse
+     *
+     * @param GetFlinkAiServiceRequest $request
+     *
+     * @return GetFlinkAiServiceResponse
+     */
+    public function getFlinkAiService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFlinkAiServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the free quota usage of Flink AI services.
+     *
+     * @param request - GetFlinkAiServiceFreeQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFlinkAiServiceFreeQuotaResponse
+     *
+     * @param GetFlinkAiServiceFreeQuotaRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetFlinkAiServiceFreeQuotaResponse
+     */
+    public function getFlinkAiServiceFreeQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetFlinkAiServiceFreeQuota',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFlinkAiServiceFreeQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the free quota usage of Flink AI services.
+     *
+     * @param request - GetFlinkAiServiceFreeQuotaRequest
+     *
+     * @returns GetFlinkAiServiceFreeQuotaResponse
+     *
+     * @param GetFlinkAiServiceFreeQuotaRequest $request
+     *
+     * @return GetFlinkAiServiceFreeQuotaResponse
+     */
+    public function getFlinkAiServiceFreeQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFlinkAiServiceFreeQuotaWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
      *
      * @param request - ListTagResourcesRequest
@@ -1033,6 +1214,67 @@ class Foasconsole extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the shutdown protection setting for a Flink AI service.
+     *
+     * @param request - ModifyAiServiceProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAiServiceProtectionResponse
+     *
+     * @param ModifyAiServiceProtectionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyAiServiceProtectionResponse
+     */
+    public function modifyAiServiceProtectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->deletionProtection) {
+            @$body['DeletionProtection'] = $request->deletionProtection;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAiServiceProtection',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAiServiceProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the shutdown protection setting for a Flink AI service.
+     *
+     * @param request - ModifyAiServiceProtectionRequest
+     *
+     * @returns ModifyAiServiceProtectionResponse
+     *
+     * @param ModifyAiServiceProtectionRequest $request
+     *
+     * @return ModifyAiServiceProtectionResponse
+     */
+    public function modifyAiServiceProtection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAiServiceProtectionWithOptions($request, $runtime);
     }
 
     /**
@@ -1582,6 +1824,63 @@ class Foasconsole extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPrepayNamespaceSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * Activates the Flink AI service.
+     *
+     * @param request - OpenFlinkAiServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenFlinkAiServiceResponse
+     *
+     * @param OpenFlinkAiServiceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return OpenFlinkAiServiceResponse
+     */
+    public function openFlinkAiServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OpenFlinkAiService',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OpenFlinkAiServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Activates the Flink AI service.
+     *
+     * @param request - OpenFlinkAiServiceRequest
+     *
+     * @returns OpenFlinkAiServiceResponse
+     *
+     * @param OpenFlinkAiServiceRequest $request
+     *
+     * @return OpenFlinkAiServiceResponse
+     */
+    public function openFlinkAiService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openFlinkAiServiceWithOptions($request, $runtime);
     }
 
     /**
