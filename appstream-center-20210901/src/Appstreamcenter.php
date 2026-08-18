@@ -1000,6 +1000,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['BizType'] = $request->bizType;
         }
 
+        if (null !== $request->copyProfile) {
+            @$body['CopyProfile'] = $request->copyProfile;
+        }
+
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
         }

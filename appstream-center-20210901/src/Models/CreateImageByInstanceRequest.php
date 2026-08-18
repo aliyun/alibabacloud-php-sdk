@@ -20,6 +20,11 @@ class CreateImageByInstanceRequest extends Model
     public $bizType;
 
     /**
+     * @var bool
+     */
+    public $copyProfile;
+
+    /**
      * @var string
      */
     public $description;
@@ -61,6 +66,7 @@ class CreateImageByInstanceRequest extends Model
     protected $_name = [
         'autoCleanUserdata' => 'AutoCleanUserdata',
         'bizType' => 'BizType',
+        'copyProfile' => 'CopyProfile',
         'description' => 'Description',
         'diskType' => 'DiskType',
         'imageName' => 'ImageName',
@@ -88,6 +94,10 @@ class CreateImageByInstanceRequest extends Model
 
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->copyProfile) {
+            $res['CopyProfile'] = $this->copyProfile;
         }
 
         if (null !== $this->description) {
@@ -146,6 +156,10 @@ class CreateImageByInstanceRequest extends Model
 
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+
+        if (isset($map['CopyProfile'])) {
+            $model->copyProfile = $map['CopyProfile'];
         }
 
         if (isset($map['Description'])) {
