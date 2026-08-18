@@ -19,6 +19,11 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
     public $clientId;
 
     /**
+     * @var string
+     */
+    public $clientIds;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -70,6 +75,7 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
     protected $_name = [
         'apiKeyId' => 'apiKeyId',
         'clientId' => 'clientId',
+        'clientIds' => 'clientIds',
         'endTime' => 'endTime',
         'granularity' => 'granularity',
         'maxResults' => 'maxResults',
@@ -96,6 +102,10 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
 
         if (null !== $this->clientId) {
             $res['clientId'] = $this->clientId;
+        }
+
+        if (null !== $this->clientIds) {
+            $res['clientIds'] = $this->clientIds;
         }
 
         if (null !== $this->endTime) {
@@ -155,6 +165,10 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
 
         if (isset($map['clientId'])) {
             $model->clientId = $map['clientId'];
+        }
+
+        if (isset($map['clientIds'])) {
+            $model->clientIds = $map['clientIds'];
         }
 
         if (isset($map['endTime'])) {

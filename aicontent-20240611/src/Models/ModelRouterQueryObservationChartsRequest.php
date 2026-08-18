@@ -21,6 +21,11 @@ class ModelRouterQueryObservationChartsRequest extends Model
     /**
      * @var string
      */
+    public $clientIds;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -45,6 +50,7 @@ class ModelRouterQueryObservationChartsRequest extends Model
     protected $_name = [
         'apiKeyId' => 'apiKeyId',
         'clientId' => 'clientId',
+        'clientIds' => 'clientIds',
         'endTime' => 'endTime',
         'memberUserIds' => 'memberUserIds',
         'modelId' => 'modelId',
@@ -66,6 +72,10 @@ class ModelRouterQueryObservationChartsRequest extends Model
 
         if (null !== $this->clientId) {
             $res['clientId'] = $this->clientId;
+        }
+
+        if (null !== $this->clientIds) {
+            $res['clientIds'] = $this->clientIds;
         }
 
         if (null !== $this->endTime) {
@@ -105,6 +115,10 @@ class ModelRouterQueryObservationChartsRequest extends Model
 
         if (isset($map['clientId'])) {
             $model->clientId = $map['clientId'];
+        }
+
+        if (isset($map['clientIds'])) {
+            $model->clientIds = $map['clientIds'];
         }
 
         if (isset($map['endTime'])) {

@@ -21,6 +21,11 @@ class ModelRouterQueryObservationLogsRequest extends Model
     /**
      * @var string
      */
+    public $clientIds;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -85,6 +90,7 @@ class ModelRouterQueryObservationLogsRequest extends Model
     protected $_name = [
         'apiKeyId' => 'apiKeyId',
         'clientId' => 'clientId',
+        'clientIds' => 'clientIds',
         'endTime' => 'endTime',
         'groupBy' => 'groupBy',
         'maxResults' => 'maxResults',
@@ -114,6 +120,10 @@ class ModelRouterQueryObservationLogsRequest extends Model
 
         if (null !== $this->clientId) {
             $res['clientId'] = $this->clientId;
+        }
+
+        if (null !== $this->clientIds) {
+            $res['clientIds'] = $this->clientIds;
         }
 
         if (null !== $this->endTime) {
@@ -185,6 +195,10 @@ class ModelRouterQueryObservationLogsRequest extends Model
 
         if (isset($map['clientId'])) {
             $model->clientId = $map['clientId'];
+        }
+
+        if (isset($map['clientIds'])) {
+            $model->clientIds = $map['clientIds'];
         }
 
         if (isset($map['endTime'])) {

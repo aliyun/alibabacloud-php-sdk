@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModelRouterQueryObservationMetricsRequest extends Model
+class ModelRouterGetBillingBillSummaryRequest extends Model
 {
     /**
      * @var int
@@ -24,14 +24,9 @@ class ModelRouterQueryObservationMetricsRequest extends Model
     public $clientIds;
 
     /**
-     * @var string
+     * @var int
      */
     public $endTime;
-
-    /**
-     * @var string
-     */
-    public $groupBy;
 
     /**
      * @var int
@@ -49,9 +44,9 @@ class ModelRouterQueryObservationMetricsRequest extends Model
     public $modelId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $needTotalCount;
+    public $modelTypes;
 
     /**
      * @var string
@@ -59,51 +54,20 @@ class ModelRouterQueryObservationMetricsRequest extends Model
     public $nextToken;
 
     /**
-     * @var string
-     */
-    public $orderBy;
-
-    /**
-     * @var string
-     */
-    public $orderDirection;
-
-    /**
      * @var int
-     */
-    public $pageIndex;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $timeRange;
     protected $_name = [
         'apiKeyId' => 'apiKeyId',
         'clientId' => 'clientId',
         'clientIds' => 'clientIds',
         'endTime' => 'endTime',
-        'groupBy' => 'groupBy',
         'maxResults' => 'maxResults',
         'memberUserIds' => 'memberUserIds',
         'modelId' => 'modelId',
-        'needTotalCount' => 'needTotalCount',
+        'modelTypes' => 'modelTypes',
         'nextToken' => 'nextToken',
-        'orderBy' => 'orderBy',
-        'orderDirection' => 'orderDirection',
-        'pageIndex' => 'pageIndex',
-        'pageSize' => 'pageSize',
         'startTime' => 'startTime',
-        'timeRange' => 'timeRange',
     ];
 
     public function validate()
@@ -130,10 +94,6 @@ class ModelRouterQueryObservationMetricsRequest extends Model
             $res['endTime'] = $this->endTime;
         }
 
-        if (null !== $this->groupBy) {
-            $res['groupBy'] = $this->groupBy;
-        }
-
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
@@ -146,36 +106,16 @@ class ModelRouterQueryObservationMetricsRequest extends Model
             $res['modelId'] = $this->modelId;
         }
 
-        if (null !== $this->needTotalCount) {
-            $res['needTotalCount'] = $this->needTotalCount;
+        if (null !== $this->modelTypes) {
+            $res['modelTypes'] = $this->modelTypes;
         }
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
 
-        if (null !== $this->orderBy) {
-            $res['orderBy'] = $this->orderBy;
-        }
-
-        if (null !== $this->orderDirection) {
-            $res['orderDirection'] = $this->orderDirection;
-        }
-
-        if (null !== $this->pageIndex) {
-            $res['pageIndex'] = $this->pageIndex;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
-        }
-
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
-        }
-
-        if (null !== $this->timeRange) {
-            $res['timeRange'] = $this->timeRange;
         }
 
         return $res;
@@ -205,10 +145,6 @@ class ModelRouterQueryObservationMetricsRequest extends Model
             $model->endTime = $map['endTime'];
         }
 
-        if (isset($map['groupBy'])) {
-            $model->groupBy = $map['groupBy'];
-        }
-
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
@@ -221,36 +157,16 @@ class ModelRouterQueryObservationMetricsRequest extends Model
             $model->modelId = $map['modelId'];
         }
 
-        if (isset($map['needTotalCount'])) {
-            $model->needTotalCount = $map['needTotalCount'];
+        if (isset($map['modelTypes'])) {
+            $model->modelTypes = $map['modelTypes'];
         }
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
 
-        if (isset($map['orderBy'])) {
-            $model->orderBy = $map['orderBy'];
-        }
-
-        if (isset($map['orderDirection'])) {
-            $model->orderDirection = $map['orderDirection'];
-        }
-
-        if (isset($map['pageIndex'])) {
-            $model->pageIndex = $map['pageIndex'];
-        }
-
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
-        }
-
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
-        }
-
-        if (isset($map['timeRange'])) {
-            $model->timeRange = $map['timeRange'];
         }
 
         return $model;

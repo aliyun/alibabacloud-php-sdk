@@ -133,6 +133,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteUserRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteUserResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterExportMemberBalanceOrdersRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterExportMemberBalanceOrdersResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetBillingBillSummaryRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetBillingBillSummaryResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceLogsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceLogsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceRequest;
@@ -4176,7 +4178,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Creates a balance transaction for customer management.
+     * Manages customers or creates a balance transaction.
      *
      * @param request - ModelRouterCreateBalanceTransactionRequest
      * @param headers - map
@@ -4235,7 +4237,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Creates a balance transaction for customer management.
+     * Manages customers or creates a balance transaction.
      *
      * @param request - ModelRouterCreateBalanceTransactionRequest
      *
@@ -5444,6 +5446,103 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * Queries the total cost trend of bills in the Billing Center.
+     *
+     * @param request - ModelRouterGetBillingBillSummaryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterGetBillingBillSummaryResponse
+     *
+     * @param ModelRouterGetBillingBillSummaryRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModelRouterGetBillingBillSummaryResponse
+     */
+    public function modelRouterGetBillingBillSummaryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['apiKeyId'] = $request->apiKeyId;
+        }
+
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientIds) {
+            @$query['clientIds'] = $request->clientIds;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->memberUserIds) {
+            @$query['memberUserIds'] = $request->memberUserIds;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->modelTypes) {
+            @$query['modelTypes'] = $request->modelTypes;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterGetBillingBillSummary',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/billing/bills/summary',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterGetBillingBillSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the total cost trend of bills in the Billing Center.
+     *
+     * @param request - ModelRouterGetBillingBillSummaryRequest
+     *
+     * @returns ModelRouterGetBillingBillSummaryResponse
+     *
+     * @param ModelRouterGetBillingBillSummaryRequest $request
+     *
+     * @return ModelRouterGetBillingBillSummaryResponse
+     */
+    public function modelRouterGetBillingBillSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterGetBillingBillSummaryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Client Management/Get department balance.
      *
      * @param request - ModelRouterGetClientBalanceRequest
@@ -6496,6 +6595,10 @@ class AiContent extends OpenApiClient
             @$query['clientId'] = $request->clientId;
         }
 
+        if (null !== $request->clientIds) {
+            @$query['clientIds'] = $request->clientIds;
+        }
+
         if (null !== $request->endTime) {
             @$query['endTime'] = $request->endTime;
         }
@@ -7049,7 +7152,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the usage details of a model for billing management.
+     * Retrieves model usage details for billing management.
      *
      * @param request - ModelRouterQueryCostModelDetailRequest
      * @param headers - map
@@ -7073,6 +7176,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->clientId) {
             @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientIds) {
+            @$query['clientIds'] = $request->clientIds;
         }
 
         if (null !== $request->endTime) {
@@ -7131,7 +7238,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the usage details of a model for billing management.
+     * Retrieves model usage details for billing management.
      *
      * @param request - ModelRouterQueryCostModelDetailRequest
      *
@@ -7174,6 +7281,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->clientId) {
             @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientIds) {
+            @$query['clientIds'] = $request->clientIds;
         }
 
         if (null !== $request->endTime) {
@@ -7273,6 +7384,10 @@ class AiContent extends OpenApiClient
             @$query['clientId'] = $request->clientId;
         }
 
+        if (null !== $request->clientIds) {
+            @$query['clientIds'] = $request->clientIds;
+        }
+
         if (null !== $request->endTime) {
             @$query['endTime'] = $request->endTime;
         }
@@ -7364,6 +7479,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->clientId) {
             @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientIds) {
+            @$query['clientIds'] = $request->clientIds;
         }
 
         if (null !== $request->endTime) {
@@ -8253,6 +8372,10 @@ class AiContent extends OpenApiClient
             @$query['clientId'] = $request->clientId;
         }
 
+        if (null !== $request->clientIds) {
+            @$query['clientIds'] = $request->clientIds;
+        }
+
         if (null !== $request->endTime) {
             @$query['endTime'] = $request->endTime;
         }
@@ -8312,7 +8435,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of model observation logs.
+     * Retrieves a list of observation logs for model monitoring.
      *
      * @param request - ModelRouterQueryObservationLogsRequest
      * @param headers - map
@@ -8336,6 +8459,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->clientId) {
             @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientIds) {
+            @$query['clientIds'] = $request->clientIds;
         }
 
         if (null !== $request->endTime) {
@@ -8410,7 +8537,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of model observation logs.
+     * Retrieves a list of observation logs for model monitoring.
      *
      * @param request - ModelRouterQueryObservationLogsRequest
      *
@@ -8429,7 +8556,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves observability metric data for models.
+     * Retrieves observability metric data for model API calls.
      *
      * @param request - ModelRouterQueryObservationMetricsRequest
      * @param headers - map
@@ -8453,6 +8580,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->clientId) {
             @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientIds) {
+            @$query['clientIds'] = $request->clientIds;
         }
 
         if (null !== $request->endTime) {
@@ -8527,7 +8658,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves observability metric data for models.
+     * Retrieves observability metric data for model API calls.
      *
      * @param request - ModelRouterQueryObservationMetricsRequest
      *
@@ -8570,6 +8701,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->clientId) {
             @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientIds) {
+            @$query['clientIds'] = $request->clientIds;
         }
 
         if (null !== $request->endTime) {
