@@ -25,6 +25,11 @@ class list_ extends Model
     public $antiPunishTime;
 
     /**
+     * @var string
+     */
+    public $callApi;
+
+    /**
      * @var dateExtras
      */
     public $dateExtras;
@@ -48,6 +53,21 @@ class list_ extends Model
      * @var string
      */
     public $eventReason;
+
+    /**
+     * @var string
+     */
+    public $eventType;
+
+    /**
+     * @var string
+     */
+    public $exceptionCallTime;
+
+    /**
+     * @var string
+     */
+    public $exceptionIp;
 
     /**
      * @var string
@@ -92,11 +112,15 @@ class list_ extends Model
         'actionCode' => 'ActionCode',
         'actionName' => 'ActionName',
         'antiPunishTime' => 'AntiPunishTime',
+        'callApi' => 'CallApi',
         'dateExtras' => 'DateExtras',
         'eventId' => 'EventId',
         'eventImpact' => 'EventImpact',
         'eventName' => 'EventName',
         'eventReason' => 'EventReason',
+        'eventType' => 'EventType',
+        'exceptionCallTime' => 'ExceptionCallTime',
+        'exceptionIp' => 'ExceptionIp',
         'punishTime' => 'PunishTime',
         'reinforcement' => 'Reinforcement',
         'resourceId' => 'ResourceId',
@@ -130,6 +154,10 @@ class list_ extends Model
             $res['AntiPunishTime'] = $this->antiPunishTime;
         }
 
+        if (null !== $this->callApi) {
+            $res['CallApi'] = $this->callApi;
+        }
+
         if (null !== $this->dateExtras) {
             $res['DateExtras'] = null !== $this->dateExtras ? $this->dateExtras->toArray($noStream) : $this->dateExtras;
         }
@@ -148,6 +176,18 @@ class list_ extends Model
 
         if (null !== $this->eventReason) {
             $res['EventReason'] = $this->eventReason;
+        }
+
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
+        }
+
+        if (null !== $this->exceptionCallTime) {
+            $res['ExceptionCallTime'] = $this->exceptionCallTime;
+        }
+
+        if (null !== $this->exceptionIp) {
+            $res['ExceptionIp'] = $this->exceptionIp;
         }
 
         if (null !== $this->punishTime) {
@@ -205,6 +245,10 @@ class list_ extends Model
             $model->antiPunishTime = $map['AntiPunishTime'];
         }
 
+        if (isset($map['CallApi'])) {
+            $model->callApi = $map['CallApi'];
+        }
+
         if (isset($map['DateExtras'])) {
             $model->dateExtras = dateExtras::fromMap($map['DateExtras']);
         }
@@ -223,6 +267,18 @@ class list_ extends Model
 
         if (isset($map['EventReason'])) {
             $model->eventReason = $map['EventReason'];
+        }
+
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
+        }
+
+        if (isset($map['ExceptionCallTime'])) {
+            $model->exceptionCallTime = $map['ExceptionCallTime'];
+        }
+
+        if (isset($map['ExceptionIp'])) {
+            $model->exceptionIp = $map['ExceptionIp'];
         }
 
         if (isset($map['PunishTime'])) {
