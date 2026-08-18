@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\CreateLayerVersionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateLayerVersionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateSessionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateSessionResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\CreateSnapshotRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\CreateSnapshotResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateTriggerRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateVpcBindingRequest;
@@ -37,6 +39,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\DeleteScalingConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteScalingConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteSessionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteSessionResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteSnapshotRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteSnapshotResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteVpcBindingResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DescribeRegionsRequest;
@@ -63,6 +67,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\GetScalingConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetScalingConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetSessionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetSessionResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetSnapshotRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetSnapshotResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\InvokeFunctionHeaders;
 use AlibabaCloud\SDK\FC\V20230330\Models\InvokeFunctionRequest;
@@ -95,6 +101,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\ListScalingConfigsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListScalingConfigsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListSessionsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListSessionsResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListSnapshotsRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListSnapshotsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesShrinkRequest;
@@ -565,6 +573,84 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->createSessionWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 从正常且未过期的微沙箱会话中创建用户快照。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 用于从指定的微沙箱会话中创建一个用户快照。
+     * - 可选参数 `qualifier` 用于标识创建源会话时使用的有效别名或具体函数版本。如果省略，默认为 `LATEST`。
+     * - 必须提供 `sessionId` 参数，以指定要从中创建快照的客户端会话 ID。
+     * - 描述信息 `description` 是可选的，但若提供，则不能包含控制字符，并且长度限制为 256 个 UTF-8 字节。
+     *
+     * @param request - CreateSnapshotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSnapshotResponse
+     *
+     * @param string                $functionName
+     * @param CreateSnapshotRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateSnapshotResponse
+     */
+    public function createSnapshotWithOptions($functionName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSnapshot',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/snapshots',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 从正常且未过期的微沙箱会话中创建用户快照。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 用于从指定的微沙箱会话中创建一个用户快照。
+     * - 可选参数 `qualifier` 用于标识创建源会话时使用的有效别名或具体函数版本。如果省略，默认为 `LATEST`。
+     * - 必须提供 `sessionId` 参数，以指定要从中创建快照的客户端会话 ID。
+     * - 描述信息 `description` 是可选的，但若提供，则不能包含控制字符，并且长度限制为 256 个 UTF-8 字节。
+     *
+     * @param request - CreateSnapshotRequest
+     *
+     * @returns CreateSnapshotResponse
+     *
+     * @param string                $functionName
+     * @param CreateSnapshotRequest $request
+     *
+     * @return CreateSnapshotResponse
+     */
+    public function createSnapshot($functionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSnapshotWithOptions($functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -1247,6 +1333,79 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->deleteSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除用户快照.
+     *
+     * @remarks
+     * - 该 API 用于删除指定函数下的用户 MicroSandbox 快照。
+     * - 删除成功后，快照进入异步删除流程；接口返回 202 Accepted 表示删除请求已受理，不等待底层 Template、artifact 等物理资源清理完成。
+     * - 已进入删除中的快照重复删除仍返回 202 Accepted。
+     * - 如果指定快照在当前函数作用域下不存在，返回 204 No Content，用于支持幂等删除。
+     * - 如果快照仍被已恢复的 Session 使用，或存在未确认可清理的 consumer relation，返回 409 SnapshotInUse，不会删除快照。
+     *
+     * @param request - DeleteSnapshotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSnapshotResponse
+     *
+     * @param string                $functionName
+     * @param string                $snapshotId
+     * @param DeleteSnapshotRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteSnapshotResponse
+     */
+    public function deleteSnapshotWithOptions($functionName, $snapshotId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSnapshot',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/snapshots/' . Url::percentEncode($snapshotId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除用户快照.
+     *
+     * @remarks
+     * - 该 API 用于删除指定函数下的用户 MicroSandbox 快照。
+     * - 删除成功后，快照进入异步删除流程；接口返回 202 Accepted 表示删除请求已受理，不等待底层 Template、artifact 等物理资源清理完成。
+     * - 已进入删除中的快照重复删除仍返回 202 Accepted。
+     * - 如果指定快照在当前函数作用域下不存在，返回 204 No Content，用于支持幂等删除。
+     * - 如果快照仍被已恢复的 Session 使用，或存在未确认可清理的 consumer relation，返回 409 SnapshotInUse，不会删除快照。
+     *
+     * @param request - DeleteSnapshotRequest
+     *
+     * @returns DeleteSnapshotResponse
+     *
+     * @param string                $functionName
+     * @param string                $snapshotId
+     * @param DeleteSnapshotRequest $request
+     *
+     * @return DeleteSnapshotResponse
+     */
+    public function deleteSnapshot($functionName, $snapshotId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSnapshotWithOptions($functionName, $snapshotId, $request, $headers, $runtime);
     }
 
     /**
@@ -2242,6 +2401,75 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->getSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取快照信息.
+     *
+     * @remarks
+     * - 该 API 用于获取指定函数下的用户 MicroSandbox 快照信息。
+     * - 仅当快照属于当前函数、状态为 Available 且未过期时返回快照详情。
+     * - 快照不存在、已过期、正在创建、正在删除、属于内部快照或不属于当前函数时，均按不可见处理，返回 404 SnapshotNotFound。
+     *
+     * @param request - GetSnapshotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSnapshotResponse
+     *
+     * @param string             $functionName
+     * @param string             $snapshotId
+     * @param GetSnapshotRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetSnapshotResponse
+     */
+    public function getSnapshotWithOptions($functionName, $snapshotId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetSnapshot',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/snapshots/' . Url::percentEncode($snapshotId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取快照信息.
+     *
+     * @remarks
+     * - 该 API 用于获取指定函数下的用户 MicroSandbox 快照信息。
+     * - 仅当快照属于当前函数、状态为 Available 且未过期时返回快照详情。
+     * - 快照不存在、已过期、正在创建、正在删除、属于内部快照或不属于当前函数时，均按不可见处理，返回 404 SnapshotNotFound。
+     *
+     * @param request - GetSnapshotRequest
+     *
+     * @returns GetSnapshotResponse
+     *
+     * @param string             $functionName
+     * @param string             $snapshotId
+     * @param GetSnapshotRequest $request
+     *
+     * @return GetSnapshotResponse
+     */
+    public function getSnapshot($functionName, $snapshotId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSnapshotWithOptions($functionName, $snapshotId, $request, $headers, $runtime);
     }
 
     /**
@@ -3408,6 +3636,97 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->listSessionsWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列出快照信息.
+     *
+     * @remarks
+     * - 该 API 用于列出当前账号下可见的用户 MicroSandbox 快照。
+     * - 仅返回未过期且状态为 Available 的用户快照。
+     * - 支持四种筛选方式：账号级列表、按函数过滤、按函数和源 SessionID 过滤、按函数、源 SessionID 和创建时 qualifier 过滤。
+     * - 结果按创建时间和快照 ID 稳定降序分页。
+     * - ListSnapshots 使用搜索索引查询，短时间内可能存在最终一致性延迟；GetSnapshot 和使用快照创建 Session 以主表强读为准。
+     *
+     * @param request - ListSnapshotsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSnapshotsResponse
+     *
+     * @param ListSnapshotsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSnapshotsResponse
+     */
+    public function listSnapshotsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->functionName) {
+            @$query['functionName'] = $request->functionName;
+        }
+
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSnapshots',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/snapshots',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出快照信息.
+     *
+     * @remarks
+     * - 该 API 用于列出当前账号下可见的用户 MicroSandbox 快照。
+     * - 仅返回未过期且状态为 Available 的用户快照。
+     * - 支持四种筛选方式：账号级列表、按函数过滤、按函数和源 SessionID 过滤、按函数、源 SessionID 和创建时 qualifier 过滤。
+     * - 结果按创建时间和快照 ID 稳定降序分页。
+     * - ListSnapshots 使用搜索索引查询，短时间内可能存在最终一致性延迟；GetSnapshot 和使用快照创建 Session 以主表强读为准。
+     *
+     * @param request - ListSnapshotsRequest
+     *
+     * @returns ListSnapshotsResponse
+     *
+     * @param ListSnapshotsRequest $request
+     *
+     * @return ListSnapshotsResponse
+     */
+    public function listSnapshots($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSnapshotsWithOptions($request, $headers, $runtime);
     }
 
     /**
