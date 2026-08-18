@@ -1,0 +1,108 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentInstancesResponseBody;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentInstancesResponseBody\componentInstances\config;
+
+class componentInstances extends Model
+{
+    /**
+     * @var config
+     */
+    public $config;
+
+    /**
+     * @var string
+     */
+    public $configRevision;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var string
+     */
+    public $version;
+    protected $_name = [
+        'config' => 'config',
+        'configRevision' => 'config_revision',
+        'name' => 'name',
+        'state' => 'state',
+        'version' => 'version',
+    ];
+
+    public function validate()
+    {
+        if (null !== $this->config) {
+            $this->config->validate();
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->config) {
+            $res['config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
+        }
+
+        if (null !== $this->configRevision) {
+            $res['config_revision'] = $this->configRevision;
+        }
+
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+
+        if (null !== $this->state) {
+            $res['state'] = $this->state;
+        }
+
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['config'])) {
+            $model->config = config::fromMap($map['config']);
+        }
+
+        if (isset($map['config_revision'])) {
+            $model->configRevision = $map['config_revision'];
+        }
+
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+
+        if (isset($map['state'])) {
+            $model->state = $map['state'];
+        }
+
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
+        }
+
+        return $model;
+    }
+}

@@ -36,6 +36,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateKubernetesTriggerResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateNodePoolComponentInstancesRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateNodePoolComponentInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerRequest;
@@ -56,6 +58,9 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteKubernetesTriggerResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteNodePoolComponentInstanceRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteNodePoolComponentInstanceResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteNodePoolComponentInstanceShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeletePolicyInstanceRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeletePolicyInstanceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteTemplateResponse;
@@ -165,6 +170,11 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterInspectReportsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterInspectReportsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentInstancesRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentInstancesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentsRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentsShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansForRegionRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansForRegionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansRequest;
@@ -241,6 +251,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireRequest
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateKMSEncryptionRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateKMSEncryptionResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateNodePoolComponentInstanceRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateNodePoolComponentInstanceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateNodePoolComponentRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateNodePoolComponentResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateResourcesDeleteProtectionRequest;
@@ -2065,6 +2077,79 @@ class CS extends OpenApiClient
     }
 
     /**
+     * 安装节点组件.
+     *
+     * @param request - CreateNodePoolComponentInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNodePoolComponentInstancesResponse
+     *
+     * @param string                                  $clusterId
+     * @param string                                  $nodepoolId
+     * @param CreateNodePoolComponentInstancesRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateNodePoolComponentInstancesResponse
+     */
+    public function createNodePoolComponentInstancesWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->components) {
+            @$body['components'] = $request->components;
+        }
+
+        if (null !== $request->nodeNames) {
+            @$body['node_names'] = $request->nodeNames;
+        }
+
+        if (null !== $request->rollingPolicy) {
+            @$body['rolling_policy'] = $request->rollingPolicy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNodePoolComponentInstances',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/nodepools/' . Url::percentEncode($nodepoolId) . '/component_instances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNodePoolComponentInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 安装节点组件.
+     *
+     * @param request - CreateNodePoolComponentInstancesRequest
+     *
+     * @returns CreateNodePoolComponentInstancesResponse
+     *
+     * @param string                                  $clusterId
+     * @param string                                  $nodepoolId
+     * @param CreateNodePoolComponentInstancesRequest $request
+     *
+     * @return CreateNodePoolComponentInstancesResponse
+     */
+    public function createNodePoolComponentInstances($clusterId, $nodepoolId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createNodePoolComponentInstancesWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
+    }
+
+    /**
      * An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can use these templates to automate the deployment and cluster management of resources, such as Pods, Services, Deployments, ConfigMaps, and PersistentVolumes. You can invoke the CreateTemplate operation to create an orchestration template.
      *
      * @param request - CreateTemplateRequest
@@ -2773,6 +2858,95 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->deleteKubernetesTriggerWithOptions($Id, $headers, $runtime);
+    }
+
+    /**
+     * 卸载节点组件.
+     *
+     * @param tmpReq - DeleteNodePoolComponentInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNodePoolComponentInstanceResponse
+     *
+     * @param string                                 $clusterId
+     * @param string                                 $nodepoolId
+     * @param string                                 $name
+     * @param DeleteNodePoolComponentInstanceRequest $tmpReq
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteNodePoolComponentInstanceResponse
+     */
+    public function deleteNodePoolComponentInstanceWithOptions($clusterId, $nodepoolId, $name, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteNodePoolComponentInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeNames) {
+            $request->nodeNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeNames, 'node_names', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->batchInterval) {
+            @$query['batch_interval'] = $request->batchInterval;
+        }
+
+        if (null !== $request->maxFailedNodes) {
+            @$query['max_failed_nodes'] = $request->maxFailedNodes;
+        }
+
+        if (null !== $request->maxParallelism) {
+            @$query['max_parallelism'] = $request->maxParallelism;
+        }
+
+        if (null !== $request->nodeNamesShrink) {
+            @$query['node_names'] = $request->nodeNamesShrink;
+        }
+
+        if (null !== $request->pausePolicy) {
+            @$query['pause_policy'] = $request->pausePolicy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNodePoolComponentInstance',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/nodepools/' . Url::percentEncode($nodepoolId) . '/component_instances/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNodePoolComponentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 卸载节点组件.
+     *
+     * @param request - DeleteNodePoolComponentInstanceRequest
+     *
+     * @returns DeleteNodePoolComponentInstanceResponse
+     *
+     * @param string                                 $clusterId
+     * @param string                                 $nodepoolId
+     * @param string                                 $name
+     * @param DeleteNodePoolComponentInstanceRequest $request
+     *
+     * @return DeleteNodePoolComponentInstanceResponse
+     */
+    public function deleteNodePoolComponentInstance($clusterId, $nodepoolId, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteNodePoolComponentInstanceWithOptions($clusterId, $nodepoolId, $name, $request, $headers, $runtime);
     }
 
     /**
@@ -7230,6 +7404,168 @@ class CS extends OpenApiClient
     }
 
     /**
+     * 查询节点组件实例列表.
+     *
+     * @param request - ListNodePoolComponentInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodePoolComponentInstancesResponse
+     *
+     * @param string                                $clusterId
+     * @param string                                $nodepoolId
+     * @param ListNodePoolComponentInstancesRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListNodePoolComponentInstancesResponse
+     */
+    public function listNodePoolComponentInstancesWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['max_results'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['next_token'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNodePoolComponentInstances',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/nodepools/' . Url::percentEncode($nodepoolId) . '/component_instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNodePoolComponentInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询节点组件实例列表.
+     *
+     * @param request - ListNodePoolComponentInstancesRequest
+     *
+     * @returns ListNodePoolComponentInstancesResponse
+     *
+     * @param string                                $clusterId
+     * @param string                                $nodepoolId
+     * @param ListNodePoolComponentInstancesRequest $request
+     *
+     * @return ListNodePoolComponentInstancesResponse
+     */
+    public function listNodePoolComponentInstances($clusterId, $nodepoolId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listNodePoolComponentInstancesWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询节点池可安装的节点组件.
+     *
+     * @param tmpReq - ListNodePoolComponentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodePoolComponentsResponse
+     *
+     * @param string                        $clusterId
+     * @param ListNodePoolComponentsRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListNodePoolComponentsResponse
+     */
+    public function listNodePoolComponentsWithOptions($clusterId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListNodePoolComponentsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceTypes) {
+            $request->instanceTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceTypes, 'instance_types', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->imageId) {
+            @$query['image_id'] = $request->imageId;
+        }
+
+        if (null !== $request->imageType) {
+            @$query['image_type'] = $request->imageType;
+        }
+
+        if (null !== $request->instanceTypesShrink) {
+            @$query['instance_types'] = $request->instanceTypesShrink;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['max_results'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['next_token'] = $request->nextToken;
+        }
+
+        if (null !== $request->nodepoolId) {
+            @$query['nodepool_id'] = $request->nodepoolId;
+        }
+
+        if (null !== $request->nodepoolType) {
+            @$query['nodepool_type'] = $request->nodepoolType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNodePoolComponents',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/nodepool_components',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNodePoolComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询节点池可安装的节点组件.
+     *
+     * @param request - ListNodePoolComponentsRequest
+     *
+     * @returns ListNodePoolComponentsResponse
+     *
+     * @param string                        $clusterId
+     * @param ListNodePoolComponentsRequest $request
+     *
+     * @return ListNodePoolComponentsResponse
+     */
+    public function listNodePoolComponents($clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listNodePoolComponentsWithOptions($clusterId, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves a list of automated O&M execution plans.
      *
      * @param request - ListOperationPlansRequest
@@ -10330,6 +10666,89 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->updateNodePoolComponentWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新节点组件.
+     *
+     * @param request - UpdateNodePoolComponentInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNodePoolComponentInstanceResponse
+     *
+     * @param string                                 $clusterId
+     * @param string                                 $nodepoolId
+     * @param string                                 $name
+     * @param UpdateNodePoolComponentInstanceRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateNodePoolComponentInstanceResponse
+     */
+    public function updateNodePoolComponentInstanceWithOptions($clusterId, $nodepoolId, $name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->disableRolling) {
+            @$body['disable_rolling'] = $request->disableRolling;
+        }
+
+        if (null !== $request->nodeNames) {
+            @$body['node_names'] = $request->nodeNames;
+        }
+
+        if (null !== $request->rollingPolicy) {
+            @$body['rolling_policy'] = $request->rollingPolicy;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNodePoolComponentInstance',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/nodepools/' . Url::percentEncode($nodepoolId) . '/component_instances/' . Url::percentEncode($name) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNodePoolComponentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新节点组件.
+     *
+     * @param request - UpdateNodePoolComponentInstanceRequest
+     *
+     * @returns UpdateNodePoolComponentInstanceResponse
+     *
+     * @param string                                 $clusterId
+     * @param string                                 $nodepoolId
+     * @param string                                 $name
+     * @param UpdateNodePoolComponentInstanceRequest $request
+     *
+     * @return UpdateNodePoolComponentInstanceResponse
+     */
+    public function updateNodePoolComponentInstance($clusterId, $nodepoolId, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateNodePoolComponentInstanceWithOptions($clusterId, $nodepoolId, $name, $request, $headers, $runtime);
     }
 
     /**
