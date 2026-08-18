@@ -204,18 +204,18 @@ class RdsAi extends OpenApiClient
         $this->_endpointMap = [
             'cn-wulanchabu' => 'rdsai.aliyuncs.com',
             'cn-shenzhen' => 'rdsai.aliyuncs.com',
-            'cn-shanghai' => 'rdsai.aliyuncs.com',
-            'cn-hongkong' => 'rdsai.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'rdsai.aliyuncs.com',
-            'cn-guangzhou' => 'rdsai.aliyuncs.com',
-            'cn-chengdu' => 'rdsai.cn-chengdu.aliyuncs.com',
             'cn-beijing' => 'rdsai.aliyuncs.com',
-            'ap-southeast-5' => 'rdsai.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'rdsai.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'rdsai.ap-southeast-1.aliyuncs.com',
             'ap-northeast-1' => 'rdsai.ap-northeast-1.aliyuncs.com',
-            'eu-central-1' => 'rdsai.eu-central-1.aliyuncs.com',
+            'cn-chengdu' => 'rdsai.cn-chengdu.aliyuncs.com',
+            'cn-shanghai' => 'rdsai.aliyuncs.com',
+            'cn-guangzhou' => 'rdsai.aliyuncs.com',
+            'cn-hongkong' => 'rdsai.cn-hongkong.aliyuncs.com',
+            'ap-southeast-1' => 'rdsai.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'rdsai.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'rdsai.ap-southeast-5.aliyuncs.com',
+            'cn-hangzhou' => 'rdsai.aliyuncs.com',
             'us-west-1' => 'rdsai.us-west-1.aliyuncs.com',
+            'eu-central-1' => 'rdsai.eu-central-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('rdsai', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -514,6 +514,14 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->quantity) {
             @$query['Quantity'] = $request->quantity;
+        }
+
+        if (null !== $request->roleArn) {
+            @$query['RoleArn'] = $request->roleArn;
+        }
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
 
         if (null !== $request->tokenQuota) {
@@ -1276,8 +1284,8 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related feature documentation
-     * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
+     * ### Related documentation
+     * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - CreateScheduledTaskRequest
@@ -1366,8 +1374,8 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related feature documentation
-     * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
+     * ### Related documentation
+     * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - CreateScheduledTaskRequest
@@ -1469,7 +1477,7 @@ class RdsAi extends OpenApiClient
      *
      * @remarks
      * ### Applicable engine
-     * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - DeleteApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1516,7 +1524,7 @@ class RdsAi extends OpenApiClient
      *
      * @remarks
      * ### Applicable engine
-     * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - DeleteApiKeyRequest
      *
@@ -3895,7 +3903,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
+     * Queries the list of all instance IDs included in a specified scheduled inspection configuration.
      *
      * @param request - GetScheduledInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3942,7 +3950,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the IDs of all instances that are included by a specified scheduled inspection configuration.
+     * Queries the list of all instance IDs included in a specified scheduled inspection configuration.
      *
      * @param request - GetScheduledInstancesRequest
      *
@@ -3960,7 +3968,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
+     * Queries all inspection reports under a specified scheduled task, with support for filtering by time range and pagination.
      *
      * @param request - GetScheduledReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4015,7 +4023,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
+     * Queries all inspection reports under a specified scheduled task, with support for filtering by time range and pagination.
      *
      * @param request - GetScheduledReportsRequest
      *
@@ -4389,11 +4397,7 @@ class RdsAi extends OpenApiClient
      * 根据workspaceId和状态过滤调用方账号下的工作区列表。
      *
      * @remarks
-     * ## 请求说明
-     * - 该API用于获取指定条件下的工作区列表。
-     * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
-     * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
-     * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+     * 列出上下文数据库工作空间
      *
      * @param request - ListContextDatabaseWorkspacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4447,11 +4451,7 @@ class RdsAi extends OpenApiClient
      * 根据workspaceId和状态过滤调用方账号下的工作区列表。
      *
      * @remarks
-     * ## 请求说明
-     * - 该API用于获取指定条件下的工作区列表。
-     * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
-     * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
-     * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+     * 列出上下文数据库工作空间
      *
      * @param request - ListContextDatabaseWorkspacesRequest
      *
@@ -5820,11 +5820,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Renames an API key.
+     * Renames a custom API key.
      *
      * @remarks
-     * ### Applicable engines
-     * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - RenameApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5852,6 +5852,14 @@ class RdsAi extends OpenApiClient
             @$query['KeyName'] = $request->keyName;
         }
 
+        if (null !== $request->roleArn) {
+            @$query['RoleArn'] = $request->roleArn;
+        }
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5871,11 +5879,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Renames an API key.
+     * Renames a custom API key.
      *
      * @remarks
-     * ### Applicable engines
-     * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - RenameApiKeyRequest
      *

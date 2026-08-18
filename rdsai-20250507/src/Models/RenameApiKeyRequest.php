@@ -22,10 +22,22 @@ class RenameApiKeyRequest extends Model
      * @var string
      */
     public $keyName;
+
+    /**
+     * @var string
+     */
+    public $roleArn;
+
+    /**
+     * @var string
+     */
+    public $roleName;
     protected $_name = [
         'apiKey' => 'ApiKey',
         'instanceId' => 'InstanceId',
         'keyName' => 'KeyName',
+        'roleArn' => 'RoleArn',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()
@@ -46,6 +58,14 @@ class RenameApiKeyRequest extends Model
 
         if (null !== $this->keyName) {
             $res['KeyName'] = $this->keyName;
+        }
+
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
+        }
+
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
         }
 
         return $res;
@@ -69,6 +89,14 @@ class RenameApiKeyRequest extends Model
 
         if (isset($map['KeyName'])) {
             $model->keyName = $map['KeyName'];
+        }
+
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
+        }
+
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
         }
 
         return $model;

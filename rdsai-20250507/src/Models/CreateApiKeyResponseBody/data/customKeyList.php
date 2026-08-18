@@ -34,6 +34,11 @@ class customKeyList extends Model
     public $limitType;
 
     /**
+     * @var string
+     */
+    public $roleArn;
+
+    /**
      * @var int
      */
     public $tokenQuota;
@@ -43,6 +48,7 @@ class customKeyList extends Model
         'keyName' => 'KeyName',
         'limitRate' => 'LimitRate',
         'limitType' => 'LimitType',
+        'roleArn' => 'RoleArn',
         'tokenQuota' => 'TokenQuota',
     ];
 
@@ -72,6 +78,10 @@ class customKeyList extends Model
 
         if (null !== $this->limitType) {
             $res['LimitType'] = $this->limitType;
+        }
+
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
         }
 
         if (null !== $this->tokenQuota) {
@@ -107,6 +117,10 @@ class customKeyList extends Model
 
         if (isset($map['LimitType'])) {
             $model->limitType = $map['LimitType'];
+        }
+
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
         }
 
         if (isset($map['TokenQuota'])) {

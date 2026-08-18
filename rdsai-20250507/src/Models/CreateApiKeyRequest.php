@@ -39,6 +39,16 @@ class CreateApiKeyRequest extends Model
     public $quantity;
 
     /**
+     * @var string
+     */
+    public $roleArn;
+
+    /**
+     * @var string
+     */
+    public $roleName;
+
+    /**
      * @var int
      */
     public $tokenQuota;
@@ -49,6 +59,8 @@ class CreateApiKeyRequest extends Model
         'limitRate' => 'LimitRate',
         'limitType' => 'LimitType',
         'quantity' => 'Quantity',
+        'roleArn' => 'RoleArn',
+        'roleName' => 'RoleName',
         'tokenQuota' => 'TokenQuota',
     ];
 
@@ -82,6 +94,14 @@ class CreateApiKeyRequest extends Model
 
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
+        }
+
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
+        }
+
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
         }
 
         if (null !== $this->tokenQuota) {
@@ -121,6 +141,14 @@ class CreateApiKeyRequest extends Model
 
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
+        }
+
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
+        }
+
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
         }
 
         if (isset($map['TokenQuota'])) {
