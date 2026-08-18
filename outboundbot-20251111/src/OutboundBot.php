@@ -49,8 +49,12 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteVoiceAccessProfileReques
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteVoiceAccessProfileResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DisableSubscriptionRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DisableSubscriptionResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCallDetailRecordRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCallDetailRecordResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCampaignRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCampaignResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCaseDetailRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCaseDetailResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetScriptProfileTemplateRequest;
@@ -59,6 +63,9 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetSubscriptionRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetSubscriptionResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCampaignsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCampaignsResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCasesRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCasesResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCasesShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCloneVoiceModelsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCloneVoiceModelsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCloneVoicesRequest;
@@ -1466,6 +1473,75 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of a call session.
+     *
+     * @remarks
+     *
+     * @param request - GetCallDetailRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCallDetailRecordResponse
+     *
+     * @param GetCallDetailRecordRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetCallDetailRecordResponse
+     */
+    public function getCallDetailRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCallDetailRecord',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCallDetailRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a call session.
+     *
+     * @remarks
+     *
+     * @param request - GetCallDetailRecordRequest
+     *
+     * @returns GetCallDetailRecordResponse
+     *
+     * @param GetCallDetailRecordRequest $request
+     *
+     * @return GetCallDetailRecordResponse
+     */
+    public function getCallDetailRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCallDetailRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of an outbound campaign.
      *
      * @param request - GetCampaignRequest
@@ -1524,6 +1600,75 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a case.
+     *
+     * @remarks
+     *
+     * @param request - GetCaseDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCaseDetailResponse
+     *
+     * @param GetCaseDetailRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetCaseDetailResponse
+     */
+    public function getCaseDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->caseId) {
+            @$query['CaseId'] = $request->caseId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCaseDetail',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCaseDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a case.
+     *
+     * @remarks
+     *
+     * @param request - GetCaseDetailRequest
+     *
+     * @returns GetCaseDetailResponse
+     *
+     * @param GetCaseDetailRequest $request
+     *
+     * @return GetCaseDetailResponse
+     */
+    public function getCaseDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCaseDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -1792,6 +1937,181 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCampaignsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a list of cases.
+     *
+     * @remarks
+     *
+     * @param tmpReq - ListCasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCasesResponse
+     *
+     * @param ListCasesRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListCasesResponse
+     */
+    public function listCasesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListCasesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->caseIds) {
+            $request->caseIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->caseIds, 'CaseIds', 'json');
+        }
+
+        if (null !== $tmpReq->dispositionCodes) {
+            $request->dispositionCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dispositionCodes, 'DispositionCodes', 'json');
+        }
+
+        if (null !== $tmpReq->dispositionReasons) {
+            $request->dispositionReasonsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dispositionReasons, 'DispositionReasons', 'json');
+        }
+
+        if (null !== $tmpReq->labelSearch) {
+            $request->labelSearchShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelSearch, 'LabelSearch', 'json');
+        }
+
+        if (null !== $tmpReq->states) {
+            $request->statesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->states, 'States', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->accessChannelId) {
+            @$query['AccessChannelId'] = $request->accessChannelId;
+        }
+
+        if (null !== $request->accessChannelType) {
+            @$query['AccessChannelType'] = $request->accessChannelType;
+        }
+
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
+        }
+
+        if (null !== $request->campaignId) {
+            @$query['CampaignId'] = $request->campaignId;
+        }
+
+        if (null !== $request->caseCompleted) {
+            @$query['CaseCompleted'] = $request->caseCompleted;
+        }
+
+        if (null !== $request->caseIdsShrink) {
+            @$query['CaseIds'] = $request->caseIdsShrink;
+        }
+
+        if (null !== $request->dispositionCodesShrink) {
+            @$query['DispositionCodes'] = $request->dispositionCodesShrink;
+        }
+
+        if (null !== $request->dispositionReasonsShrink) {
+            @$query['DispositionReasons'] = $request->dispositionReasonsShrink;
+        }
+
+        if (null !== $request->draftVersion) {
+            @$query['DraftVersion'] = $request->draftVersion;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->labelSearchShrink) {
+            @$query['LabelSearch'] = $request->labelSearchShrink;
+        }
+
+        if (null !== $request->maxRingingDuration) {
+            @$query['MaxRingingDuration'] = $request->maxRingingDuration;
+        }
+
+        if (null !== $request->maxTalkTime) {
+            @$query['MaxTalkTime'] = $request->maxTalkTime;
+        }
+
+        if (null !== $request->maxTalkTurns) {
+            @$query['MaxTalkTurns'] = $request->maxTalkTurns;
+        }
+
+        if (null !== $request->minRingingDuration) {
+            @$query['MinRingingDuration'] = $request->minRingingDuration;
+        }
+
+        if (null !== $request->minTalkTime) {
+            @$query['MinTalkTime'] = $request->minTalkTime;
+        }
+
+        if (null !== $request->minTalkTurns) {
+            @$query['MinTalkTurns'] = $request->minTalkTurns;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->statesShrink) {
+            @$query['States'] = $request->statesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCases',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of cases.
+     *
+     * @remarks
+     *
+     * @param request - ListCasesRequest
+     *
+     * @returns ListCasesResponse
+     *
+     * @param ListCasesRequest $request
+     *
+     * @return ListCasesResponse
+     */
+    public function listCases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCasesWithOptions($request, $runtime);
     }
 
     /**
