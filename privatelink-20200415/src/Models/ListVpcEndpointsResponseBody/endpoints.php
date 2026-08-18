@@ -75,6 +75,11 @@ class endpoints extends Model
     public $policyDocument;
 
     /**
+     * @var bool
+     */
+    public $protectedEnabled;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -132,6 +137,7 @@ class endpoints extends Model
         'endpointStatus' => 'EndpointStatus',
         'endpointType' => 'EndpointType',
         'policyDocument' => 'PolicyDocument',
+        'protectedEnabled' => 'ProtectedEnabled',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwner' => 'ResourceOwner',
@@ -204,6 +210,10 @@ class endpoints extends Model
 
         if (null !== $this->policyDocument) {
             $res['PolicyDocument'] = $this->policyDocument;
+        }
+
+        if (null !== $this->protectedEnabled) {
+            $res['ProtectedEnabled'] = $this->protectedEnabled;
         }
 
         if (null !== $this->regionId) {
@@ -310,6 +320,10 @@ class endpoints extends Model
 
         if (isset($map['PolicyDocument'])) {
             $model->policyDocument = $map['PolicyDocument'];
+        }
+
+        if (isset($map['ProtectedEnabled'])) {
+            $model->protectedEnabled = $map['ProtectedEnabled'];
         }
 
         if (isset($map['RegionId'])) {

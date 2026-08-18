@@ -79,6 +79,11 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $policyDocument;
 
     /**
+     * @var bool
+     */
+    public $protectedEnabled;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -142,6 +147,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
         'endpointType' => 'EndpointType',
         'payer' => 'Payer',
         'policyDocument' => 'PolicyDocument',
+        'protectedEnabled' => 'ProtectedEnabled',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -216,6 +222,10 @@ class GetVpcEndpointAttributeResponseBody extends Model
 
         if (null !== $this->policyDocument) {
             $res['PolicyDocument'] = $this->policyDocument;
+        }
+
+        if (null !== $this->protectedEnabled) {
+            $res['ProtectedEnabled'] = $this->protectedEnabled;
         }
 
         if (null !== $this->regionId) {
@@ -323,6 +333,10 @@ class GetVpcEndpointAttributeResponseBody extends Model
 
         if (isset($map['PolicyDocument'])) {
             $model->policyDocument = $map['PolicyDocument'];
+        }
+
+        if (isset($map['ProtectedEnabled'])) {
+            $model->protectedEnabled = $map['ProtectedEnabled'];
         }
 
         if (isset($map['RegionId'])) {
