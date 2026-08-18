@@ -55,6 +55,11 @@ class approvals extends Model
     public $creatorUsername;
 
     /**
+     * @var string
+     */
+    public $effectStatus;
+
+    /**
      * @var int
      */
     public $endTimestamp;
@@ -82,6 +87,11 @@ class approvals extends Model
     /**
      * @var string
      */
+    public $reportType;
+
+    /**
+     * @var string
+     */
     public $schemaContent;
 
     /**
@@ -98,6 +108,11 @@ class approvals extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $validityType;
     protected $_name = [
         'approvalDetail' => 'ApprovalDetail',
         'approvalId' => 'ApprovalId',
@@ -108,15 +123,18 @@ class approvals extends Model
         'creatorDevTag' => 'CreatorDevTag',
         'creatorUserId' => 'CreatorUserId',
         'creatorUsername' => 'CreatorUsername',
+        'effectStatus' => 'EffectStatus',
         'endTimestamp' => 'EndTimestamp',
         'policyType' => 'PolicyType',
         'processId' => 'ProcessId',
         'processName' => 'ProcessName',
         'reason' => 'Reason',
+        'reportType' => 'ReportType',
         'schemaContent' => 'SchemaContent',
         'schemaId' => 'SchemaId',
         'schemaName' => 'SchemaName',
         'status' => 'Status',
+        'validityType' => 'ValidityType',
     ];
 
     public function validate()
@@ -173,6 +191,10 @@ class approvals extends Model
             $res['CreatorUsername'] = $this->creatorUsername;
         }
 
+        if (null !== $this->effectStatus) {
+            $res['EffectStatus'] = $this->effectStatus;
+        }
+
         if (null !== $this->endTimestamp) {
             $res['EndTimestamp'] = $this->endTimestamp;
         }
@@ -193,6 +215,10 @@ class approvals extends Model
             $res['Reason'] = $this->reason;
         }
 
+        if (null !== $this->reportType) {
+            $res['ReportType'] = $this->reportType;
+        }
+
         if (null !== $this->schemaContent) {
             $res['SchemaContent'] = $this->schemaContent;
         }
@@ -207,6 +233,10 @@ class approvals extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->validityType) {
+            $res['ValidityType'] = $this->validityType;
         }
 
         return $res;
@@ -263,6 +293,10 @@ class approvals extends Model
             $model->creatorUsername = $map['CreatorUsername'];
         }
 
+        if (isset($map['EffectStatus'])) {
+            $model->effectStatus = $map['EffectStatus'];
+        }
+
         if (isset($map['EndTimestamp'])) {
             $model->endTimestamp = $map['EndTimestamp'];
         }
@@ -283,6 +317,10 @@ class approvals extends Model
             $model->reason = $map['Reason'];
         }
 
+        if (isset($map['ReportType'])) {
+            $model->reportType = $map['ReportType'];
+        }
+
         if (isset($map['SchemaContent'])) {
             $model->schemaContent = $map['SchemaContent'];
         }
@@ -297,6 +335,10 @@ class approvals extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['ValidityType'])) {
+            $model->validityType = $map['ValidityType'];
         }
 
         return $model;

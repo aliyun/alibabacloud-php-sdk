@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalResponseBody\approval\approvalProgresses;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalResponseBody\approval\backendReportDetail;
 
 class approval extends Model
 {
@@ -25,9 +26,24 @@ class approval extends Model
     public $approvalProgresses;
 
     /**
+     * @var int
+     */
+    public $approvalType;
+
+    /**
+     * @var backendReportDetail
+     */
+    public $backendReportDetail;
+
+    /**
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var int
+     */
+    public $createTimeUnix;
 
     /**
      * @var string
@@ -48,6 +64,11 @@ class approval extends Model
      * @var string
      */
     public $creatorUsername;
+
+    /**
+     * @var string
+     */
+    public $effectStatus;
 
     /**
      * @var int
@@ -77,6 +98,11 @@ class approval extends Model
     /**
      * @var string
      */
+    public $reportType;
+
+    /**
+     * @var string
+     */
     public $schemaContent;
 
     /**
@@ -93,30 +119,44 @@ class approval extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $validityType;
     protected $_name = [
         'approvalDetail' => 'ApprovalDetail',
         'approvalId' => 'ApprovalId',
         'approvalProgresses' => 'ApprovalProgresses',
+        'approvalType' => 'ApprovalType',
+        'backendReportDetail' => 'BackendReportDetail',
         'createTime' => 'CreateTime',
+        'createTimeUnix' => 'CreateTimeUnix',
         'creatorDepartment' => 'CreatorDepartment',
         'creatorDevTag' => 'CreatorDevTag',
         'creatorUserId' => 'CreatorUserId',
         'creatorUsername' => 'CreatorUsername',
+        'effectStatus' => 'EffectStatus',
         'endTimestamp' => 'EndTimestamp',
         'policyType' => 'PolicyType',
         'processId' => 'ProcessId',
         'processName' => 'ProcessName',
         'reason' => 'Reason',
+        'reportType' => 'ReportType',
         'schemaContent' => 'SchemaContent',
         'schemaId' => 'SchemaId',
         'schemaName' => 'SchemaName',
         'status' => 'Status',
+        'validityType' => 'ValidityType',
     ];
 
     public function validate()
     {
         if (\is_array($this->approvalProgresses)) {
             Model::validateArray($this->approvalProgresses);
+        }
+        if (null !== $this->backendReportDetail) {
+            $this->backendReportDetail->validate();
         }
         parent::validate();
     }
@@ -143,8 +183,20 @@ class approval extends Model
             }
         }
 
+        if (null !== $this->approvalType) {
+            $res['ApprovalType'] = $this->approvalType;
+        }
+
+        if (null !== $this->backendReportDetail) {
+            $res['BackendReportDetail'] = null !== $this->backendReportDetail ? $this->backendReportDetail->toArray($noStream) : $this->backendReportDetail;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->createTimeUnix) {
+            $res['CreateTimeUnix'] = $this->createTimeUnix;
         }
 
         if (null !== $this->creatorDepartment) {
@@ -161,6 +213,10 @@ class approval extends Model
 
         if (null !== $this->creatorUsername) {
             $res['CreatorUsername'] = $this->creatorUsername;
+        }
+
+        if (null !== $this->effectStatus) {
+            $res['EffectStatus'] = $this->effectStatus;
         }
 
         if (null !== $this->endTimestamp) {
@@ -183,6 +239,10 @@ class approval extends Model
             $res['Reason'] = $this->reason;
         }
 
+        if (null !== $this->reportType) {
+            $res['ReportType'] = $this->reportType;
+        }
+
         if (null !== $this->schemaContent) {
             $res['SchemaContent'] = $this->schemaContent;
         }
@@ -197,6 +257,10 @@ class approval extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->validityType) {
+            $res['ValidityType'] = $this->validityType;
         }
 
         return $res;
@@ -229,8 +293,20 @@ class approval extends Model
             }
         }
 
+        if (isset($map['ApprovalType'])) {
+            $model->approvalType = $map['ApprovalType'];
+        }
+
+        if (isset($map['BackendReportDetail'])) {
+            $model->backendReportDetail = backendReportDetail::fromMap($map['BackendReportDetail']);
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['CreateTimeUnix'])) {
+            $model->createTimeUnix = $map['CreateTimeUnix'];
         }
 
         if (isset($map['CreatorDepartment'])) {
@@ -247,6 +323,10 @@ class approval extends Model
 
         if (isset($map['CreatorUsername'])) {
             $model->creatorUsername = $map['CreatorUsername'];
+        }
+
+        if (isset($map['EffectStatus'])) {
+            $model->effectStatus = $map['EffectStatus'];
         }
 
         if (isset($map['EndTimestamp'])) {
@@ -269,6 +349,10 @@ class approval extends Model
             $model->reason = $map['Reason'];
         }
 
+        if (isset($map['ReportType'])) {
+            $model->reportType = $map['ReportType'];
+        }
+
         if (isset($map['SchemaContent'])) {
             $model->schemaContent = $map['SchemaContent'];
         }
@@ -283,6 +367,10 @@ class approval extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['ValidityType'])) {
+            $model->validityType = $map['ValidityType'];
         }
 
         return $model;

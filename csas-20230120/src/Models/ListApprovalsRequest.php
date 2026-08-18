@@ -49,6 +49,11 @@ class ListApprovalsRequest extends Model
     public $currentPage;
 
     /**
+     * @var string[]
+     */
+    public $effectStatuses;
+
+    /**
      * @var string
      */
     public $operatorUserId;
@@ -79,6 +84,11 @@ class ListApprovalsRequest extends Model
     public $processName;
 
     /**
+     * @var string[]
+     */
+    public $reportTypes;
+
+    /**
      * @var string
      */
     public $schemaId;
@@ -101,12 +111,14 @@ class ListApprovalsRequest extends Model
         'creatorUserId' => 'CreatorUserId',
         'creatorUsername' => 'CreatorUsername',
         'currentPage' => 'CurrentPage',
+        'effectStatuses' => 'EffectStatuses',
         'operatorUserId' => 'OperatorUserId',
         'operatorUsername' => 'OperatorUsername',
         'pageSize' => 'PageSize',
         'policyType' => 'PolicyType',
         'processId' => 'ProcessId',
         'processName' => 'ProcessName',
+        'reportTypes' => 'ReportTypes',
         'schemaId' => 'SchemaId',
         'schemaName' => 'SchemaName',
         'statuses' => 'Statuses',
@@ -116,6 +128,12 @@ class ListApprovalsRequest extends Model
     {
         if (\is_array($this->approvalIds)) {
             Model::validateArray($this->approvalIds);
+        }
+        if (\is_array($this->effectStatuses)) {
+            Model::validateArray($this->effectStatuses);
+        }
+        if (\is_array($this->reportTypes)) {
+            Model::validateArray($this->reportTypes);
         }
         if (\is_array($this->statuses)) {
             Model::validateArray($this->statuses);
@@ -165,6 +183,17 @@ class ListApprovalsRequest extends Model
             $res['CurrentPage'] = $this->currentPage;
         }
 
+        if (null !== $this->effectStatuses) {
+            if (\is_array($this->effectStatuses)) {
+                $res['EffectStatuses'] = [];
+                $n1 = 0;
+                foreach ($this->effectStatuses as $item1) {
+                    $res['EffectStatuses'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->operatorUserId) {
             $res['OperatorUserId'] = $this->operatorUserId;
         }
@@ -187,6 +216,17 @@ class ListApprovalsRequest extends Model
 
         if (null !== $this->processName) {
             $res['ProcessName'] = $this->processName;
+        }
+
+        if (null !== $this->reportTypes) {
+            if (\is_array($this->reportTypes)) {
+                $res['ReportTypes'] = [];
+                $n1 = 0;
+                foreach ($this->reportTypes as $item1) {
+                    $res['ReportTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->schemaId) {
@@ -258,6 +298,17 @@ class ListApprovalsRequest extends Model
             $model->currentPage = $map['CurrentPage'];
         }
 
+        if (isset($map['EffectStatuses'])) {
+            if (!empty($map['EffectStatuses'])) {
+                $model->effectStatuses = [];
+                $n1 = 0;
+                foreach ($map['EffectStatuses'] as $item1) {
+                    $model->effectStatuses[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['OperatorUserId'])) {
             $model->operatorUserId = $map['OperatorUserId'];
         }
@@ -280,6 +331,17 @@ class ListApprovalsRequest extends Model
 
         if (isset($map['ProcessName'])) {
             $model->processName = $map['ProcessName'];
+        }
+
+        if (isset($map['ReportTypes'])) {
+            if (!empty($map['ReportTypes'])) {
+                $model->reportTypes = [];
+                $n1 = 0;
+                foreach ($map['ReportTypes'] as $item1) {
+                    $model->reportTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SchemaId'])) {

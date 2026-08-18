@@ -10,6 +10,10 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachPolicy2ApprovalProcessRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachPolicy2ApprovalProcessResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\BatchCreateDomainItemsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\BatchCreateDomainItemsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeleteDomainItemsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeleteDomainItemsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessShrinkRequest;
@@ -442,6 +446,154 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachPolicy2ApprovalProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * Inserts domain name entries into a domain name list in batches.
+     *
+     * @remarks
+     * Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+     *
+     * @param request - BatchCreateDomainItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCreateDomainItemsResponse
+     *
+     * @param BatchCreateDomainItemsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BatchCreateDomainItemsResponse
+     */
+    public function batchCreateDomainItemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->domainItems) {
+            @$bodyFlat['DomainItems'] = $request->domainItems;
+        }
+
+        if (null !== $request->listId) {
+            @$body['ListId'] = $request->listId;
+        }
+
+        if (null !== $request->listType) {
+            @$body['ListType'] = $request->listType;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchCreateDomainItems',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchCreateDomainItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Inserts domain name entries into a domain name list in batches.
+     *
+     * @remarks
+     * Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+     *
+     * @param request - BatchCreateDomainItemsRequest
+     *
+     * @returns BatchCreateDomainItemsResponse
+     *
+     * @param BatchCreateDomainItemsRequest $request
+     *
+     * @return BatchCreateDomainItemsResponse
+     */
+    public function batchCreateDomainItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateDomainItemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Batch deletes domain name entries from a domain name list.
+     *
+     * @remarks
+     * Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+     *
+     * @param request - BatchDeleteDomainItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeleteDomainItemsResponse
+     *
+     * @param BatchDeleteDomainItemsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BatchDeleteDomainItemsResponse
+     */
+    public function batchDeleteDomainItemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->itemIds) {
+            @$bodyFlat['ItemIds'] = $request->itemIds;
+        }
+
+        if (null !== $request->listId) {
+            @$body['ListId'] = $request->listId;
+        }
+
+        if (null !== $request->listType) {
+            @$body['ListType'] = $request->listType;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchDeleteDomainItems',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchDeleteDomainItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Batch deletes domain name entries from a domain name list.
+     *
+     * @remarks
+     * Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+     *
+     * @param request - BatchDeleteDomainItemsRequest
+     *
+     * @returns BatchDeleteDomainItemsResponse
+     *
+     * @param BatchDeleteDomainItemsRequest $request
+     *
+     * @return BatchDeleteDomainItemsResponse
+     */
+    public function batchDeleteDomainItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeleteDomainItemsWithOptions($request, $runtime);
     }
 
     /**
@@ -3297,7 +3449,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an approval instance for your Alibaba Cloud account.
+     * Queries the details of an approval instance under the current Alibaba Cloud account.
      *
      * @param request - GetApprovalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3332,7 +3484,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an approval instance for your Alibaba Cloud account.
+     * Queries the details of an approval instance under the current Alibaba Cloud account.
      *
      * @param request - GetApprovalRequest
      *
@@ -4517,7 +4669,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Lists approval instances for your Alibaba Cloud account.
+     * Queries the list of approval instances under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4552,7 +4704,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Lists approval instances for your Alibaba Cloud account.
+     * Queries the list of approval instances under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalsRequest
      *
@@ -4676,10 +4828,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 分页查询域名条目.
+     * Queries domain name entries in a domain name list by paging.
      *
      * @remarks
-     * 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+     * Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
      *
      * @param request - ListDomainItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4734,10 +4886,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 分页查询域名条目.
+     * Queries domain name entries in a domain name list by paging.
      *
      * @remarks
-     * 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+     * Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
      *
      * @param request - ListDomainItemsRequest
      *
