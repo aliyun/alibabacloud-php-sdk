@@ -24,6 +24,11 @@ class CreateAgentSpaceRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $mseNamespaceId;
+
+    /**
      * @var bool
      */
     public $trajectoryStoreEnabled;
@@ -36,6 +41,7 @@ class CreateAgentSpaceRequest extends Model
         'agentSpace' => 'agentSpace',
         'cmsWorkspace' => 'cmsWorkspace',
         'description' => 'description',
+        'mseNamespaceId' => 'mseNamespaceId',
         'trajectoryStoreEnabled' => 'trajectoryStoreEnabled',
         'clientToken' => 'clientToken',
     ];
@@ -58,6 +64,10 @@ class CreateAgentSpaceRequest extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->mseNamespaceId) {
+            $res['mseNamespaceId'] = $this->mseNamespaceId;
         }
 
         if (null !== $this->trajectoryStoreEnabled) {
@@ -89,6 +99,10 @@ class CreateAgentSpaceRequest extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['mseNamespaceId'])) {
+            $model->mseNamespaceId = $map['mseNamespaceId'];
         }
 
         if (isset($map['trajectoryStoreEnabled'])) {

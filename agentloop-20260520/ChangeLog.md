@@ -1,3 +1,22 @@
+2026-08-18 Version: 2.1.0
+- Support API CreateExperimentPlan.
+- Support API CreateExperimentRun.
+- Support API DeleteExperimentPlan.
+- Support API DeleteExperimentRun.
+- Support API GetExperimentPlan.
+- Support API GetExperimentRun.
+- Support API ListExperimentPlans.
+- Support API ListExperimentRuns.
+- Support API UpdateExperimentPlan.
+- Support API UpdateExperimentRun.
+- Update API CreateAgentSpace: add request parameters body.mseNamespaceId.
+- Update API GetAgentSpace: add response parameters Body.mseNamespace.bindType.
+- Update API GetDataset: add response parameters Body.labels.
+- Update API ListAgentSpaces: add response parameters Body.agentSpaces.$.mseNamespace.bindType.
+- Update API ListDatasets: add request parameters labels.
+- Update API ListDatasets: add response parameters Body.datasets.$.labels.
+
+
 2026-07-30 Version: 2.1.0
 - Support API CreateExperimentPlan.
 - Support API CreateExperimentRun.

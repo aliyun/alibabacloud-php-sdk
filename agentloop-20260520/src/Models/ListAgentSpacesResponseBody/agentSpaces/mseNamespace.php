@@ -11,6 +11,11 @@ class mseNamespace extends Model
     /**
      * @var string
      */
+    public $bindType;
+
+    /**
+     * @var string
+     */
     public $namespaceId;
 
     /**
@@ -18,6 +23,7 @@ class mseNamespace extends Model
      */
     public $namespaceName;
     protected $_name = [
+        'bindType' => 'bindType',
         'namespaceId' => 'namespaceId',
         'namespaceName' => 'namespaceName',
     ];
@@ -30,6 +36,10 @@ class mseNamespace extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bindType) {
+            $res['bindType'] = $this->bindType;
+        }
+
         if (null !== $this->namespaceId) {
             $res['namespaceId'] = $this->namespaceId;
         }
@@ -49,6 +59,10 @@ class mseNamespace extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bindType'])) {
+            $model->bindType = $map['bindType'];
+        }
+
         if (isset($map['namespaceId'])) {
             $model->namespaceId = $map['namespaceId'];
         }

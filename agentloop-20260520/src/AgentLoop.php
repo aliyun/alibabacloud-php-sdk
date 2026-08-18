@@ -151,15 +151,15 @@ class AgentLoop extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'cn-zhangjiakou' => 'agentloop.cn-zhangjiakou.aliyuncs.com',
             'cn-shenzhen' => 'agentloop.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai' => 'agentloop.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'agentloop.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'agentloop.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'agentloop.cn-guangzhou.aliyuncs.com',
-            'cn-chengdu' => 'agentloop.cn-chengdu.aliyuncs.com',
             'cn-beijing' => 'agentloop.cn-beijing.aliyuncs.com',
+            'cn-shanghai' => 'agentloop.cn-shanghai.aliyuncs.com',
+            'cn-guangzhou' => 'agentloop.cn-guangzhou.aliyuncs.com',
+            'cn-hongkong' => 'agentloop.cn-hongkong.aliyuncs.com',
             'ap-southeast-1' => 'agentloop.ap-southeast-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'agentloop.cn-zhangjiakou.aliyuncs.com',
+            'cn-hangzhou' => 'agentloop.cn-hangzhou.aliyuncs.com',
+            'cn-chengdu' => 'agentloop.cn-chengdu.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('agentloop', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -355,6 +355,10 @@ class AgentLoop extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->mseNamespaceId) {
+            @$body['mseNamespaceId'] = $request->mseNamespaceId;
         }
 
         if (null !== $request->trajectoryStoreEnabled) {
@@ -2902,7 +2906,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a list of AgentSpaces.
+     * Queries the list of AgentSpaces.
      *
      * @param request - ListAgentSpacesRequest
      * @param headers - map
@@ -2956,7 +2960,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a list of AgentSpaces.
+     * Queries the list of AgentSpaces.
      *
      * @param request - ListAgentSpacesRequest
      *
@@ -4884,7 +4888,7 @@ class AgentLoop extends OpenApiClient
      * Updates an experiment plan.
      *
      * @remarks
-     * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+     * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. Only plans created by the current account can be updated.
      *
      * @param request - UpdateExperimentPlanRequest
      * @param headers - map
@@ -4971,7 +4975,7 @@ class AgentLoop extends OpenApiClient
      * Updates an experiment plan.
      *
      * @remarks
-     * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+     * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. Only plans created by the current account can be updated.
      *
      * @param request - UpdateExperimentPlanRequest
      *
