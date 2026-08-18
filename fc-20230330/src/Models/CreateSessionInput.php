@@ -67,6 +67,11 @@ class CreateSessionInput extends Model
      * @var int
      */
     public $sessionTTLInSeconds;
+
+    /**
+     * @var string
+     */
+    public $snapshotId;
     protected $_name = [
         'allowInternetAccess' => 'allowInternetAccess',
         'disableSessionIdReuse' => 'disableSessionIdReuse',
@@ -80,6 +85,7 @@ class CreateSessionInput extends Model
         'sessionId' => 'sessionId',
         'sessionIdleTimeoutInSeconds' => 'sessionIdleTimeoutInSeconds',
         'sessionTTLInSeconds' => 'sessionTTLInSeconds',
+        'snapshotId' => 'snapshotId',
     ];
 
     public function validate()
@@ -153,6 +159,10 @@ class CreateSessionInput extends Model
             $res['sessionTTLInSeconds'] = $this->sessionTTLInSeconds;
         }
 
+        if (null !== $this->snapshotId) {
+            $res['snapshotId'] = $this->snapshotId;
+        }
+
         return $res;
     }
 
@@ -210,6 +220,10 @@ class CreateSessionInput extends Model
 
         if (isset($map['sessionTTLInSeconds'])) {
             $model->sessionTTLInSeconds = $map['sessionTTLInSeconds'];
+        }
+
+        if (isset($map['snapshotId'])) {
+            $model->snapshotId = $map['snapshotId'];
         }
 
         return $model;
