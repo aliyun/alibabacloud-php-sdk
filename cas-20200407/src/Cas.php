@@ -76,6 +76,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetAssetCountResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertificateDetailRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertificateDetailResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertificatePackageCountRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertificatePackageCountResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertWarehouseQuotaResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCompanyRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCompanyResponse;
@@ -121,6 +123,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\ListDeploymentJobResourceResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListDeploymentJobResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListTrusteeOrderRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListTrusteeOrderResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListWarehouseRequest;
@@ -225,8 +229,13 @@ class Cas extends OpenApiClient
             'rus-west-1-pop' => 'cas.aliyuncs.com',
             'us-east-1' => 'cas.aliyuncs.com',
             'us-west-1' => 'cas.aliyuncs.com',
-            'eu-central-1' => 'cas.eu-central-1.aliyuncs.com',
+            'ap-southeast-2' => 'cas.ap-southeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'cas.ap-northeast-1.aliyuncs.com',
             'ap-southeast-1' => 'cas.ap-southeast-1.aliyuncs.com',
+            'eu-central-1' => 'cas.eu-central-1.aliyuncs.com',
+            'me-central-1' => 'cas.me-central-1.aliyuncs.com',
+            'ap-south-1' => 'cas.ap-south-1.aliyuncs.com',
+            'me-east-1' => 'cas.me-east-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -2775,7 +2784,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Retrieves certificate details, excluding the certificate body and private key.
+     * Queries the details of a certificate without returning the certificate content or private key content.
      *
      * @param request - GetCertificateDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2814,7 +2823,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Retrieves certificate details, excluding the certificate body and private key.
+     * Queries the details of a certificate without returning the certificate content or private key content.
      *
      * @param request - GetCertificateDetailRequest
      *
@@ -2829,6 +2838,66 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCertificateDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取证书资源包数量.
+     *
+     * @remarks
+     * 本接口用于查询您已创建的CA证书（包括根CA证书、子CA证书）的数量。
+     * ## QPS限制
+     * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+     *
+     * @param request - GetCertificatePackageCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCertificatePackageCountResponse
+     *
+     * @param GetCertificatePackageCountRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetCertificatePackageCountResponse
+     */
+    public function getCertificatePackageCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetCertificatePackageCount',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCertificatePackageCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取证书资源包数量.
+     *
+     * @remarks
+     * 本接口用于查询您已创建的CA证书（包括根CA证书、子CA证书）的数量。
+     * ## QPS限制
+     * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+     *
+     * @param request - GetCertificatePackageCountRequest
+     *
+     * @returns GetCertificatePackageCountResponse
+     *
+     * @param GetCertificatePackageCountRequest $request
+     *
+     * @return GetCertificatePackageCountResponse
+     */
+    public function getCertificatePackageCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCertificatePackageCountWithOptions($request, $runtime);
     }
 
     /**
@@ -4341,6 +4410,85 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of managed orders.
+     *
+     * @remarks
+     * This operation is used to query user certificates or order lists. When OrderType is set to CERT or UPLOAD, it queries the certificate list. When OrderType is set to CPACK or BUY, it queries the order list.
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+     *
+     * @param request - ListTrusteeOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrusteeOrderResponse
+     *
+     * @param ListTrusteeOrderRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTrusteeOrderResponse
+     */
+    public function listTrusteeOrderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certificateId) {
+            @$query['CertificateId'] = $request->certificateId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTrusteeOrder',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTrusteeOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of managed orders.
+     *
+     * @remarks
+     * This operation is used to query user certificates or order lists. When OrderType is set to CERT or UPLOAD, it queries the certificate list. When OrderType is set to CPACK or BUY, it queries the order list.
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+     *
+     * @param request - ListTrusteeOrderRequest
+     *
+     * @returns ListTrusteeOrderResponse
+     *
+     * @param ListTrusteeOrderRequest $request
+     *
+     * @return ListTrusteeOrderResponse
+     */
+    public function listTrusteeOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTrusteeOrderWithOptions($request, $runtime);
     }
 
     /**

@@ -1,3 +1,8 @@
+2026-08-18 Version: 3.7.0
+- Support API GetCertificatePackageCount.
+- Support API ListTrusteeOrder.
+
+
 2026-07-30 Version: 3.6.2
 - Generated php 2020-04-07 for cas.
 
