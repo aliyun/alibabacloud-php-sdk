@@ -266,6 +266,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineBuildConfigurationRequest
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineBuildConfigurationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineCodeVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineCodeVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineEnvironmentVariablesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineEnvironmentVariablesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineEnvironmentVariablesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRecordResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRequest;
@@ -705,6 +708,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineBuildsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCanaryAreasResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCodeVersionsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCodeVersionsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineEnvironmentVariablesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineEnvironmentVariablesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRelatedRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRelatedRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRoutesRequest;
@@ -843,6 +848,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\SetKeylessServerResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetOriginClientCertificateHostnamesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetOriginClientCertificateHostnamesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetOriginClientCertificateHostnamesShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetRoutineEnvironmentVariablesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetRoutineEnvironmentVariablesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetRoutineEnvironmentVariablesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StartScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StartScheduledPreloadExecutionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StopRoutineBuildRequest;
@@ -1041,8 +1049,8 @@ class ESA extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'cn-hangzhou' => 'esa.cn-hangzhou.aliyuncs.com',
             'ap-southeast-1' => 'esa.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou' => 'esa.cn-hangzhou.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('esa', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -10102,6 +10110,87 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRoutineCodeVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes environment variables of a Routine.
+     *
+     * @remarks
+     * ## Operation description
+     * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
+     * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+     *
+     * @param tmpReq - DeleteRoutineEnvironmentVariablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRoutineEnvironmentVariablesResponse
+     *
+     * @param DeleteRoutineEnvironmentVariablesRequest $tmpReq
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DeleteRoutineEnvironmentVariablesResponse
+     */
+    public function deleteRoutineEnvironmentVariablesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteRoutineEnvironmentVariablesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->environmentVariableKeys) {
+            $request->environmentVariableKeysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->environmentVariableKeys, 'EnvironmentVariableKeys', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->env) {
+            @$body['Env'] = $request->env;
+        }
+
+        if (null !== $request->environmentVariableKeysShrink) {
+            @$body['EnvironmentVariableKeys'] = $request->environmentVariableKeysShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRoutineEnvironmentVariables',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRoutineEnvironmentVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes environment variables of a Routine.
+     *
+     * @remarks
+     * ## Operation description
+     * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
+     * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+     *
+     * @param Request - DeleteRoutineEnvironmentVariablesRequest
+     *
+     * @returns DeleteRoutineEnvironmentVariablesResponse
+     *
+     * @param DeleteRoutineEnvironmentVariablesRequest $request
+     *
+     * @return DeleteRoutineEnvironmentVariablesResponse
+     */
+    public function deleteRoutineEnvironmentVariables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRoutineEnvironmentVariablesWithOptions($request, $runtime);
     }
 
     /**
@@ -23045,6 +23134,85 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Queries the environment variables of a Routine.
+     *
+     * @remarks
+     * This operation allows you to perform a paged query of all Edge Routines (Routines) created under your account, and provides the Routine quota and usage for your current plan. You can specify the paging parameters `PageNumber` and `PageSize` to control the number of returned results, and use `SearchKeyWord` to perform a fuzzy search to filter specific Routine names.
+     *
+     * @param Request - ListRoutineEnvironmentVariablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRoutineEnvironmentVariablesResponse
+     *
+     * @param ListRoutineEnvironmentVariablesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListRoutineEnvironmentVariablesResponse
+     */
+    public function listRoutineEnvironmentVariablesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->env) {
+            @$body['Env'] = $request->env;
+        }
+
+        if (null !== $request->keyWord) {
+            @$body['KeyWord'] = $request->keyWord;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListRoutineEnvironmentVariables',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRoutineEnvironmentVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the environment variables of a Routine.
+     *
+     * @remarks
+     * This operation allows you to perform a paged query of all Edge Routines (Routines) created under your account, and provides the Routine quota and usage for your current plan. You can specify the paging parameters `PageNumber` and `PageSize` to control the number of returned results, and use `SearchKeyWord` to perform a fuzzy search to filter specific Routine names.
+     *
+     * @param Request - ListRoutineEnvironmentVariablesRequest
+     *
+     * @returns ListRoutineEnvironmentVariablesResponse
+     *
+     * @param ListRoutineEnvironmentVariablesRequest $request
+     *
+     * @return ListRoutineEnvironmentVariablesResponse
+     */
+    public function listRoutineEnvironmentVariables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRoutineEnvironmentVariablesWithOptions($request, $runtime);
+    }
+
+    /**
      * The records associated with the function.
      *
      * @remarks
@@ -25234,7 +25402,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Prefetches URLs to warm the cache.
+     * Prefetches cache content.
      *
      * @param tmpReq - PreloadCachesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25291,7 +25459,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Prefetches URLs to warm the cache.
+     * Prefetches cache content.
      *
      * @param Request - PreloadCachesRequest
      *
@@ -27455,6 +27623,93 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Sets environment variables for a Routine.
+     *
+     * @remarks
+     * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+     * - The time granularity of returned data varies based on the time range specified by StartTime and EndTime.
+     *   * If the time range is less than or equal to 3 hours, data is returned at a 1-minute granularity.
+     *   * If the time range is greater than 3 hours and less than or equal to 1 day, data is returned at a 5-minute granularity.
+     *   * If the time range is greater than 1 day and less than or equal to 10 days, data is returned at an hourly granularity.
+     *   * If the time range is greater than 10 days and less than or equal to 31 days, data is returned at a daily granularity.
+     *
+     * @param tmpReq - SetRoutineEnvironmentVariablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetRoutineEnvironmentVariablesResponse
+     *
+     * @param SetRoutineEnvironmentVariablesRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return SetRoutineEnvironmentVariablesResponse
+     */
+    public function setRoutineEnvironmentVariablesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SetRoutineEnvironmentVariablesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->environmentVariables) {
+            $request->environmentVariablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->environmentVariables, 'EnvironmentVariables', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->env) {
+            @$body['Env'] = $request->env;
+        }
+
+        if (null !== $request->environmentVariablesShrink) {
+            @$body['EnvironmentVariables'] = $request->environmentVariablesShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetRoutineEnvironmentVariables',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetRoutineEnvironmentVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets environment variables for a Routine.
+     *
+     * @remarks
+     * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+     * - The time granularity of returned data varies based on the time range specified by StartTime and EndTime.
+     *   * If the time range is less than or equal to 3 hours, data is returned at a 1-minute granularity.
+     *   * If the time range is greater than 3 hours and less than or equal to 1 day, data is returned at a 5-minute granularity.
+     *   * If the time range is greater than 1 day and less than or equal to 10 days, data is returned at an hourly granularity.
+     *   * If the time range is greater than 10 days and less than or equal to 31 days, data is returned at a daily granularity.
+     *
+     * @param Request - SetRoutineEnvironmentVariablesRequest
+     *
+     * @returns SetRoutineEnvironmentVariablesResponse
+     *
+     * @param SetRoutineEnvironmentVariablesRequest $request
+     *
+     * @return SetRoutineEnvironmentVariablesResponse
+     */
+    public function setRoutineEnvironmentVariables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setRoutineEnvironmentVariablesWithOptions($request, $runtime);
+    }
+
+    /**
      * Starts a scheduled prefetch based on the prefetch plan ID.
      *
      * @param Request - StartScheduledPreloadExecutionRequest
@@ -27815,10 +28070,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Trace站点.
+     * Performs Tracing Analysis. You can use this operation to construct and initiate an impersonation HTTP/HTTPS request to the ESA platform, displaying the site configuration matching and effective settings on the ESA platform for the request.
      *
      * @remarks
-     * >Notice: 请确保在使用该接口前，站点已接入ESA平台并启用。
+     * >Notice: Before you use this operation, make sure that the site is connected to the ESA platform and enabled.
      *
      * @param tmpReq - TraceSiteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27899,10 +28154,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Trace站点.
+     * Performs Tracing Analysis. You can use this operation to construct and initiate an impersonation HTTP/HTTPS request to the ESA platform, displaying the site configuration matching and effective settings on the ESA platform for the request.
      *
      * @remarks
-     * >Notice: 请确保在使用该接口前，站点已接入ESA平台并启用。
+     * >Notice: Before you use this operation, make sure that the site is connected to the ESA platform and enabled.
      *
      * @param Request - TraceSiteRequest
      *
@@ -28969,7 +29224,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the specifications of an Anti-DDoS instance.
+     * Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @param Request - UpdateDDoSSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29020,7 +29275,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the specifications of an Anti-DDoS instance.
+     * Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @param Request - UpdateDDoSSpecRequest
      *

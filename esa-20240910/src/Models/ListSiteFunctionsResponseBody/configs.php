@@ -23,6 +23,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponseBody\configs\
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponseBody\configs\imageTransform;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponseBody\configs\ipv6;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponseBody\configs\managedTransforms;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponseBody\configs\markdownForAgent;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponseBody\configs\networkOptimization;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponseBody\configs\originRules;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponseBody\configs\redirectRules;
@@ -126,6 +127,11 @@ class configs extends Model
     public $managedTransforms;
 
     /**
+     * @var markdownForAgent[]
+     */
+    public $markdownForAgent;
+
+    /**
      * @var networkOptimization[]
      */
     public $networkOptimization;
@@ -188,6 +194,7 @@ class configs extends Model
         'imageTransform' => 'ImageTransform',
         'ipv6' => 'Ipv6',
         'managedTransforms' => 'ManagedTransforms',
+        'markdownForAgent' => 'MarkdownForAgent',
         'networkOptimization' => 'NetworkOptimization',
         'originRules' => 'OriginRules',
         'redirectRules' => 'RedirectRules',
@@ -254,6 +261,9 @@ class configs extends Model
         }
         if (\is_array($this->managedTransforms)) {
             Model::validateArray($this->managedTransforms);
+        }
+        if (\is_array($this->markdownForAgent)) {
+            Model::validateArray($this->markdownForAgent);
         }
         if (\is_array($this->networkOptimization)) {
             Model::validateArray($this->networkOptimization);
@@ -481,6 +491,17 @@ class configs extends Model
                 $n1 = 0;
                 foreach ($this->managedTransforms as $item1) {
                     $res['ManagedTransforms'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->markdownForAgent) {
+            if (\is_array($this->markdownForAgent)) {
+                $res['MarkdownForAgent'] = [];
+                $n1 = 0;
+                foreach ($this->markdownForAgent as $item1) {
+                    $res['MarkdownForAgent'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -789,6 +810,17 @@ class configs extends Model
                 $n1 = 0;
                 foreach ($map['ManagedTransforms'] as $item1) {
                     $model->managedTransforms[$n1] = managedTransforms::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['MarkdownForAgent'])) {
+            if (!empty($map['MarkdownForAgent'])) {
+                $model->markdownForAgent = [];
+                $n1 = 0;
+                foreach ($map['MarkdownForAgent'] as $item1) {
+                    $model->markdownForAgent[$n1] = markdownForAgent::fromMap($item1);
                     ++$n1;
                 }
             }
