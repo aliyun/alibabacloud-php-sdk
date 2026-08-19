@@ -12,6 +12,11 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\CreatePolicyV2Request\rules\tagFilters
 class rules extends Model
 {
     /**
+     * @var int
+     */
+    public $archiveDays;
+
+    /**
      * @var string
      */
     public $backupType;
@@ -66,6 +71,7 @@ class rules extends Model
      */
     public $vaultId;
     protected $_name = [
+        'archiveDays' => 'ArchiveDays',
         'backupType' => 'BackupType',
         'dataSourceFilters' => 'DataSourceFilters',
         'immutable' => 'Immutable',
@@ -96,6 +102,10 @@ class rules extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->archiveDays) {
+            $res['ArchiveDays'] = $this->archiveDays;
+        }
+
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
         }
@@ -172,6 +182,10 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchiveDays'])) {
+            $model->archiveDays = $map['ArchiveDays'];
+        }
+
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
         }
