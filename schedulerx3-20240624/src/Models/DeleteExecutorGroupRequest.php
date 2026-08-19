@@ -14,6 +14,11 @@ class DeleteExecutorGroupRequest extends Model
     public $clusterId;
 
     /**
+     * @var bool
+     */
+    public $deleteJobs;
+
+    /**
      * @var int
      */
     public $id;
@@ -24,6 +29,7 @@ class DeleteExecutorGroupRequest extends Model
     public $name;
     protected $_name = [
         'clusterId' => 'ClusterId',
+        'deleteJobs' => 'DeleteJobs',
         'id' => 'Id',
         'name' => 'Name',
     ];
@@ -38,6 +44,10 @@ class DeleteExecutorGroupRequest extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->deleteJobs) {
+            $res['DeleteJobs'] = $this->deleteJobs;
         }
 
         if (null !== $this->id) {
@@ -61,6 +71,10 @@ class DeleteExecutorGroupRequest extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+
+        if (isset($map['DeleteJobs'])) {
+            $model->deleteJobs = $map['DeleteJobs'];
         }
 
         if (isset($map['Id'])) {

@@ -1477,6 +1477,10 @@ class SchedulerX3 extends OpenApiClient
             @$body['ClusterId'] = $request->clusterId;
         }
 
+        if (null !== $request->deleteJobs) {
+            @$body['DeleteJobs'] = $request->deleteJobs;
+        }
+
         if (null !== $request->id) {
             @$body['Id'] = $request->id;
         }
