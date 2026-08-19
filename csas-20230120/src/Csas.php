@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Csas\V20230120;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Csas\V20230120\Models\AddDeviceGroupMatchDevicesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\AddDeviceGroupMatchDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorShrinkRequest;
@@ -14,11 +16,20 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\BatchCreateDomainItemsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\BatchCreateDomainItemsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeleteDomainItemsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeleteDomainItemsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessApplicationRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessApplicationResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessPolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateConnectorRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateConnectorResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDeviceGroupRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDeviceGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDeviceGroupShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDomainMetaRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDomainMetaResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteRequest;
@@ -27,6 +38,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAcceleratePolicyReque
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAcceleratePolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAccelerateTargetRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAccelerateTargetResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateForwardStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateForwardStrategyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePADiagnosisTaskRequest;
@@ -59,6 +72,12 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteApprovalProcessesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteApprovalProcessesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteConnectorClientRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteConnectorClientResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteConnectorRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteConnectorResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDeviceGroupsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDeviceGroupsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDomainMetaRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDomainMetaResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteRequest;
@@ -67,6 +86,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteEnterpriseAcceleratePolicyReque
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteEnterpriseAcceleratePolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteEnterpriseAccelerateTargetRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteEnterpriseAccelerateTargetResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteForwardStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteForwardStrategyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteIdpDepartmentRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteIdpDepartmentResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteOtpConfigRequest;
@@ -104,8 +125,18 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalSchemaResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetBootAndAntiUninstallPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetClientUserResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetConnectorClientRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetConnectorClientResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetConnectorRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetConnectorResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetDeviceGroupRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetDeviceGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetDeviceOnlineHeatmapRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetDeviceOnlineHeatmapResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetDynamicRouteResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetForwardStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetForwardStrategyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetIdpConfigRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetIdpConfigResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetNacPortalSmsPhoneWhitelistRequest;
@@ -120,6 +151,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetRegistrationPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceWorkloadTrendRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceWorkloadTrendResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmEmbedTaskRequest;
@@ -146,6 +179,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDeviceGroupsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDeviceGroupsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainItemsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainItemsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainMetasRequest;
@@ -181,6 +216,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPopTrafficStatisticsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPopTrafficStatisticsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationL7SwitchesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationL7SwitchesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsForDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsForDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsRequest;
@@ -223,6 +260,12 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyEnterpriseAcceleratePolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyEnterpriseAcceleratePolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyForwardStrategyBindingItemsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyForwardStrategyBindingItemsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyForwardStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyForwardStrategyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\RemoveDeviceGroupMatchDevicesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\RemoveDeviceGroupMatchDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserDeviceSessionRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserDeviceSessionResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionRequest;
@@ -241,6 +284,12 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserStatusResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateConnectorClientRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateConnectorClientResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateConnectorRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateConnectorResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDeviceGroupRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDeviceGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDomainMetaRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDomainMetaResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteRequest;
@@ -253,6 +302,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacPortalSmsPhoneWhitelistReque
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacPortalSmsPhoneWhitelistResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacUserCertStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacUserCertStatusResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationL7SwitchRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationL7SwitchResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationShrinkRequest;
@@ -314,6 +365,70 @@ class Csas extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Appends associated terminal devices to a static device label in batches.
+     *
+     * @param request - AddDeviceGroupMatchDevicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDeviceGroupMatchDevicesResponse
+     *
+     * @param AddDeviceGroupMatchDevicesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AddDeviceGroupMatchDevicesResponse
+     */
+    public function addDeviceGroupMatchDevicesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->devTags) {
+            @$bodyFlat['DevTags'] = $request->devTags;
+        }
+
+        if (null !== $request->deviceGroupId) {
+            @$body['DeviceGroupId'] = $request->deviceGroupId;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddDeviceGroupMatchDevices',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddDeviceGroupMatchDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Appends associated terminal devices to a static device label in batches.
+     *
+     * @param request - AddDeviceGroupMatchDevicesRequest
+     *
+     * @returns AddDeviceGroupMatchDevicesResponse
+     *
+     * @param AddDeviceGroupMatchDevicesRequest $request
+     *
+     * @return AddDeviceGroupMatchDevicesResponse
+     */
+    public function addDeviceGroupMatchDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDeviceGroupMatchDevicesWithOptions($request, $runtime);
     }
 
     /**
@@ -597,7 +712,137 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an approval process under the current Alibaba Cloud account.
+     * Deletes internal-facing applications in batches.
+     *
+     * @remarks
+     * Applications that are referenced by office network recognition or policies cannot be deleted. References:
+     * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
+     * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+     *
+     * @param request - BatchDeletePrivateAccessApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeletePrivateAccessApplicationResponse
+     *
+     * @param BatchDeletePrivateAccessApplicationRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return BatchDeletePrivateAccessApplicationResponse
+     */
+    public function batchDeletePrivateAccessApplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->applicationIds) {
+            @$bodyFlat['ApplicationIds'] = $request->applicationIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchDeletePrivateAccessApplication',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchDeletePrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes internal-facing applications in batches.
+     *
+     * @remarks
+     * Applications that are referenced by office network recognition or policies cannot be deleted. References:
+     * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
+     * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+     *
+     * @param request - BatchDeletePrivateAccessApplicationRequest
+     *
+     * @returns BatchDeletePrivateAccessApplicationResponse
+     *
+     * @param BatchDeletePrivateAccessApplicationRequest $request
+     *
+     * @return BatchDeletePrivateAccessApplicationResponse
+     */
+    public function batchDeletePrivateAccessApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeletePrivateAccessApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes internal network access policies in batches.
+     *
+     * @param request - BatchDeletePrivateAccessPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeletePrivateAccessPolicyResponse
+     *
+     * @param BatchDeletePrivateAccessPolicyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return BatchDeletePrivateAccessPolicyResponse
+     */
+    public function batchDeletePrivateAccessPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->policyIds) {
+            @$bodyFlat['PolicyIds'] = $request->policyIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchDeletePrivateAccessPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchDeletePrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes internal network access policies in batches.
+     *
+     * @param request - BatchDeletePrivateAccessPolicyRequest
+     *
+     * @returns BatchDeletePrivateAccessPolicyResponse
+     *
+     * @param BatchDeletePrivateAccessPolicyRequest $request
+     *
+     * @return BatchDeletePrivateAccessPolicyResponse
+     */
+    public function batchDeletePrivateAccessPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeletePrivateAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an approval flow under the current Alibaba Cloud account.
      *
      * @param tmpReq - CreateApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -657,7 +902,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an approval process under the current Alibaba Cloud account.
+     * Creates an approval flow under the current Alibaba Cloud account.
      *
      * @param request - CreateApprovalProcessRequest
      *
@@ -753,6 +998,154 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createClientUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a connector.
+     *
+     * @param request - CreateConnectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConnectorResponse
+     *
+     * @param CreateConnectorRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateConnectorResponse
+     */
+    public function createConnectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bandwidth) {
+            @$body['Bandwidth'] = $request->bandwidth;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->switchStatus) {
+            @$body['SwitchStatus'] = $request->switchStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateConnector',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a connector.
+     *
+     * @param request - CreateConnectorRequest
+     *
+     * @returns CreateConnectorResponse
+     *
+     * @param CreateConnectorRequest $request
+     *
+     * @return CreateConnectorResponse
+     */
+    public function createConnector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a device label.
+     *
+     * @param tmpReq - CreateDeviceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDeviceGroupResponse
+     *
+     * @param CreateDeviceGroupRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDeviceGroupResponse
+     */
+    public function createDeviceGroupWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDeviceGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dynamicRule) {
+            $request->dynamicRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dynamicRule, 'DynamicRule', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->dynamicOperator) {
+            @$body['DynamicOperator'] = $request->dynamicOperator;
+        }
+
+        if (null !== $request->dynamicRuleShrink) {
+            @$body['DynamicRule'] = $request->dynamicRuleShrink;
+        }
+
+        if (null !== $request->groupType) {
+            @$body['GroupType'] = $request->groupType;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDeviceGroup',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a device label.
+     *
+     * @param request - CreateDeviceGroupRequest
+     *
+     * @returns CreateDeviceGroupResponse
+     *
+     * @param CreateDeviceGroupRequest $request
+     *
+     * @return CreateDeviceGroupResponse
+     */
+    public function createDeviceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDeviceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -925,7 +1318,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an enterprise accelerate policy.
+     * Creates an enterprise acceleration policy.
      *
      * @param request - CreateEnterpriseAcceleratePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -996,7 +1389,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an enterprise accelerate policy.
+     * Creates an enterprise acceleration policy.
      *
      * @param request - CreateEnterpriseAcceleratePolicyRequest
      *
@@ -1014,7 +1407,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates enterprise acceleration addresses.
+     * Creates an enterprise acceleration address.
      *
      * @param request - CreateEnterpriseAccelerateTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1060,7 +1453,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates enterprise acceleration addresses.
+     * Creates an enterprise acceleration address.
      *
      * @param request - CreateEnterpriseAccelerateTargetRequest
      *
@@ -1075,6 +1468,83 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEnterpriseAccelerateTargetWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a traffic forwarding rule.
+     *
+     * @param request - CreateForwardStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateForwardStrategyResponse
+     *
+     * @param CreateForwardStrategyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateForwardStrategyResponse
+     */
+    public function createForwardStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->destinationId) {
+            @$body['DestinationId'] = $request->destinationId;
+        }
+
+        if (null !== $request->destinationType) {
+            @$body['DestinationType'] = $request->destinationType;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateForwardStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateForwardStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a traffic forwarding rule.
+     *
+     * @param request - CreateForwardStrategyRequest
+     *
+     * @returns CreateForwardStrategyResponse
+     *
+     * @param CreateForwardStrategyRequest $request
+     *
+     * @return CreateForwardStrategyResponse
+     */
+    public function createForwardStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createForwardStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -1508,10 +1978,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a private access tag for the current Alibaba Cloud account.
+     * Creates an internal-facing access tag under the current Alibaba Cloud account.
      *
      * @remarks
-     * By default, you can create up to 500 private access tags.
+     * You can create up to 500 internal-facing access tags by default.
      *
      * @param request - CreatePrivateAccessTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1554,10 +2024,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a private access tag for the current Alibaba Cloud account.
+     * Creates an internal-facing access tag under the current Alibaba Cloud account.
      *
      * @remarks
-     * By default, you can create up to 500 private access tags.
+     * You can create up to 500 internal-facing access tags by default.
      *
      * @param request - CreatePrivateAccessTagRequest
      *
@@ -1759,7 +2229,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Generates a transparent base image for web, screen, or app watermarks.
+     * Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
      *
      * @param tmpReq - CreateWmBaseImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1842,7 +2312,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Generates a transparent base image for web, screen, or app watermarks.
+     * Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
      *
      * @param request - CreateWmBaseImageRequest
      *
@@ -1860,10 +2330,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create a digital watermarking embedding Job.
+     * Creates a digital watermarking embedding task.
      *
      * @remarks
-     * By default, you can create up to 500 groups.
+     * You can create a maximum of 500 user groups by default.
      *
      * @param tmpReq - CreateWmEmbedTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1984,10 +2454,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create a digital watermarking embedding Job.
+     * Creates a digital watermarking embedding task.
      *
      * @remarks
-     * By default, you can create up to 500 groups.
+     * You can create a maximum of 500 user groups by default.
      *
      * @param request - CreateWmEmbedTaskRequest
      *
@@ -2005,7 +2475,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create a digital watermarking fetch job.
+     * Creates a digital watermarking extraction task.
      *
      * @param tmpReq - CreateWmExtractTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2092,7 +2562,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Create a digital watermarking fetch job.
+     * Creates a digital watermarking extraction task.
      *
      * @param request - CreateWmExtractTaskRequest
      *
@@ -2292,10 +2762,188 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Deletes a connector.
+     *
+     * @param request - DeleteConnectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConnectorResponse
+     *
+     * @param DeleteConnectorRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteConnectorResponse
+     */
+    public function deleteConnectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->connectorId) {
+            @$body['ConnectorId'] = $request->connectorId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConnector',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a connector.
+     *
+     * @param request - DeleteConnectorRequest
+     *
+     * @returns DeleteConnectorResponse
+     *
+     * @param DeleteConnectorRequest $request
+     *
+     * @return DeleteConnectorResponse
+     */
+    public function deleteConnector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a ConnectorClient under the current Alibaba Cloud account.
+     *
+     * @param request - DeleteConnectorClientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConnectorClientResponse
+     *
+     * @param DeleteConnectorClientRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteConnectorClientResponse
+     */
+    public function deleteConnectorClientWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->connectorId) {
+            @$body['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->devTag) {
+            @$body['DevTag'] = $request->devTag;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConnectorClient',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteConnectorClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a ConnectorClient under the current Alibaba Cloud account.
+     *
+     * @param request - DeleteConnectorClientRequest
+     *
+     * @returns DeleteConnectorClientResponse
+     *
+     * @param DeleteConnectorClientRequest $request
+     *
+     * @return DeleteConnectorClientResponse
+     */
+    public function deleteConnectorClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteConnectorClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes instance tags in batches.
+     *
+     * @param request - DeleteDeviceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDeviceGroupsResponse
+     *
+     * @param DeleteDeviceGroupsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDeviceGroupsResponse
+     */
+    public function deleteDeviceGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->deviceGroupIds) {
+            @$bodyFlat['DeviceGroupIds'] = $request->deviceGroupIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDeviceGroups',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDeviceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes instance tags in batches.
+     *
+     * @param request - DeleteDeviceGroupsRequest
+     *
+     * @returns DeleteDeviceGroupsResponse
+     *
+     * @param DeleteDeviceGroupsRequest $request
+     *
+     * @return DeleteDeviceGroupsResponse
+     */
+    public function deleteDeviceGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDeviceGroupsWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a domain name list.
      *
      * @remarks
-     * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+     * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If a reference exists, the deletion is rejected.
      *
      * @param request - DeleteDomainMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2341,7 +2989,7 @@ class Csas extends OpenApiClient
      * Deletes a domain name list.
      *
      * @remarks
-     * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+     * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If a reference exists, the deletion is rejected.
      *
      * @param request - DeleteDomainMetaRequest
      *
@@ -2473,7 +3121,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Deletes an enterprise acceleration address.
+     * Deletes enterprise acceleration addresses.
      *
      * @param request - DeleteEnterpriseAccelerateTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2519,7 +3167,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Deletes an enterprise acceleration address.
+     * Deletes enterprise acceleration addresses.
      *
      * @param request - DeleteEnterpriseAccelerateTargetRequest
      *
@@ -2534,6 +3182,63 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEnterpriseAccelerateTargetWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a forwarding rule.
+     *
+     * @param request - DeleteForwardStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteForwardStrategyResponse
+     *
+     * @param DeleteForwardStrategyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteForwardStrategyResponse
+     */
+    public function deleteForwardStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->forwardId) {
+            @$body['ForwardId'] = $request->forwardId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteForwardStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteForwardStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a forwarding rule.
+     *
+     * @param request - DeleteForwardStrategyRequest
+     *
+     * @returns DeleteForwardStrategyResponse
+     *
+     * @param DeleteForwardStrategyRequest $request
+     *
+     * @return DeleteForwardStrategyResponse
+     */
+    public function deleteForwardStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteForwardStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -3502,7 +4207,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of an approval flow under the current Alibaba Cloud account.
+     * Queries the details of an approval process under the current Alibaba Cloud account.
      *
      * @param request - GetApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3537,7 +4242,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of an approval flow under the current Alibaba Cloud account.
+     * Queries the details of an approval process under the current Alibaba Cloud account.
      *
      * @param request - GetApprovalProcessRequest
      *
@@ -3608,7 +4313,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
+     * Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3637,7 +4342,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
+     * Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
      *
      * @returns GetBootAndAntiUninstallPolicyResponse
      *
@@ -3704,6 +4409,234 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Queries the details of a connector.
+     *
+     * @param request - GetConnectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConnectorResponse
+     *
+     * @param GetConnectorRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetConnectorResponse
+     */
+    public function getConnectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetConnector',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a connector.
+     *
+     * @param request - GetConnectorRequest
+     *
+     * @returns GetConnectorResponse
+     *
+     * @param GetConnectorRequest $request
+     *
+     * @return GetConnectorResponse
+     */
+    public function getConnector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a ConnectorClient.
+     *
+     * @param request - GetConnectorClientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConnectorClientResponse
+     *
+     * @param GetConnectorClientRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetConnectorClientResponse
+     */
+    public function getConnectorClientWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetConnectorClient',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetConnectorClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a ConnectorClient.
+     *
+     * @param request - GetConnectorClientRequest
+     *
+     * @returns GetConnectorClientResponse
+     *
+     * @param GetConnectorClientRequest $request
+     *
+     * @return GetConnectorClientResponse
+     */
+    public function getConnectorClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConnectorClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a specified device label.
+     *
+     * @param request - GetDeviceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceGroupResponse
+     *
+     * @param GetDeviceGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetDeviceGroupResponse
+     */
+    public function getDeviceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deviceGroupId) {
+            @$query['DeviceGroupId'] = $request->deviceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDeviceGroup',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a specified device label.
+     *
+     * @param request - GetDeviceGroupRequest
+     *
+     * @returns GetDeviceGroupResponse
+     *
+     * @param GetDeviceGroupRequest $request
+     *
+     * @return GetDeviceGroupResponse
+     */
+    public function getDeviceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeviceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the online time distribution of a specified terminal device on a specified date, aggregated by minute.
+     *
+     * @param request - GetDeviceOnlineHeatmapRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeviceOnlineHeatmapResponse
+     *
+     * @param GetDeviceOnlineHeatmapRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDeviceOnlineHeatmapResponse
+     */
+    public function getDeviceOnlineHeatmapWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->date) {
+            @$query['Date'] = $request->date;
+        }
+
+        if (null !== $request->devTag) {
+            @$query['DevTag'] = $request->devTag;
+        }
+
+        if (null !== $request->saseUserId) {
+            @$query['SaseUserId'] = $request->saseUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDeviceOnlineHeatmap',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDeviceOnlineHeatmapResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the online time distribution of a specified terminal device on a specified date, aggregated by minute.
+     *
+     * @param request - GetDeviceOnlineHeatmapRequest
+     *
+     * @returns GetDeviceOnlineHeatmapResponse
+     *
+     * @param GetDeviceOnlineHeatmapRequest $request
+     *
+     * @return GetDeviceOnlineHeatmapResponse
+     */
+    public function getDeviceOnlineHeatmap($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeviceOnlineHeatmapWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves details about a dynamic route in your Alibaba Cloud account.
      *
      * @param request - GetDynamicRouteRequest
@@ -3754,6 +4687,65 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDynamicRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a forwarding rule.
+     *
+     * @remarks
+     * Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+     *
+     * @param request - GetForwardStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetForwardStrategyResponse
+     *
+     * @param GetForwardStrategyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetForwardStrategyResponse
+     */
+    public function getForwardStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetForwardStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetForwardStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a forwarding rule.
+     *
+     * @remarks
+     * Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+     *
+     * @param request - GetForwardStrategyRequest
+     *
+     * @returns GetForwardStrategyResponse
+     *
+     * @param GetForwardStrategyRequest $request
+     *
+     * @return GetForwardStrategyResponse
+     */
+    public function getForwardStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getForwardStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -4131,6 +5123,75 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Queries the workload usage trends of a specified endpoint device.
+     *
+     * @param request - GetUserDeviceWorkloadTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserDeviceWorkloadTrendResponse
+     *
+     * @param GetUserDeviceWorkloadTrendRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetUserDeviceWorkloadTrendResponse
+     */
+    public function getUserDeviceWorkloadTrendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deviceTag) {
+            @$query['DeviceTag'] = $request->deviceTag;
+        }
+
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
+        }
+
+        if (null !== $request->to) {
+            @$query['To'] = $request->to;
+        }
+
+        if (null !== $request->workloadType) {
+            @$query['WorkloadType'] = $request->workloadType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserDeviceWorkloadTrend',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserDeviceWorkloadTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the workload usage trends of a specified endpoint device.
+     *
+     * @param request - GetUserDeviceWorkloadTrendRequest
+     *
+     * @returns GetUserDeviceWorkloadTrendResponse
+     *
+     * @param GetUserDeviceWorkloadTrendRequest $request
+     *
+     * @return GetUserDeviceWorkloadTrendResponse
+     */
+    public function getUserDeviceWorkloadTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserDeviceWorkloadTrendWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a user group in the current Alibaba Cloud account.
      *
      * @param request - GetUserGroupRequest
@@ -4290,7 +5351,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch import acceleration addresses.
+     * Imports acceleration addresses in batches.
      *
      * @param request - ImportEnterpriseAccelerateTargetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4333,7 +5394,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch import acceleration addresses.
+     * Imports acceleration addresses in batches.
      *
      * @param request - ImportEnterpriseAccelerateTargetsRequest
      *
@@ -4825,6 +5886,75 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConnectorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of device groups under the current Alibaba Cloud account by using paging.
+     *
+     * @param request - ListDeviceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeviceGroupsResponse
+     *
+     * @param ListDeviceGroupsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListDeviceGroupsResponse
+     */
+    public function listDeviceGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->deviceGroupIds) {
+            @$query['DeviceGroupIds'] = $request->deviceGroupIds;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDeviceGroups',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDeviceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of device groups under the current Alibaba Cloud account by using paging.
+     *
+     * @param request - ListDeviceGroupsRequest
+     *
+     * @returns ListDeviceGroupsResponse
+     *
+     * @param ListDeviceGroupsRequest $request
+     *
+     * @return ListDeviceGroupsResponse
+     */
+    public function listDeviceGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeviceGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -5856,6 +6986,59 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Queries the Layer 7 switches of internal-facing applications in batches.
+     *
+     * @param request - ListPrivateAccessApplicationL7SwitchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPrivateAccessApplicationL7SwitchesResponse
+     *
+     * @param ListPrivateAccessApplicationL7SwitchesRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListPrivateAccessApplicationL7SwitchesResponse
+     */
+    public function listPrivateAccessApplicationL7SwitchesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPrivateAccessApplicationL7Switches',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPrivateAccessApplicationL7SwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the Layer 7 switches of internal-facing applications in batches.
+     *
+     * @param request - ListPrivateAccessApplicationL7SwitchesRequest
+     *
+     * @returns ListPrivateAccessApplicationL7SwitchesResponse
+     *
+     * @param ListPrivateAccessApplicationL7SwitchesRequest $request
+     *
+     * @return ListPrivateAccessApplicationL7SwitchesResponse
+     */
+    public function listPrivateAccessApplicationL7Switches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrivateAccessApplicationL7SwitchesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries information about all internal-facing access applications under the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessApplicationsRequest
@@ -6271,12 +7454,12 @@ class Csas extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - This operation performs paging query of risk events based on specified conditional criteria.
+     * - This operation is used for paging query of risk events that meet specified conditional criteria.
      * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
      * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
      * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
-     * - Fuzzy matching is supported for `PolicyName` and `Username`.
-     * - The response includes the total number of risk events that match the query conditions and their details.
+     * - Fuzzy match queries are supported by settings `PolicyName` and `Username`.
+     * - The response includes the total number of risk events that meet the query conditions and their details.
      *
      * @param request - ListRiskItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6355,12 +7538,12 @@ class Csas extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - This operation performs paging query of risk events based on specified conditional criteria.
+     * - This operation is used for paging query of risk events that meet specified conditional criteria.
      * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
      * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
      * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
-     * - Fuzzy matching is supported for `PolicyName` and `Username`.
-     * - The response includes the total number of risk events that match the query conditions and their details.
+     * - Fuzzy match queries are supported by settings `PolicyName` and `Username`.
+     * - The response includes the total number of risk events that meet the query conditions and their details.
      *
      * @param request - ListRiskItemsRequest
      *
@@ -6378,7 +7561,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Lists the software installed on a user device.
+     * Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
      *
      * @param request - ListSoftwareForUserDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6413,7 +7596,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Lists the software installed on a user device.
+     * Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
      *
      * @param request - ListSoftwareForUserDeviceRequest
      *
@@ -6537,7 +7720,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of uninstallation requests for your Alibaba Cloud account.
+     * Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
      *
      * @param request - ListUninstallApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6572,7 +7755,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of uninstallation requests for your Alibaba Cloud account.
+     * Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
      *
      * @param request - ListUninstallApplicationsRequest
      *
@@ -7211,6 +8394,222 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Modifies a forwarding rule.
+     *
+     * @param request - ModifyForwardStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyForwardStrategyResponse
+     *
+     * @param ModifyForwardStrategyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyForwardStrategyResponse
+     */
+    public function modifyForwardStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->destinationId) {
+            @$body['DestinationId'] = $request->destinationId;
+        }
+
+        if (null !== $request->destinationType) {
+            @$body['DestinationType'] = $request->destinationType;
+        }
+
+        if (null !== $request->forwardId) {
+            @$body['ForwardId'] = $request->forwardId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyForwardStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyForwardStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a forwarding rule.
+     *
+     * @param request - ModifyForwardStrategyRequest
+     *
+     * @returns ModifyForwardStrategyResponse
+     *
+     * @param ModifyForwardStrategyRequest $request
+     *
+     * @return ModifyForwardStrategyResponse
+     */
+    public function modifyForwardStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyForwardStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the binding items of a forwarding rule.
+     *
+     * @param request - ModifyForwardStrategyBindingItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyForwardStrategyBindingItemsResponse
+     *
+     * @param ModifyForwardStrategyBindingItemsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyForwardStrategyBindingItemsResponse
+     */
+    public function modifyForwardStrategyBindingItemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->itemIds) {
+            @$query['ItemIds'] = $request->itemIds;
+        }
+
+        if (null !== $request->matchMode) {
+            @$query['MatchMode'] = $request->matchMode;
+        }
+
+        if (null !== $request->modifyType) {
+            @$query['ModifyType'] = $request->modifyType;
+        }
+
+        $body = [];
+        if (null !== $request->forwardId) {
+            @$body['ForwardId'] = $request->forwardId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyForwardStrategyBindingItems',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyForwardStrategyBindingItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the binding items of a forwarding rule.
+     *
+     * @param request - ModifyForwardStrategyBindingItemsRequest
+     *
+     * @returns ModifyForwardStrategyBindingItemsResponse
+     *
+     * @param ModifyForwardStrategyBindingItemsRequest $request
+     *
+     * @return ModifyForwardStrategyBindingItemsResponse
+     */
+    public function modifyForwardStrategyBindingItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyForwardStrategyBindingItemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes associated terminal devices from a static device label in batches.
+     *
+     * @param request - RemoveDeviceGroupMatchDevicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveDeviceGroupMatchDevicesResponse
+     *
+     * @param RemoveDeviceGroupMatchDevicesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RemoveDeviceGroupMatchDevicesResponse
+     */
+    public function removeDeviceGroupMatchDevicesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->devTags) {
+            @$bodyFlat['DevTags'] = $request->devTags;
+        }
+
+        if (null !== $request->deviceGroupId) {
+            @$body['DeviceGroupId'] = $request->deviceGroupId;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveDeviceGroupMatchDevices',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveDeviceGroupMatchDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes associated terminal devices from a static device label in batches.
+     *
+     * @param request - RemoveDeviceGroupMatchDevicesRequest
+     *
+     * @returns RemoveDeviceGroupMatchDevicesResponse
+     *
+     * @param RemoveDeviceGroupMatchDevicesRequest $request
+     *
+     * @return RemoveDeviceGroupMatchDevicesResponse
+     */
+    public function removeDeviceGroupMatchDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDeviceGroupMatchDevicesWithOptions($request, $runtime);
+    }
+
+    /**
      * Revokes a user device session.
      *
      * @param request - RevokeUserDeviceSessionRequest
@@ -7338,7 +8737,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates an approval flow under the current Alibaba Cloud account.
+     * Updates an approval process under the current Alibaba Cloud account.
      *
      * @param tmpReq - UpdateApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7424,7 +8823,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates an approval flow under the current Alibaba Cloud account.
+     * Updates an approval process under the current Alibaba Cloud account.
      *
      * @param request - UpdateApprovalProcessRequest
      *
@@ -7442,7 +8841,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates the status of an approval instance under your Alibaba Cloud account.
+     * Updates the instance status of an approval under the current Alibaba Cloud account.
      *
      * @param request - UpdateApprovalStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7485,7 +8884,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates the status of an approval instance under your Alibaba Cloud account.
+     * Updates the instance status of an approval under the current Alibaba Cloud account.
      *
      * @param request - UpdateApprovalStatusRequest
      *
@@ -7785,6 +9184,213 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateClientUserStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies a Connector instance under the current Alibaba Cloud account.
+     *
+     * @param request - UpdateConnectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConnectorResponse
+     *
+     * @param UpdateConnectorRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateConnectorResponse
+     */
+    public function updateConnectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accelerateStatus) {
+            @$body['AccelerateStatus'] = $request->accelerateStatus;
+        }
+
+        if (null !== $request->connectorId) {
+            @$body['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->switchStatus) {
+            @$body['SwitchStatus'] = $request->switchStatus;
+        }
+
+        if (null !== $request->vipCidr) {
+            @$body['VipCidr'] = $request->vipCidr;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConnector',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a Connector instance under the current Alibaba Cloud account.
+     *
+     * @param request - UpdateConnectorRequest
+     *
+     * @returns UpdateConnectorResponse
+     *
+     * @param UpdateConnectorRequest $request
+     *
+     * @return UpdateConnectorResponse
+     */
+    public function updateConnector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies a ConnectorClient under the current Alibaba Cloud account.
+     *
+     * @param request - UpdateConnectorClientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConnectorClientResponse
+     *
+     * @param UpdateConnectorClientRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateConnectorClientResponse
+     */
+    public function updateConnectorClientWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->connectorId) {
+            @$body['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->devTag) {
+            @$body['DevTag'] = $request->devTag;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConnectorClient',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConnectorClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a ConnectorClient under the current Alibaba Cloud account.
+     *
+     * @param request - UpdateConnectorClientRequest
+     *
+     * @returns UpdateConnectorClientResponse
+     *
+     * @param UpdateConnectorClientRequest $request
+     *
+     * @return UpdateConnectorClientResponse
+     */
+    public function updateConnectorClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateConnectorClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a device label.
+     *
+     * @param request - UpdateDeviceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDeviceGroupResponse
+     *
+     * @param UpdateDeviceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateDeviceGroupResponse
+     */
+    public function updateDeviceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->deviceGroupId) {
+            @$body['DeviceGroupId'] = $request->deviceGroupId;
+        }
+
+        if (null !== $request->dynamicOperator) {
+            @$body['DynamicOperator'] = $request->dynamicOperator;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDeviceGroup',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a device label.
+     *
+     * @param request - UpdateDeviceGroupRequest
+     *
+     * @returns UpdateDeviceGroupResponse
+     *
+     * @param UpdateDeviceGroupRequest $request
+     *
+     * @return UpdateDeviceGroupResponse
+     */
+    public function updateDeviceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDeviceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -8217,7 +9823,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies an internal-facing access application under the current Alibaba Cloud account.
+     * Modifies a private access application under the current Alibaba Cloud account.
      *
      * @param tmpReq - UpdatePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8329,7 +9935,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies an internal-facing access application under the current Alibaba Cloud account.
+     * Modifies a private access application under the current Alibaba Cloud account.
      *
      * @param request - UpdatePrivateAccessApplicationRequest
      *
@@ -8344,6 +9950,98 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePrivateAccessApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the Layer 7 access switch for an internal-facing application.
+     *
+     * @param request - UpdatePrivateAccessApplicationL7SwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePrivateAccessApplicationL7SwitchResponse
+     *
+     * @param UpdatePrivateAccessApplicationL7SwitchRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return UpdatePrivateAccessApplicationL7SwitchResponse
+     */
+    public function updatePrivateAccessApplicationL7SwitchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->applicationId) {
+            @$body['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->devTagMarkStatus) {
+            @$body['DevTagMarkStatus'] = $request->devTagMarkStatus;
+        }
+
+        if (null !== $request->downloadAuditStatus) {
+            @$body['DownloadAuditStatus'] = $request->downloadAuditStatus;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->portRanges) {
+            @$bodyFlat['PortRanges'] = $request->portRanges;
+        }
+
+        if (null !== $request->srcIpMarkStatus) {
+            @$body['SrcIpMarkStatus'] = $request->srcIpMarkStatus;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->timeoutSec) {
+            @$body['TimeoutSec'] = $request->timeoutSec;
+        }
+
+        if (null !== $request->userMarkStatus) {
+            @$body['UserMarkStatus'] = $request->userMarkStatus;
+        }
+
+        if (null !== $request->zeroTrustStatus) {
+            @$body['ZeroTrustStatus'] = $request->zeroTrustStatus;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePrivateAccessApplicationL7Switch',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePrivateAccessApplicationL7SwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the Layer 7 access switch for an internal-facing application.
+     *
+     * @param request - UpdatePrivateAccessApplicationL7SwitchRequest
+     *
+     * @returns UpdatePrivateAccessApplicationL7SwitchResponse
+     *
+     * @param UpdatePrivateAccessApplicationL7SwitchRequest $request
+     *
+     * @return UpdatePrivateAccessApplicationL7SwitchResponse
+     */
+    public function updatePrivateAccessApplicationL7Switch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePrivateAccessApplicationL7SwitchWithOptions($request, $runtime);
     }
 
     /**
@@ -8605,15 +10303,15 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates the current handling status and conclusion of a specified risk event.
+     * Updates the current processing status and conclusion of a specified risk event.
      *
      * @remarks
      * ## Request description
-     * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+     * - This operation allows you to update the processing status of a specific risk event under your Alibaba Cloud account.
      * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
      * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
      * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
-     * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+     * - The `RiskConfirmDesc` field provides additional explanation or remarks for the processing decision. The length must be 1 to 128 characters.
      *
      * @param request - UpdateRiskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8668,15 +10366,15 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates the current handling status and conclusion of a specified risk event.
+     * Updates the current processing status and conclusion of a specified risk event.
      *
      * @remarks
      * ## Request description
-     * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+     * - This operation allows you to update the processing status of a specific risk event under your Alibaba Cloud account.
      * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
      * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
      * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
-     * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+     * - The `RiskConfirmDesc` field provides additional explanation or remarks for the processing decision. The length must be 1 to 128 characters.
      *
      * @param request - UpdateRiskStatusRequest
      *
@@ -8694,7 +10392,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch updates the status of uninstall requests for your Alibaba Cloud account.
+     * Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
      *
      * @param request - UpdateUninstallApplicationsStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8740,7 +10438,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch updates the status of uninstall requests for your Alibaba Cloud account.
+     * Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
      *
      * @param request - UpdateUninstallApplicationsStatusRequest
      *
