@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody\users;
 class DescribeUsersResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -24,6 +29,7 @@ class DescribeUsersResponseBody extends Model
      */
     public $users;
     protected $_name = [
+        'count' => 'Count',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
         'users' => 'Users',
@@ -40,6 +46,10 @@ class DescribeUsersResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -70,6 +80,10 @@ class DescribeUsersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

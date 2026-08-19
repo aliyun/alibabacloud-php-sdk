@@ -12,6 +12,11 @@ class orgs extends Model
     /**
      * @var string
      */
+    public $accessType;
+
+    /**
+     * @var string
+     */
     public $orgId;
 
     /**
@@ -34,6 +39,7 @@ class orgs extends Model
      */
     public $resourcePolicyList;
     protected $_name = [
+        'accessType' => 'AccessType',
         'orgId' => 'OrgId',
         'orgName' => 'OrgName',
         'orgNamePath' => 'OrgNamePath',
@@ -52,6 +58,10 @@ class orgs extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessType) {
+            $res['AccessType'] = $this->accessType;
+        }
+
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
@@ -90,6 +100,10 @@ class orgs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessType'])) {
+            $model->accessType = $map['AccessType'];
+        }
+
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }

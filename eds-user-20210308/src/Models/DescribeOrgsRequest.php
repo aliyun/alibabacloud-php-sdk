@@ -19,6 +19,11 @@ class DescribeOrgsRequest extends Model
     public $includeOrgIds;
 
     /**
+     * @var bool
+     */
+    public $isQueryAllSubOrgs;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -45,6 +50,7 @@ class DescribeOrgsRequest extends Model
     protected $_name = [
         'businessChannel' => 'BusinessChannel',
         'includeOrgIds' => 'IncludeOrgIds',
+        'isQueryAllSubOrgs' => 'IsQueryAllSubOrgs',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'orgName' => 'OrgName',
@@ -79,6 +85,10 @@ class DescribeOrgsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->isQueryAllSubOrgs) {
+            $res['IsQueryAllSubOrgs'] = $this->isQueryAllSubOrgs;
         }
 
         if (null !== $this->maxResults) {
@@ -130,6 +140,10 @@ class DescribeOrgsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['IsQueryAllSubOrgs'])) {
+            $model->isQueryAllSubOrgs = $map['IsQueryAllSubOrgs'];
         }
 
         if (isset($map['MaxResults'])) {

@@ -1252,10 +1252,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Queries a list of organizations.
+     * Queries the list of organizations.
      *
      * @remarks
-     * Organizations are arranged in a tree-like structure. The root organization ID is org-aliyun-wy-org-id.
+     * Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
      *
      * @param tmpReq - DescribeOrgsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1283,6 +1283,10 @@ class Edsuser extends OpenApiClient
 
         if (null !== $request->includeOrgIds) {
             @$query['IncludeOrgIds'] = $request->includeOrgIds;
+        }
+
+        if (null !== $request->isQueryAllSubOrgs) {
+            @$query['IsQueryAllSubOrgs'] = $request->isQueryAllSubOrgs;
         }
 
         if (null !== $request->maxResults) {
@@ -1324,10 +1328,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Queries a list of organizations.
+     * Queries the list of organizations.
      *
      * @remarks
-     * Organizations are arranged in a tree-like structure. The root organization ID is org-aliyun-wy-org-id.
+     * Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
      *
      * @param request - DescribeOrgsRequest
      *
@@ -1503,7 +1507,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Retrieves directory account information, including the username, email address, and display name.
+     * Queries convenience account information, such as usernames, email addresses, and remarks.
      *
      * @param tmpReq - DescribeUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1626,7 +1630,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Retrieves directory account information, including the username, email address, and display name.
+     * Queries convenience account information, such as usernames, email addresses, and remarks.
      *
      * @param request - DescribeUsersRequest
      *
