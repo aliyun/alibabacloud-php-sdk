@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class vivo extends Model
 {
     /**
+     * @var bool
+     */
+    public $addBadge;
+
+    /**
      * @var string
      */
     public $category;
@@ -28,6 +33,7 @@ class vivo extends Model
      */
     public $receiptId;
     protected $_name = [
+        'addBadge' => 'AddBadge',
         'category' => 'Category',
         'importance' => 'Importance',
         'liveMessage' => 'LiveMessage',
@@ -42,6 +48,10 @@ class vivo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addBadge) {
+            $res['AddBadge'] = $this->addBadge;
+        }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -69,6 +79,10 @@ class vivo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddBadge'])) {
+            $model->addBadge = $map['AddBadge'];
+        }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
