@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest\policy\authorizeAccessPolicyRules;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest\policy\clientTypes;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest\policy\clipboardPolicy;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest\policy\revokeAccessPolicyRules;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest\policy\videoPolicy;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest\policy\watermarkPolicy;
 
@@ -74,6 +75,11 @@ class policy extends Model
     public $policyVersion;
 
     /**
+     * @var revokeAccessPolicyRules[]
+     */
+    public $revokeAccessPolicyRules;
+
+    /**
      * @var videoPolicy
      */
     public $videoPolicy;
@@ -95,6 +101,7 @@ class policy extends Model
         'noOperationDisconnectTime' => 'NoOperationDisconnectTime',
         'policyId' => 'PolicyId',
         'policyVersion' => 'PolicyVersion',
+        'revokeAccessPolicyRules' => 'RevokeAccessPolicyRules',
         'videoPolicy' => 'VideoPolicy',
         'watermarkPolicy' => 'WatermarkPolicy',
     ];
@@ -109,6 +116,9 @@ class policy extends Model
         }
         if (null !== $this->clipboardPolicy) {
             $this->clipboardPolicy->validate();
+        }
+        if (\is_array($this->revokeAccessPolicyRules)) {
+            Model::validateArray($this->revokeAccessPolicyRules);
         }
         if (null !== $this->videoPolicy) {
             $this->videoPolicy->validate();
@@ -182,6 +192,17 @@ class policy extends Model
 
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
+        }
+
+        if (null !== $this->revokeAccessPolicyRules) {
+            if (\is_array($this->revokeAccessPolicyRules)) {
+                $res['RevokeAccessPolicyRules'] = [];
+                $n1 = 0;
+                foreach ($this->revokeAccessPolicyRules as $item1) {
+                    $res['RevokeAccessPolicyRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->videoPolicy) {
@@ -263,6 +284,17 @@ class policy extends Model
 
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
+        }
+
+        if (isset($map['RevokeAccessPolicyRules'])) {
+            if (!empty($map['RevokeAccessPolicyRules'])) {
+                $model->revokeAccessPolicyRules = [];
+                $n1 = 0;
+                foreach ($map['RevokeAccessPolicyRules'] as $item1) {
+                    $model->revokeAccessPolicyRules[$n1] = revokeAccessPolicyRules::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VideoPolicy'])) {
