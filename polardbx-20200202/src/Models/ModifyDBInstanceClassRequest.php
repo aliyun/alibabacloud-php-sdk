@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyDBInstanceClassRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $alignStoragePrimaryAzone;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -51,6 +56,11 @@ class ModifyDBInstanceClassRequest extends Model
     /**
      * @var string
      */
+    public $storageType;
+
+    /**
+     * @var string
+     */
     public $switchTime;
 
     /**
@@ -63,6 +73,7 @@ class ModifyDBInstanceClassRequest extends Model
      */
     public $targetDBInstanceClass;
     protected $_name = [
+        'alignStoragePrimaryAzone' => 'AlignStoragePrimaryAzone',
         'clientToken' => 'ClientToken',
         'cnClass' => 'CnClass',
         'DBInstanceName' => 'DBInstanceName',
@@ -71,6 +82,7 @@ class ModifyDBInstanceClassRequest extends Model
         'regionId' => 'RegionId',
         'specifiedDNScale' => 'SpecifiedDNScale',
         'specifiedDNSpecMapJson' => 'SpecifiedDNSpecMapJson',
+        'storageType' => 'StorageType',
         'switchTime' => 'SwitchTime',
         'switchTimeMode' => 'SwitchTimeMode',
         'targetDBInstanceClass' => 'TargetDBInstanceClass',
@@ -84,6 +96,10 @@ class ModifyDBInstanceClassRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->alignStoragePrimaryAzone) {
+            $res['AlignStoragePrimaryAzone'] = $this->alignStoragePrimaryAzone;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -116,6 +132,10 @@ class ModifyDBInstanceClassRequest extends Model
             $res['SpecifiedDNSpecMapJson'] = $this->specifiedDNSpecMapJson;
         }
 
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
+        }
+
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
         }
@@ -139,6 +159,10 @@ class ModifyDBInstanceClassRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlignStoragePrimaryAzone'])) {
+            $model->alignStoragePrimaryAzone = $map['AlignStoragePrimaryAzone'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -169,6 +193,10 @@ class ModifyDBInstanceClassRequest extends Model
 
         if (isset($map['SpecifiedDNSpecMapJson'])) {
             $model->specifiedDNSpecMapJson = $map['SpecifiedDNSpecMapJson'];
+        }
+
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         if (isset($map['SwitchTime'])) {

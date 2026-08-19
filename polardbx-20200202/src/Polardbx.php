@@ -10218,6 +10218,10 @@ class Polardbx extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->alignStoragePrimaryAzone) {
+            @$query['AlignStoragePrimaryAzone'] = $request->alignStoragePrimaryAzone;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -10248,6 +10252,10 @@ class Polardbx extends OpenApiClient
 
         if (null !== $request->specifiedDNSpecMapJson) {
             @$query['SpecifiedDNSpecMapJson'] = $request->specifiedDNSpecMapJson;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
 
         if (null !== $request->switchTime) {
