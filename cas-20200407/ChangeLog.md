@@ -1,3 +1,10 @@
+2026-08-19 Version: 3.8.0
+- Support API ListTagKeys.
+- Support API ListTagResources.
+- Support API TagResources.
+- Support API UntagResources.
+
+
 2026-08-18 Version: 3.7.0
 - Support API GetCertificatePackageCount.
 - Support API ListTrusteeOrder.

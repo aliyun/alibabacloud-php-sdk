@@ -123,6 +123,10 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\ListDeploymentJobResourceResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListDeploymentJobResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListTagKeysRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListTagKeysResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListTrusteeOrderRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListTrusteeOrderResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderRequest;
@@ -144,6 +148,10 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateCompanyRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateCompanyResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateContactRequest;
@@ -4413,6 +4421,188 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of tag keys and values.
+     *
+     * @remarks
+     * Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as appropriate.
+     *
+     * @param request - ListTagKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTagKeysResponse
+     */
+    public function listTagKeysWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagKeys',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of tag keys and values.
+     *
+     * @remarks
+     * Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as appropriate.
+     *
+     * @param request - ListTagKeysRequest
+     *
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     *
+     * @return ListTagKeysResponse
+     */
+    public function listTagKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取资源对应的标签.
+     *
+     * @remarks
+     * 本接口用于通过私有CA实例的ID，查询您通过SSL证书服务控制台购买的私有CA实例的状态信息，例如，CA实例的状态、包含的证书数量、已签发的证书数量等。
+     * 调用本接口前，您必须已经通过[数字证书管理服务控制台](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist)购买了私有CA。具体操作，请参见[购买私有CA](https://help.aliyun.com/document_detail/208553.html)。
+     * ## QPS限制
+     * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取资源对应的标签.
+     *
+     * @remarks
+     * 本接口用于通过私有CA实例的ID，查询您通过SSL证书服务控制台购买的私有CA实例的状态信息，例如，CA实例的状态、包含的证书数量、已签发的证书数量等。
+     * 调用本接口前，您必须已经通过[数字证书管理服务控制台](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist)购买了私有CA。具体操作，请参见[购买私有CA](https://help.aliyun.com/document_detail/208553.html)。
+     * ## QPS限制
+     * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the list of managed orders.
      *
      * @remarks
@@ -5148,6 +5338,172 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->signWithOptions($request, $runtime);
+    }
+
+    /**
+     * Adds resource tags.
+     *
+     * @remarks
+     * Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds resource tags.
+     *
+     * @remarks
+     * Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes tags.
+     *
+     * @remarks
+     * Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes tags.
+     *
+     * @remarks
+     * Queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 
     /**
