@@ -2,6 +2,10 @@
 - Update API GetToken: add request parameters TokenSettings.
 
 
+2026-08-19 Version: 1.11.1
+- Update API GetToken: add request parameters TokenSettings.
+
+
 2026-08-13 Version: 1.11.0
 - Support API TagResources.
 - Support API UntagResources.
