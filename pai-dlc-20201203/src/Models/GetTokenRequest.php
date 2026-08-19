@@ -22,14 +22,23 @@ class GetTokenRequest extends Model
      * @var string
      */
     public $targetType;
+
+    /**
+     * @var TokenSettings
+     */
+    public $tokenSettings;
     protected $_name = [
         'expireTime' => 'ExpireTime',
         'targetId' => 'TargetId',
         'targetType' => 'TargetType',
+        'tokenSettings' => 'TokenSettings',
     ];
 
     public function validate()
     {
+        if (null !== $this->tokenSettings) {
+            $this->tokenSettings->validate();
+        }
         parent::validate();
     }
 
@@ -46,6 +55,10 @@ class GetTokenRequest extends Model
 
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
+        }
+
+        if (null !== $this->tokenSettings) {
+            $res['TokenSettings'] = null !== $this->tokenSettings ? $this->tokenSettings->toArray($noStream) : $this->tokenSettings;
         }
 
         return $res;
@@ -69,6 +82,10 @@ class GetTokenRequest extends Model
 
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
+        }
+
+        if (isset($map['TokenSettings'])) {
+            $model->tokenSettings = TokenSettings::fromMap($map['TokenSettings']);
         }
 
         return $model;

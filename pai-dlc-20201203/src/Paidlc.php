@@ -2022,7 +2022,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
+     * Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
      *
      * @param request - GetTokenRequest
      * @param headers - map
@@ -2052,6 +2052,10 @@ class Paidlc extends OpenApiClient
             @$query['TargetType'] = $request->targetType;
         }
 
+        if (null !== $request->tokenSettings) {
+            @$query['TokenSettings'] = $request->tokenSettings;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -2072,7 +2076,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
+     * Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
      *
      * @param request - GetTokenRequest
      *
