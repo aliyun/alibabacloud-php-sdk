@@ -1,3 +1,7 @@
+2026-08-19 Version: 6.9.0
+- Support API ModelRouterQueryBillingDetails.
+
+
 2026-08-18 Version: 6.8.0
 - Support API ModelRouterGetBillingBillSummary.
 - Update API ModelRouterQueryBillingCostBreakdown: add request parameters clientIds.

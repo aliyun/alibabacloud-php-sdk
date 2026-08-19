@@ -164,6 +164,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListRespon
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingCostBreakdownRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingCostBreakdownResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingDetailsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingDetailsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingRuleListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingRuleListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryClientDiscountLogsRequest;
@@ -5446,7 +5448,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Queries the total cost trend of bills in the Billing Center.
+     * Billing Center/Queries the total cost trend of bills.
+     *
+     * @remarks
+     * Queries user role assignments.
      *
      * @param request - ModelRouterGetBillingBillSummaryRequest
      * @param headers - map
@@ -5524,7 +5529,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Queries the total cost trend of bills in the Billing Center.
+     * Billing Center/Queries the total cost trend of bills.
+     *
+     * @remarks
+     * Queries user role assignments.
      *
      * @param request - ModelRouterGetBillingBillSummaryRequest
      *
@@ -6571,6 +6579,9 @@ class AiContent extends OpenApiClient
     /**
      * Queries billing details in batches.
      *
+     * @remarks
+     * Queries the user list.
+     *
      * @param request - ModelRouterQueryBillingCostBreakdownRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6661,6 +6672,9 @@ class AiContent extends OpenApiClient
     /**
      * Queries billing details in batches.
      *
+     * @remarks
+     * Queries the user list.
+     *
      * @param request - ModelRouterQueryBillingCostBreakdownRequest
      *
      * @returns ModelRouterQueryBillingCostBreakdownResponse
@@ -6675,6 +6689,113 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterQueryBillingCostBreakdownWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries request-granularity billing details from the Billing Center.
+     *
+     * @remarks
+     * Queries the user list.
+     *
+     * @param request - ModelRouterQueryBillingDetailsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryBillingDetailsResponse
+     *
+     * @param ModelRouterQueryBillingDetailsRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModelRouterQueryBillingDetailsResponse
+     */
+    public function modelRouterQueryBillingDetailsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['apiKeyId'] = $request->apiKeyId;
+        }
+
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientIds) {
+            @$query['clientIds'] = $request->clientIds;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->modelCodes) {
+            @$query['modelCodes'] = $request->modelCodes;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->modelTypes) {
+            @$query['modelTypes'] = $request->modelTypes;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->requestId) {
+            @$query['requestId'] = $request->requestId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryBillingDetails',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/billing/details',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryBillingDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries request-granularity billing details from the Billing Center.
+     *
+     * @remarks
+     * Queries the user list.
+     *
+     * @param request - ModelRouterQueryBillingDetailsRequest
+     *
+     * @returns ModelRouterQueryBillingDetailsResponse
+     *
+     * @param ModelRouterQueryBillingDetailsRequest $request
+     *
+     * @return ModelRouterQueryBillingDetailsResponse
+     */
+    public function modelRouterQueryBillingDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryBillingDetailsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8346,7 +8467,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves observation chart data for model monitoring.
+     * Retrieves monitoring chart data for model observation.
+     *
+     * @remarks
+     * Queries a list of users.
      *
      * @param request - ModelRouterQueryObservationChartsRequest
      * @param headers - map
@@ -8416,7 +8540,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves observation chart data for model monitoring.
+     * Retrieves monitoring chart data for model observation.
+     *
+     * @remarks
+     * Queries a list of users.
      *
      * @param request - ModelRouterQueryObservationChartsRequest
      *
