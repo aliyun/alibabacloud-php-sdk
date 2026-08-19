@@ -1,3 +1,6 @@
+2026-08-19 Version: 2.0.3
+- Generated php 2026-05-20 for AgentLoop.
+
 2026-08-18 Version: 2.1.0
 - Support API CreateExperimentPlan.
 - Support API CreateExperimentRun.
