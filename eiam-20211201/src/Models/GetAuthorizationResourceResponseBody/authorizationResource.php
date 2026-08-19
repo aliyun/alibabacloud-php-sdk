@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationResourceResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationResourceResponseBody\authorizationResource\condition;
 
 class authorizationResource extends Model
 {
@@ -34,20 +35,41 @@ class authorizationResource extends Model
     public $cloudAccountId;
 
     /**
+     * @var condition
+     */
+    public $condition;
+
+    /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $updateTime;
     protected $_name = [
         'authorizationResourceEntityId' => 'AuthorizationResourceEntityId',
         'authorizationResourceEntityType' => 'AuthorizationResourceEntityType',
         'authorizationResourceId' => 'AuthorizationResourceId',
         'authorizationRuleId' => 'AuthorizationRuleId',
         'cloudAccountId' => 'CloudAccountId',
+        'condition' => 'Condition',
+        'createTime' => 'CreateTime',
         'instanceId' => 'InstanceId',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
     {
+        if (null !== $this->condition) {
+            $this->condition->validate();
+        }
         parent::validate();
     }
 
@@ -74,8 +96,20 @@ class authorizationResource extends Model
             $res['CloudAccountId'] = $this->cloudAccountId;
         }
 
+        if (null !== $this->condition) {
+            $res['Condition'] = null !== $this->condition ? $this->condition->toArray($noStream) : $this->condition;
+        }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -109,8 +143,20 @@ class authorizationResource extends Model
             $model->cloudAccountId = $map['CloudAccountId'];
         }
 
+        if (isset($map['Condition'])) {
+            $model->condition = condition::fromMap($map['Condition']);
+        }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

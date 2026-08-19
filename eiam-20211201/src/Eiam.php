@@ -2511,6 +2511,10 @@ class Eiam extends OpenApiClient
             @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
         }
 
+        if (null !== $request->condition) {
+            @$query['Condition'] = $request->condition;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -9802,7 +9806,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 执行容灾切换.
+     * Performs a disaster recovery switchover.
      *
      * @param request - ExecuteInstanceFailoverRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9845,7 +9849,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 执行容灾切换.
+     * Performs a disaster recovery switchover.
      *
      * @param request - ExecuteInstanceFailoverRequest
      *
@@ -10814,7 +10818,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries information about an authorized resource.
+     * Queries the information of an authorization resource.
      *
      * @param request - GetAuthorizationResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10861,7 +10865,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries information about an authorized resource.
+     * Queries the information of an authorization resource.
      *
      * @param request - GetAuthorizationResourceRequest
      *

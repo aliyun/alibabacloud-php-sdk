@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateAuthorizationResourceRequest\condition;
 
 class CreateAuthorizationResourceRequest extends Model
 {
@@ -29,6 +30,11 @@ class CreateAuthorizationResourceRequest extends Model
     public $clientToken;
 
     /**
+     * @var condition
+     */
+    public $condition;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -37,11 +43,15 @@ class CreateAuthorizationResourceRequest extends Model
         'authorizationResourceEntityType' => 'AuthorizationResourceEntityType',
         'authorizationRuleId' => 'AuthorizationRuleId',
         'clientToken' => 'ClientToken',
+        'condition' => 'Condition',
         'instanceId' => 'InstanceId',
     ];
 
     public function validate()
     {
+        if (null !== $this->condition) {
+            $this->condition->validate();
+        }
         parent::validate();
     }
 
@@ -62,6 +72,10 @@ class CreateAuthorizationResourceRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->condition) {
+            $res['Condition'] = null !== $this->condition ? $this->condition->toArray($noStream) : $this->condition;
         }
 
         if (null !== $this->instanceId) {
@@ -93,6 +107,10 @@ class CreateAuthorizationResourceRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['Condition'])) {
+            $model->condition = condition::fromMap($map['Condition']);
         }
 
         if (isset($map['InstanceId'])) {
