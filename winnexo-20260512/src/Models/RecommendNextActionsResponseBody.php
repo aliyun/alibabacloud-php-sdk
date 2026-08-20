@@ -5,8 +5,9 @@
 namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\RecommendNextActionsResponseBody\nextActions;
 
-class SendChatMessageResponseBody extends Model
+class RecommendNextActionsResponseBody extends Model
 {
     /**
      * @var string
@@ -16,17 +17,12 @@ class SendChatMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $content;
-
-    /**
-     * @var mixed
-     */
-    public $data;
-
-    /**
-     * @var string
-     */
     public $message;
+
+    /**
+     * @var nextActions[]
+     */
+    public $nextActions;
 
     /**
      * @var string
@@ -36,18 +32,20 @@ class SendChatMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $type;
+    public $title;
     protected $_name = [
         'code' => 'code',
-        'content' => 'content',
-        'data' => 'data',
         'message' => 'message',
+        'nextActions' => 'nextActions',
         'requestId' => 'requestId',
-        'type' => 'type',
+        'title' => 'title',
     ];
 
     public function validate()
     {
+        if (\is_array($this->nextActions)) {
+            Model::validateArray($this->nextActions);
+        }
         parent::validate();
     }
 
@@ -58,24 +56,27 @@ class SendChatMessageResponseBody extends Model
             $res['code'] = $this->code;
         }
 
-        if (null !== $this->content) {
-            $res['content'] = $this->content;
-        }
-
-        if (null !== $this->data) {
-            $res['data'] = $this->data;
-        }
-
         if (null !== $this->message) {
             $res['message'] = $this->message;
+        }
+
+        if (null !== $this->nextActions) {
+            if (\is_array($this->nextActions)) {
+                $res['nextActions'] = [];
+                $n1 = 0;
+                foreach ($this->nextActions as $item1) {
+                    $res['nextActions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->title) {
+            $res['title'] = $this->title;
         }
 
         return $res;
@@ -93,24 +94,27 @@ class SendChatMessageResponseBody extends Model
             $model->code = $map['code'];
         }
 
-        if (isset($map['content'])) {
-            $model->content = $map['content'];
-        }
-
-        if (isset($map['data'])) {
-            $model->data = $map['data'];
-        }
-
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+
+        if (isset($map['nextActions'])) {
+            if (!empty($map['nextActions'])) {
+                $model->nextActions = [];
+                $n1 = 0;
+                foreach ($map['nextActions'] as $item1) {
+                    $model->nextActions[$n1] = nextActions::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['title'])) {
+            $model->title = $map['title'];
         }
 
         return $model;

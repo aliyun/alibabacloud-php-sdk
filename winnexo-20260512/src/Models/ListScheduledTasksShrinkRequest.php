@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListScheduledTasksRequest extends Model
+class ListScheduledTasksShrinkRequest extends Model
 {
     /**
      * @var string
@@ -49,9 +49,9 @@ class ListScheduledTasksRequest extends Model
     public $tenantId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $visibilities;
+    public $visibilitiesShrink;
     protected $_name = [
         'collaborationGroupId' => 'collaborationGroupId',
         'creatorOnly' => 'creatorOnly',
@@ -61,14 +61,11 @@ class ListScheduledTasksRequest extends Model
         'page' => 'page',
         'pageSize' => 'pageSize',
         'tenantId' => 'tenantId',
-        'visibilities' => 'visibilities',
+        'visibilitiesShrink' => 'visibilities',
     ];
 
     public function validate()
     {
-        if (\is_array($this->visibilities)) {
-            Model::validateArray($this->visibilities);
-        }
         parent::validate();
     }
 
@@ -107,15 +104,8 @@ class ListScheduledTasksRequest extends Model
             $res['tenantId'] = $this->tenantId;
         }
 
-        if (null !== $this->visibilities) {
-            if (\is_array($this->visibilities)) {
-                $res['visibilities'] = [];
-                $n1 = 0;
-                foreach ($this->visibilities as $item1) {
-                    $res['visibilities'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->visibilitiesShrink) {
+            $res['visibilities'] = $this->visibilitiesShrink;
         }
 
         return $res;
@@ -162,14 +152,7 @@ class ListScheduledTasksRequest extends Model
         }
 
         if (isset($map['visibilities'])) {
-            if (!empty($map['visibilities'])) {
-                $model->visibilities = [];
-                $n1 = 0;
-                foreach ($map['visibilities'] as $item1) {
-                    $model->visibilities[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->visibilitiesShrink = $map['visibilities'];
         }
 
         return $model;

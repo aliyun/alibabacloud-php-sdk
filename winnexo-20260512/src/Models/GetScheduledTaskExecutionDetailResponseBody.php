@@ -115,6 +115,11 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
      * @var string
      */
     public $triggerType;
+
+    /**
+     * @var string
+     */
+    public $visibility;
     protected $_name = [
         'code' => 'code',
         'completedAt' => 'completedAt',
@@ -137,6 +142,7 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
         'title' => 'title',
         'triggerInfo' => 'triggerInfo',
         'triggerType' => 'triggerType',
+        'visibility' => 'visibility',
     ];
 
     public function validate()
@@ -267,6 +273,10 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
             $res['triggerType'] = $this->triggerType;
         }
 
+        if (null !== $this->visibility) {
+            $res['visibility'] = $this->visibility;
+        }
+
         return $res;
     }
 
@@ -381,6 +391,10 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
 
         if (isset($map['triggerType'])) {
             $model->triggerType = $map['triggerType'];
+        }
+
+        if (isset($map['visibility'])) {
+            $model->visibility = $map['visibility'];
         }
 
         return $model;

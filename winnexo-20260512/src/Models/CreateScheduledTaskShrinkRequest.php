@@ -57,6 +57,16 @@ class CreateScheduledTaskShrinkRequest extends Model
      * @var string
      */
     public $triggerConfigShrink;
+
+    /**
+     * @var string
+     */
+    public $visibility;
+
+    /**
+     * @var string
+     */
+    public $visibleMemberUserIdsShrink;
     protected $_name = [
         'collaborationGroupId' => 'collaborationGroupId',
         'descriptionShrink' => 'description',
@@ -68,6 +78,8 @@ class CreateScheduledTaskShrinkRequest extends Model
         'taskDetailShrink' => 'taskDetail',
         'tenantId' => 'tenantId',
         'triggerConfigShrink' => 'triggerConfig',
+        'visibility' => 'visibility',
+        'visibleMemberUserIdsShrink' => 'visibleMemberUserIds',
     ];
 
     public function validate()
@@ -116,6 +128,14 @@ class CreateScheduledTaskShrinkRequest extends Model
 
         if (null !== $this->triggerConfigShrink) {
             $res['triggerConfig'] = $this->triggerConfigShrink;
+        }
+
+        if (null !== $this->visibility) {
+            $res['visibility'] = $this->visibility;
+        }
+
+        if (null !== $this->visibleMemberUserIdsShrink) {
+            $res['visibleMemberUserIds'] = $this->visibleMemberUserIdsShrink;
         }
 
         return $res;
@@ -167,6 +187,14 @@ class CreateScheduledTaskShrinkRequest extends Model
 
         if (isset($map['triggerConfig'])) {
             $model->triggerConfigShrink = $map['triggerConfig'];
+        }
+
+        if (isset($map['visibility'])) {
+            $model->visibility = $map['visibility'];
+        }
+
+        if (isset($map['visibleMemberUserIds'])) {
+            $model->visibleMemberUserIdsShrink = $map['visibleMemberUserIds'];
         }
 
         return $model;

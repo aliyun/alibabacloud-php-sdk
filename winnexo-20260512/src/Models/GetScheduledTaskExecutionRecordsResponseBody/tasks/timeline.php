@@ -29,6 +29,11 @@ class timeline extends Model
     public $executionId;
 
     /**
+     * @var bool
+     */
+    public $isExpired;
+
+    /**
      * @var string
      */
     public $outputContent;
@@ -47,6 +52,7 @@ class timeline extends Model
         'displayName' => 'displayName',
         'errorMessage' => 'errorMessage',
         'executionId' => 'executionId',
+        'isExpired' => 'isExpired',
         'outputContent' => 'outputContent',
         'scheduledTime' => 'scheduledTime',
         'status' => 'status',
@@ -74,6 +80,10 @@ class timeline extends Model
 
         if (null !== $this->executionId) {
             $res['executionId'] = $this->executionId;
+        }
+
+        if (null !== $this->isExpired) {
+            $res['isExpired'] = $this->isExpired;
         }
 
         if (null !== $this->outputContent) {
@@ -113,6 +123,10 @@ class timeline extends Model
 
         if (isset($map['executionId'])) {
             $model->executionId = $map['executionId'];
+        }
+
+        if (isset($map['isExpired'])) {
+            $model->isExpired = $map['isExpired'];
         }
 
         if (isset($map['outputContent'])) {

@@ -14,6 +14,11 @@ class GetScheduledTaskExecutionRecordsRequest extends Model
     public $collaborationGroupId;
 
     /**
+     * @var string
+     */
+    public $initiatorUserId;
+
+    /**
      * @var int
      */
     public $page;
@@ -26,11 +31,24 @@ class GetScheduledTaskExecutionRecordsRequest extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
         'collaborationGroupId' => 'collaborationGroupId',
+        'initiatorUserId' => 'initiatorUserId',
         'page' => 'page',
         'pageSize' => 'pageSize',
+        'status' => 'status',
+        'taskId' => 'taskId',
         'tenantId' => 'tenantId',
     ];
 
@@ -46,12 +64,24 @@ class GetScheduledTaskExecutionRecordsRequest extends Model
             $res['collaborationGroupId'] = $this->collaborationGroupId;
         }
 
+        if (null !== $this->initiatorUserId) {
+            $res['initiatorUserId'] = $this->initiatorUserId;
+        }
+
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+
+        if (null !== $this->taskId) {
+            $res['taskId'] = $this->taskId;
         }
 
         if (null !== $this->tenantId) {
@@ -73,12 +103,24 @@ class GetScheduledTaskExecutionRecordsRequest extends Model
             $model->collaborationGroupId = $map['collaborationGroupId'];
         }
 
+        if (isset($map['initiatorUserId'])) {
+            $model->initiatorUserId = $map['initiatorUserId'];
+        }
+
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+
+        if (isset($map['taskId'])) {
+            $model->taskId = $map['taskId'];
         }
 
         if (isset($map['tenantId'])) {

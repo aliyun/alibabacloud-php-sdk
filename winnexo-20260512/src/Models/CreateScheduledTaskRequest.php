@@ -61,6 +61,16 @@ class CreateScheduledTaskRequest extends Model
      * @var triggerConfig
      */
     public $triggerConfig;
+
+    /**
+     * @var string
+     */
+    public $visibility;
+
+    /**
+     * @var string[]
+     */
+    public $visibleMemberUserIds;
     protected $_name = [
         'collaborationGroupId' => 'collaborationGroupId',
         'description' => 'description',
@@ -72,6 +82,8 @@ class CreateScheduledTaskRequest extends Model
         'taskDetail' => 'taskDetail',
         'tenantId' => 'tenantId',
         'triggerConfig' => 'triggerConfig',
+        'visibility' => 'visibility',
+        'visibleMemberUserIds' => 'visibleMemberUserIds',
     ];
 
     public function validate()
@@ -90,6 +102,9 @@ class CreateScheduledTaskRequest extends Model
         }
         if (null !== $this->triggerConfig) {
             $this->triggerConfig->validate();
+        }
+        if (\is_array($this->visibleMemberUserIds)) {
+            Model::validateArray($this->visibleMemberUserIds);
         }
         parent::validate();
     }
@@ -156,6 +171,21 @@ class CreateScheduledTaskRequest extends Model
 
         if (null !== $this->triggerConfig) {
             $res['triggerConfig'] = null !== $this->triggerConfig ? $this->triggerConfig->toArray($noStream) : $this->triggerConfig;
+        }
+
+        if (null !== $this->visibility) {
+            $res['visibility'] = $this->visibility;
+        }
+
+        if (null !== $this->visibleMemberUserIds) {
+            if (\is_array($this->visibleMemberUserIds)) {
+                $res['visibleMemberUserIds'] = [];
+                $n1 = 0;
+                foreach ($this->visibleMemberUserIds as $item1) {
+                    $res['visibleMemberUserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -228,6 +258,21 @@ class CreateScheduledTaskRequest extends Model
 
         if (isset($map['triggerConfig'])) {
             $model->triggerConfig = triggerConfig::fromMap($map['triggerConfig']);
+        }
+
+        if (isset($map['visibility'])) {
+            $model->visibility = $map['visibility'];
+        }
+
+        if (isset($map['visibleMemberUserIds'])) {
+            if (!empty($map['visibleMemberUserIds'])) {
+                $model->visibleMemberUserIds = [];
+                $n1 = 0;
+                foreach ($map['visibleMemberUserIds'] as $item1) {
+                    $model->visibleMemberUserIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

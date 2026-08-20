@@ -12,6 +12,11 @@ class tasks extends Model
     /**
      * @var string
      */
+    public $collaborationGroupId;
+
+    /**
+     * @var string
+     */
     public $cronExpression;
 
     /**
@@ -23,6 +28,11 @@ class tasks extends Model
      * @var bool
      */
     public $isOpen;
+
+    /**
+     * @var string
+     */
+    public $model;
 
     /**
      * @var string
@@ -49,9 +59,11 @@ class tasks extends Model
      */
     public $triggerType;
     protected $_name = [
+        'collaborationGroupId' => 'collaborationGroupId',
         'cronExpression' => 'cronExpression',
         'description' => 'description',
         'isOpen' => 'isOpen',
+        'model' => 'model',
         'name' => 'name',
         'taskId' => 'taskId',
         'timeline' => 'timeline',
@@ -70,6 +82,10 @@ class tasks extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->collaborationGroupId) {
+            $res['collaborationGroupId'] = $this->collaborationGroupId;
+        }
+
         if (null !== $this->cronExpression) {
             $res['cronExpression'] = $this->cronExpression;
         }
@@ -80,6 +96,10 @@ class tasks extends Model
 
         if (null !== $this->isOpen) {
             $res['isOpen'] = $this->isOpen;
+        }
+
+        if (null !== $this->model) {
+            $res['model'] = $this->model;
         }
 
         if (null !== $this->name) {
@@ -120,6 +140,10 @@ class tasks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['collaborationGroupId'])) {
+            $model->collaborationGroupId = $map['collaborationGroupId'];
+        }
+
         if (isset($map['cronExpression'])) {
             $model->cronExpression = $map['cronExpression'];
         }
@@ -130,6 +154,10 @@ class tasks extends Model
 
         if (isset($map['isOpen'])) {
             $model->isOpen = $map['isOpen'];
+        }
+
+        if (isset($map['model'])) {
+            $model->model = $map['model'];
         }
 
         if (isset($map['name'])) {

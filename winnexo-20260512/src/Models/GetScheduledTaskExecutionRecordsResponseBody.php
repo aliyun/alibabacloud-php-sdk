@@ -15,9 +15,24 @@ class GetScheduledTaskExecutionRecordsResponseBody extends Model
     public $code;
 
     /**
+     * @var bool
+     */
+    public $hasMore;
+
+    /**
      * @var string
      */
     public $message;
+
+    /**
+     * @var int
+     */
+    public $page;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -28,11 +43,20 @@ class GetScheduledTaskExecutionRecordsResponseBody extends Model
      * @var tasks[]
      */
     public $tasks;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'code' => 'code',
+        'hasMore' => 'hasMore',
         'message' => 'message',
+        'page' => 'page',
+        'pageSize' => 'pageSize',
         'requestId' => 'requestId',
         'tasks' => 'tasks',
+        'total' => 'total',
     ];
 
     public function validate()
@@ -50,8 +74,20 @@ class GetScheduledTaskExecutionRecordsResponseBody extends Model
             $res['code'] = $this->code;
         }
 
+        if (null !== $this->hasMore) {
+            $res['hasMore'] = $this->hasMore;
+        }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
+        }
+
+        if (null !== $this->page) {
+            $res['page'] = $this->page;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
         }
 
         if (null !== $this->requestId) {
@@ -69,6 +105,10 @@ class GetScheduledTaskExecutionRecordsResponseBody extends Model
             }
         }
 
+        if (null !== $this->total) {
+            $res['total'] = $this->total;
+        }
+
         return $res;
     }
 
@@ -84,8 +124,20 @@ class GetScheduledTaskExecutionRecordsResponseBody extends Model
             $model->code = $map['code'];
         }
 
+        if (isset($map['hasMore'])) {
+            $model->hasMore = $map['hasMore'];
+        }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+
+        if (isset($map['page'])) {
+            $model->page = $map['page'];
+        }
+
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
         }
 
         if (isset($map['requestId'])) {
@@ -101,6 +153,10 @@ class GetScheduledTaskExecutionRecordsResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['total'])) {
+            $model->total = $map['total'];
         }
 
         return $model;
