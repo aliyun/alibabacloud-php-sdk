@@ -5,6 +5,13 @@
 namespace AlibabaCloud\SDK\PAIModelGallery\V20260603;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\PAIModelGallery\V20260603\Models\GetModelDeploymentResourcesRequest;
+use AlibabaCloud\SDK\PAIModelGallery\V20260603\Models\GetModelDeploymentResourcesResponse;
+use AlibabaCloud\SDK\PAIModelGallery\V20260603\Models\GetModelDeploymentSpecRequest;
+use AlibabaCloud\SDK\PAIModelGallery\V20260603\Models\GetModelDeploymentSpecResponse;
+use AlibabaCloud\SDK\PAIModelGallery\V20260603\Models\ListModelDeploymentProfilesRequest;
+use AlibabaCloud\SDK\PAIModelGallery\V20260603\Models\ListModelDeploymentProfilesResponse;
 use AlibabaCloud\SDK\PAIModelGallery\V20260603\Models\ListModelGalleryModelsRequest;
 use AlibabaCloud\SDK\PAIModelGallery\V20260603\Models\ListModelGalleryModelsResponse;
 use AlibabaCloud\SDK\PAIModelGallery\V20260603\Models\ListModelGalleryModelsShrinkRequest;
@@ -20,21 +27,21 @@ class PAIModelGallery extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
+            'cn-shenzhen' => 'paimodelgallery.cn-shenzhen.aliyuncs.com',
+            'cn-wulanchabu' => 'paimodelgallery.cn-wulanchabu.aliyuncs.com',
+            'cn-beijing' => 'paimodelgallery.cn-beijing.aliyuncs.com',
+            'ap-northeast-2' => 'paimodelgallery.ap-northeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'paimodelgallery.ap-northeast-1.aliyuncs.com',
+            'cn-shanghai' => 'paimodelgallery.cn-shanghai.aliyuncs.com',
+            'cn-guangzhou' => 'paimodelgallery.cn-guangzhou.aliyuncs.com',
+            'cn-hongkong' => 'paimodelgallery.cn-hongkong.aliyuncs.com',
+            'ap-southeast-1' => 'paimodelgallery.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'paimodelgallery.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'paimodelgallery.ap-southeast-5.aliyuncs.com',
+            'cn-hangzhou' => 'paimodelgallery.cn-hangzhou.aliyuncs.com',
             'us-west-1' => 'paimodelgallery.us-west-1.aliyuncs.com',
             'us-east-1' => 'paimodelgallery.us-east-1.aliyuncs.com',
             'eu-central-1' => 'paimodelgallery.eu-central-1.aliyuncs.com',
-            'cn-wulanchabu' => 'paimodelgallery.cn-wulanchabu.aliyuncs.com',
-            'cn-shenzhen' => 'paimodelgallery.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai' => 'paimodelgallery.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'paimodelgallery.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'paimodelgallery.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'paimodelgallery.cn-guangzhou.aliyuncs.com',
-            'cn-beijing' => 'paimodelgallery.cn-beijing.aliyuncs.com',
-            'ap-southeast-5' => 'paimodelgallery.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'paimodelgallery.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'paimodelgallery.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2' => 'paimodelgallery.ap-northeast-2.aliyuncs.com',
-            'ap-northeast-1' => 'paimodelgallery.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('paimodelgallery', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -62,6 +69,227 @@ class PAIModelGallery extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 获取模型部署方案匹配资源.
+     *
+     * @param request - GetModelDeploymentResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetModelDeploymentResourcesResponse
+     *
+     * @param string                             $ModelId
+     * @param GetModelDeploymentResourcesRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetModelDeploymentResourcesResponse
+     */
+    public function getModelDeploymentResourcesWithOptions($ModelId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizKey) {
+            @$query['BizKey'] = $request->bizKey;
+        }
+
+        if (null !== $request->modelVersion) {
+            @$query['ModelVersion'] = $request->modelVersion;
+        }
+
+        if (null !== $request->profileId) {
+            @$query['ProfileId'] = $request->profileId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetModelDeploymentResources',
+            'version' => '2026-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/modelgallery/models/' . Url::percentEncode($ModelId) . '/deployment-resources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetModelDeploymentResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取模型部署方案匹配资源.
+     *
+     * @param request - GetModelDeploymentResourcesRequest
+     *
+     * @returns GetModelDeploymentResourcesResponse
+     *
+     * @param string                             $ModelId
+     * @param GetModelDeploymentResourcesRequest $request
+     *
+     * @return GetModelDeploymentResourcesResponse
+     */
+    public function getModelDeploymentResources($ModelId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getModelDeploymentResourcesWithOptions($ModelId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 生成模型部署配置.
+     *
+     * @param request - GetModelDeploymentSpecRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetModelDeploymentSpecResponse
+     *
+     * @param string                        $ModelId
+     * @param GetModelDeploymentSpecRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetModelDeploymentSpecResponse
+     */
+    public function getModelDeploymentSpecWithOptions($ModelId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizKey) {
+            @$query['BizKey'] = $request->bizKey;
+        }
+
+        if (null !== $request->modelVersion) {
+            @$query['ModelVersion'] = $request->modelVersion;
+        }
+
+        if (null !== $request->profileId) {
+            @$query['ProfileId'] = $request->profileId;
+        }
+
+        if (null !== $request->resourceSelections) {
+            @$query['ResourceSelections'] = $request->resourceSelections;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetModelDeploymentSpec',
+            'version' => '2026-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/modelgallery/models/' . Url::percentEncode($ModelId) . '/deployment-spec',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetModelDeploymentSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成模型部署配置.
+     *
+     * @param request - GetModelDeploymentSpecRequest
+     *
+     * @returns GetModelDeploymentSpecResponse
+     *
+     * @param string                        $ModelId
+     * @param GetModelDeploymentSpecRequest $request
+     *
+     * @return GetModelDeploymentSpecResponse
+     */
+    public function getModelDeploymentSpec($ModelId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getModelDeploymentSpecWithOptions($ModelId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取模型部署方案列表.
+     *
+     * @param request - ListModelDeploymentProfilesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelDeploymentProfilesResponse
+     *
+     * @param string                             $ModelId
+     * @param ListModelDeploymentProfilesRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListModelDeploymentProfilesResponse
+     */
+    public function listModelDeploymentProfilesWithOptions($ModelId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizKey) {
+            @$query['BizKey'] = $request->bizKey;
+        }
+
+        if (null !== $request->modelVersion) {
+            @$query['ModelVersion'] = $request->modelVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelDeploymentProfiles',
+            'version' => '2026-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/modelgallery/models/' . Url::percentEncode($ModelId) . '/deployment-profiles',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelDeploymentProfilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取模型部署方案列表.
+     *
+     * @param request - ListModelDeploymentProfilesRequest
+     *
+     * @returns ListModelDeploymentProfilesResponse
+     *
+     * @param string                             $ModelId
+     * @param ListModelDeploymentProfilesRequest $request
+     *
+     * @return ListModelDeploymentProfilesResponse
+     */
+    public function listModelDeploymentProfiles($ModelId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listModelDeploymentProfilesWithOptions($ModelId, $request, $headers, $runtime);
     }
 
     /**
