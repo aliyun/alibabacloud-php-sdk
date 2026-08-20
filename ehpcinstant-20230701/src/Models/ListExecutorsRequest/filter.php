@@ -34,6 +34,11 @@ class filter extends Model
     public $jobTemplateId;
 
     /**
+     * @var string
+     */
+    public $poolName;
+
+    /**
      * @var string[]
      */
     public $status;
@@ -63,6 +68,7 @@ class filter extends Model
         'ipAddresses' => 'IpAddresses',
         'jobName' => 'JobName',
         'jobTemplateId' => 'JobTemplateId',
+        'poolName' => 'PoolName',
         'status' => 'Status',
         'timeCreatedAfter' => 'TimeCreatedAfter',
         'timeCreatedBefore' => 'TimeCreatedBefore',
@@ -119,6 +125,10 @@ class filter extends Model
 
         if (null !== $this->jobTemplateId) {
             $res['JobTemplateId'] = $this->jobTemplateId;
+        }
+
+        if (null !== $this->poolName) {
+            $res['PoolName'] = $this->poolName;
         }
 
         if (null !== $this->status) {
@@ -191,6 +201,10 @@ class filter extends Model
 
         if (isset($map['JobTemplateId'])) {
             $model->jobTemplateId = $map['JobTemplateId'];
+        }
+
+        if (isset($map['PoolName'])) {
+            $model->poolName = $map['PoolName'];
         }
 
         if (isset($map['Status'])) {

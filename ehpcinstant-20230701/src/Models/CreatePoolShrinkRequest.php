@@ -27,11 +27,17 @@ class CreatePoolShrinkRequest extends Model
      * @var string
      */
     public $schedulingPolicyId;
+
+    /**
+     * @var string
+     */
+    public $tagsShrink;
     protected $_name = [
         'poolName' => 'PoolName',
         'priority' => 'Priority',
         'resourceLimitsShrink' => 'ResourceLimits',
         'schedulingPolicyId' => 'SchedulingPolicyId',
+        'tagsShrink' => 'Tags',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class CreatePoolShrinkRequest extends Model
 
         if (null !== $this->schedulingPolicyId) {
             $res['SchedulingPolicyId'] = $this->schedulingPolicyId;
+        }
+
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class CreatePoolShrinkRequest extends Model
 
         if (isset($map['SchedulingPolicyId'])) {
             $model->schedulingPolicyId = $map['SchedulingPolicyId'];
+        }
+
+        if (isset($map['Tags'])) {
+            $model->tagsShrink = $map['Tags'];
         }
 
         return $model;

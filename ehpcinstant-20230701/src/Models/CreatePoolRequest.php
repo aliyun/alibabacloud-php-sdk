@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolRequest\resourceLimits;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolRequest\tags;
 
 class CreatePoolRequest extends Model
 {
@@ -28,17 +29,26 @@ class CreatePoolRequest extends Model
      * @var string
      */
     public $schedulingPolicyId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'poolName' => 'PoolName',
         'priority' => 'Priority',
         'resourceLimits' => 'ResourceLimits',
         'schedulingPolicyId' => 'SchedulingPolicyId',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
         if (null !== $this->resourceLimits) {
             $this->resourceLimits->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -60,6 +70,17 @@ class CreatePoolRequest extends Model
 
         if (null !== $this->schedulingPolicyId) {
             $res['SchedulingPolicyId'] = $this->schedulingPolicyId;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -87,6 +108,17 @@ class CreatePoolRequest extends Model
 
         if (isset($map['SchedulingPolicyId'])) {
             $model->schedulingPolicyId = $map['SchedulingPolicyId'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
