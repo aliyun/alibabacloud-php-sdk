@@ -73,6 +73,7 @@ use AlibabaCloud\SDK\RiskManagement\V20260424\Models\OpenTrialPackageRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\OpenTrialPackageResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryAccountSafetyIncidentRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryAccountSafetyIncidentResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryAccountSafetyIncidentShrinkRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryGuideSubStatusRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryGuideSubStatusResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryResourceControlEventsRequest;
@@ -1822,20 +1823,42 @@ class RiskManagement extends OpenApiClient
     /**
      * Queries account security events.
      *
-     * @param request - QueryAccountSafetyIncidentRequest
+     * @param tmpReq - QueryAccountSafetyIncidentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryAccountSafetyIncidentResponse
      *
-     * @param QueryAccountSafetyIncidentRequest $request
+     * @param QueryAccountSafetyIncidentRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
      * @return QueryAccountSafetyIncidentResponse
      */
-    public function queryAccountSafetyIncidentWithOptions($request, $runtime)
+    public function queryAccountSafetyIncidentWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new QueryAccountSafetyIncidentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actionCodes) {
+            $request->actionCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionCodes, 'ActionCodes', 'json');
+        }
+
+        if (null !== $tmpReq->caseCodes) {
+            $request->caseCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->caseCodes, 'CaseCodes', 'json');
+        }
+
+        if (null !== $tmpReq->eventIds) {
+            $request->eventIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventIds, 'EventIds', 'json');
+        }
+
+        if (null !== $tmpReq->statuses) {
+            $request->statusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
+        }
+
         $query = [];
+        if (null !== $request->actionCodesShrink) {
+            @$query['ActionCodes'] = $request->actionCodesShrink;
+        }
+
         if (null !== $request->aliyunLang) {
             @$query['AliyunLang'] = $request->aliyunLang;
         }
@@ -1844,12 +1867,20 @@ class RiskManagement extends OpenApiClient
             @$query['CaseCode'] = $request->caseCode;
         }
 
+        if (null !== $request->caseCodesShrink) {
+            @$query['CaseCodes'] = $request->caseCodesShrink;
+        }
+
         if (null !== $request->current) {
             @$query['Current'] = $request->current;
         }
 
         if (null !== $request->eventId) {
             @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->eventIdsShrink) {
+            @$query['EventIds'] = $request->eventIdsShrink;
         }
 
         if (null !== $request->pageSize) {
@@ -1870,6 +1901,10 @@ class RiskManagement extends OpenApiClient
 
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->statusesShrink) {
+            @$query['Statuses'] = $request->statusesShrink;
         }
 
         $req = new OpenApiRequest([

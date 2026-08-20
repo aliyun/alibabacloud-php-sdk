@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\RiskManagement\V20260424\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class QueryAccountSafetyIncidentRequest extends Model
+class QueryAccountSafetyIncidentShrinkRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $actionCodes;
+    public $actionCodesShrink;
 
     /**
      * @var string
@@ -24,9 +24,9 @@ class QueryAccountSafetyIncidentRequest extends Model
     public $caseCode;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $caseCodes;
+    public $caseCodesShrink;
 
     /**
      * @var string
@@ -39,9 +39,9 @@ class QueryAccountSafetyIncidentRequest extends Model
     public $eventId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $eventIds;
+    public $eventIdsShrink;
 
     /**
      * @var string
@@ -69,54 +69,35 @@ class QueryAccountSafetyIncidentRequest extends Model
     public $status;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $statuses;
+    public $statusesShrink;
     protected $_name = [
-        'actionCodes' => 'ActionCodes',
+        'actionCodesShrink' => 'ActionCodes',
         'aliyunLang' => 'AliyunLang',
         'caseCode' => 'CaseCode',
-        'caseCodes' => 'CaseCodes',
+        'caseCodesShrink' => 'CaseCodes',
         'current' => 'Current',
         'eventId' => 'EventId',
-        'eventIds' => 'EventIds',
+        'eventIdsShrink' => 'EventIds',
         'pageSize' => 'PageSize',
         'punishEndTime' => 'PunishEndTime',
         'punishStartTime' => 'PunishStartTime',
         'resourceId' => 'ResourceId',
         'status' => 'Status',
-        'statuses' => 'Statuses',
+        'statusesShrink' => 'Statuses',
     ];
 
     public function validate()
     {
-        if (\is_array($this->actionCodes)) {
-            Model::validateArray($this->actionCodes);
-        }
-        if (\is_array($this->caseCodes)) {
-            Model::validateArray($this->caseCodes);
-        }
-        if (\is_array($this->eventIds)) {
-            Model::validateArray($this->eventIds);
-        }
-        if (\is_array($this->statuses)) {
-            Model::validateArray($this->statuses);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->actionCodes) {
-            if (\is_array($this->actionCodes)) {
-                $res['ActionCodes'] = [];
-                $n1 = 0;
-                foreach ($this->actionCodes as $item1) {
-                    $res['ActionCodes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->actionCodesShrink) {
+            $res['ActionCodes'] = $this->actionCodesShrink;
         }
 
         if (null !== $this->aliyunLang) {
@@ -127,15 +108,8 @@ class QueryAccountSafetyIncidentRequest extends Model
             $res['CaseCode'] = $this->caseCode;
         }
 
-        if (null !== $this->caseCodes) {
-            if (\is_array($this->caseCodes)) {
-                $res['CaseCodes'] = [];
-                $n1 = 0;
-                foreach ($this->caseCodes as $item1) {
-                    $res['CaseCodes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->caseCodesShrink) {
+            $res['CaseCodes'] = $this->caseCodesShrink;
         }
 
         if (null !== $this->current) {
@@ -146,15 +120,8 @@ class QueryAccountSafetyIncidentRequest extends Model
             $res['EventId'] = $this->eventId;
         }
 
-        if (null !== $this->eventIds) {
-            if (\is_array($this->eventIds)) {
-                $res['EventIds'] = [];
-                $n1 = 0;
-                foreach ($this->eventIds as $item1) {
-                    $res['EventIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->eventIdsShrink) {
+            $res['EventIds'] = $this->eventIdsShrink;
         }
 
         if (null !== $this->pageSize) {
@@ -177,15 +144,8 @@ class QueryAccountSafetyIncidentRequest extends Model
             $res['Status'] = $this->status;
         }
 
-        if (null !== $this->statuses) {
-            if (\is_array($this->statuses)) {
-                $res['Statuses'] = [];
-                $n1 = 0;
-                foreach ($this->statuses as $item1) {
-                    $res['Statuses'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->statusesShrink) {
+            $res['Statuses'] = $this->statusesShrink;
         }
 
         return $res;
@@ -200,14 +160,7 @@ class QueryAccountSafetyIncidentRequest extends Model
     {
         $model = new self();
         if (isset($map['ActionCodes'])) {
-            if (!empty($map['ActionCodes'])) {
-                $model->actionCodes = [];
-                $n1 = 0;
-                foreach ($map['ActionCodes'] as $item1) {
-                    $model->actionCodes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->actionCodesShrink = $map['ActionCodes'];
         }
 
         if (isset($map['AliyunLang'])) {
@@ -219,14 +172,7 @@ class QueryAccountSafetyIncidentRequest extends Model
         }
 
         if (isset($map['CaseCodes'])) {
-            if (!empty($map['CaseCodes'])) {
-                $model->caseCodes = [];
-                $n1 = 0;
-                foreach ($map['CaseCodes'] as $item1) {
-                    $model->caseCodes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->caseCodesShrink = $map['CaseCodes'];
         }
 
         if (isset($map['Current'])) {
@@ -238,14 +184,7 @@ class QueryAccountSafetyIncidentRequest extends Model
         }
 
         if (isset($map['EventIds'])) {
-            if (!empty($map['EventIds'])) {
-                $model->eventIds = [];
-                $n1 = 0;
-                foreach ($map['EventIds'] as $item1) {
-                    $model->eventIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->eventIdsShrink = $map['EventIds'];
         }
 
         if (isset($map['PageSize'])) {
@@ -269,14 +208,7 @@ class QueryAccountSafetyIncidentRequest extends Model
         }
 
         if (isset($map['Statuses'])) {
-            if (!empty($map['Statuses'])) {
-                $model->statuses = [];
-                $n1 = 0;
-                foreach ($map['Statuses'] as $item1) {
-                    $model->statuses[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->statusesShrink = $map['Statuses'];
         }
 
         return $model;
