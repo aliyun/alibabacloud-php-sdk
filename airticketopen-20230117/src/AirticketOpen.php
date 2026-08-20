@@ -145,12 +145,39 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketApplyRefundRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketApplyRefundResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketCancelOrderRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketCancelOrderResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketCheckRefundRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketCheckRefundResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketCreateOrderRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketCreateOrderResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketCreateOrderShrinkRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketingCheckHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketingCheckRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketingCheckResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketingHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketingRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketingResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPageQueryProductRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPageQueryProductResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPageQueryScenicRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPageQueryScenicResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPayOrderRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPayOrderResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryOrderRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryOrderResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryPriceStockRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryPriceStockResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryProductRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryProductResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryRefundOrderRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryRefundOrderResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryScenicRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryScenicResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryShelfRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketQueryShelfResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TransitVisaHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TransitVisaRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TransitVisaResponse;
@@ -2240,6 +2267,925 @@ class AirticketOpen extends OpenApiClient
         $headers = new StandardSearchHeaders([]);
 
         return $this->standardSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 申请退款。
+     *
+     * @param request - TicketApplyRefundRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketApplyRefundResponse
+     *
+     * @param TicketApplyRefundRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TicketApplyRefundResponse
+     */
+    public function ticketApplyRefundWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->distributorOrderId) {
+            @$body['DistributorOrderId'] = $request->distributorOrderId;
+        }
+
+        if (null !== $request->refundReason) {
+            @$body['RefundReason'] = $request->refundReason;
+        }
+
+        if (null !== $request->refundRemark) {
+            @$body['RefundRemark'] = $request->refundRemark;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketApplyRefund',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketApplyRefund',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketApplyRefundResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 申请退款。
+     *
+     * @param request - TicketApplyRefundRequest
+     *
+     * @returns TicketApplyRefundResponse
+     *
+     * @param TicketApplyRefundRequest $request
+     *
+     * @return TicketApplyRefundResponse
+     */
+    public function ticketApplyRefund($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketApplyRefundWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 取消订单。
+     *
+     * @param request - TicketCancelOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketCancelOrderResponse
+     *
+     * @param TicketCancelOrderRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TicketCancelOrderResponse
+     */
+    public function ticketCancelOrderWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->distributorOrderId) {
+            @$body['DistributorOrderId'] = $request->distributorOrderId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketCancelOrder',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketCancelOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketCancelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消订单。
+     *
+     * @param request - TicketCancelOrderRequest
+     *
+     * @returns TicketCancelOrderResponse
+     *
+     * @param TicketCancelOrderRequest $request
+     *
+     * @return TicketCancelOrderResponse
+     */
+    public function ticketCancelOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketCancelOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 检查退款。
+     *
+     * @param request - TicketCheckRefundRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketCheckRefundResponse
+     *
+     * @param TicketCheckRefundRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TicketCheckRefundResponse
+     */
+    public function ticketCheckRefundWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->distributorOrderId) {
+            @$body['DistributorOrderId'] = $request->distributorOrderId;
+        }
+
+        if (null !== $request->refundReason) {
+            @$body['RefundReason'] = $request->refundReason;
+        }
+
+        if (null !== $request->refundRemark) {
+            @$body['RefundRemark'] = $request->refundRemark;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketCheckRefund',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketCheckRefund',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketCheckRefundResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查退款。
+     *
+     * @param request - TicketCheckRefundRequest
+     *
+     * @returns TicketCheckRefundResponse
+     *
+     * @param TicketCheckRefundRequest $request
+     *
+     * @return TicketCheckRefundResponse
+     */
+    public function ticketCheckRefund($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketCheckRefundWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建订单。
+     *
+     * @param tmpReq - TicketCreateOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketCreateOrderResponse
+     *
+     * @param TicketCreateOrderRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TicketCreateOrderResponse
+     */
+    public function ticketCreateOrderWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new TicketCreateOrderShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contact) {
+            $request->contactShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contact, 'Contact', 'json');
+        }
+
+        if (null !== $tmpReq->orderProduct) {
+            $request->orderProductShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->orderProduct, 'OrderProduct', 'json');
+        }
+
+        if (null !== $tmpReq->totalDistributionPrice) {
+            $request->totalDistributionPriceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->totalDistributionPrice, 'TotalDistributionPrice', 'json');
+        }
+
+        if (null !== $tmpReq->travelers) {
+            $request->travelersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->travelers, 'Travelers', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->contactShrink) {
+            @$body['Contact'] = $request->contactShrink;
+        }
+
+        if (null !== $request->distributorOrderId) {
+            @$body['DistributorOrderId'] = $request->distributorOrderId;
+        }
+
+        if (null !== $request->orderProductShrink) {
+            @$body['OrderProduct'] = $request->orderProductShrink;
+        }
+
+        if (null !== $request->quantity) {
+            @$body['Quantity'] = $request->quantity;
+        }
+
+        if (null !== $request->totalDistributionPriceShrink) {
+            @$body['TotalDistributionPrice'] = $request->totalDistributionPriceShrink;
+        }
+
+        if (null !== $request->travelersShrink) {
+            @$body['Travelers'] = $request->travelersShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketCreateOrder',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketCreateOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketCreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建订单。
+     *
+     * @param request - TicketCreateOrderRequest
+     *
+     * @returns TicketCreateOrderResponse
+     *
+     * @param TicketCreateOrderRequest $request
+     *
+     * @return TicketCreateOrderResponse
+     */
+    public function ticketCreateOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketCreateOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 分页查询门票产品。
+     *
+     * @param request - TicketPageQueryProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketPageQueryProductResponse
+     *
+     * @param TicketPageQueryProductRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return TicketPageQueryProductResponse
+     */
+    public function ticketPageQueryProductWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->pageNo) {
+            @$body['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scenicId) {
+            @$body['ScenicId'] = $request->scenicId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketPageQueryProduct',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketPageQueryProduct',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketPageQueryProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询门票产品。
+     *
+     * @param request - TicketPageQueryProductRequest
+     *
+     * @returns TicketPageQueryProductResponse
+     *
+     * @param TicketPageQueryProductRequest $request
+     *
+     * @return TicketPageQueryProductResponse
+     */
+    public function ticketPageQueryProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketPageQueryProductWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 分页查询景区。
+     *
+     * @param request - TicketPageQueryScenicRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketPageQueryScenicResponse
+     *
+     * @param TicketPageQueryScenicRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TicketPageQueryScenicResponse
+     */
+    public function ticketPageQueryScenicWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->pageNo) {
+            @$body['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketPageQueryScenic',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketPageQueryScenic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketPageQueryScenicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询景区。
+     *
+     * @param request - TicketPageQueryScenicRequest
+     *
+     * @returns TicketPageQueryScenicResponse
+     *
+     * @param TicketPageQueryScenicRequest $request
+     *
+     * @return TicketPageQueryScenicResponse
+     */
+    public function ticketPageQueryScenic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketPageQueryScenicWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 支付订单。
+     *
+     * @param request - TicketPayOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketPayOrderResponse
+     *
+     * @param TicketPayOrderRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return TicketPayOrderResponse
+     */
+    public function ticketPayOrderWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->distributorOrderId) {
+            @$body['DistributorOrderId'] = $request->distributorOrderId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketPayOrder',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketPayOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketPayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 支付订单。
+     *
+     * @param request - TicketPayOrderRequest
+     *
+     * @returns TicketPayOrderResponse
+     *
+     * @param TicketPayOrderRequest $request
+     *
+     * @return TicketPayOrderResponse
+     */
+    public function ticketPayOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketPayOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询订单。
+     *
+     * @param request - TicketQueryOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketQueryOrderResponse
+     *
+     * @param TicketQueryOrderRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TicketQueryOrderResponse
+     */
+    public function ticketQueryOrderWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->distributorOrderId) {
+            @$body['DistributorOrderId'] = $request->distributorOrderId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketQueryOrder',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketQueryOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketQueryOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询订单。
+     *
+     * @param request - TicketQueryOrderRequest
+     *
+     * @returns TicketQueryOrderResponse
+     *
+     * @param TicketQueryOrderRequest $request
+     *
+     * @return TicketQueryOrderResponse
+     */
+    public function ticketQueryOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketQueryOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询门票价库。
+     *
+     * @param request - TicketQueryPriceStockRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketQueryPriceStockResponse
+     *
+     * @param TicketQueryPriceStockRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TicketQueryPriceStockResponse
+     */
+    public function ticketQueryPriceStockWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketQueryPriceStock',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketQueryPriceStock',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketQueryPriceStockResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询门票价库。
+     *
+     * @param request - TicketQueryPriceStockRequest
+     *
+     * @returns TicketQueryPriceStockResponse
+     *
+     * @param TicketQueryPriceStockRequest $request
+     *
+     * @return TicketQueryPriceStockResponse
+     */
+    public function ticketQueryPriceStock($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketQueryPriceStockWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询门票产品。
+     *
+     * @param request - TicketQueryProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketQueryProductResponse
+     *
+     * @param TicketQueryProductRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TicketQueryProductResponse
+     */
+    public function ticketQueryProductWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketQueryProduct',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketQueryProduct',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketQueryProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询门票产品。
+     *
+     * @param request - TicketQueryProductRequest
+     *
+     * @returns TicketQueryProductResponse
+     *
+     * @param TicketQueryProductRequest $request
+     *
+     * @return TicketQueryProductResponse
+     */
+    public function ticketQueryProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketQueryProductWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询退款单。
+     *
+     * @param request - TicketQueryRefundOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketQueryRefundOrderResponse
+     *
+     * @param TicketQueryRefundOrderRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return TicketQueryRefundOrderResponse
+     */
+    public function ticketQueryRefundOrderWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->distributorOrderId) {
+            @$body['DistributorOrderId'] = $request->distributorOrderId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketQueryRefundOrder',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketQueryRefundOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketQueryRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询退款单。
+     *
+     * @param request - TicketQueryRefundOrderRequest
+     *
+     * @returns TicketQueryRefundOrderResponse
+     *
+     * @param TicketQueryRefundOrderRequest $request
+     *
+     * @return TicketQueryRefundOrderResponse
+     */
+    public function ticketQueryRefundOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketQueryRefundOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询门票景区。
+     *
+     * @param request - TicketQueryScenicRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketQueryScenicResponse
+     *
+     * @param TicketQueryScenicRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TicketQueryScenicResponse
+     */
+    public function ticketQueryScenicWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->scenicId) {
+            @$body['ScenicId'] = $request->scenicId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketQueryScenic',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketQueryScenic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketQueryScenicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询门票景区。
+     *
+     * @param request - TicketQueryScenicRequest
+     *
+     * @returns TicketQueryScenicResponse
+     *
+     * @param TicketQueryScenicRequest $request
+     *
+     * @return TicketQueryScenicResponse
+     */
+    public function ticketQueryScenic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketQueryScenicWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询货架。
+     *
+     * @param request - TicketQueryShelfRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TicketQueryShelfResponse
+     *
+     * @param TicketQueryShelfRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TicketQueryShelfResponse
+     */
+    public function ticketQueryShelfWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
+        }
+
+        if (null !== $request->scenicId) {
+            @$body['ScenicId'] = $request->scenicId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TicketQueryShelf',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/TicketQueryShelf',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TicketQueryShelfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询货架。
+     *
+     * @param request - TicketQueryShelfRequest
+     *
+     * @returns TicketQueryShelfResponse
+     *
+     * @param TicketQueryShelfRequest $request
+     *
+     * @return TicketQueryShelfResponse
+     */
+    public function ticketQueryShelf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->ticketQueryShelfWithOptions($request, $headers, $runtime);
     }
 
     /**
