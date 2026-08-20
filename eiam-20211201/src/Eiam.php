@@ -3888,7 +3888,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+     * Creates an instance. All EIAM product capabilities are provided based on instances.
      *
      * @param request - CreateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3904,6 +3904,10 @@ class Eiam extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
         }
@@ -3927,7 +3931,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+     * Creates an instance. All EIAM product capabilities are provided based on instances.
      *
      * @param request - CreateInstanceRequest
      *
@@ -16727,6 +16731,10 @@ class Eiam extends OpenApiClient
 
         if (null !== $request->instanceIds) {
             @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->managedServiceCode) {
+            @$query['ManagedServiceCode'] = $request->managedServiceCode;
         }
 
         if (null !== $request->pageNumber) {

@@ -24,6 +24,11 @@ class ListInstancesRequest extends Model
     public $instanceIds;
 
     /**
+     * @var string
+     */
+    public $managedServiceCode;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -46,6 +51,7 @@ class ListInstancesRequest extends Model
         'crossRegionReplication' => 'CrossRegionReplication',
         'edition' => 'Edition',
         'instanceIds' => 'InstanceIds',
+        'managedServiceCode' => 'ManagedServiceCode',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'serviceManaged' => 'ServiceManaged',
@@ -80,6 +86,10 @@ class ListInstancesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->managedServiceCode) {
+            $res['ManagedServiceCode'] = $this->managedServiceCode;
         }
 
         if (null !== $this->pageNumber) {
@@ -126,6 +136,10 @@ class ListInstancesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ManagedServiceCode'])) {
+            $model->managedServiceCode = $map['ManagedServiceCode'];
         }
 
         if (isset($map['PageNumber'])) {
