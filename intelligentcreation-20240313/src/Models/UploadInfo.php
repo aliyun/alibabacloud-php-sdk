@@ -16,6 +16,11 @@ class UploadInfo extends Model
     /**
      * @var string
      */
+    public $accessUrl;
+
+    /**
+     * @var string
+     */
     public $host;
 
     /**
@@ -39,6 +44,7 @@ class UploadInfo extends Model
     public $url;
     protected $_name = [
         'accessId' => 'accessId',
+        'accessUrl' => 'accessUrl',
         'host' => 'host',
         'key' => 'key',
         'policy' => 'policy',
@@ -56,6 +62,10 @@ class UploadInfo extends Model
         $res = [];
         if (null !== $this->accessId) {
             $res['accessId'] = $this->accessId;
+        }
+
+        if (null !== $this->accessUrl) {
+            $res['accessUrl'] = $this->accessUrl;
         }
 
         if (null !== $this->host) {
@@ -91,6 +101,10 @@ class UploadInfo extends Model
         $model = new self();
         if (isset($map['accessId'])) {
             $model->accessId = $map['accessId'];
+        }
+
+        if (isset($map['accessUrl'])) {
+            $model->accessUrl = $map['accessUrl'];
         }
 
         if (isset($map['host'])) {
