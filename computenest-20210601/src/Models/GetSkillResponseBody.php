@@ -25,6 +25,16 @@ class GetSkillResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string[]
+     */
+    public $requiredConnections;
+
+    /**
+     * @var string
+     */
+    public $securityScanStatus;
+
+    /**
      * @var string
      */
     public $skillDescription;
@@ -62,6 +72,8 @@ class GetSkillResponseBody extends Model
         'createTime' => 'CreateTime',
         'locales' => 'Locales',
         'requestId' => 'RequestId',
+        'requiredConnections' => 'RequiredConnections',
+        'securityScanStatus' => 'SecurityScanStatus',
         'skillDescription' => 'SkillDescription',
         'skillDisplayName' => 'SkillDisplayName',
         'skillId' => 'SkillId',
@@ -75,6 +87,9 @@ class GetSkillResponseBody extends Model
     {
         if (\is_array($this->locales)) {
             Model::validateArray($this->locales);
+        }
+        if (\is_array($this->requiredConnections)) {
+            Model::validateArray($this->requiredConnections);
         }
         if (\is_array($this->skillLabels)) {
             Model::validateArray($this->skillLabels);
@@ -102,6 +117,21 @@ class GetSkillResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->requiredConnections) {
+            if (\is_array($this->requiredConnections)) {
+                $res['RequiredConnections'] = [];
+                $n1 = 0;
+                foreach ($this->requiredConnections as $item1) {
+                    $res['RequiredConnections'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->securityScanStatus) {
+            $res['SecurityScanStatus'] = $this->securityScanStatus;
         }
 
         if (null !== $this->skillDescription) {
@@ -167,6 +197,21 @@ class GetSkillResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['RequiredConnections'])) {
+            if (!empty($map['RequiredConnections'])) {
+                $model->requiredConnections = [];
+                $n1 = 0;
+                foreach ($map['RequiredConnections'] as $item1) {
+                    $model->requiredConnections[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['SecurityScanStatus'])) {
+            $model->securityScanStatus = $map['SecurityScanStatus'];
         }
 
         if (isset($map['SkillDescription'])) {

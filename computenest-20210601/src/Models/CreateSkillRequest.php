@@ -19,6 +19,11 @@ class CreateSkillRequest extends Model
     public $ossUrl;
 
     /**
+     * @var string[]
+     */
+    public $requiredConnections;
+
+    /**
      * @var string
      */
     public $skillDescription;
@@ -55,6 +60,7 @@ class CreateSkillRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'ossUrl' => 'OssUrl',
+        'requiredConnections' => 'RequiredConnections',
         'skillDescription' => 'SkillDescription',
         'skillDisplayName' => 'SkillDisplayName',
         'skillLabels' => 'SkillLabels',
@@ -66,6 +72,9 @@ class CreateSkillRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->requiredConnections)) {
+            Model::validateArray($this->requiredConnections);
+        }
         if (\is_array($this->skillLabels)) {
             Model::validateArray($this->skillLabels);
         }
@@ -81,6 +90,17 @@ class CreateSkillRequest extends Model
 
         if (null !== $this->ossUrl) {
             $res['OssUrl'] = $this->ossUrl;
+        }
+
+        if (null !== $this->requiredConnections) {
+            if (\is_array($this->requiredConnections)) {
+                $res['RequiredConnections'] = [];
+                $n1 = 0;
+                foreach ($this->requiredConnections as $item1) {
+                    $res['RequiredConnections'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->skillDescription) {
@@ -135,6 +155,17 @@ class CreateSkillRequest extends Model
 
         if (isset($map['OssUrl'])) {
             $model->ossUrl = $map['OssUrl'];
+        }
+
+        if (isset($map['RequiredConnections'])) {
+            if (!empty($map['RequiredConnections'])) {
+                $model->requiredConnections = [];
+                $n1 = 0;
+                foreach ($map['RequiredConnections'] as $item1) {
+                    $model->requiredConnections[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SkillDescription'])) {

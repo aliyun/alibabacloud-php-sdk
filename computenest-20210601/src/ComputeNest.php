@@ -844,7 +844,7 @@ class ComputeNest extends OpenApiClient
      *
      * @remarks
      * ### Before you begin
-     * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
+     * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - CreateSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -862,6 +862,10 @@ class ComputeNest extends OpenApiClient
         $query = [];
         if (null !== $request->ossUrl) {
             @$query['OssUrl'] = $request->ossUrl;
+        }
+
+        if (null !== $request->requiredConnections) {
+            @$query['RequiredConnections'] = $request->requiredConnections;
         }
 
         if (null !== $request->skillDescription) {
@@ -921,7 +925,7 @@ class ComputeNest extends OpenApiClient
      *
      * @remarks
      * ### Before you begin
-     * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
+     * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - CreateSkillRequest
      *
@@ -942,8 +946,8 @@ class ComputeNest extends OpenApiClient
      * Creates a Skill file detection task.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - CreateSkillFileDetectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -995,8 +999,8 @@ class ComputeNest extends OpenApiClient
      * Creates a Skill file detection task.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - CreateSkillFileDetectRequest
      *
@@ -1089,11 +1093,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates a skill space.
+     * Creates a SkillSpace.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
+     * ### Before you begin
+     * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - CreateSkillSpaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1142,11 +1146,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates a skill space.
+     * Creates a SkillSpace.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
+     * ### Before you begin
+     * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - CreateSkillSpaceRequest
      *
@@ -1294,11 +1298,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deletes a skill.
+     * Deletes a Skill.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - DeleteSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1343,11 +1347,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deletes a skill.
+     * Deletes a Skill.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - DeleteSkillRequest
      *
@@ -1365,11 +1369,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deletes a SkillSpace.
+     * Deletes a Skill workspace.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
+     * ### Before you begin
+     * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - DeleteSkillSpaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1414,11 +1418,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deletes a SkillSpace.
+     * Deletes a Skill workspace.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
+     * ### Before you begin
+     * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - DeleteSkillSpaceRequest
      *
@@ -2317,7 +2321,7 @@ class ComputeNest extends OpenApiClient
      *
      * @remarks
      * ### Before you begin
-     * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - GetSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2360,7 +2364,7 @@ class ComputeNest extends OpenApiClient
      *
      * @remarks
      * ### Before you begin
-     * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - GetSkillRequest
      *
@@ -2505,11 +2509,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a SkillSpace.
+     * Queries the details of a SkillSpace.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
      *
      * @param request - GetSkillSpaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2548,11 +2552,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a SkillSpace.
+     * Queries the details of a SkillSpace.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
      *
      * @param request - GetSkillSpaceRequest
      *
@@ -2769,7 +2773,7 @@ class ComputeNest extends OpenApiClient
      *
      * @remarks
      * ### Before you begin
-     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+     * Confirm that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListPublicSkillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2824,7 +2828,7 @@ class ComputeNest extends OpenApiClient
      *
      * @remarks
      * ### Before you begin
-     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+     * Confirm that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListPublicSkillsRequest
      *
@@ -3505,11 +3509,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Lists the files of a specified Skill.
+     * Retrieves the list of skill files.
      *
      * @remarks
-     * ### Prerequisites
-     * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+     * ### Before you begin
+     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListSkillFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3560,11 +3564,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Lists the files of a specified Skill.
+     * Retrieves the list of skill files.
      *
      * @remarks
-     * ### Prerequisites
-     * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+     * ### Before you begin
+     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListSkillFilesRequest
      *
@@ -3585,8 +3589,8 @@ class ComputeNest extends OpenApiClient
      * Queries a list of SkillSpaces.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListSkillSpacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3636,8 +3640,8 @@ class ComputeNest extends OpenApiClient
      * Queries a list of SkillSpaces.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListSkillSpacesRequest
      *
@@ -3655,11 +3659,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries a list of skills.
+     * Queries a list of Skills.
      *
      * @remarks
      * ### Before you begin
-     * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListSkillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3710,11 +3714,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries a list of skills.
+     * Queries a list of Skills.
      *
      * @remarks
      * ### Before you begin
-     * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListSkillsRequest
      *
@@ -4750,7 +4754,7 @@ class ComputeNest extends OpenApiClient
      *
      * @remarks
      * ### Before you begin
-     * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
+     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - UpdateSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4768,6 +4772,10 @@ class ComputeNest extends OpenApiClient
         $query = [];
         if (null !== $request->ossUrl) {
             @$query['OssUrl'] = $request->ossUrl;
+        }
+
+        if (null !== $request->requiredConnections) {
+            @$query['RequiredConnections'] = $request->requiredConnections;
         }
 
         if (null !== $request->skillDescription) {
@@ -4827,7 +4835,7 @@ class ComputeNest extends OpenApiClient
      *
      * @remarks
      * ### Before you begin
-     * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
+     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - UpdateSkillRequest
      *
