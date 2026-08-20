@@ -11,22 +11,7 @@ class Snapshot extends Model
     /**
      * @var int
      */
-    public $artifactDiskTotalSizeInB;
-
-    /**
-     * @var int
-     */
     public $artifactDiskUsedSizeInB;
-
-    /**
-     * @var int
-     */
-    public $artifactMemCacheSizeInB;
-
-    /**
-     * @var int
-     */
-    public $artifactMemTotalSizeInB;
 
     /**
      * @var int
@@ -123,10 +108,7 @@ class Snapshot extends Model
      */
     public $status;
     protected $_name = [
-        'artifactDiskTotalSizeInB' => 'artifactDiskTotalSizeInB',
         'artifactDiskUsedSizeInB' => 'artifactDiskUsedSizeInB',
-        'artifactMemCacheSizeInB' => 'artifactMemCacheSizeInB',
-        'artifactMemTotalSizeInB' => 'artifactMemTotalSizeInB',
         'artifactMemUsedSizeInB' => 'artifactMemUsedSizeInB',
         'cpu' => 'cpu',
         'createdTime' => 'createdTime',
@@ -159,20 +141,8 @@ class Snapshot extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->artifactDiskTotalSizeInB) {
-            $res['artifactDiskTotalSizeInB'] = $this->artifactDiskTotalSizeInB;
-        }
-
         if (null !== $this->artifactDiskUsedSizeInB) {
             $res['artifactDiskUsedSizeInB'] = $this->artifactDiskUsedSizeInB;
-        }
-
-        if (null !== $this->artifactMemCacheSizeInB) {
-            $res['artifactMemCacheSizeInB'] = $this->artifactMemCacheSizeInB;
-        }
-
-        if (null !== $this->artifactMemTotalSizeInB) {
-            $res['artifactMemTotalSizeInB'] = $this->artifactMemTotalSizeInB;
         }
 
         if (null !== $this->artifactMemUsedSizeInB) {
@@ -267,20 +237,8 @@ class Snapshot extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['artifactDiskTotalSizeInB'])) {
-            $model->artifactDiskTotalSizeInB = $map['artifactDiskTotalSizeInB'];
-        }
-
         if (isset($map['artifactDiskUsedSizeInB'])) {
             $model->artifactDiskUsedSizeInB = $map['artifactDiskUsedSizeInB'];
-        }
-
-        if (isset($map['artifactMemCacheSizeInB'])) {
-            $model->artifactMemCacheSizeInB = $map['artifactMemCacheSizeInB'];
-        }
-
-        if (isset($map['artifactMemTotalSizeInB'])) {
-            $model->artifactMemTotalSizeInB = $map['artifactMemTotalSizeInB'];
         }
 
         if (isset($map['artifactMemUsedSizeInB'])) {

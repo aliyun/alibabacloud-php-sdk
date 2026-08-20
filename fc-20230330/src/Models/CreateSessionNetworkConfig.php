@@ -27,11 +27,17 @@ class CreateSessionNetworkConfig extends Model
      * @var string
      */
     public $maskRequestHost;
+
+    /**
+     * @var SessionNetworkRule[][]
+     */
+    public $rules;
     protected $_name = [
         'allowOut' => 'allowOut',
         'allowPublicTraffic' => 'allowPublicTraffic',
         'denyOut' => 'denyOut',
         'maskRequestHost' => 'maskRequestHost',
+        'rules' => 'rules',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class CreateSessionNetworkConfig extends Model
         }
         if (\is_array($this->denyOut)) {
             Model::validateArray($this->denyOut);
+        }
+        if (\is_array($this->rules)) {
+            Model::validateArray($this->rules);
         }
         parent::validate();
     }
@@ -76,6 +85,22 @@ class CreateSessionNetworkConfig extends Model
 
         if (null !== $this->maskRequestHost) {
             $res['maskRequestHost'] = $this->maskRequestHost;
+        }
+
+        if (null !== $this->rules) {
+            if (\is_array($this->rules)) {
+                $res['rules'] = [];
+                foreach ($this->rules as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['rules'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['rules'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
 
         return $res;
@@ -117,6 +142,22 @@ class CreateSessionNetworkConfig extends Model
 
         if (isset($map['maskRequestHost'])) {
             $model->maskRequestHost = $map['maskRequestHost'];
+        }
+
+        if (isset($map['rules'])) {
+            if (!empty($map['rules'])) {
+                $model->rules = [];
+                foreach ($map['rules'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->rules[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->rules[$key1][$n2] = SessionNetworkRule::fromMap($item2);
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
 
         return $model;

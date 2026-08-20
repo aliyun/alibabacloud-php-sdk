@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class PauseSessionRequest extends Model
+class SessionNetworkHeaderValueReplacement extends Model
 {
     /**
      * @var string
      */
-    public $fileSystemOnly;
+    public $placeholder;
 
     /**
      * @var string
      */
-    public $qualifier;
+    public $value;
     protected $_name = [
-        'fileSystemOnly' => 'fileSystemOnly',
-        'qualifier' => 'qualifier',
+        'placeholder' => 'placeholder',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class PauseSessionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->fileSystemOnly) {
-            $res['fileSystemOnly'] = $this->fileSystemOnly;
+        if (null !== $this->placeholder) {
+            $res['placeholder'] = $this->placeholder;
         }
 
-        if (null !== $this->qualifier) {
-            $res['qualifier'] = $this->qualifier;
+        if (null !== $this->value) {
+            $res['value'] = $this->value;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class PauseSessionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['fileSystemOnly'])) {
-            $model->fileSystemOnly = $map['fileSystemOnly'];
+        if (isset($map['placeholder'])) {
+            $model->placeholder = $map['placeholder'];
         }
 
-        if (isset($map['qualifier'])) {
-            $model->qualifier = $map['qualifier'];
+        if (isset($map['value'])) {
+            $model->value = $map['value'];
         }
 
         return $model;

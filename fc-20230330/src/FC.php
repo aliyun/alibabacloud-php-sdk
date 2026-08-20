@@ -512,7 +512,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Creates an explicit session resource. The system automatically generates a unique SessionID, pre-allocates a function instance, and binds it to the session. You can specify TTL and IdleTimeout. This operation applies to the HEADER_FIELD or GENERATED_COOKIE affinity types, enabling session warm-up and configuration initialization. After the call, you can include the session in InvokeFunction requests for request routing.
+     * Creates an explicit session resource. The system automatically generates a unique SessionID, pre-allocates a function instance, and binds it to the session. You can specify TTL and IdleTimeout. This operation applies to the HEADER_FIELD or GENERATED_COOKIE affinity types to implement session warm-up and configuration initialization. After the call, you can include the session in InvokeFunction requests for request routing.
      *
      * @param request - CreateSessionRequest
      * @param headers - map
@@ -556,7 +556,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Creates an explicit session resource. The system automatically generates a unique SessionID, pre-allocates a function instance, and binds it to the session. You can specify TTL and IdleTimeout. This operation applies to the HEADER_FIELD or GENERATED_COOKIE affinity types, enabling session warm-up and configuration initialization. After the call, you can include the session in InvokeFunction requests for request routing.
+     * Creates an explicit session resource. The system automatically generates a unique SessionID, pre-allocates a function instance, and binds it to the session. You can specify TTL and IdleTimeout. This operation applies to the HEADER_FIELD or GENERATED_COOKIE affinity types to implement session warm-up and configuration initialization. After the call, you can include the session in InvokeFunction requests for request routing.
      *
      * @param request - CreateSessionRequest
      *
@@ -576,14 +576,14 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 从正常且未过期的微沙箱会话中创建用户快照。
+     * Creates a user snapshot from a normal and unexpired micro-sandbox session.
      *
      * @remarks
-     * ## 请求说明
-     * - 该 API 用于从指定的微沙箱会话中创建一个用户快照。
-     * - 可选参数 `qualifier` 用于标识创建源会话时使用的有效别名或具体函数版本。如果省略，默认为 `LATEST`。
-     * - 必须提供 `sessionId` 参数，以指定要从中创建快照的客户端会话 ID。
-     * - 描述信息 `description` 是可选的，但若提供，则不能包含控制字符，并且长度限制为 256 个 UTF-8 字节。
+     * ## Operation description
+     * - This API operation creates a user snapshot from a specified micro-sandbox session.
+     * - The optional parameter `qualifier` identifies the valid alias or specific function version used when creating the source session. If omitted, it defaults to `LATEST`.
+     * - The `sessionId` parameter is required to specify the client session ID from which to create the snapshot.
+     * - The `description` parameter is optional. If provided, it cannot contain control characters and is limited to 256 UTF-8 bytes.
      *
      * @param request - CreateSnapshotRequest
      * @param headers - map
@@ -627,14 +627,14 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 从正常且未过期的微沙箱会话中创建用户快照。
+     * Creates a user snapshot from a normal and unexpired micro-sandbox session.
      *
      * @remarks
-     * ## 请求说明
-     * - 该 API 用于从指定的微沙箱会话中创建一个用户快照。
-     * - 可选参数 `qualifier` 用于标识创建源会话时使用的有效别名或具体函数版本。如果省略，默认为 `LATEST`。
-     * - 必须提供 `sessionId` 参数，以指定要从中创建快照的客户端会话 ID。
-     * - 描述信息 `description` 是可选的，但若提供，则不能包含控制字符，并且长度限制为 256 个 UTF-8 字节。
+     * ## Operation description
+     * - This API operation creates a user snapshot from a specified micro-sandbox session.
+     * - The optional parameter `qualifier` identifies the valid alias or specific function version used when creating the source session. If omitted, it defaults to `LATEST`.
+     * - The `sessionId` parameter is required to specify the client session ID from which to create the snapshot.
+     * - The `description` parameter is optional. If provided, it cannot contain control characters and is limited to 256 UTF-8 bytes.
      *
      * @param request - CreateSnapshotRequest
      *
@@ -1271,7 +1271,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Deletes the specified session and prohibits new requests from being routed to it. Clears the session metadata from the database, so subsequent requests with the same session ID are treated as new sessions. Releases resources and performs session cleanup. In session isolation scenarios, terminates running requests and releases the instance bound to the session. In non-session isolation scenarios, allows running requests to continue and gracefully terminates them.
+     * Deletes a specified session, blocks new request routing, and purges session metadata from the database. Subsequent requests from the client carrying the same SessionID are treated as a new session. This operation releases resources and cleans up the session. In session isolation scenarios, the system stops running requests and releases instances bound to the session. In non-session isolation scenarios, running requests continue to run and terminate gracefully.
      *
      * @param request - DeleteSessionRequest
      * @param headers - map
@@ -1315,7 +1315,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Deletes the specified session and prohibits new requests from being routed to it. Clears the session metadata from the database, so subsequent requests with the same session ID are treated as new sessions. Releases resources and performs session cleanup. In session isolation scenarios, terminates running requests and releases the instance bound to the session. In non-session isolation scenarios, allows running requests to continue and gracefully terminates them.
+     * Deletes a specified session, blocks new request routing, and purges session metadata from the database. Subsequent requests from the client carrying the same SessionID are treated as a new session. This operation releases resources and cleans up the session. In session isolation scenarios, the system stops running requests and releases instances bound to the session. In non-session isolation scenarios, running requests continue to run and terminate gracefully.
      *
      * @param request - DeleteSessionRequest
      *
@@ -1336,14 +1336,14 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除用户快照.
+     * Deletes a user MicroSandbox snapshot.
      *
      * @remarks
-     * - 该 API 用于删除指定函数下的用户 MicroSandbox 快照。
-     * - 删除成功后，快照进入异步删除流程；接口返回 202 Accepted 表示删除请求已受理，不等待底层 Template、artifact 等物理资源清理完成。
-     * - 已进入删除中的快照重复删除仍返回 202 Accepted。
-     * - 如果指定快照在当前函数作用域下不存在，返回 204 No Content，用于支持幂等删除。
-     * - 如果快照仍被已恢复的 Session 使用，或存在未确认可清理的 consumer relation，返回 409 SnapshotInUse，不会删除快照。
+     * - This API operation deletes a user MicroSandbox snapshot under the specified function.
+     * - After successful deletion, the snapshot enters an asynchronous deletion process. The operation returns 202 Accepted to indicate that the deletion request has been accepted, without waiting for the cleanup of underlying physical resources such as templates and artifacts to complete.
+     * - Repeated deletion of a snapshot that is already being deleted still returns 202 Accepted.
+     * - If the specified snapshot does not exist under the current function scope, 204 No Content is returned to support idempotent deletion.
+     * - If the snapshot is still being used by a resumed session, or there are consumer relations that have not been confirmed as clearable, 409 SnapshotInUse is returned and the snapshot is not deleted.
      *
      * @param request - DeleteSnapshotRequest
      * @param headers - map
@@ -1381,14 +1381,14 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 删除用户快照.
+     * Deletes a user MicroSandbox snapshot.
      *
      * @remarks
-     * - 该 API 用于删除指定函数下的用户 MicroSandbox 快照。
-     * - 删除成功后，快照进入异步删除流程；接口返回 202 Accepted 表示删除请求已受理，不等待底层 Template、artifact 等物理资源清理完成。
-     * - 已进入删除中的快照重复删除仍返回 202 Accepted。
-     * - 如果指定快照在当前函数作用域下不存在，返回 204 No Content，用于支持幂等删除。
-     * - 如果快照仍被已恢复的 Session 使用，或存在未确认可清理的 consumer relation，返回 409 SnapshotInUse，不会删除快照。
+     * - This API operation deletes a user MicroSandbox snapshot under the specified function.
+     * - After successful deletion, the snapshot enters an asynchronous deletion process. The operation returns 202 Accepted to indicate that the deletion request has been accepted, without waiting for the cleanup of underlying physical resources such as templates and artifacts to complete.
+     * - Repeated deletion of a snapshot that is already being deleted still returns 202 Accepted.
+     * - If the specified snapshot does not exist under the current function scope, 204 No Content is returned to support idempotent deletion.
+     * - If the snapshot is still being used by a resumed session, or there are consumer relations that have not been confirmed as clearable, 409 SnapshotInUse is returned and the snapshot is not deleted.
      *
      * @param request - DeleteSnapshotRequest
      *
@@ -2339,7 +2339,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified session, including the session ID, associated function, affinity type, lifecycle configuration, status, and instance information. This operation queries the current metadata of a single session and supports exact matching by functionName and qualifier for external system monitoring and debugging. Only sessions in the Active state can be queried.
+     * Retrieves the details of a specified session, including the session ID, associated function, affinity type, lifecycle configuration, status, and instance information. This operation queries the current metadata of a single session, supports precise identification by functionName and qualifier for external system monitoring and debugging, and only supports querying sessions in the Active state.
      *
      * @param request - GetSessionRequest
      * @param headers - map
@@ -2383,7 +2383,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified session, including the session ID, associated function, affinity type, lifecycle configuration, status, and instance information. This operation queries the current metadata of a single session and supports exact matching by functionName and qualifier for external system monitoring and debugging. Only sessions in the Active state can be queried.
+     * Retrieves the details of a specified session, including the session ID, associated function, affinity type, lifecycle configuration, status, and instance information. This operation queries the current metadata of a single session, supports precise identification by functionName and qualifier for external system monitoring and debugging, and only supports querying sessions in the Active state.
      *
      * @param request - GetSessionRequest
      *
@@ -2404,12 +2404,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取快照信息.
+     * Retrieves snapshot information.
      *
      * @remarks
-     * - 该 API 用于获取指定函数下的用户 MicroSandbox 快照信息。
-     * - 仅当快照属于当前函数、状态为 Available 且未过期时返回快照详情。
-     * - 快照不存在、已过期、正在创建、正在删除、属于内部快照或不属于当前函数时，均按不可见处理，返回 404 SnapshotNotFound。
+     * - This API operation retrieves the MicroSandbox snapshot information of a specified function for the user.
+     * - Snapshot details are returned only when the snapshot belongs to the current function, has a status of Available, and has not expired.
+     * - If the snapshot does not exist, has expired, is being created, is being deleted, is an internal snapshot, or does not belong to the current function, it is treated as invisible and a 404 SnapshotNotFound error is returned.
      *
      * @param request - GetSnapshotRequest
      * @param headers - map
@@ -2447,12 +2447,12 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 获取快照信息.
+     * Retrieves snapshot information.
      *
      * @remarks
-     * - 该 API 用于获取指定函数下的用户 MicroSandbox 快照信息。
-     * - 仅当快照属于当前函数、状态为 Available 且未过期时返回快照详情。
-     * - 快照不存在、已过期、正在创建、正在删除、属于内部快照或不属于当前函数时，均按不可见处理，返回 404 SnapshotNotFound。
+     * - This API operation retrieves the MicroSandbox snapshot information of a specified function for the user.
+     * - Snapshot details are returned only when the snapshot belongs to the current function, has a status of Available, and has not expired.
+     * - If the snapshot does not exist, has expired, is being created, is being deleted, is an internal snapshot, or does not belong to the current function, it is treated as invisible and a 404 SnapshotNotFound error is returned.
      *
      * @param request - GetSnapshotRequest
      *
@@ -3560,7 +3560,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Lists sessions in Active or Expired status under a specified function. Supports filtering by qualifier, status, and session ID, and supports paged query. Returns basic session properties for batch viewing of session distribution and status, facilitating operations management and external system integration, and improving session visibility and management capability.
+     * Lists sessions in Active or Expired status under a specified function. Supports filtering by qualifier, status, and session ID, and supports paging. Returns basic session properties for batch viewing of session distribution and status, facilitating Service Monitoring and external system integration, and improving session visibility and management capabilities.
      *
      * @param request - ListSessionsRequest
      * @param headers - map
@@ -3619,7 +3619,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Lists sessions in Active or Expired status under a specified function. Supports filtering by qualifier, status, and session ID, and supports paged query. Returns basic session properties for batch viewing of session distribution and status, facilitating operations management and external system integration, and improving session visibility and management capability.
+     * Lists sessions in Active or Expired status under a specified function. Supports filtering by qualifier, status, and session ID, and supports paging. Returns basic session properties for batch viewing of session distribution and status, facilitating Service Monitoring and external system integration, and improving session visibility and management capabilities.
      *
      * @param request - ListSessionsRequest
      *
@@ -3639,14 +3639,14 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出快照信息.
+     * Lists snapshot information.
      *
      * @remarks
-     * - 该 API 用于列出当前账号下可见的用户 MicroSandbox 快照。
-     * - 仅返回未过期且状态为 Available 的用户快照。
-     * - 支持四种筛选方式：账号级列表、按函数过滤、按函数和源 SessionID 过滤、按函数、源 SessionID 和创建时 qualifier 过滤。
-     * - 结果按创建时间和快照 ID 稳定降序分页。
-     * - ListSnapshots 使用搜索索引查询，短时间内可能存在最终一致性延迟；GetSnapshot 和使用快照创建 Session 以主表强读为准。
+     * - This API operation lists MicroSandbox snapshots visible to the current account.
+     * - Only unexpired snapshots in the Available state are returned.
+     * - Four filtering methods are supported: account-level listing, filtering by function, filtering by function and source session ID, and filtering by function, source session ID, and qualifier at creation time.
+     * - Results are paginated in stable descending order by creation time and snapshot ID.
+     * - ListSnapshots uses a search index for queries, so eventual consistency delays may occur within a short period. GetSnapshot and creating a session from a snapshot use strongly consistent reads from the primary table.
      *
      * @param request - ListSnapshotsRequest
      * @param headers - map
@@ -3704,14 +3704,14 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出快照信息.
+     * Lists snapshot information.
      *
      * @remarks
-     * - 该 API 用于列出当前账号下可见的用户 MicroSandbox 快照。
-     * - 仅返回未过期且状态为 Available 的用户快照。
-     * - 支持四种筛选方式：账号级列表、按函数过滤、按函数和源 SessionID 过滤、按函数、源 SessionID 和创建时 qualifier 过滤。
-     * - 结果按创建时间和快照 ID 稳定降序分页。
-     * - ListSnapshots 使用搜索索引查询，短时间内可能存在最终一致性延迟；GetSnapshot 和使用快照创建 Session 以主表强读为准。
+     * - This API operation lists MicroSandbox snapshots visible to the current account.
+     * - Only unexpired snapshots in the Available state are returned.
+     * - Four filtering methods are supported: account-level listing, filtering by function, filtering by function and source session ID, and filtering by function, source session ID, and qualifier at creation time.
+     * - Results are paginated in stable descending order by creation time and snapshot ID.
+     * - ListSnapshots uses a search index for queries, so eventual consistency delays may occur within a short period. GetSnapshot and creating a session from a snapshot use strongly consistent reads from the primary table.
      *
      * @param request - ListSnapshotsRequest
      *
@@ -3942,7 +3942,7 @@ class FC extends OpenApiClient
      * Pauses and saves a session.
      *
      * @remarks
-     * Pauses an active session by persisting the state of its associated runtime environment and then releasing compute resources. After the call, the session status changes to Paused, and the session no longer accepts function invocation requests. This operation retains the session configuration (such as SessionTTL) and SessionID. You can use this operation to interrupt long-running tasks or save snapshots of development environments for cost optimization and state management. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
+     * Pauses an Active session by persisting the state of its associated execution environment and then releasing compute resources. After you invoke this operation, the session status changes to Paused, and the session no longer accepts function invocation requests. This operation retains the session configuration (such as SessionTTL) and SessionID. You can use it to break long-running tasks or save snapshots of development environments for cost optimization and state management. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
      *
      * @param request - PauseSessionRequest
      * @param headers - map
@@ -3962,6 +3962,10 @@ class FC extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->fileSystemOnly) {
+            @$query['fileSystemOnly'] = $request->fileSystemOnly;
+        }
+
         if (null !== $request->qualifier) {
             @$query['qualifier'] = $request->qualifier;
         }
@@ -3989,7 +3993,7 @@ class FC extends OpenApiClient
      * Pauses and saves a session.
      *
      * @remarks
-     * Pauses an active session by persisting the state of its associated runtime environment and then releasing compute resources. After the call, the session status changes to Paused, and the session no longer accepts function invocation requests. This operation retains the session configuration (such as SessionTTL) and SessionID. You can use this operation to interrupt long-running tasks or save snapshots of development environments for cost optimization and state management. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
+     * Pauses an Active session by persisting the state of its associated execution environment and then releasing compute resources. After you invoke this operation, the session status changes to Paused, and the session no longer accepts function invocation requests. This operation retains the session configuration (such as SessionTTL) and SessionID. You can use it to break long-running tasks or save snapshots of development environments for cost optimization and state management. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
      *
      * @param request - PauseSessionRequest
      *
@@ -4388,7 +4392,7 @@ class FC extends OpenApiClient
      * Resumes a session.
      *
      * @remarks
-     * Resumes a session that is in the Paused state. The system quickly restores the session in a new execution environment based on the previously persisted state, returning it to the state before it was paused. After the session is successfully resumed, its status changes back to Active, and it can continue to accept function calling requests and route them to the restored instance. This operation applies to custom image functions that have HEADER_FIELD or GENERATED_COOKIE affinity types configured and session isolation enabled.
+     * Resumes a session that is in the Paused state. The system quickly restores the session in a new execution environment based on the previously persisted state, returning it to the state before it was paused. After the session is successfully resumed, its status changes back to Active, and it can continue to accept function calling requests that are routed to the restored instance. This operation applies to custom image functions that are configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
      *
      * @param request - ResumeSessionRequest
      * @param headers - map
@@ -4439,7 +4443,7 @@ class FC extends OpenApiClient
      * Resumes a session.
      *
      * @remarks
-     * Resumes a session that is in the Paused state. The system quickly restores the session in a new execution environment based on the previously persisted state, returning it to the state before it was paused. After the session is successfully resumed, its status changes back to Active, and it can continue to accept function calling requests and route them to the restored instance. This operation applies to custom image functions that have HEADER_FIELD or GENERATED_COOKIE affinity types configured and session isolation enabled.
+     * Resumes a session that is in the Paused state. The system quickly restores the session in a new execution environment based on the previously persisted state, returning it to the state before it was paused. After the session is successfully resumed, its status changes back to Active, and it can continue to accept function calling requests that are routed to the restored instance. This operation applies to custom image functions that are configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
      *
      * @param request - ResumeSessionRequest
      *
@@ -4840,7 +4844,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a session in Active status, such as lifecycle settings including SessionTTLInSeconds and SessionIdleTimeoutInSeconds. The changes take effect immediately, and LastModifiedTime is automatically refreshed. You can use this operation to extend or shorten the session validity period for dynamic management without changing the execution environment bound to the session.
+     * Updates the configuration of a session in Active state, such as lifecycle settings including SessionTTLInSeconds and SessionIdleTimeoutInSeconds. The update takes effect immediately, and LastModifiedTime is automatically refreshed. You can use this operation to extend or shorten the session validity period for dynamic management without changing the execution environment bound to the session.
      *
      * @param request - UpdateSessionRequest
      * @param headers - map
@@ -4885,7 +4889,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a session in Active status, such as lifecycle settings including SessionTTLInSeconds and SessionIdleTimeoutInSeconds. The changes take effect immediately, and LastModifiedTime is automatically refreshed. You can use this operation to extend or shorten the session validity period for dynamic management without changing the execution environment bound to the session.
+     * Updates the configuration of a session in Active state, such as lifecycle settings including SessionTTLInSeconds and SessionIdleTimeoutInSeconds. The update takes effect immediately, and LastModifiedTime is automatically refreshed. You can use this operation to extend or shorten the session validity period for dynamic management without changing the execution environment bound to the session.
      *
      * @param request - UpdateSessionRequest
      *
