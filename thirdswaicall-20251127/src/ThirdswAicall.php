@@ -72,12 +72,20 @@ class ThirdswAicall extends OpenApiClient
             @$body['CalledNumber'] = $request->calledNumber;
         }
 
+        if (null !== $request->callerNumber) {
+            @$body['CallerNumber'] = $request->callerNumber;
+        }
+
         if (null !== $request->callerUacAccountId) {
             @$body['CallerUacAccountId'] = $request->callerUacAccountId;
         }
 
         if (null !== $request->currentWorkspaceId) {
             @$body['CurrentWorkspaceId'] = $request->currentWorkspaceId;
+        }
+
+        if (null !== $request->customerLineCode) {
+            @$body['CustomerLineCode'] = $request->customerLineCode;
         }
 
         if (null !== $request->customerName) {

@@ -16,12 +16,22 @@ class CreateCallOutboundInstantRequest extends Model
     /**
      * @var string
      */
+    public $callerNumber;
+
+    /**
+     * @var string
+     */
     public $callerUacAccountId;
 
     /**
      * @var string
      */
     public $currentWorkspaceId;
+
+    /**
+     * @var string
+     */
+    public $customerLineCode;
 
     /**
      * @var string
@@ -44,8 +54,10 @@ class CreateCallOutboundInstantRequest extends Model
     public $taskId;
     protected $_name = [
         'calledNumber' => 'CalledNumber',
+        'callerNumber' => 'CallerNumber',
         'callerUacAccountId' => 'CallerUacAccountId',
         'currentWorkspaceId' => 'CurrentWorkspaceId',
+        'customerLineCode' => 'CustomerLineCode',
         'customerName' => 'CustomerName',
         'encryptCall' => 'EncryptCall',
         'promptVariables' => 'PromptVariables',
@@ -64,12 +76,20 @@ class CreateCallOutboundInstantRequest extends Model
             $res['CalledNumber'] = $this->calledNumber;
         }
 
+        if (null !== $this->callerNumber) {
+            $res['CallerNumber'] = $this->callerNumber;
+        }
+
         if (null !== $this->callerUacAccountId) {
             $res['CallerUacAccountId'] = $this->callerUacAccountId;
         }
 
         if (null !== $this->currentWorkspaceId) {
             $res['CurrentWorkspaceId'] = $this->currentWorkspaceId;
+        }
+
+        if (null !== $this->customerLineCode) {
+            $res['CustomerLineCode'] = $this->customerLineCode;
         }
 
         if (null !== $this->customerName) {
@@ -103,12 +123,20 @@ class CreateCallOutboundInstantRequest extends Model
             $model->calledNumber = $map['CalledNumber'];
         }
 
+        if (isset($map['CallerNumber'])) {
+            $model->callerNumber = $map['CallerNumber'];
+        }
+
         if (isset($map['CallerUacAccountId'])) {
             $model->callerUacAccountId = $map['CallerUacAccountId'];
         }
 
         if (isset($map['CurrentWorkspaceId'])) {
             $model->currentWorkspaceId = $map['CurrentWorkspaceId'];
+        }
+
+        if (isset($map['CustomerLineCode'])) {
+            $model->customerLineCode = $map['CustomerLineCode'];
         }
 
         if (isset($map['CustomerName'])) {
