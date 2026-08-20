@@ -27,6 +27,11 @@ class ListJobRunsRequest extends Model
     public $endTime;
 
     /**
+     * @var bool
+     */
+    public $groupByState;
+
+    /**
      * @var string
      */
     public $isWorkflow;
@@ -94,6 +99,7 @@ class ListJobRunsRequest extends Model
         'applicationConfigs' => 'applicationConfigs',
         'creator' => 'creator',
         'endTime' => 'endTime',
+        'groupByState' => 'groupByState',
         'isWorkflow' => 'isWorkflow',
         'jobRunDeploymentId' => 'jobRunDeploymentId',
         'jobRunId' => 'jobRunId',
@@ -139,6 +145,10 @@ class ListJobRunsRequest extends Model
 
         if (null !== $this->endTime) {
             $res['endTime'] = null !== $this->endTime ? $this->endTime->toArray($noStream) : $this->endTime;
+        }
+
+        if (null !== $this->groupByState) {
+            $res['groupByState'] = $this->groupByState;
         }
 
         if (null !== $this->isWorkflow) {
@@ -228,6 +238,10 @@ class ListJobRunsRequest extends Model
 
         if (isset($map['endTime'])) {
             $model->endTime = endTime::fromMap($map['endTime']);
+        }
+
+        if (isset($map['groupByState'])) {
+            $model->groupByState = $map['groupByState'];
         }
 
         if (isset($map['isWorkflow'])) {

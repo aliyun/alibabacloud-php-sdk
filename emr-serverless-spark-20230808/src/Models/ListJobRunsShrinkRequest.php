@@ -24,6 +24,11 @@ class ListJobRunsShrinkRequest extends Model
     public $endTimeShrink;
 
     /**
+     * @var bool
+     */
+    public $groupByState;
+
+    /**
      * @var string
      */
     public $isWorkflow;
@@ -91,6 +96,7 @@ class ListJobRunsShrinkRequest extends Model
         'applicationConfigs' => 'applicationConfigs',
         'creator' => 'creator',
         'endTimeShrink' => 'endTime',
+        'groupByState' => 'groupByState',
         'isWorkflow' => 'isWorkflow',
         'jobRunDeploymentId' => 'jobRunDeploymentId',
         'jobRunId' => 'jobRunId',
@@ -124,6 +130,10 @@ class ListJobRunsShrinkRequest extends Model
 
         if (null !== $this->endTimeShrink) {
             $res['endTime'] = $this->endTimeShrink;
+        }
+
+        if (null !== $this->groupByState) {
+            $res['groupByState'] = $this->groupByState;
         }
 
         if (null !== $this->isWorkflow) {
@@ -199,6 +209,10 @@ class ListJobRunsShrinkRequest extends Model
 
         if (isset($map['endTime'])) {
             $model->endTimeShrink = $map['endTime'];
+        }
+
+        if (isset($map['groupByState'])) {
+            $model->groupByState = $map['groupByState'];
         }
 
         if (isset($map['isWorkflow'])) {

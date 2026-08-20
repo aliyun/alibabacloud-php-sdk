@@ -30,9 +30,19 @@ class queues extends Model
     public $environments;
 
     /**
+     * @var int
+     */
+    public $gpuMachineNum;
+
+    /**
      * @var string[]
      */
     public $gpuSpec;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -103,7 +113,9 @@ class queues extends Model
         'createTime' => 'createTime',
         'creator' => 'creator',
         'environments' => 'environments',
+        'gpuMachineNum' => 'gpuMachineNum',
         'gpuSpec' => 'gpuSpec',
+        'instanceId' => 'instanceId',
         'maxResource' => 'maxResource',
         'minResource' => 'minResource',
         'paymentType' => 'paymentType',
@@ -166,6 +178,10 @@ class queues extends Model
             }
         }
 
+        if (null !== $this->gpuMachineNum) {
+            $res['gpuMachineNum'] = $this->gpuMachineNum;
+        }
+
         if (null !== $this->gpuSpec) {
             if (\is_array($this->gpuSpec)) {
                 $res['gpuSpec'] = [];
@@ -175,6 +191,10 @@ class queues extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
         }
 
         if (null !== $this->maxResource) {
@@ -270,6 +290,10 @@ class queues extends Model
             }
         }
 
+        if (isset($map['gpuMachineNum'])) {
+            $model->gpuMachineNum = $map['gpuMachineNum'];
+        }
+
         if (isset($map['gpuSpec'])) {
             if (!empty($map['gpuSpec'])) {
                 $model->gpuSpec = [];
@@ -279,6 +303,10 @@ class queues extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
         }
 
         if (isset($map['maxResource'])) {

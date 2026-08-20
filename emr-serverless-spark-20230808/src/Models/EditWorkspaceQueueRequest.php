@@ -20,6 +20,11 @@ class EditWorkspaceQueueRequest extends Model
     public $gpuSpec;
 
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var resourceSpec
      */
     public $resourceSpec;
@@ -41,6 +46,7 @@ class EditWorkspaceQueueRequest extends Model
     protected $_name = [
         'environments' => 'environments',
         'gpuSpec' => 'gpuSpec',
+        'instanceId' => 'instanceId',
         'resourceSpec' => 'resourceSpec',
         'workspaceId' => 'workspaceId',
         'workspaceQueueName' => 'workspaceQueueName',
@@ -84,6 +90,10 @@ class EditWorkspaceQueueRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
         }
 
         if (null !== $this->resourceSpec) {
@@ -133,6 +143,10 @@ class EditWorkspaceQueueRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
         }
 
         if (isset($map['resourceSpec'])) {

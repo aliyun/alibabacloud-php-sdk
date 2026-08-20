@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesRes
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesResponseBody\workspaces\prePaidQuota;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesResponseBody\workspaces\prePaidQuotaGpu;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesResponseBody\workspaces\stateChangeReason;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesResponseBody\workspaces\tags;
 
@@ -87,6 +88,11 @@ class workspaces extends Model
     public $prePaidQuota;
 
     /**
+     * @var prePaidQuotaGpu[]
+     */
+    public $prePaidQuotaGpu;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -151,6 +157,7 @@ class workspaces extends Model
         'paymentStatus' => 'paymentStatus',
         'paymentType' => 'paymentType',
         'prePaidQuota' => 'prePaidQuota',
+        'prePaidQuotaGpu' => 'prePaidQuotaGpu',
         'regionId' => 'regionId',
         'releaseType' => 'releaseType',
         'resourceGroupId' => 'resourceGroupId',
@@ -173,6 +180,9 @@ class workspaces extends Model
         }
         if (null !== $this->prePaidQuota) {
             $this->prePaidQuota->validate();
+        }
+        if (\is_array($this->prePaidQuotaGpu)) {
+            Model::validateArray($this->prePaidQuotaGpu);
         }
         if (null !== $this->stateChangeReason) {
             $this->stateChangeReason->validate();
@@ -258,6 +268,17 @@ class workspaces extends Model
 
         if (null !== $this->prePaidQuota) {
             $res['prePaidQuota'] = null !== $this->prePaidQuota ? $this->prePaidQuota->toArray($noStream) : $this->prePaidQuota;
+        }
+
+        if (null !== $this->prePaidQuotaGpu) {
+            if (\is_array($this->prePaidQuotaGpu)) {
+                $res['prePaidQuotaGpu'] = [];
+                $n1 = 0;
+                foreach ($this->prePaidQuotaGpu as $item1) {
+                    $res['prePaidQuotaGpu'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->regionId) {
@@ -390,6 +411,17 @@ class workspaces extends Model
 
         if (isset($map['prePaidQuota'])) {
             $model->prePaidQuota = prePaidQuota::fromMap($map['prePaidQuota']);
+        }
+
+        if (isset($map['prePaidQuotaGpu'])) {
+            if (!empty($map['prePaidQuotaGpu'])) {
+                $model->prePaidQuotaGpu = [];
+                $n1 = 0;
+                foreach ($map['prePaidQuotaGpu'] as $item1) {
+                    $model->prePaidQuotaGpu[$n1] = prePaidQuotaGpu::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['regionId'])) {

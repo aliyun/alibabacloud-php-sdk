@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeRespon
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteRayClusterResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteWorkspaceQueueRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteWorkspaceQueueResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GenerateTaskCodesRequest;
@@ -183,21 +185,21 @@ class Emrserverlessspark extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'us-west-1' => 'emr-serverless-spark.us-west-1.aliyuncs.com',
-            'us-east-1' => 'emr-serverless-spark.us-east-1.aliyuncs.com',
-            'na-south-1' => 'emr-serverless-spark.na-south-1.aliyuncs.com',
-            'eu-central-1' => 'emr-serverless-spark.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'emr-serverless-spark.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu' => 'emr-serverless-spark.cn-wulanchabu.aliyuncs.com',
             'cn-shenzhen' => 'emr-serverless-spark.cn-shenzhen.aliyuncs.com',
+            'cn-wulanchabu' => 'emr-serverless-spark.cn-wulanchabu.aliyuncs.com',
+            'cn-beijing' => 'emr-serverless-spark.cn-beijing.aliyuncs.com',
+            'ap-northeast-1' => 'emr-serverless-spark.ap-northeast-1.aliyuncs.com',
+            'cn-chengdu' => 'emr-serverless-spark.cn-chengdu.aliyuncs.com',
             'cn-shanghai' => 'emr-serverless-spark.cn-shanghai.aliyuncs.com',
             'cn-hongkong' => 'emr-serverless-spark.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'emr-serverless-spark.cn-hangzhou.aliyuncs.com',
-            'cn-chengdu' => 'emr-serverless-spark.cn-chengdu.aliyuncs.com',
-            'cn-beijing' => 'emr-serverless-spark.cn-beijing.aliyuncs.com',
-            'ap-southeast-5' => 'emr-serverless-spark.ap-southeast-5.aliyuncs.com',
             'ap-southeast-1' => 'emr-serverless-spark.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-1' => 'emr-serverless-spark.ap-northeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'emr-serverless-spark.ap-southeast-5.aliyuncs.com',
+            'cn-zhangjiakou' => 'emr-serverless-spark.cn-zhangjiakou.aliyuncs.com',
+            'cn-hangzhou' => 'emr-serverless-spark.cn-hangzhou.aliyuncs.com',
+            'us-west-1' => 'emr-serverless-spark.us-west-1.aliyuncs.com',
+            'us-east-1' => 'emr-serverless-spark.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'emr-serverless-spark.eu-central-1.aliyuncs.com',
+            'na-south-1' => 'emr-serverless-spark.na-south-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('emr-serverless-spark', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -488,7 +490,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 停止RayJob.
+     * Stops a RayJob.
      *
      * @param request - CancelRayJobRequest
      * @param headers - map
@@ -526,7 +528,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 停止RayJob.
+     * Stops a RayJob.
      *
      * @param request - CancelRayJobRequest
      *
@@ -1977,7 +1979,72 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Updates a Workspace Queue.
+     * Deletes a workspace queue.
+     *
+     * @param request - DeleteWorkspaceQueueRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWorkspaceQueueResponse
+     *
+     * @param string                      $workspaceId
+     * @param string                      $workspaceQueueName
+     * @param DeleteWorkspaceQueueRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteWorkspaceQueueResponse
+     */
+    public function deleteWorkspaceQueueWithOptions($workspaceId, $workspaceQueueName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWorkspaceQueue',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/queues/' . Url::percentEncode($workspaceQueueName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWorkspaceQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a workspace queue.
+     *
+     * @param request - DeleteWorkspaceQueueRequest
+     *
+     * @returns DeleteWorkspaceQueueResponse
+     *
+     * @param string                      $workspaceId
+     * @param string                      $workspaceQueueName
+     * @param DeleteWorkspaceQueueRequest $request
+     *
+     * @return DeleteWorkspaceQueueResponse
+     */
+    public function deleteWorkspaceQueue($workspaceId, $workspaceQueueName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWorkspaceQueueWithOptions($workspaceId, $workspaceQueueName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Modifies a workspace queue.
      *
      * @param request - EditWorkspaceQueueRequest
      * @param headers - map
@@ -2006,6 +2073,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->gpuSpec) {
             @$body['gpuSpec'] = $request->gpuSpec;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
         }
 
         if (null !== $request->resourceSpec) {
@@ -2041,7 +2112,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Updates a Workspace Queue.
+     * Modifies a workspace queue.
      *
      * @param request - EditWorkspaceQueueRequest
      *
@@ -2763,7 +2834,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取Ray集群.
+     * Retrieves Ray Job information.
      *
      * @param request - GetRayJobRequest
      * @param headers - map
@@ -2801,7 +2872,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取Ray集群.
+     * Retrieves Ray Job information.
      *
      * @param request - GetRayJobRequest
      *
@@ -3455,7 +3526,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Call the ListJobRuns operation to retrieve a list of Spark jobs.
+     * Queries a list of Spark jobs.
      *
      * @param tmpReq - ListJobRunsRequest
      * @param headers - map
@@ -3502,6 +3573,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->endTimeShrink) {
             @$query['endTime'] = $request->endTimeShrink;
+        }
+
+        if (null !== $request->groupByState) {
+            @$query['groupByState'] = $request->groupByState;
         }
 
         if (null !== $request->isWorkflow) {
@@ -3576,7 +3651,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Call the ListJobRuns operation to retrieve a list of Spark jobs.
+     * Queries a list of Spark jobs.
      *
      * @param request - ListJobRunsRequest
      *
@@ -3975,7 +4050,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists Livy Gateway tokens.
+     * Lists the tokens of a Livy Gateway.
      *
      * @param request - ListLivyComputeTokenRequest
      * @param headers - map
@@ -4019,7 +4094,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists Livy Gateway tokens.
+     * Lists the tokens of a Livy Gateway.
      *
      * @param request - ListLivyComputeTokenRequest
      *
@@ -4316,7 +4391,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出RayJob.
+     * Lists Ray Job information.
      *
      * @param tmpReq - ListRayJobRequest
      * @param headers - map
@@ -4385,7 +4460,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出RayJob.
+     * Lists Ray Job information.
      *
      * @param request - ListRayJobRequest
      *
@@ -4784,7 +4859,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists the queues in a workspace.
+     * Queries the list of queues in a workspace.
      *
      * @param request - ListWorkspaceQueuesRequest
      * @param headers - map
@@ -4831,7 +4906,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists the queues in a workspace.
+     * Queries the list of queues in a workspace.
      *
      * @param request - ListWorkspaceQueuesRequest
      *
@@ -4851,7 +4926,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Call `ListWorkspaces` to get a list of workspaces.
+     * Queries a list of workspaces.
      *
      * @param tmpReq - ListWorkspacesRequest
      * @param headers - map
@@ -4923,7 +4998,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Call `ListWorkspaces` to get a list of workspaces.
+     * Queries a list of workspaces.
      *
      * @param request - ListWorkspacesRequest
      *
@@ -5877,7 +5952,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 提交Ray Job.
+     * Submits a Ray job.
      *
      * @param request - SubmitRayJobRequest
      * @param headers - map
@@ -5996,7 +6071,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 提交Ray Job.
+     * Submits a Ray job.
      *
      * @param request - SubmitRayJobRequest
      *
@@ -6646,7 +6721,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Update workspace properties.
+     * Updates the properties of a workspace.
      *
      * @param request - UpdateWorkspaceRequest
      * @param headers - map
@@ -6679,6 +6754,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->gpuSpec) {
             @$body['gpuSpec'] = $request->gpuSpec;
+        }
+
+        if (null !== $request->gpuSubscription) {
+            @$body['gpuSubscription'] = $request->gpuSubscription;
         }
 
         if (null !== $request->ipWhiteList) {
@@ -6722,7 +6801,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Update workspace properties.
+     * Updates the properties of a workspace.
      *
      * @param request - UpdateWorkspaceRequest
      *

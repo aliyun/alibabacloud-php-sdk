@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateWorkspaceRequest\gpuSubscription;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateWorkspaceRequest\subscription;
 
 class UpdateWorkspaceRequest extends Model
@@ -23,6 +24,11 @@ class UpdateWorkspaceRequest extends Model
      * @var string[]
      */
     public $gpuSpec;
+
+    /**
+     * @var gpuSubscription
+     */
+    public $gpuSubscription;
 
     /**
      * @var string[]
@@ -57,6 +63,7 @@ class UpdateWorkspaceRequest extends Model
         'cu' => 'cu',
         'gpu' => 'gpu',
         'gpuSpec' => 'gpuSpec',
+        'gpuSubscription' => 'gpuSubscription',
         'ipWhiteList' => 'ipWhiteList',
         'resourceGroupId' => 'resourceGroupId',
         'subscription' => 'subscription',
@@ -69,6 +76,9 @@ class UpdateWorkspaceRequest extends Model
     {
         if (\is_array($this->gpuSpec)) {
             Model::validateArray($this->gpuSpec);
+        }
+        if (null !== $this->gpuSubscription) {
+            $this->gpuSubscription->validate();
         }
         if (\is_array($this->ipWhiteList)) {
             Model::validateArray($this->ipWhiteList);
@@ -99,6 +109,10 @@ class UpdateWorkspaceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->gpuSubscription) {
+            $res['gpuSubscription'] = null !== $this->gpuSubscription ? $this->gpuSubscription->toArray($noStream) : $this->gpuSubscription;
         }
 
         if (null !== $this->ipWhiteList) {
@@ -160,6 +174,10 @@ class UpdateWorkspaceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['gpuSubscription'])) {
+            $model->gpuSubscription = gpuSubscription::fromMap($map['gpuSubscription']);
         }
 
         if (isset($map['ipWhiteList'])) {

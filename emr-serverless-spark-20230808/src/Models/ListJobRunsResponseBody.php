@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsResponseBody
 class ListJobRunsResponseBody extends Model
 {
     /**
+     * @var string[]
+     */
+    public $aggregations;
+
+    /**
      * @var jobRuns[]
      */
     public $jobRuns;
@@ -34,6 +39,7 @@ class ListJobRunsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
+        'aggregations' => 'aggregations',
         'jobRuns' => 'jobRuns',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
@@ -43,6 +49,9 @@ class ListJobRunsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->aggregations)) {
+            Model::validateArray($this->aggregations);
+        }
         if (\is_array($this->jobRuns)) {
             Model::validateArray($this->jobRuns);
         }
@@ -52,6 +61,15 @@ class ListJobRunsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aggregations) {
+            if (\is_array($this->aggregations)) {
+                $res['aggregations'] = [];
+                foreach ($this->aggregations as $key1 => $value1) {
+                    $res['aggregations'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->jobRuns) {
             if (\is_array($this->jobRuns)) {
                 $res['jobRuns'] = [];
@@ -90,6 +108,15 @@ class ListJobRunsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['aggregations'])) {
+            if (!empty($map['aggregations'])) {
+                $model->aggregations = [];
+                foreach ($map['aggregations'] as $key1 => $value1) {
+                    $model->aggregations[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['jobRuns'])) {
             if (!empty($map['jobRuns'])) {
                 $model->jobRuns = [];

@@ -21,10 +21,16 @@ class resourceSpec extends Model
     /**
      * @var int
      */
+    public $gpuMachineNum;
+
+    /**
+     * @var int
+     */
     public $maxCu;
     protected $_name = [
         'cu' => 'cu',
         'gpu' => 'gpu',
+        'gpuMachineNum' => 'gpuMachineNum',
         'maxCu' => 'maxCu',
     ];
 
@@ -42,6 +48,10 @@ class resourceSpec extends Model
 
         if (null !== $this->gpu) {
             $res['gpu'] = $this->gpu;
+        }
+
+        if (null !== $this->gpuMachineNum) {
+            $res['gpuMachineNum'] = $this->gpuMachineNum;
         }
 
         if (null !== $this->maxCu) {
@@ -65,6 +75,10 @@ class resourceSpec extends Model
 
         if (isset($map['gpu'])) {
             $model->gpu = $map['gpu'];
+        }
+
+        if (isset($map['gpuMachineNum'])) {
+            $model->gpuMachineNum = $map['gpuMachineNum'];
         }
 
         if (isset($map['maxCu'])) {
