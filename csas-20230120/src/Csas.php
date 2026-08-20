@@ -52,6 +52,12 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessTagResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateProhibitedPolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateProhibitedPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateProhibitedSoftwareRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateProhibitedSoftwareResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateProhibitedTagRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateProhibitedTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyShrinkRequest;
@@ -98,6 +104,12 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessTagResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteProhibitedPoliciesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteProhibitedPoliciesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteProhibitedSoftwareRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteProhibitedSoftwareResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteProhibitedTagsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteProhibitedTagsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteRegistrationPoliciesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteRegistrationPoliciesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserDevicesRequest;
@@ -147,6 +159,11 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetProhibitedPolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetProhibitedPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetProhibitedSoftwareRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetProhibitedSoftwareResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetProhibitedSoftwareShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetRegistrationPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceRequest;
@@ -228,6 +245,15 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsForDynamicRouteR
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsForDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListProhibitedPoliciesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListProhibitedPoliciesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListProhibitedPoliciesShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListProhibitedSoftwareRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListProhibitedSoftwareResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListProhibitedSoftwareShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListProhibitedTagsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListProhibitedTagsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListProhibitedTagsShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesForUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesForUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesRequest;
@@ -309,6 +335,12 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRespons
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateProhibitedPolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateProhibitedPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateProhibitedSoftwareRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateProhibitedSoftwareResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateProhibitedTagRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateProhibitedTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyShrinkRequest;
@@ -2045,6 +2077,287 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Creates a software ban policy.
+     *
+     * @param request - CreateProhibitedPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProhibitedPolicyResponse
+     *
+     * @param CreateProhibitedPolicyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateProhibitedPolicyResponse
+     */
+    public function createProhibitedPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->allowReport) {
+            @$body['AllowReport'] = $request->allowReport;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->forceKill) {
+            @$body['ForceKill'] = $request->forceKill;
+        }
+
+        if (null !== $request->mainButtonTextCh) {
+            @$body['MainButtonTextCh'] = $request->mainButtonTextCh;
+        }
+
+        if (null !== $request->mainButtonTextEn) {
+            @$body['MainButtonTextEn'] = $request->mainButtonTextEn;
+        }
+
+        if (null !== $request->matchMode) {
+            @$body['MatchMode'] = $request->matchMode;
+        }
+
+        if (null !== $request->minorButtonTextCh) {
+            @$body['MinorButtonTextCh'] = $request->minorButtonTextCh;
+        }
+
+        if (null !== $request->minorButtonTextEn) {
+            @$body['MinorButtonTextEn'] = $request->minorButtonTextEn;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->objectType) {
+            @$body['ObjectType'] = $request->objectType;
+        }
+
+        if (null !== $request->policyType) {
+            @$body['PolicyType'] = $request->policyType;
+        }
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->promptCh) {
+            @$body['PromptCh'] = $request->promptCh;
+        }
+
+        if (null !== $request->promptEn) {
+            @$body['PromptEn'] = $request->promptEn;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->softwareIds) {
+            @$bodyFlat['SoftwareIds'] = $request->softwareIds;
+        }
+
+        if (null !== $request->tagIds) {
+            @$bodyFlat['TagIds'] = $request->tagIds;
+        }
+
+        if (null !== $request->titleCh) {
+            @$body['TitleCh'] = $request->titleCh;
+        }
+
+        if (null !== $request->titleEn) {
+            @$body['TitleEn'] = $request->titleEn;
+        }
+
+        if (null !== $request->userGroupIds) {
+            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        if (null !== $request->whitelist) {
+            @$bodyFlat['Whitelist'] = $request->whitelist;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProhibitedPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProhibitedPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a software ban policy.
+     *
+     * @param request - CreateProhibitedPolicyRequest
+     *
+     * @returns CreateProhibitedPolicyResponse
+     *
+     * @param CreateProhibitedPolicyRequest $request
+     *
+     * @return CreateProhibitedPolicyResponse
+     */
+    public function createProhibitedPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProhibitedPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a custom disabled software entry.
+     *
+     * @param request - CreateProhibitedSoftwareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProhibitedSoftwareResponse
+     *
+     * @param CreateProhibitedSoftwareRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateProhibitedSoftwareResponse
+     */
+    public function createProhibitedSoftwareWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->linuxProcesses) {
+            @$bodyFlat['LinuxProcesses'] = $request->linuxProcesses;
+        }
+
+        if (null !== $request->macOSProcesses) {
+            @$bodyFlat['MacOSProcesses'] = $request->macOSProcesses;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->tagIds) {
+            @$bodyFlat['TagIds'] = $request->tagIds;
+        }
+
+        if (null !== $request->windowsProcesses) {
+            @$bodyFlat['WindowsProcesses'] = $request->windowsProcesses;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProhibitedSoftware',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProhibitedSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a custom disabled software entry.
+     *
+     * @param request - CreateProhibitedSoftwareRequest
+     *
+     * @returns CreateProhibitedSoftwareResponse
+     *
+     * @param CreateProhibitedSoftwareRequest $request
+     *
+     * @return CreateProhibitedSoftwareResponse
+     */
+    public function createProhibitedSoftware($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProhibitedSoftwareWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a custom disabled software tag.
+     *
+     * @param request - CreateProhibitedTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProhibitedTagResponse
+     *
+     * @param CreateProhibitedTagRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateProhibitedTagResponse
+     */
+    public function createProhibitedTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProhibitedTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProhibitedTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a custom disabled software tag.
+     *
+     * @param request - CreateProhibitedTagRequest
+     *
+     * @returns CreateProhibitedTagResponse
+     *
+     * @param CreateProhibitedTagRequest $request
+     *
+     * @return CreateProhibitedTagResponse
+     */
+    public function createProhibitedTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProhibitedTagWithOptions($request, $runtime);
+    }
+
+    /**
      * Create a device registration policy for your Alibaba Cloud account.
      *
      * @param tmpReq - CreateRegistrationPolicyRequest
@@ -3553,6 +3866,186 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Deletes software prohibition policies in batches.
+     *
+     * @param request - DeleteProhibitedPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProhibitedPoliciesResponse
+     *
+     * @param DeleteProhibitedPoliciesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteProhibitedPoliciesResponse
+     */
+    public function deleteProhibitedPoliciesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->policyIds) {
+            @$bodyFlat['PolicyIds'] = $request->policyIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProhibitedPolicies',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProhibitedPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes software prohibition policies in batches.
+     *
+     * @param request - DeleteProhibitedPoliciesRequest
+     *
+     * @returns DeleteProhibitedPoliciesResponse
+     *
+     * @param DeleteProhibitedPoliciesRequest $request
+     *
+     * @return DeleteProhibitedPoliciesResponse
+     */
+    public function deleteProhibitedPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProhibitedPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes custom prohibited software in batches.
+     *
+     * @param request - DeleteProhibitedSoftwareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProhibitedSoftwareResponse
+     *
+     * @param DeleteProhibitedSoftwareRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteProhibitedSoftwareResponse
+     */
+    public function deleteProhibitedSoftwareWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->softwareIds) {
+            @$bodyFlat['SoftwareIds'] = $request->softwareIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProhibitedSoftware',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProhibitedSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes custom prohibited software in batches.
+     *
+     * @param request - DeleteProhibitedSoftwareRequest
+     *
+     * @returns DeleteProhibitedSoftwareResponse
+     *
+     * @param DeleteProhibitedSoftwareRequest $request
+     *
+     * @return DeleteProhibitedSoftwareResponse
+     */
+    public function deleteProhibitedSoftware($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProhibitedSoftwareWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量删除自定义标签.
+     *
+     * @param request - DeleteProhibitedTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProhibitedTagsResponse
+     *
+     * @param DeleteProhibitedTagsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteProhibitedTagsResponse
+     */
+    public function deleteProhibitedTagsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->tagIds) {
+            @$bodyFlat['TagIds'] = $request->tagIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProhibitedTags',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProhibitedTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除自定义标签.
+     *
+     * @param request - DeleteProhibitedTagsRequest
+     *
+     * @returns DeleteProhibitedTagsResponse
+     *
+     * @param DeleteProhibitedTagsRequest $request
+     *
+     * @return DeleteProhibitedTagsResponse
+     */
+    public function deleteProhibitedTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProhibitedTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * Batch delete device registration policies under your Alibaba Cloud account.
      *
      * @param request - DeleteRegistrationPoliciesRequest
@@ -5014,6 +5507,118 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPrivateAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a specified software prohibition policy.
+     *
+     * @param request - GetProhibitedPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProhibitedPolicyResponse
+     *
+     * @param GetProhibitedPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetProhibitedPolicyResponse
+     */
+    public function getProhibitedPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetProhibitedPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProhibitedPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a specified software prohibition policy.
+     *
+     * @param request - GetProhibitedPolicyRequest
+     *
+     * @returns GetProhibitedPolicyResponse
+     *
+     * @param GetProhibitedPolicyRequest $request
+     *
+     * @return GetProhibitedPolicyResponse
+     */
+    public function getProhibitedPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProhibitedPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a specified prohibited software.
+     *
+     * @param tmpReq - GetProhibitedSoftwareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProhibitedSoftwareResponse
+     *
+     * @param GetProhibitedSoftwareRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetProhibitedSoftwareResponse
+     */
+    public function getProhibitedSoftwareWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetProhibitedSoftwareShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->softwareId) {
+            $request->softwareIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->softwareId, 'SoftwareId', 'json');
+        }
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetProhibitedSoftware',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProhibitedSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a specified prohibited software.
+     *
+     * @param request - GetProhibitedSoftwareRequest
+     *
+     * @returns GetProhibitedSoftwareResponse
+     *
+     * @param GetProhibitedSoftwareRequest $request
+     *
+     * @return GetProhibitedSoftwareResponse
+     */
+    public function getProhibitedSoftware($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProhibitedSoftwareWithOptions($request, $runtime);
     }
 
     /**
@@ -7341,6 +7946,207 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPrivateAccessTagsForDynamicRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of software prohibition policies under the current Alibaba Cloud account by paging.
+     *
+     * @param tmpReq - ListProhibitedPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProhibitedPoliciesResponse
+     *
+     * @param ListProhibitedPoliciesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListProhibitedPoliciesResponse
+     */
+    public function listProhibitedPoliciesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListProhibitedPoliciesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->softwareId) {
+            $request->softwareIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->softwareId, 'SoftwareId', 'json');
+        }
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProhibitedPolicies',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProhibitedPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of software prohibition policies under the current Alibaba Cloud account by paging.
+     *
+     * @param request - ListProhibitedPoliciesRequest
+     *
+     * @returns ListProhibitedPoliciesResponse
+     *
+     * @param ListProhibitedPoliciesRequest $request
+     *
+     * @return ListProhibitedPoliciesResponse
+     */
+    public function listProhibitedPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProhibitedPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of prohibited software under the current Alibaba Cloud account by using paging.
+     *
+     * @param tmpReq - ListProhibitedSoftwareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProhibitedSoftwareResponse
+     *
+     * @param ListProhibitedSoftwareRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListProhibitedSoftwareResponse
+     */
+    public function listProhibitedSoftwareWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListProhibitedSoftwareShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tagId) {
+            $request->tagIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagId, 'TagId', 'json');
+        }
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProhibitedSoftware',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProhibitedSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of prohibited software under the current Alibaba Cloud account by using paging.
+     *
+     * @param request - ListProhibitedSoftwareRequest
+     *
+     * @returns ListProhibitedSoftwareResponse
+     *
+     * @param ListProhibitedSoftwareRequest $request
+     *
+     * @return ListProhibitedSoftwareResponse
+     */
+    public function listProhibitedSoftware($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProhibitedSoftwareWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of prohibited software tags under the current Alibaba Cloud account by paging.
+     *
+     * @param tmpReq - ListProhibitedTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProhibitedTagsResponse
+     *
+     * @param ListProhibitedTagsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListProhibitedTagsResponse
+     */
+    public function listProhibitedTagsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListProhibitedTagsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->softwareId) {
+            $request->softwareIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->softwareId, 'SoftwareId', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->softwareIdShrink) {
+            @$query['SoftwareId'] = $request->softwareIdShrink;
+        }
+
+        if (null !== $request->tagIds) {
+            @$query['TagIds'] = $request->tagIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProhibitedTags',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProhibitedTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of prohibited software tags under the current Alibaba Cloud account by paging.
+     *
+     * @param request - ListProhibitedTagsRequest
+     *
+     * @returns ListProhibitedTagsResponse
+     *
+     * @param ListProhibitedTagsRequest $request
+     *
+     * @return ListProhibitedTagsResponse
+     */
+    public function listProhibitedTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProhibitedTagsWithOptions($request, $runtime);
     }
 
     /**
@@ -10186,6 +10992,299 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePrivateAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a software prohibition policy.
+     *
+     * @param request - UpdateProhibitedPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProhibitedPolicyResponse
+     *
+     * @param UpdateProhibitedPolicyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateProhibitedPolicyResponse
+     */
+    public function updateProhibitedPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->allowReport) {
+            @$body['AllowReport'] = $request->allowReport;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->forceKill) {
+            @$body['ForceKill'] = $request->forceKill;
+        }
+
+        if (null !== $request->mainButtonTextCh) {
+            @$body['MainButtonTextCh'] = $request->mainButtonTextCh;
+        }
+
+        if (null !== $request->mainButtonTextEn) {
+            @$body['MainButtonTextEn'] = $request->mainButtonTextEn;
+        }
+
+        if (null !== $request->matchMode) {
+            @$body['MatchMode'] = $request->matchMode;
+        }
+
+        if (null !== $request->minorButtonTextCh) {
+            @$body['MinorButtonTextCh'] = $request->minorButtonTextCh;
+        }
+
+        if (null !== $request->minorButtonTextEn) {
+            @$body['MinorButtonTextEn'] = $request->minorButtonTextEn;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->objectType) {
+            @$body['ObjectType'] = $request->objectType;
+        }
+
+        if (null !== $request->policyId) {
+            @$body['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->policyType) {
+            @$body['PolicyType'] = $request->policyType;
+        }
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->promptCh) {
+            @$body['PromptCh'] = $request->promptCh;
+        }
+
+        if (null !== $request->promptEn) {
+            @$body['PromptEn'] = $request->promptEn;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->softwareIds) {
+            @$bodyFlat['SoftwareIds'] = $request->softwareIds;
+        }
+
+        if (null !== $request->tagIds) {
+            @$bodyFlat['TagIds'] = $request->tagIds;
+        }
+
+        if (null !== $request->titleCh) {
+            @$body['TitleCh'] = $request->titleCh;
+        }
+
+        if (null !== $request->titleEn) {
+            @$body['TitleEn'] = $request->titleEn;
+        }
+
+        if (null !== $request->userGroupIds) {
+            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        if (null !== $request->whitelist) {
+            @$bodyFlat['Whitelist'] = $request->whitelist;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProhibitedPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProhibitedPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a software prohibition policy.
+     *
+     * @param request - UpdateProhibitedPolicyRequest
+     *
+     * @returns UpdateProhibitedPolicyResponse
+     *
+     * @param UpdateProhibitedPolicyRequest $request
+     *
+     * @return UpdateProhibitedPolicyResponse
+     */
+    public function updateProhibitedPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProhibitedPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a custom prohibited software entry.
+     *
+     * @param request - UpdateProhibitedSoftwareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProhibitedSoftwareResponse
+     *
+     * @param UpdateProhibitedSoftwareRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateProhibitedSoftwareResponse
+     */
+    public function updateProhibitedSoftwareWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->linuxProcesses) {
+            @$bodyFlat['LinuxProcesses'] = $request->linuxProcesses;
+        }
+
+        if (null !== $request->macOSProcesses) {
+            @$bodyFlat['MacOSProcesses'] = $request->macOSProcesses;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->softwareId) {
+            @$body['SoftwareId'] = $request->softwareId;
+        }
+
+        if (null !== $request->tagIds) {
+            @$bodyFlat['TagIds'] = $request->tagIds;
+        }
+
+        if (null !== $request->windowsProcesses) {
+            @$bodyFlat['WindowsProcesses'] = $request->windowsProcesses;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProhibitedSoftware',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProhibitedSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a custom prohibited software entry.
+     *
+     * @param request - UpdateProhibitedSoftwareRequest
+     *
+     * @returns UpdateProhibitedSoftwareResponse
+     *
+     * @param UpdateProhibitedSoftwareRequest $request
+     *
+     * @return UpdateProhibitedSoftwareResponse
+     */
+    public function updateProhibitedSoftware($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProhibitedSoftwareWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a custom prohibited software tag.
+     *
+     * @param request - UpdateProhibitedTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProhibitedTagResponse
+     *
+     * @param UpdateProhibitedTagRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateProhibitedTagResponse
+     */
+    public function updateProhibitedTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->tagId) {
+            @$body['TagId'] = $request->tagId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProhibitedTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProhibitedTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a custom prohibited software tag.
+     *
+     * @param request - UpdateProhibitedTagRequest
+     *
+     * @returns UpdateProhibitedTagResponse
+     *
+     * @param UpdateProhibitedTagRequest $request
+     *
+     * @return UpdateProhibitedTagResponse
+     */
+    public function updateProhibitedTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProhibitedTagWithOptions($request, $runtime);
     }
 
     /**
