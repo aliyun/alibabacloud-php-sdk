@@ -54,6 +54,16 @@ class ListAIAgentEventRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $order;
+
+    /**
+     * @var string
+     */
+    public $orderBy;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -97,6 +107,8 @@ class ListAIAgentEventRequest extends Model
         'infraName' => 'InfraName',
         'infraRegionId' => 'InfraRegionId',
         'lang' => 'Lang',
+        'order' => 'Order',
+        'orderBy' => 'OrderBy',
         'pageSize' => 'PageSize',
         'riskLevel' => 'RiskLevel',
         'riskName' => 'RiskName',
@@ -151,6 +163,14 @@ class ListAIAgentEventRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
+
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
         }
 
         if (null !== $this->pageSize) {
@@ -233,6 +253,14 @@ class ListAIAgentEventRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
+
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
         }
 
         if (isset($map['PageSize'])) {

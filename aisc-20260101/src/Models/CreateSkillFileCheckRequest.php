@@ -13,8 +13,14 @@ class CreateSkillFileCheckRequest extends Model
      * @var files[]
      */
     public $files;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'files' => 'Files',
+        'source' => 'Source',
     ];
 
     public function validate()
@@ -39,6 +45,10 @@ class CreateSkillFileCheckRequest extends Model
             }
         }
 
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+
         return $res;
     }
 
@@ -59,6 +69,10 @@ class CreateSkillFileCheckRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

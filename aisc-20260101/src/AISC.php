@@ -98,6 +98,10 @@ class AISC extends OpenApiClient
             @$query['Files'] = $request->files;
         }
 
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -185,6 +189,14 @@ class AISC extends OpenApiClient
 
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
 
         if (null !== $request->pageSize) {

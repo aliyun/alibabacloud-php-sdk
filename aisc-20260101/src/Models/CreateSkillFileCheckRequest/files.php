@@ -17,9 +17,15 @@ class files extends Model
      * @var string
      */
     public $fileName;
+
+    /**
+     * @var string
+     */
+    public $uploadKey;
     protected $_name = [
         'downloadUrl' => 'DownloadUrl',
         'fileName' => 'FileName',
+        'uploadKey' => 'UploadKey',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class files extends Model
 
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+
+        if (null !== $this->uploadKey) {
+            $res['UploadKey'] = $this->uploadKey;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class files extends Model
 
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+
+        if (isset($map['UploadKey'])) {
+            $model->uploadKey = $map['UploadKey'];
         }
 
         return $model;
