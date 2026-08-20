@@ -3662,7 +3662,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the list of model provider templates.
      *
      * @remarks
-     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Paging is controlled by the PageSize and PageNumber parameters.
+     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Use the paging parameters to control the number of results returned per page.
      * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param tmpReq - ListModelProviderTemplatesRequest
@@ -3739,7 +3739,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the list of model provider templates.
      *
      * @remarks
-     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Paging is controlled by the PageSize and PageNumber parameters.
+     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Use the paging parameters to control the number of results returned per page.
      * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - ListModelProviderTemplatesRequest

@@ -42,6 +42,11 @@ class data extends Model
      * @var string
      */
     public $providerType;
+
+    /**
+     * @var string
+     */
+    public $wuyingProviderKey;
     protected $_name = [
         'config' => 'Config',
         'description' => 'Description',
@@ -50,6 +55,7 @@ class data extends Model
         'providerName' => 'ProviderName',
         'providerTemplateId' => 'ProviderTemplateId',
         'providerType' => 'ProviderType',
+        'wuyingProviderKey' => 'WuyingProviderKey',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class data extends Model
 
         if (null !== $this->providerType) {
             $res['ProviderType'] = $this->providerType;
+        }
+
+        if (null !== $this->wuyingProviderKey) {
+            $res['WuyingProviderKey'] = $this->wuyingProviderKey;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class data extends Model
 
         if (isset($map['ProviderType'])) {
             $model->providerType = $map['ProviderType'];
+        }
+
+        if (isset($map['WuyingProviderKey'])) {
+            $model->wuyingProviderKey = $map['WuyingProviderKey'];
         }
 
         return $model;
