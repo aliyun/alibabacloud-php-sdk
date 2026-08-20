@@ -11,6 +11,11 @@ class DescribeChargeModuleRequest extends Model
     /**
      * @var string
      */
+    public $chargeUnit;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -23,6 +28,7 @@ class DescribeChargeModuleRequest extends Model
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
+        'chargeUnit' => 'ChargeUnit',
         'payType' => 'PayType',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
@@ -36,6 +42,10 @@ class DescribeChargeModuleRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chargeUnit) {
+            $res['ChargeUnit'] = $this->chargeUnit;
+        }
+
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
@@ -59,6 +69,10 @@ class DescribeChargeModuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeUnit'])) {
+            $model->chargeUnit = $map['ChargeUnit'];
+        }
+
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }

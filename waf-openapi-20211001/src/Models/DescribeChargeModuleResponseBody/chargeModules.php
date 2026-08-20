@@ -21,6 +21,11 @@ class chargeModules extends Model
     /**
      * @var string
      */
+    public $chargeUnit;
+
+    /**
+     * @var string
+     */
     public $moduleCode;
 
     /**
@@ -40,6 +45,7 @@ class chargeModules extends Model
     protected $_name = [
         'chargeMode' => 'ChargeMode',
         'chargeModeDetails' => 'ChargeModeDetails',
+        'chargeUnit' => 'ChargeUnit',
         'moduleCode' => 'ModuleCode',
         'periodType' => 'PeriodType',
         'usageType' => 'UsageType',
@@ -70,6 +76,10 @@ class chargeModules extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->chargeUnit) {
+            $res['ChargeUnit'] = $this->chargeUnit;
         }
 
         if (null !== $this->moduleCode) {
@@ -112,6 +122,10 @@ class chargeModules extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ChargeUnit'])) {
+            $model->chargeUnit = $map['ChargeUnit'];
         }
 
         if (isset($map['ModuleCode'])) {

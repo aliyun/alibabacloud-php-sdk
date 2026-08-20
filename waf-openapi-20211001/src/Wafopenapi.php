@@ -1082,12 +1082,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Connects a cloud service to WAF in cloud native mode. Supported cloud services include ECS, CLB, NLB, and DDoS.
+     * Connects a cloud service to WAF in cloud native mode. Supported cloud services include ECS, CLB, NLB, and Anti-DDoS.
      *
      * @remarks
      * Before invoking this operation, complete the following steps:
      * 1. Confirm that you have a WAF instance. Invoke [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of your WAF instance.
-     * 2. Confirm that the cloud service to be connected meets the applicable scope. For ECS, CLB, and NLB connections, verify the instance specifications and region. For more information, see the "Applicable Scope" section in [ECS Connection](https://help.aliyun.com/document_detail/464617.html), [CLB Connection](https://help.aliyun.com/document_detail/464614.html), and [NLB Connection](https://help.aliyun.com/document_detail/2853925.html). For DDoS connections, verify the domain name scope. For more information, see the "Applicable Scope" section in [DDoS Connection](https://help.aliyun.com/document_detail/3032763.html).
+     * 2. Confirm that the cloud service to be connected meets the applicable scope. For ECS, CLB, and NLB connections, verify the instance specifications and region. Refer to the "Applicable Scope" section in the [ECS connection](https://help.aliyun.com/document_detail/464617.html), [CLB connection](https://help.aliyun.com/document_detail/464614.html), and [NLB connection](https://help.aliyun.com/document_detail/2853925.html) documentation. For Anti-DDoS connections, which are configured for domain names, refer to the "Applicable Scope" section in the [Anti-DDoS connection](https://help.aliyun.com/document_detail/3032763.html) documentation.
      * After completing the preceding steps, invoke this operation to connect the cloud service to WAF in cloud native mode.
      *
      * @param tmpReq - CreateCloudResourceRequest
@@ -1161,12 +1161,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Connects a cloud service to WAF in cloud native mode. Supported cloud services include ECS, CLB, NLB, and DDoS.
+     * Connects a cloud service to WAF in cloud native mode. Supported cloud services include ECS, CLB, NLB, and Anti-DDoS.
      *
      * @remarks
      * Before invoking this operation, complete the following steps:
      * 1. Confirm that you have a WAF instance. Invoke [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of your WAF instance.
-     * 2. Confirm that the cloud service to be connected meets the applicable scope. For ECS, CLB, and NLB connections, verify the instance specifications and region. For more information, see the "Applicable Scope" section in [ECS Connection](https://help.aliyun.com/document_detail/464617.html), [CLB Connection](https://help.aliyun.com/document_detail/464614.html), and [NLB Connection](https://help.aliyun.com/document_detail/2853925.html). For DDoS connections, verify the domain name scope. For more information, see the "Applicable Scope" section in [DDoS Connection](https://help.aliyun.com/document_detail/3032763.html).
+     * 2. Confirm that the cloud service to be connected meets the applicable scope. For ECS, CLB, and NLB connections, verify the instance specifications and region. Refer to the "Applicable Scope" section in the [ECS connection](https://help.aliyun.com/document_detail/464617.html), [CLB connection](https://help.aliyun.com/document_detail/464614.html), and [NLB connection](https://help.aliyun.com/document_detail/2853925.html) documentation. For Anti-DDoS connections, which are configured for domain names, refer to the "Applicable Scope" section in the [Anti-DDoS connection](https://help.aliyun.com/document_detail/3032763.html) documentation.
      * After completing the preceding steps, invoke this operation to connect the cloud service to WAF in cloud native mode.
      *
      * @param request - CreateCloudResourceRequest
@@ -1638,12 +1638,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds a domain name to a WAF instance for Website Config.
+     * Adds a domain name to a WAF instance for Website Config protection.
      *
      * @remarks
-     * Before you call this operation, the domain name (**Domain**) must meet the following requirements:
-     * - **Domain ownership verification**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must complete domain ownership verification first. Call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain domain verification information, configure a DNS TXT record or upload an HTTP verification file based on the response, and then call the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to complete domain ownership verification.
-     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the domain name is connected to a region in the Chinese mainland, the domain name must have a valid ICP filing.
+     * Before you call this operation, the domain name (**Domain**) must meet the following requirements.
+     * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must first complete domain ownership authentication. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain domain verification information, configure a DNS TXT record or upload an HTTP verification file based on the response, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to complete domain ownership authentication. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, use the **DomainName** parameter to specify the domain name. The **DescribeVerifyContent** operation also requires the **AccessOrigin** parameter to specify the access source. For valid values, refer to the metric description of the DescribeVerifyContent operation.
+     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the domain name is added to Website Config in a region in the Chinese mainland, the domain name must have a valid ICP filing.
      *
      * @param tmpReq - CreateDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1720,12 +1720,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds a domain name to a WAF instance for Website Config.
+     * Adds a domain name to a WAF instance for Website Config protection.
      *
      * @remarks
-     * Before you call this operation, the domain name (**Domain**) must meet the following requirements:
-     * - **Domain ownership verification**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must complete domain ownership verification first. Call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain domain verification information, configure a DNS TXT record or upload an HTTP verification file based on the response, and then call the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to complete domain ownership verification.
-     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the domain name is connected to a region in the Chinese mainland, the domain name must have a valid ICP filing.
+     * Before you call this operation, the domain name (**Domain**) must meet the following requirements.
+     * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must first complete domain ownership authentication. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain domain verification information, configure a DNS TXT record or upload an HTTP verification file based on the response, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to complete domain ownership authentication. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, use the **DomainName** parameter to specify the domain name. The **DescribeVerifyContent** operation also requires the **AccessOrigin** parameter to specify the access source. For valid values, refer to the metric description of the DescribeVerifyContent operation.
+     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the domain name is added to Website Config in a region in the Chinese mainland, the domain name must have a valid ICP filing.
      *
      * @param request - CreateDomainRequest
      *
@@ -2123,10 +2123,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds IP addresses to the IP blacklist for critical event protection in WAF.
+     * Adds IP addresses to the IP blacklist for WAF critical event protection.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
+     * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
      *
      * @param request - CreateMajorProtectionBlackIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2193,10 +2193,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds IP addresses to the IP blacklist for critical event protection in WAF.
+     * Adds IP addresses to the IP blacklist for WAF critical event protection.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
+     * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
      *
      * @param request - CreateMajorProtectionBlackIpRequest
      *
@@ -2214,7 +2214,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds member accounts to use the multi-account management feature of Web Application Firewall (WAF).
+     * Adds WAF member accounts in the multi-account management feature.
+     *
+     * @remarks
+     * Before invoking this operation, ensure that the WAF instance supports multi-account management and that the current calling account is configured as a WAF delegated administrator. Invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.ResourceDirectory parameter is true, the instance supports multi-account management. If not, upgrade the instance to enable multi-account management. Invoke the [DescribeAccountDelegatedStatus](https://help.aliyun.com/document_detail/2716807.html) operation to check whether the current account is a WAF delegated administrator. If not, refer to the [Multi-account management feature](https://help.aliyun.com/document_detail/2709681.html) folder to configure a WAF delegated administrator in the resource directory first.
      *
      * @param request - CreateMemberAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2269,7 +2272,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds member accounts to use the multi-account management feature of Web Application Firewall (WAF).
+     * Adds WAF member accounts in the multi-account management feature.
+     *
+     * @remarks
+     * Before invoking this operation, ensure that the WAF instance supports multi-account management and that the current calling account is configured as a WAF delegated administrator. Invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.ResourceDirectory parameter is true, the instance supports multi-account management. If not, upgrade the instance to enable multi-account management. Invoke the [DescribeAccountDelegatedStatus](https://help.aliyun.com/document_detail/2716807.html) operation to check whether the current account is a WAF delegated administrator. If not, refer to the [Multi-account management feature](https://help.aliyun.com/document_detail/2709681.html) folder to configure a WAF delegated administrator in the resource directory first.
      *
      * @param request - CreateMemberAccountsRequest
      *
@@ -3621,7 +3627,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes a Web Application Firewall (WAF) member account.
+     * Deletes a WAF member account from the multi-account management feature.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance supports the multi-account management feature and that the current calling account is configured as a WAF delegated administrator. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.ResourceDirectory response parameter is true, the instance supports the multi-account management feature. If the instance does not support this feature, upgrade the instance to enable multi-account management. Call the [DescribeAccountDelegatedStatus](https://help.aliyun.com/document_detail/2716807.html) operation to check whether the current account is a WAF delegated administrator. If not, refer to the [Multi-account management](https://help.aliyun.com/document_detail/2709681.html) documentation to configure a WAF delegated administrator in the resource directory first.
      *
      * @param request - DeleteMemberAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3676,7 +3685,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes a Web Application Firewall (WAF) member account.
+     * Deletes a WAF member account from the multi-account management feature.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance supports the multi-account management feature and that the current calling account is configured as a WAF delegated administrator. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.ResourceDirectory response parameter is true, the instance supports the multi-account management feature. If the instance does not support this feature, upgrade the instance to enable multi-account management. Call the [DescribeAccountDelegatedStatus](https://help.aliyun.com/document_detail/2716807.html) operation to check whether the current account is a WAF delegated administrator. If not, refer to the [Multi-account management](https://help.aliyun.com/document_detail/2709681.html) documentation to configure a WAF delegated administrator in the resource directory first.
      *
      * @param request - DeleteMemberAccountRequest
      *
@@ -6325,7 +6337,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the billing module information of Web Application Firewall (WAF).
+     * Queries the pricing module information of WAF.
      *
      * @param request - DescribeChargeModuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6341,6 +6353,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->chargeUnit) {
+            @$query['ChargeUnit'] = $request->chargeUnit;
+        }
+
         if (null !== $request->payType) {
             @$query['PayType'] = $request->payType;
         }
@@ -6372,7 +6388,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the billing module information of Web Application Firewall (WAF).
+     * Queries the pricing module information of WAF.
      *
      * @param request - DescribeChargeModuleRequest
      *
@@ -7956,6 +7972,9 @@ class Wafopenapi extends OpenApiClient
     /**
      * Queries statistics of rules under a specified WAF protection module.
      *
+     * @remarks
+     * This operation supports querying rule statistics for protection templates under the new Bot Management (bot_manager) and new Web Core Protection (waf_base) scenarios.
+     *
      * @param request - DescribeDefenseRuleStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8022,6 +8041,9 @@ class Wafopenapi extends OpenApiClient
 
     /**
      * Queries statistics of rules under a specified WAF protection module.
+     *
+     * @remarks
+     * This operation supports querying rule statistics for protection templates under the new Bot Management (bot_manager) and new Web Core Protection (waf_base) scenarios.
      *
      * @param request - DescribeDefenseRuleStatisticsRequest
      *
@@ -10433,7 +10455,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the list of unassigned servers in a hybrid cloud cluster.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudUnassignedMachinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10503,7 +10525,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the list of unassigned servers in a hybrid cloud cluster.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudUnassignedMachinesRequest
      *
@@ -11048,7 +11070,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves all member accounts managed by the WAF multi-account management feature.
+     * Queries the information about all member accounts in the WAF multi-account management feature.
+     *
+     * @remarks
+     * Before invoking this operation, make sure that the WAF instance supports the multi-account management feature and that the current calling account is configured as a WAF delegated administrator. Invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.ResourceDirectory parameter is true, the instance supports the multi-account management feature. If not, upgrade the instance to enable the multi-account management feature. Invoke the [DescribeAccountDelegatedStatus](https://help.aliyun.com/document_detail/2716807.html) operation to check whether the current account is a WAF delegated administrator. If not, refer to the [Multi-account management feature](https://help.aliyun.com/document_detail/2709681.html) documentation to configure a WAF delegated administrator in the resource folder.
      *
      * @param request - DescribeMemberAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11103,7 +11128,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves all member accounts managed by the WAF multi-account management feature.
+     * Queries the information about all member accounts in the WAF multi-account management feature.
+     *
+     * @remarks
+     * Before invoking this operation, make sure that the WAF instance supports the multi-account management feature and that the current calling account is configured as a WAF delegated administrator. Invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.ResourceDirectory parameter is true, the instance supports the multi-account management feature. If not, upgrade the instance to enable the multi-account management feature. Invoke the [DescribeAccountDelegatedStatus](https://help.aliyun.com/document_detail/2716807.html) operation to check whether the current account is a WAF delegated administrator. If not, refer to the [Multi-account management feature](https://help.aliyun.com/document_detail/2709681.html) documentation to configure a WAF delegated administrator in the resource folder.
      *
      * @param request - DescribeMemberAccountsRequest
      *
@@ -16465,6 +16493,9 @@ class Wafopenapi extends OpenApiClient
     /**
      * Modifies the status of protected objects or protected object groups for the API security protection module.
      *
+     * @remarks
+     * Before calling this operation, make sure that protected objects or protected object groups already exist. For protected objects that have been added to WAF, call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query their names. For created protected object groups, call the [DescribeDefenseResourceGroups](https://help.aliyun.com/document_detail/2773860.html) operation to query them. If no protected object group has been created, call the [CreateDefenseResourceGroup](https://help.aliyun.com/document_detail/461739.html) operation to create one first.
+     *
      * @param request - ModifyApisecModuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16527,6 +16558,9 @@ class Wafopenapi extends OpenApiClient
 
     /**
      * Modifies the status of protected objects or protected object groups for the API security protection module.
+     *
+     * @remarks
+     * Before calling this operation, make sure that protected objects or protected object groups already exist. For protected objects that have been added to WAF, call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query their names. For created protected object groups, call the [DescribeDefenseResourceGroups](https://help.aliyun.com/document_detail/2773860.html) operation to query them. If no protected object group has been created, call the [CreateDefenseResourceGroup](https://help.aliyun.com/document_detail/461739.html) operation to create one first.
      *
      * @param request - ModifyApisecModuleStatusRequest
      *
@@ -17028,7 +17062,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the cookie settings of a protected object and the method to identify the originating IP addresses of clients.
+     * Modifies the client IP and cookie settings of a protected object.
+     *
+     * @remarks
+     * Before you invoke this operation, make sure that a protected object has been added to WAF. You can invoke the [CreateDomain](https://help.aliyun.com/document_detail/461413.html) operation to create a CNAME-based resource, invoke the [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) operation to create a cloud native mode resource, or invoke the [CreateDefenseResource](https://help.aliyun.com/document_detail/2930080.html) operation to create a custom protected object. You can invoke the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the protected objects that have been added to WAF.
      *
      * @param request - ModifyDefenseResourceXffRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17103,7 +17140,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the cookie settings of a protected object and the method to identify the originating IP addresses of clients.
+     * Modifies the client IP and cookie settings of a protected object.
+     *
+     * @remarks
+     * Before you invoke this operation, make sure that a protected object has been added to WAF. You can invoke the [CreateDomain](https://help.aliyun.com/document_detail/461413.html) operation to create a CNAME-based resource, invoke the [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) operation to create a cloud native mode resource, or invoke the [CreateDefenseResource](https://help.aliyun.com/document_detail/2930080.html) operation to create a custom protected object. You can invoke the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the protected objects that have been added to WAF.
      *
      * @param request - ModifyDefenseResourceXffRequest
      *
@@ -17283,6 +17323,9 @@ class Wafopenapi extends OpenApiClient
     /**
      * Modifies the status of a protection rule.
      *
+     * @remarks
+     * Before calling this operation, make sure that you have created a protection rule by calling the [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html) operation.
+     *
      * @param request - ModifyDefenseRuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17345,6 +17388,9 @@ class Wafopenapi extends OpenApiClient
 
     /**
      * Modifies the status of a protection rule.
+     *
+     * @remarks
+     * Before calling this operation, make sure that you have created a protection rule by calling the [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html) operation.
      *
      * @param request - ModifyDefenseRuleStatusRequest
      *
@@ -17970,7 +18016,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the manual bypass switch for a hybrid cloud SDK integration cluster.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - ModifyHybridCloudClusterBypassStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18028,7 +18074,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the manual bypass switch for a hybrid cloud SDK integration cluster.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - ModifyHybridCloudClusterBypassStatusRequest
      *
@@ -18546,7 +18592,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies a log delivery configuration for a hybrid cloud cluster.
+     * Modifies the log delivery configuration for hybrid cloud.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance has purchased hybrid cloud extension nodes. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloudNodeExtend parameter is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and purchase hybrid cloud extension nodes by upgrading the instance.
      *
      * @param request - ModifyLogDeliveryConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18605,7 +18654,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies a log delivery configuration for a hybrid cloud cluster.
+     * Modifies the log delivery configuration for hybrid cloud.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance has purchased hybrid cloud extension nodes. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloudNodeExtend parameter is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and purchase hybrid cloud extension nodes by upgrading the instance.
      *
      * @param request - ModifyLogDeliveryConfigRequest
      *
@@ -18626,7 +18678,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the IP blacklist for a critical event protection scenario.
      *
      * @remarks
-     * Before you call this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
+     * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
      *
      * @param request - ModifyMajorProtectionBlackIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18696,7 +18748,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the IP blacklist for a critical event protection scenario.
      *
      * @remarks
-     * Before you call this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
+     * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
      *
      * @param request - ModifyMajorProtectionBlackIpRequest
      *
@@ -18714,7 +18766,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the information of a member account that is managed by the multi-account management feature of Web Application Firewall (WAF).
+     * Modifies the information of member accounts in the multi-account management feature.
+     *
+     * @remarks
+     * Before invoking this operation, make sure that the WAF instance supports multi-account management and that the current calling account is configured as a WAF delegated administrator. You can invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.ResourceDirectory parameter is true, the instance supports multi-account management. If not supported, you can upgrade the instance to enable multi-account management. You can also invoke the [DescribeAccountDelegatedStatus](https://help.aliyun.com/document_detail/2716807.html) operation to query whether the current account is a WAF delegated administrator. If not, refer to the [multi-account management feature](https://help.aliyun.com/document_detail/2709681.html) documentation to configure a WAF delegated administrator in the resource folder first.
      *
      * @param request - ModifyMemberAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18773,7 +18828,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the information of a member account that is managed by the multi-account management feature of Web Application Firewall (WAF).
+     * Modifies the information of member accounts in the multi-account management feature.
+     *
+     * @remarks
+     * Before invoking this operation, make sure that the WAF instance supports multi-account management and that the current calling account is configured as a WAF delegated administrator. You can invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.ResourceDirectory parameter is true, the instance supports multi-account management. If not supported, you can upgrade the instance to enable multi-account management. You can also invoke the [DescribeAccountDelegatedStatus](https://help.aliyun.com/document_detail/2716807.html) operation to query whether the current account is a WAF delegated administrator. If not, refer to the [multi-account management feature](https://help.aliyun.com/document_detail/2709681.html) documentation to configure a WAF delegated administrator in the resource folder first.
      *
      * @param request - ModifyMemberAccountRequest
      *
