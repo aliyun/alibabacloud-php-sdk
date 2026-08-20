@@ -16,6 +16,11 @@ class DescribeParameterGroupsRequest extends Model
     /**
      * @var string
      */
+    public $engineVersion;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -44,6 +49,7 @@ class DescribeParameterGroupsRequest extends Model
     public $securityToken;
     protected $_name = [
         'dbType' => 'DbType',
+        'engineVersion' => 'EngineVersion',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -62,6 +68,10 @@ class DescribeParameterGroupsRequest extends Model
         $res = [];
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
+        }
+
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
 
         if (null !== $this->ownerAccount) {
@@ -101,6 +111,10 @@ class DescribeParameterGroupsRequest extends Model
         $model = new self();
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
+        }
+
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
 
         if (isset($map['OwnerAccount'])) {

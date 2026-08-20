@@ -106,6 +106,11 @@ class ModifyInstanceSpecRequest extends Model
     /**
      * @var string
      */
+    public $secondaryZoneId;
+
+    /**
+     * @var string
+     */
     public $securityToken;
 
     /**
@@ -157,6 +162,7 @@ class ModifyInstanceSpecRequest extends Model
         'replicaCount' => 'ReplicaCount',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'secondaryZoneId' => 'SecondaryZoneId',
         'securityToken' => 'SecurityToken',
         'shardCount' => 'ShardCount',
         'slaveReadOnlyCount' => 'SlaveReadOnlyCount',
@@ -248,6 +254,10 @@ class ModifyInstanceSpecRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->secondaryZoneId) {
+            $res['SecondaryZoneId'] = $this->secondaryZoneId;
         }
 
         if (null !== $this->securityToken) {
@@ -363,6 +373,10 @@ class ModifyInstanceSpecRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SecondaryZoneId'])) {
+            $model->secondaryZoneId = $map['SecondaryZoneId'];
         }
 
         if (isset($map['SecurityToken'])) {

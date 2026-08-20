@@ -51,6 +51,11 @@ class CreateTairSkvDdbTableRequest extends Model
     /**
      * @var string
      */
+    public $restoreTime;
+
+    /**
+     * @var string
+     */
     public $schema;
 
     /**
@@ -86,6 +91,7 @@ class CreateTairSkvDdbTableRequest extends Model
         'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTime' => 'RestoreTime',
         'schema' => 'Schema',
         'securityToken' => 'SecurityToken',
         'srcDBInstanceId' => 'SrcDBInstanceId',
@@ -132,6 +138,10 @@ class CreateTairSkvDdbTableRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->restoreTime) {
+            $res['RestoreTime'] = $this->restoreTime;
         }
 
         if (null !== $this->schema) {
@@ -199,6 +209,10 @@ class CreateTairSkvDdbTableRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['RestoreTime'])) {
+            $model->restoreTime = $map['RestoreTime'];
         }
 
         if (isset($map['Schema'])) {

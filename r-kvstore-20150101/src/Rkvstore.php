@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AllocateInstancePublicConnectionR
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AllocateInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CancelActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CancelActiveOperationTasksResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CancelInspectionTaskRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CancelInspectionTaskResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CheckCloudResourceAuthorizedRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CheckCloudResourceAuthorizedResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateAccountRequest;
@@ -25,6 +27,10 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalDistributeCacheReques
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalDistributeCacheResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInspectionScheduleRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInspectionScheduleResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInspectionTaskRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInspectionTaskResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstanceMultiVIPRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstanceMultiVIPResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstanceRequest;
@@ -49,6 +55,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteBackupRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteBackupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteInspectionScheduleRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteInspectionScheduleResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteParameterGroupRequest;
@@ -117,6 +125,14 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryTasksRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryTasksResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryTasksStatRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryTasksStatResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInspectionScheduleReportsRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInspectionScheduleReportsResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInspectionSchedulesRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInspectionSchedulesResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInspectionTaskReportRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInspectionTaskReportResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInspectionTasksRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInspectionTasksResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceAutoRenewalAttributeRequest;
@@ -213,6 +229,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\MigrateToOtherZoneRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\MigrateToOtherZoneResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountDescriptionResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountParameterRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountParameterResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountPasswordRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountPasswordResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationMaintainConfigRequest;
@@ -241,6 +259,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupRelati
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupRelationResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInspectionScheduleRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInspectionScheduleResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceAutoRenewalAttributeRequest;
@@ -305,6 +325,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestartTairKVCacheCustomInstanceR
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestartTairKVCacheCustomInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestoreInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestoreInstanceResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RetryInspectionTaskRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RetryInspectionTaskResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\StartTairKVCacheCustomInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\StartTairKVCacheCustomInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\StopTairKVCacheCustomInstanceRequest;
@@ -313,6 +335,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceHARequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceHAResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceProxyRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceProxyResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceToTargetZoneRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceToTargetZoneResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceZoneFailOverRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceZoneFailOverResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchNetworkRequest;
@@ -382,36 +406,38 @@ class Rkvstore extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'r-kvstore.aliyuncs.com',
             'eu-west-1-oxs' => 'r-kvstore.aliyuncs.com',
             'rus-west-1-pop' => 'r-kvstore.aliyuncs.com',
-            'us-west-1' => 'r-kvstore.us-west-1.aliyuncs.com',
-            'us-southeast-1' => 'r-kvstore.us-southeast-1.aliyuncs.com',
+            'cn-zhengzhou-jva' => 'r-kvstore.cn-zhengzhou-jva.aliyuncs.com',
+            'cn-wuhan-lr' => 'r-kvstore.cn-wuhan-lr.aliyuncs.com',
+            'cn-hongkong' => 'r-kvstore.cn-hongkong.aliyuncs.com',
+            'cn-zhangjiakou' => 'r-kvstore.cn-zhangjiakou.aliyuncs.com',
+            'cn-shenzhen' => 'r-kvstore.cn-shenzhen.aliyuncs.com',
+            'cn-nanjing' => 'r-kvstore.cn-nanjing.aliyuncs.com',
+            'ap-northeast-2' => 'r-kvstore.ap-northeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'r-kvstore.ap-northeast-1.aliyuncs.com',
+            'cn-fuzhou' => 'r-kvstore.cn-fuzhou.aliyuncs.com',
+            'cn-chengdu' => 'r-kvstore.cn-chengdu.aliyuncs.com',
+            'cn-guangzhou' => 'r-kvstore.cn-guangzhou.aliyuncs.com',
+            'ap-southeast-1' => 'r-kvstore.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'r-kvstore.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-3' => 'r-kvstore.ap-southeast-3.aliyuncs.com',
+            'cn-huhehaote' => 'r-kvstore.cn-huhehaote.aliyuncs.com',
+            'ap-southeast-5' => 'r-kvstore.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-6' => 'r-kvstore.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-7' => 'r-kvstore.ap-southeast-7.aliyuncs.com',
             'us-east-1' => 'r-kvstore.us-east-1.aliyuncs.com',
+            'us-southeast-1' => 'r-kvstore.us-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'r-kvstore.eu-west-1.aliyuncs.com',
+            'us-west-1' => 'r-kvstore.us-west-1.aliyuncs.com',
+            'eu-central-1' => 'r-kvstore.eu-central-1.aliyuncs.com',
             'na-south-1' => 'r-kvstore.na-south-1.aliyuncs.com',
             'me-east-1' => 'r-kvstore.me-east-1.aliyuncs.com',
             'me-central-1' => 'r-kvstore.me-central-1.aliyuncs.com',
-            'eu-west-1' => 'r-kvstore.eu-west-1.aliyuncs.com',
-            'eu-central-1' => 'r-kvstore.eu-central-1.aliyuncs.com',
-            'cn-zhengzhou-jva' => 'r-kvstore.cn-zhengzhou-jva.aliyuncs.com',
-            'cn-zhangjiakou' => 'r-kvstore.cn-zhangjiakou.aliyuncs.com',
-            'cn-wuhan-lr' => 'r-kvstore.cn-wuhan-lr.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'r-kvstore.cn-shenzhen-finance-1.aliyuncs.com',
-            'cn-shenzhen' => 'r-kvstore.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'r-kvstore.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-nanjing' => 'r-kvstore.cn-nanjing.aliyuncs.com',
-            'cn-huhehaote' => 'r-kvstore.cn-huhehaote.aliyuncs.com',
-            'cn-hongkong' => 'r-kvstore.cn-hongkong.aliyuncs.com',
-            'cn-guangzhou' => 'r-kvstore.cn-guangzhou.aliyuncs.com',
-            'cn-fuzhou' => 'r-kvstore.cn-fuzhou.aliyuncs.com',
-            'cn-chengdu' => 'r-kvstore.cn-chengdu.aliyuncs.com',
-            'cn-beijing-finance-1' => 'r-kvstore.cn-beijing-finance-1.aliyuncs.com',
-            'ap-southeast-7' => 'r-kvstore.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-6' => 'r-kvstore.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-5' => 'r-kvstore.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'r-kvstore.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-2' => 'r-kvstore.ap-southeast-2.aliyuncs.com',
-            'ap-southeast-1' => 'r-kvstore.ap-southeast-1.aliyuncs.com',
             'ap-south-1' => 'r-kvstore.ap-south-1.aliyuncs.com',
-            'ap-northeast-2' => 'r-kvstore.ap-northeast-2.aliyuncs.com',
-            'ap-northeast-1' => 'r-kvstore.ap-northeast-1.aliyuncs.com',
+            'cn-heyuan-acdr-1' => 'r-kvstore.cn-heyuan-acdr-1.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'r-kvstore.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-beijing-finance-1' => 'r-kvstore.cn-beijing-finance-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'r-kvstore.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-wulanchabu-gic-1' => 'r-kvstore.cn-wulanchabu-gic-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('r-kvstore', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -834,6 +860,71 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * 关闭巡检任务
+     *
+     * @param request - CancelInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelInspectionTaskResponse
+     *
+     * @param CancelInspectionTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CancelInspectionTaskResponse
+     */
+    public function cancelInspectionTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelInspectionTask',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭巡检任务
+     *
+     * @param request - CancelInspectionTaskRequest
+     *
+     * @returns CancelInspectionTaskResponse
+     *
+     * @param CancelInspectionTaskRequest $request
+     *
+     * @return CancelInspectionTaskResponse
+     */
+    public function cancelInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries whether a Tair (Redis OSS-compatible) instance has the permissions to use Key Management Service (KMS).
      *
      * @remarks
@@ -923,13 +1014,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Create an account for an ApsaraDB for Tair (Redis OSS-compatible) instance.
+     * Creates an account for a Tair (Redis® OSS-Compatible) instance.
      *
      * @remarks
-     * This API supports only instances compatible with Redis 4.0 or later versions.
-     * * The instance must be in the running status to use this API.
-     * * You can create up to 18 accounts for an instance.
-     * > For the corresponding console operation, see [Account Management](https://help.aliyun.com/document_detail/92665.html).
+     * This API operation supports only instances that are compatible with Redis 4.0 or later.
+     *  * The instance status must be Running when you call this API operation.
+     *  * You can create up to 18 accounts for each instance.
+     * > For the console operation that corresponds to this API operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
      *
      * @param request - CreateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -977,6 +1068,10 @@ class Rkvstore extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -1012,13 +1107,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Create an account for an ApsaraDB for Tair (Redis OSS-compatible) instance.
+     * Creates an account for a Tair (Redis® OSS-Compatible) instance.
      *
      * @remarks
-     * This API supports only instances compatible with Redis 4.0 or later versions.
-     * * The instance must be in the running status to use this API.
-     * * You can create up to 18 accounts for an instance.
-     * > For the corresponding console operation, see [Account Management](https://help.aliyun.com/document_detail/92665.html).
+     * This API operation supports only instances that are compatible with Redis 4.0 or later.
+     *  * The instance status must be Running when you call this API operation.
+     *  * You can create up to 18 accounts for each instance.
+     * > For the console operation that corresponds to this API operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
      *
      * @param request - CreateAccountRequest
      *
@@ -1392,12 +1487,178 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Create a Redis (open-source) instance with a classic or cloud-native architecture, or a Tair memory-optimized instance with a classic architecture. To create a Tair instance with a cloud-native architecture, use the `CreateTairInstance` API.
+     * 创建定时巡检任务配置.
+     *
+     * @param request - CreateInspectionScheduleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInspectionScheduleResponse
+     *
+     * @param CreateInspectionScheduleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateInspectionScheduleResponse
+     */
+    public function createInspectionScheduleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cronExpression) {
+            @$query['CronExpression'] = $request->cronExpression;
+        }
+
+        if (null !== $request->inspectionItems) {
+            @$query['InspectionItems'] = $request->inspectionItems;
+        }
+
+        if (null !== $request->inspectionWindow) {
+            @$query['InspectionWindow'] = $request->inspectionWindow;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->reportLanguage) {
+            @$query['ReportLanguage'] = $request->reportLanguage;
+        }
+
+        if (null !== $request->scheduleName) {
+            @$query['ScheduleName'] = $request->scheduleName;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->timezone) {
+            @$query['Timezone'] = $request->timezone;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInspectionSchedule',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInspectionScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建定时巡检任务配置.
+     *
+     * @param request - CreateInspectionScheduleRequest
+     *
+     * @returns CreateInspectionScheduleResponse
+     *
+     * @param CreateInspectionScheduleRequest $request
+     *
+     * @return CreateInspectionScheduleResponse
+     */
+    public function createInspectionSchedule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInspectionScheduleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 手动创建巡检任务
+     *
+     * @param request - CreateInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInspectionTaskResponse
+     *
+     * @param CreateInspectionTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateInspectionTaskResponse
+     */
+    public function createInspectionTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->inspectionItems) {
+            @$query['InspectionItems'] = $request->inspectionItems;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->reportLanguage) {
+            @$query['ReportLanguage'] = $request->reportLanguage;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInspectionTask',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 手动创建巡检任务
+     *
+     * @param request - CreateInspectionTaskRequest
+     *
+     * @returns CreateInspectionTaskResponse
+     *
+     * @param CreateInspectionTaskRequest $request
+     *
+     * @return CreateInspectionTaskResponse
+     */
+    public function createInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a Redis Community Edition classic instance, a Redis Community Edition cloud-native architecture instance, or a Tair memory-optimized classic instance. To create a cloud-native architecture Tair instance, call the CreateTairInstance operation.
      *
      * @remarks
-     * Before you call this API, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair.
-     * This API is used to create a Redis Community Edition instance or a Tair Memory Type (Classic) instance. To create a Tair Cloud-native Edition instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) API.
-     * > For instructions on how to perform this operation in the console and for guidance on instance selection, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
+     * Before you invoke this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair (Redis® OSS-Compatible).
+     * This operation creates Redis Community Edition instances and Tair memory-optimized classic instances. To create a Tair cloud-native instance, invoke the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
+     * > For the corresponding console operations and instance selection recommendations, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
      *
      * @param request - CreateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1636,12 +1897,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Create a Redis (open-source) instance with a classic or cloud-native architecture, or a Tair memory-optimized instance with a classic architecture. To create a Tair instance with a cloud-native architecture, use the `CreateTairInstance` API.
+     * Creates a Redis Community Edition classic instance, a Redis Community Edition cloud-native architecture instance, or a Tair memory-optimized classic instance. To create a cloud-native architecture Tair instance, call the CreateTairInstance operation.
      *
      * @remarks
-     * Before you call this API, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair.
-     * This API is used to create a Redis Community Edition instance or a Tair Memory Type (Classic) instance. To create a Tair Cloud-native Edition instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) API.
-     * > For instructions on how to perform this operation in the console and for guidance on instance selection, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
+     * Before you invoke this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair (Redis® OSS-Compatible).
+     * This operation creates Redis Community Edition instances and Tair memory-optimized classic instances. To create a Tair cloud-native instance, invoke the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
+     * > For the corresponding console operations and instance selection recommendations, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
      *
      * @param request - CreateInstanceRequest
      *
@@ -2551,7 +2812,7 @@ class Rkvstore extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+     * - Before calling this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
      *
      * @param request - CreateTairSkvDdbTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2597,6 +2858,10 @@ class Rkvstore extends OpenApiClient
 
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->restoreTime) {
+            @$query['RestoreTime'] = $request->restoreTime;
         }
 
         if (null !== $request->schema) {
@@ -2646,7 +2911,7 @@ class Rkvstore extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+     * - Before calling this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
      *
      * @param request - CreateTairSkvDdbTableRequest
      *
@@ -2664,11 +2929,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a Tair Serverless KV workspace instance.
+     * Activates a Tair Serverless KV workspace instance.
      *
      * @remarks
      * ## Operation description
-     * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+     * - Before you call this operation, make sure that you understand the billing rules and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
      * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
      *
      * @param request - CreateTairSkvDdbWorkspaceRequest
@@ -2764,11 +3029,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Creates a Tair Serverless KV workspace instance.
+     * Activates a Tair Serverless KV workspace instance.
      *
      * @remarks
      * ## Operation description
-     * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+     * - Before you call this operation, make sure that you understand the billing rules and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
      * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
      *
      * @param request - CreateTairSkvDdbWorkspaceRequest
@@ -3058,6 +3323,85 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * 删除定时巡检任务
+     *
+     * @remarks
+     * 该API对应的控制台操作请参见[释放实例](https://help.aliyun.com/document_detail/43882.html)。
+     * 调用本接口时，实例必须满足以下条件：
+     * * 实例状态为运行中。
+     * * 实例的付费方式为后付费（按量付费）。
+     * > 预付费（包年包月）实例无法调用此接口主动删除，到期后将自动释放。 如需提前释放，请在控制台进行操作。
+     *
+     * @param request - DeleteInspectionScheduleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInspectionScheduleResponse
+     *
+     * @param DeleteInspectionScheduleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteInspectionScheduleResponse
+     */
+    public function deleteInspectionScheduleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scheduleId) {
+            @$query['ScheduleId'] = $request->scheduleId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInspectionSchedule',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInspectionScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除定时巡检任务
+     *
+     * @remarks
+     * 该API对应的控制台操作请参见[释放实例](https://help.aliyun.com/document_detail/43882.html)。
+     * 调用本接口时，实例必须满足以下条件：
+     * * 实例状态为运行中。
+     * * 实例的付费方式为后付费（按量付费）。
+     * > 预付费（包年包月）实例无法调用此接口主动删除，到期后将自动释放。 如需提前释放，请在控制台进行操作。
+     *
+     * @param request - DeleteInspectionScheduleRequest
+     *
+     * @returns DeleteInspectionScheduleResponse
+     *
+     * @param DeleteInspectionScheduleRequest $request
+     *
+     * @return DeleteInspectionScheduleResponse
+     */
+    public function deleteInspectionSchedule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInspectionScheduleWithOptions($request, $runtime);
+    }
+
+    /**
      * Releases a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
@@ -3323,7 +3667,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries information about a specific account in a specified ApsaraDB for Redis (Tair-compatible) instance.
+     * Queries the information about an account in a specified ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
      *
      * @param request - DescribeAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3355,12 +3699,24 @@ class Rkvstore extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
 
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->searchAccountName) {
+            @$query['SearchAccountName'] = $request->searchAccountName;
         }
 
         if (null !== $request->securityToken) {
@@ -3386,7 +3742,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries information about a specific account in a specified ApsaraDB for Redis (Tair-compatible) instance.
+     * Queries the information about an account in a specified ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
      *
      * @param request - DescribeAccountsRequest
      *
@@ -4093,7 +4449,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+     * Queries the backup policy of a Tair (Redis® OSS-Compatible) database instance, including the backup cycle and backup time.
      *
      * @param request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4152,7 +4508,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+     * Queries the backup policy of a Tair (Redis® OSS-Compatible) database instance, including the backup cycle and backup time.
      *
      * @param request - DescribeBackupPolicyRequest
      *
@@ -6244,6 +6600,298 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * 查看定时调度历次巡检报告.
+     *
+     * @param request - DescribeInspectionScheduleReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInspectionScheduleReportsResponse
+     *
+     * @param DescribeInspectionScheduleReportsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeInspectionScheduleReportsResponse
+     */
+    public function describeInspectionScheduleReportsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scheduleId) {
+            @$query['ScheduleId'] = $request->scheduleId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInspectionScheduleReports',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInspectionScheduleReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看定时调度历次巡检报告.
+     *
+     * @param request - DescribeInspectionScheduleReportsRequest
+     *
+     * @returns DescribeInspectionScheduleReportsResponse
+     *
+     * @param DescribeInspectionScheduleReportsRequest $request
+     *
+     * @return DescribeInspectionScheduleReportsResponse
+     */
+    public function describeInspectionScheduleReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInspectionScheduleReportsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看定时巡检任务配置.
+     *
+     * @param request - DescribeInspectionSchedulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInspectionSchedulesResponse
+     *
+     * @param DescribeInspectionSchedulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeInspectionSchedulesResponse
+     */
+    public function describeInspectionSchedulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scheduleId) {
+            @$query['ScheduleId'] = $request->scheduleId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInspectionSchedules',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInspectionSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看定时巡检任务配置.
+     *
+     * @param request - DescribeInspectionSchedulesRequest
+     *
+     * @returns DescribeInspectionSchedulesResponse
+     *
+     * @param DescribeInspectionSchedulesRequest $request
+     *
+     * @return DescribeInspectionSchedulesResponse
+     */
+    public function describeInspectionSchedules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInspectionSchedulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询某个巡检任务的报告.
+     *
+     * @param request - DescribeInspectionTaskReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInspectionTaskReportResponse
+     *
+     * @param DescribeInspectionTaskReportRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeInspectionTaskReportResponse
+     */
+    public function describeInspectionTaskReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->inspectionInsId) {
+            @$query['InspectionInsId'] = $request->inspectionInsId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInspectionTaskReport',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInspectionTaskReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询某个巡检任务的报告.
+     *
+     * @param request - DescribeInspectionTaskReportRequest
+     *
+     * @returns DescribeInspectionTaskReportResponse
+     *
+     * @param DescribeInspectionTaskReportRequest $request
+     *
+     * @return DescribeInspectionTaskReportResponse
+     */
+    public function describeInspectionTaskReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInspectionTaskReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询智能巡检任务列表.
+     *
+     * @param request - DescribeInspectionTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInspectionTasksResponse
+     *
+     * @param DescribeInspectionTasksRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInspectionTasksResponse
+     */
+    public function describeInspectionTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInspectionTasks',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInspectionTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询智能巡检任务列表.
+     *
+     * @param request - DescribeInspectionTasksRequest
+     *
+     * @returns DescribeInspectionTasksResponse
+     *
+     * @param DescribeInspectionTasksRequest $request
+     *
+     * @return DescribeInspectionTasksResponse
+     */
+    public function describeInspectionTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInspectionTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of a Tair (Redis-compatible) instance.
      *
      * @param request - DescribeInstanceAttributeRequest
@@ -6487,10 +7135,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查询实例的多 VIP 信息.
+     * Queries the load balancer (LB) information of an instance.
      *
      * @remarks
-     * 关于多LB，详情参见
+     * For more information about multiple LBs, see.
      *
      * @param request - DescribeInstanceMultiVIPRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6545,10 +7193,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查询实例的多 VIP 信息.
+     * Queries the load balancer (LB) information of an instance.
      *
      * @remarks
-     * 关于多LB，详情参见
+     * For more information about multiple LBs, see.
      *
      * @param request - DescribeInstanceMultiVIPRequest
      *
@@ -6903,11 +7551,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
+     * Queries the overview information of one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
      *
      * @remarks
-     * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
-     * > This operation returns non-paged results.
+     * If you do not specify any request parameters, the overview information of all instances is returned.
+     * > This operation does not support pagination for the returned results.
      *
      * @param request - DescribeInstancesOverviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6957,6 +7605,10 @@ class Rkvstore extends OpenApiClient
 
         if (null !== $request->networkType) {
             @$query['NetworkType'] = $request->networkType;
+        }
+
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
         }
 
         if (null !== $request->ownerAccount) {
@@ -7026,11 +7678,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
+     * Queries the overview information of one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
      *
      * @remarks
-     * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
-     * > This operation returns non-paged results.
+     * If you do not specify any request parameters, the overview information of all instances is returned.
+     * > This operation does not support pagination for the returned results.
      *
      * @param request - DescribeInstancesOverviewRequest
      *
@@ -7554,7 +8206,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a list of available parameter templates.
+     * Queries the list of available parameter templates.
      *
      * @param request - DescribeParameterGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7572,6 +8224,10 @@ class Rkvstore extends OpenApiClient
         $query = [];
         if (null !== $request->dbType) {
             @$query['DbType'] = $request->dbType;
+        }
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
 
         if (null !== $request->ownerAccount) {
@@ -7617,7 +8273,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries a list of available parameter templates.
+     * Queries the list of available parameter templates.
      *
      * @param request - DescribeParameterGroupsRequest
      *
@@ -7728,10 +8384,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+     * Queries the parameter list and default values of a Tair (Redis® OSS-Compatible) database instance for different architectures and major engine versions.
      *
      * @remarks
-     * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
+     * After you call this operation to query the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of a Redis instance based on your business requirements.
      *
      * @param request - DescribeParameterTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7771,6 +8427,10 @@ class Rkvstore extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->parameterCategory) {
+            @$query['ParameterCategory'] = $request->parameterCategory;
+        }
+
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -7806,10 +8466,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+     * Queries the parameter list and default values of a Tair (Redis® OSS-Compatible) database instance for different architectures and major engine versions.
      *
      * @remarks
-     * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
+     * After you call this operation to query the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of a Redis instance based on your business requirements.
      *
      * @param request - DescribeParameterTemplatesRequest
      *
@@ -9252,7 +9912,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查询任务详情.
+     * Queries the details of a task.
      *
      * @param request - DescribeTaskDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9295,7 +9955,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查询任务详情.
+     * Queries the details of a task.
      *
      * @param request - DescribeTaskDetailRequest
      *
@@ -10529,6 +11189,81 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAccountDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改账号参数.
+     *
+     * @remarks
+     * 目前仅支持Tair Serverless KV实例。
+     *
+     * @param request - ModifyAccountParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAccountParameterResponse
+     *
+     * @param ModifyAccountParameterRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyAccountParameterResponse
+     */
+    public function modifyAccountParameterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAccountParameter',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAccountParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改账号参数.
+     *
+     * @remarks
+     * 目前仅支持Tair Serverless KV实例。
+     *
+     * @param request - ModifyAccountParameterRequest
+     *
+     * @returns ModifyAccountParameterResponse
+     *
+     * @param ModifyAccountParameterRequest $request
+     *
+     * @return ModifyAccountParameterResponse
+     */
+    public function modifyAccountParameter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccountParameterWithOptions($request, $runtime);
     }
 
     /**
@@ -11766,6 +12501,99 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * 修改定时巡检配置.
+     *
+     * @param request - ModifyInspectionScheduleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInspectionScheduleResponse
+     *
+     * @param ModifyInspectionScheduleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyInspectionScheduleResponse
+     */
+    public function modifyInspectionScheduleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cronExpression) {
+            @$query['CronExpression'] = $request->cronExpression;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->inspectionItems) {
+            @$query['InspectionItems'] = $request->inspectionItems;
+        }
+
+        if (null !== $request->inspectionWindow) {
+            @$query['InspectionWindow'] = $request->inspectionWindow;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->reportLanguage) {
+            @$query['ReportLanguage'] = $request->reportLanguage;
+        }
+
+        if (null !== $request->scheduleId) {
+            @$query['ScheduleId'] = $request->scheduleId;
+        }
+
+        if (null !== $request->scheduleName) {
+            @$query['ScheduleName'] = $request->scheduleName;
+        }
+
+        if (null !== $request->timezone) {
+            @$query['Timezone'] = $request->timezone;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInspectionSchedule',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInspectionScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改定时巡检配置.
+     *
+     * @param request - ModifyInspectionScheduleRequest
+     *
+     * @returns ModifyInspectionScheduleResponse
+     *
+     * @param ModifyInspectionScheduleRequest $request
+     *
+     * @return ModifyInspectionScheduleResponse
+     */
+    public function modifyInspectionSchedule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInspectionScheduleWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the specific information of a Tair (Redis OSS-compatible) instance, such as the password and the name.
      *
      * @remarks
@@ -12700,10 +13528,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of a Tair (Redis OSS-compatible) instance.
+     * Changes the specifications of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
      *
      * @remarks
-     * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+     * > For information about the execution process, impacts, feature limits, and billing of specification changes, see [Change instance configurations](https://help.aliyun.com/document_detail/26353.html).
      *
      * @param request - ModifyInstanceSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12795,6 +13623,10 @@ class Rkvstore extends OpenApiClient
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
 
+        if (null !== $request->secondaryZoneId) {
+            @$query['SecondaryZoneId'] = $request->secondaryZoneId;
+        }
+
         if (null !== $request->securityToken) {
             @$query['SecurityToken'] = $request->securityToken;
         }
@@ -12842,10 +13674,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of a Tair (Redis OSS-compatible) instance.
+     * Changes the specifications of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
      *
      * @remarks
-     * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+     * > For information about the execution process, impacts, feature limits, and billing of specification changes, see [Change instance configurations](https://help.aliyun.com/document_detail/26353.html).
      *
      * @param request - ModifyInstanceSpecRequest
      *
@@ -14792,6 +15624,71 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * 手动重试巡检任务
+     *
+     * @param request - RetryInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetryInspectionTaskResponse
+     *
+     * @param RetryInspectionTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RetryInspectionTaskResponse
+     */
+    public function retryInspectionTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RetryInspectionTask',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RetryInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 手动重试巡检任务
+     *
+     * @param request - RetryInspectionTaskRequest
+     *
+     * @returns RetryInspectionTaskResponse
+     *
+     * @param RetryInspectionTaskRequest $request
+     *
+     * @return RetryInspectionTaskResponse
+     */
+    public function retryInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * 启动TairCustom的主机.
      *
      * @param request - StartTairKVCacheCustomInstanceRequest
@@ -15147,6 +16044,81 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->switchInstanceProxyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 实例指定目标可用区切换.
+     *
+     * @remarks
+     * 当前接口仅支持云原生架构实例
+     *
+     * @param request - SwitchInstanceToTargetZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchInstanceToTargetZoneResponse
+     *
+     * @param SwitchInstanceToTargetZoneRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SwitchInstanceToTargetZoneResponse
+     */
+    public function switchInstanceToTargetZoneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->switchType) {
+            @$query['SwitchType'] = $request->switchType;
+        }
+
+        if (null !== $request->targetZoneId) {
+            @$query['TargetZoneId'] = $request->targetZoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SwitchInstanceToTargetZone',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SwitchInstanceToTargetZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 实例指定目标可用区切换.
+     *
+     * @remarks
+     * 当前接口仅支持云原生架构实例
+     *
+     * @param request - SwitchInstanceToTargetZoneRequest
+     *
+     * @returns SwitchInstanceToTargetZoneResponse
+     *
+     * @param SwitchInstanceToTargetZoneRequest $request
+     *
+     * @return SwitchInstanceToTargetZoneResponse
+     */
+    public function switchInstanceToTargetZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchInstanceToTargetZoneWithOptions($request, $runtime);
     }
 
     /**

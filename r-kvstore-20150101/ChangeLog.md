@@ -1,3 +1,33 @@
+2026-08-20 Version: 6.5.0
+- Support API CancelInspectionTask.
+- Support API CreateInspectionSchedule.
+- Support API CreateInspectionTask.
+- Support API DeleteInspectionSchedule.
+- Support API DescribeInspectionScheduleReports.
+- Support API DescribeInspectionSchedules.
+- Support API DescribeInspectionTaskReport.
+- Support API DescribeInspectionTasks.
+- Support API ModifyAccountParameter.
+- Support API ModifyInspectionSchedule.
+- Support API RetryInspectionTask.
+- Support API SwitchInstanceToTargetZone.
+- Update API CreateAccount: add request parameters Parameters.
+- Update API CreateTairSkvDdbTable: add request parameters RestoreTime.
+- Update API DescribeAccounts: add request parameters PageNumber.
+- Update API DescribeAccounts: add request parameters PageSize.
+- Update API DescribeAccounts: add request parameters SearchAccountName.
+- Update API DescribeAccounts: add response parameters Body.PageNumber.
+- Update API DescribeAccounts: add response parameters Body.PageSize.
+- Update API DescribeAccounts: add response parameters Body.TotalCount.
+- Update API DescribeAccounts: add response parameters Body.Accounts.$.Parameters.
+- Update API DescribeBackupPolicy: add response parameters Body.BackupLogStartTime.
+- Update API DescribeInstancesOverview: add request parameters NodeType.
+- Update API DescribeInstancesOverview: add response parameters Body.Instances.$.NodeType.
+- Update API DescribeParameterGroups: add request parameters EngineVersion.
+- Update API DescribeParameterTemplates: add request parameters ParameterCategory.
+- Update API ModifyInstanceSpec: add request parameters SecondaryZoneId.
+
+
 2026-07-02 Version: 6.4.0
 - Support API CreateInstanceMultiVIP.
 - Support API DescribeInstanceMultiVIP.

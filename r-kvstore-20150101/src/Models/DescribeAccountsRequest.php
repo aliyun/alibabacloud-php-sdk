@@ -29,6 +29,16 @@ class DescribeAccountsRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -41,14 +51,22 @@ class DescribeAccountsRequest extends Model
     /**
      * @var string
      */
+    public $searchAccountName;
+
+    /**
+     * @var string
+     */
     public $securityToken;
     protected $_name = [
         'accountName' => 'AccountName',
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'searchAccountName' => 'SearchAccountName',
         'securityToken' => 'SecurityToken',
     ];
 
@@ -76,12 +94,24 @@ class DescribeAccountsRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->searchAccountName) {
+            $res['SearchAccountName'] = $this->searchAccountName;
         }
 
         if (null !== $this->securityToken) {
@@ -115,12 +145,24 @@ class DescribeAccountsRequest extends Model
             $model->ownerId = $map['OwnerId'];
         }
 
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SearchAccountName'])) {
+            $model->searchAccountName = $map['SearchAccountName'];
         }
 
         if (isset($map['SecurityToken'])) {

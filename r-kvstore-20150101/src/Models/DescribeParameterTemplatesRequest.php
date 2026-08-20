@@ -41,6 +41,11 @@ class DescribeParameterTemplatesRequest extends Model
     /**
      * @var string
      */
+    public $parameterCategory;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -64,6 +69,7 @@ class DescribeParameterTemplatesRequest extends Model
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'parameterCategory' => 'ParameterCategory',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
@@ -100,6 +106,10 @@ class DescribeParameterTemplatesRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->parameterCategory) {
+            $res['ParameterCategory'] = $this->parameterCategory;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -151,6 +161,10 @@ class DescribeParameterTemplatesRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['ParameterCategory'])) {
+            $model->parameterCategory = $map['ParameterCategory'];
         }
 
         if (isset($map['ResourceGroupId'])) {

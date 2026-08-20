@@ -51,6 +51,11 @@ class CreateAccountRequest extends Model
     /**
      * @var string
      */
+    public $parameters;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -76,6 +81,7 @@ class CreateAccountRequest extends Model
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'parameters' => 'Parameters',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
@@ -120,6 +126,10 @@ class CreateAccountRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -179,6 +189,10 @@ class CreateAccountRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

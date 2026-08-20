@@ -56,6 +56,11 @@ class DescribeInstancesOverviewRequest extends Model
     /**
      * @var string
      */
+    public $nodeType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -122,6 +127,7 @@ class DescribeInstancesOverviewRequest extends Model
         'instanceStatus' => 'InstanceStatus',
         'instanceType' => 'InstanceType',
         'networkType' => 'NetworkType',
+        'nodeType' => 'NodeType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'privateIp' => 'PrivateIp',
@@ -178,6 +184,10 @@ class DescribeInstancesOverviewRequest extends Model
 
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
+        }
+
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
 
         if (null !== $this->ownerAccount) {
@@ -273,6 +283,10 @@ class DescribeInstancesOverviewRequest extends Model
 
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
+        }
+
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
 
         if (isset($map['OwnerAccount'])) {

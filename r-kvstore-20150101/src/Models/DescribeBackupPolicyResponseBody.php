@@ -17,6 +17,11 @@ class DescribeBackupPolicyResponseBody extends Model
     /**
      * @var string
      */
+    public $backupLogStartTime;
+
+    /**
+     * @var string
+     */
     public $backupRetentionPeriod;
 
     /**
@@ -50,6 +55,7 @@ class DescribeBackupPolicyResponseBody extends Model
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
+        'backupLogStartTime' => 'BackupLogStartTime',
         'backupRetentionPeriod' => 'BackupRetentionPeriod',
         'dbsInstance' => 'DbsInstance',
         'enableBackupLog' => 'EnableBackupLog',
@@ -72,6 +78,10 @@ class DescribeBackupPolicyResponseBody extends Model
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toArray($noStream) : $this->accessDeniedDetail;
+        }
+
+        if (null !== $this->backupLogStartTime) {
+            $res['BackupLogStartTime'] = $this->backupLogStartTime;
         }
 
         if (null !== $this->backupRetentionPeriod) {
@@ -115,6 +125,10 @@ class DescribeBackupPolicyResponseBody extends Model
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = accessDeniedDetail::fromMap($map['AccessDeniedDetail']);
+        }
+
+        if (isset($map['BackupLogStartTime'])) {
+            $model->backupLogStartTime = $map['BackupLogStartTime'];
         }
 
         if (isset($map['BackupRetentionPeriod'])) {

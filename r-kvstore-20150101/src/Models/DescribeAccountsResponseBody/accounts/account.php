@@ -38,6 +38,11 @@ class account extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $parameters;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
         'accountName' => 'AccountName',
@@ -45,6 +50,7 @@ class account extends Model
         'accountType' => 'AccountType',
         'databasePrivileges' => 'DatabasePrivileges',
         'instanceId' => 'InstanceId',
+        'parameters' => 'Parameters',
     ];
 
     public function validate()
@@ -82,6 +88,10 @@ class account extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
+        }
+
         return $res;
     }
 
@@ -115,6 +125,10 @@ class account extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
         }
 
         return $model;
