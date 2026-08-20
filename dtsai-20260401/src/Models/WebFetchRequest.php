@@ -11,6 +11,11 @@ class WebFetchRequest extends Model
     /**
      * @var string
      */
+    public $agentName;
+
+    /**
+     * @var string
+     */
     public $outputFormat;
 
     /**
@@ -23,6 +28,7 @@ class WebFetchRequest extends Model
      */
     public $url;
     protected $_name = [
+        'agentName' => 'AgentName',
         'outputFormat' => 'OutputFormat',
         'regionId' => 'RegionId',
         'url' => 'Url',
@@ -36,6 +42,10 @@ class WebFetchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentName) {
+            $res['AgentName'] = $this->agentName;
+        }
+
         if (null !== $this->outputFormat) {
             $res['OutputFormat'] = $this->outputFormat;
         }
@@ -59,6 +69,10 @@ class WebFetchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentName'])) {
+            $model->agentName = $map['AgentName'];
+        }
+
         if (isset($map['OutputFormat'])) {
             $model->outputFormat = $map['OutputFormat'];
         }

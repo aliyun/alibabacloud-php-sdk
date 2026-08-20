@@ -187,6 +187,26 @@ class DtsAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->asrLanguage) {
+            @$query['AsrLanguage'] = $request->asrLanguage;
+        }
+
+        if (null !== $request->audioClipOutput) {
+            @$query['AudioClipOutput'] = $request->audioClipOutput;
+        }
+
+        if (null !== $request->audioWindowSeconds) {
+            @$query['AudioWindowSeconds'] = $request->audioWindowSeconds;
+        }
+
+        if (null !== $request->chunkSummary) {
+            @$query['ChunkSummary'] = $request->chunkSummary;
+        }
+
         if (null !== $request->fileFormat) {
             @$query['FileFormat'] = $request->fileFormat;
         }
@@ -199,8 +219,40 @@ class DtsAI extends OpenApiClient
             @$query['FileUrl'] = $request->fileUrl;
         }
 
+        if (null !== $request->frameOutput) {
+            @$query['FrameOutput'] = $request->frameOutput;
+        }
+
+        if (null !== $request->globalSummary) {
+            @$query['GlobalSummary'] = $request->globalSummary;
+        }
+
         if (null !== $request->imageMode) {
             @$query['ImageMode'] = $request->imageMode;
+        }
+
+        if (null !== $request->imageUnderstanding) {
+            @$query['ImageUnderstanding'] = $request->imageUnderstanding;
+        }
+
+        if (null !== $request->mediaChunkIntervalSeconds) {
+            @$query['MediaChunkIntervalSeconds'] = $request->mediaChunkIntervalSeconds;
+        }
+
+        if (null !== $request->mediaChunkStrategy) {
+            @$query['MediaChunkStrategy'] = $request->mediaChunkStrategy;
+        }
+
+        if (null !== $request->mediaFramesPerMinute) {
+            @$query['MediaFramesPerMinute'] = $request->mediaFramesPerMinute;
+        }
+
+        if (null !== $request->mediaMaxFrameBudget) {
+            @$query['MediaMaxFrameBudget'] = $request->mediaMaxFrameBudget;
+        }
+
+        if (null !== $request->mediaMinFrameBudget) {
+            @$query['MediaMinFrameBudget'] = $request->mediaMinFrameBudget;
         }
 
         if (null !== $request->ossFileUrl) {
@@ -211,8 +263,16 @@ class DtsAI extends OpenApiClient
             @$query['OutputFormat'] = $request->outputFormat;
         }
 
+        if (null !== $request->parseScene) {
+            @$query['ParseScene'] = $request->parseScene;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->responseMode) {
+            @$query['ResponseMode'] = $request->responseMode;
         }
 
         if (null !== $request->resultType) {
@@ -377,12 +437,20 @@ class DtsAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
         if (null !== $request->jobId) {
             @$query['JobId'] = $request->jobId;
         }
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resultType) {
+            @$query['ResultType'] = $request->resultType;
         }
 
         $req = new OpenApiRequest([
@@ -447,6 +515,10 @@ class DtsAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
         if (null !== $request->jobId) {
             @$query['JobId'] = $request->jobId;
         }
@@ -516,6 +588,10 @@ class DtsAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
         if (null !== $request->outputFormat) {
             @$query['OutputFormat'] = $request->outputFormat;
         }
@@ -573,7 +649,7 @@ class DtsAI extends OpenApiClient
      *
      * @remarks
      * - Region: Only China (Beijing) and Singapore regions are supported.
-     * - Fees: Free of charge during the public preview. No fees are charged.
+     * - Fees: Free during the public preview period. No fees are charged.
      *
      * @param Request - WebSearchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -589,6 +665,10 @@ class DtsAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
@@ -632,7 +712,7 @@ class DtsAI extends OpenApiClient
      *
      * @remarks
      * - Region: Only China (Beijing) and Singapore regions are supported.
-     * - Fees: Free of charge during the public preview. No fees are charged.
+     * - Fees: Free during the public preview period. No fees are charged.
      *
      * @param Request - WebSearchRequest
      *

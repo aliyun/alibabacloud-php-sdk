@@ -34,6 +34,26 @@ class CreateDocParserJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $result;
+
+    /**
+     * @var string
+     */
+    public $resultType;
+
+    /**
+     * @var string
+     */
+    public $resultUrl;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var bool
      */
     public $success;
@@ -43,6 +63,10 @@ class CreateDocParserJobResponseBody extends Model
         'httpStatusCode' => 'HttpStatusCode',
         'jobId' => 'JobId',
         'requestId' => 'RequestId',
+        'result' => 'Result',
+        'resultType' => 'ResultType',
+        'resultUrl' => 'ResultUrl',
+        'status' => 'Status',
         'success' => 'Success',
     ];
 
@@ -72,6 +96,22 @@ class CreateDocParserJobResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
+        }
+
+        if (null !== $this->resultType) {
+            $res['ResultType'] = $this->resultType;
+        }
+
+        if (null !== $this->resultUrl) {
+            $res['ResultUrl'] = $this->resultUrl;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->success) {
@@ -107,6 +147,22 @@ class CreateDocParserJobResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
+        }
+
+        if (isset($map['ResultType'])) {
+            $model->resultType = $map['ResultType'];
+        }
+
+        if (isset($map['ResultUrl'])) {
+            $model->resultUrl = $map['ResultUrl'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['Success'])) {

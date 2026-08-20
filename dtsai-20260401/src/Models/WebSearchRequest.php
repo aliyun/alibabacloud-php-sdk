@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class WebSearchRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $agentName;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -33,6 +38,7 @@ class WebSearchRequest extends Model
      */
     public $urlScopeMode;
     protected $_name = [
+        'agentName' => 'AgentName',
         'maxResults' => 'MaxResults',
         'query' => 'Query',
         'regionId' => 'RegionId',
@@ -48,6 +54,10 @@ class WebSearchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentName) {
+            $res['AgentName'] = $this->agentName;
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -79,6 +89,10 @@ class WebSearchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentName'])) {
+            $model->agentName = $map['AgentName'];
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }

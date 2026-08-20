@@ -11,6 +11,11 @@ class DescribeDocParserJobStatusRequest extends Model
     /**
      * @var string
      */
+    public $agentName;
+
+    /**
+     * @var string
+     */
     public $jobId;
 
     /**
@@ -18,6 +23,7 @@ class DescribeDocParserJobStatusRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'agentName' => 'AgentName',
         'jobId' => 'JobId',
         'regionId' => 'RegionId',
     ];
@@ -30,6 +36,10 @@ class DescribeDocParserJobStatusRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentName) {
+            $res['AgentName'] = $this->agentName;
+        }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -49,6 +59,10 @@ class DescribeDocParserJobStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentName'])) {
+            $model->agentName = $map['AgentName'];
+        }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
