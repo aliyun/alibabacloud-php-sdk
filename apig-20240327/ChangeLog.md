@@ -1,3 +1,6 @@
+2026-08-20 Version: 11.0.1
+- Generated php 2024-03-27 for APIG.
+
 2026-08-20 Version: 11.0.0
 - Update API BatchImportHttpApis: add request parameters body.specContentBase64.
 - Update API CreateDomain: add request parameters dryRun.

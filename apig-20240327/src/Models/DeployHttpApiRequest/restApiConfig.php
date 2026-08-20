@@ -16,6 +16,11 @@ class restApiConfig extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableRouteCompression;
+
+    /**
      * @var environment
      */
     public $environment;
@@ -41,6 +46,7 @@ class restApiConfig extends Model
     public $revisionId;
     protected $_name = [
         'description' => 'description',
+        'enableRouteCompression' => 'enableRouteCompression',
         'environment' => 'environment',
         'gatewayId' => 'gatewayId',
         'operationDeployments' => 'operationDeployments',
@@ -67,6 +73,10 @@ class restApiConfig extends Model
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->enableRouteCompression) {
+            $res['enableRouteCompression'] = $this->enableRouteCompression;
         }
 
         if (null !== $this->environment) {
@@ -116,6 +126,10 @@ class restApiConfig extends Model
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['enableRouteCompression'])) {
+            $model->enableRouteCompression = $map['enableRouteCompression'];
         }
 
         if (isset($map['environment'])) {

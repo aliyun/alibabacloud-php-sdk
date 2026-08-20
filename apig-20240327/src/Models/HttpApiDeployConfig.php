@@ -83,6 +83,11 @@ class HttpApiDeployConfig extends Model
     public $policyConfigs;
 
     /**
+     * @var string
+     */
+    public $restApiRouteMode;
+
+    /**
      * @var Backend
      */
     public $routeBackend;
@@ -111,6 +116,7 @@ class HttpApiDeployConfig extends Model
         'gatewayType' => 'gatewayType',
         'mock' => 'mock',
         'policyConfigs' => 'policyConfigs',
+        'restApiRouteMode' => 'restApiRouteMode',
         'routeBackend' => 'routeBackend',
         'serviceConfigs' => 'serviceConfigs',
         'subDomains' => 'subDomains',
@@ -255,6 +261,10 @@ class HttpApiDeployConfig extends Model
             }
         }
 
+        if (null !== $this->restApiRouteMode) {
+            $res['restApiRouteMode'] = $this->restApiRouteMode;
+        }
+
         if (null !== $this->routeBackend) {
             $res['routeBackend'] = null !== $this->routeBackend ? $this->routeBackend->toArray($noStream) : $this->routeBackend;
         }
@@ -388,6 +398,10 @@ class HttpApiDeployConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['restApiRouteMode'])) {
+            $model->restApiRouteMode = $map['restApiRouteMode'];
         }
 
         if (isset($map['routeBackend'])) {
