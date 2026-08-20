@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DataDisk;
 use AlibabaCloud\SDK\CS\V20151215\Models\DiskInit;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstanceMetadataOptions;
+use AlibabaCloud\SDK\CS\V20151215\Models\InstancePatterns;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup\cpuOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup\privatePoolOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup\resourcePoolOptions;
@@ -75,6 +76,11 @@ class scalingGroup extends Model
      * @var InstanceMetadataOptions
      */
     public $instanceMetadataOptions;
+
+    /**
+     * @var InstancePatterns[]
+     */
+    public $instancePatterns;
 
     /**
      * @var string[]
@@ -258,6 +264,7 @@ class scalingGroup extends Model
         'imageType' => 'image_type',
         'instanceChargeType' => 'instance_charge_type',
         'instanceMetadataOptions' => 'instance_metadata_options',
+        'instancePatterns' => 'instance_patterns',
         'instanceTypes' => 'instance_types',
         'internetChargeType' => 'internet_charge_type',
         'internetMaxBandwidthOut' => 'internet_max_bandwidth_out',
@@ -307,6 +314,9 @@ class scalingGroup extends Model
         }
         if (null !== $this->instanceMetadataOptions) {
             $this->instanceMetadataOptions->validate();
+        }
+        if (\is_array($this->instancePatterns)) {
+            Model::validateArray($this->instancePatterns);
         }
         if (\is_array($this->instanceTypes)) {
             Model::validateArray($this->instanceTypes);
@@ -401,6 +411,17 @@ class scalingGroup extends Model
 
         if (null !== $this->instanceMetadataOptions) {
             $res['instance_metadata_options'] = null !== $this->instanceMetadataOptions ? $this->instanceMetadataOptions->toArray($noStream) : $this->instanceMetadataOptions;
+        }
+
+        if (null !== $this->instancePatterns) {
+            if (\is_array($this->instancePatterns)) {
+                $res['instance_patterns'] = [];
+                $n1 = 0;
+                foreach ($this->instancePatterns as $item1) {
+                    $res['instance_patterns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->instanceTypes) {
@@ -659,6 +680,17 @@ class scalingGroup extends Model
 
         if (isset($map['instance_metadata_options'])) {
             $model->instanceMetadataOptions = InstanceMetadataOptions::fromMap($map['instance_metadata_options']);
+        }
+
+        if (isset($map['instance_patterns'])) {
+            if (!empty($map['instance_patterns'])) {
+                $model->instancePatterns = [];
+                $n1 = 0;
+                foreach ($map['instance_patterns'] as $item1) {
+                    $model->instancePatterns[$n1] = InstancePatterns::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['instance_types'])) {
