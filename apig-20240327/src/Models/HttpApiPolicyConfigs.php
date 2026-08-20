@@ -50,6 +50,11 @@ class HttpApiPolicyConfigs extends Model
     public $enable;
 
     /**
+     * @var HttpApiPolicyReference
+     */
+    public $policyReference;
+
+    /**
      * @var semanticRouterConfig
      */
     public $semanticRouterConfig;
@@ -67,6 +72,7 @@ class HttpApiPolicyConfigs extends Model
         'aiTokenRateLimitConfig' => 'aiTokenRateLimitConfig',
         'aiToolSelectionConfig' => 'aiToolSelectionConfig',
         'enable' => 'enable',
+        'policyReference' => 'policyReference',
         'semanticRouterConfig' => 'semanticRouterConfig',
         'type' => 'type',
     ];
@@ -93,6 +99,9 @@ class HttpApiPolicyConfigs extends Model
         }
         if (null !== $this->aiToolSelectionConfig) {
             $this->aiToolSelectionConfig->validate();
+        }
+        if (null !== $this->policyReference) {
+            $this->policyReference->validate();
         }
         if (null !== $this->semanticRouterConfig) {
             $this->semanticRouterConfig->validate();
@@ -133,6 +142,10 @@ class HttpApiPolicyConfigs extends Model
 
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
+        }
+
+        if (null !== $this->policyReference) {
+            $res['policyReference'] = null !== $this->policyReference ? $this->policyReference->toArray($noStream) : $this->policyReference;
         }
 
         if (null !== $this->semanticRouterConfig) {
@@ -184,6 +197,10 @@ class HttpApiPolicyConfigs extends Model
 
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
+        }
+
+        if (isset($map['policyReference'])) {
+            $model->policyReference = HttpApiPolicyReference::fromMap($map['policyReference']);
         }
 
         if (isset($map['semanticRouterConfig'])) {

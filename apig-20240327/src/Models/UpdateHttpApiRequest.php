@@ -73,6 +73,11 @@ class UpdateHttpApiRequest extends Model
      * @var HttpApiVersionConfig
      */
     public $versionConfig;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
     protected $_name = [
         'agentProtocols' => 'agentProtocols',
         'aiProtocols' => 'aiProtocols',
@@ -87,6 +92,7 @@ class UpdateHttpApiRequest extends Model
         'protocols' => 'protocols',
         'removeBasePathOnForward' => 'removeBasePathOnForward',
         'versionConfig' => 'versionConfig',
+        'dryRun' => 'dryRun',
     ];
 
     public function validate()
@@ -198,6 +204,10 @@ class UpdateHttpApiRequest extends Model
             $res['versionConfig'] = null !== $this->versionConfig ? $this->versionConfig->toArray($noStream) : $this->versionConfig;
         }
 
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
+        }
+
         return $res;
     }
 
@@ -287,6 +297,10 @@ class UpdateHttpApiRequest extends Model
 
         if (isset($map['versionConfig'])) {
             $model->versionConfig = HttpApiVersionConfig::fromMap($map['versionConfig']);
+        }
+
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
         }
 
         return $model;

@@ -37,6 +37,11 @@ class BatchImportHttpApisRequest extends Model
     /**
      * @var string
      */
+    public $specContentBase64;
+
+    /**
+     * @var string
+     */
     public $specFileUrl;
 
     /**
@@ -59,6 +64,7 @@ class BatchImportHttpApisRequest extends Model
         'dryRun' => 'dryRun',
         'gatewayId' => 'gatewayId',
         'resourceGroupId' => 'resourceGroupId',
+        'specContentBase64' => 'specContentBase64',
         'specFileUrl' => 'specFileUrl',
         'specOssConfig' => 'specOssConfig',
         'strategy' => 'strategy',
@@ -94,6 +100,10 @@ class BatchImportHttpApisRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->specContentBase64) {
+            $res['specContentBase64'] = $this->specContentBase64;
         }
 
         if (null !== $this->specFileUrl) {
@@ -141,6 +151,10 @@ class BatchImportHttpApisRequest extends Model
 
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
+        if (isset($map['specContentBase64'])) {
+            $model->specContentBase64 = $map['specContentBase64'];
         }
 
         if (isset($map['specFileUrl'])) {

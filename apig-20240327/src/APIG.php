@@ -82,6 +82,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewaySecurityGroupRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewaySecurityGroupRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiOperationResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiRouteResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteMcpServerResponse;
@@ -126,6 +127,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleSubjectUsageReques
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleSubjectUsageResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiOperationResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiRouteResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetMcpServerResponse;
@@ -462,7 +464,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Authorizes a security group that allows a gateway to access services.
+     * Authorizes a security group to allow gateway access to services.
      *
      * @param request - AddGatewaySecurityGroupRuleRequest
      * @param headers - map
@@ -513,7 +515,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Authorizes a security group that allows a gateway to access services.
+     * Authorizes a security group to allow gateway access to services.
      *
      * @param request - AddGatewaySecurityGroupRuleRequest
      *
@@ -770,6 +772,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->resourceGroupId) {
             @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->specContentBase64) {
+            @$body['specContentBase64'] = $request->specContentBase64;
         }
 
         if (null !== $request->specFileUrl) {
@@ -1555,6 +1561,11 @@ class APIG extends OpenApiClient
     public function createDomainWithOptions($request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         $body = [];
         if (null !== $request->caCertIdentifier) {
             @$body['caCertIdentifier'] = $request->caCertIdentifier;
@@ -1614,6 +1625,7 @@ class APIG extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -3449,21 +3461,30 @@ class APIG extends OpenApiClient
     /**
      * Deletes a specified HTTP API.
      *
+     * @param request - DeleteHttpApiRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteHttpApiResponse
      *
-     * @param string         $httpApiId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $httpApiId
+     * @param DeleteHttpApiRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return DeleteHttpApiResponse
      */
-    public function deleteHttpApiWithOptions($httpApiId, $headers, $runtime)
+    public function deleteHttpApiWithOptions($httpApiId, $request, $headers, $runtime)
     {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteHttpApi',
@@ -3483,18 +3504,21 @@ class APIG extends OpenApiClient
     /**
      * Deletes a specified HTTP API.
      *
+     * @param request - DeleteHttpApiRequest
+     *
      * @returns DeleteHttpApiResponse
      *
-     * @param string $httpApiId
+     * @param string               $httpApiId
+     * @param DeleteHttpApiRequest $request
      *
      * @return DeleteHttpApiResponse
      */
-    public function deleteHttpApi($httpApiId)
+    public function deleteHttpApi($httpApiId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteHttpApiWithOptions($httpApiId, $headers, $runtime);
+        return $this->deleteHttpApiWithOptions($httpApiId, $request, $headers, $runtime);
     }
 
     /**
@@ -5089,7 +5113,7 @@ class APIG extends OpenApiClient
      * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
-     * Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+     * This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      * @param headers - map
@@ -5145,7 +5169,7 @@ class APIG extends OpenApiClient
      * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
-     * Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+     * This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      *
@@ -5169,21 +5193,30 @@ class APIG extends OpenApiClient
     /**
      * Retrieves HTTP API information.
      *
+     * @param request - GetHttpApiRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetHttpApiResponse
      *
-     * @param string         $httpApiId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string            $httpApiId
+     * @param GetHttpApiRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return GetHttpApiResponse
      */
-    public function getHttpApiWithOptions($httpApiId, $headers, $runtime)
+    public function getHttpApiWithOptions($httpApiId, $request, $headers, $runtime)
     {
+        $request->validate();
+        $query = [];
+        if (null !== $request->expandPolicyConfigs) {
+            @$query['expandPolicyConfigs'] = $request->expandPolicyConfigs;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetHttpApi',
@@ -5203,18 +5236,21 @@ class APIG extends OpenApiClient
     /**
      * Retrieves HTTP API information.
      *
+     * @param request - GetHttpApiRequest
+     *
      * @returns GetHttpApiResponse
      *
-     * @param string $httpApiId
+     * @param string            $httpApiId
+     * @param GetHttpApiRequest $request
      *
      * @return GetHttpApiResponse
      */
-    public function getHttpApi($httpApiId)
+    public function getHttpApi($httpApiId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getHttpApiWithOptions($httpApiId, $headers, $runtime);
+        return $this->getHttpApiWithOptions($httpApiId, $request, $headers, $runtime);
     }
 
     /**
@@ -7561,7 +7597,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of MCP servers.
+     * Retrieves the list of MCP servers.
      *
      * @remarks
      * The operation supports creating multiple services.
@@ -7630,7 +7666,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of MCP servers.
+     * Retrieves the list of MCP servers.
      *
      * @remarks
      * The operation supports creating multiple services.
@@ -10281,6 +10317,11 @@ class APIG extends OpenApiClient
     public function updateHttpApiWithOptions($httpApiId, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         $body = [];
         if (null !== $request->agentProtocols) {
             @$body['agentProtocols'] = $request->agentProtocols;
@@ -10336,6 +10377,7 @@ class APIG extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -10531,7 +10573,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type can update the Ingress listener configuration.
+     * Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
      *
      * @param request - UpdateMcpServerRequest
      * @param headers - map
@@ -10621,7 +10663,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type can update the Ingress listener configuration.
+     * Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
      *
      * @param request - UpdateMcpServerRequest
      *

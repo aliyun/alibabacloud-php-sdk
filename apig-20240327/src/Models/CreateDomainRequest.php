@@ -77,6 +77,11 @@ class CreateDomainRequest extends Model
      * @var string
      */
     public $tlsMin;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
     protected $_name = [
         'caCertIdentifier' => 'caCertIdentifier',
         'certIdentifier' => 'certIdentifier',
@@ -92,6 +97,7 @@ class CreateDomainRequest extends Model
         'tlsCipherSuitesConfig' => 'tlsCipherSuitesConfig',
         'tlsMax' => 'tlsMax',
         'tlsMin' => 'tlsMin',
+        'dryRun' => 'dryRun',
     ];
 
     public function validate()
@@ -161,6 +167,10 @@ class CreateDomainRequest extends Model
             $res['tlsMin'] = $this->tlsMin;
         }
 
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
+        }
+
         return $res;
     }
 
@@ -226,6 +236,10 @@ class CreateDomainRequest extends Model
 
         if (isset($map['tlsMin'])) {
             $model->tlsMin = $map['tlsMin'];
+        }
+
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
         }
 
         return $model;
