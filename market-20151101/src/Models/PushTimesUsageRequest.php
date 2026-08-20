@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class PushTimesUsageRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $adjust;
+
+    /**
+     * @var int
+     */
+    public $adjustDate;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -19,12 +29,20 @@ class PushTimesUsageRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $mark;
+
+    /**
      * @var int
      */
     public $times;
     protected $_name = [
+        'adjust' => 'Adjust',
+        'adjustDate' => 'AdjustDate',
         'clientToken' => 'ClientToken',
         'instanceId' => 'InstanceId',
+        'mark' => 'Mark',
         'times' => 'Times',
     ];
 
@@ -36,12 +54,24 @@ class PushTimesUsageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adjust) {
+            $res['Adjust'] = $this->adjust;
+        }
+
+        if (null !== $this->adjustDate) {
+            $res['AdjustDate'] = $this->adjustDate;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->mark) {
+            $res['Mark'] = $this->mark;
         }
 
         if (null !== $this->times) {
@@ -59,12 +89,24 @@ class PushTimesUsageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Adjust'])) {
+            $model->adjust = $map['Adjust'];
+        }
+
+        if (isset($map['AdjustDate'])) {
+            $model->adjustDate = $map['AdjustDate'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Mark'])) {
+            $model->mark = $map['Mark'];
         }
 
         if (isset($map['Times'])) {

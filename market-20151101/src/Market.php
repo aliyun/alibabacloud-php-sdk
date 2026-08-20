@@ -107,6 +107,7 @@ class Market extends OpenApiClient
             'cn-shenzhen-finance-1' => 'market.aliyuncs.com',
             'cn-shanghai-finance-1' => 'market.aliyuncs.com',
             'cn-north-2-gov-1' => 'market.aliyuncs.com',
+            'ap-southeast-1' => 'market.ap-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('market', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -137,7 +138,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 增加STS支持
+     * Activates an authorization code by calling ActivateLicense.
      *
      * @param request - ActivateLicenseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -180,7 +181,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 增加STS支持
+     * Activates an authorization code by calling ActivateLicense.
      *
      * @param request - ActivateLicenseRequest
      *
@@ -198,7 +199,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 设置自动续费.
+     * Sets auto-renewal.
      *
      * @param request - AutoRenewInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -253,7 +254,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 设置自动续费.
+     * Sets auto-renewal.
      *
      * @param request - AutoRenewInstanceRequest
      *
@@ -271,7 +272,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 确认查收订阅通知.
+     * Confirms that the merchant has received and processed a notification message. After this call, the message will no longer be returned in subsequent queries.
+     *
+     * @remarks
+     * Confirms the receipt of a subscription notification failure message.
+     * - After a successful call, the message will no longer be returned in subsequent queries. The platform considers that the merchant has correctly processed the message.
      *
      * @param request - ConfirmNotificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -310,7 +315,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 确认查收订阅通知.
+     * Confirms that the merchant has received and processed a notification message. After this call, the message will no longer be returned in subsequent queries.
+     *
+     * @remarks
+     * Confirms the receipt of a subscription notification failure message.
+     * - After a successful call, the message will no longer be returned in subsequent queries. The platform considers that the merchant has correctly processed the message.
      *
      * @param request - ConfirmNotificationRequest
      *
@@ -328,7 +337,13 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 创建订单.
+     * Calls the CreateOrder operation to create an order.
+     * Before calling this operation, make sure that you fully understand the billing method and pricing of Alibaba Cloud Marketplace products.
+     * To create an order for a commercial image, refer to [CreateInstance](https://help.aliyun.com/document_detail/25499.html).
+     *
+     * @remarks
+     * Before calling this operation, make sure that you fully understand the billing method and [pricing](https://market.aliyun.com/) of Alibaba Cloud Marketplace products.
+     * To create an order for a commercial image, refer to [CreateInstance](https://help.aliyun.com/document_detail/25499.html).
      *
      * @param request - CreateOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -387,7 +402,13 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 创建订单.
+     * Calls the CreateOrder operation to create an order.
+     * Before calling this operation, make sure that you fully understand the billing method and pricing of Alibaba Cloud Marketplace products.
+     * To create an order for a commercial image, refer to [CreateInstance](https://help.aliyun.com/document_detail/25499.html).
+     *
+     * @remarks
+     * Before calling this operation, make sure that you fully understand the billing method and [pricing](https://market.aliyun.com/) of Alibaba Cloud Marketplace products.
+     * To create an order for a commercial image, refer to [CreateInstance](https://help.aliyun.com/document_detail/25499.html).
      *
      * @param request - CreateOrderRequest
      *
@@ -405,7 +426,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 跨账号角色授权，根据token获取用户信息.
+     * Query cross-account role authorization information, including the authorized user\\"s Alibaba Cloud account UID, name, authorization time, and authorized role name.
      *
      * @param request - CrossAccountVerifyTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -444,7 +465,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 跨账号角色授权，根据token获取用户信息.
+     * Query cross-account role authorization information, including the authorized user\\"s Alibaba Cloud account UID, name, authorization time, and authorized role name.
      *
      * @param request - CrossAccountVerifyTokenRequest
      *
@@ -462,7 +483,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询API用量.
+     * Retrieves the API quota data of a user, including the remaining quota, total quota, and usage.
+     *
+     * @remarks
+     * ### **Note: This operation supports both Alibaba Cloud accounts and RAM users to retrieve API remaining quota, total quota, and usage information.**.
      *
      * @param request - DescribeApiMeteringRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -497,7 +521,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询API用量.
+     * Retrieves the API quota data of a user, including the remaining quota, total quota, and usage.
+     *
+     * @remarks
+     * ### **Note: This operation supports both Alibaba Cloud accounts and RAM users to retrieve API remaining quota, total quota, and usage information.**.
      *
      * @param request - DescribeApiMeteringRequest
      *
@@ -515,7 +542,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 工作流当前节点信息.
+     * Calls DescribeCurrentNodeInfo to retrieve the process information of the current node.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - DescribeCurrentNodeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -554,7 +585,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 工作流当前节点信息.
+     * Calls DescribeCurrentNodeInfo to retrieve the process information of the current node.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - DescribeCurrentNodeInfoRequest
      *
@@ -572,7 +607,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 分页获取推广商品
+     * Retrieves a paginated list of promotional products with detailed information.
+     *
+     * @remarks
+     * Call this operation by using a promotion service provider account.
      *
      * @param request - DescribeDistributionProductsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -607,7 +645,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 分页获取推广商品
+     * Retrieves a paginated list of promotional products with detailed information.
+     *
+     * @remarks
+     * Call this operation by using a promotion service provider account.
      *
      * @param request - DescribeDistributionProductsRequest
      *
@@ -625,7 +666,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 获取并生成推广商品-链接.
+     * Retrieves promotion links for promoted products.
+     *
+     * @remarks
+     * Call this operation by using a promotion service provider account. Calls from non-promotion service provider accounts will fail.
      *
      * @param tmpReq - DescribeDistributionProductsLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -670,7 +714,10 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 获取并生成推广商品-链接.
+     * Retrieves promotion links for promoted products.
+     *
+     * @remarks
+     * Call this operation by using a promotion service provider account. Calls from non-promotion service provider accounts will fail.
      *
      * @param request - DescribeDistributionProductsLinkRequest
      *
@@ -688,7 +735,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询订阅通知失败列表.
+     * Queries the list of failed subscription notifications. After Alibaba Cloud Marketplace fails to call a service provider\\"s message SPI, the service provider can use this operation to proactively query the failed notification information.
+     *
+     * @remarks
+     * Queries the information about failed subscription notifications for a service provider.
+     * - If no unconfirmed failed notifications exist, TotalCount returns 0.
      *
      * @param request - DescribeFailedNotificationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -731,7 +782,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询订阅通知失败列表.
+     * Queries the list of failed subscription notifications. After Alibaba Cloud Marketplace fails to call a service provider\\"s message SPI, the service provider can use this operation to proactively query the failed notification information.
+     *
+     * @remarks
+     * Queries the information about failed subscription notifications for a service provider.
+     * - If no unconfirmed failed notifications exist, TotalCount returns 0.
      *
      * @param request - DescribeFailedNotificationsRequest
      *
@@ -810,7 +865,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询实例.
+     * Calls the DescribeInstance operation to query instance information.
      *
      * @param request - DescribeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -857,7 +912,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询实例.
+     * Calls the DescribeInstance operation to query instance information.
      *
      * @param request - DescribeInstanceRequest
      *
@@ -875,7 +930,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 服务商侧查询实例信息.
+     * Queries instance information from the service provider side.
      *
      * @param request - DescribeInstanceForIsvRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -914,7 +969,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 服务商侧查询实例信息.
+     * Queries instance information from the service provider side.
      *
      * @param request - DescribeInstanceForIsvRequest
      *
@@ -932,7 +987,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询实例列表.
+     * Queries the list of services purchased by the user.
      *
      * @param request - DescribeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -987,7 +1042,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询实例列表.
+     * Queries the list of services purchased by the user.
      *
      * @param request - DescribeInstancesRequest
      *
@@ -1005,7 +1060,12 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询供应商下的发票信息.
+     * Queries the invoice information of a supplier store in Alibaba Cloud Marketplace.
+     *
+     * @remarks
+     * Queries business information based on an authorization code. The system first verifies whether the authorization code is valid.
+     * - If the authorization code is invalid, an error message is returned.
+     * - If the authorization code is valid, the authorization information is returned.
      *
      * @param request - DescribeInvoiceForIsvRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1080,7 +1140,12 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询供应商下的发票信息.
+     * Queries the invoice information of a supplier store in Alibaba Cloud Marketplace.
+     *
+     * @remarks
+     * Queries business information based on an authorization code. The system first verifies whether the authorization code is valid.
+     * - If the authorization code is invalid, an error message is returned.
+     * - If the authorization code is valid, the authorization information is returned.
      *
      * @param request - DescribeInvoiceForIsvRequest
      *
@@ -1098,7 +1163,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 获取License.
+     * Calls DescribeLicense to query license information.
      *
      * @param request - DescribeLicenseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1137,7 +1202,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 获取License.
+     * Calls DescribeLicense to query license information.
      *
      * @param request - DescribeLicenseRequest
      *
@@ -1155,7 +1220,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询订单.
+     * Queries the details of a specified order.
      *
      * @param request - DescribeOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1194,7 +1259,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询订单.
+     * Queries the details of a specified order.
      *
      * @param request - DescribeOrderRequest
      *
@@ -1212,7 +1277,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 服务商侧查询订单详情.
+     * Queries order details from the service provider side.
      *
      * @param request - DescribeOrderForIsvRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1251,7 +1316,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 服务商侧查询订单详情.
+     * Queries order details from the service provider side.
      *
      * @param request - DescribeOrderForIsvRequest
      *
@@ -1269,7 +1334,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询价格
+     * Calls DescribePrice to query the price information of the corresponding product.
      *
      * @param request - DescribePriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1312,7 +1377,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询价格
+     * Calls DescribePrice to query the price information of the corresponding product.
      *
      * @param request - DescribePriceRequest
      *
@@ -1330,6 +1395,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * Queries the details of a specified product by calling DescribeProduct.
+     *
      * @param request - DescribeProductRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1375,6 +1442,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * Queries the details of a specified product by calling DescribeProduct.
+     *
      * @param request - DescribeProductRequest
      *
      * @returns DescribeProductResponse
@@ -1391,6 +1460,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of products that meet the specified conditions along with their details.
+     *
      * @param request - DescribeProductsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1440,6 +1511,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of products that meet the specified conditions along with their details.
+     *
      * @param request - DescribeProductsRequest
      *
      * @returns DescribeProductsResponse
@@ -1456,7 +1529,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 附件信息.
+     * Calls DescribeProjectAttachments to retrieve the list of project attachments.
      *
      * @param request - DescribeProjectAttachmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1495,7 +1568,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 附件信息.
+     * Calls DescribeProjectAttachments to retrieve the list of project attachments.
      *
      * @param request - DescribeProjectAttachmentsRequest
      *
@@ -1513,7 +1586,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 项目信息.
+     * Calls DescribeProjectInfo to query project information.
      *
      * @param request - DescribeProjectInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1552,7 +1625,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 项目信息.
+     * Calls DescribeProjectInfo to query project information.
      *
      * @param request - DescribeProjectInfoRequest
      *
@@ -1570,7 +1643,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询项目留言信息.
+     * Calls DescribeProjectMessages to retrieve the list of project workflow messages.
      *
      * @param request - DescribeProjectMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1613,7 +1686,7 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询项目留言信息.
+     * Calls DescribeProjectMessages to retrieve the list of project workflow messages.
      *
      * @param request - DescribeProjectMessagesRequest
      *
@@ -1631,9 +1704,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询项目流程节点list.
+     * Queries the list of project flow nodes by calling DescribeProjectNodes.
      *
      * @remarks
+     * *
+     * **.
      *
      * @param request - DescribeProjectNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1672,9 +1747,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询项目流程节点list.
+     * Queries the list of project flow nodes by calling DescribeProjectNodes.
      *
      * @remarks
+     * *
+     * **.
      *
      * @param request - DescribeProjectNodesRequest
      *
@@ -1692,7 +1769,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询项目操作记录列表.
+     * Calls DescribeProjectOperateLogs to retrieve the operation logs of a project flow.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - DescribeProjectOperateLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1731,7 +1812,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 查询项目操作记录列表.
+     * Calls DescribeProjectOperateLogs to retrieve the operation logs of a project flow.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - DescribeProjectOperateLogsRequest
      *
@@ -1749,7 +1834,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 完成当前流程节点.
+     * Completes the current process by calling FinishCurrentProjectNode.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - FinishCurrentProjectNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1800,7 +1889,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 完成当前流程节点.
+     * Completes the current process by calling FinishCurrentProjectNode.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - FinishCurrentProjectNodeRequest
      *
@@ -1818,7 +1911,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 发票受理接口.
+     * Processes invoice acceptance requests.
+     *
+     * @remarks
+     * Queries information about failed subscription notifications for merchants.
+     * - If no unconfirmed notification failure information exists, TotalCount returns 0.
      *
      * @param request - ModifyInvoiceForIsvRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1877,7 +1974,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 发票受理接口.
+     * Processes invoice acceptance requests.
+     *
+     * @remarks
+     * Queries information about failed subscription notifications for merchants.
+     * - If no unconfirmed notification failure information exists, TotalCount returns 0.
      *
      * @param request - ModifyInvoiceForIsvRequest
      *
@@ -1895,7 +1996,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 暂停项目.
+     * Calls PauseProject to pause a project.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - PauseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1942,7 +2047,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 暂停项目.
+     * Calls PauseProject to pause a project.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - PauseProjectRequest
      *
@@ -1960,7 +2069,28 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 云市场计量推送接口.
+     * Call PushMeteringData to push metering data.
+     *
+     * @remarks
+     * ### Encoding and Format Requirements
+     * - All request parameters must be URLEncoded.
+     * - The Metering field in the parameters must strictly follow the format in the example in this document. It has been found that many submissions are not valid JSON. Please verify the format with a JSON formatting tool before submission, otherwise the API call will fail.
+     * ### Request Frequency and Single Write Volume Limits
+     * - For hourly/daily metering: Cloud Marketplace limits requests for each InstanceId to once per 60 seconds, and each request supports writing up to 100 metering data entries.
+     * - For real-time metering (for large model usage scenarios): Cloud Marketplace has no frequency limit for each InstanceId, and each request supports writing up to 10 metering data entries.
+     * ### Batch Push Limits for Metering Data
+     * - Cross-product InstanceId batch pushing is not supported. When batch pushing, ensure all InstanceIds belong to the same product.
+     * - When batch pushing metering data, the "InstanceId" attribute must belong to instances generated by the same product. Pushing instances from multiple products simultaneously is currently not supported.
+     * ### Time Requirements for Metering Data Push
+     * - For products billed by the hour, the billing deadline is the next hour, and metering data must be pushed on time. For example, if the metering data is for 8:10-08:20, it must be pushed before 9:59, otherwise billing will not occur. The rule for daily billing is similar: the previous day\\"s data must be pushed before 1:59 of the next day, otherwise the metering push will return an error and billing will not occur.
+     * - For products billed by the minute, real-time pushed data is aggregated by the minute and billed by the minute.
+     * - If the product is set to real-time billing, StartTime and EndTime can have any time span, but EndTime must be greater than StartTime.
+     * - If the product is set to non-real-time billing (i.e., hourly, daily, etc.), the interval between StartTime and EndTime must be greater than 5 minutes.
+     * ### Timeliness of Pushing and Billing
+     * - If the instance status has expired, metering data pushed after the instance expiration will not be billed. For example, if the instance expired at 2025-07-09 12:20:00, metering data pushed for the period 2025-07-09 13:00:00-2025-07-09 14:00:00 will not be billed. Metering data for the period 2025-07-09 12:00:00-2025-07-09 13:00:00 can still be billed normally.
+     * - After pushing metering data, billing does not occur immediately. For hourly billing, bills are generated in the next time interval. For example, for hourly billing, the bill for 8:00-9:00 is generated after 10:00. For daily billing, bills are generated the next day. After billing, customers can view the bills in [Alibaba Cloud Bill Details](https://billing-cost.console.aliyun.com/finance/expense-report/expense-detail-by-instance).
+     * ### Amount Rounding to Zero
+     * - If the bill amount is too small and the single bill amount is less than 0.01 CNY, the bill amount on the buyer\\"s side will be 0. For example, if the product unit price is 0.001 CNY/count and is billed by the minute with 9 uses per minute, the bill amount per minute is 0. If billed by the hour and the single hourly bill amount is less than 0.01, the buyer\\"s bill amount will be 0. The probability of minute-level billing amounts being rounded to zero may be higher than that of hourly billing.
      *
      * @param request - PushMeteringDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1999,7 +2129,28 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 云市场计量推送接口.
+     * Call PushMeteringData to push metering data.
+     *
+     * @remarks
+     * ### Encoding and Format Requirements
+     * - All request parameters must be URLEncoded.
+     * - The Metering field in the parameters must strictly follow the format in the example in this document. It has been found that many submissions are not valid JSON. Please verify the format with a JSON formatting tool before submission, otherwise the API call will fail.
+     * ### Request Frequency and Single Write Volume Limits
+     * - For hourly/daily metering: Cloud Marketplace limits requests for each InstanceId to once per 60 seconds, and each request supports writing up to 100 metering data entries.
+     * - For real-time metering (for large model usage scenarios): Cloud Marketplace has no frequency limit for each InstanceId, and each request supports writing up to 10 metering data entries.
+     * ### Batch Push Limits for Metering Data
+     * - Cross-product InstanceId batch pushing is not supported. When batch pushing, ensure all InstanceIds belong to the same product.
+     * - When batch pushing metering data, the "InstanceId" attribute must belong to instances generated by the same product. Pushing instances from multiple products simultaneously is currently not supported.
+     * ### Time Requirements for Metering Data Push
+     * - For products billed by the hour, the billing deadline is the next hour, and metering data must be pushed on time. For example, if the metering data is for 8:10-08:20, it must be pushed before 9:59, otherwise billing will not occur. The rule for daily billing is similar: the previous day\\"s data must be pushed before 1:59 of the next day, otherwise the metering push will return an error and billing will not occur.
+     * - For products billed by the minute, real-time pushed data is aggregated by the minute and billed by the minute.
+     * - If the product is set to real-time billing, StartTime and EndTime can have any time span, but EndTime must be greater than StartTime.
+     * - If the product is set to non-real-time billing (i.e., hourly, daily, etc.), the interval between StartTime and EndTime must be greater than 5 minutes.
+     * ### Timeliness of Pushing and Billing
+     * - If the instance status has expired, metering data pushed after the instance expiration will not be billed. For example, if the instance expired at 2025-07-09 12:20:00, metering data pushed for the period 2025-07-09 13:00:00-2025-07-09 14:00:00 will not be billed. Metering data for the period 2025-07-09 12:00:00-2025-07-09 13:00:00 can still be billed normally.
+     * - After pushing metering data, billing does not occur immediately. For hourly billing, bills are generated in the next time interval. For example, for hourly billing, the bill for 8:00-9:00 is generated after 10:00. For daily billing, bills are generated the next day. After billing, customers can view the bills in [Alibaba Cloud Bill Details](https://billing-cost.console.aliyun.com/finance/expense-report/expense-detail-by-instance).
+     * ### Amount Rounding to Zero
+     * - If the bill amount is too small and the single bill amount is less than 0.01 CNY, the bill amount on the buyer\\"s side will be 0. For example, if the product unit price is 0.001 CNY/count and is billed by the minute with 9 uses per minute, the bill amount per minute is 0. If billed by the hour and the single hourly bill amount is less than 0.01, the buyer\\"s bill amount will be 0. The probability of minute-level billing amounts being rounded to zero may be higher than that of hourly billing.
      *
      * @param request - PushMeteringDataRequest
      *
@@ -2017,7 +2168,19 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 按次售卖按量计费.
+     * Pushes usage deduction for a prepaid per-use product to Alibaba Cloud Marketplace on behalf of a service provider.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation applies to prepaid per-use products. Service providers can call this operation to push usage deductions to Alibaba Cloud Marketplace.
+     * - The operation uses a forced update mode that directly deducts the specified number of uses. The caller must determine whether the user\\"s usage exceeds the quota.
+     * - All request parameters must be URL-encoded.
+     * - Use the `ClientToken` parameter for idempotency control. The same `ClientToken` cannot be submitted more than once within 24 hours.
+     * - Retries for the same deduction operation must use the same `ClientToken`. Use a new `ClientToken` for new business operations.
+     * - If the previous request succeeded (even if no response was received due to a gateway timeout), retrying with the same `ClientToken` returns a success response idempotently without duplicate deductions.
+     * - If the result of the previous request is undetermined (in PROCESSING state), retrying with the same `ClientToken` returns a `DuplicateClientToken` error. Retry later or contact Alibaba Cloud Marketplace to confirm the push status.
+     * - Only one operation can be executed at a time for the same `InstanceId`. Concurrent requests return a `Throttling` error. Retry later.
+     * - You can run this operation in [OpenAPI Explorer](https://api.aliyun.com/#product=Market&api=PushTimesUsage&type=RPC&version=2015-11-01) without calculating signatures.
      *
      * @param request - PushTimesUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2033,12 +2196,24 @@ class Market extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->adjust) {
+            @$query['Adjust'] = $request->adjust;
+        }
+
+        if (null !== $request->adjustDate) {
+            @$query['AdjustDate'] = $request->adjustDate;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->mark) {
+            @$query['Mark'] = $request->mark;
         }
 
         if (null !== $request->times) {
@@ -2064,7 +2239,19 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 按次售卖按量计费.
+     * Pushes usage deduction for a prepaid per-use product to Alibaba Cloud Marketplace on behalf of a service provider.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation applies to prepaid per-use products. Service providers can call this operation to push usage deductions to Alibaba Cloud Marketplace.
+     * - The operation uses a forced update mode that directly deducts the specified number of uses. The caller must determine whether the user\\"s usage exceeds the quota.
+     * - All request parameters must be URL-encoded.
+     * - Use the `ClientToken` parameter for idempotency control. The same `ClientToken` cannot be submitted more than once within 24 hours.
+     * - Retries for the same deduction operation must use the same `ClientToken`. Use a new `ClientToken` for new business operations.
+     * - If the previous request succeeded (even if no response was received due to a gateway timeout), retrying with the same `ClientToken` returns a success response idempotently without duplicate deductions.
+     * - If the result of the previous request is undetermined (in PROCESSING state), retrying with the same `ClientToken` returns a `DuplicateClientToken` error. Retry later or contact Alibaba Cloud Marketplace to confirm the push status.
+     * - Only one operation can be executed at a time for the same `InstanceId`. Concurrent requests return a `Throttling` error. Retry later.
+     * - You can run this operation in [OpenAPI Explorer](https://api.aliyun.com/#product=Market&api=PushTimesUsage&type=RPC&version=2015-11-01) without calculating signatures.
      *
      * @param request - PushTimesUsageRequest
      *
@@ -2082,7 +2269,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 恢复已暂停的项目.
+     * Calls ResumeProject to resume a paused project.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - ResumeProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2129,7 +2320,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 恢复已暂停的项目.
+     * Calls ResumeProject to resume a paused project.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - ResumeProjectRequest
      *
@@ -2147,7 +2342,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 当前流程节点回滚到上一步.
+     * Triggers a rejection of the current process node by calling RollbackCurrentProjectNode.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - RollbackCurrentProjectNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2194,7 +2393,11 @@ class Market extends OpenApiClient
     }
 
     /**
-     * 当前流程节点回滚到上一步.
+     * Triggers a rejection of the current process node by calling RollbackCurrentProjectNode.
+     *
+     * @remarks
+     * *
+     * **.
      *
      * @param request - RollbackCurrentProjectNodeRequest
      *
