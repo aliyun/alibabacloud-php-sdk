@@ -11,15 +11,27 @@ class GetInstantScoreRequest extends Model
     /**
      * @var string
      */
+    public $xDebugId;
+
+    /**
+     * @var string
+     */
     public $cluster;
 
     /**
      * @var string
      */
     public $instance;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'cluster' => 'cluster',
         'instance' => 'instance',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -30,12 +42,20 @@ class GetInstantScoreRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->cluster) {
             $res['cluster'] = $this->cluster;
         }
 
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
+        }
+
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
         }
 
         return $res;
@@ -49,12 +69,20 @@ class GetInstantScoreRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['cluster'])) {
             $model->cluster = $map['cluster'];
         }
 
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

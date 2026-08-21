@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstancesWithEcsInfoRequest\inst
 class ListInstancesWithEcsInfoRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $xDebugId;
+
+    /**
      * @var int
      */
     public $current;
@@ -83,7 +88,13 @@ class ListInstancesWithEcsInfoRequest extends Model
      * @var string
      */
     public $resourceGroupName;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'current' => 'current',
         'healthStatus' => 'health_status',
         'instanceId' => 'instance_id',
@@ -99,6 +110,7 @@ class ListInstancesWithEcsInfoRequest extends Model
         'resourceGroupId' => 'resource_group_id',
         'resourceGroupIdName' => 'resource_group_id_name',
         'resourceGroupName' => 'resource_group_name',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -112,6 +124,10 @@ class ListInstancesWithEcsInfoRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->current) {
             $res['current'] = $this->current;
         }
@@ -172,6 +188,10 @@ class ListInstancesWithEcsInfoRequest extends Model
             $res['resource_group_name'] = $this->resourceGroupName;
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -183,6 +203,10 @@ class ListInstancesWithEcsInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['current'])) {
             $model->current = $map['current'];
         }
@@ -241,6 +265,10 @@ class ListInstancesWithEcsInfoRequest extends Model
 
         if (isset($map['resource_group_name'])) {
             $model->resourceGroupName = $map['resource_group_name'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

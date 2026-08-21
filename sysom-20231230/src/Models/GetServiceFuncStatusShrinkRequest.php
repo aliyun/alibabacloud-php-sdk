@@ -11,6 +11,11 @@ class GetServiceFuncStatusShrinkRequest extends Model
     /**
      * @var string
      */
+    public $xDebugId;
+
+    /**
+     * @var string
+     */
     public $channel;
 
     /**
@@ -22,10 +27,17 @@ class GetServiceFuncStatusShrinkRequest extends Model
      * @var string
      */
     public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'channel' => 'channel',
         'paramsShrink' => 'params',
         'serviceName' => 'service_name',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -36,6 +48,10 @@ class GetServiceFuncStatusShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->channel) {
             $res['channel'] = $this->channel;
         }
@@ -46,6 +62,10 @@ class GetServiceFuncStatusShrinkRequest extends Model
 
         if (null !== $this->serviceName) {
             $res['service_name'] = $this->serviceName;
+        }
+
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
         }
 
         return $res;
@@ -59,6 +79,10 @@ class GetServiceFuncStatusShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['channel'])) {
             $model->channel = $map['channel'];
         }
@@ -69,6 +93,10 @@ class GetServiceFuncStatusShrinkRequest extends Model
 
         if (isset($map['service_name'])) {
             $model->serviceName = $map['service_name'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

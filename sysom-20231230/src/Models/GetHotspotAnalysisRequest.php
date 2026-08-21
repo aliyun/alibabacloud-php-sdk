@@ -11,6 +11,11 @@ class GetHotspotAnalysisRequest extends Model
     /**
      * @var string
      */
+    public $xDebugId;
+
+    /**
+     * @var string
+     */
     public $appType;
 
     /**
@@ -37,13 +42,20 @@ class GetHotspotAnalysisRequest extends Model
      * @var string
      */
     public $table;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'appType' => 'appType',
         'begEnd' => 'beg_end',
         'begStart' => 'beg_start',
         'instance' => 'instance',
         'pid' => 'pid',
         'table' => 'table',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -54,6 +66,10 @@ class GetHotspotAnalysisRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->appType) {
             $res['appType'] = $this->appType;
         }
@@ -78,6 +94,10 @@ class GetHotspotAnalysisRequest extends Model
             $res['table'] = $this->table;
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -89,6 +109,10 @@ class GetHotspotAnalysisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['appType'])) {
             $model->appType = $map['appType'];
         }
@@ -111,6 +135,10 @@ class GetHotspotAnalysisRequest extends Model
 
         if (isset($map['table'])) {
             $model->table = $map['table'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

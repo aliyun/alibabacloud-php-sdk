@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertStrategyRequest\strategy;
 class UpdateAlertStrategyRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $xDebugId;
+
+    /**
      * @var bool
      */
     public $enabled;
@@ -33,12 +38,19 @@ class UpdateAlertStrategyRequest extends Model
      * @var strategy
      */
     public $strategy;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'enabled' => 'enabled',
         'id' => 'id',
         'k8sLabel' => 'k8sLabel',
         'name' => 'name',
         'strategy' => 'strategy',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -52,6 +64,10 @@ class UpdateAlertStrategyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
@@ -72,6 +88,10 @@ class UpdateAlertStrategyRequest extends Model
             $res['strategy'] = null !== $this->strategy ? $this->strategy->toArray($noStream) : $this->strategy;
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -83,6 +103,10 @@ class UpdateAlertStrategyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
@@ -101,6 +125,10 @@ class UpdateAlertStrategyRequest extends Model
 
         if (isset($map['strategy'])) {
             $model->strategy = strategy::fromMap($map['strategy']);
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

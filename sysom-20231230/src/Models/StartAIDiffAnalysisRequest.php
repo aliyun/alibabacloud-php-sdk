@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIDiffAnalysisRequest\task2;
 class StartAIDiffAnalysisRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $xDebugId;
+
+    /**
      * @var task1
      */
     public $task1;
@@ -19,9 +24,16 @@ class StartAIDiffAnalysisRequest extends Model
      * @var task2
      */
     public $task2;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'task1' => 'task1',
         'task2' => 'task2',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -38,12 +50,20 @@ class StartAIDiffAnalysisRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->task1) {
             $res['task1'] = null !== $this->task1 ? $this->task1->toArray($noStream) : $this->task1;
         }
 
         if (null !== $this->task2) {
             $res['task2'] = null !== $this->task2 ? $this->task2->toArray($noStream) : $this->task2;
+        }
+
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
         }
 
         return $res;
@@ -57,12 +77,20 @@ class StartAIDiffAnalysisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['task1'])) {
             $model->task1 = task1::fromMap($map['task1']);
         }
 
         if (isset($map['task2'])) {
             $model->task2 = task2::fromMap($map['task2']);
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

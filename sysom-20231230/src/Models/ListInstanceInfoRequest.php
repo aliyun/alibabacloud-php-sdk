@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetListRecordRequest extends Model
+class ListInstanceInfoRequest extends Model
 {
     /**
      * @var string
@@ -16,22 +16,32 @@ class GetListRecordRequest extends Model
     /**
      * @var string
      */
-    public $analysisId;
+    public $infoType;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $managedType;
 
     /**
      * @var int
      */
-    public $current;
+    public $maxResults;
 
     /**
-     * @var int
+     * @var string
      */
-    public $customId;
+    public $nextToken;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $pluginId;
 
     /**
      * @var string
@@ -44,10 +54,12 @@ class GetListRecordRequest extends Model
     public $xSysomInvokeSource;
     protected $_name = [
         'xDebugId' => 'X-Debug-Id',
-        'analysisId' => 'analysisId',
-        'current' => 'current',
-        'customId' => 'customId',
-        'pageSize' => 'pageSize',
+        'infoType' => 'infoType',
+        'instanceType' => 'instanceType',
+        'managedType' => 'managedType',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
+        'pluginId' => 'pluginId',
         'region' => 'region',
         'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
@@ -64,20 +76,28 @@ class GetListRecordRequest extends Model
             $res['X-Debug-Id'] = $this->xDebugId;
         }
 
-        if (null !== $this->analysisId) {
-            $res['analysisId'] = $this->analysisId;
+        if (null !== $this->infoType) {
+            $res['infoType'] = $this->infoType;
         }
 
-        if (null !== $this->current) {
-            $res['current'] = $this->current;
+        if (null !== $this->instanceType) {
+            $res['instanceType'] = $this->instanceType;
         }
 
-        if (null !== $this->customId) {
-            $res['customId'] = $this->customId;
+        if (null !== $this->managedType) {
+            $res['managedType'] = $this->managedType;
         }
 
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
+        if (null !== $this->maxResults) {
+            $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->pluginId) {
+            $res['pluginId'] = $this->pluginId;
         }
 
         if (null !== $this->region) {
@@ -103,20 +123,28 @@ class GetListRecordRequest extends Model
             $model->xDebugId = $map['X-Debug-Id'];
         }
 
-        if (isset($map['analysisId'])) {
-            $model->analysisId = $map['analysisId'];
+        if (isset($map['infoType'])) {
+            $model->infoType = $map['infoType'];
         }
 
-        if (isset($map['current'])) {
-            $model->current = $map['current'];
+        if (isset($map['instanceType'])) {
+            $model->instanceType = $map['instanceType'];
         }
 
-        if (isset($map['customId'])) {
-            $model->customId = $map['customId'];
+        if (isset($map['managedType'])) {
+            $model->managedType = $map['managedType'];
         }
 
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
+        if (isset($map['maxResults'])) {
+            $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['nextToken'])) {
+            $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['pluginId'])) {
+            $model->pluginId = $map['pluginId'];
         }
 
         if (isset($map['region'])) {

@@ -11,6 +11,11 @@ class ListPodsOfInstanceRequest extends Model
     /**
      * @var string
      */
+    public $xDebugId;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -27,11 +32,18 @@ class ListPodsOfInstanceRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'clusterId' => 'cluster_id',
         'current' => 'current',
         'instance' => 'instance',
         'pageSize' => 'pageSize',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -42,6 +54,10 @@ class ListPodsOfInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
@@ -58,6 +74,10 @@ class ListPodsOfInstanceRequest extends Model
             $res['pageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -69,6 +89,10 @@ class ListPodsOfInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
@@ -83,6 +107,10 @@ class ListPodsOfInstanceRequest extends Model
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

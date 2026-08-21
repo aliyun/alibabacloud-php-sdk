@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateAlertEnabledRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $xDebugId;
+
+    /**
      * @var bool
      */
     public $enabled;
@@ -17,9 +22,16 @@ class UpdateAlertEnabledRequest extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'enabled' => 'enabled',
         'id' => 'id',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -30,12 +42,20 @@ class UpdateAlertEnabledRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
 
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
         }
 
         return $res;
@@ -49,12 +69,20 @@ class UpdateAlertEnabledRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
 
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

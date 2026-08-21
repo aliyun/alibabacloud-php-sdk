@@ -12,6 +12,11 @@ class UpgradeAgentWithTypeRequest extends Model
     /**
      * @var string
      */
+    public $xDebugId;
+
+    /**
+     * @var string
+     */
     public $agentId;
 
     /**
@@ -28,11 +33,18 @@ class UpgradeAgentWithTypeRequest extends Model
      * @var instances[]
      */
     public $instances;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'agentId' => 'agentId',
         'agentVersion' => 'agentVersion',
         'instanceType' => 'instanceType',
         'instances' => 'instances',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -46,6 +58,10 @@ class UpgradeAgentWithTypeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->agentId) {
             $res['agentId'] = $this->agentId;
         }
@@ -69,6 +85,10 @@ class UpgradeAgentWithTypeRequest extends Model
             }
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -80,6 +100,10 @@ class UpgradeAgentWithTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['agentId'])) {
             $model->agentId = $map['agentId'];
         }
@@ -101,6 +125,10 @@ class UpgradeAgentWithTypeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class GetHotspotTrackingRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $xDebugId;
+
+    /**
      * @var int
      */
     public $begEnd;
@@ -37,13 +42,20 @@ class GetHotspotTrackingRequest extends Model
      * @var string
      */
     public $table;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'begEnd' => 'beg_end',
         'begStart' => 'beg_start',
         'hotType' => 'hot_type',
         'instance' => 'instance',
         'pid' => 'pid',
         'table' => 'table',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -54,6 +66,10 @@ class GetHotspotTrackingRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->begEnd) {
             $res['beg_end'] = $this->begEnd;
         }
@@ -78,6 +94,10 @@ class GetHotspotTrackingRequest extends Model
             $res['table'] = $this->table;
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -89,6 +109,10 @@ class GetHotspotTrackingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['beg_end'])) {
             $model->begEnd = $map['beg_end'];
         }
@@ -111,6 +135,10 @@ class GetHotspotTrackingRequest extends Model
 
         if (isset($map['table'])) {
             $model->table = $map['table'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

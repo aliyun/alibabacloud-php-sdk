@@ -11,6 +11,11 @@ class CreateClusterVpcEndpointConnectionRequest extends Model
     /**
      * @var string
      */
+    public $xDebugId;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -22,10 +27,17 @@ class CreateClusterVpcEndpointConnectionRequest extends Model
      * @var string
      */
     public $region;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'clusterId' => 'clusterId',
         'dryRun' => 'dryRun',
         'region' => 'region',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -36,6 +48,10 @@ class CreateClusterVpcEndpointConnectionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->clusterId) {
             $res['clusterId'] = $this->clusterId;
         }
@@ -46,6 +62,10 @@ class CreateClusterVpcEndpointConnectionRequest extends Model
 
         if (null !== $this->region) {
             $res['region'] = $this->region;
+        }
+
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
         }
 
         return $res;
@@ -59,6 +79,10 @@ class CreateClusterVpcEndpointConnectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['clusterId'])) {
             $model->clusterId = $map['clusterId'];
         }
@@ -69,6 +93,10 @@ class CreateClusterVpcEndpointConnectionRequest extends Model
 
         if (isset($map['region'])) {
             $model->region = $map['region'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

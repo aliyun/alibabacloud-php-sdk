@@ -11,6 +11,11 @@ class StartAIAnalysisRequest extends Model
     /**
      * @var string
      */
+    public $xDebugId;
+
+    /**
+     * @var string
+     */
     public $analysisTool;
 
     /**
@@ -77,7 +82,13 @@ class StartAIAnalysisRequest extends Model
      * @var string
      */
     public $uid;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'analysisTool' => 'analysisTool',
         'analysisParams' => 'analysis_params',
         'channel' => 'channel',
@@ -92,6 +103,7 @@ class StartAIAnalysisRequest extends Model
         'region' => 'region',
         'timeout' => 'timeout',
         'uid' => 'uid',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -108,6 +120,10 @@ class StartAIAnalysisRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->analysisTool) {
             $res['analysisTool'] = $this->analysisTool;
         }
@@ -178,6 +194,10 @@ class StartAIAnalysisRequest extends Model
             $res['uid'] = $this->uid;
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -189,6 +209,10 @@ class StartAIAnalysisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['analysisTool'])) {
             $model->analysisTool = $map['analysisTool'];
         }
@@ -257,6 +281,10 @@ class StartAIAnalysisRequest extends Model
 
         if (isset($map['uid'])) {
             $model->uid = $map['uid'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

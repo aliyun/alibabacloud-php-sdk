@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateEventsAttentionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $xDebugId;
+
+    /**
      * @var int
      */
     public $mode;
@@ -22,10 +27,17 @@ class UpdateEventsAttentionRequest extends Model
      * @var string
      */
     public $uuid;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'mode' => 'mode',
         'range' => 'range',
         'uuid' => 'uuid',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -36,6 +48,10 @@ class UpdateEventsAttentionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->mode) {
             $res['mode'] = $this->mode;
         }
@@ -46,6 +62,10 @@ class UpdateEventsAttentionRequest extends Model
 
         if (null !== $this->uuid) {
             $res['uuid'] = $this->uuid;
+        }
+
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
         }
 
         return $res;
@@ -59,6 +79,10 @@ class UpdateEventsAttentionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
         }
@@ -69,6 +93,10 @@ class UpdateEventsAttentionRequest extends Model
 
         if (isset($map['uuid'])) {
             $model->uuid = $map['uuid'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

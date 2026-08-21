@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class GetHotspotCompareRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $xDebugId;
+
+    /**
      * @var int
      */
     public $beg1End;
@@ -57,7 +62,13 @@ class GetHotspotCompareRequest extends Model
      * @var string
      */
     public $table;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'beg1End' => 'beg1_end',
         'beg1Start' => 'beg1_start',
         'beg2End' => 'beg2_end',
@@ -68,6 +79,7 @@ class GetHotspotCompareRequest extends Model
         'pid1' => 'pid1',
         'pid2' => 'pid2',
         'table' => 'table',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -78,6 +90,10 @@ class GetHotspotCompareRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->beg1End) {
             $res['beg1_end'] = $this->beg1End;
         }
@@ -118,6 +134,10 @@ class GetHotspotCompareRequest extends Model
             $res['table'] = $this->table;
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -129,6 +149,10 @@ class GetHotspotCompareRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['beg1_end'])) {
             $model->beg1End = $map['beg1_end'];
         }
@@ -167,6 +191,10 @@ class GetHotspotCompareRequest extends Model
 
         if (isset($map['table'])) {
             $model->table = $map['table'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetListRecordRequest extends Model
+class GetConfigByNameRequest extends Model
 {
     /**
      * @var string
@@ -16,27 +16,27 @@ class GetListRecordRequest extends Model
     /**
      * @var string
      */
-    public $analysisId;
-
-    /**
-     * @var int
-     */
-    public $current;
-
-    /**
-     * @var int
-     */
-    public $customId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $configName;
 
     /**
      * @var string
      */
-    public $region;
+    public $configType;
+
+    /**
+     * @var string
+     */
+    public $entityId;
+
+    /**
+     * @var bool
+     */
+    public $useGlobalUid;
+
+    /**
+     * @var int
+     */
+    public $versionId;
 
     /**
      * @var string
@@ -44,11 +44,11 @@ class GetListRecordRequest extends Model
     public $xSysomInvokeSource;
     protected $_name = [
         'xDebugId' => 'X-Debug-Id',
-        'analysisId' => 'analysisId',
-        'current' => 'current',
-        'customId' => 'customId',
-        'pageSize' => 'pageSize',
-        'region' => 'region',
+        'configName' => 'configName',
+        'configType' => 'configType',
+        'entityId' => 'entityId',
+        'useGlobalUid' => 'useGlobalUid',
+        'versionId' => 'versionId',
         'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
@@ -64,24 +64,24 @@ class GetListRecordRequest extends Model
             $res['X-Debug-Id'] = $this->xDebugId;
         }
 
-        if (null !== $this->analysisId) {
-            $res['analysisId'] = $this->analysisId;
+        if (null !== $this->configName) {
+            $res['configName'] = $this->configName;
         }
 
-        if (null !== $this->current) {
-            $res['current'] = $this->current;
+        if (null !== $this->configType) {
+            $res['configType'] = $this->configType;
         }
 
-        if (null !== $this->customId) {
-            $res['customId'] = $this->customId;
+        if (null !== $this->entityId) {
+            $res['entityId'] = $this->entityId;
         }
 
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
+        if (null !== $this->useGlobalUid) {
+            $res['useGlobalUid'] = $this->useGlobalUid;
         }
 
-        if (null !== $this->region) {
-            $res['region'] = $this->region;
+        if (null !== $this->versionId) {
+            $res['versionId'] = $this->versionId;
         }
 
         if (null !== $this->xSysomInvokeSource) {
@@ -103,24 +103,24 @@ class GetListRecordRequest extends Model
             $model->xDebugId = $map['X-Debug-Id'];
         }
 
-        if (isset($map['analysisId'])) {
-            $model->analysisId = $map['analysisId'];
+        if (isset($map['configName'])) {
+            $model->configName = $map['configName'];
         }
 
-        if (isset($map['current'])) {
-            $model->current = $map['current'];
+        if (isset($map['configType'])) {
+            $model->configType = $map['configType'];
         }
 
-        if (isset($map['customId'])) {
-            $model->customId = $map['customId'];
+        if (isset($map['entityId'])) {
+            $model->entityId = $map['entityId'];
         }
 
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
+        if (isset($map['useGlobalUid'])) {
+            $model->useGlobalUid = $map['useGlobalUid'];
         }
 
-        if (isset($map['region'])) {
-            $model->region = $map['region'];
+        if (isset($map['versionId'])) {
+            $model->versionId = $map['versionId'];
         }
 
         if (isset($map['x-sysom-invoke-source'])) {

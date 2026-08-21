@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class InitialSysomRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $xDebugId;
+
+    /**
      * @var bool
      */
     public $checkOnly;
@@ -17,9 +22,16 @@ class InitialSysomRequest extends Model
      * @var string
      */
     public $source;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'checkOnly' => 'check_only',
         'source' => 'source',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -30,12 +42,20 @@ class InitialSysomRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->checkOnly) {
             $res['check_only'] = $this->checkOnly;
         }
 
         if (null !== $this->source) {
             $res['source'] = $this->source;
+        }
+
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
         }
 
         return $res;
@@ -49,12 +69,20 @@ class InitialSysomRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['check_only'])) {
             $model->checkOnly = $map['check_only'];
         }
 
         if (isset($map['source'])) {
             $model->source = $map['source'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

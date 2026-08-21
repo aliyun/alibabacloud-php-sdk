@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListPluginsInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $xDebugId;
+
+    /**
      * @var int
      */
     public $current;
@@ -42,7 +47,13 @@ class ListPluginsInstancesRequest extends Model
      * @var string
      */
     public $region;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'current' => 'current',
         'instanceIdName' => 'instance_id_name',
         'instanceTag' => 'instance_tag',
@@ -50,6 +61,7 @@ class ListPluginsInstancesRequest extends Model
         'pageSize' => 'pageSize',
         'pluginId' => 'plugin_id',
         'region' => 'region',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -60,6 +72,10 @@ class ListPluginsInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->current) {
             $res['current'] = $this->current;
         }
@@ -88,6 +104,10 @@ class ListPluginsInstancesRequest extends Model
             $res['region'] = $this->region;
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -99,6 +119,10 @@ class ListPluginsInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['current'])) {
             $model->current = $map['current'];
         }
@@ -125,6 +149,10 @@ class ListPluginsInstancesRequest extends Model
 
         if (isset($map['region'])) {
             $model->region = $map['region'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

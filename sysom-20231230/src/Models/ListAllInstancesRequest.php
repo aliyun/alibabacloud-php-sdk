@@ -11,6 +11,11 @@ class ListAllInstancesRequest extends Model
     /**
      * @var string
      */
+    public $xDebugId;
+
+    /**
+     * @var string
+     */
     public $current;
 
     /**
@@ -52,7 +57,13 @@ class ListAllInstancesRequest extends Model
      * @var string
      */
     public $region;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'current' => 'current',
         'filters' => 'filters',
         'instanceType' => 'instanceType',
@@ -62,6 +73,7 @@ class ListAllInstancesRequest extends Model
         'pageSize' => 'pageSize',
         'pluginId' => 'pluginId',
         'region' => 'region',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -72,6 +84,10 @@ class ListAllInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->current) {
             $res['current'] = $this->current;
         }
@@ -108,6 +124,10 @@ class ListAllInstancesRequest extends Model
             $res['region'] = $this->region;
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -119,6 +139,10 @@ class ListAllInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['current'])) {
             $model->current = $map['current'];
         }
@@ -153,6 +177,10 @@ class ListAllInstancesRequest extends Model
 
         if (isset($map['region'])) {
             $model->region = $map['region'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CheckInstanceSupportRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $xDebugId;
+
+    /**
      * @var string[]
      */
     public $instances;
@@ -17,9 +22,16 @@ class CheckInstanceSupportRequest extends Model
      * @var string
      */
     public $region;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'instances' => 'instances',
         'region' => 'region',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -33,6 +45,10 @@ class CheckInstanceSupportRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->instances) {
             if (\is_array($this->instances)) {
                 $res['instances'] = [];
@@ -48,6 +64,10 @@ class CheckInstanceSupportRequest extends Model
             $res['region'] = $this->region;
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -59,6 +79,10 @@ class CheckInstanceSupportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['instances'])) {
             if (!empty($map['instances'])) {
                 $model->instances = [];
@@ -72,6 +96,10 @@ class CheckInstanceSupportRequest extends Model
 
         if (isset($map['region'])) {
             $model->region = $map['region'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

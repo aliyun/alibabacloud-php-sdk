@@ -11,6 +11,11 @@ class GetProblemPercentageRequest extends Model
     /**
      * @var string
      */
+    public $xDebugId;
+
+    /**
+     * @var string
+     */
     public $cluster;
 
     /**
@@ -27,11 +32,18 @@ class GetProblemPercentageRequest extends Model
      * @var float
      */
     public $start;
+
+    /**
+     * @var string
+     */
+    public $xSysomInvokeSource;
     protected $_name = [
+        'xDebugId' => 'X-Debug-Id',
         'cluster' => 'cluster',
         'end' => 'end',
         'instance' => 'instance',
         'start' => 'start',
+        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -42,6 +54,10 @@ class GetProblemPercentageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->xDebugId) {
+            $res['X-Debug-Id'] = $this->xDebugId;
+        }
+
         if (null !== $this->cluster) {
             $res['cluster'] = $this->cluster;
         }
@@ -58,6 +74,10 @@ class GetProblemPercentageRequest extends Model
             $res['start'] = $this->start;
         }
 
+        if (null !== $this->xSysomInvokeSource) {
+            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
+        }
+
         return $res;
     }
 
@@ -69,6 +89,10 @@ class GetProblemPercentageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['X-Debug-Id'])) {
+            $model->xDebugId = $map['X-Debug-Id'];
+        }
+
         if (isset($map['cluster'])) {
             $model->cluster = $map['cluster'];
         }
@@ -83,6 +107,10 @@ class GetProblemPercentageRequest extends Model
 
         if (isset($map['start'])) {
             $model->start = $map['start'];
+        }
+
+        if (isset($map['x-sysom-invoke-source'])) {
+            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;
