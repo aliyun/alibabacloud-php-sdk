@@ -215,6 +215,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfosRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfosResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetJobDetailRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetJobDetailResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAiAnalysisRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAiAnalysisResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditAudioResultDetailRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditAudioResultDetailResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultDetailRequest;
@@ -8967,6 +8969,75 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getJobDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the results of video AI analysis.
+     *
+     * @param request - GetMediaAiAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMediaAiAnalysisResponse
+     *
+     * @param GetMediaAiAnalysisRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMediaAiAnalysisResponse
+     */
+    public function getMediaAiAnalysisWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authTimeout) {
+            @$query['AuthTimeout'] = $request->authTimeout;
+        }
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
+        }
+
+        if (null !== $request->outputType) {
+            @$query['OutputType'] = $request->outputType;
+        }
+
+        if (null !== $request->resultTypes) {
+            @$query['ResultTypes'] = $request->resultTypes;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMediaAiAnalysis',
+            'version' => '2017-03-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMediaAiAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the results of video AI analysis.
+     *
+     * @param request - GetMediaAiAnalysisRequest
+     *
+     * @returns GetMediaAiAnalysisResponse
+     *
+     * @param GetMediaAiAnalysisRequest $request
+     *
+     * @return GetMediaAiAnalysisResponse
+     */
+    public function getMediaAiAnalysis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaAiAnalysisWithOptions($request, $runtime);
     }
 
     /**
