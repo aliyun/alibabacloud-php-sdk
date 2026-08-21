@@ -79,6 +79,11 @@ class CreateDomainRequest extends Model
     public $tlsMin;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -97,6 +102,7 @@ class CreateDomainRequest extends Model
         'tlsCipherSuitesConfig' => 'tlsCipherSuitesConfig',
         'tlsMax' => 'tlsMax',
         'tlsMin' => 'tlsMin',
+        'clientToken' => 'clientToken',
         'dryRun' => 'dryRun',
     ];
 
@@ -165,6 +171,10 @@ class CreateDomainRequest extends Model
 
         if (null !== $this->tlsMin) {
             $res['tlsMin'] = $this->tlsMin;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
 
         if (null !== $this->dryRun) {
@@ -236,6 +246,10 @@ class CreateDomainRequest extends Model
 
         if (isset($map['tlsMin'])) {
             $model->tlsMin = $map['tlsMin'];
+        }
+
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         if (isset($map['dryRun'])) {

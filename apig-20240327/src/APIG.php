@@ -1562,6 +1562,10 @@ class APIG extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->dryRun) {
             @$query['dryRun'] = $request->dryRun;
         }
