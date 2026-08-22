@@ -1396,7 +1396,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of threat types for custom rules.
+     * Retrieves the list of available threat types for custom rules.
      *
      * @param request - DescribeAlertTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1447,7 +1447,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of threat types for custom rules.
+     * Retrieves the list of available threat types for custom rules.
      *
      * @param request - DescribeAlertTypeRequest
      *
