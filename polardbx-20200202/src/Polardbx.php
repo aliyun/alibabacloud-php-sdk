@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\AlignStoragePrimaryAzoneRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AlignStoragePrimaryAzoneResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateColdDataVolumeRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateColdDataVolumeResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateContext0PublicConnectionRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateContext0PublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateContextDBPublicConnectionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateContextDBPublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateInstancePublicConnectionRequest;
@@ -35,6 +37,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateBackupResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateContext0Request;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateContext0Response;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateContextDBRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateContextDBResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateCustomEndpointRequest;
@@ -54,6 +58,12 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnStandbyMemberRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnStandbyMemberResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateMem0Request;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateMem0Response;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateOpenSearchAccountRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateOpenSearchAccountResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateOpenSearchRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateOpenSearchResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateOpenSearchWhitelistGroupRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateOpenSearchWhitelistGroupResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePolardbxSupabaseInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePolardbxSupabaseInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePxfuseRequest;
@@ -78,6 +88,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateTransformOperationRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateTransformOperationResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteContext0Request;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteContext0Response;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteContextDBRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteContextDBResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteCustomEndpointRequest;
@@ -92,6 +104,12 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteGdnInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteGdnInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteMem0Request;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteMem0Response;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteOpenSearchAccountRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteOpenSearchAccountResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteOpenSearchRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteOpenSearchResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteOpenSearchWhitelistGroupRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteOpenSearchWhitelistGroupResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePolardbxSupabaseInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePolardbxSupabaseInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePxfuseRequest;
@@ -140,6 +158,12 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeColumnarVersionListReques
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeColumnarVersionListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeComponentPropetiesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeComponentPropetiesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeContext0ConfigRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeContext0ConfigResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeContext0InfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeContext0InfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeContext0SecurityIpsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeContext0SecurityIpsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeContextDBConfigRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeContextDBConfigResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeContextDBInfoRequest;
@@ -190,6 +214,22 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeMem0SecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeMem0SecurityIpsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchAccountInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchAccountInfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchConnectionInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchConnectionInfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchInfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchInstancesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchInstancesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchNodesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchNodesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchResourceUsageRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchResourceUsageResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchTopologyRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchTopologyResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchWhitelistsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenSearchWhitelistsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterGroupsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterGroupsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersRequest;
@@ -243,10 +283,14 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTransformStatusRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTransformStatusResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeUserEncryptionKeyListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeUserEncryptionKeyListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableOpenSearchPublicEndpointRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableOpenSearchPublicEndpointResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableRightsSeparationRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableRightsSeparationResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableSqlAuditRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableSqlAuditResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableOpenSearchPublicEndpointRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableOpenSearchPublicEndpointResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableRightsSeparationRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableRightsSeparationResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableSqlAuditRequest;
@@ -269,6 +313,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyCdcClassRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyCdcClassResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyColumnarClassRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyColumnarClassResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyContext0SecurityIpsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyContext0SecurityIpsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyContextDBSecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyContextDBSecurityIpsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyCustomEndpointNetRequest;
@@ -293,6 +339,12 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyEngineMigrationRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyEngineMigrationResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyMem0SecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyMem0SecurityIpsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyOpenSearchAccessProtocolRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyOpenSearchAccessProtocolResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyOpenSearchClassRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyOpenSearchClassResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyOpenSearchWhitelistGroupRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyOpenSearchWhitelistGroupResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyPxfuseSecurityIpsRequest;
@@ -309,6 +361,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\RefreshImportMetaRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RefreshImportMetaResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseColdDataVolumeRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseColdDataVolumeResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseContext0PublicConnectionRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseContext0PublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseContextDBPublicConnectionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseContextDBPublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionRequest;
@@ -321,14 +375,22 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRestrictReque
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRestrictResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetMem0AccountPasswordRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetMem0AccountPasswordResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetOpenSearchPasswordRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetOpenSearchPasswordResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDataImportTaskRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDataImportTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartOpenSearchRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartOpenSearchResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartSupabaseInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartSupabaseInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestoreDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestoreDBInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ScaleInOpenSearchRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ScaleInOpenSearchResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ScaleOutOpenSearchRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ScaleOutOpenSearchResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\SkipCurrentStepRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\SkipCurrentStepResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\StartSwitchDatabaseRequest;
@@ -587,6 +649,85 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateColdDataVolumeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables a public network connection for a specified physical ReplicaSet of the context service.
+     *
+     * @remarks
+     * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+     *
+     * @param request - AllocateContext0PublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AllocateContext0PublicConnectionResponse
+     *
+     * @param AllocateContext0PublicConnectionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return AllocateContext0PublicConnectionResponse
+     */
+    public function allocateContext0PublicConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectionStringPrefix) {
+            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AllocateContext0PublicConnection',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AllocateContext0PublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables a public network connection for a specified physical ReplicaSet of the context service.
+     *
+     * @remarks
+     * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+     *
+     * @param request - AllocateContext0PublicConnectionRequest
+     *
+     * @returns AllocateContext0PublicConnectionResponse
+     *
+     * @param AllocateContext0PublicConnectionRequest $request
+     *
+     * @return AllocateContext0PublicConnectionResponse
+     */
+    public function allocateContext0PublicConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->allocateContext0PublicConnectionWithOptions($request, $runtime);
     }
 
     /**
@@ -1493,6 +1634,77 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBackupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a context service.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - CreateContext0Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContext0Response
+     *
+     * @param CreateContext0Request $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateContext0Response
+     */
+    public function createContext0WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->openSearchInstanceName) {
+            @$query['OpenSearchInstanceName'] = $request->openSearchInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContext0',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContext0Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a context service.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - CreateContext0Request
+     *
+     * @returns CreateContext0Response
+     *
+     * @param CreateContext0Request $request
+     *
+     * @return CreateContext0Response
+     */
+    public function createContext0($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createContext0WithOptions($request, $runtime);
     }
 
     /**
@@ -2412,6 +2624,299 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMem0WithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a PolarDBX Search instance.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - CreateOpenSearchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOpenSearchResponse
+     *
+     * @param CreateOpenSearchRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateOpenSearchResponse
+     */
+    public function createOpenSearchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBInstanceDescription) {
+            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        }
+
+        if (null !== $request->DBNodeClass) {
+            @$query['DBNodeClass'] = $request->DBNodeClass;
+        }
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
+        }
+
+        if (null !== $request->instanceSpec) {
+            @$query['InstanceSpec'] = $request->instanceSpec;
+        }
+
+        if (null !== $request->nodeCount) {
+            @$query['NodeCount'] = $request->nodeCount;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->storageSpace) {
+            @$query['StorageSpace'] = $request->storageSpace;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
+        }
+
+        if (null !== $request->topologyType) {
+            @$query['TopologyType'] = $request->topologyType;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
+        }
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->zone2) {
+            @$query['Zone2'] = $request->zone2;
+        }
+
+        if (null !== $request->zone3) {
+            @$query['Zone3'] = $request->zone3;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOpenSearch',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOpenSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a PolarDBX Search instance.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - CreateOpenSearchRequest
+     *
+     * @returns CreateOpenSearchResponse
+     *
+     * @param CreateOpenSearchRequest $request
+     *
+     * @return CreateOpenSearchResponse
+     */
+    public function createOpenSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOpenSearchWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建OpenSearch实例账号.
+     *
+     * @remarks
+     * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+     *
+     * @param request - CreateOpenSearchAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOpenSearchAccountResponse
+     *
+     * @param CreateOpenSearchAccountRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateOpenSearchAccountResponse
+     */
+    public function createOpenSearchAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOpenSearchAccount',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOpenSearchAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建OpenSearch实例账号.
+     *
+     * @remarks
+     * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+     *
+     * @param request - CreateOpenSearchAccountRequest
+     *
+     * @returns CreateOpenSearchAccountResponse
+     *
+     * @param CreateOpenSearchAccountRequest $request
+     *
+     * @return CreateOpenSearchAccountResponse
+     */
+    public function createOpenSearchAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOpenSearchAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a whitelist group for PolarDB-X Search.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - CreateOpenSearchWhitelistGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOpenSearchWhitelistGroupResponse
+     *
+     * @param CreateOpenSearchWhitelistGroupRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateOpenSearchWhitelistGroupResponse
+     */
+    public function createOpenSearchWhitelistGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->IPs) {
+            @$query['IPs'] = $request->IPs;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOpenSearchWhitelistGroup',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOpenSearchWhitelistGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a whitelist group for PolarDB-X Search.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - CreateOpenSearchWhitelistGroupRequest
+     *
+     * @returns CreateOpenSearchWhitelistGroupResponse
+     *
+     * @param CreateOpenSearchWhitelistGroupRequest $request
+     *
+     * @return CreateOpenSearchWhitelistGroupResponse
+     */
+    public function createOpenSearchWhitelistGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOpenSearchWhitelistGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -3363,6 +3868,73 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Deletes a context service.
+     *
+     * @remarks
+     * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+     *
+     * @param request - DeleteContext0Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContext0Response
+     *
+     * @param DeleteContext0Request $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteContext0Response
+     */
+    public function deleteContext0WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContext0',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContext0Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a context service.
+     *
+     * @remarks
+     * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+     *
+     * @param request - DeleteContext0Request
+     *
+     * @returns DeleteContext0Response
+     *
+     * @param DeleteContext0Request $request
+     *
+     * @return DeleteContext0Response
+     */
+    public function deleteContext0($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContext0WithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a ContextDB-X.
      *
      * @remarks
@@ -3819,6 +4391,219 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMem0WithOptions($request, $runtime);
+    }
+
+    /**
+     * 释放OpenSearch实例.
+     *
+     * @remarks
+     * 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+     *
+     * @param request - DeleteOpenSearchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOpenSearchResponse
+     *
+     * @param DeleteOpenSearchRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteOpenSearchResponse
+     */
+    public function deleteOpenSearchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOpenSearch',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOpenSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 释放OpenSearch实例.
+     *
+     * @remarks
+     * 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+     *
+     * @param request - DeleteOpenSearchRequest
+     *
+     * @returns DeleteOpenSearchResponse
+     *
+     * @param DeleteOpenSearchRequest $request
+     *
+     * @return DeleteOpenSearchResponse
+     */
+    public function deleteOpenSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOpenSearchWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除OpenSearch实例账号.
+     *
+     * @remarks
+     * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+     *
+     * @param request - DeleteOpenSearchAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOpenSearchAccountResponse
+     *
+     * @param DeleteOpenSearchAccountRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteOpenSearchAccountResponse
+     */
+    public function deleteOpenSearchAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOpenSearchAccount',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOpenSearchAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除OpenSearch实例账号.
+     *
+     * @remarks
+     * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+     *
+     * @param request - DeleteOpenSearchAccountRequest
+     *
+     * @returns DeleteOpenSearchAccountResponse
+     *
+     * @param DeleteOpenSearchAccountRequest $request
+     *
+     * @return DeleteOpenSearchAccountResponse
+     */
+    public function deleteOpenSearchAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOpenSearchAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除OpenSearch实例白名单分组.
+     *
+     * @remarks
+     * - binlog文件默认保存15天。
+     * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+     * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+     *
+     * @param request - DeleteOpenSearchWhitelistGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOpenSearchWhitelistGroupResponse
+     *
+     * @param DeleteOpenSearchWhitelistGroupRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteOpenSearchWhitelistGroupResponse
+     */
+    public function deleteOpenSearchWhitelistGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOpenSearchWhitelistGroup',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOpenSearchWhitelistGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除OpenSearch实例白名单分组.
+     *
+     * @remarks
+     * - binlog文件默认保存15天。
+     * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+     * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+     *
+     * @param request - DeleteOpenSearchWhitelistGroupRequest
+     *
+     * @returns DeleteOpenSearchWhitelistGroupResponse
+     *
+     * @param DeleteOpenSearchWhitelistGroupRequest $request
+     *
+     * @return DeleteOpenSearchWhitelistGroupResponse
+     */
+    public function deleteOpenSearchWhitelistGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOpenSearchWhitelistGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -5395,6 +6180,207 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeComponentPropetiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Context0管理凭证
+     *
+     * @remarks
+     * > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+     *
+     * @param request - DescribeContext0ConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContext0ConfigResponse
+     *
+     * @param DescribeContext0ConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeContext0ConfigResponse
+     */
+    public function describeContext0ConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeContext0Config',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeContext0ConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Context0管理凭证
+     *
+     * @remarks
+     * > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+     *
+     * @param request - DescribeContext0ConfigRequest
+     *
+     * @returns DescribeContext0ConfigResponse
+     *
+     * @param DescribeContext0ConfigRequest $request
+     *
+     * @return DescribeContext0ConfigResponse
+     */
+    public function describeContext0Config($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeContext0ConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the information about a context service instance.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
+     * @param request - DescribeContext0InfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContext0InfoResponse
+     *
+     * @param DescribeContext0InfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeContext0InfoResponse
+     */
+    public function describeContext0InfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeContext0Info',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeContext0InfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the information about a context service instance.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
+     * @param request - DescribeContext0InfoRequest
+     *
+     * @returns DescribeContext0InfoResponse
+     *
+     * @param DescribeContext0InfoRequest $request
+     *
+     * @return DescribeContext0InfoResponse
+     */
+    public function describeContext0Info($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeContext0InfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the whitelist of the context service.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
+     * @param request - DescribeContext0SecurityIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContext0SecurityIpsResponse
+     *
+     * @param DescribeContext0SecurityIpsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeContext0SecurityIpsResponse
+     */
+    public function describeContext0SecurityIpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeContext0SecurityIps',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeContext0SecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the whitelist of the context service.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
+     * @param request - DescribeContext0SecurityIpsRequest
+     *
+     * @returns DescribeContext0SecurityIpsResponse
+     *
+     * @param DescribeContext0SecurityIpsRequest $request
+     *
+     * @return DescribeContext0SecurityIpsResponse
+     */
+    public function describeContext0SecurityIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeContext0SecurityIpsWithOptions($request, $runtime);
     }
 
     /**
@@ -7110,6 +8096,566 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeOpenBackupSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the account information of PolarDB-X Search.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - DescribeOpenSearchAccountInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpenSearchAccountInfoResponse
+     *
+     * @param DescribeOpenSearchAccountInfoRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeOpenSearchAccountInfoResponse
+     */
+    public function describeOpenSearchAccountInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOpenSearchAccountInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOpenSearchAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the account information of PolarDB-X Search.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - DescribeOpenSearchAccountInfoRequest
+     *
+     * @returns DescribeOpenSearchAccountInfoResponse
+     *
+     * @param DescribeOpenSearchAccountInfoRequest $request
+     *
+     * @return DescribeOpenSearchAccountInfoResponse
+     */
+    public function describeOpenSearchAccountInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenSearchAccountInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the connection information of PolarDB-X Search, including internal, public, and Dashboard endpoints and protocols.
+     *
+     * @remarks
+     * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, replication interruption, or data inconsistency.
+     *
+     * @param request - DescribeOpenSearchConnectionInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpenSearchConnectionInfoResponse
+     *
+     * @param DescribeOpenSearchConnectionInfoRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeOpenSearchConnectionInfoResponse
+     */
+    public function describeOpenSearchConnectionInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOpenSearchConnectionInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOpenSearchConnectionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the connection information of PolarDB-X Search, including internal, public, and Dashboard endpoints and protocols.
+     *
+     * @remarks
+     * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, replication interruption, or data inconsistency.
+     *
+     * @param request - DescribeOpenSearchConnectionInfoRequest
+     *
+     * @returns DescribeOpenSearchConnectionInfoResponse
+     *
+     * @param DescribeOpenSearchConnectionInfoRequest $request
+     *
+     * @return DescribeOpenSearchConnectionInfoResponse
+     */
+    public function describeOpenSearchConnectionInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenSearchConnectionInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the information about a PolarDB-X Search instance.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
+     * @param request - DescribeOpenSearchInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpenSearchInfoResponse
+     *
+     * @param DescribeOpenSearchInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeOpenSearchInfoResponse
+     */
+    public function describeOpenSearchInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOpenSearchInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOpenSearchInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the information about a PolarDB-X Search instance.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
+     * @param request - DescribeOpenSearchInfoRequest
+     *
+     * @returns DescribeOpenSearchInfoResponse
+     *
+     * @param DescribeOpenSearchInfoRequest $request
+     *
+     * @return DescribeOpenSearchInfoResponse
+     */
+    public function describeOpenSearchInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenSearchInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询OpenSearch实例列表.
+     *
+     * @remarks
+     * 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+     *
+     * @param request - DescribeOpenSearchInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpenSearchInstancesResponse
+     *
+     * @param DescribeOpenSearchInstancesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeOpenSearchInstancesResponse
+     */
+    public function describeOpenSearchInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOpenSearchInstances',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOpenSearchInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询OpenSearch实例列表.
+     *
+     * @remarks
+     * 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+     *
+     * @param request - DescribeOpenSearchInstancesRequest
+     *
+     * @returns DescribeOpenSearchInstancesResponse
+     *
+     * @param DescribeOpenSearchInstancesRequest $request
+     *
+     * @return DescribeOpenSearchInstancesResponse
+     */
+    public function describeOpenSearchInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenSearchInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of PolarDB-X Search nodes.
+     *
+     * @remarks
+     * Retrieves the list of virtual private clouds (VPCs) available under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+     *
+     * @param request - DescribeOpenSearchNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpenSearchNodesResponse
+     *
+     * @param DescribeOpenSearchNodesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeOpenSearchNodesResponse
+     */
+    public function describeOpenSearchNodesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOpenSearchNodes',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOpenSearchNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of PolarDB-X Search nodes.
+     *
+     * @remarks
+     * Retrieves the list of virtual private clouds (VPCs) available under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+     *
+     * @param request - DescribeOpenSearchNodesRequest
+     *
+     * @returns DescribeOpenSearchNodesResponse
+     *
+     * @param DescribeOpenSearchNodesRequest $request
+     *
+     * @return DescribeOpenSearchNodesResponse
+     */
+    public function describeOpenSearchNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenSearchNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the resource usage of a PolarDB-X Search cluster.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - DescribeOpenSearchResourceUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpenSearchResourceUsageResponse
+     *
+     * @param DescribeOpenSearchResourceUsageRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeOpenSearchResourceUsageResponse
+     */
+    public function describeOpenSearchResourceUsageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOpenSearchResourceUsage',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOpenSearchResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the resource usage of a PolarDB-X Search cluster.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - DescribeOpenSearchResourceUsageRequest
+     *
+     * @returns DescribeOpenSearchResourceUsageResponse
+     *
+     * @param DescribeOpenSearchResourceUsageRequest $request
+     *
+     * @return DescribeOpenSearchResourceUsageResponse
+     */
+    public function describeOpenSearchResourceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenSearchResourceUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询OpenSearch实例拓扑.
+     *
+     * @remarks
+     * - binlog文件默认保存15天。
+     * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+     * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+     *
+     * @param request - DescribeOpenSearchTopologyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpenSearchTopologyResponse
+     *
+     * @param DescribeOpenSearchTopologyRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeOpenSearchTopologyResponse
+     */
+    public function describeOpenSearchTopologyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOpenSearchTopology',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOpenSearchTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询OpenSearch实例拓扑.
+     *
+     * @remarks
+     * - binlog文件默认保存15天。
+     * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+     * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+     *
+     * @param request - DescribeOpenSearchTopologyRequest
+     *
+     * @returns DescribeOpenSearchTopologyResponse
+     *
+     * @param DescribeOpenSearchTopologyRequest $request
+     *
+     * @return DescribeOpenSearchTopologyResponse
+     */
+    public function describeOpenSearchTopology($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenSearchTopologyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the whitelist of a PolarDB-X Search instance. You can filter the results by network type.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+     * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     *
+     * @param request - DescribeOpenSearchWhitelistsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpenSearchWhitelistsResponse
+     *
+     * @param DescribeOpenSearchWhitelistsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeOpenSearchWhitelistsResponse
+     */
+    public function describeOpenSearchWhitelistsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOpenSearchWhitelists',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOpenSearchWhitelistsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the whitelist of a PolarDB-X Search instance. You can filter the results by network type.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+     * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     *
+     * @param request - DescribeOpenSearchWhitelistsRequest
+     *
+     * @returns DescribeOpenSearchWhitelistsResponse
+     *
+     * @param DescribeOpenSearchWhitelistsRequest $request
+     *
+     * @return DescribeOpenSearchWhitelistsResponse
+     */
+    public function describeOpenSearchWhitelists($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenSearchWhitelistsWithOptions($request, $runtime);
     }
 
     /**
@@ -8980,6 +10526,77 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Disables public network access for PolarDB-X Search.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - DisableOpenSearchPublicEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableOpenSearchPublicEndpointResponse
+     *
+     * @param DisableOpenSearchPublicEndpointRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DisableOpenSearchPublicEndpointResponse
+     */
+    public function disableOpenSearchPublicEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableOpenSearchPublicEndpoint',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableOpenSearchPublicEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables public network access for PolarDB-X Search.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - DisableOpenSearchPublicEndpointRequest
+     *
+     * @returns DisableOpenSearchPublicEndpointResponse
+     *
+     * @param DisableOpenSearchPublicEndpointRequest $request
+     *
+     * @return DisableOpenSearchPublicEndpointResponse
+     */
+    public function disableOpenSearchPublicEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableOpenSearchPublicEndpointWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables three-role mode.
      *
      * @param request - DisableRightsSeparationRequest
@@ -9121,6 +10738,77 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableSqlAuditWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables public network access for PolarDBX Search.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - EnableOpenSearchPublicEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableOpenSearchPublicEndpointResponse
+     *
+     * @param EnableOpenSearchPublicEndpointRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return EnableOpenSearchPublicEndpointResponse
+     */
+    public function enableOpenSearchPublicEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableOpenSearchPublicEndpoint',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableOpenSearchPublicEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables public network access for PolarDBX Search.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - EnableOpenSearchPublicEndpointRequest
+     *
+     * @returns EnableOpenSearchPublicEndpointResponse
+     *
+     * @param EnableOpenSearchPublicEndpointRequest $request
+     *
+     * @return EnableOpenSearchPublicEndpointResponse
+     */
+    public function enableOpenSearchPublicEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableOpenSearchPublicEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -9948,6 +11636,83 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyColumnarClassWithOptions($request, $runtime);
+    }
+
+    /**
+     * Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+     *
+     * @remarks
+     *
+     * @param request - ModifyContext0SecurityIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyContext0SecurityIpsResponse
+     *
+     * @param ModifyContext0SecurityIpsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyContext0SecurityIpsResponse
+     */
+    public function modifyContext0SecurityIpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->modifyMode) {
+            @$query['ModifyMode'] = $request->modifyMode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyContext0SecurityIps',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyContext0SecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+     *
+     * @remarks
+     *
+     * @param request - ModifyContext0SecurityIpsRequest
+     *
+     * @returns ModifyContext0SecurityIpsResponse
+     *
+     * @param ModifyContext0SecurityIpsRequest $request
+     *
+     * @return ModifyContext0SecurityIpsResponse
+     */
+    public function modifyContext0SecurityIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyContext0SecurityIpsWithOptions($request, $runtime);
     }
 
     /**
@@ -10893,6 +12658,225 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Switches the access protocol (HTTP/HTTPS) for PolarDB-X Search.
+     *
+     * @remarks
+     *
+     * @param request - ModifyOpenSearchAccessProtocolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyOpenSearchAccessProtocolResponse
+     *
+     * @param ModifyOpenSearchAccessProtocolRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyOpenSearchAccessProtocolResponse
+     */
+    public function modifyOpenSearchAccessProtocolWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyOpenSearchAccessProtocol',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyOpenSearchAccessProtocolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Switches the access protocol (HTTP/HTTPS) for PolarDB-X Search.
+     *
+     * @remarks
+     *
+     * @param request - ModifyOpenSearchAccessProtocolRequest
+     *
+     * @returns ModifyOpenSearchAccessProtocolResponse
+     *
+     * @param ModifyOpenSearchAccessProtocolRequest $request
+     *
+     * @return ModifyOpenSearchAccessProtocolResponse
+     */
+    public function modifyOpenSearchAccessProtocol($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyOpenSearchAccessProtocolWithOptions($request, $runtime);
+    }
+
+    /**
+     * Changes the specifications of a PolarDB-X Search instance.
+     *
+     * @remarks
+     *
+     * @param request - ModifyOpenSearchClassRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyOpenSearchClassResponse
+     *
+     * @param ModifyOpenSearchClassRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyOpenSearchClassResponse
+     */
+    public function modifyOpenSearchClassWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceDiskSize) {
+            @$query['DBInstanceDiskSize'] = $request->DBInstanceDiskSize;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchClassCode) {
+            @$query['SearchClassCode'] = $request->searchClassCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyOpenSearchClass',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyOpenSearchClassResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Changes the specifications of a PolarDB-X Search instance.
+     *
+     * @remarks
+     *
+     * @param request - ModifyOpenSearchClassRequest
+     *
+     * @returns ModifyOpenSearchClassResponse
+     *
+     * @param ModifyOpenSearchClassRequest $request
+     *
+     * @return ModifyOpenSearchClassResponse
+     */
+    public function modifyOpenSearchClass($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyOpenSearchClassWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies a PolarDB-X Search whitelist group.
+     *
+     * @remarks
+     *
+     * @param request - ModifyOpenSearchWhitelistGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyOpenSearchWhitelistGroupResponse
+     *
+     * @param ModifyOpenSearchWhitelistGroupRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyOpenSearchWhitelistGroupResponse
+     */
+    public function modifyOpenSearchWhitelistGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->IPs) {
+            @$query['IPs'] = $request->IPs;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyOpenSearchWhitelistGroup',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyOpenSearchWhitelistGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a PolarDB-X Search whitelist group.
+     *
+     * @remarks
+     *
+     * @param request - ModifyOpenSearchWhitelistGroupRequest
+     *
+     * @returns ModifyOpenSearchWhitelistGroupResponse
+     *
+     * @param ModifyOpenSearchWhitelistGroupRequest $request
+     *
+     * @return ModifyOpenSearchWhitelistGroupResponse
+     */
+    public function modifyOpenSearchWhitelistGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyOpenSearchWhitelistGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies instance parameters, including parameters at the compute layer and storage layer.
      *
      * @param request - ModifyParameterRequest
@@ -11465,6 +13449,81 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Shuts down the public network connection of a specified physical ReplicaSet for the context service.
+     *
+     * @remarks
+     * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+     *
+     * @param request - ReleaseContext0PublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseContext0PublicConnectionResponse
+     *
+     * @param ReleaseContext0PublicConnectionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ReleaseContext0PublicConnectionResponse
+     */
+    public function releaseContext0PublicConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentConnectionString) {
+            @$query['CurrentConnectionString'] = $request->currentConnectionString;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReleaseContext0PublicConnection',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReleaseContext0PublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Shuts down the public network connection of a specified physical ReplicaSet for the context service.
+     *
+     * @remarks
+     * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+     *
+     * @param request - ReleaseContext0PublicConnectionRequest
+     *
+     * @returns ReleaseContext0PublicConnectionResponse
+     *
+     * @param ReleaseContext0PublicConnectionRequest $request
+     *
+     * @return ReleaseContext0PublicConnectionResponse
+     */
+    public function releaseContext0PublicConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseContext0PublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Shuts down the public network connection for a ContextDB-X service ReplicaSet.
      *
      * @remarks
@@ -11905,6 +13964,79 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Resets the password of a PolarDB-X Search instance without requiring the old password (RAM permission check required).
+     *
+     * @remarks
+     *
+     * @param request - ResetOpenSearchPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetOpenSearchPasswordResponse
+     *
+     * @param ResetOpenSearchPasswordRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ResetOpenSearchPasswordResponse
+     */
+    public function resetOpenSearchPasswordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetOpenSearchPassword',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetOpenSearchPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Resets the password of a PolarDB-X Search instance without requiring the old password (RAM permission check required).
+     *
+     * @remarks
+     *
+     * @param request - ResetOpenSearchPasswordRequest
+     *
+     * @returns ResetOpenSearchPasswordResponse
+     *
+     * @param ResetOpenSearchPasswordRequest $request
+     *
+     * @return ResetOpenSearchPasswordResponse
+     */
+    public function resetOpenSearchPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetOpenSearchPasswordWithOptions($request, $runtime);
+    }
+
+    /**
      * Restarts an instance by calling the RestartDBInstance operation.
      *
      * @param request - RestartDBInstanceRequest
@@ -12032,6 +14164,71 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartDataImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重启OpenSearch实例.
+     *
+     * @remarks
+     *
+     * @param request - RestartOpenSearchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartOpenSearchResponse
+     *
+     * @param RestartOpenSearchRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RestartOpenSearchResponse
+     */
+    public function restartOpenSearchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartOpenSearch',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartOpenSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重启OpenSearch实例.
+     *
+     * @remarks
+     *
+     * @param request - RestartOpenSearchRequest
+     *
+     * @returns RestartOpenSearchResponse
+     *
+     * @param RestartOpenSearchRequest $request
+     *
+     * @return RestartOpenSearchResponse
+     */
+    public function restartOpenSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartOpenSearchWithOptions($request, $runtime);
     }
 
     /**
@@ -12278,6 +14475,146 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restoreDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Scales in nodes of a PolarDB-X Search cluster.
+     *
+     * @remarks
+     *
+     * @param request - ScaleInOpenSearchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScaleInOpenSearchResponse
+     *
+     * @param ScaleInOpenSearchRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ScaleInOpenSearchResponse
+     */
+    public function scaleInOpenSearchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchNodeCount) {
+            @$query['SearchNodeCount'] = $request->searchNodeCount;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ScaleInOpenSearch',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ScaleInOpenSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Scales in nodes of a PolarDB-X Search cluster.
+     *
+     * @remarks
+     *
+     * @param request - ScaleInOpenSearchRequest
+     *
+     * @returns ScaleInOpenSearchResponse
+     *
+     * @param ScaleInOpenSearchRequest $request
+     *
+     * @return ScaleInOpenSearchResponse
+     */
+    public function scaleInOpenSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->scaleInOpenSearchWithOptions($request, $runtime);
+    }
+
+    /**
+     * Scales out nodes in a PolarDB-X Search cluster.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - ScaleOutOpenSearchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScaleOutOpenSearchResponse
+     *
+     * @param ScaleOutOpenSearchRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ScaleOutOpenSearchResponse
+     */
+    public function scaleOutOpenSearchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchNodeCount) {
+            @$query['SearchNodeCount'] = $request->searchNodeCount;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ScaleOutOpenSearch',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ScaleOutOpenSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Scales out nodes in a PolarDB-X Search cluster.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - ScaleOutOpenSearchRequest
+     *
+     * @returns ScaleOutOpenSearchResponse
+     *
+     * @param ScaleOutOpenSearchRequest $request
+     *
+     * @return ScaleOutOpenSearchResponse
+     */
+    public function scaleOutOpenSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->scaleOutOpenSearchWithOptions($request, $runtime);
     }
 
     /**
