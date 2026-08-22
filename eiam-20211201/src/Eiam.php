@@ -12357,10 +12357,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the active license information for an instance.
+     * Queries the license information that is currently effective for an instance.
      *
      * @remarks
-     * Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
+     * Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
      *
      * @param request - GetInstanceLicenseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12399,10 +12399,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the active license information for an instance.
+     * Queries the license information that is currently effective for an instance.
      *
      * @remarks
-     * Ensure the instance is not in use before deletion. Deleting an EIAM instance permanently removes all of its associated data.
+     * Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
      *
      * @param request - GetInstanceLicenseRequest
      *

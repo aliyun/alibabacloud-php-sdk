@@ -34,6 +34,11 @@ class instanceLicenseDetail extends Model
     public $networkAccessEndpointQuota;
 
     /**
+     * @var string
+     */
+    public $pamLicenseStatus;
+
+    /**
      * @var int
      */
     public $prepaidActiveUserNumber;
@@ -48,6 +53,7 @@ class instanceLicenseDetail extends Model
         'm2mApplicationQuota' => 'M2mApplicationQuota',
         'mimApplicationLicenseStatus' => 'MimApplicationLicenseStatus',
         'networkAccessEndpointQuota' => 'NetworkAccessEndpointQuota',
+        'pamLicenseStatus' => 'PamLicenseStatus',
         'prepaidActiveUserNumber' => 'PrepaidActiveUserNumber',
         'userQuota' => 'UserQuota',
     ];
@@ -78,6 +84,10 @@ class instanceLicenseDetail extends Model
 
         if (null !== $this->networkAccessEndpointQuota) {
             $res['NetworkAccessEndpointQuota'] = $this->networkAccessEndpointQuota;
+        }
+
+        if (null !== $this->pamLicenseStatus) {
+            $res['PamLicenseStatus'] = $this->pamLicenseStatus;
         }
 
         if (null !== $this->prepaidActiveUserNumber) {
@@ -117,6 +127,10 @@ class instanceLicenseDetail extends Model
 
         if (isset($map['NetworkAccessEndpointQuota'])) {
             $model->networkAccessEndpointQuota = $map['NetworkAccessEndpointQuota'];
+        }
+
+        if (isset($map['PamLicenseStatus'])) {
+            $model->pamLicenseStatus = $map['PamLicenseStatus'];
         }
 
         if (isset($map['PrepaidActiveUserNumber'])) {
