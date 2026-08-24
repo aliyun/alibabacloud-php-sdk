@@ -14,6 +14,8 @@ use AlibabaCloud\Dara\RetryPolicy\RetryPolicyContext;
 use AlibabaCloud\Dara\Util\FormUtil;
 use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
+use AlibabaCloud\SDK\DtsAI\V20260401\Models\AuthorizeFileUploadRequest;
+use AlibabaCloud\SDK\DtsAI\V20260401\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\DtsAI\V20260401\Models\CreateDocParserJobAdvanceRequest;
 use AlibabaCloud\SDK\DtsAI\V20260401\Models\CreateDocParserJobRequest;
 use AlibabaCloud\SDK\DtsAI\V20260401\Models\CreateDocParserJobResponse;
@@ -167,11 +169,76 @@ class DtsAI extends OpenApiClient
     }
 
     /**
+     * Uploads a file directly to the Bucket/ObjectKey specified in the response, and then uses the object URL as OssFileUrl to create a parsing task.
+     *
+     * @param Request - AuthorizeFileUploadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeFileUploadResponse
+     *
+     * @param AuthorizeFileUploadRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AuthorizeFileUploadResponse
+     */
+    public function authorizeFileUploadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->fileFormat) {
+            @$query['FileFormat'] = $request->fileFormat;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2026-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AuthorizeFileUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Uploads a file directly to the Bucket/ObjectKey specified in the response, and then uses the object URL as OssFileUrl to create a parsing task.
+     *
+     * @param Request - AuthorizeFileUploadRequest
+     *
+     * @returns AuthorizeFileUploadResponse
+     *
+     * @param AuthorizeFileUploadRequest $request
+     *
+     * @return AuthorizeFileUploadResponse
+     */
+    public function authorizeFileUpload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->authorizeFileUploadWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a document parsing task.
      *
      * @remarks
      * - Region: Only China (Beijing) is supported.
-     * - Fees: Free during the public preview period. No fees are charged.
+     * - Fees: The service is free of charge during the public preview period.
      *
      * @param Request - CreateDocParserJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -306,7 +373,7 @@ class DtsAI extends OpenApiClient
      *
      * @remarks
      * - Region: Only China (Beijing) is supported.
-     * - Fees: Free during the public preview period. No fees are charged.
+     * - Fees: The service is free of charge during the public preview period.
      *
      * @param Request - CreateDocParserJobRequest
      *
@@ -572,7 +639,7 @@ class DtsAI extends OpenApiClient
      *
      * @remarks
      * - Region: Only China (Beijing) and Singapore regions are supported.
-     * - Pricing: Free of charge during the public preview period.
+     * - Fees: Free of charge during the public preview period.
      *
      * @param Request - WebFetchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -627,7 +694,7 @@ class DtsAI extends OpenApiClient
      *
      * @remarks
      * - Region: Only China (Beijing) and Singapore regions are supported.
-     * - Pricing: Free of charge during the public preview period.
+     * - Fees: Free of charge during the public preview period.
      *
      * @param Request - WebFetchRequest
      *
