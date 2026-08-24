@@ -31,6 +31,11 @@ class data extends Model
     /**
      * @var bool
      */
+    public $enable;
+
+    /**
+     * @var bool
+     */
     public $hotEnable;
 
     /**
@@ -94,6 +99,11 @@ class data extends Model
     public $supportMigration;
 
     /**
+     * @var bool
+     */
+    public $supportSecurityAudit;
+
+    /**
      * @var string
      */
     public $supportVersion;
@@ -107,6 +117,7 @@ class data extends Model
         'coldRetention' => 'ColdRetention',
         'coldStartTime' => 'ColdStartTime',
         'collectorVersion' => 'CollectorVersion',
+        'enable' => 'Enable',
         'hotEnable' => 'HotEnable',
         'hotRetention' => 'HotRetention',
         'hotStartTime' => 'HotStartTime',
@@ -120,6 +131,7 @@ class data extends Model
         'sqlLogState' => 'SqlLogState',
         'sqlLogVisibleTime' => 'SqlLogVisibleTime',
         'supportMigration' => 'SupportMigration',
+        'supportSecurityAudit' => 'SupportSecurityAudit',
         'supportVersion' => 'SupportVersion',
         'version' => 'Version',
     ];
@@ -146,6 +158,10 @@ class data extends Model
 
         if (null !== $this->collectorVersion) {
             $res['CollectorVersion'] = $this->collectorVersion;
+        }
+
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
         }
 
         if (null !== $this->hotEnable) {
@@ -200,6 +216,10 @@ class data extends Model
             $res['SupportMigration'] = $this->supportMigration;
         }
 
+        if (null !== $this->supportSecurityAudit) {
+            $res['SupportSecurityAudit'] = $this->supportSecurityAudit;
+        }
+
         if (null !== $this->supportVersion) {
             $res['SupportVersion'] = $this->supportVersion;
         }
@@ -233,6 +253,10 @@ class data extends Model
 
         if (isset($map['CollectorVersion'])) {
             $model->collectorVersion = $map['CollectorVersion'];
+        }
+
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
         }
 
         if (isset($map['HotEnable'])) {
@@ -285,6 +309,10 @@ class data extends Model
 
         if (isset($map['SupportMigration'])) {
             $model->supportMigration = $map['SupportMigration'];
+        }
+
+        if (isset($map['SupportSecurityAudit'])) {
+            $model->supportSecurityAudit = $map['SupportSecurityAudit'];
         }
 
         if (isset($map['SupportVersion'])) {

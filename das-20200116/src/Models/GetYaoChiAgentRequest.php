@@ -16,6 +16,11 @@ class GetYaoChiAgentRequest extends Model
     /**
      * @var string
      */
+    public $imageKeys;
+
+    /**
+     * @var string
+     */
     public $query;
 
     /**
@@ -29,6 +34,7 @@ class GetYaoChiAgentRequest extends Model
     public $source;
     protected $_name = [
         'extraInfo' => 'ExtraInfo',
+        'imageKeys' => 'ImageKeys',
         'query' => 'Query',
         'sessionId' => 'SessionId',
         'source' => 'Source',
@@ -44,6 +50,10 @@ class GetYaoChiAgentRequest extends Model
         $res = [];
         if (null !== $this->extraInfo) {
             $res['ExtraInfo'] = $this->extraInfo;
+        }
+
+        if (null !== $this->imageKeys) {
+            $res['ImageKeys'] = $this->imageKeys;
         }
 
         if (null !== $this->query) {
@@ -71,6 +81,10 @@ class GetYaoChiAgentRequest extends Model
         $model = new self();
         if (isset($map['ExtraInfo'])) {
             $model->extraInfo = $map['ExtraInfo'];
+        }
+
+        if (isset($map['ImageKeys'])) {
+            $model->imageKeys = $map['ImageKeys'];
         }
 
         if (isset($map['Query'])) {

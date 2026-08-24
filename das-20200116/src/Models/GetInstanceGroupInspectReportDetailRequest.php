@@ -17,9 +17,15 @@ class GetInstanceGroupInspectReportDetailRequest extends Model
      * @var string
      */
     public $reportId;
+
+    /**
+     * @var string
+     */
+    public $reportType;
     protected $_name = [
         'agentId' => 'AgentId',
         'reportId' => 'ReportId',
+        'reportType' => 'ReportType',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class GetInstanceGroupInspectReportDetailRequest extends Model
 
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
+        }
+
+        if (null !== $this->reportType) {
+            $res['ReportType'] = $this->reportType;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class GetInstanceGroupInspectReportDetailRequest extends Model
 
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
+        }
+
+        if (isset($map['ReportType'])) {
+            $model->reportType = $map['ReportType'];
         }
 
         return $model;

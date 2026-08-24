@@ -24,6 +24,11 @@ class GetInstanceGroupInspectReportListRequest extends Model
     public $groupId;
 
     /**
+     * @var string
+     */
+    public $reportType;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -31,6 +36,7 @@ class GetInstanceGroupInspectReportListRequest extends Model
         'agentId' => 'AgentId',
         'endTime' => 'EndTime',
         'groupId' => 'GroupId',
+        'reportType' => 'ReportType',
         'startTime' => 'StartTime',
     ];
 
@@ -52,6 +58,10 @@ class GetInstanceGroupInspectReportListRequest extends Model
 
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+
+        if (null !== $this->reportType) {
+            $res['ReportType'] = $this->reportType;
         }
 
         if (null !== $this->startTime) {
@@ -79,6 +89,10 @@ class GetInstanceGroupInspectReportListRequest extends Model
 
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+
+        if (isset($map['ReportType'])) {
+            $model->reportType = $map['ReportType'];
         }
 
         if (isset($map['StartTime'])) {

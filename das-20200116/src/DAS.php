@@ -242,6 +242,7 @@ class DAS extends OpenApiClient
         $this->_endpointRule = 'central';
         $this->_endpointMap = [
             'cn-shanghai' => 'das.cn-shanghai.aliyuncs.com',
+            'cn-north-2-gov-1' => 'das.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('das', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -276,8 +277,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+     * - If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call DAS, you must set the region to cn-shanghai.
      *
      * @param request - AddHDMInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -368,8 +369,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+     * - If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call DAS, you must set the region to cn-shanghai.
      *
      * @param request - AddHDMInstanceRequest
      *
@@ -387,7 +388,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * DAS大模型能力异步逻辑接口.
+     * An asynchronous API to access the large language model capabilities of DAS.
+     *
+     * @remarks
+     * Prerequisites:
+     * - Use the latest version of the Alibaba Cloud SDK or the DAS SDK.
+     * - When you use an SDK to call the DAS service, you must specify the region as cn-shanghai.
+     * - You can create offline tasks only for database instances that have DAS Enterprise Edition enabled. For information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [DAS product editions and features](https://help.aliyun.com/document_detail/156204.html).
+     * For more information about using the Chat API with DAS Agent, see [Best practices for DAS Agent interaction (integrating with the Chat API)](https://help.aliyun.com/zh/das/developer-reference/chat-api-best-practice).
      *
      * @param request - ChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -451,7 +459,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * DAS大模型能力异步逻辑接口.
+     * An asynchronous API to access the large language model capabilities of DAS.
+     *
+     * @remarks
+     * Prerequisites:
+     * - Use the latest version of the Alibaba Cloud SDK or the DAS SDK.
+     * - When you use an SDK to call the DAS service, you must specify the region as cn-shanghai.
+     * - You can create offline tasks only for database instances that have DAS Enterprise Edition enabled. For information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [DAS product editions and features](https://help.aliyun.com/document_detail/156204.html).
+     * For more information about using the Chat API with DAS Agent, see [Best practices for DAS Agent interaction (integrating with the Chat API)](https://help.aliyun.com/zh/das/developer-reference/chat-api-best-practice).
      *
      * @param request - ChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -502,7 +517,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * DAS大模型能力异步逻辑接口.
+     * An asynchronous API to access the large language model capabilities of DAS.
+     *
+     * @remarks
+     * Prerequisites:
+     * - Use the latest version of the Alibaba Cloud SDK or the DAS SDK.
+     * - When you use an SDK to call the DAS service, you must specify the region as cn-shanghai.
+     * - You can create offline tasks only for database instances that have DAS Enterprise Edition enabled. For information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [DAS product editions and features](https://help.aliyun.com/document_detail/156204.html).
+     * For more information about using the Chat API with DAS Agent, see [Best practices for DAS Agent interaction (integrating with the Chat API)](https://help.aliyun.com/zh/das/developer-reference/chat-api-best-practice).
      *
      * @param request - ChatRequest
      *
@@ -520,15 +542,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a cache analysis task.
+     * Creates a cache analysis task by calling the CreateCacheAnalysisJob operation.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   You can call this operation to analyze the data structures of ApsaraDB for Redis and the following self-developed data structures of Tair: TairString, TairHash, TairGIS, TairBloom, TairDoc, TairCpc, and TairZset. Other self-developed Tair data structures are not supported.
-     * *   If the specifications of the database instance that you want to analyze are changed, the backup file generated before the specification change cannot be analyzed.
-     * *   Tair ESSD/SSD-based instances are not supported.
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
+     * - Only Redis data structures and the following Tair-developed data structures are supported for analysis: TairString, TairHash, TairGIS, TairBloom, TairDoc, TairCpc, and TairZset. Other Tair-developed data structures are not supported.
+     * - If the specifications of the target instance have been changed, backup files generated before the change cannot be analyzed.
+     * - Tair ESSD-based instances are not supported.
      *
      * @param request - CreateCacheAnalysisJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -579,15 +601,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a cache analysis task.
+     * Creates a cache analysis task by calling the CreateCacheAnalysisJob operation.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   You can call this operation to analyze the data structures of ApsaraDB for Redis and the following self-developed data structures of Tair: TairString, TairHash, TairGIS, TairBloom, TairDoc, TairCpc, and TairZset. Other self-developed Tair data structures are not supported.
-     * *   If the specifications of the database instance that you want to analyze are changed, the backup file generated before the specification change cannot be analyzed.
-     * *   Tair ESSD/SSD-based instances are not supported.
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
+     * - Only Redis data structures and the following Tair-developed data structures are supported for analysis: TairString, TairHash, TairGIS, TairBloom, TairDoc, TairCpc, and TairZset. Other Tair-developed data structures are not supported.
+     * - If the specifications of the target instance have been changed, backup files generated before the change cannot be analyzed.
+     * - Tair ESSD-based instances are not supported.
      *
      * @param request - CreateCacheAnalysisJobRequest
      *
@@ -605,14 +627,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates stress testing tasks.
+     * You can call the CreateCloudBenchTasks operation to create a stress testing task.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html). Before you call this API operation, make sure that your database instances meet the following requirements:
-     * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition cluster.
-     * *   The destination database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
-     * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](https://help.aliyun.com/document_detail/65405.html).
-     * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](https://help.aliyun.com/document_detail/190912.html).
+     * Database Autonomy Service (DAS) provides intelligent stress testing to help you verify whether your instance type needs to be scaled out to effectively handle service traffic peaks. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html). The database must meet the following prerequisites:
+     * - The source database only supports RDS MySQL High Availability Edition or RDS Enterprise Edition, and PolarDB MySQL cluster edition.
+     * - The target database instance is RDS MySQL or PolarDB MySQL.
+     * - The instance is connected to DAS. For more information, see [Connect to Alibaba Cloud database instances](https://help.aliyun.com/document_detail/65405.html).
+     * - DAS Enterprise Edition must be enabled. For more information, see [DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
      *
      * @param request - CreateCloudBenchTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -755,14 +777,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates stress testing tasks.
+     * You can call the CreateCloudBenchTasks operation to create a stress testing task.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html). Before you call this API operation, make sure that your database instances meet the following requirements:
-     * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition cluster.
-     * *   The destination database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
-     * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](https://help.aliyun.com/document_detail/65405.html).
-     * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](https://help.aliyun.com/document_detail/190912.html).
+     * Database Autonomy Service (DAS) provides intelligent stress testing to help you verify whether your instance type needs to be scaled out to effectively handle service traffic peaks. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html). The database must meet the following prerequisites:
+     * - The source database only supports RDS MySQL High Availability Edition or RDS Enterprise Edition, and PolarDB MySQL cluster edition.
+     * - The target database instance is RDS MySQL or PolarDB MySQL.
+     * - The instance is connected to DAS. For more information, see [Connect to Alibaba Cloud database instances](https://help.aliyun.com/document_detail/65405.html).
+     * - DAS Enterprise Edition must be enabled. For more information, see [DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
      *
      * @param request - CreateCloudBenchTasksRequest
      *
@@ -784,13 +806,13 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
-     * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.3 or later.
-     * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   RDS MySQL
-     *     *   PolarDB for MySQL
-     *     *   Redis
+     * - If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
+     * - The version of Database Autonomy Service (DAS) SDK must be 1.0.3 or later.
+     * - If you use an SDK to call DAS, you must set the region to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - RDS MySQL
+     *   - PolarDB for MySQL
+     *   - Redis
      *
      * @param request - CreateDiagnosticReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -841,13 +863,13 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
-     * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.3 or later.
-     * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   RDS MySQL
-     *     *   PolarDB for MySQL
-     *     *   Redis
+     * - If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
+     * - The version of Database Autonomy Service (DAS) SDK must be 1.0.3 or later.
+     * - If you use an SDK to call DAS, you must set the region to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - RDS MySQL
+     *   - PolarDB for MySQL
+     *   - Redis
      *
      * @param request - CreateDiagnosticReportRequest
      *
@@ -865,12 +887,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a task that terminates sessions.
+     * Calls the CreateKillInstanceSessionTask operation to create a task that terminates sessions.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL and PolarDB for MySQL instances.
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - CreateKillInstanceSessionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -933,12 +955,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates a task that terminates sessions.
+     * Calls the CreateKillInstanceSessionTask operation to create a task that terminates sessions.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL and PolarDB for MySQL instances.
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - CreateKillInstanceSessionTaskRequest
      *
@@ -1031,6 +1053,13 @@ class DAS extends OpenApiClient
     /**
      * Creates a recent deadlock analysis task.
      *
+     * @remarks
+     * This operation creates a recent deadlock analysis task. Database Autonomy Service (DAS) analyzes the most recent deadlock log returned by SHOW ENGINE INNODB STATUS. If multiple deadlocks have occurred, DAS analyzes only the most recent one. For more information, see [Recent deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
+     * Before you begin, make sure the following prerequisites are met:
+     * - The database engine is one of the following: ApsaraDB RDS for MySQL, self-managed MySQL, PolarDB for MySQL, or PolarDB-X 2.0.
+     * - If you use the China site (Chinese) or DAS SDK, use the latest version.
+     * - When you call DAS by using the SDK, set the region to cn-shanghai.
+     *
      * @param request - CreateLatestDeadLockAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1074,6 +1103,13 @@ class DAS extends OpenApiClient
     /**
      * Creates a recent deadlock analysis task.
      *
+     * @remarks
+     * This operation creates a recent deadlock analysis task. Database Autonomy Service (DAS) analyzes the most recent deadlock log returned by SHOW ENGINE INNODB STATUS. If multiple deadlocks have occurred, DAS analyzes only the most recent one. For more information, see [Recent deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
+     * Before you begin, make sure the following prerequisites are met:
+     * - The database engine is one of the following: ApsaraDB RDS for MySQL, self-managed MySQL, PolarDB for MySQL, or PolarDB-X 2.0.
+     * - If you use the China site (Chinese) or DAS SDK, use the latest version.
+     * - When you call DAS by using the SDK, set the region to cn-shanghai.
+     *
      * @param request - CreateLatestDeadLockAnalysisRequest
      *
      * @returns CreateLatestDeadLockAnalysisResponse
@@ -1093,12 +1129,12 @@ class DAS extends OpenApiClient
      * Adds a tag to a SQL template.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - CreateQueryOptimizeTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1160,12 +1196,12 @@ class DAS extends OpenApiClient
      * Adds a tag to a SQL template.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - CreateQueryOptimizeTagRequest
      *
@@ -1187,15 +1223,15 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call Database Autonomy Service (DAS), you must set the region to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
-     *     *   ApsaraDB RDS for SQL Server
-     *     *   PolarDB for MySQL
-     *     *   PolarDB for PostgreSQL (compatible with Oracle)
-     *     *   ApsaraDB for MongoDB
-     * >  The minor engine version of ApsaraDB RDS for PostgreSQL instances must be 20221230 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     * - If you use an SDK to call Database Autonomy Service (DAS), you must set the region to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
+     *   - ApsaraDB RDS for SQL Server
+     *   - PolarDB for MySQL
+     *   - PolarDB for PostgreSQL (compatible with Oracle)
+     *   - ApsaraDB for MongoDB
+     * > The minor engine version of ApsaraDB RDS for PostgreSQL instances must be 20221230 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
      *
      * @param request - CreateRequestDiagnosisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1250,15 +1286,15 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call Database Autonomy Service (DAS), you must set the region to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
-     *     *   ApsaraDB RDS for SQL Server
-     *     *   PolarDB for MySQL
-     *     *   PolarDB for PostgreSQL (compatible with Oracle)
-     *     *   ApsaraDB for MongoDB
-     * >  The minor engine version of ApsaraDB RDS for PostgreSQL instances must be 20221230 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     * - If you use an SDK to call Database Autonomy Service (DAS), you must set the region to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
+     *   - ApsaraDB RDS for SQL Server
+     *   - PolarDB for MySQL
+     *   - PolarDB for PostgreSQL (compatible with Oracle)
+     *   - ApsaraDB for MongoDB
+     * > The minor engine version of ApsaraDB RDS for PostgreSQL instances must be 20221230 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
      *
      * @param request - CreateRequestDiagnosisRequest
      *
@@ -1276,7 +1312,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 创建用户跨产品白名单模板
+     * Creates a cross-service whitelist template for a user.
+     *
+     * @remarks
+     * Before you begin:
+     * - If you use the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When you call DAS by using the SDK, set the region to cn-shanghai.
+     * - Only database instances with DAS Enterprise Edition activated support creating batch tasks. For information about the databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * Limits:
+     * The maximum number of concurrent executions is 10.
      *
      * @param request - CreateSecurityIPGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1323,7 +1367,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 创建用户跨产品白名单模板
+     * Creates a cross-service whitelist template for a user.
+     *
+     * @remarks
+     * Before you begin:
+     * - If you use the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When you call DAS by using the SDK, set the region to cn-shanghai.
+     * - Only database instances with DAS Enterprise Edition activated support creating batch tasks. For information about the databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * Limits:
+     * The maximum number of concurrent executions is 10.
      *
      * @param request - CreateSecurityIPGroupRequest
      *
@@ -1341,13 +1393,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates an offline task for Database Autonomy Service (DAS) Enterprise Edition.
+     * Creates an asynchronous task for detailed data.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   You can create an offline task only for database instances for which DAS Enterprise Edition V2 or V3 is enabled. For more information about the databases and regions that are supported by various versions of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When you call DAS operations by using the SDK, set the region to cn-shanghai.
+     * - Only database instances with DAS Enterprise Edition enabled support creating batch tasks. For information about the databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * Rate limit:
+     * The maximum number of concurrent tasks is 10.
      *
      * @param request - CreateSqlLogTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1416,13 +1470,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Creates an offline task for Database Autonomy Service (DAS) Enterprise Edition.
+     * Creates an asynchronous task for detailed data.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   You can create an offline task only for database instances for which DAS Enterprise Edition V2 or V3 is enabled. For more information about the databases and regions that are supported by various versions of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When you call DAS operations by using the SDK, set the region to cn-shanghai.
+     * - Only database instances with DAS Enterprise Edition enabled support creating batch tasks. For information about the databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * Rate limit:
+     * The maximum number of concurrent tasks is 10.
      *
      * @param request - CreateSqlLogTaskRequest
      *
@@ -1443,10 +1499,10 @@ class DAS extends OpenApiClient
      * Creates a storage analysis task to query the usage details of one or more databases and tables.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
-     * *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
+     * - For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
+     * - If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - CreateStorageAnalysisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1500,10 +1556,10 @@ class DAS extends OpenApiClient
      * Creates a storage analysis task to query the usage details of one or more databases and tables.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
-     * *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
+     * - For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
+     * - If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - CreateStorageAnalysisTaskRequest
      *
@@ -1524,7 +1580,7 @@ class DAS extends OpenApiClient
      * Deletes a stress testing task.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to handle traffic spikes in an effective manner. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     * Call this API to delete a stress testing task. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DeleteCloudBenchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1566,7 +1622,7 @@ class DAS extends OpenApiClient
      * Deletes a stress testing task.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to handle traffic spikes in an effective manner. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     * Call this API to delete a stress testing task. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DeleteCloudBenchTaskRequest
      *
@@ -1584,7 +1640,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 删除用户跨产品白名单模板
+     * Deletes a cross-product whitelist template for a user.
+     *
+     * @remarks
+     * - This operation is used to delete the released DBgateway metadata from intelligent stress testing tasks created by the [CreateCloudBenchTasks](https://help.aliyun.com/document_detail/230665.html) operation.
+     * - When using the SDK to call DAS, specify the region as cn-shanghai.
+     * > When a DBGateway has no heartbeat with the access point for more than 20 seconds, the DBGateway is in the stopped state.
      *
      * @param request - DeleteSecurityIPGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1627,7 +1688,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 删除用户跨产品白名单模板
+     * Deletes a cross-product whitelist template for a user.
+     *
+     * @remarks
+     * - This operation is used to delete the released DBgateway metadata from intelligent stress testing tasks created by the [CreateCloudBenchTasks](https://help.aliyun.com/document_detail/230665.html) operation.
+     * - When using the SDK to call DAS, specify the region as cn-shanghai.
+     * > When a DBGateway has no heartbeat with the access point for more than 20 seconds, the DBGateway is in the stopped state.
      *
      * @param request - DeleteSecurityIPGroupRequest
      *
@@ -1645,12 +1711,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Deletes the metadata of a stopped DBGateway.
+     * Deletes the metadata of a stopped database gateway.
      *
      * @remarks
-     *   This operation is used to delete the metadata of a DBGateway that is released in a stress testing task created by calling the [CreateCloudBenchTasks](https://help.aliyun.com/document_detail/230665.html) operation.
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * >  If the heartbeat is lost between a DBGateway and the access point for more than 20 seconds, the DBGateway is considered stopped.
+     * Call this API to delete metadata for inactive database gateway instances that were created during stress testing created by the [CreateCloudBenchTasks](https://help.aliyun.com/document_detail/230665.html) operation.
+     * When you use an SDK to call the DAS service, you must specify the region as `cn-shanghai`.
+     * > A database gateway is considered "stopped" if it has not sent a heartbeat to the DAS service for more than 20 seconds.
      *
      * @param request - DeleteStopGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1689,12 +1755,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Deletes the metadata of a stopped DBGateway.
+     * Deletes the metadata of a stopped database gateway.
      *
      * @remarks
-     *   This operation is used to delete the metadata of a DBGateway that is released in a stress testing task created by calling the [CreateCloudBenchTasks](https://help.aliyun.com/document_detail/230665.html) operation.
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * >  If the heartbeat is lost between a DBGateway and the access point for more than 20 seconds, the DBGateway is considered stopped.
+     * Call this API to delete metadata for inactive database gateway instances that were created during stress testing created by the [CreateCloudBenchTasks](https://help.aliyun.com/document_detail/230665.html) operation.
+     * When you use an SDK to call the DAS service, you must specify the region as `cn-shanghai`.
+     * > A database gateway is considered "stopped" if it has not sent a heartbeat to the DAS service for more than 20 seconds.
      *
      * @param request - DeleteStopGatewayRequest
      *
@@ -1712,7 +1778,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取审计告警日志.
+     * Queries the list of audit alert logs for alert search and alert handling.
+     *
+     * @remarks
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeAuditLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1774,6 +1845,10 @@ class DAS extends OpenApiClient
 
         if (null !== $request->loadWhiteList) {
             @$query['LoadWhiteList'] = $request->loadWhiteList;
+        }
+
+        if (null !== $request->logQueryOpJson) {
+            @$query['LogQueryOpJson'] = $request->logQueryOpJson;
         }
 
         if (null !== $request->logSource) {
@@ -1851,7 +1926,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取审计告警日志.
+     * Queries the list of audit alert logs for alert search and alert handling.
+     *
+     * @remarks
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeAuditLogsRequest
      *
@@ -1873,8 +1953,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - DescribeAutoScalingConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1917,8 +1997,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - DescribeAutoScalingConfigRequest
      *
@@ -1936,12 +2016,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the auto scaling history of an instance.
+     * Queries the elastic scaling history of an instance.
      *
      * @remarks
-     *   You can call this operation to query the history information about the automatic performance scaling only of ApsaraDB RDS for MySQL High-availability Edition instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - Currently, only the automatic performance scaling history of ApsaraDB RDS for MySQL instances in the high-availability series with cloud disks is supported.
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When you invoke DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeAutoScalingHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1976,12 +2056,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the auto scaling history of an instance.
+     * Queries the elastic scaling history of an instance.
      *
      * @remarks
-     *   You can call this operation to query the history information about the automatic performance scaling only of ApsaraDB RDS for MySQL High-availability Edition instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - Currently, only the automatic performance scaling history of ApsaraDB RDS for MySQL instances in the high-availability series with cloud disks is supported.
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When you invoke DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeAutoScalingHistoryRequest
      *
@@ -1999,14 +2079,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cache analysis task.
+     * Returns details of a cache analysis task.
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to ApsaraDB for Redis.
-     * >  You can call this operation to query the top 500 keys in a cache analysis task.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB for Redis.
+     * > Returns the top 500 keys in a cache analysis task.
      *
      * @param request - DescribeCacheAnalysisJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2049,14 +2129,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cache analysis task.
+     * Returns details of a cache analysis task.
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to ApsaraDB for Redis.
-     * >  You can call this operation to query the top 500 keys in a cache analysis task.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB for Redis.
+     * > Returns the top 500 keys in a cache analysis task.
      *
      * @param request - DescribeCacheAnalysisJobRequest
      *
@@ -2078,9 +2158,9 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to ApsaraDB for Redis.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB for Redis.
      *
      * @param request - DescribeCacheAnalysisJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2139,9 +2219,9 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to ApsaraDB for Redis.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB for Redis.
      *
      * @param request - DescribeCacheAnalysisJobsRequest
      *
@@ -2159,10 +2239,10 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries stress testing tasks.
+     * Queries the list of stress testing tasks.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     * Database Autonomy Service (DAS) provides intelligent stress testing features to help you verify whether your instance specifications need to be scaled up to effectively handle service traffic peaks. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DescribeCloudBenchTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2221,10 +2301,10 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries stress testing tasks.
+     * Queries the list of stress testing tasks.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     * Database Autonomy Service (DAS) provides intelligent stress testing features to help you verify whether your instance specifications need to be scaled up to effectively handle service traffic peaks. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DescribeCloudBenchTasksRequest
      *
@@ -2245,7 +2325,7 @@ class DAS extends OpenApiClient
      * Queries a stress testing task.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether you need to scale up your database instance to handle workloads during peak hours. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     * Database Autonomy Service (DAS) provides stress testing features to help you verify whether your instance specifications need to be scaled up to effectively handle service traffic peaks. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DescribeCloudbenchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2287,7 +2367,7 @@ class DAS extends OpenApiClient
      * Queries a stress testing task.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether you need to scale up your database instance to handle workloads during peak hours. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     * Database Autonomy Service (DAS) provides stress testing features to help you verify whether your instance specifications need to be scaled up to effectively handle service traffic peaks. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DescribeCloudbenchTaskRequest
      *
@@ -2305,10 +2385,10 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a stress testing task.
+     * Retrieves the detailed configuration, file paths, and execution commands for a specific stress test task.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     * Call this API to get the configuration details of a stress testing task for advanced debugging, or to understand how the Database Autonomy Service (DAS) stress testing feature operates. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DescribeCloudbenchTaskConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2347,10 +2427,10 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a stress testing task.
+     * Retrieves the detailed configuration, file paths, and execution commands for a specific stress test task.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     * Call this API to get the configuration details of a stress testing task for advanced debugging, or to understand how the Database Autonomy Service (DAS) stress testing feature operates. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DescribeCloudbenchTaskConfigRequest
      *
@@ -2372,12 +2452,12 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable to the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB for Redis
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable to the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB for Redis
      *
      * @param request - DescribeDiagnosticReportListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2436,12 +2516,12 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable to the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB for Redis
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable to the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB for Redis
      *
      * @param request - DescribeDiagnosticReportListRequest
      *
@@ -2459,7 +2539,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询实例错误日志.
+     * Queries the error log details of an instance within a specified time range.
+     *
+     * @remarks
+     * This operation queries the error log details of an instance within a specified time range.
+     * Before you begin:
+     * - The target database engine must be one of the following: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for MySQL, PolarDB for PostgreSQL, PolarDB for PostgreSQL (Compatible with Oracle), or ApsaraDB for MongoDB.
+     * - If you use the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When you call DAS operations by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeErrorLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2526,7 +2613,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询实例错误日志.
+     * Queries the error log details of an instance within a specified time range.
+     *
+     * @remarks
+     * This operation queries the error log details of an instance within a specified time range.
+     * Before you begin:
+     * - The target database engine must be one of the following: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for MySQL, PolarDB for PostgreSQL, PolarDB for PostgreSQL (Compatible with Oracle), or ApsaraDB for MongoDB.
+     * - If you use the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When you call DAS operations by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeErrorLogRecordsRequest
      *
@@ -2544,16 +2638,18 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot keys and the large keys in the memory in real time.
+     * Calls the DescribeHotBigKeys operation to retrieve the hot keys and big keys in the current memory in real time.
      *
      * @remarks
-     * This operation sorts list, hash, set, and zset keys based on the number of elements contained in these keys. The top three keys that contain the most elements are considered large keys. If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
-     * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is available only for ApsaraDB for Redis instances that meet the following requirements:
-     *     *   The instance is a Community Edition instance that uses a major version of 5.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
-     *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     * For keys with data structures of List, Hash, Set, or Zset, the top 3 keys are sorted and displayed by the number of elements in the key, and are recorded as big keys. If the QPS of a key exceeds 5,000, the key is recorded as a hot key. For more information about the definitions of big keys and hot keys, see [Top Key statistics](https://www.alibabacloud.com/help/en/das/user-guide/key-analysis).
+     * >
+     * > - For instances running Redis Community Edition 7.0.18, 6.0.2.9, 5.5.2.9, or earlier versions, or Tair (Enhanced Edition) in-memory instances running version 5.0.50, 25.2.0.0, or earlier versions, a key with a QPS greater than 3,000 is recorded as a hot key. This threshold cannot be adjusted.
+     * - When using the Alibaba Cloud SDK, make sure the version of aliyun-sdk-core is later than 4.3.3. We recommend that you use the latest version.
+     * - Use DAS SDK 1.0.2 or later.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
+     * - This operation applies only to the following Redis instances:
+     *     - The instance is Redis Community Edition or Tair (Redis® OSS-Compatible) in-memory.
+     *     - The minor version of the instance is the latest.
      *
      * @param request - DescribeHotBigKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2600,16 +2696,18 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot keys and the large keys in the memory in real time.
+     * Calls the DescribeHotBigKeys operation to retrieve the hot keys and big keys in the current memory in real time.
      *
      * @remarks
-     * This operation sorts list, hash, set, and zset keys based on the number of elements contained in these keys. The top three keys that contain the most elements are considered large keys. If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
-     * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is available only for ApsaraDB for Redis instances that meet the following requirements:
-     *     *   The instance is a Community Edition instance that uses a major version of 5.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
-     *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     * For keys with data structures of List, Hash, Set, or Zset, the top 3 keys are sorted and displayed by the number of elements in the key, and are recorded as big keys. If the QPS of a key exceeds 5,000, the key is recorded as a hot key. For more information about the definitions of big keys and hot keys, see [Top Key statistics](https://www.alibabacloud.com/help/en/das/user-guide/key-analysis).
+     * >
+     * > - For instances running Redis Community Edition 7.0.18, 6.0.2.9, 5.5.2.9, or earlier versions, or Tair (Enhanced Edition) in-memory instances running version 5.0.50, 25.2.0.0, or earlier versions, a key with a QPS greater than 3,000 is recorded as a hot key. This threshold cannot be adjusted.
+     * - When using the Alibaba Cloud SDK, make sure the version of aliyun-sdk-core is later than 4.3.3. We recommend that you use the latest version.
+     * - Use DAS SDK 1.0.2 or later.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
+     * - This operation applies only to the following Redis instances:
+     *     - The instance is Redis Community Edition or Tair (Redis® OSS-Compatible) in-memory.
+     *     - The minor version of the instance is the latest.
      *
      * @param request - DescribeHotBigKeysRequest
      *
@@ -2627,16 +2725,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot keys of an ApsaraDB for Redis instance.
+     * Queries the hot keys of a Redis instance by calling the DescribeHotKeys operation.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to ApsaraDB for Redis instances that meet the following requirements:
-     *     *   The ApsaraDB for Redis instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
-     *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     * Before you begin:
+     * - When using the Alibaba Cloud SDK, make sure the version of aliyun-sdk-core is later than 4.3.3. Use the latest version.
+     * - The version of the DAS SDK must be 1.0.2 or later.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
+     * - This operation applies only to the following Redis instances:
+     *     - The instance is a Redis Community Edition instance or a Tair (Redis® OSS-Compatible) memory-optimized instance.
+     *     - The minor engine version of the instance is the latest.
      *
      * @param request - DescribeHotKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2679,16 +2777,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot keys of an ApsaraDB for Redis instance.
+     * Queries the hot keys of a Redis instance by calling the DescribeHotKeys operation.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to ApsaraDB for Redis instances that meet the following requirements:
-     *     *   The ApsaraDB for Redis instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
-     *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     * Before you begin:
+     * - When using the Alibaba Cloud SDK, make sure the version of aliyun-sdk-core is later than 4.3.3. Use the latest version.
+     * - The version of the DAS SDK must be 1.0.2 or later.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
+     * - This operation applies only to the following Redis instances:
+     *     - The instance is a Redis Community Edition instance or a Tair (Redis® OSS-Compatible) memory-optimized instance.
+     *     - The minor engine version of the instance is the latest.
      *
      * @param request - DescribeHotKeysRequest
      *
@@ -2709,10 +2807,10 @@ class DAS extends OpenApiClient
      * Queries whether Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled for a database instance.
      *
      * @remarks
-     *   For more information about the database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
-     * >  We recommend that you call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the DAS Enterprise Edition configurations of a database instance.
+     * - For more information about the database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to DAS Enterprise Edition V1 and V2.
+     * > We recommend that you call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the DAS Enterprise Edition configurations of a database instance.
      *
      * @param request - DescribeInstanceDasProRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2754,10 +2852,10 @@ class DAS extends OpenApiClient
      * Queries whether Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled for a database instance.
      *
      * @remarks
-     *   For more information about the database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
-     * >  We recommend that you call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the DAS Enterprise Edition configurations of a database instance.
+     * - For more information about the database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to DAS Enterprise Edition V1 and V2.
+     * > We recommend that you call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the DAS Enterprise Edition configurations of a database instance.
      *
      * @param request - DescribeInstanceDasProRequest
      *
@@ -2775,7 +2873,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the execution plan of an SQL statement.
+     * Obtain the execution plan for an SQL statement.
+     *
+     * @remarks
+     * - This operation supports only ApsaraDB RDS for MySQL and PolarDB for MySQL instances.
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When calling the DAS service with the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeQueryExplainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2830,7 +2933,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the execution plan of an SQL statement.
+     * Obtain the execution plan for an SQL statement.
+     *
+     * @remarks
+     * - This operation supports only ApsaraDB RDS for MySQL and PolarDB for MySQL instances.
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When calling the DAS service with the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeQueryExplainRequest
      *
@@ -2848,7 +2956,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 展示用户跨产品白名单模板具体信息.
+     * Displays the details of a cross-engine whitelist template for a user.
+     *
+     * @remarks
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeSecurityIPGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2887,7 +3000,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 展示用户跨产品白名单模板具体信息.
+     * Displays the details of a cross-engine whitelist template for a user.
+     *
+     * @remarks
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeSecurityIPGroupRequest
      *
@@ -2905,7 +3023,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 展示用户跨产品白名单模板与实例绑定信息.
+     * Displays the binding information between a cross-engine whitelist template and instances for a user.
+     *
+     * @remarks
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeSecurityIPGroupRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2948,7 +3071,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 展示用户跨产品白名单模板与实例绑定信息.
+     * Displays the binding information between a cross-engine whitelist template and instances for a user.
+     *
+     * @remarks
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeSecurityIPGroupRelationRequest
      *
@@ -2966,7 +3094,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries the trend data of slow query logs of an instance.
+     * Asynchronously retrieves slow log trends data for an instance.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/156195.html) of DAS.**
+     * Before you begin:
+     * - DAS Enterprise Edition or the Alibaba Cloud Managed Services (not yet online) is enabled for the requested instance.
+     * - If you use the Alibaba Cloud SDK or DAS SDK, use the latest version.
+     * - When you invoke DAS by using the SDK, set the region to cn-shanghai.
+     * This operation uses asynchronous calls and does not immediately return complete results. If the value of isFinish in the response is false, wait 1 second and invoke the operation again until the value of isFinish is true, which indicates that complete results are returned.
      *
      * @param request - DescribeSlowLogHistogramAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3021,7 +3157,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously queries the trend data of slow query logs of an instance.
+     * Asynchronously retrieves slow log trends data for an instance.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/156195.html) of DAS.**
+     * Before you begin:
+     * - DAS Enterprise Edition or the Alibaba Cloud Managed Services (not yet online) is enabled for the requested instance.
+     * - If you use the Alibaba Cloud SDK or DAS SDK, use the latest version.
+     * - When you invoke DAS by using the SDK, set the region to cn-shanghai.
+     * This operation uses asynchronous calls and does not immediately return complete results. If the value of isFinish in the response is false, wait 1 second and invoke the operation again until the value of isFinish is true, which indicates that complete results are returned.
      *
      * @param request - DescribeSlowLogHistogramAsyncRequest
      *
@@ -3039,7 +3183,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the slow logs of a database instance. You can filter and sort data by multiple conditions.
+     * Queries slow query log records of a database instance with support for filtering and sorting by multiple conditions.
+     *
+     * @remarks
+     * - `InstanceId` specifies the instance ID. This parameter is required.
+     * - `StartTime` and `EndTime` specify the time range for the query. These parameters are required.
+     * - Set `PageNumber` and `PageSize` to retrieve results by paging.
+     * - Use the `OrderBy` parameter to sort results. For sortable fields, refer to the References.
+     * - Use the `Filters` parameter to further refine query conditions, such as filtering by host address or SQL ID.
+     * <notice>Certain database types (such as PostgreSQL and PolarDB for PostgreSQL) do not support specific sorting methods. Settings appropriate parameters as needed.</notice>
      *
      * @param request - DescribeSlowLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3112,7 +3264,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the slow logs of a database instance. You can filter and sort data by multiple conditions.
+     * Queries slow query log records of a database instance with support for filtering and sorting by multiple conditions.
+     *
+     * @remarks
+     * - `InstanceId` specifies the instance ID. This parameter is required.
+     * - `StartTime` and `EndTime` specify the time range for the query. These parameters are required.
+     * - Set `PageNumber` and `PageSize` to retrieve results by paging.
+     * - Use the `OrderBy` parameter to sort results. For sortable fields, refer to the References.
+     * - Use the `Filters` parameter to further refine query conditions, such as filtering by host address or SQL ID.
+     * <notice>Certain database types (such as PostgreSQL and PolarDB for PostgreSQL) do not support specific sorting methods. Settings appropriate parameters as needed.</notice>
      *
      * @param request - DescribeSlowLogRecordsRequest
      *
@@ -3130,7 +3290,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries statistical information about slow query logs.
+     * Retrieves slow query log statistics.
+     *
+     * @remarks
+     * *Before you call this operation, make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/156195.html) of Database Autonomy Service (DAS).**
+     * Before you call this operation, make sure that the following requirements are met:
+     * - Alibaba Cloud Managed Services is enabled for the instance.
+     * - Use the latest version of the Alibaba Cloud SDK or DAS SDK.
+     * - When you use an SDK to call the DAS service, set the region to cn-shanghai.
+     * This operation is asynchronous and does not return the complete result immediately. If the \\`isFinish\\` parameter in the response is \\`false\\`, wait 1 second and send the request again. Repeat the request until the \\`isFinish\\` parameter is \\`true\\` to retrieve the complete result.
      *
      * @param request - DescribeSlowLogStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3209,7 +3377,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries statistical information about slow query logs.
+     * Retrieves slow query log statistics.
+     *
+     * @remarks
+     * *Before you call this operation, make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/156195.html) of Database Autonomy Service (DAS).**
+     * Before you call this operation, make sure that the following requirements are met:
+     * - Alibaba Cloud Managed Services is enabled for the instance.
+     * - Use the latest version of the Alibaba Cloud SDK or DAS SDK.
+     * - When you use an SDK to call the DAS service, set the region to cn-shanghai.
+     * This operation is asynchronous and does not return the complete result immediately. If the \\`isFinish\\` parameter in the response is \\`false\\`, wait 1 second and send the request again. Repeat the request until the \\`isFinish\\` parameter is \\`true\\` to retrieve the complete result.
      *
      * @param request - DescribeSlowLogStatisticRequest
      *
@@ -3227,12 +3403,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of Database Autonomy Service (DAS) Enterprise Edition that is enabled for a database instance.
+     * Queries the DAS Enterprise Edition configuration of a database instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeSqlLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3271,12 +3447,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of Database Autonomy Service (DAS) Enterprise Edition that is enabled for a database instance.
+     * Queries the DAS Enterprise Edition configuration of a database instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * Before you begin:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeSqlLogConfigRequest
      *
@@ -3294,12 +3470,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the log details of a database instance for which Database Autonomy Service (DAS) Enterprise Edition is enabled.
+     * Call DescribeSqlLogRecords to query log details in DAS Enterprise Edition.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * Before calling this operation, note the following:
+     * - When you use an Alibaba Cloud or Database Autonomy Service (DAS) SDK, we recommend that you use the latest version.
+     * - When you call the DAS service by using an SDK, you must set the region to `cn-shanghai`.
      *
      * @param request - DescribeSqlLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3368,12 +3544,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the log details of a database instance for which Database Autonomy Service (DAS) Enterprise Edition is enabled.
+     * Call DescribeSqlLogRecords to query log details in DAS Enterprise Edition.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * Before calling this operation, note the following:
+     * - When you use an Alibaba Cloud or Database Autonomy Service (DAS) SDK, we recommend that you use the latest version.
+     * - When you call the DAS service by using an SDK, you must set the region to `cn-shanghai`.
      *
      * @param request - DescribeSqlLogRecordsRequest
      *
@@ -3391,12 +3567,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of Database Autonomy Service (DAS) Enterprise Edition.
+     * Invokes the DescribeSqlLogStatistic operation to query the statistics information of DAS Enterprise Edition.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * Before you begin:
+     * - Use the latest version of Alibaba Cloud SDK or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeSqlLogStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3435,12 +3611,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of Database Autonomy Service (DAS) Enterprise Edition.
+     * Invokes the DescribeSqlLogStatistic operation to query the statistics information of DAS Enterprise Edition.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * Before you begin:
+     * - Use the latest version of Alibaba Cloud SDK or DAS SDK.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeSqlLogStatisticRequest
      *
@@ -3458,12 +3634,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of an offline task in Database Autonomy Service (DAS) Enterprise Edition.
+     * Call the `DescribeSqlLogTask` operation to query the details of an offline task in DAS enterprise edition.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * Note the following before you call this operation:
+     * - We recommend using the latest version of the Alibaba Cloud SDK or DAS SDK.
+     * - When calling the DAS service with an SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeSqlLogTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3514,12 +3690,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of an offline task in Database Autonomy Service (DAS) Enterprise Edition.
+     * Call the `DescribeSqlLogTask` operation to query the details of an offline task in DAS enterprise edition.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * Note the following before you call this operation:
+     * - We recommend using the latest version of the Alibaba Cloud SDK or DAS SDK.
+     * - When calling the DAS service with an SDK, set the region to cn-shanghai.
      *
      * @param request - DescribeSqlLogTaskRequest
      *
@@ -3537,12 +3713,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the audit log tasks of a database instance.
+     * Lists the audit log tasks for an instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * The following prerequisites must be met to call this operation:
+     * - We recommend that you use the latest version of the Alibaba Cloud SDK or the DAS SDK.
+     * - When you use an SDK to call the DAS service, you must set the region to `cn-shanghai`.
      *
      * @param request - DescribeSqlLogTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3605,12 +3781,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the audit log tasks of a database instance.
+     * Lists the audit log tasks for an instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * The following prerequisites must be met to call this operation:
+     * - We recommend that you use the latest version of the Alibaba Cloud SDK or the DAS SDK.
+     * - When you use an SDK to call the DAS service, you must set the region to `cn-shanghai`.
      *
      * @param request - DescribeSqlLogTasksRequest
      *
@@ -3632,12 +3808,12 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * The list, hash, set, and zset keys are sorted based on the number of elements in these keys. The top three keys that have the most elements are considered large keys.
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
-     * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
-     *     *   The instance is ApsaraDB for Redis Community Edition instances that use a major version of 5.0 or later or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair).
-     *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     * - If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
+     * - The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
+     *   - The instance is ApsaraDB for Redis Community Edition instances that use a major version of 5.0 or later or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair).
+     *   - The ApsaraDB for Redis instance is updated to the latest minor version.
      *
      * @param request - DescribeTopBigKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3696,12 +3872,12 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * The list, hash, set, and zset keys are sorted based on the number of elements in these keys. The top three keys that have the most elements are considered large keys.
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
-     * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
-     *     *   The instance is ApsaraDB for Redis Community Edition instances that use a major version of 5.0 or later or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair).
-     *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     * - If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
+     * - The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
+     *   - The instance is ApsaraDB for Redis Community Edition instances that use a major version of 5.0 or later or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair).
+     *   - The ApsaraDB for Redis instance is updated to the latest minor version.
      *
      * @param request - DescribeTopBigKeysRequest
      *
@@ -3719,16 +3895,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the top 100 hotkeys over a period of time.
+     * Queries the top 100 hot keys within a specified time period.
      *
      * @remarks
-     * If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
-     * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
-     *     *   The instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
-     *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     * A key is identified as a hot key if its QPS exceeds 3,000.
+     * - If you use an Alibaba Cloud SDK, ensure that the version of aliyun-sdk-core is 4.3.3 or later. We recommend using the latest version.
+     * - The DAS SDK version must be 1.0.2 or later.
+     * - When calling the DAS service with an SDK, set the region to cn-shanghai.
+     * - This operation applies only to the following Redis instances:
+     *   - The instance is an open source Redis instance or a Tair (Enterprise Edition) memory-optimized instance.
+     *   - The instance runs on the latest minor version.
      *
      * @param request - DescribeTopHotKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3783,16 +3959,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the top 100 hotkeys over a period of time.
+     * Queries the top 100 hot keys within a specified time period.
      *
      * @remarks
-     * If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than 4.3.3. We recommend that you use the latest version.
-     * *   The version of Database Autonomy Service (DAS) SDK must be 1.0.2 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
-     *     *   The instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
-     *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
+     * A key is identified as a hot key if its QPS exceeds 3,000.
+     * - If you use an Alibaba Cloud SDK, ensure that the version of aliyun-sdk-core is 4.3.3 or later. We recommend using the latest version.
+     * - The DAS SDK version must be 1.0.2 or later.
+     * - When calling the DAS service with an SDK, set the region to cn-shanghai.
+     * - This operation applies only to the following Redis instances:
+     *   - The instance is an open source Redis instance or a Tair (Enterprise Edition) memory-optimized instance.
+     *   - The instance runs on the latest minor version.
      *
      * @param request - DescribeTopHotKeysRequest
      *
@@ -3814,8 +3990,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation supports the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - DisableAllSqlConcurrencyControlRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3862,8 +4038,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation supports the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - DisableAllSqlConcurrencyControlRulesRequest
      *
@@ -4018,10 +4194,10 @@ class DAS extends OpenApiClient
      * Deactivates Database Autonomy Service (DAS) Professional Edition.
      *
      * @remarks
-     *   For more information about the database instances that support DAS Enterprise Edition, see [Overview](https://help.aliyun.com/document_detail/190912.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to DAS Enterprise Edition V1.
-     * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to enable or disable DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * - For more information about the database instances that support DAS Enterprise Edition, see [Overview](https://help.aliyun.com/document_detail/190912.html).
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to DAS Enterprise Edition V1.
+     * > We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to enable or disable DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
      *
      * @param request - DisableDasProRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4067,10 +4243,10 @@ class DAS extends OpenApiClient
      * Deactivates Database Autonomy Service (DAS) Professional Edition.
      *
      * @remarks
-     *   For more information about the database instances that support DAS Enterprise Edition, see [Overview](https://help.aliyun.com/document_detail/190912.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to DAS Enterprise Edition V1.
-     * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to enable or disable DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * - For more information about the database instances that support DAS Enterprise Edition, see [Overview](https://help.aliyun.com/document_detail/190912.html).
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to DAS Enterprise Edition V1.
+     * > We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to enable or disable DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
      *
      * @param request - DisableDasProRequest
      *
@@ -4092,9 +4268,9 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to ApsaraDB for Redis instances.
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB for Redis instances.
      *
      * @param request - DisableInstanceDasConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4145,9 +4321,9 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to ApsaraDB for Redis instances.
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB for Redis instances.
      *
      * @param request - DisableInstanceDasConfigRequest
      *
@@ -4169,8 +4345,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation is applicable to the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - DisableSqlConcurrencyControlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4221,8 +4397,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation is applicable to the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - DisableSqlConcurrencyControlRequest
      *
@@ -4243,9 +4419,9 @@ class DAS extends OpenApiClient
      * Activates Database Autonomy Service (DAS) Professional Edition.
      *
      * @remarks
-     *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to DAS Enterprise Edition V1.
-     * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to activate or deactivate DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to DAS Enterprise Edition V1.
+     * > We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to activate or deactivate DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
      *
      * @param request - EnableDasProRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4295,9 +4471,9 @@ class DAS extends OpenApiClient
      * Activates Database Autonomy Service (DAS) Professional Edition.
      *
      * @remarks
-     *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to DAS Enterprise Edition V1.
-     * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to activate or deactivate DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to DAS Enterprise Edition V1.
+     * > We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to activate or deactivate DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
      *
      * @param request - EnableDasProRequest
      *
@@ -4319,8 +4495,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation supports the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - EnableSqlConcurrencyControlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4383,8 +4559,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation supports the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - EnableSqlConcurrencyControlRequest
      *
@@ -4405,10 +4581,10 @@ class DAS extends OpenApiClient
      * Asynchronously queries the IDs of SQL statements that generate a MySQL error code in the SQL Explorer results of a database instance.
      *
      * @remarks
-     * >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the **isFinish** parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the **isFinish** parameter is **true**, the complete results are returned.
-     * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Enable and manage DAS Economy Edition and DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
+     * > GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the **isFinish** parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the **isFinish** parameter is **true**, the complete results are returned.
+     * - This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Enable and manage DAS Economy Edition and DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
      *
      * @param request - GetAsyncErrorRequestListByCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4466,10 +4642,10 @@ class DAS extends OpenApiClient
      * Asynchronously queries the IDs of SQL statements that generate a MySQL error code in the SQL Explorer results of a database instance.
      *
      * @remarks
-     * >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the **isFinish** parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the **isFinish** parameter is **true**, the complete results are returned.
-     * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Enable and manage DAS Economy Edition and DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
+     * > GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the **isFinish** parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the **isFinish** parameter is **true**, the complete results are returned.
+     * - This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Enable and manage DAS Economy Edition and DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
      *
      * @param request - GetAsyncErrorRequestListByCodeRequest
      *
@@ -4490,9 +4666,9 @@ class DAS extends OpenApiClient
      * Asynchronously queries the MySQL error codes in SQL Explorer data and the number of SQL queries corresponding to each error code.
      *
      * @remarks
-     * >  GetAsyncErrorRequestStatByCode is an asynchronous operation After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
-     * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * > GetAsyncErrorRequestStatByCode is an asynchronous operation After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+     * - This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetAsyncErrorRequestStatByCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4550,9 +4726,9 @@ class DAS extends OpenApiClient
      * Asynchronously queries the MySQL error codes in SQL Explorer data and the number of SQL queries corresponding to each error code.
      *
      * @remarks
-     * >  GetAsyncErrorRequestStatByCode is an asynchronous operation After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
-     * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * > GetAsyncErrorRequestStatByCode is an asynchronous operation After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+     * - This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetAsyncErrorRequestStatByCodeRequest
      *
@@ -4570,12 +4746,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously obtains the number of failed executions of SQL templates based on SQL Explorer data.
+     * Call GetAsyncErrorRequestStatResult to asynchronously get the execution error count for a specific SQL statement from the SQL Insight results of a database instance.
      *
      * @remarks
-     * >  GetAsyncErrorRequestStatResult is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
-     * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * > This is an asynchronous call, so the complete results are not returned immediately. If the **isFinish** field in the response is **false**, wait 1s and retry the call. The complete results are returned when **isFinish** is **true**.
+     * - This operation supports only RDS MySQL and PolarDB for MySQL instances. Before you call this operation, ensure that DAS Enterprise Edition is enabled for the instance. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
+     * - When you use an SDK to call DAS, you must set the region to cn-shanghai.
      *
      * @param request - GetAsyncErrorRequestStatResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4634,12 +4810,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Asynchronously obtains the number of failed executions of SQL templates based on SQL Explorer data.
+     * Call GetAsyncErrorRequestStatResult to asynchronously get the execution error count for a specific SQL statement from the SQL Insight results of a database instance.
      *
      * @remarks
-     * >  GetAsyncErrorRequestStatResult is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
-     * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * > This is an asynchronous call, so the complete results are not returned immediately. If the **isFinish** field in the response is **false**, wait 1s and retry the call. The complete results are returned when **isFinish** is **true**.
+     * - This operation supports only RDS MySQL and PolarDB for MySQL instances. Before you call this operation, ensure that DAS Enterprise Edition is enabled for the instance. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
+     * - When you use an SDK to call DAS, you must set the region to cn-shanghai.
      *
      * @param request - GetAsyncErrorRequestStatResultRequest
      *
@@ -4660,9 +4836,9 @@ class DAS extends OpenApiClient
      * Queries the usage of auto-increment table IDs.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call DAS, you must set the region to cn-shanghai.
      *
      * @param request - GetAutoIncrementUsageStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4716,9 +4892,9 @@ class DAS extends OpenApiClient
      * Queries the usage of auto-increment table IDs.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call DAS, you must set the region to cn-shanghai.
      *
      * @param request - GetAutoIncrementUsageStatisticRequest
      *
@@ -4740,9 +4916,9 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   The database instance is an ApsaraDB RDS for MySQL instance of High-availability Edition.
-     * *   The database instance has four or more cores, and **innodb_file_per_table** is set to **ON**.
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - The database instance is an ApsaraDB RDS for MySQL instance of High-availability Edition.
+     * - The database instance has four or more cores, and **innodb_file_per_table** is set to **ON**.
      *
      * @param request - GetAutoResourceOptimizeRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4789,9 +4965,9 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   The database instance is an ApsaraDB RDS for MySQL instance of High-availability Edition.
-     * *   The database instance has four or more cores, and **innodb_file_per_table** is set to **ON**.
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - The database instance is an ApsaraDB RDS for MySQL instance of High-availability Edition.
+     * - The database instance has four or more cores, and **innodb_file_per_table** is set to **ON**.
      *
      * @param request - GetAutoResourceOptimizeRulesRequest
      *
@@ -4813,10 +4989,10 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   The database instance that you want to manage must be of one of the following types:
-     *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
-     *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - The database instance that you want to manage must be of one of the following types:
+     *   - ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     *   - PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
      *
      * @param request - GetAutoThrottleRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4863,10 +5039,10 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   The database instance that you want to manage must be of one of the following types:
-     *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
-     *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - The database instance that you want to manage must be of one of the following types:
+     *   - ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     *   - PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
      *
      * @param request - GetAutoThrottleRulesRequest
      *
@@ -4884,14 +5060,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of notification events of a database instance.
+     * Returns details of autonomous notification events for a database instance.
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
-     * >  You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
+     * > You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
      *
      * @param request - GetAutonomousNotifyEventContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4938,14 +5114,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of notification events of a database instance.
+     * Returns details of autonomous notification events for a database instance.
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
-     * >  You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
+     * > You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
      *
      * @param request - GetAutonomousNotifyEventContentRequest
      *
@@ -4967,10 +5143,10 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
-     * >  You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
+     * > You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
      *
      * @param request - GetAutonomousNotifyEventsInRangeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5049,10 +5225,10 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
-     * >  You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - After your instance is connected to DAS, notification events such as snapshot capture are triggered if DAS detects changes to database monitoring metrics during anomaly detection.
+     * > You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
      *
      * @param request - GetAutonomousNotifyEventsInRangeRequest
      *
@@ -5073,9 +5249,9 @@ class DAS extends OpenApiClient
      * Queries the blocking data of an ApsaraDB RDS for SQL Server instance.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetBlockingDetailListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5141,9 +5317,9 @@ class DAS extends OpenApiClient
      * Queries the blocking data of an ApsaraDB RDS for SQL Server instance.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetBlockingDetailListRequest
      *
@@ -5234,7 +5410,10 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * DAS大模型能力异步逻辑接口.
+     * This API uses Server-Sent Events (SSE) to interact with the DAS agent. You can use this API for features such as Q&A and performance diagnostics.
+     *
+     * @remarks
+     * This is a paid API. You are charged based on the number of output characters. Before you use this API, ensure that you understand the billing methods and [pricing](https://help.aliyun.com/zh/das/product-overview/billing-details-of-the-previous-version?spm=a2c4g.11186623.help-menu-63907.d_0_1_0.b7203b87MDNqHO\\&scm=20140722.H_156195._.OR_help-T_cn~zh-V_1#cad160563fbkd) of the DAS Agent product.
      *
      * @param request - GetDasAgentSSERequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5298,7 +5477,10 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * DAS大模型能力异步逻辑接口.
+     * This API uses Server-Sent Events (SSE) to interact with the DAS agent. You can use this API for features such as Q&A and performance diagnostics.
+     *
+     * @remarks
+     * This is a paid API. You are charged based on the number of output characters. Before you use this API, ensure that you understand the billing methods and [pricing](https://help.aliyun.com/zh/das/product-overview/billing-details-of-the-previous-version?spm=a2c4g.11186623.help-menu-63907.d_0_1_0.b7203b87MDNqHO\\&scm=20140722.H_156195._.OR_help-T_cn~zh-V_1#cad160563fbkd) of the DAS Agent product.
      *
      * @param request - GetDasAgentSSERequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5349,7 +5531,10 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * DAS大模型能力异步逻辑接口.
+     * This API uses Server-Sent Events (SSE) to interact with the DAS agent. You can use this API for features such as Q&A and performance diagnostics.
+     *
+     * @remarks
+     * This is a paid API. You are charged based on the number of output characters. Before you use this API, ensure that you understand the billing methods and [pricing](https://help.aliyun.com/zh/das/product-overview/billing-details-of-the-previous-version?spm=a2c4g.11186623.help-menu-63907.d_0_1_0.b7203b87MDNqHO\\&scm=20140722.H_156195._.OR_help-T_cn~zh-V_1#cad160563fbkd) of the DAS Agent product.
      *
      * @param request - GetDasAgentSSERequest
      *
@@ -5367,14 +5552,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the storage usage of a database instance for which Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled.
+     * Queries the storage usage of DAS Enterprise Edition V1 or V2 for a database instance.
      *
      * @remarks
-     *   For information about the database instances that support this operation, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
-     * >  We recommend that you call the [DescribeSqlLogStatistic](https://help.aliyun.com/document_detail/2778836.html) operation to query the data statistics of a database instance for which DAS Enterprise Edition is enabled.
+     * - For information about the supported databases, see [DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When invoking DAS by using the SDK, set the region to cn-shanghai.
+     * - This operation applies only to DAS Enterprise Edition V1 and V2.
+     * >Use the [DescribeSqlLogStatistic](https://help.aliyun.com/document_detail/2778836.html) operation to query the statistics information of DAS Enterprise Edition.
      *
      * @param request - GetDasProServiceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5417,14 +5602,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the storage usage of a database instance for which Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled.
+     * Queries the storage usage of DAS Enterprise Edition V1 or V2 for a database instance.
      *
      * @remarks
-     *   For information about the database instances that support this operation, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
-     * >  We recommend that you call the [DescribeSqlLogStatistic](https://help.aliyun.com/document_detail/2778836.html) operation to query the data statistics of a database instance for which DAS Enterprise Edition is enabled.
+     * - For information about the supported databases, see [DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When invoking DAS by using the SDK, set the region to cn-shanghai.
+     * - This operation applies only to DAS Enterprise Edition V1 and V2.
+     * >Use the [DescribeSqlLogStatistic](https://help.aliyun.com/document_detail/2778836.html) operation to query the statistics information of DAS Enterprise Edition.
      *
      * @param request - GetDasProServiceUsageRequest
      *
@@ -5442,14 +5627,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot data of audit logs.
+     * Retrieves hot data from SQL audit logs.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable to PolarDB for MySQL, ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server.
-     * >  The beginning of the time range to query can be up to seven days earlier than the current time. The interval between the start time and the end time cannot exceed one day. This operation can return a maximum of 10,000 entries.
+     * Before you call this API, ensure that you meet the following requirements:
+     * - Use the latest version of the Alibaba Cloud SDK or DAS SDK.
+     * - When using an SDK to call the DAS service, specify the region as `cn-shanghai`.
+     * - Supported engines: PolarDB MySQL, ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQLServer.
+     * - Enable log indexing for the instance.
+     * > The query start time must be within the last 7 days. The query duration cannot exceed 1 day. The API returns up to 10,000 records.
      *
      * @param request - GetDasSQLLogHotDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5596,14 +5782,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the hot data of audit logs.
+     * Retrieves hot data from SQL audit logs.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation is applicable to PolarDB for MySQL, ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server.
-     * >  The beginning of the time range to query can be up to seven days earlier than the current time. The interval between the start time and the end time cannot exceed one day. This operation can return a maximum of 10,000 entries.
+     * Before you call this API, ensure that you meet the following requirements:
+     * - Use the latest version of the Alibaba Cloud SDK or DAS SDK.
+     * - When using an SDK to call the DAS service, specify the region as `cn-shanghai`.
+     * - Supported engines: PolarDB MySQL, ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQLServer.
+     * - Enable log indexing for the instance.
+     * > The query start time must be within the last 7 days. The query duration cannot exceed 1 day. The API returns up to 10,000 records.
      *
      * @param request - GetDasSQLLogHotDataRequest
      *
@@ -5621,7 +5808,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of a deadlock.
+     * Retrieves the detailed information for a single deadlock event.
+     *
+     * @remarks
+     * This API fetches the full details of a specific deadlock, including the transactions involved, the SQL statements, and the locks held and waited for. The deadlock can be from either a recent analysis or a full historical analysis. For more information, see [Deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
+     * Before you call this operation, ensure the following:
+     * - **Supported engines**:
+     *   - For recent deadlock analysis: ApsaraDB RDS for MySQL, self-managed MySQL, PolarDB for MySQL, PolarDB-X 2.0.
+     *   - For full deadlock analysis: ApsaraDB RDS for MySQL or PolarDB for MySQL with [DAS Economy Edition](https://help.aliyun.com/document_detail/2666482.html) or [DAS Professional Edition](https://help.aliyun.com/document_detail/190912.html) enabled.
+     * - **SDK version**: Use the latest version of the Alibaba Cloud SDK.
+     * - **Region**: If you call the API via the SDK, set the region ID to `cn-shanghai`.
      *
      * @param request - GetDeadLockDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5672,7 +5868,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of a deadlock.
+     * Retrieves the detailed information for a single deadlock event.
+     *
+     * @remarks
+     * This API fetches the full details of a specific deadlock, including the transactions involved, the SQL statements, and the locks held and waited for. The deadlock can be from either a recent analysis or a full historical analysis. For more information, see [Deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
+     * Before you call this operation, ensure the following:
+     * - **Supported engines**:
+     *   - For recent deadlock analysis: ApsaraDB RDS for MySQL, self-managed MySQL, PolarDB for MySQL, PolarDB-X 2.0.
+     *   - For full deadlock analysis: ApsaraDB RDS for MySQL or PolarDB for MySQL with [DAS Economy Edition](https://help.aliyun.com/document_detail/2666482.html) or [DAS Professional Edition](https://help.aliyun.com/document_detail/190912.html) enabled.
+     * - **SDK version**: Use the latest version of the Alibaba Cloud SDK.
+     * - **Region**: If you call the API via the SDK, set the region ID to `cn-shanghai`.
      *
      * @param request - GetDeadLockDetailRequest
      *
@@ -5693,9 +5898,9 @@ class DAS extends OpenApiClient
      * Queries the deadlock details of an ApsaraDB RDS for SQL Server instance.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetDeadLockDetailListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5757,9 +5962,9 @@ class DAS extends OpenApiClient
      * Queries the deadlock details of an ApsaraDB RDS for SQL Server instance.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetDeadLockDetailListRequest
      *
@@ -5777,7 +5982,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the historical tasks of recent deadlock analysis and full deadlock analysis.
+     * Retrieves the historical analysis tasks for recent and full deadlock analysis.
+     *
+     * @remarks
+     * Retrieves the historical analysis records for recent and full deadlock analysis. For more information, see [Deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
+     * The following requirements must be met before you call this operation:
+     * - To query historical analysis records of recent deadlocks, the destination database engine must be RDS MySQL, self-managed MySQL, PolarDB for MySQL, or PolarDB-X 2.0.
+     * - To query historical analysis records of full deadlocks, the destination database engine must be RDS MySQL or PolarDB for MySQL, and [DAS Alibaba Cloud Managed Services (formerly known as Economy Edition)](https://help.aliyun.com/document_detail/2666482.html) must be enabled.
+     * - Use the latest version of the Alibaba Cloud SDK or DAS SDK.
+     * - When you use an SDK to call the DAS service, set the region to cn-shanghai.
      *
      * @param request - GetDeadLockHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5840,7 +6053,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the historical tasks of recent deadlock analysis and full deadlock analysis.
+     * Retrieves the historical analysis tasks for recent and full deadlock analysis.
+     *
+     * @remarks
+     * Retrieves the historical analysis records for recent and full deadlock analysis. For more information, see [Deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
+     * The following requirements must be met before you call this operation:
+     * - To query historical analysis records of recent deadlocks, the destination database engine must be RDS MySQL, self-managed MySQL, PolarDB for MySQL, or PolarDB-X 2.0.
+     * - To query historical analysis records of full deadlocks, the destination database engine must be RDS MySQL or PolarDB for MySQL, and [DAS Alibaba Cloud Managed Services (formerly known as Economy Edition)](https://help.aliyun.com/document_detail/2666482.html) must be enabled.
+     * - Use the latest version of the Alibaba Cloud SDK or DAS SDK.
+     * - When you use an SDK to call the DAS service, set the region to cn-shanghai.
      *
      * @param request - GetDeadLockHistoryRequest
      *
@@ -5858,7 +6079,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the trend of the number of deadlocks in full deadlock analysis within a specified period of time.
+     * Queries the deadlock count trend based on full deadlock analysis of error logs within a specified time range.
+     *
+     * @remarks
+     * Invokes this operation to query the deadlock count from full deadlock analysis within a specified time range. DAS periodically analyzes fault logs, parses deadlock information, and collects statistics on deadlock count trends. For details, see [Full deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
+     * Before you begin:
+     * - The database DPI engine must be RDS MySQL or PolarDB for MySQL, and [DAS Alibaba Cloud Managed Services (formerly DAS Economy Edition)](https://help.aliyun.com/document_detail/2666482.html) must be enabled.
+     * - If you use the China site (aliyun.com) or DAS SDK, use the latest version.
+     * - When you invoke DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - GetDeadlockHistogramRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5913,7 +6141,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the trend of the number of deadlocks in full deadlock analysis within a specified period of time.
+     * Queries the deadlock count trend based on full deadlock analysis of error logs within a specified time range.
+     *
+     * @remarks
+     * Invokes this operation to query the deadlock count from full deadlock analysis within a specified time range. DAS periodically analyzes fault logs, parses deadlock information, and collects statistics on deadlock count trends. For details, see [Full deadlock analysis](https://help.aliyun.com/document_detail/2858236.html).
+     * Before you begin:
+     * - The database DPI engine must be RDS MySQL or PolarDB for MySQL, and [DAS Alibaba Cloud Managed Services (formerly DAS Economy Edition)](https://help.aliyun.com/document_detail/2666482.html) must be enabled.
+     * - If you use the China site (aliyun.com) or DAS SDK, use the latest version.
+     * - When you invoke DAS by using the SDK, set the region to cn-shanghai.
      *
      * @param request - GetDeadlockHistogramRequest
      *
@@ -5934,9 +6169,9 @@ class DAS extends OpenApiClient
      * Asynchronously queries information about failed SQL queries in SQL Explorer data. You can query up to 20 failed SQL queries within the specific time range.
      *
      * @remarks
-     * >  GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
-     * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * > GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+     * - This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetErrorRequestSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5998,9 +6233,9 @@ class DAS extends OpenApiClient
      * Asynchronously queries information about failed SQL queries in SQL Explorer data. You can query up to 20 failed SQL queries within the specific time range.
      *
      * @remarks
-     * >  GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
-     * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * > GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+     * - This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetErrorRequestSampleRequest
      *
@@ -6022,9 +6257,9 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   The database instance that you want to manage is connected to DAS.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - The database instance that you want to manage is connected to DAS.
      *
      * @param request - GetEventSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6067,9 +6302,9 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   The database instance that you want to manage is connected to DAS.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - The database instance that you want to manage is connected to DAS.
      *
      * @param request - GetEventSubscriptionRequest
      *
@@ -6091,8 +6326,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
-     * *   For more information about database instances that support this feature, see [Overview](https://help.aliyun.com/document_detail/190912.html).
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - For more information about database instances that support this feature, see [Overview](https://help.aliyun.com/document_detail/190912.html).
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      *
      * @param request - GetFullRequestOriginStatByInstanceIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6175,8 +6410,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
-     * *   For more information about database instances that support this feature, see [Overview](https://help.aliyun.com/document_detail/190912.html).
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - For more information about database instances that support this feature, see [Overview](https://help.aliyun.com/document_detail/190912.html).
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      *
      * @param request - GetFullRequestOriginStatByInstanceIdRequest
      *
@@ -6198,8 +6433,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
-     * *   For more information about the database engines that support SQL Explorer, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - For more information about the database engines that support SQL Explorer, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetFullRequestSampleByInstanceIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6264,8 +6499,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
-     * *   For more information about the database engines that support SQL Explorer, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - For more information about the database engines that support SQL Explorer, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetFullRequestSampleByInstanceIdRequest
      *
@@ -6286,11 +6521,11 @@ class DAS extends OpenApiClient
      * Asynchronously collects the full request statistics in the SQL Explorer results of a database instance by SQL ID.
      *
      * @remarks
-     * >  GetFullRequestStatResultByInstanceId is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the isFinish parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the isFinish parameter is **true**, the complete results are returned.
+     * > GetFullRequestStatResultByInstanceId is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the isFinish parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the isFinish parameter is **true**, the complete results are returned.
      * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
-     * *   For more information about database instances that support this feature, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
-     * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
+     * - For more information about database instances that support this feature, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+     * - If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
      *
      * @param request - GetFullRequestStatResultByInstanceIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6388,11 +6623,11 @@ class DAS extends OpenApiClient
      * Asynchronously collects the full request statistics in the SQL Explorer results of a database instance by SQL ID.
      *
      * @remarks
-     * >  GetFullRequestStatResultByInstanceId is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the isFinish parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the isFinish parameter is **true**, the complete results are returned.
+     * > GetFullRequestStatResultByInstanceId is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the isFinish parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the isFinish parameter is **true**, the complete results are returned.
      * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
-     * *   For more information about database instances that support this feature, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
-     * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
+     * - For more information about database instances that support this feature, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+     * - If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
      *
      * @param request - GetFullRequestStatResultByInstanceIdRequest
      *
@@ -6410,7 +6645,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取实例组日报详情.
+     * Retrieves the details of a DAS Agent automated operations report.
+     *
+     * @remarks
+     * Enabling the automated operations report feature for DAS Agent allows the system to perform periodic inspections on target instances and generate reports. Currently, only daily reports are supported. This operation is used to query report details.
+     * Before using this operation, ensure that the following prerequisites are met:
+     * - DAS Agent is activated and the agent is still within its validity period.
+     * - The daily report feature is enabled on the DAS Agent configuration page.
+     * - When using the Alibaba Cloud SDK, ensure that the version of aliyun-sdk-core is later than 4.3.3. We recommend that you use the latest version.
+     * - The version of the DAS SDK is 1.0.3 or later.
+     * - When using the SDK to call DAS, set the region to cn-shanghai.
      *
      * @param request - GetInstanceGroupInspectReportDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6428,6 +6672,10 @@ class DAS extends OpenApiClient
         $query = [];
         if (null !== $request->agentId) {
             @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->reportType) {
+            @$query['ReportType'] = $request->reportType;
         }
 
         $body = [];
@@ -6455,7 +6703,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取实例组日报详情.
+     * Retrieves the details of a DAS Agent automated operations report.
+     *
+     * @remarks
+     * Enabling the automated operations report feature for DAS Agent allows the system to perform periodic inspections on target instances and generate reports. Currently, only daily reports are supported. This operation is used to query report details.
+     * Before using this operation, ensure that the following prerequisites are met:
+     * - DAS Agent is activated and the agent is still within its validity period.
+     * - The daily report feature is enabled on the DAS Agent configuration page.
+     * - When using the Alibaba Cloud SDK, ensure that the version of aliyun-sdk-core is later than 4.3.3. We recommend that you use the latest version.
+     * - The version of the DAS SDK is 1.0.3 or later.
+     * - When using the SDK to call DAS, set the region to cn-shanghai.
      *
      * @param request - GetInstanceGroupInspectReportDetailRequest
      *
@@ -6473,7 +6730,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询实例组的报告信息.
+     * Queries the list of O&M reports generated by DAS Agent.
+     *
+     * @remarks
+     * Enabling the O&M report feature of DAS Agent allows the system to perform periodic inspections on target instances and generate reports. Currently, only daily reports are supported.
+     * Before you begin:
+     * - Activate DAS Agent and ensure that the Agent is still within its validity period.
+     * - Enable the daily report feature on the DAS Agent configuration page.
+     * - When using the Alibaba Cloud SDK, ensure that the version of aliyun-sdk-core is later than 4.3.3. Use the latest version.
+     * - Use DAS SDK 1.0.3 or later.
+     * - When calling DAS by using the SDK, set the region to ap-southeast-1.
      *
      * @param request - GetInstanceGroupInspectReportListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6495,6 +6761,10 @@ class DAS extends OpenApiClient
 
         if (null !== $request->groupId) {
             @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->reportType) {
+            @$query['ReportType'] = $request->reportType;
         }
 
         $body = [];
@@ -6526,7 +6796,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询实例组的报告信息.
+     * Queries the list of O&M reports generated by DAS Agent.
+     *
+     * @remarks
+     * Enabling the O&M report feature of DAS Agent allows the system to perform periodic inspections on target instances and generate reports. Currently, only daily reports are supported.
+     * Before you begin:
+     * - Activate DAS Agent and ensure that the Agent is still within its validity period.
+     * - Enable the daily report feature on the DAS Agent configuration page.
+     * - When using the Alibaba Cloud SDK, ensure that the version of aliyun-sdk-core is later than 4.3.3. Use the latest version.
+     * - Use DAS SDK 1.0.3 or later.
+     * - When calling DAS by using the SDK, set the region to ap-southeast-1.
      *
      * @param request - GetInstanceGroupInspectReportListRequest
      *
@@ -6549,10 +6828,10 @@ class DAS extends OpenApiClient
      * @remarks
      * Database Autonomy Service (DAS) provides the inspection and scoring feature. This feature allows you to inspect and score the health status of your instance on a regular basis. This helps you obtain information about the status of your databases. For more information, see [Inspection and scoring](https://help.aliyun.com/document_detail/205659.html).
      * Before you call this operation, take note of the following items:
-     * *   This operation is applicable only to ApsaraDB RDS for MySQL databases, self-managed MySQL databases hosted on Elastic Compute Service (ECS) instances, self-managed MySQL databases in data centers, ApsaraDB for Redis databases, and PolarDB for MySQL databases.
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
-     * *   The version of DAS SDK must be V1.0.3 or later.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL databases, self-managed MySQL databases hosted on Elastic Compute Service (ECS) instances, self-managed MySQL databases in data centers, ApsaraDB for Redis databases, and PolarDB for MySQL databases.
+     * - If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
+     * - The version of DAS SDK must be V1.0.3 or later.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetInstanceInspectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6624,10 +6903,10 @@ class DAS extends OpenApiClient
      * @remarks
      * Database Autonomy Service (DAS) provides the inspection and scoring feature. This feature allows you to inspect and score the health status of your instance on a regular basis. This helps you obtain information about the status of your databases. For more information, see [Inspection and scoring](https://help.aliyun.com/document_detail/205659.html).
      * Before you call this operation, take note of the following items:
-     * *   This operation is applicable only to ApsaraDB RDS for MySQL databases, self-managed MySQL databases hosted on Elastic Compute Service (ECS) instances, self-managed MySQL databases in data centers, ApsaraDB for Redis databases, and PolarDB for MySQL databases.
-     * *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
-     * *   The version of DAS SDK must be V1.0.3 or later.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL databases, self-managed MySQL databases hosted on Elastic Compute Service (ECS) instances, self-managed MySQL databases in data centers, ApsaraDB for Redis databases, and PolarDB for MySQL databases.
+     * - If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
+     * - The version of DAS SDK must be V1.0.3 or later.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetInstanceInspectionsRequest
      *
@@ -6645,12 +6924,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of all missing indexes of an instance.
+     * Returns details of all missing indexes for an instance.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetInstanceMissingIndexListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6745,12 +7024,12 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the details of all missing indexes of an instance.
+     * Returns details of all missing indexes for an instance.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetInstanceMissingIndexListRequest
      *
@@ -6772,9 +7051,9 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   The database engine is ApsaraDB RDS for MySQL or PolarDB for MySQL.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - The database engine is ApsaraDB RDS for MySQL or PolarDB for MySQL.
      *
      * @param request - GetInstanceSqlOptimizeStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6841,9 +7120,9 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   The database engine is ApsaraDB RDS for MySQL or PolarDB for MySQL.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - The database engine is ApsaraDB RDS for MySQL or PolarDB for MySQL.
      *
      * @param request - GetInstanceSqlOptimizeStatisticRequest
      *
@@ -6864,9 +7143,9 @@ class DAS extends OpenApiClient
      * Queries the results of a task that terminates sessions.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetKillInstanceSessionTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6916,9 +7195,9 @@ class DAS extends OpenApiClient
      * Queries the results of a task that terminates sessions.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetKillInstanceSessionTaskResultRequest
      *
@@ -6939,9 +7218,9 @@ class DAS extends OpenApiClient
      * Queries the current sessions of an ApsaraDB for MongoDB (MongoDB) instance.
      *
      * @remarks
-     *   This operation is applicable only to MongoDB instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region to cn-shanghai.
+     * - This operation is applicable only to MongoDB instances.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region to cn-shanghai.
      *
      * @param request - GetMongoDBCurrentOpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6995,9 +7274,9 @@ class DAS extends OpenApiClient
      * Queries the current sessions of an ApsaraDB for MongoDB (MongoDB) instance.
      *
      * @remarks
-     *   This operation is applicable only to MongoDB instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region to cn-shanghai.
+     * - This operation is applicable only to MongoDB instances.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region to cn-shanghai.
      *
      * @param request - GetMongoDBCurrentOpRequest
      *
@@ -7018,10 +7297,10 @@ class DAS extends OpenApiClient
      * Asynchronously queries the sessions of an instance and collects statistics on the sessions based on dimensions.
      *
      * @remarks
-     * >  GetMySQLAllSessionAsync is an asynchronous operation. After a request is sent, the system does not return complete results but returns a request ID. You need to use the request ID to initiate requests until the value of the **isFinish** field in the returned results is **true**, the complete results are returned. This indicates that to obtain complete data, you must call this operation at least twice.
-     * *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and PolarDB-X 2.0 instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * > GetMySQLAllSessionAsync is an asynchronous operation. After a request is sent, the system does not return complete results but returns a request ID. You need to use the request ID to initiate requests until the value of the **isFinish** field in the returned results is **true**, the complete results are returned. This indicates that to obtain complete data, you must call this operation at least twice.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and PolarDB-X 2.0 instances.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetMySQLAllSessionAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7071,10 +7350,10 @@ class DAS extends OpenApiClient
      * Asynchronously queries the sessions of an instance and collects statistics on the sessions based on dimensions.
      *
      * @remarks
-     * >  GetMySQLAllSessionAsync is an asynchronous operation. After a request is sent, the system does not return complete results but returns a request ID. You need to use the request ID to initiate requests until the value of the **isFinish** field in the returned results is **true**, the complete results are returned. This indicates that to obtain complete data, you must call this operation at least twice.
-     * *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and PolarDB-X 2.0 instances.
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * > GetMySQLAllSessionAsync is an asynchronous operation. After a request is sent, the system does not return complete results but returns a request ID. You need to use the request ID to initiate requests until the value of the **isFinish** field in the returned results is **true**, the complete results are returned. This indicates that to obtain complete data, you must call this operation at least twice.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and PolarDB-X 2.0 instances.
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetMySQLAllSessionAsyncRequest
      *
@@ -7171,10 +7450,10 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
-     * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
+     * - The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
      *
      * @param request - GetPfsMetricTrendsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7233,10 +7512,10 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
-     * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
+     * - The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
      *
      * @param request - GetPfsMetricTrendsRequest
      *
@@ -7258,10 +7537,10 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
-     * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
+     * - The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
      *
      * @param request - GetPfsSqlSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7320,10 +7599,10 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
-     * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
+     * - The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
      *
      * @param request - GetPfsSqlSampleRequest
      *
@@ -7341,14 +7620,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the full request data generated by the new version of the performance insight feature of a database instance based on the SQL ID.
+     * Call the GetPfsSqlSummaries API to query all request data using the SQL ID dimension in Performance Insight (New Version) for a database instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
-     * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     * Prerequisites for using this API:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling the DAS service using the SDK, specify the region as cn-shanghai.
+     * - The target database instance is RDS MySQL or PolarDB MySQL.
+     * - The target database instance has Performance Insight (New Version) enabled. For more information, see [Performance Insight (New Version)](https://help.aliyun.com/document_detail/469117.html).
      *
      * @param request - GetPfsSqlSummariesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7423,14 +7702,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the full request data generated by the new version of the performance insight feature of a database instance based on the SQL ID.
+     * Call the GetPfsSqlSummaries API to query all request data using the SQL ID dimension in Performance Insight (New Version) for a database instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this API operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   An ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster is connected to DAS.
-     * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
+     * Prerequisites for using this API:
+     * - Use the latest version of the Alibaba Cloud or DAS SDK.
+     * - When calling the DAS service using the SDK, specify the region as cn-shanghai.
+     * - The target database instance is RDS MySQL or PolarDB MySQL.
+     * - The target database instance has Performance Insight (New Version) enabled. For more information, see [Performance Insight (New Version)](https://help.aliyun.com/document_detail/469117.html).
      *
      * @param request - GetPfsSqlSummariesRequest
      *
@@ -7448,16 +7727,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries information about SQL templates based on query governance data.
+     * Returns SQL template statistics from query governance data.
      *
      * @remarks
-     *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeDataStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7492,16 +7771,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries information about SQL templates based on query governance data.
+     * Returns SQL template statistics from query governance data.
      *
      * @remarks
-     *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeDataStatsRequest
      *
@@ -7519,16 +7798,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries information about the best-performing and worst-performing instances based on query governance data.
+     * Returns the best- and worst-performing instances based on query governance data.
      *
      * @remarks
-     *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeDataTopRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7563,16 +7842,16 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries information about the best-performing and worst-performing instances based on query governance data.
+     * Returns the best- and worst-performing instances based on query governance data.
      *
      * @remarks
-     *   If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use an Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeDataTopRequest
      *
@@ -7593,13 +7872,13 @@ class DAS extends OpenApiClient
      * Queries query governance trend data.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeDataTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7637,13 +7916,13 @@ class DAS extends OpenApiClient
      * Queries query governance trend data.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeDataTrendRequest
      *
@@ -7664,13 +7943,13 @@ class DAS extends OpenApiClient
      * Queries the failed SQL statements under a SQL template.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeExecErrorSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7724,13 +8003,13 @@ class DAS extends OpenApiClient
      * Queries the failed SQL statements under a SQL template.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeExecErrorSampleRequest
      *
@@ -7751,12 +8030,12 @@ class DAS extends OpenApiClient
      * Queries SQL templates that failed to be executed.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeExecErrorStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7794,12 +8073,12 @@ class DAS extends OpenApiClient
      * Queries SQL templates that failed to be executed.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeExecErrorStatsRequest
      *
@@ -7820,13 +8099,13 @@ class DAS extends OpenApiClient
      * Queries the tags added by the query governance feature to specified database instances.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeRuleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7864,13 +8143,13 @@ class DAS extends OpenApiClient
      * Queries the tags added by the query governance feature to specified database instances.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V2.1.8. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V2.1.8 or later.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeRuleListRequest
      *
@@ -7891,12 +8170,12 @@ class DAS extends OpenApiClient
      * Queries a share URL provided by the query governance feature.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeShareUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7998,12 +8277,12 @@ class DAS extends OpenApiClient
      * Queries a share URL provided by the query governance feature.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeShareUrlRequest
      *
@@ -8024,12 +8303,12 @@ class DAS extends OpenApiClient
      * Queries suggestions provided by query governance for optimizing an SQL template.
      *
      * @remarks
-     *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8083,12 +8362,12 @@ class DAS extends OpenApiClient
      * Queries suggestions provided by query governance for optimizing an SQL template.
      *
      * @remarks
-     *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - PolarDB for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeSolutionRequest
      *
@@ -8106,15 +8385,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the tags of a SQL statement.
+     * Queries the tags of a specified SQL statement by calling the GetQueryOptimizeTag operation.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
+     * - This operation supports the following database engines:
+     *     - RDS MySQL
+     *     - PolarDB for MySQL
+     *     - RDS PostgreSQL
      *
      * @param request - GetQueryOptimizeTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8161,15 +8440,15 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the tags of a SQL statement.
+     * Queries the tags of a specified SQL statement by calling the GetQueryOptimizeTag operation.
      *
      * @remarks
-     *   If you use Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   PolarDB for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When calling DAS by using the SDK, set the region to cn-shanghai.
+     * - This operation supports the following database engines:
+     *     - RDS MySQL
+     *     - PolarDB for MySQL
+     *     - RDS PostgreSQL
      *
      * @param request - GetQueryOptimizeTagRequest
      *
@@ -8190,9 +8469,9 @@ class DAS extends OpenApiClient
      * Queries the current session on an ApsaraDB for Redis instance.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB for Redis instances.
-     * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * >  This operation cannot be used to query sessions generated in direct connection mode on ApsaraDB for Redis cluster instances.
+     * - This operation is applicable only to ApsaraDB for Redis instances.
+     * - If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * > This operation cannot be used to query sessions generated in direct connection mode on ApsaraDB for Redis cluster instances.
      *
      * @param request - GetRedisAllSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8238,9 +8517,9 @@ class DAS extends OpenApiClient
      * Queries the current session on an ApsaraDB for Redis instance.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB for Redis instances.
-     * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * >  This operation cannot be used to query sessions generated in direct connection mode on ApsaraDB for Redis cluster instances.
+     * - This operation is applicable only to ApsaraDB for Redis instances.
+     * - If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * > This operation cannot be used to query sessions generated in direct connection mode on ApsaraDB for Redis cluster instances.
      *
      * @param request - GetRedisAllSessionRequest
      *
@@ -8262,15 +8541,15 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
-     *     *   ApsaraDB RDS for SQL Server
-     *     *   PolarDB for MySQL
-     *     *   PolarDB for PostgreSQL (Compatible with Oracle)
-     *     *   ApsaraDB for MongoDB
-     * >  The minor engine version of the Apsara RDS for PostgreSQL instance must be 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
+     *   - ApsaraDB RDS for SQL Server
+     *   - PolarDB for MySQL
+     *   - PolarDB for PostgreSQL (Compatible with Oracle)
+     *   - ApsaraDB for MongoDB
+     * > The minor engine version of the Apsara RDS for PostgreSQL instance must be 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
      *
      * @param request - GetRequestDiagnosisPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8333,15 +8612,15 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL
-     *     *   ApsaraDB RDS for PostgreSQL
-     *     *   ApsaraDB RDS for SQL Server
-     *     *   PolarDB for MySQL
-     *     *   PolarDB for PostgreSQL (Compatible with Oracle)
-     *     *   ApsaraDB for MongoDB
-     * >  The minor engine version of the Apsara RDS for PostgreSQL instance must be 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL
+     *   - ApsaraDB RDS for PostgreSQL
+     *   - ApsaraDB RDS for SQL Server
+     *   - PolarDB for MySQL
+     *   - PolarDB for PostgreSQL (Compatible with Oracle)
+     *   - ApsaraDB for MongoDB
+     * > The minor engine version of the Apsara RDS for PostgreSQL instance must be 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
      *
      * @param request - GetRequestDiagnosisPageRequest
      *
@@ -8359,20 +8638,20 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the results of an SQL diagnostics task.
+     * Call GetRequestDiagnosisResult to retrieve the SQL diagnosis results.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   You cannot call this operation to query the diagnostic result of the automatic SQL optimization feature.
-     * *   This operation is applicable to the following database engines:
-     *     *   RDS MySQL
-     *     *   RDS PostgreSQL
-     *     *   RDS SQL Server
-     *     *   PolarDB for MySQL
-     *     *   PolarDB for PostgreSQL (Compatible with Oracle)
-     *     *   ApsaraDB for MongoDB
-     * >  If your instance is an ApsaraDB RDS for PostgreSQL instance, make sure that the minor engine version of your instance is 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     * This API has the following prerequisites:
+     * - When you use an SDK to call the DAS service, you must set the region to cn-shanghai.
+     * - This API does not support querying diagnosis results for automatic SQL optimization.
+     * - This API supports the following database engines:
+     *   - RDS MySQL
+     *   - RDS PostgreSQL
+     *   - RDS SQL Server
+     *   - PolarDB for MySQL
+     *   - PolarDB for PostgreSQL (Oracle-Compatible)
+     *   - ApsaraDB for MongoDB
+     * > RDS PostgreSQL instances require minor kernel version 20220130 or later. To view and upgrade the minor kernel version, see [Upgrade the minor kernel version](https://help.aliyun.com/document_detail/146895.html).
      *
      * @param request - GetRequestDiagnosisResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8427,20 +8706,20 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Queries the results of an SQL diagnostics task.
+     * Call GetRequestDiagnosisResult to retrieve the SQL diagnosis results.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   You cannot call this operation to query the diagnostic result of the automatic SQL optimization feature.
-     * *   This operation is applicable to the following database engines:
-     *     *   RDS MySQL
-     *     *   RDS PostgreSQL
-     *     *   RDS SQL Server
-     *     *   PolarDB for MySQL
-     *     *   PolarDB for PostgreSQL (Compatible with Oracle)
-     *     *   ApsaraDB for MongoDB
-     * >  If your instance is an ApsaraDB RDS for PostgreSQL instance, make sure that the minor engine version of your instance is 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+     * This API has the following prerequisites:
+     * - When you use an SDK to call the DAS service, you must set the region to cn-shanghai.
+     * - This API does not support querying diagnosis results for automatic SQL optimization.
+     * - This API supports the following database engines:
+     *   - RDS MySQL
+     *   - RDS PostgreSQL
+     *   - RDS SQL Server
+     *   - PolarDB for MySQL
+     *   - PolarDB for PostgreSQL (Oracle-Compatible)
+     *   - ApsaraDB for MongoDB
+     * > RDS PostgreSQL instances require minor kernel version 20220130 or later. To view and upgrade the minor kernel version, see [Upgrade the minor kernel version](https://help.aliyun.com/document_detail/146895.html).
      *
      * @param request - GetRequestDiagnosisResultRequest
      *
@@ -8462,8 +8741,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation supports the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - GetRunningSqlConcurrencyControlRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8518,8 +8797,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation supports the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - GetRunningSqlConcurrencyControlRulesRequest
      *
@@ -8541,8 +8820,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation supports the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - GetSqlConcurrencyControlKeywordsFromSqlTextRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8593,8 +8872,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation supports the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - GetSqlConcurrencyControlKeywordsFromSqlTextRequest
      *
@@ -8616,8 +8895,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation supports the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - GetSqlConcurrencyControlRulesHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8672,8 +8951,8 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * This operation supports the following database engines:
-     * *   ApsaraDB RDS for MySQL
-     * *   PolarDB for MySQL
+     * - ApsaraDB RDS for MySQL
+     * - PolarDB for MySQL
      *
      * @param request - GetSqlConcurrencyControlRulesHistoryRequest
      *
@@ -8695,11 +8974,11 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * The SQL diagnostics feature provides optimization suggestions for instances based on diagnostics results. You can use the optimization suggestions to optimize instance indexes. For more information, see [Automatic SQL optimization](https://help.aliyun.com/document_detail/167895.html).
-     * >  You can call this operation to query only the optimization suggestions that are automatically generated by the SQL diagnostics feature.
+     * > Returns only optimization suggestions that the SQL diagnostics feature automatically generates.
      * Before you call this operation, take note of the following items:
-     * *   This operation is applicable to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * - If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetSqlOptimizeAdviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8762,11 +9041,11 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * The SQL diagnostics feature provides optimization suggestions for instances based on diagnostics results. You can use the optimization suggestions to optimize instance indexes. For more information, see [Automatic SQL optimization](https://help.aliyun.com/document_detail/167895.html).
-     * >  You can call this operation to query only the optimization suggestions that are automatically generated by the SQL diagnostics feature.
+     * > Returns only optimization suggestions that the SQL diagnostics feature automatically generates.
      * Before you call this operation, take note of the following items:
-     * *   This operation is applicable to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+     * - If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetSqlOptimizeAdviceRequest
      *
@@ -8787,11 +9066,11 @@ class DAS extends OpenApiClient
      * Queries the status and results of a storage analysis task.
      *
      * @remarks
-     * >  The physical file size indicates the actual size of an obtained file. Only specific deployment modes of database instances support the display of physical file sizes. The statistics on tables are obtained from `information_schema.tables`. Statistics in MySQL are not updated in real time. Therefore, the statistics may be different from the physical file sizes. If you want to obtain the latest data, you can execute the `ANALYZE TABLE` statement on the relevant tables during off-peak hours.
-     * *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
-     * *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * > The physical file size indicates the actual size of an obtained file. Only specific deployment modes of database instances support the display of physical file sizes. The statistics on tables are obtained from `information_schema.tables`. Statistics in MySQL are not updated in real time. Therefore, the statistics may be different from the physical file sizes. If you want to obtain the latest data, you can execute the `ANALYZE TABLE` statement on the relevant tables during off-peak hours.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
+     * - For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
+     * - If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetStorageAnalysisResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8841,11 +9120,11 @@ class DAS extends OpenApiClient
      * Queries the status and results of a storage analysis task.
      *
      * @remarks
-     * >  The physical file size indicates the actual size of an obtained file. Only specific deployment modes of database instances support the display of physical file sizes. The statistics on tables are obtained from `information_schema.tables`. Statistics in MySQL are not updated in real time. Therefore, the statistics may be different from the physical file sizes. If you want to obtain the latest data, you can execute the `ANALYZE TABLE` statement on the relevant tables during off-peak hours.
-     * *   This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
-     * *   For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
-     * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * > The physical file size indicates the actual size of an obtained file. Only specific deployment modes of database instances support the display of physical file sizes. The statistics on tables are obtained from `information_schema.tables`. Statistics in MySQL are not updated in real time. Therefore, the statistics may be different from the physical file sizes. If you want to obtain the latest data, you can execute the `ANALYZE TABLE` statement on the relevant tables during off-peak hours.
+     * - This operation is applicable only to ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and ApsaraDB for MongoDB instances.
+     * - For ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters, this operation works the same as the storage analysis feature of the previous version. Tasks generated by this operation cannot be viewed on the Storage Analysis page of the new version in the Database Autonomy Service (DAS) console. If you want to view the tasks and results, call the related API operation to obtain data and save data to your computer.
+     * - If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetStorageAnalysisResultRequest
      *
@@ -8863,7 +9142,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 瑶池AI助理大模型能力接口.
+     * Provides the Alibaba Cloud ApsaraDB Agent foundation model capability interface for AI chat, performance diagnostics, and other features.
      *
      * @param request - GetYaoChiAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8881,6 +9160,10 @@ class DAS extends OpenApiClient
         $query = [];
         if (null !== $request->extraInfo) {
             @$query['ExtraInfo'] = $request->extraInfo;
+        }
+
+        if (null !== $request->imageKeys) {
+            @$query['ImageKeys'] = $request->imageKeys;
         }
 
         if (null !== $request->query) {
@@ -8927,7 +9210,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 瑶池AI助理大模型能力接口.
+     * Provides the Alibaba Cloud ApsaraDB Agent foundation model capability interface for AI chat, performance diagnostics, and other features.
      *
      * @param request - GetYaoChiAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8945,6 +9228,10 @@ class DAS extends OpenApiClient
         $query = [];
         if (null !== $request->extraInfo) {
             @$query['ExtraInfo'] = $request->extraInfo;
+        }
+
+        if (null !== $request->imageKeys) {
+            @$query['ImageKeys'] = $request->imageKeys;
         }
 
         if (null !== $request->query) {
@@ -8978,7 +9265,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 瑶池AI助理大模型能力接口.
+     * Provides the Alibaba Cloud ApsaraDB Agent foundation model capability interface for AI chat, performance diagnostics, and other features.
      *
      * @param request - GetYaoChiAgentRequest
      *
@@ -8999,10 +9286,10 @@ class DAS extends OpenApiClient
      * Terminates all sessions on an instance.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB for Redis.
-     * *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB for Redis.
+     * - If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - KillInstanceAllSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9048,10 +9335,10 @@ class DAS extends OpenApiClient
      * Terminates all sessions on an instance.
      *
      * @remarks
-     *   This operation is applicable only to ApsaraDB for Redis.
-     * *   If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
-     * *   The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * - This operation is applicable only to ApsaraDB for Redis.
+     * - If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
+     * - The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - KillInstanceAllSessionRequest
      *
@@ -9072,18 +9359,18 @@ class DAS extends OpenApiClient
      * Modifies the auto scaling configurations of an instance.
      *
      * @remarks
-     * You can call this operation to modify the following auto scaling configurations of an instance: **auto scaling for specifications**, **automatic storage expansion**, **automatic bandwidth adjustment**, and **auto scaling for resources**.
-     * *   You can modify the configurations of the **auto scaling feature for specifications** for the following types of database instances:
-     *     *   PolarDB for MySQL Cluster Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
-     *     *   ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or enhanced SSDs (ESSDs). For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
-     * *   You can modify the configurations of the **automatic storage expansion** feature for the following types of database instances:
-     *     *   ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs. For more information about the feature and the billing rules, see [Automatic space expansion](https://help.aliyun.com/document_detail/173345.html).
-     * *   You can modify the configurations of the **automatic bandwidth adjustment** feature for the following types of database instances:
-     *     *   ApsaraDB for Redis Classic (Local Disk-based) Edition instances. For more information about the feature and the billing rules, see [Automatic bandwidth adjustment](https://help.aliyun.com/document_detail/216312.html).
-     * *   You can modify the configurations of the **auto scaling feature for resources** for the following types of database instances:
-     *     *   General-purpose ApsaraDB RDS for MySQL Enterprise Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * Modifies the following auto scaling configurations for an instance: **auto scaling for specifications**, **automatic storage expansion**, **automatic bandwidth adjustment**, and **auto scaling for resources**.
+     * - You can modify the configurations of the **auto scaling feature for specifications** for the following types of database instances:
+     *   - PolarDB for MySQL Cluster Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
+     *   - ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or enhanced SSDs (ESSDs). For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
+     * - You can modify the configurations of the **automatic storage expansion** feature for the following types of database instances:
+     *   - ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs. For more information about the feature and the billing rules, see [Automatic space expansion](https://help.aliyun.com/document_detail/173345.html).
+     * - You can modify the configurations of the **automatic bandwidth adjustment** feature for the following types of database instances:
+     *   - ApsaraDB for Redis Classic (Local Disk-based) Edition instances. For more information about the feature and the billing rules, see [Automatic bandwidth adjustment](https://help.aliyun.com/document_detail/216312.html).
+     * - You can modify the configurations of the **auto scaling feature for resources** for the following types of database instances:
+     *   - General-purpose ApsaraDB RDS for MySQL Enterprise Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - ModifyAutoScalingConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9145,18 +9432,18 @@ class DAS extends OpenApiClient
      * Modifies the auto scaling configurations of an instance.
      *
      * @remarks
-     * You can call this operation to modify the following auto scaling configurations of an instance: **auto scaling for specifications**, **automatic storage expansion**, **automatic bandwidth adjustment**, and **auto scaling for resources**.
-     * *   You can modify the configurations of the **auto scaling feature for specifications** for the following types of database instances:
-     *     *   PolarDB for MySQL Cluster Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
-     *     *   ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or enhanced SSDs (ESSDs). For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
-     * *   You can modify the configurations of the **automatic storage expansion** feature for the following types of database instances:
-     *     *   ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs. For more information about the feature and the billing rules, see [Automatic space expansion](https://help.aliyun.com/document_detail/173345.html).
-     * *   You can modify the configurations of the **automatic bandwidth adjustment** feature for the following types of database instances:
-     *     *   ApsaraDB for Redis Classic (Local Disk-based) Edition instances. For more information about the feature and the billing rules, see [Automatic bandwidth adjustment](https://help.aliyun.com/document_detail/216312.html).
-     * *   You can modify the configurations of the **auto scaling feature for resources** for the following types of database instances:
-     *     *   General-purpose ApsaraDB RDS for MySQL Enterprise Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
-     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+     * Modifies the following auto scaling configurations for an instance: **auto scaling for specifications**, **automatic storage expansion**, **automatic bandwidth adjustment**, and **auto scaling for resources**.
+     * - You can modify the configurations of the **auto scaling feature for specifications** for the following types of database instances:
+     *   - PolarDB for MySQL Cluster Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
+     *   - ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or enhanced SSDs (ESSDs). For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
+     * - You can modify the configurations of the **automatic storage expansion** feature for the following types of database instances:
+     *   - ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs. For more information about the feature and the billing rules, see [Automatic space expansion](https://help.aliyun.com/document_detail/173345.html).
+     * - You can modify the configurations of the **automatic bandwidth adjustment** feature for the following types of database instances:
+     *   - ApsaraDB for Redis Classic (Local Disk-based) Edition instances. For more information about the feature and the billing rules, see [Automatic bandwidth adjustment](https://help.aliyun.com/document_detail/216312.html).
+     * - You can modify the configurations of the **auto scaling feature for resources** for the following types of database instances:
+     *   - General-purpose ApsaraDB RDS for MySQL Enterprise Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](https://help.aliyun.com/document_detail/169686.html).
+     * - If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+     * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - ModifyAutoScalingConfigRequest
      *
@@ -9174,7 +9461,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 修改用户跨产品白名单模板
+     * Modifies a cross-product whitelist template.
+     *
+     * @remarks
+     * Before you call this operation, note the following:
+     * - Use the latest version of the Alibaba Cloud SDK or DAS SDK.
+     * - When you use an SDK to call the DAS service, specify the cn-shanghai region.
+     * - This operation uses the latest supported version by default. For more information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
      *
      * @param request - ModifySecurityIPGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9225,7 +9518,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 修改用户跨产品白名单模板
+     * Modifies a cross-product whitelist template.
+     *
+     * @remarks
+     * Before you call this operation, note the following:
+     * - Use the latest version of the Alibaba Cloud SDK or DAS SDK.
+     * - When you use an SDK to call the DAS service, specify the cn-shanghai region.
+     * - This operation uses the latest supported version by default. For more information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
      *
      * @param request - ModifySecurityIPGroupRequest
      *
@@ -9243,7 +9542,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 绑定/解绑用户跨产品白名单模板
+     * Attaches or detaches a cross-product whitelist template.
+     *
+     * @remarks
+     * - Use the latest version of the Alibaba Cloud or DAS software development kit (SDK).
+     * - When you use the SDK to call the DAS service, set the region to cn-shanghai.
+     * - For more information about the supported database instances, see [Overview of features](https://help.aliyun.com/document_detail/92561.html) for SQL Insight and Audit.
+     * - The SQL Insight and Audit (Legacy) feature is enabled for the destination database instance. For more information about how to enable this feature, see [Enable SQL Insight and Audit](https://help.aliyun.com/document_detail/92561.html).
      *
      * @param request - ModifySecurityIPGroupRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9290,7 +9595,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 绑定/解绑用户跨产品白名单模板
+     * Attaches or detaches a cross-product whitelist template.
+     *
+     * @remarks
+     * - Use the latest version of the Alibaba Cloud or DAS software development kit (SDK).
+     * - When you use the SDK to call the DAS service, set the region to cn-shanghai.
+     * - For more information about the supported database instances, see [Overview of features](https://help.aliyun.com/document_detail/92561.html) for SQL Insight and Audit.
+     * - The SQL Insight and Audit (Legacy) feature is enabled for the destination database instance. For more information about how to enable this feature, see [Enable SQL Insight and Audit](https://help.aliyun.com/document_detail/92561.html).
      *
      * @param request - ModifySecurityIPGroupRelationRequest
      *
@@ -9308,13 +9619,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Enables or configures Database Autonomy Service (DAS) Enterprise Edition for a database instance.
+     * Use the `ModifySqlLogConfig` operation to enable or configure DAS Enterprise Edition for a database instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   By default, the latest version of DAS Enterprise Edition that supports the database instance is enabled. For information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * Before calling this operation, ensure you meet the following requirements:
+     * - Use the latest version of the Alibaba Cloud SDK or the DAS SDK.
+     * - When calling the DAS service with an SDK, set the region to cn-shanghai.
+     * - This operation enables the latest supported version of DAS Enterprise Edition by default. See [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html) for the databases and regions supported by each version of DAS Enterprise Edition.
      *
      * @param request - ModifySqlLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9379,13 +9690,13 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Enables or configures Database Autonomy Service (DAS) Enterprise Edition for a database instance.
+     * Use the `ModifySqlLogConfig` operation to enable or configure DAS Enterprise Edition for a database instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If you use an Alibaba Cloud SDK or a DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
-     * *   By default, the latest version of DAS Enterprise Edition that supports the database instance is enabled. For information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * Before calling this operation, ensure you meet the following requirements:
+     * - Use the latest version of the Alibaba Cloud SDK or the DAS SDK.
+     * - When calling the DAS service with an SDK, set the region to cn-shanghai.
+     * - This operation enables the latest supported version of DAS Enterprise Edition by default. See [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html) for the databases and regions supported by each version of DAS Enterprise Edition.
      *
      * @param request - ModifySqlLogConfigRequest
      *
@@ -9403,10 +9714,10 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Runs a stress testing task.
+     * Calls the RunCloudBenchTask operation to execute a stress testing task.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you determine whether your instance type needs to be scaled out to handle peak service traffic. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - RunCloudBenchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9445,10 +9756,10 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Runs a stress testing task.
+     * Calls the RunCloudBenchTask operation to execute a stress testing task.
      *
      * @remarks
-     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
+     * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you determine whether your instance type needs to be scaled out to handle peak service traffic. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - RunCloudBenchTaskRequest
      *
@@ -9578,12 +9889,12 @@ class DAS extends OpenApiClient
      * Asynchronously configures parameters related to the automatic fragment recycling feature for multiple database instances at a time.
      *
      * @remarks
-     * >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
+     * > Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.\\*\\*\\*\\* In this case, you must call this operation at least twice.
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   The database instances must be an ApsaraDB RDS for MySQL High-availability Edition instance.
-     * *   DAS Enterprise Edition must be enabled for the database instance. You can call the call [DescribeInstanceDasPro](https://help.aliyun.com/document_detail/413866.html) operation to query whether DAS Enterprise Edition is enabled.
-     * *   The database instance has four or more CPU cores, and **innodb_file_per_table** is set to **ON**.
+     * - If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - The database instances must be an ApsaraDB RDS for MySQL High-availability Edition instance.
+     * - DAS Enterprise Edition must be enabled for the database instance. You can call the call [DescribeInstanceDasPro](https://help.aliyun.com/document_detail/413866.html) operation to query whether DAS Enterprise Edition is enabled.
+     * - The database instance has four or more CPU cores, and **innodb_file_per_table** is set to **ON**.
      *
      * @param request - UpdateAutoResourceOptimizeRulesAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9641,12 +9952,12 @@ class DAS extends OpenApiClient
      * Asynchronously configures parameters related to the automatic fragment recycling feature for multiple database instances at a time.
      *
      * @remarks
-     * >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
+     * > Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.\\*\\*\\*\\* In this case, you must call this operation at least twice.
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   The database instances must be an ApsaraDB RDS for MySQL High-availability Edition instance.
-     * *   DAS Enterprise Edition must be enabled for the database instance. You can call the call [DescribeInstanceDasPro](https://help.aliyun.com/document_detail/413866.html) operation to query whether DAS Enterprise Edition is enabled.
-     * *   The database instance has four or more CPU cores, and **innodb_file_per_table** is set to **ON**.
+     * - If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - The database instances must be an ApsaraDB RDS for MySQL High-availability Edition instance.
+     * - DAS Enterprise Edition must be enabled for the database instance. You can call the call [DescribeInstanceDasPro](https://help.aliyun.com/document_detail/413866.html) operation to query whether DAS Enterprise Edition is enabled.
+     * - The database instance has four or more CPU cores, and **innodb_file_per_table** is set to **ON**.
      *
      * @param request - UpdateAutoResourceOptimizeRulesAsyncRequest
      *
@@ -9668,12 +9979,12 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   DAS Enterprise Edition must be enabled for the database instance that you want to manage. To enable DAS Enterprise Edition for a database instance, you can call the [EnableDasPro](https://help.aliyun.com/document_detail/411645.html) operation.
-     * *   The autonomy service must be enabled for the database instance. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition
-     *     *   PolarDB for MySQL Cluster Edition
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - DAS Enterprise Edition must be enabled for the database instance that you want to manage. To enable DAS Enterprise Edition for a database instance, you can call the [EnableDasPro](https://help.aliyun.com/document_detail/411645.html) operation.
+     * - The autonomy service must be enabled for the database instance. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition
+     *   - PolarDB for MySQL Cluster Edition
      *
      * @param request - UpdateAutoSqlOptimizeStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9720,12 +10031,12 @@ class DAS extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   DAS Enterprise Edition must be enabled for the database instance that you want to manage. To enable DAS Enterprise Edition for a database instance, you can call the [EnableDasPro](https://help.aliyun.com/document_detail/411645.html) operation.
-     * *   The autonomy service must be enabled for the database instance. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
-     * *   This operation supports the following database engines:
-     *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition
-     *     *   PolarDB for MySQL Cluster Edition
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - DAS Enterprise Edition must be enabled for the database instance that you want to manage. To enable DAS Enterprise Edition for a database instance, you can call the [EnableDasPro](https://help.aliyun.com/document_detail/411645.html) operation.
+     * - The autonomy service must be enabled for the database instance. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     * - This operation supports the following database engines:
+     *   - ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition
+     *   - PolarDB for MySQL Cluster Edition
      *
      * @param request - UpdateAutoSqlOptimizeStatusRequest
      *
@@ -9746,13 +10057,13 @@ class DAS extends OpenApiClient
      * Asynchronously configures parameters related to the automatic SQL throttling feature for multiple database instances at a time.
      *
      * @remarks
-     * >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
+     * > Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.\\*\\*\\*\\* In this case, you must call this operation at least twice.
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
-     * *   The database instance that you want to manage must be of one of the following types:
-     *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
-     *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     * - The database instance that you want to manage must be of one of the following types:
+     *   - ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     *   - PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
      *
      * @param request - UpdateAutoThrottleRulesAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9834,13 +10145,13 @@ class DAS extends OpenApiClient
      * Asynchronously configures parameters related to the automatic SQL throttling feature for multiple database instances at a time.
      *
      * @remarks
-     * >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
+     * > Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.\\*\\*\\*\\* In this case, you must call this operation at least twice.
      * Before you call this operation, take note of the following items:
-     * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-     * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
-     * *   The database instance that you want to manage must be of one of the following types:
-     *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
-     *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+     * - The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+     * - The database instance that you want to manage must be of one of the following types:
+     *   - ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+     *   - PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
      *
      * @param request - UpdateAutoThrottleRulesAsyncRequest
      *
