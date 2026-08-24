@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Csas\V20230120;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AddDeviceGroupMatchDevicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AddDeviceGroupMatchDevicesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\AddVirusScanAdditionalListsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\AddVirusScanAdditionalListsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorShrinkRequest;
@@ -20,6 +22,10 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessApplicationRe
 use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CancelVirusScanTasksRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CancelVirusScanTasksResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CancelVulScanTasksRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CancelVulScanTasksResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessShrinkRequest;
@@ -63,6 +69,17 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVirusScanScheduledStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVirusScanScheduledStrategyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVirusScanTaskRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVirusScanTaskResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVulnerabilityFixTaskRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVulnerabilityFixTaskResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVulnerabilityFixTaskShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVulScanScheduledStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVulScanScheduledStrategyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVulScanTaskRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVulScanTaskResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageShrinkRequest;
@@ -84,6 +101,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDeviceGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDeviceGroupsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDevicesVulnerabilityRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDevicesVulnerabilityResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDomainMetaRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDomainMetaResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteRequest;
@@ -116,6 +135,12 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserDevicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteVirusFileRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteVirusFileResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteVirusScanScheduledStrategiesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteVirusScanScheduledStrategiesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteVulScanScheduledStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteVulScanScheduledStrategyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorShrinkRequest;
@@ -128,6 +153,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\EnableEnterpriseAcceleratePolicyRespo
 use AlibabaCloud\SDK\Csas\V20230120\Models\ExportUserDevicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ExportUserDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetActiveIdpConfigResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetAntiVirusRealTimeDefenceStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetAntiVirusRealTimeDefenceStrategyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalRequest;
@@ -172,6 +199,16 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceWorkloadTrendRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceWorkloadTrendResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetVirusScanGlobalConfigRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetVirusScanGlobalConfigResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetVirusScanScheduledStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetVirusScanScheduledStrategyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetVulnerabilityRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetVulnerabilityResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetVulScanGlobalConfigRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetVulScanGlobalConfigResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetVulScanScheduledStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetVulScanScheduledStrategyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmEmbedTaskRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmEmbedTaskResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmExtractTaskRequest;
@@ -198,6 +235,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDeviceGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDeviceGroupsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDevicesForVulnerabilityRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDevicesForVulnerabilityResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainItemsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainItemsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainMetasRequest;
@@ -282,6 +321,24 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserPrivateAccessPoliciesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserPrivateAccessPoliciesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusFileStatusesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusFileStatusesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusScanAdditionalListsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusScanAdditionalListsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusScanScheduledStrategiesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusScanScheduledStrategiesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusScanTasksRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusScanTasksResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusScanTaskStatusesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusScanTaskStatusesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusScanTaskSummaryRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVirusScanTaskSummaryResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVulnerabilitiesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVulnerabilitiesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVulScanScheduledStrategiesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVulScanScheduledStrategiesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVulScanTasksRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListVulScanTasksResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyEnterpriseAcceleratePolicyRequest;
@@ -292,10 +349,14 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyForwardStrategyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyForwardStrategyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RemoveDeviceGroupMatchDevicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RemoveDeviceGroupMatchDevicesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\RemoveVirusScanAdditionalListsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\RemoveVirusScanAdditionalListsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserDeviceSessionRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserDeviceSessionResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateAntiVirusRealTimeDefenceStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateAntiVirusRealTimeDefenceStrategyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessShrinkRequest;
@@ -356,6 +417,17 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUsersStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUsersStatusResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVirusFileStatusRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVirusFileStatusResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVirusScanGlobalConfigRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVirusScanGlobalConfigResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVirusScanScheduledStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVirusScanScheduledStrategyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVulScanGlobalConfigRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVulScanGlobalConfigResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVulScanGlobalConfigShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVulScanScheduledStrategyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVulScanScheduledStrategyResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -461,6 +533,70 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addDeviceGroupMatchDevicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+     *
+     * @param request - AddVirusScanAdditionalListsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddVirusScanAdditionalListsResponse
+     *
+     * @param AddVirusScanAdditionalListsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddVirusScanAdditionalListsResponse
+     */
+    public function addVirusScanAdditionalListsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->additionalLists) {
+            @$bodyFlat['AdditionalLists'] = $request->additionalLists;
+        }
+
+        if (null !== $request->devType) {
+            @$body['DevType'] = $request->devType;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddVirusScanAdditionalLists',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddVirusScanAdditionalListsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+     *
+     * @param request - AddVirusScanAdditionalListsRequest
+     *
+     * @returns AddVirusScanAdditionalListsResponse
+     *
+     * @param AddVirusScanAdditionalListsRequest $request
+     *
+     * @return AddVirusScanAdditionalListsResponse
+     */
+    public function addVirusScanAdditionalLists($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addVirusScanAdditionalListsWithOptions($request, $runtime);
     }
 
     /**
@@ -871,6 +1007,126 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchDeletePrivateAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+     *
+     * @param request - CancelVirusScanTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelVirusScanTasksResponse
+     *
+     * @param CancelVirusScanTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CancelVirusScanTasksResponse
+     */
+    public function cancelVirusScanTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->taskIds) {
+            @$bodyFlat['TaskIds'] = $request->taskIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CancelVirusScanTasks',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelVirusScanTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+     *
+     * @param request - CancelVirusScanTasksRequest
+     *
+     * @returns CancelVirusScanTasksResponse
+     *
+     * @param CancelVirusScanTasksRequest $request
+     *
+     * @return CancelVirusScanTasksResponse
+     */
+    public function cancelVirusScanTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelVirusScanTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+     *
+     * @param request - CancelVulScanTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelVulScanTasksResponse
+     *
+     * @param CancelVulScanTasksRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CancelVulScanTasksResponse
+     */
+    public function cancelVulScanTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->taskIds) {
+            @$bodyFlat['TaskIds'] = $request->taskIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CancelVulScanTasks',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelVulScanTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+     *
+     * @param request - CancelVulScanTasksRequest
+     *
+     * @returns CancelVulScanTasksResponse
+     *
+     * @param CancelVulScanTasksRequest $request
+     *
+     * @return CancelVulScanTasksResponse
+     */
+    public function cancelVulScanTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelVulScanTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -2542,6 +2798,508 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+     *
+     * @param request - CreateVirusScanScheduledStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVirusScanScheduledStrategyResponse
+     *
+     * @param CreateVirusScanScheduledStrategyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateVirusScanScheduledStrategyResponse
+     */
+    public function createVirusScanScheduledStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->highRiskOperation) {
+            @$body['HighRiskOperation'] = $request->highRiskOperation;
+        }
+
+        if (null !== $request->lowRiskOperation) {
+            @$body['LowRiskOperation'] = $request->lowRiskOperation;
+        }
+
+        if (null !== $request->matchMode) {
+            @$body['MatchMode'] = $request->matchMode;
+        }
+
+        if (null !== $request->maxCpuUsage) {
+            @$body['MaxCpuUsage'] = $request->maxCpuUsage;
+        }
+
+        if (null !== $request->midRiskOperation) {
+            @$body['MidRiskOperation'] = $request->midRiskOperation;
+        }
+
+        if (null !== $request->performanceMode) {
+            @$body['PerformanceMode'] = $request->performanceMode;
+        }
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->scanBeginTime) {
+            @$body['ScanBeginTime'] = $request->scanBeginTime;
+        }
+
+        if (null !== $request->scanEndTime) {
+            @$body['ScanEndTime'] = $request->scanEndTime;
+        }
+
+        if (null !== $request->scanFrequency) {
+            @$body['ScanFrequency'] = $request->scanFrequency;
+        }
+
+        if (null !== $request->scanInterval) {
+            @$body['ScanInterval'] = $request->scanInterval;
+        }
+
+        if (null !== $request->scanMode) {
+            @$body['ScanMode'] = $request->scanMode;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->scanPath) {
+            @$bodyFlat['ScanPath'] = $request->scanPath;
+        }
+
+        if (null !== $request->scanTargets) {
+            @$bodyFlat['ScanTargets'] = $request->scanTargets;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->strategyDescription) {
+            @$body['StrategyDescription'] = $request->strategyDescription;
+        }
+
+        if (null !== $request->strategyName) {
+            @$body['StrategyName'] = $request->strategyName;
+        }
+
+        if (null !== $request->userGroupIds) {
+            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        if (null !== $request->whitelist) {
+            @$bodyFlat['Whitelist'] = $request->whitelist;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVirusScanScheduledStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVirusScanScheduledStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+     *
+     * @param request - CreateVirusScanScheduledStrategyRequest
+     *
+     * @returns CreateVirusScanScheduledStrategyResponse
+     *
+     * @param CreateVirusScanScheduledStrategyRequest $request
+     *
+     * @return CreateVirusScanScheduledStrategyResponse
+     */
+    public function createVirusScanScheduledStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVirusScanScheduledStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an instant virus scan task and delivers it to user endpoint devices within the effective scope. The task takes effect immediately after creation. A maximum of 10 tasks can be created per Alibaba Cloud account per minute.
+     *
+     * @param request - CreateVirusScanTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVirusScanTaskResponse
+     *
+     * @param CreateVirusScanTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVirusScanTaskResponse
+     */
+    public function createVirusScanTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->highRiskOperation) {
+            @$body['HighRiskOperation'] = $request->highRiskOperation;
+        }
+
+        if (null !== $request->lowRiskOperation) {
+            @$body['LowRiskOperation'] = $request->lowRiskOperation;
+        }
+
+        if (null !== $request->matchMode) {
+            @$body['MatchMode'] = $request->matchMode;
+        }
+
+        if (null !== $request->maxCpuUsage) {
+            @$body['MaxCpuUsage'] = $request->maxCpuUsage;
+        }
+
+        if (null !== $request->midRiskOperation) {
+            @$body['MidRiskOperation'] = $request->midRiskOperation;
+        }
+
+        if (null !== $request->performanceMode) {
+            @$body['PerformanceMode'] = $request->performanceMode;
+        }
+
+        if (null !== $request->scanMode) {
+            @$body['ScanMode'] = $request->scanMode;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->scanPath) {
+            @$bodyFlat['ScanPath'] = $request->scanPath;
+        }
+
+        if (null !== $request->scanTargets) {
+            @$bodyFlat['ScanTargets'] = $request->scanTargets;
+        }
+
+        if (null !== $request->taskDescription) {
+            @$body['TaskDescription'] = $request->taskDescription;
+        }
+
+        if (null !== $request->userGroupIds) {
+            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        if (null !== $request->whitelist) {
+            @$bodyFlat['Whitelist'] = $request->whitelist;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVirusScanTask',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVirusScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an instant virus scan task and delivers it to user endpoint devices within the effective scope. The task takes effect immediately after creation. A maximum of 10 tasks can be created per Alibaba Cloud account per minute.
+     *
+     * @param request - CreateVirusScanTaskRequest
+     *
+     * @returns CreateVirusScanTaskResponse
+     *
+     * @param CreateVirusScanTaskRequest $request
+     *
+     * @return CreateVirusScanTaskResponse
+     */
+    public function createVirusScanTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVirusScanTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a scheduled vulnerability scanning policy that automatically sends vulnerability scanning tasks to user endpoint devices within the effective scope based on the configured cycle.
+     *
+     * @param request - CreateVulScanScheduledStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVulScanScheduledStrategyResponse
+     *
+     * @param CreateVulScanScheduledStrategyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateVulScanScheduledStrategyResponse
+     */
+    public function createVulScanScheduledStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->matchMode) {
+            @$body['MatchMode'] = $request->matchMode;
+        }
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->scanBeginTime) {
+            @$body['ScanBeginTime'] = $request->scanBeginTime;
+        }
+
+        if (null !== $request->scanEndTime) {
+            @$body['ScanEndTime'] = $request->scanEndTime;
+        }
+
+        if (null !== $request->scanFrequency) {
+            @$body['ScanFrequency'] = $request->scanFrequency;
+        }
+
+        if (null !== $request->scanInterval) {
+            @$body['ScanInterval'] = $request->scanInterval;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->strategyDescription) {
+            @$body['StrategyDescription'] = $request->strategyDescription;
+        }
+
+        if (null !== $request->strategyName) {
+            @$body['StrategyName'] = $request->strategyName;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->userGroupIds) {
+            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        if (null !== $request->whitelist) {
+            @$bodyFlat['Whitelist'] = $request->whitelist;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVulScanScheduledStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVulScanScheduledStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a scheduled vulnerability scanning policy that automatically sends vulnerability scanning tasks to user endpoint devices within the effective scope based on the configured cycle.
+     *
+     * @param request - CreateVulScanScheduledStrategyRequest
+     *
+     * @returns CreateVulScanScheduledStrategyResponse
+     *
+     * @param CreateVulScanScheduledStrategyRequest $request
+     *
+     * @return CreateVulScanScheduledStrategyResponse
+     */
+    public function createVulScanScheduledStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVulScanScheduledStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an instant vulnerability scanning task and delivers it to user endpoint devices within the effective scope.
+     *
+     * @param request - CreateVulScanTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVulScanTaskResponse
+     *
+     * @param CreateVulScanTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateVulScanTaskResponse
+     */
+    public function createVulScanTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endTimestamp) {
+            @$body['EndTimestamp'] = $request->endTimestamp;
+        }
+
+        if (null !== $request->matchMode) {
+            @$body['MatchMode'] = $request->matchMode;
+        }
+
+        if (null !== $request->taskDescription) {
+            @$body['TaskDescription'] = $request->taskDescription;
+        }
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->userGroupIds) {
+            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        if (null !== $request->whitelist) {
+            @$bodyFlat['Whitelist'] = $request->whitelist;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVulScanTask',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVulScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an instant vulnerability scanning task and delivers it to user endpoint devices within the effective scope.
+     *
+     * @param request - CreateVulScanTaskRequest
+     *
+     * @returns CreateVulScanTaskResponse
+     *
+     * @param CreateVulScanTaskRequest $request
+     *
+     * @return CreateVulScanTaskResponse
+     */
+    public function createVulScanTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVulScanTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a vulnerability fix task that delivers the patch for a specified vulnerability to user endpoint devices and performs the installation.
+     *
+     * @param tmpReq - CreateVulnerabilityFixTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVulnerabilityFixTaskResponse
+     *
+     * @param CreateVulnerabilityFixTaskRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateVulnerabilityFixTaskResponse
+     */
+    public function createVulnerabilityFixTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateVulnerabilityFixTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->wuyingVulFixConfig) {
+            $request->wuyingVulFixConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->wuyingVulFixConfig, 'WuyingVulFixConfig', 'json');
+        }
+
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->devTags) {
+            @$bodyFlat['DevTags'] = $request->devTags;
+        }
+
+        if (null !== $request->fixMode) {
+            @$body['FixMode'] = $request->fixMode;
+        }
+
+        if (null !== $request->maxDownloadSpeed) {
+            @$body['MaxDownloadSpeed'] = $request->maxDownloadSpeed;
+        }
+
+        if (null !== $request->updateId) {
+            @$body['UpdateId'] = $request->updateId;
+        }
+
+        if (null !== $request->wuyingVulFixConfigShrink) {
+            @$body['WuyingVulFixConfig'] = $request->wuyingVulFixConfigShrink;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVulnerabilityFixTask',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVulnerabilityFixTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a vulnerability fix task that delivers the patch for a specified vulnerability to user endpoint devices and performs the installation.
+     *
+     * @param request - CreateVulnerabilityFixTaskRequest
+     *
+     * @returns CreateVulnerabilityFixTaskResponse
+     *
+     * @param CreateVulnerabilityFixTaskRequest $request
+     *
+     * @return CreateVulnerabilityFixTaskResponse
+     */
+    public function createVulnerabilityFixTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVulnerabilityFixTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
      *
      * @param tmpReq - CreateWmBaseImageRequest
@@ -3250,6 +4008,70 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDeviceGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes detection records of a specified vulnerability from specified user endpoint devices in batches.
+     *
+     * @param request - DeleteDevicesVulnerabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDevicesVulnerabilityResponse
+     *
+     * @param DeleteDevicesVulnerabilityRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteDevicesVulnerabilityResponse
+     */
+    public function deleteDevicesVulnerabilityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->devTags) {
+            @$bodyFlat['DevTags'] = $request->devTags;
+        }
+
+        if (null !== $request->updateId) {
+            @$body['UpdateId'] = $request->updateId;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDevicesVulnerability',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDevicesVulnerabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes detection records of a specified vulnerability from specified user endpoint devices in batches.
+     *
+     * @param request - DeleteDevicesVulnerabilityRequest
+     *
+     * @returns DeleteDevicesVulnerabilityResponse
+     *
+     * @param DeleteDevicesVulnerabilityRequest $request
+     *
+     * @return DeleteDevicesVulnerabilityResponse
+     */
+    public function deleteDevicesVulnerability($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDevicesVulnerabilityWithOptions($request, $runtime);
     }
 
     /**
@@ -3986,7 +4808,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量删除自定义标签.
+     * Deletes custom prohibited software labels in batches.
      *
      * @param request - DeleteProhibitedTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4028,7 +4850,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量删除自定义标签.
+     * Deletes custom prohibited software labels in batches.
      *
      * @param request - DeleteProhibitedTagsRequest
      *
@@ -4234,6 +5056,188 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a virus file record that failed to be handled. Only records with a handling action of Fail can be deleted. This operation does not delete the actual file on the user\\"s endpoint device.
+     *
+     * @param request - DeleteVirusFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVirusFileResponse
+     *
+     * @param DeleteVirusFileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteVirusFileResponse
+     */
+    public function deleteVirusFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->devTag) {
+            @$body['DevTag'] = $request->devTag;
+        }
+
+        if (null !== $request->fileMd5) {
+            @$body['FileMd5'] = $request->fileMd5;
+        }
+
+        if (null !== $request->filePath) {
+            @$body['FilePath'] = $request->filePath;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVirusFile',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVirusFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a virus file record that failed to be handled. Only records with a handling action of Fail can be deleted. This operation does not delete the actual file on the user\\"s endpoint device.
+     *
+     * @param request - DeleteVirusFileRequest
+     *
+     * @returns DeleteVirusFileResponse
+     *
+     * @param DeleteVirusFileRequest $request
+     *
+     * @return DeleteVirusFileResponse
+     */
+    public function deleteVirusFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVirusFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes virus scheduled scan policies in batches. After deletion, no new scan tasks are triggered, but scan tasks that have already been dispatched are not affected. If any policy ID does not belong to the current Alibaba Cloud account, the entire deletion fails.
+     *
+     * @param request - DeleteVirusScanScheduledStrategiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVirusScanScheduledStrategiesResponse
+     *
+     * @param DeleteVirusScanScheduledStrategiesRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DeleteVirusScanScheduledStrategiesResponse
+     */
+    public function deleteVirusScanScheduledStrategiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->strategyIds) {
+            @$bodyFlat['StrategyIds'] = $request->strategyIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVirusScanScheduledStrategies',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVirusScanScheduledStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes virus scheduled scan policies in batches. After deletion, no new scan tasks are triggered, but scan tasks that have already been dispatched are not affected. If any policy ID does not belong to the current Alibaba Cloud account, the entire deletion fails.
+     *
+     * @param request - DeleteVirusScanScheduledStrategiesRequest
+     *
+     * @returns DeleteVirusScanScheduledStrategiesResponse
+     *
+     * @param DeleteVirusScanScheduledStrategiesRequest $request
+     *
+     * @return DeleteVirusScanScheduledStrategiesResponse
+     */
+    public function deleteVirusScanScheduledStrategies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVirusScanScheduledStrategiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a specified scheduled vulnerability scanning policy.
+     *
+     * @param request - DeleteVulScanScheduledStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVulScanScheduledStrategyResponse
+     *
+     * @param DeleteVulScanScheduledStrategyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteVulScanScheduledStrategyResponse
+     */
+    public function deleteVulScanScheduledStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->strategyId) {
+            @$body['StrategyId'] = $request->strategyId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVulScanScheduledStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVulScanScheduledStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified scheduled vulnerability scanning policy.
+     *
+     * @param request - DeleteVulScanScheduledStrategyRequest
+     *
+     * @returns DeleteVulScanScheduledStrategyResponse
+     *
+     * @param DeleteVulScanScheduledStrategyRequest $request
+     *
+     * @return DeleteVulScanScheduledStrategyResponse
+     */
+    public function deleteVulScanScheduledStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVulScanScheduledStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -4644,6 +5648,56 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getActiveIdpConfigWithOptions($runtime);
+    }
+
+    /**
+     * Queries the real-time antivirus defense policy of the current Alibaba Cloud account.
+     *
+     * @param request - GetAntiVirusRealTimeDefenceStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAntiVirusRealTimeDefenceStrategyResponse
+     *
+     * @param GetAntiVirusRealTimeDefenceStrategyRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GetAntiVirusRealTimeDefenceStrategyResponse
+     */
+    public function getAntiVirusRealTimeDefenceStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetAntiVirusRealTimeDefenceStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAntiVirusRealTimeDefenceStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the real-time antivirus defense policy of the current Alibaba Cloud account.
+     *
+     * @param request - GetAntiVirusRealTimeDefenceStrategyRequest
+     *
+     * @returns GetAntiVirusRealTimeDefenceStrategyResponse
+     *
+     * @param GetAntiVirusRealTimeDefenceStrategyRequest $request
+     *
+     * @return GetAntiVirusRealTimeDefenceStrategyResponse
+     */
+    public function getAntiVirusRealTimeDefenceStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAntiVirusRealTimeDefenceStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -5850,6 +6904,265 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+     *
+     * @param request - GetVirusScanGlobalConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVirusScanGlobalConfigResponse
+     *
+     * @param GetVirusScanGlobalConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetVirusScanGlobalConfigResponse
+     */
+    public function getVirusScanGlobalConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetVirusScanGlobalConfig',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVirusScanGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+     *
+     * @param request - GetVirusScanGlobalConfigRequest
+     *
+     * @returns GetVirusScanGlobalConfigResponse
+     *
+     * @param GetVirusScanGlobalConfigRequest $request
+     *
+     * @return GetVirusScanGlobalConfigResponse
+     */
+    public function getVirusScanGlobalConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVirusScanGlobalConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a specified scheduled virus scan policy.
+     *
+     * @param request - GetVirusScanScheduledStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVirusScanScheduledStrategyResponse
+     *
+     * @param GetVirusScanScheduledStrategyRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetVirusScanScheduledStrategyResponse
+     */
+    public function getVirusScanScheduledStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVirusScanScheduledStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVirusScanScheduledStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a specified scheduled virus scan policy.
+     *
+     * @param request - GetVirusScanScheduledStrategyRequest
+     *
+     * @returns GetVirusScanScheduledStrategyResponse
+     *
+     * @param GetVirusScanScheduledStrategyRequest $request
+     *
+     * @return GetVirusScanScheduledStrategyResponse
+     */
+    public function getVirusScanScheduledStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVirusScanScheduledStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+     *
+     * @param request - GetVulScanGlobalConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVulScanGlobalConfigResponse
+     *
+     * @param GetVulScanGlobalConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetVulScanGlobalConfigResponse
+     */
+    public function getVulScanGlobalConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetVulScanGlobalConfig',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVulScanGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+     *
+     * @param request - GetVulScanGlobalConfigRequest
+     *
+     * @returns GetVulScanGlobalConfigResponse
+     *
+     * @param GetVulScanGlobalConfigRequest $request
+     *
+     * @return GetVulScanGlobalConfigResponse
+     */
+    public function getVulScanGlobalConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVulScanGlobalConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the complete configuration of a specified vulnerability scheduled scan policy.
+     *
+     * @param request - GetVulScanScheduledStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVulScanScheduledStrategyResponse
+     *
+     * @param GetVulScanScheduledStrategyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetVulScanScheduledStrategyResponse
+     */
+    public function getVulScanScheduledStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVulScanScheduledStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVulScanScheduledStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the complete configuration of a specified vulnerability scheduled scan policy.
+     *
+     * @param request - GetVulScanScheduledStrategyRequest
+     *
+     * @returns GetVulScanScheduledStrategyResponse
+     *
+     * @param GetVulScanScheduledStrategyRequest $request
+     *
+     * @return GetVulScanScheduledStrategyResponse
+     */
+    public function getVulScanScheduledStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVulScanScheduledStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a specified vulnerability.
+     *
+     * @param request - GetVulnerabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVulnerabilityResponse
+     *
+     * @param GetVulnerabilityRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetVulnerabilityResponse
+     */
+    public function getVulnerabilityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVulnerability',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVulnerabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a specified vulnerability.
+     *
+     * @param request - GetVulnerabilityRequest
+     *
+     * @returns GetVulnerabilityResponse
+     *
+     * @param GetVulnerabilityRequest $request
+     *
+     * @return GetVulnerabilityResponse
+     */
+    public function getVulnerability($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVulnerabilityWithOptions($request, $runtime);
+    }
+
+    /**
      * Use the job ID obtained from creating a watermark embedding job to query the embedding job result.
      *
      * @param request - GetWmEmbedTaskRequest
@@ -6560,6 +7873,59 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDeviceGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+     *
+     * @param request - ListDevicesForVulnerabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDevicesForVulnerabilityResponse
+     *
+     * @param ListDevicesForVulnerabilityRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListDevicesForVulnerabilityResponse
+     */
+    public function listDevicesForVulnerabilityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDevicesForVulnerability',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDevicesForVulnerabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+     *
+     * @param request - ListDevicesForVulnerabilityRequest
+     *
+     * @returns ListDevicesForVulnerabilityResponse
+     *
+     * @param ListDevicesForVulnerabilityRequest $request
+     *
+     * @return ListDevicesForVulnerabilityResponse
+     */
+    public function listDevicesForVulnerability($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDevicesForVulnerabilityWithOptions($request, $runtime);
     }
 
     /**
@@ -9050,6 +10416,483 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Queries virus files detected under the current Alibaba Cloud account and their disposition status with paging. Supports filtering by virus type, risk level, user terminal device, user, and discovery time.
+     *
+     * @param request - ListVirusFileStatusesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVirusFileStatusesResponse
+     *
+     * @param ListVirusFileStatusesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListVirusFileStatusesResponse
+     */
+    public function listVirusFileStatusesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVirusFileStatuses',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVirusFileStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries virus files detected under the current Alibaba Cloud account and their disposition status with paging. Supports filtering by virus type, risk level, user terminal device, user, and discovery time.
+     *
+     * @param request - ListVirusFileStatusesRequest
+     *
+     * @returns ListVirusFileStatusesResponse
+     *
+     * @param ListVirusFileStatusesRequest $request
+     *
+     * @return ListVirusFileStatusesResponse
+     */
+    public function listVirusFileStatuses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVirusFileStatusesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询病毒扫描额外名单.
+     *
+     * @param request - ListVirusScanAdditionalListsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVirusScanAdditionalListsResponse
+     *
+     * @param ListVirusScanAdditionalListsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListVirusScanAdditionalListsResponse
+     */
+    public function listVirusScanAdditionalListsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVirusScanAdditionalLists',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVirusScanAdditionalListsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询病毒扫描额外名单.
+     *
+     * @param request - ListVirusScanAdditionalListsRequest
+     *
+     * @returns ListVirusScanAdditionalListsResponse
+     *
+     * @param ListVirusScanAdditionalListsRequest $request
+     *
+     * @return ListVirusScanAdditionalListsResponse
+     */
+    public function listVirusScanAdditionalLists($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVirusScanAdditionalListsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries virus scheduled scan policies under the current Alibaba Cloud account with paging.
+     *
+     * @param request - ListVirusScanScheduledStrategiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVirusScanScheduledStrategiesResponse
+     *
+     * @param ListVirusScanScheduledStrategiesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListVirusScanScheduledStrategiesResponse
+     */
+    public function listVirusScanScheduledStrategiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVirusScanScheduledStrategies',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVirusScanScheduledStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries virus scheduled scan policies under the current Alibaba Cloud account with paging.
+     *
+     * @param request - ListVirusScanScheduledStrategiesRequest
+     *
+     * @returns ListVirusScanScheduledStrategiesResponse
+     *
+     * @param ListVirusScanScheduledStrategiesRequest $request
+     *
+     * @return ListVirusScanScheduledStrategiesResponse
+     */
+    public function listVirusScanScheduledStrategies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVirusScanScheduledStrategiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量查询病毒扫描任务的状态
+     *
+     * @param request - ListVirusScanTaskStatusesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVirusScanTaskStatusesResponse
+     *
+     * @param ListVirusScanTaskStatusesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListVirusScanTaskStatusesResponse
+     */
+    public function listVirusScanTaskStatusesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVirusScanTaskStatuses',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVirusScanTaskStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询病毒扫描任务的状态
+     *
+     * @param request - ListVirusScanTaskStatusesRequest
+     *
+     * @returns ListVirusScanTaskStatusesResponse
+     *
+     * @param ListVirusScanTaskStatusesRequest $request
+     *
+     * @return ListVirusScanTaskStatusesResponse
+     */
+    public function listVirusScanTaskStatuses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVirusScanTaskStatusesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量查询病毒扫描任务统计数据.
+     *
+     * @param request - ListVirusScanTaskSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVirusScanTaskSummaryResponse
+     *
+     * @param ListVirusScanTaskSummaryRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListVirusScanTaskSummaryResponse
+     */
+    public function listVirusScanTaskSummaryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVirusScanTaskSummary',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVirusScanTaskSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询病毒扫描任务统计数据.
+     *
+     * @param request - ListVirusScanTaskSummaryRequest
+     *
+     * @returns ListVirusScanTaskSummaryResponse
+     *
+     * @param ListVirusScanTaskSummaryRequest $request
+     *
+     * @return ListVirusScanTaskSummaryResponse
+     */
+    public function listVirusScanTaskSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVirusScanTaskSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量查询病毒扫描任务
+     *
+     * @param request - ListVirusScanTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVirusScanTasksResponse
+     *
+     * @param ListVirusScanTasksRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListVirusScanTasksResponse
+     */
+    public function listVirusScanTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVirusScanTasks',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVirusScanTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询病毒扫描任务
+     *
+     * @param request - ListVirusScanTasksRequest
+     *
+     * @returns ListVirusScanTasksResponse
+     *
+     * @param ListVirusScanTasksRequest $request
+     *
+     * @return ListVirusScanTasksResponse
+     */
+    public function listVirusScanTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVirusScanTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries scheduled vulnerability scan policies under the current Alibaba Cloud account by paging.
+     *
+     * @param request - ListVulScanScheduledStrategiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVulScanScheduledStrategiesResponse
+     *
+     * @param ListVulScanScheduledStrategiesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListVulScanScheduledStrategiesResponse
+     */
+    public function listVulScanScheduledStrategiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVulScanScheduledStrategies',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVulScanScheduledStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries scheduled vulnerability scan policies under the current Alibaba Cloud account by paging.
+     *
+     * @param request - ListVulScanScheduledStrategiesRequest
+     *
+     * @returns ListVulScanScheduledStrategiesResponse
+     *
+     * @param ListVulScanScheduledStrategiesRequest $request
+     *
+     * @return ListVulScanScheduledStrategiesResponse
+     */
+    public function listVulScanScheduledStrategies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVulScanScheduledStrategiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries vulnerability scanning tasks under the current Alibaba Cloud account by paged query.
+     *
+     * @param request - ListVulScanTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVulScanTasksResponse
+     *
+     * @param ListVulScanTasksRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListVulScanTasksResponse
+     */
+    public function listVulScanTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVulScanTasks',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVulScanTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries vulnerability scanning tasks under the current Alibaba Cloud account by paged query.
+     *
+     * @param request - ListVulScanTasksRequest
+     *
+     * @returns ListVulScanTasksResponse
+     *
+     * @param ListVulScanTasksRequest $request
+     *
+     * @return ListVulScanTasksResponse
+     */
+    public function listVulScanTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVulScanTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries vulnerabilities detected by scans under the current Alibaba Cloud account by using paged query with paging.
+     *
+     * @param request - ListVulnerabilitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVulnerabilitiesResponse
+     *
+     * @param ListVulnerabilitiesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListVulnerabilitiesResponse
+     */
+    public function listVulnerabilitiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVulnerabilities',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVulnerabilitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries vulnerabilities detected by scans under the current Alibaba Cloud account by using paged query with paging.
+     *
+     * @param request - ListVulnerabilitiesRequest
+     *
+     * @returns ListVulnerabilitiesResponse
+     *
+     * @param ListVulnerabilitiesRequest $request
+     *
+     * @return ListVulnerabilitiesResponse
+     */
+    public function listVulnerabilities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVulnerabilitiesWithOptions($request, $runtime);
+    }
+
+    /**
      * Look up an existing watermark information mapping to retrieve the corresponding string-formatted watermark information from numeric-formatted watermark data.
      *
      * @param request - LookupWmInfoMappingRequest
@@ -9416,6 +11259,66 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Removes virus scan blacklists and whitelists entries in batch by entry IDs. The entire removal operation is failed if any of the specified entry IDs do not belong to the current Alibaba Cloud account.
+     *
+     * @param request - RemoveVirusScanAdditionalListsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveVirusScanAdditionalListsResponse
+     *
+     * @param RemoveVirusScanAdditionalListsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RemoveVirusScanAdditionalListsResponse
+     */
+    public function removeVirusScanAdditionalListsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->listIds) {
+            @$bodyFlat['ListIds'] = $request->listIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveVirusScanAdditionalLists',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveVirusScanAdditionalListsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes virus scan blacklists and whitelists entries in batch by entry IDs. The entire removal operation is failed if any of the specified entry IDs do not belong to the current Alibaba Cloud account.
+     *
+     * @param request - RemoveVirusScanAdditionalListsRequest
+     *
+     * @returns RemoveVirusScanAdditionalListsResponse
+     *
+     * @param RemoveVirusScanAdditionalListsRequest $request
+     *
+     * @return RemoveVirusScanAdditionalListsResponse
+     */
+    public function removeVirusScanAdditionalLists($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeVirusScanAdditionalListsWithOptions($request, $runtime);
+    }
+
+    /**
      * Revokes a user device session.
      *
      * @param request - RevokeUserDeviceSessionRequest
@@ -9540,6 +11443,98 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeUserSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Configures the real-time anti-virus defense policy for the current Alibaba Cloud account. The first call creates the policy, and subsequent calls update it. The complete updated configuration is returned. When configuring for the first time, Status, MatchMode, HighRiskOperation, MidRiskOperation, LowRiskOperation, and ScanTargets are all required. ScanTargets and Whitelist are full replacements. The collection you pass in replaces the existing configuration. When MatchMode is set to UserGroupNormal, you must pass in the complete UserGroupIds on every call. When Status is not set to Disabled, the system validates the endpoint hardening license count. The call fails if the count exceeds the purchased licenses.
+     *
+     * @param request - UpdateAntiVirusRealTimeDefenceStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAntiVirusRealTimeDefenceStrategyResponse
+     *
+     * @param UpdateAntiVirusRealTimeDefenceStrategyRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return UpdateAntiVirusRealTimeDefenceStrategyResponse
+     */
+    public function updateAntiVirusRealTimeDefenceStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->highRiskOperation) {
+            @$body['HighRiskOperation'] = $request->highRiskOperation;
+        }
+
+        if (null !== $request->lowRiskOperation) {
+            @$body['LowRiskOperation'] = $request->lowRiskOperation;
+        }
+
+        if (null !== $request->matchMode) {
+            @$body['MatchMode'] = $request->matchMode;
+        }
+
+        if (null !== $request->maxCpuUsage) {
+            @$body['MaxCpuUsage'] = $request->maxCpuUsage;
+        }
+
+        if (null !== $request->midRiskOperation) {
+            @$body['MidRiskOperation'] = $request->midRiskOperation;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->scanTargets) {
+            @$bodyFlat['ScanTargets'] = $request->scanTargets;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->userGroupIds) {
+            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        if (null !== $request->whitelist) {
+            @$bodyFlat['Whitelist'] = $request->whitelist;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAntiVirusRealTimeDefenceStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAntiVirusRealTimeDefenceStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Configures the real-time anti-virus defense policy for the current Alibaba Cloud account. The first call creates the policy, and subsequent calls update it. The complete updated configuration is returned. When configuring for the first time, Status, MatchMode, HighRiskOperation, MidRiskOperation, LowRiskOperation, and ScanTargets are all required. ScanTargets and Whitelist are full replacements. The collection you pass in replaces the existing configuration. When MatchMode is set to UserGroupNormal, you must pass in the complete UserGroupIds on every call. When Status is not set to Disabled, the system validates the endpoint hardening license count. The call fails if the count exceeds the purchased licenses.
+     *
+     * @param request - UpdateAntiVirusRealTimeDefenceStrategyRequest
+     *
+     * @returns UpdateAntiVirusRealTimeDefenceStrategyResponse
+     *
+     * @param UpdateAntiVirusRealTimeDefenceStrategyRequest $request
+     *
+     * @return UpdateAntiVirusRealTimeDefenceStrategyResponse
+     */
+    public function updateAntiVirusRealTimeDefenceStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAntiVirusRealTimeDefenceStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -11813,5 +13808,457 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateUsersStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+     *
+     * @param request - UpdateVirusFileStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVirusFileStatusResponse
+     *
+     * @param UpdateVirusFileStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateVirusFileStatusResponse
+     */
+    public function updateVirusFileStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->devTag) {
+            @$body['DevTag'] = $request->devTag;
+        }
+
+        if (null !== $request->fileMd5) {
+            @$body['FileMd5'] = $request->fileMd5;
+        }
+
+        if (null !== $request->filePath) {
+            @$body['FilePath'] = $request->filePath;
+        }
+
+        if (null !== $request->operation) {
+            @$body['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->virusType) {
+            @$body['VirusType'] = $request->virusType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVirusFileStatus',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVirusFileStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+     *
+     * @param request - UpdateVirusFileStatusRequest
+     *
+     * @returns UpdateVirusFileStatusResponse
+     *
+     * @param UpdateVirusFileStatusRequest $request
+     *
+     * @return UpdateVirusFileStatusResponse
+     */
+    public function updateVirusFileStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVirusFileStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the anti-virus global configuration for the current Alibaba Cloud account. The four configuration items are treated as a whole and are entirely overwritten with each call. Therefore, pass in the complete configuration with each call: set VirusFileUpload to false, UploadFileSuffixBlacklist to empty, and UploadFileMaxSize and UploadFileMaxSpeed to 0 (no limit). After VirusFileUpload is changed, the virus file upload module switch is synchronously updated, which affects whether cloud-based STS tokens are issued to user terminal devices.
+     *
+     * @param request - UpdateVirusScanGlobalConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVirusScanGlobalConfigResponse
+     *
+     * @param UpdateVirusScanGlobalConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateVirusScanGlobalConfigResponse
+     */
+    public function updateVirusScanGlobalConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->uploadFileMaxSize) {
+            @$body['UploadFileMaxSize'] = $request->uploadFileMaxSize;
+        }
+
+        if (null !== $request->uploadFileMaxSpeed) {
+            @$body['UploadFileMaxSpeed'] = $request->uploadFileMaxSpeed;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->uploadFileSuffixBlacklist) {
+            @$bodyFlat['UploadFileSuffixBlacklist'] = $request->uploadFileSuffixBlacklist;
+        }
+
+        if (null !== $request->virusFileUpload) {
+            @$body['VirusFileUpload'] = $request->virusFileUpload;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVirusScanGlobalConfig',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVirusScanGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the anti-virus global configuration for the current Alibaba Cloud account. The four configuration items are treated as a whole and are entirely overwritten with each call. Therefore, pass in the complete configuration with each call: set VirusFileUpload to false, UploadFileSuffixBlacklist to empty, and UploadFileMaxSize and UploadFileMaxSpeed to 0 (no limit). After VirusFileUpload is changed, the virus file upload module switch is synchronously updated, which affects whether cloud-based STS tokens are issued to user terminal devices.
+     *
+     * @param request - UpdateVirusScanGlobalConfigRequest
+     *
+     * @returns UpdateVirusScanGlobalConfigResponse
+     *
+     * @param UpdateVirusScanGlobalConfigRequest $request
+     *
+     * @return UpdateVirusScanGlobalConfigResponse
+     */
+    public function updateVirusScanGlobalConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVirusScanGlobalConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+     *
+     * @param request - UpdateVirusScanScheduledStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVirusScanScheduledStrategyResponse
+     *
+     * @param UpdateVirusScanScheduledStrategyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateVirusScanScheduledStrategyResponse
+     */
+    public function updateVirusScanScheduledStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->highRiskOperation) {
+            @$body['HighRiskOperation'] = $request->highRiskOperation;
+        }
+
+        if (null !== $request->lowRiskOperation) {
+            @$body['LowRiskOperation'] = $request->lowRiskOperation;
+        }
+
+        if (null !== $request->matchMode) {
+            @$body['MatchMode'] = $request->matchMode;
+        }
+
+        if (null !== $request->maxCpuUsage) {
+            @$body['MaxCpuUsage'] = $request->maxCpuUsage;
+        }
+
+        if (null !== $request->midRiskOperation) {
+            @$body['MidRiskOperation'] = $request->midRiskOperation;
+        }
+
+        if (null !== $request->performanceMode) {
+            @$body['PerformanceMode'] = $request->performanceMode;
+        }
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->scanBeginTime) {
+            @$body['ScanBeginTime'] = $request->scanBeginTime;
+        }
+
+        if (null !== $request->scanEndTime) {
+            @$body['ScanEndTime'] = $request->scanEndTime;
+        }
+
+        if (null !== $request->scanFrequency) {
+            @$body['ScanFrequency'] = $request->scanFrequency;
+        }
+
+        if (null !== $request->scanInterval) {
+            @$body['ScanInterval'] = $request->scanInterval;
+        }
+
+        if (null !== $request->scanMode) {
+            @$body['ScanMode'] = $request->scanMode;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->scanPath) {
+            @$bodyFlat['ScanPath'] = $request->scanPath;
+        }
+
+        if (null !== $request->scanTargets) {
+            @$bodyFlat['ScanTargets'] = $request->scanTargets;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->strategyDescription) {
+            @$body['StrategyDescription'] = $request->strategyDescription;
+        }
+
+        if (null !== $request->strategyId) {
+            @$body['StrategyId'] = $request->strategyId;
+        }
+
+        if (null !== $request->strategyName) {
+            @$body['StrategyName'] = $request->strategyName;
+        }
+
+        if (null !== $request->userGroupIds) {
+            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        if (null !== $request->whitelist) {
+            @$bodyFlat['Whitelist'] = $request->whitelist;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVirusScanScheduledStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVirusScanScheduledStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+     *
+     * @param request - UpdateVirusScanScheduledStrategyRequest
+     *
+     * @returns UpdateVirusScanScheduledStrategyResponse
+     *
+     * @param UpdateVirusScanScheduledStrategyRequest $request
+     *
+     * @return UpdateVirusScanScheduledStrategyResponse
+     */
+    public function updateVirusScanScheduledStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVirusScanScheduledStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the global vulnerability scanning configuration for the current Alibaba Cloud account and returns the complete updated configuration.
+     *
+     * @param tmpReq - UpdateVulScanGlobalConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVulScanGlobalConfigResponse
+     *
+     * @param UpdateVulScanGlobalConfigRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateVulScanGlobalConfigResponse
+     */
+    public function updateVulScanGlobalConfigWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateVulScanGlobalConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->wuyingVulFixConfig) {
+            $request->wuyingVulFixConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->wuyingVulFixConfig, 'WuyingVulFixConfig', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->maxDownloadSpeed) {
+            @$body['MaxDownloadSpeed'] = $request->maxDownloadSpeed;
+        }
+
+        if (null !== $request->wuyingVulFixConfigShrink) {
+            @$body['WuyingVulFixConfig'] = $request->wuyingVulFixConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVulScanGlobalConfig',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVulScanGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the global vulnerability scanning configuration for the current Alibaba Cloud account and returns the complete updated configuration.
+     *
+     * @param request - UpdateVulScanGlobalConfigRequest
+     *
+     * @returns UpdateVulScanGlobalConfigResponse
+     *
+     * @param UpdateVulScanGlobalConfigRequest $request
+     *
+     * @return UpdateVulScanGlobalConfigResponse
+     */
+    public function updateVulScanGlobalConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVulScanGlobalConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+     *
+     * @param request - UpdateVulScanScheduledStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVulScanScheduledStrategyResponse
+     *
+     * @param UpdateVulScanScheduledStrategyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateVulScanScheduledStrategyResponse
+     */
+    public function updateVulScanScheduledStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->matchMode) {
+            @$body['MatchMode'] = $request->matchMode;
+        }
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->scanBeginTime) {
+            @$body['ScanBeginTime'] = $request->scanBeginTime;
+        }
+
+        if (null !== $request->scanEndTime) {
+            @$body['ScanEndTime'] = $request->scanEndTime;
+        }
+
+        if (null !== $request->scanFrequency) {
+            @$body['ScanFrequency'] = $request->scanFrequency;
+        }
+
+        if (null !== $request->scanInterval) {
+            @$body['ScanInterval'] = $request->scanInterval;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->strategyDescription) {
+            @$body['StrategyDescription'] = $request->strategyDescription;
+        }
+
+        if (null !== $request->strategyId) {
+            @$body['StrategyId'] = $request->strategyId;
+        }
+
+        if (null !== $request->strategyName) {
+            @$body['StrategyName'] = $request->strategyName;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->userGroupIds) {
+            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        if (null !== $request->whitelist) {
+            @$bodyFlat['Whitelist'] = $request->whitelist;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVulScanScheduledStrategy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVulScanScheduledStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+     *
+     * @param request - UpdateVulScanScheduledStrategyRequest
+     *
+     * @returns UpdateVulScanScheduledStrategyResponse
+     *
+     * @param UpdateVulScanScheduledStrategyRequest $request
+     *
+     * @return UpdateVulScanScheduledStrategyResponse
+     */
+    public function updateVulScanScheduledStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVulScanScheduledStrategyWithOptions($request, $runtime);
     }
 }
