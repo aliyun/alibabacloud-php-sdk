@@ -35,6 +35,11 @@ class DescribeDataObjectsResponseBody extends Model
     public $hasPrevious;
 
     /**
+     * @var string[]
+     */
+    public $hitValues;
+
+    /**
      * @var items[]
      */
     public $items;
@@ -74,6 +79,7 @@ class DescribeDataObjectsResponseBody extends Model
         'errorMessage' => 'ErrorMessage',
         'hasNext' => 'HasNext',
         'hasPrevious' => 'HasPrevious',
+        'hitValues' => 'HitValues',
         'items' => 'Items',
         'nextCursor' => 'NextCursor',
         'pageSize' => 'PageSize',
@@ -85,6 +91,9 @@ class DescribeDataObjectsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->hitValues)) {
+            Model::validateArray($this->hitValues);
+        }
         if (\is_array($this->items)) {
             Model::validateArray($this->items);
         }
@@ -112,6 +121,17 @@ class DescribeDataObjectsResponseBody extends Model
 
         if (null !== $this->hasPrevious) {
             $res['HasPrevious'] = $this->hasPrevious;
+        }
+
+        if (null !== $this->hitValues) {
+            if (\is_array($this->hitValues)) {
+                $res['HitValues'] = [];
+                $n1 = 0;
+                foreach ($this->hitValues as $item1) {
+                    $res['HitValues'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->items) {
@@ -178,6 +198,17 @@ class DescribeDataObjectsResponseBody extends Model
 
         if (isset($map['HasPrevious'])) {
             $model->hasPrevious = $map['HasPrevious'];
+        }
+
+        if (isset($map['HitValues'])) {
+            if (!empty($map['HitValues'])) {
+                $model->hitValues = [];
+                $n1 = 0;
+                foreach ($map['HitValues'] as $item1) {
+                    $model->hitValues[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Items'])) {

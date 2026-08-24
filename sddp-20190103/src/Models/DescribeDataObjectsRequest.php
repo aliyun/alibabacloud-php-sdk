@@ -49,6 +49,11 @@ class DescribeDataObjectsRequest extends Model
     public $engineType;
 
     /**
+     * @var string
+     */
+    public $facetType;
+
+    /**
      * @var int
      */
     public $featureType;
@@ -67,6 +72,11 @@ class DescribeDataObjectsRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $isRevision;
 
     /**
      * @var string
@@ -181,10 +191,12 @@ class DescribeDataObjectsRequest extends Model
         'dbName' => 'DbName',
         'domainId' => 'DomainId',
         'engineType' => 'EngineType',
+        'facetType' => 'FacetType',
         'featureType' => 'FeatureType',
         'fileCategoryCode' => 'FileCategoryCode',
         'fileType' => 'FileType',
         'instanceId' => 'InstanceId',
+        'isRevision' => 'IsRevision',
         'lang' => 'Lang',
         'logStore' => 'LogStore',
         'logStoreFlag' => 'LogStoreFlag',
@@ -248,6 +260,10 @@ class DescribeDataObjectsRequest extends Model
             $res['EngineType'] = $this->engineType;
         }
 
+        if (null !== $this->facetType) {
+            $res['FacetType'] = $this->facetType;
+        }
+
         if (null !== $this->featureType) {
             $res['FeatureType'] = $this->featureType;
         }
@@ -262,6 +278,10 @@ class DescribeDataObjectsRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->isRevision) {
+            $res['IsRevision'] = $this->isRevision;
         }
 
         if (null !== $this->lang) {
@@ -391,6 +411,10 @@ class DescribeDataObjectsRequest extends Model
             $model->engineType = $map['EngineType'];
         }
 
+        if (isset($map['FacetType'])) {
+            $model->facetType = $map['FacetType'];
+        }
+
         if (isset($map['FeatureType'])) {
             $model->featureType = $map['FeatureType'];
         }
@@ -405,6 +429,10 @@ class DescribeDataObjectsRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['IsRevision'])) {
+            $model->isRevision = $map['IsRevision'];
         }
 
         if (isset($map['Lang'])) {
