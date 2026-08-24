@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetListResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetListResponseBody\configSets\ipPool;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetListResponseBody\configSets\validationOption;
 
 class configSets extends Model
 {
@@ -38,6 +39,11 @@ class configSets extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var validationOption
+     */
+    public $validationOption;
     protected $_name = [
         'description' => 'Description',
         'fromAddresses' => 'FromAddresses',
@@ -45,6 +51,7 @@ class configSets extends Model
         'ipPool' => 'IpPool',
         'isPublicChannelBackoff' => 'IsPublicChannelBackoff',
         'name' => 'Name',
+        'validationOption' => 'ValidationOption',
     ];
 
     public function validate()
@@ -54,6 +61,9 @@ class configSets extends Model
         }
         if (null !== $this->ipPool) {
             $this->ipPool->validate();
+        }
+        if (null !== $this->validationOption) {
+            $this->validationOption->validate();
         }
         parent::validate();
     }
@@ -90,6 +100,10 @@ class configSets extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->validationOption) {
+            $res['ValidationOption'] = null !== $this->validationOption ? $this->validationOption->toArray($noStream) : $this->validationOption;
         }
 
         return $res;
@@ -132,6 +146,10 @@ class configSets extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ValidationOption'])) {
+            $model->validationOption = validationOption::fromMap($map['ValidationOption']);
         }
 
         return $model;

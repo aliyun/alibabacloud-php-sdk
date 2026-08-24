@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetUpdateRequest\validationOption;
 
-class ConfigSetUpdateRequest extends Model
+class ConfigSetUpdateShrinkRequest extends Model
 {
     /**
      * @var string
@@ -35,23 +34,20 @@ class ConfigSetUpdateRequest extends Model
     public $name;
 
     /**
-     * @var validationOption
+     * @var string
      */
-    public $validationOption;
+    public $validationOptionShrink;
     protected $_name = [
         'description' => 'Description',
         'id' => 'Id',
         'ipPoolId' => 'IpPoolId',
         'isPublicChannelBackoff' => 'IsPublicChannelBackoff',
         'name' => 'Name',
-        'validationOption' => 'ValidationOption',
+        'validationOptionShrink' => 'ValidationOption',
     ];
 
     public function validate()
     {
-        if (null !== $this->validationOption) {
-            $this->validationOption->validate();
-        }
         parent::validate();
     }
 
@@ -78,8 +74,8 @@ class ConfigSetUpdateRequest extends Model
             $res['Name'] = $this->name;
         }
 
-        if (null !== $this->validationOption) {
-            $res['ValidationOption'] = null !== $this->validationOption ? $this->validationOption->toArray($noStream) : $this->validationOption;
+        if (null !== $this->validationOptionShrink) {
+            $res['ValidationOption'] = $this->validationOptionShrink;
         }
 
         return $res;
@@ -114,7 +110,7 @@ class ConfigSetUpdateRequest extends Model
         }
 
         if (isset($map['ValidationOption'])) {
-            $model->validationOption = validationOption::fromMap($map['ValidationOption']);
+            $model->validationOptionShrink = $map['ValidationOption'];
         }
 
         return $model;

@@ -33,6 +33,7 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetCancelRelationFromAddressReque
 use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetCancelRelationFromAddressResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetCreateRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetCreateResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetCreateShrinkRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetDeleteRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetDeleteResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetDetailRequest;
@@ -43,6 +44,7 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetRelationFromAddressRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetRelationFromAddressResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetUpdateRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetUpdateResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetUpdateShrinkRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateMailAddressRequest;
@@ -933,21 +935,27 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Creates a configuration set. You can create up to 100 configuration sets.
+     * Creates a configuration set. A maximum of 100 configuration sets can be created.
      *
-     * @param Request - ConfigSetCreateRequest
+     * @param tmpReq - ConfigSetCreateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ConfigSetCreateResponse
      *
-     * @param ConfigSetCreateRequest $request
+     * @param ConfigSetCreateRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return ConfigSetCreateResponse
      */
-    public function configSetCreateWithOptions($request, $runtime)
+    public function configSetCreateWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ConfigSetCreateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->validationOption) {
+            $request->validationOptionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->validationOption, 'ValidationOption', 'json');
+        }
+
         $query = [];
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
@@ -963,6 +971,10 @@ class Dm extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->validationOptionShrink) {
+            @$query['ValidationOption'] = $request->validationOptionShrink;
         }
 
         $req = new OpenApiRequest([
@@ -984,7 +996,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Creates a configuration set. You can create up to 100 configuration sets.
+     * Creates a configuration set. A maximum of 100 configuration sets can be created.
      *
      * @param Request - ConfigSetCreateRequest
      *
@@ -1063,7 +1075,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified configuration set.
+     * Retrieves the details of a configuration set.
      *
      * @param Request - ConfigSetDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1102,7 +1114,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified configuration set.
+     * Retrieves the details of a configuration set.
      *
      * @param Request - ConfigSetDetailRequest
      *
@@ -1120,7 +1132,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Lists ConfigSets.
+     * Lists configuration sets.
      *
      * @param Request - ConfigSetListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1171,7 +1183,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Lists ConfigSets.
+     * Lists configuration sets.
      *
      * @param Request - ConfigSetListRequest
      *
@@ -1252,19 +1264,25 @@ class Dm extends OpenApiClient
     /**
      * Updates a configuration set.
      *
-     * @param Request - ConfigSetUpdateRequest
+     * @param tmpReq - ConfigSetUpdateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ConfigSetUpdateResponse
      *
-     * @param ConfigSetUpdateRequest $request
+     * @param ConfigSetUpdateRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return ConfigSetUpdateResponse
      */
-    public function configSetUpdateWithOptions($request, $runtime)
+    public function configSetUpdateWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ConfigSetUpdateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->validationOption) {
+            $request->validationOptionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->validationOption, 'ValidationOption', 'json');
+        }
+
         $query = [];
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
@@ -1284,6 +1302,10 @@ class Dm extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->validationOptionShrink) {
+            @$query['ValidationOption'] = $request->validationOptionShrink;
         }
 
         $req = new OpenApiRequest([
@@ -5959,7 +5981,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Send a single email.
+     * Sends a single email.
      *
      * @param tmpReq - SingleSendMailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6094,7 +6116,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Send a single email.
+     * Sends a single email.
      *
      * @param Request - SingleSendMailRequest
      *

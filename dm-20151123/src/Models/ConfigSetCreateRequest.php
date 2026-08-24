@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetCreateRequest\validationOption;
 
 class ConfigSetCreateRequest extends Model
 {
@@ -27,15 +28,24 @@ class ConfigSetCreateRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var validationOption
+     */
+    public $validationOption;
     protected $_name = [
         'description' => 'Description',
         'ipPoolId' => 'IpPoolId',
         'isPublicChannelBackoff' => 'IsPublicChannelBackoff',
         'name' => 'Name',
+        'validationOption' => 'ValidationOption',
     ];
 
     public function validate()
     {
+        if (null !== $this->validationOption) {
+            $this->validationOption->validate();
+        }
         parent::validate();
     }
 
@@ -56,6 +66,10 @@ class ConfigSetCreateRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->validationOption) {
+            $res['ValidationOption'] = null !== $this->validationOption ? $this->validationOption->toArray($noStream) : $this->validationOption;
         }
 
         return $res;
@@ -83,6 +97,10 @@ class ConfigSetCreateRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ValidationOption'])) {
+            $model->validationOption = validationOption::fromMap($map['ValidationOption']);
         }
 
         return $model;

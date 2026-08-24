@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetDetailResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetDetailResponseBody\detail\ipPool;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetDetailResponseBody\detail\validationOption;
 
 class detail extends Model
 {
@@ -33,18 +34,27 @@ class detail extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var validationOption
+     */
+    public $validationOption;
     protected $_name = [
         'description' => 'Description',
         'id' => 'Id',
         'ipPool' => 'IpPool',
         'isPublicChannelBackoff' => 'IsPublicChannelBackoff',
         'name' => 'Name',
+        'validationOption' => 'ValidationOption',
     ];
 
     public function validate()
     {
         if (null !== $this->ipPool) {
             $this->ipPool->validate();
+        }
+        if (null !== $this->validationOption) {
+            $this->validationOption->validate();
         }
         parent::validate();
     }
@@ -70,6 +80,10 @@ class detail extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->validationOption) {
+            $res['ValidationOption'] = null !== $this->validationOption ? $this->validationOption->toArray($noStream) : $this->validationOption;
         }
 
         return $res;
@@ -101,6 +115,10 @@ class detail extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ValidationOption'])) {
+            $model->validationOption = validationOption::fromMap($map['ValidationOption']);
         }
 
         return $model;
