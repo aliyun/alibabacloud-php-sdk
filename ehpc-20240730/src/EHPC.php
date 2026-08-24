@@ -58,6 +58,8 @@ use AlibabaCloud\SDK\EHPC\V20240730\Models\GetJobRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetJobResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetQueueRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetQueueResponse;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\GetUserRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\GetUserResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\InstallAddonRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\InstallAddonResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\InstallSoftwaresRequest;
@@ -129,8 +131,6 @@ class EHPC extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'me-east-1' => 'ehpc.me-east-1.aliyuncs.com',
-            'eu-central-1' => 'ehpc.eu-central-1.aliyuncs.com',
             'cn-zhangjiakou' => 'ehpc.cn-zhangjiakou.aliyuncs.com',
             'cn-wulanchabu' => 'ehpc.cn-wulanchabu.aliyuncs.com',
             'cn-wuhan-lr' => 'ehpc.cn-wuhan-lr.aliyuncs.com',
@@ -147,6 +147,8 @@ class EHPC extends OpenApiClient
             'ap-southeast-5' => 'ehpc.ap-southeast-5.aliyuncs.com',
             'ap-southeast-1' => 'ehpc.ap-southeast-1.aliyuncs.com',
             'ap-northeast-1' => 'ehpc.ap-northeast-1.aliyuncs.com',
+            'eu-central-1' => 'ehpc.eu-central-1.aliyuncs.com',
+            'me-east-1' => 'ehpc.me-east-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ehpc', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -880,7 +882,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * Adds users to an Elastic High Performance Computing (E-HPC) cluster.
+     * Adds one or more users to a specified cluster.
      *
      * @param tmpReq - CreateUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -929,7 +931,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * Adds users to an Elastic High Performance Computing (E-HPC) cluster.
+     * Adds one or more users to a specified cluster.
      *
      * @param request - CreateUsersRequest
      *
@@ -1815,6 +1817,59 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getQueueWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a cluster user.
+     *
+     * @param request - GetUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUserResponse
+     */
+    public function getUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUser',
+            'version' => '2024-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a cluster user.
+     *
+     * @param request - GetUserRequest
+     *
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     *
+     * @return GetUserResponse
+     */
+    public function getUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserWithOptions($request, $runtime);
     }
 
     /**
@@ -3462,7 +3517,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
+     * Updates the information of a specified cluster user, including properties such as user group and password.
      *
      * @param request - UpdateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3513,7 +3568,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
+     * Updates the information of a specified cluster user, including properties such as user group and password.
      *
      * @param request - UpdateUserRequest
      *
