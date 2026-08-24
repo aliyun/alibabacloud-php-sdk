@@ -36,12 +36,22 @@ class sandboxTemplates extends Model
     /**
      * @var string
      */
+    public $image;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
      * @var int
      */
     public $replicas;
+
+    /**
+     * @var string[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -53,13 +63,18 @@ class sandboxTemplates extends Model
         'defaultMemory' => 'DefaultMemory',
         'description' => 'Description',
         'enableVpcAccess' => 'EnableVpcAccess',
+        'image' => 'Image',
         'name' => 'Name',
         'replicas' => 'Replicas',
+        'tags' => 'Tags',
         'templateId' => 'TemplateId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -86,12 +101,25 @@ class sandboxTemplates extends Model
             $res['EnableVpcAccess'] = $this->enableVpcAccess;
         }
 
+        if (null !== $this->image) {
+            $res['Image'] = $this->image;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
 
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['Tags'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->templateId) {
@@ -129,12 +157,25 @@ class sandboxTemplates extends Model
             $model->enableVpcAccess = $map['EnableVpcAccess'];
         }
 
+        if (isset($map['Image'])) {
+            $model->image = $map['Image'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
 
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                foreach ($map['Tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['TemplateId'])) {

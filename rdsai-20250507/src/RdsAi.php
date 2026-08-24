@@ -30,6 +30,7 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateMOUsageDetailExportRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateMOUsageDetailExportResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSandboxTemplateRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSandboxTemplateResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSandboxTemplateShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateScheduledTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateScheduledTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSkillRequest;
@@ -92,6 +93,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\EnableAgentRuntimeRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\EnableAgentRuntimeResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetAvailableLLMModelsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetAvailableLLMModelsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetChatModelRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetChatModelResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetCustomAgentRequest;
@@ -152,6 +155,7 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyMessagesFeedbacksRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyMessagesFeedbacksResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifySandboxTemplateRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifySandboxTemplateResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifySandboxTemplateShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyScheduledTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyScheduledTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyWhitelistIpsRequest;
@@ -712,10 +716,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 创建上下文数据库 API Key.
+     * Creates a context database API key.
      *
      * @remarks
-     * 创建 API Key（返回明文 apiKey）。
+     * Creates an API key and returns the plaintext apiKey.
      *
      * @param request - CreateContextDatabaseApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -762,10 +766,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 创建上下文数据库 API Key.
+     * Creates a context database API key.
      *
      * @remarks
-     * 创建 API Key（返回明文 apiKey）。
+     * Creates an API key and returns the plaintext apiKey.
      *
      * @param request - CreateContextDatabaseApiKeyRequest
      *
@@ -783,10 +787,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 创建上下文数据库成员.
+     * Creates a ContextDB member.
      *
      * @remarks
-     * 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+     * Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
      *
      * @param request - CreateContextDatabaseMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -841,10 +845,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 创建上下文数据库成员.
+     * Creates a ContextDB member.
      *
      * @remarks
-     * 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+     * Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
      *
      * @param request - CreateContextDatabaseMemberRequest
      *
@@ -862,10 +866,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 创建上下文数据库工作区.
+     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
      *
      * @remarks
-     * 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
      *
      * @param request - CreateContextDatabaseWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -908,10 +912,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 创建上下文数据库工作区.
+     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
      *
      * @remarks
-     * 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
      *
      * @param request - CreateContextDatabaseWorkspaceRequest
      *
@@ -1194,19 +1198,25 @@ class RdsAi extends OpenApiClient
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
-     * @param request - CreateSandboxTemplateRequest
+     * @param tmpReq - CreateSandboxTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateSandboxTemplateResponse
      *
-     * @param CreateSandboxTemplateRequest $request
+     * @param CreateSandboxTemplateRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return CreateSandboxTemplateResponse
      */
-    public function createSandboxTemplateWithOptions($request, $runtime)
+    public function createSandboxTemplateWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateSandboxTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
         $query = [];
         if (null !== $request->defaultCpu) {
             @$query['DefaultCpu'] = $request->defaultCpu;
@@ -1220,6 +1230,10 @@ class RdsAi extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->image) {
+            @$query['Image'] = $request->image;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -1230,6 +1244,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->replicas) {
             @$query['Replicas'] = $request->replicas;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
 
         if (null !== $request->templateName) {
@@ -1627,10 +1645,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 删除上下文数据库成员.
+     * Deletes a ContextDB member.
      *
      * @remarks
-     * 删除成员（硬删除，不可恢复）。
+     * Deletes a member (hard delete, not recoverable).
      *
      * @param request - DeleteContextDatabaseMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1673,10 +1691,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 删除上下文数据库成员.
+     * Deletes a ContextDB member.
      *
      * @remarks
-     * 删除成员（硬删除，不可恢复）。
+     * Deletes a member (hard delete, not recoverable).
      *
      * @param request - DeleteContextDatabaseMemberRequest
      *
@@ -1694,10 +1712,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 删除上下文数据库工作区.
+     * Deletes a ContextDB workspace.
      *
      * @remarks
-     * 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+     * Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
      *
      * @param request - DeleteContextDatabaseWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1736,10 +1754,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 删除上下文数据库工作区.
+     * Deletes a ContextDB workspace.
      *
      * @remarks
-     * 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+     * Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
      *
      * @param request - DeleteContextDatabaseWorkspaceRequest
      *
@@ -3188,7 +3206,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the list of sandbox templates used to create Supabase sandboxes.
+     * Queries the list of sandbox templates available for creating a Supabase sandbox.
      *
      * @remarks
      * ### Applicable engine
@@ -3261,7 +3279,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the list of sandbox templates used to create Supabase sandboxes.
+     * Queries the list of sandbox templates available for creating a Supabase sandbox.
      *
      * @remarks
      * ### Applicable engine
@@ -3584,6 +3602,56 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAvailableLLMModelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取会话可选模型.
+     *
+     * @param request - GetChatModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChatModelResponse
+     *
+     * @param GetChatModelRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetChatModelResponse
+     */
+    public function getChatModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetChatModel',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetChatModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取会话可选模型.
+     *
+     * @param request - GetChatModelRequest
+     *
+     * @returns GetChatModelResponse
+     *
+     * @param GetChatModelRequest $request
+     *
+     * @return GetChatModelResponse
+     */
+    public function getChatModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChatModelWithOptions($request, $runtime);
     }
 
     /**
@@ -4248,10 +4316,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 列出成员名下 API Key.
+     * Lists the API keys for a context database.
      *
      * @remarks
-     * 列出指定成员名下的 API Key（不返回明文）。
+     * Lists the API keys under a specified member. The plaintext key values are not returned.
      *
      * @param request - ListContextDatabaseApiKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4302,10 +4370,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 列出成员名下 API Key.
+     * Lists the API keys for a context database.
      *
      * @remarks
-     * 列出指定成员名下的 API Key（不返回明文）。
+     * Lists the API keys under a specified member. The plaintext key values are not returned.
      *
      * @param request - ListContextDatabaseApiKeysRequest
      *
@@ -4323,10 +4391,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 列出工作区成员.
+     * Lists the members of a context database.
      *
      * @remarks
-     * 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+     * Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
      *
      * @param request - ListContextDatabaseMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4373,10 +4441,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 列出工作区成员.
+     * Lists the members of a context database.
      *
      * @remarks
-     * 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+     * Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
      *
      * @param request - ListContextDatabaseMembersRequest
      *
@@ -4394,10 +4462,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 根据workspaceId和状态过滤调用方账号下的工作区列表。
+     * Lists ContextDB workspaces.
      *
      * @remarks
-     * 列出上下文数据库工作空间
+     * Lists ContextDB workspaces.
      *
      * @param request - ListContextDatabaseWorkspacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4448,10 +4516,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 根据workspaceId和状态过滤调用方账号下的工作区列表。
+     * Lists ContextDB workspaces.
      *
      * @remarks
-     * 列出上下文数据库工作空间
+     * Lists ContextDB workspaces.
      *
      * @param request - ListContextDatabaseWorkspacesRequest
      *
@@ -5577,19 +5645,25 @@ class RdsAi extends OpenApiClient
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
-     * @param request - ModifySandboxTemplateRequest
+     * @param tmpReq - ModifySandboxTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifySandboxTemplateResponse
      *
-     * @param ModifySandboxTemplateRequest $request
+     * @param ModifySandboxTemplateRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return ModifySandboxTemplateResponse
      */
-    public function modifySandboxTemplateWithOptions($request, $runtime)
+    public function modifySandboxTemplateWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ModifySandboxTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
         $query = [];
         if (null !== $request->defaultCpu) {
             @$query['DefaultCpu'] = $request->defaultCpu;
@@ -5597,6 +5671,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->defaultMemory) {
             @$query['DefaultMemory'] = $request->defaultMemory;
+        }
+
+        if (null !== $request->image) {
+            @$query['Image'] = $request->image;
         }
 
         if (null !== $request->instanceName) {
@@ -5609,6 +5687,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->replicas) {
             @$query['Replicas'] = $request->replicas;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
 
         if (null !== $request->templateId) {
@@ -6207,10 +6289,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 吊销上下文数据库 API Key.
+     * Revokes a context database API key.
      *
      * @remarks
-     * 吊销 API Key。
+     * Revokes an API key.
      *
      * @param request - RevokeContextDatabaseApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6257,10 +6339,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 吊销上下文数据库 API Key.
+     * Revokes a context database API key.
      *
      * @remarks
-     * 吊销 API Key。
+     * Revokes an API key.
      *
      * @param request - RevokeContextDatabaseApiKeyRequest
      *
@@ -6511,10 +6593,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新上下文数据库 API Key 元数据.
+     * Updates the display metadata of a ContextDB API key.
      *
      * @remarks
-     * 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+     * Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
      *
      * @param request - UpdateContextDatabaseApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6569,10 +6651,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新上下文数据库 API Key 元数据.
+     * Updates the display metadata of a ContextDB API key.
      *
      * @remarks
-     * 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+     * Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
      *
      * @param request - UpdateContextDatabaseApiKeyRequest
      *
@@ -6590,10 +6672,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新上下文数据库成员.
+     * Updates a context database member.
      *
      * @remarks
-     * 更新成员的角色 / 状态。
+     * Updates the role or status of a member.
      *
      * @param request - UpdateContextDatabaseMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6644,10 +6726,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新上下文数据库成员.
+     * Updates a context database member.
      *
      * @remarks
-     * 更新成员的角色 / 状态。
+     * Updates the role or status of a member.
      *
      * @param request - UpdateContextDatabaseMemberRequest
      *
@@ -6665,10 +6747,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 修改上下文数据库工作区.
+     * Updates a ContextDB workspace.
      *
      * @remarks
-     * 修改 workspace 名称。
+     * Modifies the name of a workspace.
      *
      * @param request - UpdateContextDatabaseWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6711,10 +6793,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 修改上下文数据库工作区.
+     * Updates a ContextDB workspace.
      *
      * @remarks
-     * 修改 workspace 名称。
+     * Modifies the name of a workspace.
      *
      * @param request - UpdateContextDatabaseWorkspaceRequest
      *

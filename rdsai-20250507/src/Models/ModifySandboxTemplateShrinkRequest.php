@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\RdsAi\V20250507\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModifySandboxTemplateRequest extends Model
+class ModifySandboxTemplateShrinkRequest extends Model
 {
     /**
      * @var string
@@ -39,9 +39,9 @@ class ModifySandboxTemplateRequest extends Model
     public $replicas;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $tags;
+    public $tagsShrink;
 
     /**
      * @var string
@@ -54,15 +54,12 @@ class ModifySandboxTemplateRequest extends Model
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
         'replicas' => 'Replicas',
-        'tags' => 'Tags',
+        'tagsShrink' => 'Tags',
         'templateId' => 'TemplateId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
         parent::validate();
     }
 
@@ -93,13 +90,8 @@ class ModifySandboxTemplateRequest extends Model
             $res['Replicas'] = $this->replicas;
         }
 
-        if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                foreach ($this->tags as $key1 => $value1) {
-                    $res['Tags'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
 
         if (null !== $this->templateId) {
@@ -142,12 +134,7 @@ class ModifySandboxTemplateRequest extends Model
         }
 
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                foreach ($map['Tags'] as $key1 => $value1) {
-                    $model->tags[$key1] = $value1;
-                }
-            }
+            $model->tagsShrink = $map['Tags'];
         }
 
         if (isset($map['TemplateId'])) {
