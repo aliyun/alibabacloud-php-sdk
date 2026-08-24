@@ -72,6 +72,11 @@ class sessionConfig extends Model
      * @var bool
      */
     public $skipWebReportConfirm;
+
+    /**
+     * @var string[]
+     */
+    public $userSpecifiedSkillList;
     protected $_name = [
         'customAgentId' => 'CustomAgentId',
         'customAgentStage' => 'CustomAgentStage',
@@ -86,10 +91,14 @@ class sessionConfig extends Model
         'skipPlan' => 'SkipPlan',
         'skipSqlConfirm' => 'SkipSqlConfirm',
         'skipWebReportConfirm' => 'SkipWebReportConfirm',
+        'userSpecifiedSkillList' => 'UserSpecifiedSkillList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->userSpecifiedSkillList)) {
+            Model::validateArray($this->userSpecifiedSkillList);
+        }
         parent::validate();
     }
 
@@ -146,6 +155,17 @@ class sessionConfig extends Model
 
         if (null !== $this->skipWebReportConfirm) {
             $res['SkipWebReportConfirm'] = $this->skipWebReportConfirm;
+        }
+
+        if (null !== $this->userSpecifiedSkillList) {
+            if (\is_array($this->userSpecifiedSkillList)) {
+                $res['UserSpecifiedSkillList'] = [];
+                $n1 = 0;
+                foreach ($this->userSpecifiedSkillList as $item1) {
+                    $res['UserSpecifiedSkillList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -209,6 +229,17 @@ class sessionConfig extends Model
 
         if (isset($map['SkipWebReportConfirm'])) {
             $model->skipWebReportConfirm = $map['SkipWebReportConfirm'];
+        }
+
+        if (isset($map['UserSpecifiedSkillList'])) {
+            if (!empty($map['UserSpecifiedSkillList'])) {
+                $model->userSpecifiedSkillList = [];
+                $n1 = 0;
+                foreach ($map['UserSpecifiedSkillList'] as $item1) {
+                    $model->userSpecifiedSkillList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

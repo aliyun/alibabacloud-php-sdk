@@ -76,6 +76,11 @@ class CreateCustomAgentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $userSpecifiedSkillListShrink;
+
+    /**
+     * @var string
+     */
     public $webReportConfig;
 
     /**
@@ -101,6 +106,7 @@ class CreateCustomAgentShrinkRequest extends Model
         'relatedSessionId' => 'RelatedSessionId',
         'scheduleTaskConfigShrink' => 'ScheduleTaskConfig',
         'textReportConfig' => 'TextReportConfig',
+        'userSpecifiedSkillListShrink' => 'UserSpecifiedSkillList',
         'webReportConfig' => 'WebReportConfig',
         'webReportTheme' => 'WebReportTheme',
         'workspaceId' => 'WorkspaceId',
@@ -164,6 +170,10 @@ class CreateCustomAgentShrinkRequest extends Model
 
         if (null !== $this->textReportConfig) {
             $res['TextReportConfig'] = $this->textReportConfig;
+        }
+
+        if (null !== $this->userSpecifiedSkillListShrink) {
+            $res['UserSpecifiedSkillList'] = $this->userSpecifiedSkillListShrink;
         }
 
         if (null !== $this->webReportConfig) {
@@ -239,6 +249,10 @@ class CreateCustomAgentShrinkRequest extends Model
 
         if (isset($map['TextReportConfig'])) {
             $model->textReportConfig = $map['TextReportConfig'];
+        }
+
+        if (isset($map['UserSpecifiedSkillList'])) {
+            $model->userSpecifiedSkillListShrink = $map['UserSpecifiedSkillList'];
         }
 
         if (isset($map['WebReportConfig'])) {

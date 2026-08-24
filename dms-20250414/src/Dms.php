@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Dms\V20250414;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Dms\V20250414\Models\AddDataAgentMemoryRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\AddDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\AddUserToDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\AddUserToDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\BatchCreateDataLakePartitionsRequest;
@@ -317,6 +319,83 @@ class Dms extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * AddDataAgentMemory.
+     *
+     * @param request - AddDataAgentMemoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDataAgentMemoryResponse
+     *
+     * @param AddDataAgentMemoryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddDataAgentMemoryResponse
+     */
+    public function addDataAgentMemoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->fromId) {
+            @$query['FromId'] = $request->fromId;
+        }
+
+        if (null !== $request->label) {
+            @$query['Label'] = $request->label;
+        }
+
+        if (null !== $request->memFrom) {
+            @$query['MemFrom'] = $request->memFrom;
+        }
+
+        if (null !== $request->sessionUuid) {
+            @$query['SessionUuid'] = $request->sessionUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddDataAgentMemory',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddDataAgentMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * AddDataAgentMemory.
+     *
+     * @param request - AddDataAgentMemoryRequest
+     *
+     * @returns AddDataAgentMemoryResponse
+     *
+     * @param AddDataAgentMemoryRequest $request
+     *
+     * @return AddDataAgentMemoryResponse
+     */
+    public function addDataAgentMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDataAgentMemoryWithOptions($request, $runtime);
     }
 
     /**
@@ -1086,6 +1165,10 @@ class Dms extends OpenApiClient
             $request->scheduleTaskConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleTaskConfig, 'ScheduleTaskConfig', 'json');
         }
 
+        if (null !== $tmpReq->userSpecifiedSkillList) {
+            $request->userSpecifiedSkillListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userSpecifiedSkillList, 'UserSpecifiedSkillList', 'json');
+        }
+
         $query = [];
         if (null !== $request->callbackConfigShrink) {
             @$query['CallbackConfig'] = $request->callbackConfigShrink;
@@ -1137,6 +1220,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->textReportConfig) {
             @$query['TextReportConfig'] = $request->textReportConfig;
+        }
+
+        if (null !== $request->userSpecifiedSkillListShrink) {
+            @$query['UserSpecifiedSkillList'] = $request->userSpecifiedSkillListShrink;
         }
 
         if (null !== $request->webReportConfig) {
@@ -7440,6 +7527,10 @@ class Dms extends OpenApiClient
             $request->scheduleTaskConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleTaskConfig, 'ScheduleTaskConfig', 'json');
         }
 
+        if (null !== $tmpReq->userSpecifiedSkillList) {
+            $request->userSpecifiedSkillListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userSpecifiedSkillList, 'UserSpecifiedSkillList', 'json');
+        }
+
         $query = [];
         if (null !== $request->callbackConfigShrink) {
             @$query['CallbackConfig'] = $request->callbackConfigShrink;
@@ -7495,6 +7586,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->textReportConfig) {
             @$query['TextReportConfig'] = $request->textReportConfig;
+        }
+
+        if (null !== $request->userSpecifiedSkillListShrink) {
+            @$query['UserSpecifiedSkillList'] = $request->userSpecifiedSkillListShrink;
         }
 
         if (null !== $request->webReportConfig) {
@@ -8035,7 +8130,13 @@ class Dms extends OpenApiClient
      * Sends a user message to a specified session or cancels a session.
      *
      * @remarks
-     * ## Request description.
+     * ## Request description
+     * - `agent_id` and `session_id` are required fields.
+     * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+     * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+     * - When `message_type` is `additional`, the `question` field is required.
+     * - `quoted_message` can be used to quote the user\\"s previous message content.
+     * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
      *
      * @param tmpReq - SendChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8151,7 +8252,13 @@ class Dms extends OpenApiClient
      * Sends a user message to a specified session or cancels a session.
      *
      * @remarks
-     * ## Request description.
+     * ## Request description
+     * - `agent_id` and `session_id` are required fields.
+     * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+     * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+     * - When `message_type` is `additional`, the `question` field is required.
+     * - `quoted_message` can be used to quote the user\\"s previous message content.
+     * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
      *
      * @param request - SendChatMessageRequest
      *

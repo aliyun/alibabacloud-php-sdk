@@ -84,6 +84,11 @@ class ModifyCustomAgentRequest extends Model
     public $textReportConfig;
 
     /**
+     * @var string[]
+     */
+    public $userSpecifiedSkillList;
+
+    /**
      * @var string
      */
     public $webReportConfig;
@@ -112,6 +117,7 @@ class ModifyCustomAgentRequest extends Model
         'relatedSessionId' => 'RelatedSessionId',
         'scheduleTaskConfig' => 'ScheduleTaskConfig',
         'textReportConfig' => 'TextReportConfig',
+        'userSpecifiedSkillList' => 'UserSpecifiedSkillList',
         'webReportConfig' => 'WebReportConfig',
         'webReportTheme' => 'WebReportTheme',
         'workspaceId' => 'WorkspaceId',
@@ -133,6 +139,9 @@ class ModifyCustomAgentRequest extends Model
         }
         if (null !== $this->scheduleTaskConfig) {
             $this->scheduleTaskConfig->validate();
+        }
+        if (\is_array($this->userSpecifiedSkillList)) {
+            Model::validateArray($this->userSpecifiedSkillList);
         }
         parent::validate();
     }
@@ -208,6 +217,17 @@ class ModifyCustomAgentRequest extends Model
 
         if (null !== $this->textReportConfig) {
             $res['TextReportConfig'] = $this->textReportConfig;
+        }
+
+        if (null !== $this->userSpecifiedSkillList) {
+            if (\is_array($this->userSpecifiedSkillList)) {
+                $res['UserSpecifiedSkillList'] = [];
+                $n1 = 0;
+                foreach ($this->userSpecifiedSkillList as $item1) {
+                    $res['UserSpecifiedSkillList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->webReportConfig) {
@@ -301,6 +321,17 @@ class ModifyCustomAgentRequest extends Model
 
         if (isset($map['TextReportConfig'])) {
             $model->textReportConfig = $map['TextReportConfig'];
+        }
+
+        if (isset($map['UserSpecifiedSkillList'])) {
+            if (!empty($map['UserSpecifiedSkillList'])) {
+                $model->userSpecifiedSkillList = [];
+                $n1 = 0;
+                foreach ($map['UserSpecifiedSkillList'] as $item1) {
+                    $model->userSpecifiedSkillList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['WebReportConfig'])) {
