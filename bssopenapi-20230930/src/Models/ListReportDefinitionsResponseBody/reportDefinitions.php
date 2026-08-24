@@ -49,6 +49,11 @@ class reportDefinitions extends Model
     public $reportType;
 
     /**
+     * @var string[]
+     */
+    public $selectedFields;
+
+    /**
      * @var string
      */
     public $subscribeCreateTime;
@@ -61,11 +66,15 @@ class reportDefinitions extends Model
         'reportSourceType' => 'ReportSourceType',
         'reportTaskId' => 'ReportTaskId',
         'reportType' => 'ReportType',
+        'selectedFields' => 'SelectedFields',
         'subscribeCreateTime' => 'SubscribeCreateTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->selectedFields)) {
+            Model::validateArray($this->selectedFields);
+        }
         parent::validate();
     }
 
@@ -102,6 +111,17 @@ class reportDefinitions extends Model
 
         if (null !== $this->reportType) {
             $res['ReportType'] = $this->reportType;
+        }
+
+        if (null !== $this->selectedFields) {
+            if (\is_array($this->selectedFields)) {
+                $res['SelectedFields'] = [];
+                $n1 = 0;
+                foreach ($this->selectedFields as $item1) {
+                    $res['SelectedFields'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->subscribeCreateTime) {
@@ -149,6 +169,17 @@ class reportDefinitions extends Model
 
         if (isset($map['ReportType'])) {
             $model->reportType = $map['ReportType'];
+        }
+
+        if (isset($map['SelectedFields'])) {
+            if (!empty($map['SelectedFields'])) {
+                $model->selectedFields = [];
+                $n1 = 0;
+                foreach ($map['SelectedFields'] as $item1) {
+                    $model->selectedFields[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SubscribeCreateTime'])) {

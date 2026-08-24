@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\BssOpenApi\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateReportDefinitionRequest extends Model
+class CreateReportDefinitionShrinkRequest extends Model
 {
     /**
      * @var string
@@ -64,9 +64,9 @@ class CreateReportDefinitionRequest extends Model
     public $reportType;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $selectedFields;
+    public $selectedFieldsShrink;
 
     /**
      * @var string
@@ -89,16 +89,13 @@ class CreateReportDefinitionRequest extends Model
         'ossBucketPath' => 'OssBucketPath',
         'reportSourceType' => 'ReportSourceType',
         'reportType' => 'ReportType',
-        'selectedFields' => 'SelectedFields',
+        'selectedFieldsShrink' => 'SelectedFields',
         'sendWithAttach' => 'SendWithAttach',
         'splitFileOnUserId' => 'SplitFileOnUserId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->selectedFields)) {
-            Model::validateArray($this->selectedFields);
-        }
         parent::validate();
     }
 
@@ -149,15 +146,8 @@ class CreateReportDefinitionRequest extends Model
             $res['ReportType'] = $this->reportType;
         }
 
-        if (null !== $this->selectedFields) {
-            if (\is_array($this->selectedFields)) {
-                $res['SelectedFields'] = [];
-                $n1 = 0;
-                foreach ($this->selectedFields as $item1) {
-                    $res['SelectedFields'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->selectedFieldsShrink) {
+            $res['SelectedFields'] = $this->selectedFieldsShrink;
         }
 
         if (null !== $this->sendWithAttach) {
@@ -224,14 +214,7 @@ class CreateReportDefinitionRequest extends Model
         }
 
         if (isset($map['SelectedFields'])) {
-            if (!empty($map['SelectedFields'])) {
-                $model->selectedFields = [];
-                $n1 = 0;
-                foreach ($map['SelectedFields'] as $item1) {
-                    $model->selectedFields[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->selectedFieldsShrink = $map['SelectedFields'];
         }
 
         if (isset($map['SendWithAttach'])) {
