@@ -5,13 +5,29 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRouteRequest\backendConfig;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpDubboTranscoder;
 
 class services extends Model
 {
     /**
      * @var string
      */
+    public $groupName;
+
+    /**
+     * @var HttpDubboTranscoder
+     */
+    public $httpDubboTranscoder;
+
+    /**
+     * @var string
+     */
     public $modelName;
+
+    /**
+     * @var string
+     */
+    public $namespace;
 
     /**
      * @var int
@@ -31,6 +47,11 @@ class services extends Model
     /**
      * @var string
      */
+    public $sourceType;
+
+    /**
+     * @var string
+     */
     public $version;
 
     /**
@@ -38,24 +59,43 @@ class services extends Model
      */
     public $weight;
     protected $_name = [
+        'groupName' => 'groupName',
+        'httpDubboTranscoder' => 'httpDubboTranscoder',
         'modelName' => 'modelName',
+        'namespace' => 'namespace',
         'port' => 'port',
         'protocol' => 'protocol',
         'serviceId' => 'serviceId',
+        'sourceType' => 'sourceType',
         'version' => 'version',
         'weight' => 'weight',
     ];
 
     public function validate()
     {
+        if (null !== $this->httpDubboTranscoder) {
+            $this->httpDubboTranscoder->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->groupName) {
+            $res['groupName'] = $this->groupName;
+        }
+
+        if (null !== $this->httpDubboTranscoder) {
+            $res['httpDubboTranscoder'] = null !== $this->httpDubboTranscoder ? $this->httpDubboTranscoder->toArray($noStream) : $this->httpDubboTranscoder;
+        }
+
         if (null !== $this->modelName) {
             $res['modelName'] = $this->modelName;
+        }
+
+        if (null !== $this->namespace) {
+            $res['namespace'] = $this->namespace;
         }
 
         if (null !== $this->port) {
@@ -68,6 +108,10 @@ class services extends Model
 
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
+        }
+
+        if (null !== $this->sourceType) {
+            $res['sourceType'] = $this->sourceType;
         }
 
         if (null !== $this->version) {
@@ -89,8 +133,20 @@ class services extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['groupName'])) {
+            $model->groupName = $map['groupName'];
+        }
+
+        if (isset($map['httpDubboTranscoder'])) {
+            $model->httpDubboTranscoder = HttpDubboTranscoder::fromMap($map['httpDubboTranscoder']);
+        }
+
         if (isset($map['modelName'])) {
             $model->modelName = $map['modelName'];
+        }
+
+        if (isset($map['namespace'])) {
+            $model->namespace = $map['namespace'];
         }
 
         if (isset($map['port'])) {
@@ -103,6 +159,10 @@ class services extends Model
 
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];
+        }
+
+        if (isset($map['sourceType'])) {
+            $model->sourceType = $map['sourceType'];
         }
 
         if (isset($map['version'])) {

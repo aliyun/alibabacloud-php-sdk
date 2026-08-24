@@ -10485,7 +10485,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates the route of an HTTP API.
+     * Updates a route of an HTTP API.
      *
      * @param request - UpdateHttpApiRouteRequest
      * @param headers - map
@@ -10553,7 +10553,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates the route of an HTTP API.
+     * Updates a route of an HTTP API.
      *
      * @param request - UpdateHttpApiRouteRequest
      *

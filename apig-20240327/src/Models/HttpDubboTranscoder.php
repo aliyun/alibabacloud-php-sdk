@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpDubboTranscoder\mothedMapList;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpDubboTranscoder\methodMapList;
 
 class HttpDubboTranscoder extends Model
 {
@@ -25,20 +25,20 @@ class HttpDubboTranscoder extends Model
     public $dubboServiceVersion;
 
     /**
-     * @var mothedMapList[]
+     * @var methodMapList[]
      */
-    public $mothedMapList;
+    public $methodMapList;
     protected $_name = [
         'dubboServiceGroup' => 'dubboServiceGroup',
         'dubboServiceName' => 'dubboServiceName',
         'dubboServiceVersion' => 'dubboServiceVersion',
-        'mothedMapList' => 'mothedMapList',
+        'methodMapList' => 'methodMapList',
     ];
 
     public function validate()
     {
-        if (\is_array($this->mothedMapList)) {
-            Model::validateArray($this->mothedMapList);
+        if (\is_array($this->methodMapList)) {
+            Model::validateArray($this->methodMapList);
         }
         parent::validate();
     }
@@ -58,12 +58,12 @@ class HttpDubboTranscoder extends Model
             $res['dubboServiceVersion'] = $this->dubboServiceVersion;
         }
 
-        if (null !== $this->mothedMapList) {
-            if (\is_array($this->mothedMapList)) {
-                $res['mothedMapList'] = [];
+        if (null !== $this->methodMapList) {
+            if (\is_array($this->methodMapList)) {
+                $res['methodMapList'] = [];
                 $n1 = 0;
-                foreach ($this->mothedMapList as $item1) {
-                    $res['mothedMapList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->methodMapList as $item1) {
+                    $res['methodMapList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -92,12 +92,12 @@ class HttpDubboTranscoder extends Model
             $model->dubboServiceVersion = $map['dubboServiceVersion'];
         }
 
-        if (isset($map['mothedMapList'])) {
-            if (!empty($map['mothedMapList'])) {
-                $model->mothedMapList = [];
+        if (isset($map['methodMapList'])) {
+            if (!empty($map['methodMapList'])) {
+                $model->methodMapList = [];
                 $n1 = 0;
-                foreach ($map['mothedMapList'] as $item1) {
-                    $model->mothedMapList[$n1] = mothedMapList::fromMap($item1);
+                foreach ($map['methodMapList'] as $item1) {
+                    $model->methodMapList[$n1] = methodMapList::fromMap($item1);
                     ++$n1;
                 }
             }

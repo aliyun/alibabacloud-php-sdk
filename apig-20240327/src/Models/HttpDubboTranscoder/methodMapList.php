@@ -5,24 +5,24 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpDubboTranscoder;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpDubboTranscoder\mothedMapList\paramMapsList;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpDubboTranscoder\methodMapList\paramMapsList;
 
-class mothedMapList extends Model
+class methodMapList extends Model
 {
     /**
      * @var string
      */
-    public $dubboMothedName;
+    public $dubboMethodName;
 
     /**
      * @var string
      */
-    public $httpMothed;
+    public $httpMethod;
 
     /**
      * @var string
      */
-    public $mothedpath;
+    public $methodPath;
 
     /**
      * @var paramMapsList[]
@@ -39,9 +39,9 @@ class mothedMapList extends Model
      */
     public $passThroughList;
     protected $_name = [
-        'dubboMothedName' => 'dubboMothedName',
-        'httpMothed' => 'httpMothed',
-        'mothedpath' => 'mothedpath',
+        'dubboMethodName' => 'dubboMethodName',
+        'httpMethod' => 'httpMethod',
+        'methodPath' => 'methodPath',
         'paramMapsList' => 'paramMapsList',
         'passThroughAllHeaders' => 'passThroughAllHeaders',
         'passThroughList' => 'passThroughList',
@@ -61,16 +61,16 @@ class mothedMapList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->dubboMothedName) {
-            $res['dubboMothedName'] = $this->dubboMothedName;
+        if (null !== $this->dubboMethodName) {
+            $res['dubboMethodName'] = $this->dubboMethodName;
         }
 
-        if (null !== $this->httpMothed) {
-            $res['httpMothed'] = $this->httpMothed;
+        if (null !== $this->httpMethod) {
+            $res['httpMethod'] = $this->httpMethod;
         }
 
-        if (null !== $this->mothedpath) {
-            $res['mothedpath'] = $this->mothedpath;
+        if (null !== $this->methodPath) {
+            $res['methodPath'] = $this->methodPath;
         }
 
         if (null !== $this->paramMapsList) {
@@ -110,16 +110,16 @@ class mothedMapList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['dubboMothedName'])) {
-            $model->dubboMothedName = $map['dubboMothedName'];
+        if (isset($map['dubboMethodName'])) {
+            $model->dubboMethodName = $map['dubboMethodName'];
         }
 
-        if (isset($map['httpMothed'])) {
-            $model->httpMothed = $map['httpMothed'];
+        if (isset($map['httpMethod'])) {
+            $model->httpMethod = $map['httpMethod'];
         }
 
-        if (isset($map['mothedpath'])) {
-            $model->mothedpath = $map['mothedpath'];
+        if (isset($map['methodPath'])) {
+            $model->methodPath = $map['methodPath'];
         }
 
         if (isset($map['paramMapsList'])) {
