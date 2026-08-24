@@ -52,7 +52,10 @@ class MilvusKnowledgeBase extends OpenApiClient
     }
 
     /**
-     * 添加文档到知识库.
+     * Registers files that are uploaded to the knowledge base storage as knowledge base documents and **automatically triggers parsing** (chunking and embedding). Two import types are supported:
+     * - `LOCAL_UPLOAD`: Works with the `GetKnowledgeBasePreSignedUrl` direct upload flow. This operation only registers the file and does not verify whether the file is actually uploaded. Therefore, you must complete the PUT upload before calling this operation.
+     * - `OSS_IMPORT`: Imports files from an external OSS bucket. The operation creates an asynchronous import task and returns a `knowledge_import_task_id`. The system downloads and registers the files in the background.
+     * A maximum of 100 files can be registered in a single request.
      *
      * @param request - AddDocumentsRequest
      * @param headers - map
@@ -99,6 +102,10 @@ class MilvusKnowledgeBase extends OpenApiClient
             @$body['dingTalkConfiguration'] = $request->dingTalkConfiguration;
         }
 
+        if (null !== $request->parentId) {
+            @$body['parentId'] = $request->parentId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -119,7 +126,10 @@ class MilvusKnowledgeBase extends OpenApiClient
     }
 
     /**
-     * 添加文档到知识库.
+     * Registers files that are uploaded to the knowledge base storage as knowledge base documents and **automatically triggers parsing** (chunking and embedding). Two import types are supported:
+     * - `LOCAL_UPLOAD`: Works with the `GetKnowledgeBasePreSignedUrl` direct upload flow. This operation only registers the file and does not verify whether the file is actually uploaded. Therefore, you must complete the PUT upload before calling this operation.
+     * - `OSS_IMPORT`: Imports files from an external OSS bucket. The operation creates an asynchronous import task and returns a `knowledge_import_task_id`. The system downloads and registers the files in the background.
+     * A maximum of 100 files can be registered in a single request.
      *
      * @param request - AddDocumentsRequest
      *
@@ -139,7 +149,7 @@ class MilvusKnowledgeBase extends OpenApiClient
     }
 
     /**
-     * 获取知识库文件预签名URL.
+     * Generates an **OSS pre-signed PUT URL** pointing to the knowledge base dedicated storage for each file in `Documents`. The caller uses the URL to upload file content directly to Object Storage Service (OSS), and then calls `AddDocuments` to register the files. A maximum of 100 files can be processed per request.
      *
      * @param request - GetKnowledgeBasePreSignedUrlRequest
      * @param headers - map
@@ -190,7 +200,7 @@ class MilvusKnowledgeBase extends OpenApiClient
     }
 
     /**
-     * 获取知识库文件预签名URL.
+     * Generates an **OSS pre-signed PUT URL** pointing to the knowledge base dedicated storage for each file in `Documents`. The caller uses the URL to upload file content directly to Object Storage Service (OSS), and then calls `AddDocuments` to register the files. A maximum of 100 files can be processed per request.
      *
      * @param request - GetKnowledgeBasePreSignedUrlRequest
      *

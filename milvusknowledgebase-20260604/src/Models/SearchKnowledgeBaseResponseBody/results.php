@@ -57,6 +57,11 @@ class results extends Model
     public $parentChunkId;
 
     /**
+     * @var mixed
+     */
+    public $scalarFields;
+
+    /**
      * @var float
      */
     public $score;
@@ -80,6 +85,7 @@ class results extends Model
         'knowledgeBaseId' => 'knowledgeBaseId',
         'locations' => 'locations',
         'parentChunkId' => 'parentChunkId',
+        'scalarFields' => 'scalarFields',
         'score' => 'score',
         'scoreDetails' => 'scoreDetails',
         'tags' => 'tags',
@@ -153,6 +159,10 @@ class results extends Model
 
         if (null !== $this->parentChunkId) {
             $res['parentChunkId'] = $this->parentChunkId;
+        }
+
+        if (null !== $this->scalarFields) {
+            $res['scalarFields'] = $this->scalarFields;
         }
 
         if (null !== $this->score) {
@@ -233,6 +243,10 @@ class results extends Model
 
         if (isset($map['parentChunkId'])) {
             $model->parentChunkId = $map['parentChunkId'];
+        }
+
+        if (isset($map['scalarFields'])) {
+            $model->scalarFields = $map['scalarFields'];
         }
 
         if (isset($map['score'])) {

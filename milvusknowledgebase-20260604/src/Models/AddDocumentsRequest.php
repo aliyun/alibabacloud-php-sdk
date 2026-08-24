@@ -45,6 +45,11 @@ class AddDocumentsRequest extends Model
      * @var dingTalkConfiguration
      */
     public $dingTalkConfiguration;
+
+    /**
+     * @var string
+     */
+    public $parentId;
     protected $_name = [
         'dedup' => 'Dedup',
         'documents' => 'Documents',
@@ -53,6 +58,7 @@ class AddDocumentsRequest extends Model
         'metaFields' => 'MetaFields',
         'strategyId' => 'StrategyId',
         'dingTalkConfiguration' => 'dingTalkConfiguration',
+        'parentId' => 'parentId',
     ];
 
     public function validate()
@@ -107,6 +113,10 @@ class AddDocumentsRequest extends Model
             $res['dingTalkConfiguration'] = null !== $this->dingTalkConfiguration ? $this->dingTalkConfiguration->toArray($noStream) : $this->dingTalkConfiguration;
         }
 
+        if (null !== $this->parentId) {
+            $res['parentId'] = $this->parentId;
+        }
+
         return $res;
     }
 
@@ -151,6 +161,10 @@ class AddDocumentsRequest extends Model
 
         if (isset($map['dingTalkConfiguration'])) {
             $model->dingTalkConfiguration = dingTalkConfiguration::fromMap($map['dingTalkConfiguration']);
+        }
+
+        if (isset($map['parentId'])) {
+            $model->parentId = $map['parentId'];
         }
 
         return $model;
