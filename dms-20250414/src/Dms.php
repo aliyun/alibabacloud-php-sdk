@@ -53,6 +53,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeTableResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeTableShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateOneMetaSqlTemplateRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateOneMetaSqlTemplateResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteCustomAgentRequest;
@@ -86,6 +88,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDocumentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDocumentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteFileUploadRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteFileUploadResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteOneMetaOssieModelRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteOneMetaOssieModelResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteOneMetaSqlTemplateRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteOneMetaSqlTemplateResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteWorkspaceCodeRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteWorkspaceCodeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentRequest;
@@ -137,6 +143,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetOneMetaOssieModelRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetOneMetaOssieModelResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetSqlConsoleOperationLogRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetSqlConsoleOperationLogResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodePublishSettingRequest;
@@ -145,6 +153,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodeRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceQuotaRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceQuotaResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ImportOneMetaOssieModelRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ImportOneMetaOssieModelResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\InitWorkspaceSystemMcpServerRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\InitWorkspaceSystemMcpServerResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\InstallDataAgentMcpRequest;
@@ -204,6 +214,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListKnowledgeBasesRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListKnowledgeBasesResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListOneMetaOssieModelsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListOneMetaOssieModelsResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListOneMetaSqlTemplatesRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListOneMetaSqlTemplatesResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListWorkspaceCodeRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListWorkspaceCodeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentRequest;
@@ -261,6 +275,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDocumentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDocumentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateOneMetaOssieModelRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateOneMetaOssieModelResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateOneMetaSqlTemplateRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateOneMetaSqlTemplateResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UploadDocumentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UploadDocumentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UploadDocumentShrinkRequest;
@@ -322,7 +340,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * AddDataAgentMemory.
+     * Adds a memory entry to a DataAgent.
      *
      * @param request - AddDataAgentMemoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -381,7 +399,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * AddDataAgentMemory.
+     * Adds a memory entry to a DataAgent.
      *
      * @param request - AddDataAgentMemoryRequest
      *
@@ -1947,6 +1965,91 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 创建sql模版.
+     *
+     * @param request - CreateOneMetaSqlTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOneMetaSqlTemplateResponse
+     *
+     * @param CreateOneMetaSqlTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateOneMetaSqlTemplateResponse
+     */
+    public function createOneMetaSqlTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->expr) {
+            @$query['Expr'] = $request->expr;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->sqlParams) {
+            @$query['SqlParams'] = $request->sqlParams;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOneMetaSqlTemplate',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOneMetaSqlTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建sql模版.
+     *
+     * @param request - CreateOneMetaSqlTemplateRequest
+     *
+     * @returns CreateOneMetaSqlTemplateResponse
+     *
+     * @param CreateOneMetaSqlTemplateRequest $request
+     *
+     * @return CreateOneMetaSqlTemplateResponse
+     */
+    public function createOneMetaSqlTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOneMetaSqlTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an Airflow instance.
      *
      * @param request - DeleteAirflowRequest
@@ -2955,6 +3058,120 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFileUploadWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除onemeta3.0的Ossie模型.
+     *
+     * @param request - DeleteOneMetaOssieModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOneMetaOssieModelResponse
+     *
+     * @param DeleteOneMetaOssieModelRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteOneMetaOssieModelResponse
+     */
+    public function deleteOneMetaOssieModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeUuid) {
+            @$query['KnowledgeUuid'] = $request->knowledgeUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOneMetaOssieModel',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOneMetaOssieModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除onemeta3.0的Ossie模型.
+     *
+     * @param request - DeleteOneMetaOssieModelRequest
+     *
+     * @returns DeleteOneMetaOssieModelResponse
+     *
+     * @param DeleteOneMetaOssieModelRequest $request
+     *
+     * @return DeleteOneMetaOssieModelResponse
+     */
+    public function deleteOneMetaOssieModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOneMetaOssieModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除sql模版.
+     *
+     * @param request - DeleteOneMetaSqlTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOneMetaSqlTemplateResponse
+     *
+     * @param DeleteOneMetaSqlTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteOneMetaSqlTemplateResponse
+     */
+    public function deleteOneMetaSqlTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeUuid) {
+            @$query['KnowledgeUuid'] = $request->knowledgeUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOneMetaSqlTemplate',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOneMetaSqlTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除sql模版.
+     *
+     * @param request - DeleteOneMetaSqlTemplateRequest
+     *
+     * @returns DeleteOneMetaSqlTemplateResponse
+     *
+     * @param DeleteOneMetaSqlTemplateRequest $request
+     *
+     * @return DeleteOneMetaSqlTemplateResponse
+     */
+    public function deleteOneMetaSqlTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOneMetaSqlTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -4724,6 +4941,67 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 获取onemeta3.0的Ossie模型.
+     *
+     * @param request - GetOneMetaOssieModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOneMetaOssieModelResponse
+     *
+     * @param GetOneMetaOssieModelRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetOneMetaOssieModelResponse
+     */
+    public function getOneMetaOssieModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->docFormat) {
+            @$body['DocFormat'] = $request->docFormat;
+        }
+
+        if (null !== $request->knowledgeUuid) {
+            @$body['KnowledgeUuid'] = $request->knowledgeUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetOneMetaOssieModel',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOneMetaOssieModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取onemeta3.0的Ossie模型.
+     *
+     * @param request - GetOneMetaOssieModelRequest
+     *
+     * @returns GetOneMetaOssieModelResponse
+     *
+     * @param GetOneMetaOssieModelRequest $request
+     *
+     * @return GetOneMetaOssieModelResponse
+     */
+    public function getOneMetaOssieModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOneMetaOssieModelWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the operation logs of the SQL window.
      *
      * @param request - GetSqlConsoleOperationLogRequest
@@ -5003,6 +5281,91 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWorkspaceQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 导入Ossie模型.
+     *
+     * @param request - ImportOneMetaOssieModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportOneMetaOssieModelResponse
+     *
+     * @param ImportOneMetaOssieModelRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ImportOneMetaOssieModelResponse
+     */
+    public function importOneMetaOssieModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->docFormat) {
+            @$query['DocFormat'] = $request->docFormat;
+        }
+
+        if (null !== $request->document) {
+            @$query['Document'] = $request->document;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ImportOneMetaOssieModel',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportOneMetaOssieModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导入Ossie模型.
+     *
+     * @param request - ImportOneMetaOssieModelRequest
+     *
+     * @returns ImportOneMetaOssieModelResponse
+     *
+     * @param ImportOneMetaOssieModelRequest $request
+     *
+     * @return ImportOneMetaOssieModelResponse
+     */
+    public function importOneMetaOssieModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importOneMetaOssieModelWithOptions($request, $runtime);
     }
 
     /**
@@ -7423,6 +7786,172 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 获取ossie模型列表.
+     *
+     * @param request - ListOneMetaOssieModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOneMetaOssieModelsResponse
+     *
+     * @param ListOneMetaOssieModelsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListOneMetaOssieModelsResponse
+     */
+    public function listOneMetaOssieModelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->enableVectorSearch) {
+            @$query['EnableVectorSearch'] = $request->enableVectorSearch;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOneMetaOssieModels',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOneMetaOssieModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取ossie模型列表.
+     *
+     * @param request - ListOneMetaOssieModelsRequest
+     *
+     * @returns ListOneMetaOssieModelsResponse
+     *
+     * @param ListOneMetaOssieModelsRequest $request
+     *
+     * @return ListOneMetaOssieModelsResponse
+     */
+    public function listOneMetaOssieModels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOneMetaOssieModelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取sql模版.
+     *
+     * @param request - ListOneMetaSqlTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOneMetaSqlTemplatesResponse
+     *
+     * @param ListOneMetaSqlTemplatesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListOneMetaSqlTemplatesResponse
+     */
+    public function listOneMetaSqlTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->enableVectorSearch) {
+            @$query['EnableVectorSearch'] = $request->enableVectorSearch;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->uuids) {
+            @$query['Uuids'] = $request->uuids;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOneMetaSqlTemplates',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOneMetaSqlTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取sql模版.
+     *
+     * @param request - ListOneMetaSqlTemplatesRequest
+     *
+     * @returns ListOneMetaSqlTemplatesResponse
+     *
+     * @param ListOneMetaSqlTemplatesRequest $request
+     *
+     * @return ListOneMetaSqlTemplatesResponse
+     */
+    public function listOneMetaSqlTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOneMetaSqlTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * Lists code files and directories at a specified path in a workspace.
      *
      * @remarks
@@ -9553,6 +10082,176 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新Ossie模型.
+     *
+     * @param request - UpdateOneMetaOssieModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOneMetaOssieModelResponse
+     *
+     * @param UpdateOneMetaOssieModelRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateOneMetaOssieModelResponse
+     */
+    public function updateOneMetaOssieModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->docFormat) {
+            @$query['DocFormat'] = $request->docFormat;
+        }
+
+        if (null !== $request->document) {
+            @$query['Document'] = $request->document;
+        }
+
+        if (null !== $request->knowledgeUuid) {
+            @$query['KnowledgeUuid'] = $request->knowledgeUuid;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOneMetaOssieModel',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOneMetaOssieModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Ossie模型.
+     *
+     * @param request - UpdateOneMetaOssieModelRequest
+     *
+     * @returns UpdateOneMetaOssieModelResponse
+     *
+     * @param UpdateOneMetaOssieModelRequest $request
+     *
+     * @return UpdateOneMetaOssieModelResponse
+     */
+    public function updateOneMetaOssieModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOneMetaOssieModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新sql模版.
+     *
+     * @param request - UpdateOneMetaSqlTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOneMetaSqlTemplateResponse
+     *
+     * @param UpdateOneMetaSqlTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateOneMetaSqlTemplateResponse
+     */
+    public function updateOneMetaSqlTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->expr) {
+            @$query['Expr'] = $request->expr;
+        }
+
+        if (null !== $request->knowledgeUuid) {
+            @$query['KnowledgeUuid'] = $request->knowledgeUuid;
+        }
+
+        if (null !== $request->sqlParams) {
+            @$query['SqlParams'] = $request->sqlParams;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOneMetaSqlTemplate',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOneMetaSqlTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新sql模版.
+     *
+     * @param request - UpdateOneMetaSqlTemplateRequest
+     *
+     * @returns UpdateOneMetaSqlTemplateResponse
+     *
+     * @param UpdateOneMetaSqlTemplateRequest $request
+     *
+     * @return UpdateOneMetaSqlTemplateResponse
+     */
+    public function updateOneMetaSqlTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOneMetaSqlTemplateWithOptions($request, $runtime);
     }
 
     /**
