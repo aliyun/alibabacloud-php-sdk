@@ -21,6 +21,11 @@ class tasks extends Model
     /**
      * @var string
      */
+    public $originTargetId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -60,6 +65,7 @@ class tasks extends Model
     protected $_name = [
         'accessConfigurationId' => 'AccessConfigurationId',
         'accessConfigurationName' => 'AccessConfigurationName',
+        'originTargetId' => 'OriginTargetId',
         'status' => 'Status',
         'targetId' => 'TargetId',
         'targetName' => 'TargetName',
@@ -84,6 +90,10 @@ class tasks extends Model
 
         if (null !== $this->accessConfigurationName) {
             $res['AccessConfigurationName'] = $this->accessConfigurationName;
+        }
+
+        if (null !== $this->originTargetId) {
+            $res['OriginTargetId'] = $this->originTargetId;
         }
 
         if (null !== $this->status) {
@@ -135,6 +145,10 @@ class tasks extends Model
 
         if (isset($map['AccessConfigurationName'])) {
             $model->accessConfigurationName = $map['AccessConfigurationName'];
+        }
+
+        if (isset($map['OriginTargetId'])) {
+            $model->originTargetId = $map['OriginTargetId'];
         }
 
         if (isset($map['Status'])) {

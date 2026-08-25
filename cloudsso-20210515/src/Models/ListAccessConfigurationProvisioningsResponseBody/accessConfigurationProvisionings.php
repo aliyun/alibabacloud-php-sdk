@@ -24,6 +24,11 @@ class accessConfigurationProvisionings extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $originTargetId;
+
+    /**
      * @var string[]
      */
     public $RAMPolicyNames;
@@ -76,6 +81,7 @@ class accessConfigurationProvisionings extends Model
         'accessConfigurationId' => 'AccessConfigurationId',
         'accessConfigurationName' => 'AccessConfigurationName',
         'createTime' => 'CreateTime',
+        'originTargetId' => 'OriginTargetId',
         'RAMPolicyNames' => 'RAMPolicyNames',
         'RAMRoleName' => 'RAMRoleName',
         'SAMLProviderName' => 'SAMLProviderName',
@@ -109,6 +115,10 @@ class accessConfigurationProvisionings extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->originTargetId) {
+            $res['OriginTargetId'] = $this->originTargetId;
         }
 
         if (null !== $this->RAMPolicyNames) {
@@ -179,6 +189,10 @@ class accessConfigurationProvisionings extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['OriginTargetId'])) {
+            $model->originTargetId = $map['OriginTargetId'];
         }
 
         if (isset($map['RAMPolicyNames'])) {

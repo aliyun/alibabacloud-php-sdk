@@ -21,6 +21,11 @@ class DeprovisionAccessConfigurationRequest extends Model
     /**
      * @var string
      */
+    public $originTargetId;
+
+    /**
+     * @var string
+     */
     public $targetId;
 
     /**
@@ -30,6 +35,7 @@ class DeprovisionAccessConfigurationRequest extends Model
     protected $_name = [
         'accessConfigurationId' => 'AccessConfigurationId',
         'directoryId' => 'DirectoryId',
+        'originTargetId' => 'OriginTargetId',
         'targetId' => 'TargetId',
         'targetType' => 'TargetType',
     ];
@@ -48,6 +54,10 @@ class DeprovisionAccessConfigurationRequest extends Model
 
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
+        }
+
+        if (null !== $this->originTargetId) {
+            $res['OriginTargetId'] = $this->originTargetId;
         }
 
         if (null !== $this->targetId) {
@@ -75,6 +85,10 @@ class DeprovisionAccessConfigurationRequest extends Model
 
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+
+        if (isset($map['OriginTargetId'])) {
+            $model->originTargetId = $map['OriginTargetId'];
         }
 
         if (isset($map['TargetId'])) {

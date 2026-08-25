@@ -31,6 +31,11 @@ class ListAccessConfigurationProvisioningsRequest extends Model
     /**
      * @var string
      */
+    public $originTargetId;
+
+    /**
+     * @var string
+     */
     public $provisioningStatus;
 
     /**
@@ -47,6 +52,7 @@ class ListAccessConfigurationProvisioningsRequest extends Model
         'directoryId' => 'DirectoryId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'originTargetId' => 'OriginTargetId',
         'provisioningStatus' => 'ProvisioningStatus',
         'targetId' => 'TargetId',
         'targetType' => 'TargetType',
@@ -74,6 +80,10 @@ class ListAccessConfigurationProvisioningsRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->originTargetId) {
+            $res['OriginTargetId'] = $this->originTargetId;
         }
 
         if (null !== $this->provisioningStatus) {
@@ -113,6 +123,10 @@ class ListAccessConfigurationProvisioningsRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['OriginTargetId'])) {
+            $model->originTargetId = $map['OriginTargetId'];
         }
 
         if (isset($map['ProvisioningStatus'])) {

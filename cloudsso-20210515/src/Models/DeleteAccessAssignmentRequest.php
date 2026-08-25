@@ -26,6 +26,11 @@ class DeleteAccessAssignmentRequest extends Model
     /**
      * @var string
      */
+    public $originTargetId;
+
+    /**
+     * @var string
+     */
     public $principalId;
 
     /**
@@ -46,6 +51,7 @@ class DeleteAccessAssignmentRequest extends Model
         'accessConfigurationId' => 'AccessConfigurationId',
         'deprovisionStrategy' => 'DeprovisionStrategy',
         'directoryId' => 'DirectoryId',
+        'originTargetId' => 'OriginTargetId',
         'principalId' => 'PrincipalId',
         'principalType' => 'PrincipalType',
         'targetId' => 'TargetId',
@@ -70,6 +76,10 @@ class DeleteAccessAssignmentRequest extends Model
 
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
+        }
+
+        if (null !== $this->originTargetId) {
+            $res['OriginTargetId'] = $this->originTargetId;
         }
 
         if (null !== $this->principalId) {
@@ -109,6 +119,10 @@ class DeleteAccessAssignmentRequest extends Model
 
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+
+        if (isset($map['OriginTargetId'])) {
+            $model->originTargetId = $map['OriginTargetId'];
         }
 
         if (isset($map['PrincipalId'])) {

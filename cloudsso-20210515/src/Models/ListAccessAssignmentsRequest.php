@@ -31,6 +31,11 @@ class ListAccessAssignmentsRequest extends Model
     /**
      * @var string
      */
+    public $originTargetId;
+
+    /**
+     * @var string
+     */
     public $principalId;
 
     /**
@@ -52,6 +57,7 @@ class ListAccessAssignmentsRequest extends Model
         'directoryId' => 'DirectoryId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'originTargetId' => 'OriginTargetId',
         'principalId' => 'PrincipalId',
         'principalType' => 'PrincipalType',
         'targetId' => 'TargetId',
@@ -80,6 +86,10 @@ class ListAccessAssignmentsRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->originTargetId) {
+            $res['OriginTargetId'] = $this->originTargetId;
         }
 
         if (null !== $this->principalId) {
@@ -123,6 +133,10 @@ class ListAccessAssignmentsRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['OriginTargetId'])) {
+            $model->originTargetId = $map['OriginTargetId'];
         }
 
         if (isset($map['PrincipalId'])) {

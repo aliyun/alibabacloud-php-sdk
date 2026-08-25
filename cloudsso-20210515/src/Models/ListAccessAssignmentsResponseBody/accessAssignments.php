@@ -26,6 +26,11 @@ class accessAssignments extends Model
     /**
      * @var string
      */
+    public $originTargetId;
+
+    /**
+     * @var string
+     */
     public $principalId;
 
     /**
@@ -66,6 +71,7 @@ class accessAssignments extends Model
         'accessConfigurationId' => 'AccessConfigurationId',
         'accessConfigurationName' => 'AccessConfigurationName',
         'createTime' => 'CreateTime',
+        'originTargetId' => 'OriginTargetId',
         'principalId' => 'PrincipalId',
         'principalName' => 'PrincipalName',
         'principalType' => 'PrincipalType',
@@ -94,6 +100,10 @@ class accessAssignments extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->originTargetId) {
+            $res['OriginTargetId'] = $this->originTargetId;
         }
 
         if (null !== $this->principalId) {
@@ -149,6 +159,10 @@ class accessAssignments extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['OriginTargetId'])) {
+            $model->originTargetId = $map['OriginTargetId'];
         }
 
         if (isset($map['PrincipalId'])) {

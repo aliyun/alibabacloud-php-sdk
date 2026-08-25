@@ -185,12 +185,12 @@ class Cloudsso extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'us-west-1' => 'cloudsso.us-west-1.aliyuncs.com',
-            'eu-central-1' => 'cloudsso.eu-central-1.aliyuncs.com',
             'cn-shanghai' => 'cloudsso.cn-shanghai.aliyuncs.com',
             'cn-hongkong' => 'cloudsso.cn-hongkong.aliyuncs.com',
-            'ap-southeast-1' => 'cloudsso.ap-southeast-1.aliyuncs.com',
             'ap-northeast-2' => 'cloudsso.ap-northeast-2.aliyuncs.com',
+            'ap-southeast-1' => 'cloudsso.ap-southeast-1.aliyuncs.com',
+            'us-west-1' => 'cloudsso.us-west-1.aliyuncs.com',
+            'eu-central-1' => 'cloudsso.eu-central-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloudsso', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -534,6 +534,10 @@ class Cloudsso extends OpenApiClient
 
         if (null !== $request->directoryId) {
             @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->originTargetId) {
+            @$query['OriginTargetId'] = $request->originTargetId;
         }
 
         if (null !== $request->principalId) {
@@ -890,7 +894,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a user.
+     * Creates a user by calling CreateUser.
      *
      * @param request - CreateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -961,7 +965,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a user.
+     * Creates a user by calling CreateUser.
      *
      * @param request - CreateUserRequest
      *
@@ -1100,6 +1104,10 @@ class Cloudsso extends OpenApiClient
 
         if (null !== $request->directoryId) {
             @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->originTargetId) {
+            @$query['OriginTargetId'] = $request->originTargetId;
         }
 
         if (null !== $request->principalId) {
@@ -1779,6 +1787,10 @@ class Cloudsso extends OpenApiClient
             @$query['DirectoryId'] = $request->directoryId;
         }
 
+        if (null !== $request->originTargetId) {
+            @$query['OriginTargetId'] = $request->originTargetId;
+        }
+
         if (null !== $request->targetId) {
             @$query['TargetId'] = $request->targetId;
         }
@@ -2050,10 +2062,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the details of an access configuration.
+     * Queries the information about an access configuration.
      *
      * @remarks
-     * This topic provides an example of how to query the details of an access configuration with the ID `ac-00ccule7tadaijxc****`.
+     * This topic provides an example on how to query the information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
      *
      * @param request - GetAccessConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2096,10 +2108,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the details of an access configuration.
+     * Queries the information about an access configuration.
      *
      * @remarks
-     * This topic provides an example of how to query the details of an access configuration with the ID `ac-00ccule7tadaijxc****`.
+     * This topic provides an example on how to query the information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
      *
      * @param request - GetAccessConfigurationRequest
      *
@@ -2987,7 +2999,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the information about a user.
+     * Queries the information about a specified user.
      *
      * @param request - GetUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3030,7 +3042,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the information about a user.
+     * Queries the information about a specified user.
      *
      * @param request - GetUserRequest
      *
@@ -3518,6 +3530,10 @@ class Cloudsso extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->originTargetId) {
+            @$query['OriginTargetId'] = $request->originTargetId;
+        }
+
         if (null !== $request->principalId) {
             @$query['PrincipalId'] = $request->principalId;
         }
@@ -3609,6 +3625,10 @@ class Cloudsso extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->originTargetId) {
+            @$query['OriginTargetId'] = $request->originTargetId;
+        }
+
         if (null !== $request->provisioningStatus) {
             @$query['ProvisioningStatus'] = $request->provisioningStatus;
         }
@@ -3661,10 +3681,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries a list of access configurations.
+     * Queries the list of access configurations.
      *
      * @remarks
-     * This topic provides an example of how to query the access configurations in the folder `d-00fc2p61****`. The response shows two access configurations: `VPC-Admin` and `ECS-Admin`.
+     * This topic provides an example on how to query the access configurations in the directory `d-00fc2p61****`. The response shows that there are two access configurations: `VPC-Admin` and `ECS-Admin`.
      *
      * @param request - ListAccessConfigurationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3723,10 +3743,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries a list of access configurations.
+     * Queries the list of access configurations.
      *
      * @remarks
-     * This topic provides an example of how to query the access configurations in the folder `d-00fc2p61****`. The response shows two access configurations: `VPC-Admin` and `ECS-Admin`.
+     * This topic provides an example on how to query the access configurations in the directory `d-00fc2p61****`. The response shows that there are two access configurations: `VPC-Admin` and `ECS-Admin`.
      *
      * @param request - ListAccessConfigurationsRequest
      *
@@ -4085,10 +4105,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the list of MFA devices for a user. Each user can have a maximum of two MFA devices.
+     * Queries the MFA device list of a user. Each user can have a maximum of two MFA devices.
      *
      * @remarks
-     * This topic provides an example on how to query the MFA device list for the user `u-00q8wbq42wiltcrk****`. The response shows that the user has one MFA device named `Alice-MFA1`.
+     * This topic provides an example on how to query the MFA device list of the user `u-00q8wbq42wiltcrk****`. The response shows that the user has one MFA device named `Alice-MFA1`.
      *
      * @param request - ListMFADevicesForUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4131,10 +4151,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the list of MFA devices for a user. Each user can have a maximum of two MFA devices.
+     * Queries the MFA device list of a user. Each user can have a maximum of two MFA devices.
      *
      * @remarks
-     * This topic provides an example on how to query the MFA device list for the user `u-00q8wbq42wiltcrk****`. The response shows that the user has one MFA device named `Alice-MFA1`.
+     * This topic provides an example on how to query the MFA device list of the user `u-00q8wbq42wiltcrk****`. The response shows that the user has one MFA device named `Alice-MFA1`.
      *
      * @param request - ListMFADevicesForUserRequest
      *
@@ -4648,6 +4668,10 @@ class Cloudsso extends OpenApiClient
 
         if (null !== $request->directoryId) {
             @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->originTargetId) {
+            @$query['OriginTargetId'] = $request->originTargetId;
         }
 
         if (null !== $request->targetId) {

@@ -31,6 +31,11 @@ class task extends Model
     /**
      * @var string
      */
+    public $originTargetId;
+
+    /**
+     * @var string
+     */
     public $principalId;
 
     /**
@@ -92,6 +97,7 @@ class task extends Model
         'accessConfigurationName' => 'AccessConfigurationName',
         'endTime' => 'EndTime',
         'failureReason' => 'FailureReason',
+        'originTargetId' => 'OriginTargetId',
         'principalId' => 'PrincipalId',
         'principalName' => 'PrincipalName',
         'principalType' => 'PrincipalType',
@@ -128,6 +134,10 @@ class task extends Model
 
         if (null !== $this->failureReason) {
             $res['FailureReason'] = $this->failureReason;
+        }
+
+        if (null !== $this->originTargetId) {
+            $res['OriginTargetId'] = $this->originTargetId;
         }
 
         if (null !== $this->principalId) {
@@ -203,6 +213,10 @@ class task extends Model
 
         if (isset($map['FailureReason'])) {
             $model->failureReason = $map['FailureReason'];
+        }
+
+        if (isset($map['OriginTargetId'])) {
+            $model->originTargetId = $map['OriginTargetId'];
         }
 
         if (isset($map['PrincipalId'])) {
