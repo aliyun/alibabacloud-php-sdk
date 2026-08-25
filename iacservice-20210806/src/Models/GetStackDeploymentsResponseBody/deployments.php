@@ -63,6 +63,11 @@ class deployments extends Model
     public $jobId;
 
     /**
+     * @var string
+     */
+    public $logOutputPath;
+
+    /**
      * @var outputs[]
      */
     public $outputs;
@@ -97,6 +102,7 @@ class deployments extends Model
         'executeType' => 'executeType',
         'failedReason' => 'failedReason',
         'jobId' => 'jobId',
+        'logOutputPath' => 'logOutputPath',
         'outputs' => 'outputs',
         'parameters' => 'parameters',
         'planOutputs' => 'planOutputs',
@@ -162,6 +168,10 @@ class deployments extends Model
 
         if (null !== $this->jobId) {
             $res['jobId'] = $this->jobId;
+        }
+
+        if (null !== $this->logOutputPath) {
+            $res['logOutputPath'] = $this->logOutputPath;
         }
 
         if (null !== $this->outputs) {
@@ -254,6 +264,10 @@ class deployments extends Model
 
         if (isset($map['jobId'])) {
             $model->jobId = $map['jobId'];
+        }
+
+        if (isset($map['logOutputPath'])) {
+            $model->logOutputPath = $map['logOutputPath'];
         }
 
         if (isset($map['outputs'])) {

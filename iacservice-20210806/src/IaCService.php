@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateResourceExportTaskRequest
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateResourceExportTaskResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateStackRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateStackResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskFromResourceImportRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskFromResourceImportResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteDetectConfigRequest;
@@ -442,7 +444,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Associate drift detection configuration.
+     * Associates a drift detection configuration.
      *
      * @param Request - AssociateDetectConfigRequest
      * @param headers - map
@@ -492,7 +494,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Associate drift detection configuration.
+     * Associates a drift detection configuration.
      *
      * @param Request - AssociateDetectConfigRequest
      *
@@ -1876,7 +1878,80 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Delete drift detection configuration.
+     * Creates a node from a resource import result.
+     *
+     * @param Request - CreateTaskFromResourceImportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTaskFromResourceImportResponse
+     *
+     * @param CreateTaskFromResourceImportRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateTaskFromResourceImportResponse
+     */
+    public function createTaskFromResourceImportWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->exportTaskId) {
+            @$body['exportTaskId'] = $request->exportTaskId;
+        }
+
+        if (null !== $request->exportVersion) {
+            @$body['exportVersion'] = $request->exportVersion;
+        }
+
+        if (null !== $request->taskName) {
+            @$body['taskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTaskFromResourceImport',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tasks/operations/createTaskFromResourceImport',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTaskFromResourceImportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a node from a resource import result.
+     *
+     * @param Request - CreateTaskFromResourceImportRequest
+     *
+     * @returns CreateTaskFromResourceImportResponse
+     *
+     * @param CreateTaskFromResourceImportRequest $request
+     *
+     * @return CreateTaskFromResourceImportResponse
+     */
+    public function createTaskFromResourceImport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTaskFromResourceImportWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a bias detection configuration.
      *
      * @param Request - DeleteDetectConfigRequest
      * @param headers - map
@@ -1913,7 +1988,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Delete drift detection configuration.
+     * Deletes a bias detection configuration.
      *
      * @param Request - DeleteDetectConfigRequest
      *
@@ -2502,7 +2577,7 @@ class IaCService extends OpenApiClient
      *
      * @remarks
      * Single-user call frequency: 100 calls per second.
-     * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
+     * Deletes a node. If the node has resources that have not been destroyed, the deletion is not allowed.
      *
      * @param Request - DeleteTaskRequest
      * @param headers - map
@@ -2520,8 +2595,14 @@ class IaCService extends OpenApiClient
     public function deleteTaskWithOptions($taskId, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->resourceRetentionPolicy) {
+            @$query['resourceRetentionPolicy'] = $request->resourceRetentionPolicy;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteTask',
@@ -2543,7 +2624,7 @@ class IaCService extends OpenApiClient
      *
      * @remarks
      * Single-user call frequency: 100 calls per second.
-     * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
+     * Deletes a node. If the node has resources that have not been destroyed, the deletion is not allowed.
      *
      * @param Request - DeleteTaskRequest
      *
@@ -2638,7 +2719,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Disassociate drift detection configuration.
+     * Dissociates a drift detection configuration.
      *
      * @param Request - DissociateDetectConfigRequest
      * @param headers - map
@@ -2688,7 +2769,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Disassociate drift detection configuration.
+     * Dissociates a drift detection configuration.
      *
      * @param Request - DissociateDetectConfigRequest
      *

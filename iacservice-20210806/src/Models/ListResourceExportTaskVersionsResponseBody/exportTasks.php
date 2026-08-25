@@ -53,6 +53,11 @@ class exportTasks extends Model
     public $includeRules;
 
     /**
+     * @var string
+     */
+    public $managedTaskId;
+
+    /**
      * @var modules[]
      */
     public $modules;
@@ -80,6 +85,7 @@ class exportTasks extends Model
         'exportVersion' => 'exportVersion',
         'failedReason' => 'failedReason',
         'includeRules' => 'includeRules',
+        'managedTaskId' => 'managedTaskId',
         'modules' => 'modules',
         'name' => 'name',
         'status' => 'status',
@@ -143,6 +149,10 @@ class exportTasks extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->managedTaskId) {
+            $res['managedTaskId'] = $this->managedTaskId;
         }
 
         if (null !== $this->modules) {
@@ -223,6 +233,10 @@ class exportTasks extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['managedTaskId'])) {
+            $model->managedTaskId = $map['managedTaskId'];
         }
 
         if (isset($map['modules'])) {

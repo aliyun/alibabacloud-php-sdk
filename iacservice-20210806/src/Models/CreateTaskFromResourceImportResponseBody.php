@@ -6,14 +6,20 @@ namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteTaskRequest extends Model
+class CreateTaskFromResourceImportResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $resourceRetentionPolicy;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
-        'resourceRetentionPolicy' => 'resourceRetentionPolicy',
+        'requestId' => 'requestId',
+        'taskId' => 'taskId',
     ];
 
     public function validate()
@@ -24,8 +30,12 @@ class DeleteTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->resourceRetentionPolicy) {
-            $res['resourceRetentionPolicy'] = $this->resourceRetentionPolicy;
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->taskId) {
+            $res['taskId'] = $this->taskId;
         }
 
         return $res;
@@ -39,8 +49,12 @@ class DeleteTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['resourceRetentionPolicy'])) {
-            $model->resourceRetentionPolicy = $map['resourceRetentionPolicy'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['taskId'])) {
+            $model->taskId = $map['taskId'];
         }
 
         return $model;
