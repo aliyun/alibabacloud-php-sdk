@@ -67,6 +67,10 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateProhibitedTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateSoftwarelibDistributeTaskRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateSoftwarelibDistributeTaskResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateSoftwarelibVersionRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateSoftwarelibVersionResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateVirusScanScheduledStrategyRequest;
@@ -264,6 +268,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpDepartmentsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpDepartmentsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListNacUserCertRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListNacUserCertResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListOperationAuditLogsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListOperationAuditLogsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagRequest;
@@ -301,6 +307,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListRiskItemsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListRiskItemsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListSoftwareForUserDeviceRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListSoftwareForUserDeviceResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListSoftwarelibSoftwareRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListSoftwarelibSoftwareResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessPolicyRequest;
@@ -2721,6 +2729,243 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRegistrationPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a software distribution task.
+     *
+     * @remarks
+     * - After a task is created, its initial status is disabled.
+     * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
+     * - SupportOs supports only a single operating system value.
+     *
+     * @param request - CreateSoftwarelibDistributeTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSoftwarelibDistributeTaskResponse
+     *
+     * @param CreateSoftwarelibDistributeTaskRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateSoftwarelibDistributeTaskResponse
+     */
+    public function createSoftwarelibDistributeTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->devTags) {
+            @$bodyFlat['DevTags'] = $request->devTags;
+        }
+
+        if (null !== $request->deviceGroupIds) {
+            @$bodyFlat['DeviceGroupIds'] = $request->deviceGroupIds;
+        }
+
+        if (null !== $request->executeMode) {
+            @$body['ExecuteMode'] = $request->executeMode;
+        }
+
+        if (null !== $request->executeParameters) {
+            @$body['ExecuteParameters'] = $request->executeParameters;
+        }
+
+        if (null !== $request->executePeriod) {
+            @$body['ExecutePeriod'] = $request->executePeriod;
+        }
+
+        if (null !== $request->expireMode) {
+            @$body['ExpireMode'] = $request->expireMode;
+        }
+
+        if (null !== $request->gmtExpired) {
+            @$body['GmtExpired'] = $request->gmtExpired;
+        }
+
+        if (null !== $request->matchMode) {
+            @$body['MatchMode'] = $request->matchMode;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->retryTimes) {
+            @$body['RetryTimes'] = $request->retryTimes;
+        }
+
+        if (null !== $request->runAsAccount) {
+            @$body['RunAsAccount'] = $request->runAsAccount;
+        }
+
+        if (null !== $request->softwareId) {
+            @$body['SoftwareId'] = $request->softwareId;
+        }
+
+        if (null !== $request->softwareName) {
+            @$body['SoftwareName'] = $request->softwareName;
+        }
+
+        if (null !== $request->supportOs) {
+            @$body['SupportOs'] = $request->supportOs;
+        }
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
+        }
+
+        if (null !== $request->timeout) {
+            @$body['Timeout'] = $request->timeout;
+        }
+
+        if (null !== $request->userGroupIds) {
+            @$bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['VersionId'] = $request->versionId;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSoftwarelibDistributeTask',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSoftwarelibDistributeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a software distribution task.
+     *
+     * @remarks
+     * - After a task is created, its initial status is disabled.
+     * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
+     * - SupportOs supports only a single operating system value.
+     *
+     * @param request - CreateSoftwarelibDistributeTaskRequest
+     *
+     * @returns CreateSoftwarelibDistributeTaskResponse
+     *
+     * @param CreateSoftwarelibDistributeTaskRequest $request
+     *
+     * @return CreateSoftwarelibDistributeTaskResponse
+     */
+    public function createSoftwarelibDistributeTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSoftwarelibDistributeTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a software version.
+     *
+     * @remarks
+     * - Within the same software, the combination of operating system and version number must be unique. If a duplicate is created, a ResourceDuplicated error is returned.
+     * - A newly created version has an initial publish status of unpublished.
+     * - A newly created version has the highest priority. The priorities of other versions under the same software are shifted down accordingly.
+     *
+     * @param request - CreateSoftwarelibVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSoftwarelibVersionResponse
+     *
+     * @param CreateSoftwarelibVersionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateSoftwarelibVersionResponse
+     */
+    public function createSoftwarelibVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->md5) {
+            @$body['Md5'] = $request->md5;
+        }
+
+        if (null !== $request->os) {
+            @$body['Os'] = $request->os;
+        }
+
+        if (null !== $request->publisherType) {
+            @$body['PublisherType'] = $request->publisherType;
+        }
+
+        if (null !== $request->softwareId) {
+            @$body['SoftwareId'] = $request->softwareId;
+        }
+
+        if (null !== $request->softwareName) {
+            @$body['SoftwareName'] = $request->softwareName;
+        }
+
+        if (null !== $request->softwarePkgName) {
+            @$body['SoftwarePkgName'] = $request->softwarePkgName;
+        }
+
+        if (null !== $request->softwarePkgSize) {
+            @$body['SoftwarePkgSize'] = $request->softwarePkgSize;
+        }
+
+        if (null !== $request->softwareUrl) {
+            @$body['SoftwareUrl'] = $request->softwareUrl;
+        }
+
+        if (null !== $request->softwareVersion) {
+            @$body['SoftwareVersion'] = $request->softwareVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSoftwarelibVersion',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSoftwarelibVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a software version.
+     *
+     * @remarks
+     * - Within the same software, the combination of operating system and version number must be unique. If a duplicate is created, a ResourceDuplicated error is returned.
+     * - A newly created version has an initial publish status of unpublished.
+     * - A newly created version has the highest priority. The priorities of other versions under the same software are shifted down accordingly.
+     *
+     * @param request - CreateSoftwarelibVersionRequest
+     *
+     * @returns CreateSoftwarelibVersionResponse
+     *
+     * @param CreateSoftwarelibVersionRequest $request
+     *
+     * @return CreateSoftwarelibVersionResponse
+     */
+    public function createSoftwarelibVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSoftwarelibVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -8745,6 +8990,109 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Queries administrator operation audit logs in batches.
+     *
+     * @remarks
+     * - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
+     * - If OperationStatus is not specified, only successful operation records are returned.
+     * - Results are sorted by operation time in descending order.
+     * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
+     * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+     *
+     * @param request - ListOperationAuditLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOperationAuditLogsResponse
+     *
+     * @param ListOperationAuditLogsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListOperationAuditLogsResponse
+     */
+    public function listOperationAuditLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
+        }
+
+        if (null !== $request->operationFunc) {
+            @$query['OperationFunc'] = $request->operationFunc;
+        }
+
+        if (null !== $request->operationStatus) {
+            @$query['OperationStatus'] = $request->operationStatus;
+        }
+
+        if (null !== $request->operationType) {
+            @$query['OperationType'] = $request->operationType;
+        }
+
+        if (null !== $request->operatorId) {
+            @$query['OperatorId'] = $request->operatorId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOperationAuditLogs',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOperationAuditLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries administrator operation audit logs in batches.
+     *
+     * @remarks
+     * - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
+     * - If OperationStatus is not specified, only successful operation records are returned.
+     * - Results are sorted by operation time in descending order.
+     * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
+     * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+     *
+     * @param request - ListOperationAuditLogsRequest
+     *
+     * @returns ListOperationAuditLogsResponse
+     *
+     * @param ListOperationAuditLogsRequest $request
+     *
+     * @return ListOperationAuditLogsResponse
+     */
+    public function listOperationAuditLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOperationAuditLogsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries policies for private access applications in your Alibaba Cloud account in batches.
      *
      * @param request - ListPolicesForPrivateAccessApplicationRequest
@@ -9786,6 +10134,101 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Queries software in the software library in batches.
+     *
+     * @remarks
+     * - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+     * - SoftwareName supports fuzzy match.
+     * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+     *
+     * @param request - ListSoftwarelibSoftwareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSoftwarelibSoftwareResponse
+     *
+     * @param ListSoftwarelibSoftwareRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListSoftwarelibSoftwareResponse
+     */
+    public function listSoftwarelibSoftwareWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->classifyId) {
+            @$query['ClassifyId'] = $request->classifyId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->os) {
+            @$query['Os'] = $request->os;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->softwareName) {
+            @$query['SoftwareName'] = $request->softwareName;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSoftwarelibSoftware',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSoftwarelibSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries software in the software library in batches.
+     *
+     * @remarks
+     * - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+     * - SoftwareName supports fuzzy match.
+     * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+     *
+     * @param request - ListSoftwarelibSoftwareRequest
+     *
+     * @returns ListSoftwarelibSoftwareResponse
+     *
+     * @param ListSoftwarelibSoftwareRequest $request
+     *
+     * @return ListSoftwarelibSoftwareResponse
+     */
+    public function listSoftwarelibSoftware($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSoftwarelibSoftwareWithOptions($request, $runtime);
+    }
+
+    /**
      * Batch query tags for private network access applications under the current Alibaba Cloud account.
      *
      * @param request - ListTagsForPrivateAccessApplicationRequest
@@ -10575,7 +11018,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询病毒扫描任务的状态
+     * Queries the execution progress of specified virus scan tasks on user terminal devices in batches.
      *
      * @param request - ListVirusScanTaskStatusesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10610,7 +11053,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询病毒扫描任务的状态
+     * Queries the execution progress of specified virus scan tasks on user terminal devices in batches.
      *
      * @param request - ListVirusScanTaskStatusesRequest
      *
@@ -10628,7 +11071,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询病毒扫描任务统计数据.
+     * Queries the detection result statistics of specified virus scan tasks in batches.
      *
      * @param request - ListVirusScanTaskSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10663,7 +11106,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询病毒扫描任务统计数据.
+     * Queries the detection result statistics of specified virus scan tasks in batches.
      *
      * @param request - ListVirusScanTaskSummaryRequest
      *
@@ -10681,7 +11124,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询病毒扫描任务
+     * Queries instant virus scan tasks under the current Alibaba Cloud account by paging.
      *
      * @param request - ListVirusScanTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10716,7 +11159,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询病毒扫描任务
+     * Queries instant virus scan tasks under the current Alibaba Cloud account by paging.
      *
      * @param request - ListVirusScanTasksRequest
      *
