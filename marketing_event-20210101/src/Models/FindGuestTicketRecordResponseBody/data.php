@@ -25,6 +25,16 @@ class data extends Model
     public $equityDates;
 
     /**
+     * @var string
+     */
+    public $faceFeature;
+
+    /**
+     * @var string
+     */
+    public $faceFeatureWriteTime;
+
+    /**
      * @var int
      */
     public $healthCommitmentStatus;
@@ -72,6 +82,8 @@ class data extends Model
         'channelLevelInfo' => 'ChannelLevelInfo',
         'companyName' => 'CompanyName',
         'equityDates' => 'EquityDates',
+        'faceFeature' => 'FaceFeature',
+        'faceFeatureWriteTime' => 'FaceFeatureWriteTime',
         'healthCommitmentStatus' => 'HealthCommitmentStatus',
         'idNumber' => 'IdNumber',
         'idType' => 'IdType',
@@ -104,6 +116,14 @@ class data extends Model
 
         if (null !== $this->equityDates) {
             $res['EquityDates'] = $this->equityDates;
+        }
+
+        if (null !== $this->faceFeature) {
+            $res['FaceFeature'] = $this->faceFeature;
+        }
+
+        if (null !== $this->faceFeatureWriteTime) {
+            $res['FaceFeatureWriteTime'] = $this->faceFeatureWriteTime;
         }
 
         if (null !== $this->healthCommitmentStatus) {
@@ -163,6 +183,14 @@ class data extends Model
 
         if (isset($map['EquityDates'])) {
             $model->equityDates = $map['EquityDates'];
+        }
+
+        if (isset($map['FaceFeature'])) {
+            $model->faceFeature = $map['FaceFeature'];
+        }
+
+        if (isset($map['FaceFeatureWriteTime'])) {
+            $model->faceFeatureWriteTime = $map['FaceFeatureWriteTime'];
         }
 
         if (isset($map['HealthCommitmentStatus'])) {
