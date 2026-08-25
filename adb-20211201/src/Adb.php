@@ -2915,10 +2915,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates a resource group for a specified Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
+     * Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
      *
      * @remarks
-     * For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param tmpReq - CreateDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3071,10 +3071,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates a resource group for a specified Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
+     * Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
      *
      * @remarks
-     * For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateDBResourceGroupRequest
      *
@@ -8366,7 +8366,7 @@ class Adb extends OpenApiClient
      * Queries the resource group information of a cluster.
      *
      * @remarks
-     * For information about the service registration of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8424,7 +8424,7 @@ class Adb extends OpenApiClient
      * Queries the resource group information of a cluster.
      *
      * @remarks
-     * For information about the service registration of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBResourceGroupRequest
      *
@@ -18384,7 +18384,7 @@ class Adb extends OpenApiClient
      * Changes the resource group of a cluster.
      *
      * @remarks
-     * For service endpoints, see [endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param tmpReq - ModifyDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18532,7 +18532,7 @@ class Adb extends OpenApiClient
      * Changes the resource group of a cluster.
      *
      * @remarks
-     * For service endpoints, see [endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyDBResourceGroupRequest
      *

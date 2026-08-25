@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest\rayConfig\storageMounts;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest\rayConfig\workerGroups;
 
 class rayConfig extends Model
@@ -40,6 +41,11 @@ class rayConfig extends Model
     public $headSpecType;
 
     /**
+     * @var storageMounts[]
+     */
+    public $storageMounts;
+
+    /**
      * @var string
      */
     public $userDefinedRequirements;
@@ -55,12 +61,16 @@ class rayConfig extends Model
         'headDiskCapacity' => 'HeadDiskCapacity',
         'headSpec' => 'HeadSpec',
         'headSpecType' => 'HeadSpecType',
+        'storageMounts' => 'StorageMounts',
         'userDefinedRequirements' => 'UserDefinedRequirements',
         'workerGroups' => 'WorkerGroups',
     ];
 
     public function validate()
     {
+        if (\is_array($this->storageMounts)) {
+            Model::validateArray($this->storageMounts);
+        }
         if (\is_array($this->workerGroups)) {
             Model::validateArray($this->workerGroups);
         }
@@ -92,6 +102,17 @@ class rayConfig extends Model
 
         if (null !== $this->headSpecType) {
             $res['HeadSpecType'] = $this->headSpecType;
+        }
+
+        if (null !== $this->storageMounts) {
+            if (\is_array($this->storageMounts)) {
+                $res['StorageMounts'] = [];
+                $n1 = 0;
+                foreach ($this->storageMounts as $item1) {
+                    $res['StorageMounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->userDefinedRequirements) {
@@ -142,6 +163,17 @@ class rayConfig extends Model
 
         if (isset($map['HeadSpecType'])) {
             $model->headSpecType = $map['HeadSpecType'];
+        }
+
+        if (isset($map['StorageMounts'])) {
+            if (!empty($map['StorageMounts'])) {
+                $model->storageMounts = [];
+                $n1 = 0;
+                foreach ($map['StorageMounts'] as $item1) {
+                    $model->storageMounts[$n1] = storageMounts::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UserDefinedRequirements'])) {

@@ -17,9 +17,15 @@ class storageMounts extends Model
      * @var int
      */
     public $storageId;
+
+    /**
+     * @var string
+     */
+    public $storageName;
     protected $_name = [
         'mountPath' => 'MountPath',
         'storageId' => 'StorageId',
+        'storageName' => 'StorageName',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class storageMounts extends Model
 
         if (null !== $this->storageId) {
             $res['StorageId'] = $this->storageId;
+        }
+
+        if (null !== $this->storageName) {
+            $res['StorageName'] = $this->storageName;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class storageMounts extends Model
 
         if (isset($map['StorageId'])) {
             $model->storageId = $map['StorageId'];
+        }
+
+        if (isset($map['StorageName'])) {
+            $model->storageName = $map['StorageName'];
         }
 
         return $model;
