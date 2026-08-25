@@ -122,31 +122,31 @@ class Selectdb extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
+            'ap-northeast-2' => 'selectdb.aliyuncs.com',
+            'ap-southeast-3' => 'selectdb.aliyuncs.com',
+            'ap-southeast-7' => 'selectdb.aliyuncs.com',
+            'cn-heyuan' => 'selectdb.aliyuncs.com',
+            'cn-shenzhen' => 'selectdb.cn-shenzhen.aliyuncs.com',
+            'cn-wulanchabu' => 'selectdb.cn-wulanchabu.aliyuncs.com',
+            'cn-beijing' => 'selectdb.cn-beijing.aliyuncs.com',
+            'ap-northeast-1' => 'selectdb.ap-northeast-1.aliyuncs.com',
+            'cn-chengdu' => 'selectdb.cn-chengdu.aliyuncs.com',
+            'cn-qingdao' => 'selectdb.cn-qingdao.aliyuncs.com',
+            'cn-shanghai' => 'selectdb.cn-shanghai.aliyuncs.com',
+            'cn-guangzhou' => 'selectdb.cn-guangzhou.aliyuncs.com',
+            'cn-hongkong' => 'selectdb.cn-hongkong.aliyuncs.com',
+            'ap-southeast-1' => 'selectdb.ap-southeast-1.aliyuncs.com',
+            'cn-huhehaote' => 'selectdb.cn-huhehaote.aliyuncs.com',
+            'ap-southeast-5' => 'selectdb.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-6' => 'selectdb.ap-southeast-6.aliyuncs.com',
+            'cn-zhangjiakou' => 'selectdb.cn-zhangjiakou.aliyuncs.com',
+            'cn-hangzhou' => 'selectdb.aliyuncs.com',
             'us-west-1' => 'selectdb.us-west-1.aliyuncs.com',
             'us-east-1' => 'selectdb.us-east-1.aliyuncs.com',
-            'na-south-1' => 'selectdb.na-south-1.aliyuncs.com',
-            'eu-west-1' => 'selectdb.eu-west-1.aliyuncs.com',
             'eu-central-1' => 'selectdb.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'selectdb.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu' => 'selectdb.cn-wulanchabu.aliyuncs.com',
-            'cn-shenzhen' => 'selectdb.cn-shenzhen.aliyuncs.com',
+            'eu-west-1' => 'selectdb.eu-west-1.aliyuncs.com',
+            'na-south-1' => 'selectdb.na-south-1.aliyuncs.com',
             'cn-shanghai-finance-1' => 'selectdb.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shanghai' => 'selectdb.cn-shanghai.aliyuncs.com',
-            'cn-qingdao' => 'selectdb.cn-qingdao.aliyuncs.com',
-            'cn-huhehaote' => 'selectdb.cn-huhehaote.aliyuncs.com',
-            'cn-hongkong' => 'selectdb.cn-hongkong.aliyuncs.com',
-            'cn-heyuan' => 'selectdb.aliyuncs.com',
-            'cn-hangzhou' => 'selectdb.aliyuncs.com',
-            'cn-guangzhou' => 'selectdb.cn-guangzhou.aliyuncs.com',
-            'cn-chengdu' => 'selectdb.cn-chengdu.aliyuncs.com',
-            'cn-beijing' => 'selectdb.cn-beijing.aliyuncs.com',
-            'ap-southeast-7' => 'selectdb.aliyuncs.com',
-            'ap-southeast-6' => 'selectdb.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-5' => 'selectdb.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'selectdb.aliyuncs.com',
-            'ap-southeast-1' => 'selectdb.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2' => 'selectdb.aliyuncs.com',
-            'ap-northeast-1' => 'selectdb.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('selectdb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -493,7 +493,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Call this operation to check the service-linked role.
+     * Checks the service-linked role.
      *
      * @param request - CheckServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -536,7 +536,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Call this operation to check the service-linked role.
+     * Checks the service-linked role.
      *
      * @param request - CheckServiceLinkedRoleRequest
      *
@@ -951,7 +951,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Creates a time-based scaling rule.
+     * Creates a time-based elastic scaling rule.
      *
      * @param request - CreateElasticRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1014,7 +1014,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Creates a time-based scaling rule.
+     * Creates a time-based elastic scaling rule.
      *
      * @param request - CreateElasticRuleRequest
      *
@@ -1032,7 +1032,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Call this operation to create a service-linked role.
+     * Creates a service-linked role.
      *
      * @param request - CreateServiceLinkedRoleForSelectDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1075,7 +1075,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Call this operation to create a service-linked role.
+     * Creates a service-linked role.
      *
      * @param request - CreateServiceLinkedRoleForSelectDBRequest
      *
@@ -1096,9 +1096,9 @@ class Selectdb extends OpenApiClient
      * Creates a virtual cluster.
      *
      * @remarks
-     * This operation is supported only for instances that use zone-redundant storage. The following conditions must also be met:
+     * Only instances with cross-zone redundancy support this operation, and the following conditions must be met:
      * - The minor engine version of the instance is 4.0.7 or later.
-     * - The primary and standby clusters are in different zones.
+     * - The primary and secondary clusters are in different zones.
      *
      * @param request - CreateVirtualClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1156,9 +1156,9 @@ class Selectdb extends OpenApiClient
      * Creates a virtual cluster.
      *
      * @remarks
-     * This operation is supported only for instances that use zone-redundant storage. The following conditions must also be met:
+     * Only instances with cross-zone redundancy support this operation, and the following conditions must be met:
      * - The minor engine version of the instance is 4.0.7 or later.
-     * - The primary and standby clusters are in different zones.
+     * - The primary and secondary clusters are in different zones.
      *
      * @param request - CreateVirtualClusterRequest
      *
@@ -1320,7 +1320,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Deletes a specified ApsaraDB SelectDB instance.
+     * Deletes a specified ApsaraDB for SelectDB instance.
      *
      * @remarks
      * Subscription instances cannot be deleted.
@@ -1372,7 +1372,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Deletes a specified ApsaraDB SelectDB instance.
+     * Deletes a specified ApsaraDB for SelectDB instance.
      *
      * @remarks
      * Subscription instances cannot be deleted.
@@ -1473,7 +1473,8 @@ class Selectdb extends OpenApiClient
      * Deletes a virtual cluster.
      *
      * @remarks
-     * > - This operation deletes only the virtual cluster. It **does not** delete the attached primary or secondary cluster.
+     * >
+     * > - Only the virtual cluster is deleted. The associated primary/secondary clusters are **not** deleted.
      *
      * @param request - DeleteVirtualClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1523,7 +1524,8 @@ class Selectdb extends OpenApiClient
      * Deletes a virtual cluster.
      *
      * @remarks
-     * > - This operation deletes only the virtual cluster. It **does not** delete the attached primary or secondary cluster.
+     * >
+     * > - Only the virtual cluster is deleted. The associated primary/secondary clusters are **not** deleted.
      *
      * @param request - DeleteVirtualClusterRequest
      *
@@ -1541,7 +1543,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves all instance type information.
+     * Retrieves information about all instance specifications.
      *
      * @param request - DescribeAllDBInstanceClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1557,6 +1559,10 @@ class Selectdb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -1584,7 +1590,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves all instance type information.
+     * Retrieves information about all instance specifications.
      *
      * @param request - DescribeAllDBInstanceClassRequest
      *
@@ -1671,7 +1677,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the change logs for cluster configurations.
+     * Queries the configuration change records of a cluster.
      *
      * @param request - DescribeDBClusterConfigChangeLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1730,7 +1736,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the change logs for cluster configurations.
+     * Queries the configuration change records of a cluster.
      *
      * @param request - DescribeDBClusterConfigChangeLogsRequest
      *
@@ -1878,7 +1884,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the network information of a specified ApsaraDB SelectDB instance.
+     * Queries the network information of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - DescribeDBInstanceNetInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1925,7 +1931,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the network information of a specified ApsaraDB SelectDB instance.
+     * Queries the network information of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - DescribeDBInstanceNetInfoRequest
      *
@@ -2503,7 +2509,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries vSwitches in a specified zone.
+     * Lists vSwitches in a zone.
      *
      * @param request - DescribeVSwitchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2566,7 +2572,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries vSwitches in a specified zone.
+     * Lists vSwitches in a zone.
      *
      * @param request - DescribeVSwitchesRequest
      *
@@ -2726,7 +2732,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries pricing information for creating a new cluster in a SelectDB instance.
+     * Retrieves pricing information for creating a new cluster under a specified ApsaraDB for SelectDB instance.
      *
      * @param request - GetCreateBEClusterInquiryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2761,7 +2767,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries pricing information for creating a new cluster in a SelectDB instance.
+     * Retrieves pricing information for creating a new cluster under a specified ApsaraDB for SelectDB instance.
      *
      * @param request - GetCreateBEClusterInquiryRequest
      *
@@ -2832,7 +2838,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Modifies the cluster name of an ApsaraDB SelectDB instance.
+     * Modifies the cluster name of an ApsaraDB for SelectDB instance.
      *
      * @param request - ModifyBEClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2891,7 +2897,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Modifies the cluster name of an ApsaraDB SelectDB instance.
+     * Modifies the cluster name of an ApsaraDB for SelectDB instance.
      *
      * @param request - ModifyBEClusterAttributeRequest
      *
@@ -2909,7 +2915,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Scales out or in a specified ApsaraDB for SelectDB cluster.
+     * Scales a cluster of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - ModifyDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2988,7 +2994,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Scales out or in a specified ApsaraDB for SelectDB cluster.
+     * Scales a cluster of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - ModifyDBClusterRequest
      *
@@ -3006,7 +3012,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Modifies the cluster configuration.
+     * Modifies the configuration of a cluster.
      *
      * @param request - ModifyDBClusterConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3069,7 +3075,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Modifies the cluster configuration.
+     * Modifies the configuration of a cluster.
      *
      * @param request - ModifyDBClusterConfigRequest
      *
@@ -3329,11 +3335,10 @@ class Selectdb extends OpenApiClient
      * Modifies a virtual cluster.
      *
      * @remarks
-     * - You can modify the primary cluster independently.
-     * - You can modify the standby cluster independently.
-     * - You can switch between the primary and standby clusters.
-     * >Warning:
-     * You cannot modify both the primary and standby clusters in the same operation.
+     * - You can modify the primary cluster separately.
+     * - You can modify the secondary cluster separately.
+     * - You can switch between the primary and secondary clusters.
+     * >Warning: Modifying both the primary and secondary clusters to other clusters at the same time is not supported.
      *
      * @param request - ModifyVirtualClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3391,11 +3396,10 @@ class Selectdb extends OpenApiClient
      * Modifies a virtual cluster.
      *
      * @remarks
-     * - You can modify the primary cluster independently.
-     * - You can modify the standby cluster independently.
-     * - You can switch between the primary and standby clusters.
-     * >Warning:
-     * You cannot modify both the primary and standby clusters in the same operation.
+     * - You can modify the primary cluster separately.
+     * - You can modify the secondary cluster separately.
+     * - You can switch between the primary and secondary clusters.
+     * >Warning: Modifying both the primary and secondary clusters to other clusters at the same time is not supported.
      *
      * @param request - ModifyVirtualClusterRequest
      *
@@ -3482,7 +3486,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Resets the password for a database account in an ApsaraDB for SelectDB instance.
+     * Resets the account password of an ApsaraDB for SelectDB instance.
      *
      * @param request - ResetAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3517,7 +3521,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Resets the password for a database account in an ApsaraDB for SelectDB instance.
+     * Resets the account password of an ApsaraDB for SelectDB instance.
      *
      * @param request - ResetAccountPasswordRequest
      *
@@ -3535,7 +3539,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Restarts the cluster of a specified ApsaraDB for SelectDB instance.
+     * Restarts a cluster of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - RestartDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3596,7 +3600,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Restarts the cluster of a specified ApsaraDB for SelectDB instance.
+     * Restarts a cluster of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - RestartDBClusterRequest
      *
@@ -3683,7 +3687,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Stops a specified ApsaraDB SelectDB cluster.
+     * Stops a specified ApsaraDB for SelectDB cluster.
      *
      * @param request - StopBEClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3734,7 +3738,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Stops a specified ApsaraDB SelectDB cluster.
+     * Stops a specified ApsaraDB for SelectDB cluster.
      *
      * @param request - StopBEClusterRequest
      *
@@ -3981,7 +3985,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Upgrades the database version of a specified ApsaraDB SelectDB instance.
+     * Upgrades the database version of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - UpgradeDBInstanceEngineVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4040,7 +4044,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Upgrades the database version of a specified ApsaraDB SelectDB instance.
+     * Upgrades the database version of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - UpgradeDBInstanceEngineVersionRequest
      *

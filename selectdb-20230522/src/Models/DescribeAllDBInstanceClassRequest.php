@@ -11,6 +11,11 @@ class DescribeAllDBInstanceClassRequest extends Model
     /**
      * @var string
      */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -18,6 +23,7 @@ class DescribeAllDBInstanceClassRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'DBInstanceId' => 'DBInstanceId',
         'regionId' => 'RegionId',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
@@ -30,6 +36,10 @@ class DescribeAllDBInstanceClassRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,6 +59,10 @@ class DescribeAllDBInstanceClassRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
