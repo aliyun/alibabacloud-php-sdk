@@ -32,12 +32,18 @@ class AsymmetricDecryptRequest extends Model
      * @var string
      */
     public $keyVersionId;
+
+    /**
+     * @var string
+     */
+    public $recipient;
     protected $_name = [
         'algorithm' => 'Algorithm',
         'ciphertextBlob' => 'CiphertextBlob',
         'dryRun' => 'DryRun',
         'keyId' => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
+        'recipient' => 'Recipient',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class AsymmetricDecryptRequest extends Model
 
         if (null !== $this->keyVersionId) {
             $res['KeyVersionId'] = $this->keyVersionId;
+        }
+
+        if (null !== $this->recipient) {
+            $res['Recipient'] = $this->recipient;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class AsymmetricDecryptRequest extends Model
 
         if (isset($map['KeyVersionId'])) {
             $model->keyVersionId = $map['KeyVersionId'];
+        }
+
+        if (isset($map['Recipient'])) {
+            $model->recipient = $map['Recipient'];
         }
 
         return $model;

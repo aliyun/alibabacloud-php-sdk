@@ -17,6 +17,11 @@ class GetSecretValueResponseBody extends Model
     /**
      * @var string
      */
+    public $ciphertextForRecipient;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -75,6 +80,7 @@ class GetSecretValueResponseBody extends Model
     public $versionStages;
     protected $_name = [
         'automaticRotation' => 'AutomaticRotation',
+        'ciphertextForRecipient' => 'CiphertextForRecipient',
         'createTime' => 'CreateTime',
         'extendedConfig' => 'ExtendedConfig',
         'lastRotationDate' => 'LastRotationDate',
@@ -102,6 +108,10 @@ class GetSecretValueResponseBody extends Model
         $res = [];
         if (null !== $this->automaticRotation) {
             $res['AutomaticRotation'] = $this->automaticRotation;
+        }
+
+        if (null !== $this->ciphertextForRecipient) {
+            $res['CiphertextForRecipient'] = $this->ciphertextForRecipient;
         }
 
         if (null !== $this->createTime) {
@@ -165,6 +175,10 @@ class GetSecretValueResponseBody extends Model
         $model = new self();
         if (isset($map['AutomaticRotation'])) {
             $model->automaticRotation = $map['AutomaticRotation'];
+        }
+
+        if (isset($map['CiphertextForRecipient'])) {
+            $model->ciphertextForRecipient = $map['CiphertextForRecipient'];
         }
 
         if (isset($map['CreateTime'])) {

@@ -11,6 +11,11 @@ class AsymmetricDecryptResponseBody extends Model
     /**
      * @var string
      */
+    public $ciphertextForRecipient;
+
+    /**
+     * @var string
+     */
     public $keyId;
 
     /**
@@ -28,6 +33,7 @@ class AsymmetricDecryptResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'ciphertextForRecipient' => 'CiphertextForRecipient',
         'keyId' => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
         'plaintext' => 'Plaintext',
@@ -42,6 +48,10 @@ class AsymmetricDecryptResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ciphertextForRecipient) {
+            $res['CiphertextForRecipient'] = $this->ciphertextForRecipient;
+        }
+
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
@@ -69,6 +79,10 @@ class AsymmetricDecryptResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CiphertextForRecipient'])) {
+            $model->ciphertextForRecipient = $map['CiphertextForRecipient'];
+        }
+
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }

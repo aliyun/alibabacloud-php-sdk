@@ -21,6 +21,11 @@ class GetSecretValueRequest extends Model
     /**
      * @var string
      */
+    public $recipient;
+
+    /**
+     * @var string
+     */
     public $secretName;
 
     /**
@@ -35,6 +40,7 @@ class GetSecretValueRequest extends Model
     protected $_name = [
         'dryRun' => 'DryRun',
         'fetchExtendedConfig' => 'FetchExtendedConfig',
+        'recipient' => 'Recipient',
         'secretName' => 'SecretName',
         'versionId' => 'VersionId',
         'versionStage' => 'VersionStage',
@@ -54,6 +60,10 @@ class GetSecretValueRequest extends Model
 
         if (null !== $this->fetchExtendedConfig) {
             $res['FetchExtendedConfig'] = $this->fetchExtendedConfig;
+        }
+
+        if (null !== $this->recipient) {
+            $res['Recipient'] = $this->recipient;
         }
 
         if (null !== $this->secretName) {
@@ -85,6 +95,10 @@ class GetSecretValueRequest extends Model
 
         if (isset($map['FetchExtendedConfig'])) {
             $model->fetchExtendedConfig = $map['FetchExtendedConfig'];
+        }
+
+        if (isset($map['Recipient'])) {
+            $model->recipient = $map['Recipient'];
         }
 
         if (isset($map['SecretName'])) {
