@@ -11,10 +11,14 @@ use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateAgentPlatformShrinkRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateEmbodiedAIPlatformRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateEmbodiedAIPlatformResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateEmbodiedAIPlatformShrinkRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateMultiModelKnowledgeBaseRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateMultiModelKnowledgeBaseResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteAgentPlatformRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteAgentPlatformResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteEmbodiedAIPlatformRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteEmbodiedAIPlatformResponse;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteMultiModalKnowledgeBaseRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteMultiModalKnowledgeBaseResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeChatMessageRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeChatMessageResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEapDeviceResourceAllocationRequest;
@@ -47,12 +51,15 @@ class ADBAI extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'cn-shenzhen' => 'adbai.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai' => 'adbai.cn-shanghai.aliyuncs.com',
-            'cn-hangzhou' => 'adbai.cn-hangzhou.aliyuncs.com',
-            'cn-beijing' => 'adbai.cn-beijing.aliyuncs.com',
-            'ap-southeast-1' => 'adbai.ap-southeast-1.aliyuncs.com',
             'ap-northeast-1' => 'adbai.ap-northeast-1.aliyuncs.com',
+            'ap-southeast-1' => 'adbai.ap-southeast-1.aliyuncs.com',
+            'cn-beijing' => 'adbai.cn-beijing.aliyuncs.com',
+            'cn-hangzhou' => 'adbai.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai' => 'adbai.cn-shanghai.aliyuncs.com',
+            'cn-shenzhen' => 'adbai.cn-shenzhen.aliyuncs.com',
+            'cn-guangzhou' => 'adbai.cn-guangzhou.aliyuncs.com',
+            'cn-wulanchabu' => 'adbai.cn-wulanchabu.aliyuncs.com',
+            'us-west-1' => 'adbai.us-west-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('adbai', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -255,6 +262,73 @@ class ADBAI extends OpenApiClient
     }
 
     /**
+     * Creates an AnalyticDB multimodal knowledge base.
+     *
+     * @remarks
+     * Creates an AnalyticDB multimodal knowledge base.
+     *
+     * @param request - CreateMultiModelKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMultiModelKnowledgeBaseResponse
+     *
+     * @param CreateMultiModelKnowledgeBaseRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateMultiModelKnowledgeBaseResponse
+     */
+    public function createMultiModelKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMultiModelKnowledgeBase',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMultiModelKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an AnalyticDB multimodal knowledge base.
+     *
+     * @remarks
+     * Creates an AnalyticDB multimodal knowledge base.
+     *
+     * @param request - CreateMultiModelKnowledgeBaseRequest
+     *
+     * @returns CreateMultiModelKnowledgeBaseResponse
+     *
+     * @param CreateMultiModelKnowledgeBaseRequest $request
+     *
+     * @return CreateMultiModelKnowledgeBaseResponse
+     */
+    public function createMultiModelKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMultiModelKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a metrics platform.
      *
      * @param request - DeleteAgentPlatformRequest
@@ -382,6 +456,73 @@ class ADBAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEmbodiedAIPlatformWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an ADB multimodal knowledge base.
+     *
+     * @remarks
+     * Deletes an ADB multimodal knowledge base.
+     *
+     * @param request - DeleteMultiModalKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMultiModalKnowledgeBaseResponse
+     *
+     * @param DeleteMultiModalKnowledgeBaseRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteMultiModalKnowledgeBaseResponse
+     */
+    public function deleteMultiModalKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMultiModalKnowledgeBase',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMultiModalKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an ADB multimodal knowledge base.
+     *
+     * @remarks
+     * Deletes an ADB multimodal knowledge base.
+     *
+     * @param request - DeleteMultiModalKnowledgeBaseRequest
+     *
+     * @returns DeleteMultiModalKnowledgeBaseResponse
+     *
+     * @param DeleteMultiModalKnowledgeBaseRequest $request
+     *
+     * @return DeleteMultiModalKnowledgeBaseResponse
+     */
+    public function deleteMultiModalKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMultiModalKnowledgeBaseWithOptions($request, $runtime);
     }
 
     /**
@@ -535,10 +676,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * Query the resource allocation plan for Embodied Intelligence platform devices.
+     * Queries the resource allocation plan for devices on the embodied intelligence platform.
      *
      * @remarks
-     * Used to view the actual resource amount corresponding to the backend of the instance ontology count
+     * Queries the actual resource capacity corresponding to the backend of the instance device count.
      *
      * @param request - DescribeEapDeviceResourceAllocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -585,10 +726,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * Query the resource allocation plan for Embodied Intelligence platform devices.
+     * Queries the resource allocation plan for devices on the embodied intelligence platform.
      *
      * @remarks
-     * Used to view the actual resource amount corresponding to the backend of the instance ontology count
+     * Queries the actual resource capacity corresponding to the backend of the instance device count.
      *
      * @param request - DescribeEapDeviceResourceAllocationRequest
      *
