@@ -114,6 +114,11 @@ class ListRulesV4Request extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $targetType;
+
+    /**
      * @var int
      */
     public $type;
@@ -159,6 +164,7 @@ class ListRulesV4Request extends Model
         'sourceType' => 'SourceType',
         'startTime' => 'StartTime',
         'status' => 'Status',
+        'targetType' => 'TargetType',
         'type' => 'Type',
         'typeName' => 'TypeName',
         'updateEndTime' => 'UpdateEndTime',
@@ -266,6 +272,10 @@ class ListRulesV4Request extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
         }
 
         if (null !== $this->type) {
@@ -388,6 +398,10 @@ class ListRulesV4Request extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
         }
 
         if (isset($map['Type'])) {

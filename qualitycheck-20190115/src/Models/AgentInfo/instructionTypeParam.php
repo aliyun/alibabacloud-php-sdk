@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AgentInfo\instructionTypePara
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AgentInfo\instructionTypeParam\fieldsParam;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AgentInfo\instructionTypeParam\serviceInspectionParam;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AgentInfo\instructionTypeParam\tagCategoryParam;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AgentInfo\instructionTypeParam\tagTreeLevelParam;
 
 class instructionTypeParam extends Model
 {
@@ -31,11 +32,17 @@ class instructionTypeParam extends Model
      * @var tagCategoryParam
      */
     public $tagCategoryParam;
+
+    /**
+     * @var tagTreeLevelParam
+     */
+    public $tagTreeLevelParam;
     protected $_name = [
         'customPromptParam' => 'CustomPromptParam',
         'fieldsParam' => 'FieldsParam',
         'serviceInspectionParam' => 'ServiceInspectionParam',
         'tagCategoryParam' => 'TagCategoryParam',
+        'tagTreeLevelParam' => 'TagTreeLevelParam',
     ];
 
     public function validate()
@@ -51,6 +58,9 @@ class instructionTypeParam extends Model
         }
         if (null !== $this->tagCategoryParam) {
             $this->tagCategoryParam->validate();
+        }
+        if (null !== $this->tagTreeLevelParam) {
+            $this->tagTreeLevelParam->validate();
         }
         parent::validate();
     }
@@ -72,6 +82,10 @@ class instructionTypeParam extends Model
 
         if (null !== $this->tagCategoryParam) {
             $res['TagCategoryParam'] = null !== $this->tagCategoryParam ? $this->tagCategoryParam->toArray($noStream) : $this->tagCategoryParam;
+        }
+
+        if (null !== $this->tagTreeLevelParam) {
+            $res['TagTreeLevelParam'] = null !== $this->tagTreeLevelParam ? $this->tagTreeLevelParam->toArray($noStream) : $this->tagTreeLevelParam;
         }
 
         return $res;
@@ -99,6 +113,10 @@ class instructionTypeParam extends Model
 
         if (isset($map['TagCategoryParam'])) {
             $model->tagCategoryParam = tagCategoryParam::fromMap($map['TagCategoryParam']);
+        }
+
+        if (isset($map['TagTreeLevelParam'])) {
+            $model->tagTreeLevelParam = tagTreeLevelParam::fromMap($map['TagTreeLevelParam']);
         }
 
         return $model;
