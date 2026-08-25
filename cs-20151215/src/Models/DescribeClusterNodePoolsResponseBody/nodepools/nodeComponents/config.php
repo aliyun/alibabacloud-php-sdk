@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\nodeComponents;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\nodeComponents\config\envs;
 
 class config extends Model
 {
@@ -12,14 +13,23 @@ class config extends Model
      * @var mixed[]
      */
     public $customConfig;
+
+    /**
+     * @var envs[]
+     */
+    public $envs;
     protected $_name = [
         'customConfig' => 'custom_config',
+        'envs' => 'envs',
     ];
 
     public function validate()
     {
         if (\is_array($this->customConfig)) {
             Model::validateArray($this->customConfig);
+        }
+        if (\is_array($this->envs)) {
+            Model::validateArray($this->envs);
         }
         parent::validate();
     }
@@ -32,6 +42,17 @@ class config extends Model
                 $res['custom_config'] = [];
                 foreach ($this->customConfig as $key1 => $value1) {
                     $res['custom_config'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->envs) {
+            if (\is_array($this->envs)) {
+                $res['envs'] = [];
+                $n1 = 0;
+                foreach ($this->envs as $item1) {
+                    $res['envs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,6 +73,17 @@ class config extends Model
                 $model->customConfig = [];
                 foreach ($map['custom_config'] as $key1 => $value1) {
                     $model->customConfig[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['envs'])) {
+            if (!empty($map['envs'])) {
+                $model->envs = [];
+                $n1 = 0;
+                foreach ($map['envs'] as $item1) {
+                    $model->envs[$n1] = envs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
