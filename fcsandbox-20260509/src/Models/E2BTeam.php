@@ -29,6 +29,11 @@ class E2BTeam extends Model
     public $plan;
 
     /**
+     * @var bool
+     */
+    public $readOnly;
+
+    /**
      * @var string
      */
     public $resourceGroupID;
@@ -57,6 +62,7 @@ class E2BTeam extends Model
         'createdTime' => 'createdTime',
         'description' => 'description',
         'plan' => 'plan',
+        'readOnly' => 'readOnly',
         'resourceGroupID' => 'resourceGroupID',
         'status' => 'status',
         'teamID' => 'teamID',
@@ -86,6 +92,10 @@ class E2BTeam extends Model
 
         if (null !== $this->plan) {
             $res['plan'] = $this->plan;
+        }
+
+        if (null !== $this->readOnly) {
+            $res['readOnly'] = $this->readOnly;
         }
 
         if (null !== $this->resourceGroupID) {
@@ -133,6 +143,10 @@ class E2BTeam extends Model
 
         if (isset($map['plan'])) {
             $model->plan = $map['plan'];
+        }
+
+        if (isset($map['readOnly'])) {
+            $model->readOnly = $map['readOnly'];
         }
 
         if (isset($map['resourceGroupID'])) {
