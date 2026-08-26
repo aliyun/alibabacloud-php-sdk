@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePoliciesV2Request\accounts;
 
-class DescribePoliciesV2Request extends Model
+class DescribePoliciesV2ShrinkRequest extends Model
 {
     /**
      * @var string
@@ -15,9 +14,9 @@ class DescribePoliciesV2Request extends Model
     public $accountScope;
 
     /**
-     * @var accounts[]
+     * @var string
      */
-    public $accounts;
+    public $accountsShrink;
 
     /**
      * @var int
@@ -40,7 +39,7 @@ class DescribePoliciesV2Request extends Model
     public $ruleScope;
     protected $_name = [
         'accountScope' => 'AccountScope',
-        'accounts' => 'Accounts',
+        'accountsShrink' => 'Accounts',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'policyId' => 'PolicyId',
@@ -49,9 +48,6 @@ class DescribePoliciesV2Request extends Model
 
     public function validate()
     {
-        if (\is_array($this->accounts)) {
-            Model::validateArray($this->accounts);
-        }
         parent::validate();
     }
 
@@ -62,15 +58,8 @@ class DescribePoliciesV2Request extends Model
             $res['AccountScope'] = $this->accountScope;
         }
 
-        if (null !== $this->accounts) {
-            if (\is_array($this->accounts)) {
-                $res['Accounts'] = [];
-                $n1 = 0;
-                foreach ($this->accounts as $item1) {
-                    $res['Accounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->accountsShrink) {
+            $res['Accounts'] = $this->accountsShrink;
         }
 
         if (null !== $this->maxResults) {
@@ -105,14 +94,7 @@ class DescribePoliciesV2Request extends Model
         }
 
         if (isset($map['Accounts'])) {
-            if (!empty($map['Accounts'])) {
-                $model->accounts = [];
-                $n1 = 0;
-                foreach ($map['Accounts'] as $item1) {
-                    $model->accounts[$n1] = accounts::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->accountsShrink = $map['Accounts'];
         }
 
         if (isset($map['MaxResults'])) {

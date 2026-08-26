@@ -122,6 +122,7 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeOtsTableSnapshotsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeOtsTableSnapshotsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePoliciesV2Request;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePoliciesV2Response;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePoliciesV2ShrinkRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsShrinkRequest;
@@ -1817,10 +1818,10 @@ class Hbr extends OpenApiClient
      * Creates a policy.
      *
      * @remarks
-     * A backup plan records the information required for backup. After a backup plan is executed, a backup job is generated to record the backup progress and result. If the backup job is successful, a backup snapshot is generated. You can use the backup snapshot to create a restore job.
-     * - A backup plan supports multiple data source types, including NAS backup, OSS backup, ECS full-server backup, ECS File Backup Essential Edition, local file backup, Tablestore backup, and CPFS backup.
-     * - A backup plan supports only a single fixed-interval backup cycle policy.
-     * - A backup plan can back up data to only one backup vault.
+     * A backup policy records the information required for backup. After a backup policy is executed, a backup job is generated to record the backup progress and result. If the backup job succeeds, a backup snapshot is generated. You can use the backup snapshot to create a restore job.
+     * - A backup policy supports multiple data source types, including NAS backup, OSS backup, ECS instance backup, ECS File Backup Essential Edition, local file backup, Tablestore backup, and CPFS backup.
+     * - A backup policy supports only a single backup cycle policy with a fixed interval.
+     * - A backup policy can back up data to only one backup vault.
      *
      * @param tmpReq - CreatePolicyV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1880,10 +1881,10 @@ class Hbr extends OpenApiClient
      * Creates a policy.
      *
      * @remarks
-     * A backup plan records the information required for backup. After a backup plan is executed, a backup job is generated to record the backup progress and result. If the backup job is successful, a backup snapshot is generated. You can use the backup snapshot to create a restore job.
-     * - A backup plan supports multiple data source types, including NAS backup, OSS backup, ECS full-server backup, ECS File Backup Essential Edition, local file backup, Tablestore backup, and CPFS backup.
-     * - A backup plan supports only a single fixed-interval backup cycle policy.
-     * - A backup plan can back up data to only one backup vault.
+     * A backup policy records the information required for backup. After a backup policy is executed, a backup job is generated to record the backup progress and result. If the backup job succeeds, a backup snapshot is generated. You can use the backup snapshot to create a restore job.
+     * - A backup policy supports multiple data source types, including NAS backup, OSS backup, ECS instance backup, ECS File Backup Essential Edition, local file backup, Tablestore backup, and CPFS backup.
+     * - A backup policy supports only a single backup cycle policy with a fixed interval.
+     * - A backup policy can back up data to only one backup vault.
      *
      * @param request - CreatePolicyV2Request
      *
@@ -4856,20 +4857,34 @@ class Hbr extends OpenApiClient
     /**
      * Queries one or more policies.
      *
-     * @param request - DescribePoliciesV2Request
+     * @param tmpReq - DescribePoliciesV2Request
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribePoliciesV2Response
      *
-     * @param DescribePoliciesV2Request $request
+     * @param DescribePoliciesV2Request $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return DescribePoliciesV2Response
      */
-    public function describePoliciesV2WithOptions($request, $runtime)
+    public function describePoliciesV2WithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DescribePoliciesV2ShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->accounts) {
+            $request->accountsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accounts, 'Accounts', 'json');
+        }
+
         $body = [];
+        if (null !== $request->accountScope) {
+            @$body['AccountScope'] = $request->accountScope;
+        }
+
+        if (null !== $request->accountsShrink) {
+            @$body['Accounts'] = $request->accountsShrink;
+        }
+
         if (null !== $request->maxResults) {
             @$body['MaxResults'] = $request->maxResults;
         }
@@ -4880,6 +4895,10 @@ class Hbr extends OpenApiClient
 
         if (null !== $request->policyId) {
             @$body['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->ruleScope) {
+            @$body['RuleScope'] = $request->ruleScope;
         }
 
         $req = new OpenApiRequest([
