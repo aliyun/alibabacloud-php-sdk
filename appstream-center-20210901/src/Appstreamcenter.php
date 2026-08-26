@@ -59,6 +59,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetDebugAppInstanceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetDebugAppInstanceResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetFileUploadInfoRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetFileUploadInfoResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetModelProviderTemplateRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetModelProviderTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetOtaTaskByTaskIdRequest;
@@ -2392,6 +2394,69 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDebugAppInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves file upload information.
+     *
+     * @remarks
+     * Visitor information is filled in on the lead capture page when visitors execute a cloud flow. Therefore, the usage mode of cloud applications does not generate visitor information.
+     *
+     * @param request - GetFileUploadInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileUploadInfoResponse
+     *
+     * @param GetFileUploadInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetFileUploadInfoResponse
+     */
+    public function getFileUploadInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetFileUploadInfo',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFileUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves file upload information.
+     *
+     * @remarks
+     * Visitor information is filled in on the lead capture page when visitors execute a cloud flow. Therefore, the usage mode of cloud applications does not generate visitor information.
+     *
+     * @param request - GetFileUploadInfoRequest
+     *
+     * @returns GetFileUploadInfoResponse
+     *
+     * @param GetFileUploadInfoRequest $request
+     *
+     * @return GetFileUploadInfoResponse
+     */
+    public function getFileUploadInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileUploadInfoWithOptions($request, $runtime);
     }
 
     /**
