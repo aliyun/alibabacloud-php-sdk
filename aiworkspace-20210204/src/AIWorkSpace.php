@@ -969,6 +969,10 @@ class AIWorkSpace extends OpenApiClient
             @$body['DataType'] = $request->dataType;
         }
 
+        if (null !== $request->datasetTaskRamRole) {
+            @$body['DatasetTaskRamRole'] = $request->datasetTaskRamRole;
+        }
+
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
         }
@@ -1033,6 +1037,10 @@ class AIWorkSpace extends OpenApiClient
             @$body['UserId'] = $request->userId;
         }
 
+        if (null !== $request->userMetricsEndpoints) {
+            @$body['UserMetricsEndpoints'] = $request->userMetricsEndpoints;
+        }
+
         if (null !== $request->versionDescription) {
             @$body['VersionDescription'] = $request->versionDescription;
         }
@@ -1084,7 +1092,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates file metadata records for a dataset in a batch.
+     * Creates file metadata records in a dataset in batches.
      *
      * @param request - CreateDatasetFileMetasRequest
      * @param headers - map
@@ -1135,7 +1143,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates file metadata records for a dataset in a batch.
+     * Creates file metadata records in a dataset in batches.
      *
      * @param request - CreateDatasetFileMetasRequest
      *
@@ -1417,6 +1425,10 @@ class AIWorkSpace extends OpenApiClient
             @$body['DataSourceType'] = $request->dataSourceType;
         }
 
+        if (null !== $request->datasetTaskRamRole) {
+            @$body['DatasetTaskRamRole'] = $request->datasetTaskRamRole;
+        }
+
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
         }
@@ -1447,6 +1459,10 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->uri) {
             @$body['Uri'] = $request->uri;
+        }
+
+        if (null !== $request->userMetricsEndpoints) {
+            @$body['UserMetricsEndpoints'] = $request->userMetricsEndpoints;
         }
 
         $req = new OpenApiRequest([
@@ -2548,7 +2564,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a workspace role.
+     * Adds a workspace role.
      *
      * @param request - CreateWorkspaceRoleRequest
      * @param headers - map
@@ -2603,7 +2619,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a workspace role.
+     * Adds a workspace role.
      *
      * @param request - CreateWorkspaceRoleRequest
      *
@@ -4653,7 +4669,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a specific dataset version.
+     * Retrieves the information of a specified dataset version.
      *
      * @param request - GetDatasetVersionRequest
      * @param headers - map
@@ -4691,7 +4707,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a specific dataset version.
+     * Retrieves the information of a specified dataset version.
      *
      * @param request - GetDatasetVersionRequest
      *
@@ -6243,7 +6259,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists the datasets in a workspace.
+     * Retrieves the list of datasets in a specified workspace.
      *
      * @param request - ListDatasetsRequest
      * @param headers - map
@@ -6353,7 +6369,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists the datasets in a workspace.
+     * Retrieves the list of datasets in a specified workspace.
      *
      * @param request - ListDatasetsRequest
      *
@@ -9162,7 +9178,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the information for a specific version of a dataset.
+     * Updates the information of a specified dataset version.
      *
      * @param request - UpdateDatasetVersionRequest
      * @param headers - map
@@ -9190,12 +9206,20 @@ class AIWorkSpace extends OpenApiClient
             @$body['DataSize'] = $request->dataSize;
         }
 
+        if (null !== $request->datasetTaskRamRole) {
+            @$body['DatasetTaskRamRole'] = $request->datasetTaskRamRole;
+        }
+
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
         }
 
         if (null !== $request->options) {
             @$body['Options'] = $request->options;
+        }
+
+        if (null !== $request->userMetricsEndpoints) {
+            @$body['UserMetricsEndpoints'] = $request->userMetricsEndpoints;
         }
 
         $req = new OpenApiRequest([
@@ -9218,7 +9242,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the information for a specific version of a dataset.
+     * Updates the information of a specified dataset version.
      *
      * @param request - UpdateDatasetVersionRequest
      *

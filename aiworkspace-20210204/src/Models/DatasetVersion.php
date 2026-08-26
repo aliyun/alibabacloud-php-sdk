@@ -26,6 +26,11 @@ class DatasetVersion extends Model
     /**
      * @var string
      */
+    public $datasetTaskRamRole;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -79,6 +84,11 @@ class DatasetVersion extends Model
     public $uri;
 
     /**
+     * @var UserMetricsEndpoint[]
+     */
+    public $userMetricsEndpoints;
+
+    /**
      * @var string
      */
     public $versionName;
@@ -86,6 +96,7 @@ class DatasetVersion extends Model
         'dataCount' => 'DataCount',
         'dataSize' => 'DataSize',
         'dataSourceType' => 'DataSourceType',
+        'datasetTaskRamRole' => 'DatasetTaskRamRole',
         'description' => 'Description',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
@@ -97,6 +108,7 @@ class DatasetVersion extends Model
         'sourceId' => 'SourceId',
         'sourceType' => 'SourceType',
         'uri' => 'Uri',
+        'userMetricsEndpoints' => 'UserMetricsEndpoints',
         'versionName' => 'VersionName',
     ];
 
@@ -104,6 +116,9 @@ class DatasetVersion extends Model
     {
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
+        }
+        if (\is_array($this->userMetricsEndpoints)) {
+            Model::validateArray($this->userMetricsEndpoints);
         }
         parent::validate();
     }
@@ -121,6 +136,10 @@ class DatasetVersion extends Model
 
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
+        }
+
+        if (null !== $this->datasetTaskRamRole) {
+            $res['DatasetTaskRamRole'] = $this->datasetTaskRamRole;
         }
 
         if (null !== $this->description) {
@@ -174,6 +193,17 @@ class DatasetVersion extends Model
             $res['Uri'] = $this->uri;
         }
 
+        if (null !== $this->userMetricsEndpoints) {
+            if (\is_array($this->userMetricsEndpoints)) {
+                $res['UserMetricsEndpoints'] = [];
+                $n1 = 0;
+                foreach ($this->userMetricsEndpoints as $item1) {
+                    $res['UserMetricsEndpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
         }
@@ -199,6 +229,10 @@ class DatasetVersion extends Model
 
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
+        }
+
+        if (isset($map['DatasetTaskRamRole'])) {
+            $model->datasetTaskRamRole = $map['DatasetTaskRamRole'];
         }
 
         if (isset($map['Description'])) {
@@ -250,6 +284,17 @@ class DatasetVersion extends Model
 
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
+        }
+
+        if (isset($map['UserMetricsEndpoints'])) {
+            if (!empty($map['UserMetricsEndpoints'])) {
+                $model->userMetricsEndpoints = [];
+                $n1 = 0;
+                foreach ($map['UserMetricsEndpoints'] as $item1) {
+                    $model->userMetricsEndpoints[$n1] = UserMetricsEndpoint::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VersionName'])) {
