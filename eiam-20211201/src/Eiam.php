@@ -99,6 +99,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateResourceServerScopeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateResourceServerScopeResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateTrustedOriginRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateTrustedOriginResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationClientSecretRequest;
@@ -155,6 +157,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteResourceServerScopeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteResourceServerScopeResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteTrustedOriginRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteTrustedOriginResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteUsersRequest;
@@ -213,6 +217,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInternalAuthenticationSourceRe
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInternalAuthenticationSourceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableResourceServerCustomSubjectRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableResourceServerCustomSubjectResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableTrustedOriginRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableTrustedOriginResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationApiInvokeRequest;
@@ -267,6 +273,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInternalAuthenticationSourceReq
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInternalAuthenticationSourceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableResourceServerCustomSubjectRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableResourceServerCustomSubjectResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableTrustedOriginRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableTrustedOriginResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ExecIdentityProviderMetadataUrlResolutionRequest;
@@ -385,6 +393,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetServiceQuotaRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetServiceQuotaResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetSynchronizationJobRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetSynchronizationJobResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetTrustedOriginRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetTrustedOriginResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListActionTrackEventTypesRequest;
@@ -506,6 +516,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListResourceServersForUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListResourceServersForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListTrustedOriginsRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListTrustedOriginsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUserAuthnSourceMappingsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUserAuthnSourceMappingsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForApplicationRequest;
@@ -696,6 +708,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateResourceServerScopeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateResourceServerScopeResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateTrustedOriginRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateTrustedOriginResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserPasswordRequest;
@@ -1747,7 +1761,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Authorizes a specified ResourceServer for a Client application.
+     * Grants a specified ResourceServer to a Client application.
      *
      * @param request - AuthorizeResourceServerToClientRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1794,7 +1808,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Authorizes a specified ResourceServer for a Client application.
+     * Grants a specified ResourceServer to a Client application.
      *
      * @param request - AuthorizeResourceServerToClientRequest
      *
@@ -4318,6 +4332,79 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * Creates a trusted origin.
+     *
+     * @param request - CreateTrustedOriginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTrustedOriginResponse
+     *
+     * @param CreateTrustedOriginRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateTrustedOriginResponse
+     */
+    public function createTrustedOriginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->origin) {
+            @$query['Origin'] = $request->origin;
+        }
+
+        if (null !== $request->trustOriginName) {
+            @$query['TrustOriginName'] = $request->trustOriginName;
+        }
+
+        if (null !== $request->trustedOriginScene) {
+            @$query['TrustedOriginScene'] = $request->trustedOriginScene;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTrustedOrigin',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTrustedOriginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a trusted origin.
+     *
+     * @param request - CreateTrustedOriginRequest
+     *
+     * @returns CreateTrustedOriginResponse
+     *
+     * @param CreateTrustedOriginRequest $request
+     *
+     * @return CreateTrustedOriginResponse
+     */
+    public function createTrustedOrigin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTrustedOriginWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an EIAM account in a specified EIAM instance.
      *
      * @param request - CreateUserRequest
@@ -6135,6 +6222,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteResourceServerScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a trusted origin.
+     *
+     * @param request - DeleteTrustedOriginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTrustedOriginResponse
+     *
+     * @param DeleteTrustedOriginRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteTrustedOriginResponse
+     */
+    public function deleteTrustedOriginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->trustedOriginId) {
+            @$query['TrustedOriginId'] = $request->trustedOriginId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTrustedOrigin',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTrustedOriginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a trusted origin.
+     *
+     * @param request - DeleteTrustedOriginRequest
+     *
+     * @returns DeleteTrustedOriginResponse
+     *
+     * @param DeleteTrustedOriginRequest $request
+     *
+     * @return DeleteTrustedOriginResponse
+     */
+    public function deleteTrustedOrigin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTrustedOriginWithOptions($request, $runtime);
     }
 
     /**
@@ -7973,6 +8125,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * Disables a trusted origin.
+     *
+     * @param request - DisableTrustedOriginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableTrustedOriginResponse
+     *
+     * @param DisableTrustedOriginRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DisableTrustedOriginResponse
+     */
+    public function disableTrustedOriginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->trustedOriginId) {
+            @$query['TrustedOriginId'] = $request->trustedOriginId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableTrustedOrigin',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableTrustedOriginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables a trusted origin.
+     *
+     * @param request - DisableTrustedOriginRequest
+     *
+     * @returns DisableTrustedOriginResponse
+     *
+     * @param DisableTrustedOriginRequest $request
+     *
+     * @return DisableTrustedOriginResponse
+     */
+    public function disableTrustedOrigin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableTrustedOriginWithOptions($request, $runtime);
+    }
+
+    /**
      * Sets an account status to disabled. If the account is already disabled, the operation returns success directly.
      *
      * @param request - DisableUserRequest
@@ -9673,6 +9886,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableResourceServerCustomSubjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables a trusted origin.
+     *
+     * @param request - EnableTrustedOriginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableTrustedOriginResponse
+     *
+     * @param EnableTrustedOriginRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return EnableTrustedOriginResponse
+     */
+    public function enableTrustedOriginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->trustedOriginId) {
+            @$query['TrustedOriginId'] = $request->trustedOriginId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableTrustedOrigin',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableTrustedOriginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables a trusted origin.
+     *
+     * @param request - EnableTrustedOriginRequest
+     *
+     * @returns EnableTrustedOriginResponse
+     *
+     * @param EnableTrustedOriginRequest $request
+     *
+     * @return EnableTrustedOriginResponse
+     */
+    public function enableTrustedOrigin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableTrustedOriginWithOptions($request, $runtime);
     }
 
     /**
@@ -13311,6 +13585,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * Queries the details of a trusted origin.
+     *
+     * @param request - GetTrustedOriginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTrustedOriginResponse
+     *
+     * @param GetTrustedOriginRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetTrustedOriginResponse
+     */
+    public function getTrustedOriginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->trustedOriginId) {
+            @$query['TrustedOriginId'] = $request->trustedOriginId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTrustedOrigin',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTrustedOriginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a trusted origin.
+     *
+     * @param request - GetTrustedOriginRequest
+     *
+     * @returns GetTrustedOriginResponse
+     *
+     * @param GetTrustedOriginRequest $request
+     *
+     * @return GetTrustedOriginResponse
+     */
+    public function getTrustedOrigin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTrustedOriginWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of an EIAM account.
      *
      * @param request - GetUserRequest
@@ -14554,6 +14889,9 @@ class Eiam extends OpenApiClient
     /**
      * Queries a list of authorization resource information.
      *
+     * @remarks
+     * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
+     *
      * @param request - ListAuthorizationResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14608,6 +14946,9 @@ class Eiam extends OpenApiClient
 
     /**
      * Queries a list of authorization resource information.
+     *
+     * @remarks
+     * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
      *
      * @param request - ListAuthorizationResourcesRequest
      *
@@ -17723,6 +18064,87 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * Queries the list of trusted origins.
+     *
+     * @param request - ListTrustedOriginsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrustedOriginsResponse
+     *
+     * @param ListTrustedOriginsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListTrustedOriginsResponse
+     */
+    public function listTrustedOriginsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->origin) {
+            @$query['Origin'] = $request->origin;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->trustOriginName) {
+            @$query['TrustOriginName'] = $request->trustOriginName;
+        }
+
+        if (null !== $request->trustedOriginScene) {
+            @$query['TrustedOriginScene'] = $request->trustedOriginScene;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTrustedOrigins',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTrustedOriginsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of trusted origins.
+     *
+     * @param request - ListTrustedOriginsRequest
+     *
+     * @returns ListTrustedOriginsResponse
+     *
+     * @param ListTrustedOriginsRequest $request
+     *
+     * @return ListTrustedOriginsResponse
+     */
+    public function listTrustedOrigins($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTrustedOriginsWithOptions($request, $runtime);
+    }
+
+    /**
      * Lists the mappings for third-party logon accounts.
      *
      * @remarks
@@ -19224,7 +19646,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Cancels the authorization granted by a specified ResourceServer to a Client application.
+     * Revokes the authorization granted by a specified ResourceServer to a Client application.
      *
      * @param request - RevokeResourceServerFromClientRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19271,7 +19693,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Cancels the authorization granted by a specified ResourceServer to a Client application.
+     * Revokes the authorization granted by a specified ResourceServer to a Client application.
      *
      * @param request - RevokeResourceServerFromClientRequest
      *
@@ -19289,7 +19711,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Revokes the scope permissions of a specified ResourceServer from a client application.
+     * Revokes the Scope permissions of a specified ResourceServer from a Client application.
      *
      * @param request - RevokeResourceServerScopesFromClientRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19340,7 +19762,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Revokes the scope permissions of a specified ResourceServer from a client application.
+     * Revokes the Scope permissions of a specified ResourceServer from a Client application.
      *
      * @param request - RevokeResourceServerScopesFromClientRequest
      *
@@ -24501,6 +24923,79 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateResourceServerScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies a trusted origin.
+     *
+     * @param request - UpdateTrustedOriginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTrustedOriginResponse
+     *
+     * @param UpdateTrustedOriginRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateTrustedOriginResponse
+     */
+    public function updateTrustedOriginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->trustOriginName) {
+            @$query['TrustOriginName'] = $request->trustOriginName;
+        }
+
+        if (null !== $request->trustedOriginId) {
+            @$query['TrustedOriginId'] = $request->trustedOriginId;
+        }
+
+        if (null !== $request->trustedOriginScene) {
+            @$query['TrustedOriginScene'] = $request->trustedOriginScene;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTrustedOrigin',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTrustedOriginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a trusted origin.
+     *
+     * @param request - UpdateTrustedOriginRequest
+     *
+     * @returns UpdateTrustedOriginResponse
+     *
+     * @param UpdateTrustedOriginRequest $request
+     *
+     * @return UpdateTrustedOriginResponse
+     */
+    public function updateTrustedOrigin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTrustedOriginWithOptions($request, $runtime);
     }
 
     /**
