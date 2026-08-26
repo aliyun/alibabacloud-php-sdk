@@ -1,3 +1,26 @@
+2026-08-26 Version: 8.2.0
+- Support API BuildImage.
+- Support API CancelImageTest.
+- Support API CreateImage.
+- Support API CreateServerIdeInstance.
+- Support API DeleteServerIdeInstance.
+- Support API DisableImage.
+- Support API EnableImage.
+- Support API GetImageTestResult.
+- Support API GetServerIdeInstance.
+- Support API ListImageTestResults.
+- Support API ListServerIdeEcsSpecs.
+- Support API ListServerIdeImages.
+- Support API ListServerIdeInstances.
+- Support API PublishImage.
+- Support API RollbackImage.
+- Support API RunImageTest.
+- Support API StartServerIdeInstance.
+- Support API StopServerIdeInstance.
+- Support API UpdateImage.
+- Support API UpdateServerIdeInstance.
+
+
 2026-08-18 Version: 8.1.0
 - Support API GetSnapshot.
 - Support API ListSnapshots.

@@ -39,9 +39,13 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchDeleteMetaEntitiesShr
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BuildImageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BuildImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CancelAgentSessionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CancelAgentSessionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CancelAgentSessionShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CancelImageTestRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CancelImageTestResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentRequest;
@@ -116,6 +120,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateIdentifyCredentialRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateIdentifyCredentialResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateIdentifyCredentialShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateImageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateImageResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateImageShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipShrinkRequest;
@@ -166,6 +173,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSecurityStrategyShri
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSemanticJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSemanticJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSemanticJobShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateServerIdeInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateServerIdeInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateServerIdeInstanceShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSkillRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSkillResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSkillShrinkRequest;
@@ -257,6 +267,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSecurityStrategyRequ
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSecurityStrategyResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSemanticJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSemanticJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteServerIdeInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteServerIdeInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSkillRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSkillResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteTaskRequest;
@@ -270,6 +282,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeployFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DisableImageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DisableImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DisableProcessDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DisableProcessDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromImageRequest;
@@ -278,6 +292,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResou
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DownloadSemanticResultsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DownloadSemanticResultsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EnableImageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EnableImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EnableProcessDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EnableProcessDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EstablishRelationTableToBusinessRequest;
@@ -365,6 +381,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetImageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetImageResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetImageTestResultRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetImageTestResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetLineageRelationshipRequest;
@@ -413,6 +431,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSemanticJobDetailReques
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSemanticJobDetailResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSemanticJobLogRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSemanticJobLogResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetServerIdeInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetServerIdeInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSkillRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSkillResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSnapshotRequest;
@@ -549,6 +569,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageAssociatedProject
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImagesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImagesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImagesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageTestResultsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageTestResultsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageVersionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageVersionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineageRelationshipsRequest;
@@ -622,6 +644,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSemanticJobRunsRequest
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSemanticJobRunsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSemanticJobsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSemanticJobsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListServerIdeEcsSpecsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListServerIdeEcsSpecsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListServerIdeImagesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListServerIdeImagesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListServerIdeInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListServerIdeInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSkillsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSkillsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSkillsShrinkRequest;
@@ -668,6 +696,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PreviewDatasetVersionRespo
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PromptAgentSessionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PromptAgentSessionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PromptAgentSessionShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PublishImageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PublishImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveEntityFromMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveEntityFromMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesRequest;
@@ -693,10 +723,14 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ResumeTaskInstancesShrinkR
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RollbackImageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RollbackImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RollbackParameterRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RollbackParameterResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RunCrawlerRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RunCrawlerResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RunImageTestRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RunImageTestResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RunSemanticJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RunSemanticJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SetSuccessTaskInstancesRequest;
@@ -705,6 +739,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SetSuccessTaskInstancesShr
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartServerIdeInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartServerIdeInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartWorkflowInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartWorkflowInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartWorkflowInstancesShrinkRequest;
@@ -714,6 +750,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopProcessInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopProcessInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopServerIdeInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopServerIdeInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesShrinkRequest;
@@ -793,6 +831,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateIDEEventResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateIDEEventResultResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateImageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateImageResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateImageShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMcpServerRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMcpServerResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMcpServerShrinkRequest;
@@ -828,6 +869,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateSecurityStrategyRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateSecurityStrategyResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateSecurityStrategyShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateServerIdeInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateServerIdeInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateServerIdeInstanceShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateSkillRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateSkillResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateSkillShrinkRequest;
@@ -1801,6 +1845,83 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Builds an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - BuildImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BuildImageResponse
+     *
+     * @param BuildImageRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return BuildImageResponse
+     */
+    public function buildImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cu) {
+            @$body['Cu'] = $request->cu;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->processId) {
+            @$body['ProcessId'] = $request->processId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BuildImage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BuildImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Builds an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - BuildImageRequest
+     *
+     * @returns BuildImageResponse
+     *
+     * @param BuildImageRequest $request
+     *
+     * @return BuildImageResponse
+     */
+    public function buildImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->buildImageWithOptions($request, $runtime);
+    }
+
+    /**
      * Interrupts the Agent call for a specified session, supporting interruption during streaming responses.
      *
      * @remarks
@@ -1879,6 +2000,75 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelAgentSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Cancels an image test.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+     *
+     * @param Request - CancelImageTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelImageTestResponse
+     *
+     * @param CancelImageTestRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CancelImageTestResponse
+     */
+    public function cancelImageTestWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->processId) {
+            @$body['ProcessId'] = $request->processId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CancelImageTest',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelImageTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Cancels an image test.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+     *
+     * @param Request - CancelImageTestRequest
+     *
+     * @returns CancelImageTestResponse
+     *
+     * @param CancelImageTestRequest $request
+     *
+     * @return CancelImageTestResponse
+     */
+    public function cancelImageTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelImageTestWithOptions($request, $runtime);
     }
 
     /**
@@ -2266,7 +2456,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a workflow in DataStudio.
+     * Creates a business process in DataStudio for data development.
      *
      * @param Request - CreateBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2325,7 +2515,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a workflow in DataStudio.
+     * Creates a business process in DataStudio for data development.
      *
      * @param Request - CreateBusinessRequest
      *
@@ -4556,6 +4746,133 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param tmpReq - CreateImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateImageResponse
+     *
+     * @param CreateImageRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateImageResponse
+     */
+    public function createImageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateImageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->buildConfig) {
+            $request->buildConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->buildConfig, 'BuildConfig', 'json');
+        }
+
+        if (null !== $tmpReq->supported) {
+            $request->supportedShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->supported, 'Supported', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
+        }
+
+        if (null !== $request->acrAssociatedVpcId) {
+            @$body['AcrAssociatedVpcId'] = $request->acrAssociatedVpcId;
+        }
+
+        if (null !== $request->acrInstanceId) {
+            @$body['AcrInstanceId'] = $request->acrInstanceId;
+        }
+
+        if (null !== $request->buildConfigShrink) {
+            @$body['BuildConfig'] = $request->buildConfigShrink;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->enableSyncMaxCompute) {
+            @$body['EnableSyncMaxCompute'] = $request->enableSyncMaxCompute;
+        }
+
+        if (null !== $request->imageUri) {
+            @$body['ImageUri'] = $request->imageUri;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->providerImageId) {
+            @$body['ProviderImageId'] = $request->providerImageId;
+        }
+
+        if (null !== $request->providerType) {
+            @$body['ProviderType'] = $request->providerType;
+        }
+
+        if (null !== $request->repositoryName) {
+            @$body['RepositoryName'] = $request->repositoryName;
+        }
+
+        if (null !== $request->supportedShrink) {
+            @$body['Supported'] = $request->supportedShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateImage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - CreateImageRequest
+     *
+     * @returns CreateImageResponse
+     *
+     * @param CreateImageRequest $request
+     *
+     * @return CreateImageResponse
+     */
+    public function createImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createImageWithOptions($request, $runtime);
+    }
+
+    /**
      * Registers a data lineage relationship in DataWorks Data Map. You can use this operation to establish lineage relationships between metadata entities managed by DataWorks, including table-to-table, column-to-column, table-to-column, and dataset-to-table scenarios. You can also establish lineage relationships between managed entities and custom entity objects registered by users. This operation is compatible with non-managed custom objects, but this approach is no longer recommended. Before calling this operation, make sure that the managed entities involved in the lineage registration already exist on the DataWorks platform.
      *
      * @remarks
@@ -6372,6 +6689,127 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a personal development environment instance.
+     *
+     * @remarks
+     * Creates a personal development environment (ServerIDE) instance. After you specify the DataWorks workspace, resource group, image, and specifications, the instance is created and the instance ID is returned.
+     *
+     * @param tmpReq - CreateServerIdeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServerIdeInstanceResponse
+     *
+     * @param CreateServerIdeInstanceRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateServerIdeInstanceResponse
+     */
+    public function createServerIdeInstanceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateServerIdeInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+
+        if (null !== $tmpReq->datasets) {
+            $request->datasetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->datasets, 'Datasets', 'json');
+        }
+
+        if (null !== $tmpReq->userCommand) {
+            $request->userCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userCommand, 'UserCommand', 'json');
+        }
+
+        if (null !== $tmpReq->userVpc) {
+            $request->userVpcShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userVpc, 'UserVpc', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->credentialConfigShrink) {
+            @$body['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+
+        if (null !== $request->cu) {
+            @$body['Cu'] = $request->cu;
+        }
+
+        if (null !== $request->datasetsShrink) {
+            @$body['Datasets'] = $request->datasetsShrink;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->imageUrl) {
+            @$body['ImageUrl'] = $request->imageUrl;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->userCommandShrink) {
+            @$body['UserCommand'] = $request->userCommandShrink;
+        }
+
+        if (null !== $request->userVpcShrink) {
+            @$body['UserVpc'] = $request->userVpcShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateServerIdeInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServerIdeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a personal development environment instance.
+     *
+     * @remarks
+     * Creates a personal development environment (ServerIDE) instance. After you specify the DataWorks workspace, resource group, image, and specifications, the instance is created and the instance ID is returned.
+     *
+     * @param Request - CreateServerIdeInstanceRequest
+     *
+     * @returns CreateServerIdeInstanceResponse
+     *
+     * @param CreateServerIdeInstanceRequest $request
+     *
+     * @return CreateServerIdeInstanceResponse
+     */
+    public function createServerIdeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServerIdeInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a new Skill in DataWorks.
      *
      * @remarks
@@ -6651,10 +7089,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
+     * Creates a workflow instance based on configurations, such as a data backfill workflow instance.
      *
      * @remarks
-     * DataWorks Basic Edition or higher is required.
+     * DataWorks Basic Edition or a higher edition is required.
      *
      * @param tmpReq - CreateWorkflowInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6755,10 +7193,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
+     * Creates a workflow instance based on configurations, such as a data backfill workflow instance.
      *
      * @remarks
-     * DataWorks Basic Edition or higher is required.
+     * DataWorks Basic Edition or a higher edition is required.
      *
      * @param Request - CreateWorkflowInstancesRequest
      *
@@ -9410,6 +9848,69 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Deletes a specified personal development environment instance.
+     *
+     * @remarks
+     * Deletes a specified personal development environment (ServerIDE) instance and returns the instance ID.
+     *
+     * @param Request - DeleteServerIdeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServerIdeInstanceResponse
+     *
+     * @param DeleteServerIdeInstanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteServerIdeInstanceResponse
+     */
+    public function deleteServerIdeInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteServerIdeInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteServerIdeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified personal development environment instance.
+     *
+     * @remarks
+     * Deletes a specified personal development environment (ServerIDE) instance and returns the instance ID.
+     *
+     * @param Request - DeleteServerIdeInstanceRequest
+     *
+     * @returns DeleteServerIdeInstanceResponse
+     *
+     * @param DeleteServerIdeInstanceRequest $request
+     *
+     * @return DeleteServerIdeInstanceResponse
+     */
+    public function deleteServerIdeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteServerIdeInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete Skill.
      *
      * @remarks
@@ -9548,10 +10049,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Deletes a workflow.
+     * Deletes a specified workflow.
      *
      * @remarks
-     * This API operation is available for all DataWorks editions.
+     * DataWorks Basic Edition or a more advanced edition is required.
      *
      * @param Request - DeleteWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9600,10 +10101,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Deletes a workflow.
+     * Deletes a specified workflow.
      *
      * @remarks
-     * This API operation is available for all DataWorks editions.
+     * DataWorks Basic Edition or a more advanced edition is required.
      *
      * @param Request - DeleteWorkflowRequest
      *
@@ -9840,6 +10341,71 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachDataQualityRulesFromEvaluationTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Disables an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - DisableImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableImageResponse
+     *
+     * @param DisableImageRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DisableImageResponse
+     */
+    public function disableImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DisableImage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - DisableImageRequest
+     *
+     * @returns DisableImageResponse
+     *
+     * @param DisableImageRequest $request
+     *
+     * @return DisableImageResponse
+     */
+    public function disableImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableImageWithOptions($request, $runtime);
     }
 
     /**
@@ -10134,6 +10700,71 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->downloadSemanticResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+     *
+     * @param Request - EnableImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableImageResponse
+     *
+     * @param EnableImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return EnableImageResponse
+     */
+    public function enableImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnableImage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+     *
+     * @param Request - EnableImageRequest
+     *
+     * @returns EnableImageResponse
+     *
+     * @param EnableImageRequest $request
+     *
+     * @return EnableImageResponse
+     */
+    public function enableImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableImageWithOptions($request, $runtime);
     }
 
     /**
@@ -12902,6 +13533,75 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of an image test result.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - GetImageTestResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageTestResultResponse
+     *
+     * @param GetImageTestResultRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetImageTestResultResponse
+     */
+    public function getImageTestResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->processId) {
+            @$query['ProcessId'] = $request->processId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetImageTestResult',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetImageTestResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an image test result.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - GetImageTestResultRequest
+     *
+     * @returns GetImageTestResultResponse
+     *
+     * @param GetImageTestResultRequest $request
+     *
+     * @return GetImageTestResultResponse
+     */
+    public function getImageTestResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getImageTestResultWithOptions($request, $runtime);
+    }
+
+    /**
      * Returns the status of an asynchronous task. After calling an asynchronous API, poll this API to obtain the success status.
      *
      * @param Request - GetJobStatusRequest
@@ -14401,6 +15101,69 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSemanticJobLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a specified personal development environment instance.
+     *
+     * @remarks
+     * Queries the basic information, running status, image, network, dataset, and credential configurations of a specified personal development environment (ServerIDE) instance.
+     *
+     * @param Request - GetServerIdeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServerIdeInstanceResponse
+     *
+     * @param GetServerIdeInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetServerIdeInstanceResponse
+     */
+    public function getServerIdeInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetServerIdeInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServerIdeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a specified personal development environment instance.
+     *
+     * @remarks
+     * Queries the basic information, running status, image, network, dataset, and credential configurations of a specified personal development environment (ServerIDE) instance.
+     *
+     * @param Request - GetServerIdeInstanceRequest
+     *
+     * @returns GetServerIdeInstanceResponse
+     *
+     * @param GetServerIdeInstanceRequest $request
+     *
+     * @return GetServerIdeInstanceResponse
+     */
+    public function getServerIdeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServerIdeInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -17112,10 +17875,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Lists quality monitoring nodes by paging query.
+     * Queries a paged list of quality monitoring nodes by using paging.
      *
      * @remarks
-     * 需要购买DataWorks基础版及以上版本才能使用
+     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
      *
      * @deprecated openAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead
      *
@@ -17153,10 +17916,10 @@ class Dataworkspublic extends OpenApiClient
 
     // Deprecated
     /**
-     * Lists quality monitoring nodes by paging query.
+     * Queries a paged list of quality monitoring nodes by using paging.
      *
      * @remarks
-     * 需要购买DataWorks基础版及以上版本才能使用
+     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
      *
      * @deprecated openAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead
      *
@@ -18753,6 +19516,79 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listImageAssociatedProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of image test results.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - ListImageTestResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImageTestResultsResponse
+     *
+     * @param ListImageTestResultsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListImageTestResultsResponse
+     */
+    public function listImageTestResultsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListImageTestResults',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListImageTestResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of image test results.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - ListImageTestResultsRequest
+     *
+     * @returns ListImageTestResultsResponse
+     *
+     * @param ListImageTestResultsRequest $request
+     *
+     * @return ListImageTestResultsResponse
+     */
+    public function listImageTestResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImageTestResultsWithOptions($request, $runtime);
     }
 
     /**
@@ -21358,6 +22194,259 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the list of available ECS instance types for personal development environments.
+     *
+     * @remarks
+     * Queries the ECS instance types available when creating a personal development environment (ServerIDE). You can filter by CPU or GPU type. If no type is specified, both CPU and GPU instance types are returned.
+     *
+     * @param Request - ListServerIdeEcsSpecsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServerIdeEcsSpecsResponse
+     *
+     * @param ListServerIdeEcsSpecsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListServerIdeEcsSpecsResponse
+     */
+    public function listServerIdeEcsSpecsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceleratorType) {
+            @$body['AcceleratorType'] = $request->acceleratorType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListServerIdeEcsSpecs',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServerIdeEcsSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of available ECS instance types for personal development environments.
+     *
+     * @remarks
+     * Queries the ECS instance types available when creating a personal development environment (ServerIDE). You can filter by CPU or GPU type. If no type is specified, both CPU and GPU instance types are returned.
+     *
+     * @param Request - ListServerIdeEcsSpecsRequest
+     *
+     * @returns ListServerIdeEcsSpecsResponse
+     *
+     * @param ListServerIdeEcsSpecsRequest $request
+     *
+     * @return ListServerIdeEcsSpecsResponse
+     */
+    public function listServerIdeEcsSpecs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServerIdeEcsSpecsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of available images for personal development environments by using paging.
+     *
+     * @remarks
+     * Queries the available images for creating a personal development environment (ServerIDE) by using paging. Supports filtering by image name and labels.
+     *
+     * @param Request - ListServerIdeImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServerIdeImagesResponse
+     *
+     * @param ListServerIdeImagesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListServerIdeImagesResponse
+     */
+    public function listServerIdeImagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListServerIdeImages',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServerIdeImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of available images for personal development environments by using paging.
+     *
+     * @remarks
+     * Queries the available images for creating a personal development environment (ServerIDE) by using paging. Supports filtering by image name and labels.
+     *
+     * @param Request - ListServerIdeImagesRequest
+     *
+     * @returns ListServerIdeImagesResponse
+     *
+     * @param ListServerIdeImagesRequest $request
+     *
+     * @return ListServerIdeImagesResponse
+     */
+    public function listServerIdeImages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServerIdeImagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a paged query list of personal development environment instances with paging support.
+     *
+     * @remarks
+     * Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+     *
+     * @param Request - ListServerIdeInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServerIdeInstancesResponse
+     *
+     * @param ListServerIdeInstancesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListServerIdeInstancesResponse
+     */
+    public function listServerIdeInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->relatedUserId) {
+            @$body['RelatedUserId'] = $request->relatedUserId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->subType) {
+            @$body['SubType'] = $request->subType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListServerIdeInstances',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServerIdeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a paged query list of personal development environment instances with paging support.
+     *
+     * @remarks
+     * Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+     *
+     * @param Request - ListServerIdeInstancesRequest
+     *
+     * @returns ListServerIdeInstancesResponse
+     *
+     * @param ListServerIdeInstancesRequest $request
+     *
+     * @return ListServerIdeInstancesResponse
+     */
+    public function listServerIdeInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServerIdeInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * Lists the Skills in your account.
      *
      * @remarks
@@ -21985,7 +23074,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of ancestor instances of an instance by page.
+     * Retrieves the upstream instances of a specified instance by page.
+     *
+     * @remarks
+     * DataWorks Basic Edition or a more advanced edition is required.
      *
      * @param Request - ListUpstreamTaskInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22020,7 +23112,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of ancestor instances of an instance by page.
+     * Retrieves the upstream instances of a specified instance by page.
+     *
+     * @remarks
+     * DataWorks Basic Edition or a more advanced edition is required.
      *
      * @param Request - ListUpstreamTaskInstancesRequest
      *
@@ -23032,6 +24127,75 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Publishes an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks has been created before you call this operation.**
+     *
+     * @param Request - PublishImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishImageResponse
+     *
+     * @param PublishImageRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PublishImageResponse
+     */
+    public function publishImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->processId) {
+            @$body['ProcessId'] = $request->processId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PublishImage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PublishImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Publishes an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks has been created before you call this operation.**
+     *
+     * @param Request - PublishImageRequest
+     *
+     * @returns PublishImageResponse
+     *
+     * @param PublishImageRequest $request
+     *
+     * @return PublishImageResponse
+     */
+    public function publishImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishImageWithOptions($request, $runtime);
+    }
+
+    /**
      * Remove an entity object from a Data Map collection. The collection supports Data Map categories and data albums, and the entity currently supports only the Data Table type.
      * When removing an entity from a data album, the caller must have the AliyunDataWorksFullAccess permission or be the creator or administrator of the album.
      *
@@ -23774,6 +24938,75 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Rolls back an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - RollbackImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RollbackImageResponse
+     *
+     * @param RollbackImageRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RollbackImageResponse
+     */
+    public function rollbackImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->imageVersion) {
+            @$body['ImageVersion'] = $request->imageVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RollbackImage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RollbackImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Rolls back an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - RollbackImageRequest
+     *
+     * @returns RollbackImageResponse
+     *
+     * @param RollbackImageRequest $request
+     *
+     * @return RollbackImageResponse
+     */
+    public function rollbackImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackImageWithOptions($request, $runtime);
+    }
+
+    /**
      * Rolls back a specified parameter.
      *
      * @remarks
@@ -23925,6 +25158,83 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runCrawlerWithOptions($request, $runtime);
+    }
+
+    /**
+     * Runs an image test.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+     *
+     * @param Request - RunImageTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunImageTestResponse
+     *
+     * @param RunImageTestRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RunImageTestResponse
+     */
+    public function runImageTestWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cu) {
+            @$body['Cu'] = $request->cu;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->processId) {
+            @$body['ProcessId'] = $request->processId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunImageTest',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunImageTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Runs an image test.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+     *
+     * @param Request - RunImageTestRequest
+     *
+     * @returns RunImageTestResponse
+     *
+     * @param RunImageTestRequest $request
+     *
+     * @return RunImageTestResponse
+     */
+    public function runImageTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runImageTestWithOptions($request, $runtime);
     }
 
     /**
@@ -24140,6 +25450,69 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startDIJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Starts a specified personal development environment instance.
+     *
+     * @remarks
+     * Starts a specified personal development environment (ServerIDE) instance and returns the instance ID.
+     *
+     * @param Request - StartServerIdeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartServerIdeInstanceResponse
+     *
+     * @param StartServerIdeInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return StartServerIdeInstanceResponse
+     */
+    public function startServerIdeInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartServerIdeInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartServerIdeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Starts a specified personal development environment instance.
+     *
+     * @remarks
+     * Starts a specified personal development environment (ServerIDE) instance and returns the instance ID.
+     *
+     * @param Request - StartServerIdeInstanceRequest
+     *
+     * @returns StartServerIdeInstanceResponse
+     *
+     * @param StartServerIdeInstanceRequest $request
+     *
+     * @return StartServerIdeInstanceResponse
+     */
+    public function startServerIdeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startServerIdeInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -24426,6 +25799,69 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopProcessInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Stops a specified personal development environment instance.
+     *
+     * @remarks
+     * Stops a specified personal development environment (ServerIDE) instance and returns the instance ID.
+     *
+     * @param Request - StopServerIdeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopServerIdeInstanceResponse
+     *
+     * @param StopServerIdeInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return StopServerIdeInstanceResponse
+     */
+    public function stopServerIdeInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopServerIdeInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopServerIdeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Stops a specified personal development environment instance.
+     *
+     * @remarks
+     * Stops a specified personal development environment (ServerIDE) instance and returns the instance ID.
+     *
+     * @param Request - StopServerIdeInstanceRequest
+     *
+     * @returns StopServerIdeInstanceResponse
+     *
+     * @param StopServerIdeInstanceRequest $request
+     *
+     * @return StopServerIdeInstanceResponse
+     */
+    public function stopServerIdeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopServerIdeInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -27155,6 +28591,127 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Updates an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param tmpReq - UpdateImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateImageResponse
+     *
+     * @param UpdateImageRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateImageResponse
+     */
+    public function updateImageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateImageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->buildConfig) {
+            $request->buildConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->buildConfig, 'BuildConfig', 'json');
+        }
+
+        if (null !== $tmpReq->supported) {
+            $request->supportedShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->supported, 'Supported', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->acrAssociatedVpcId) {
+            @$query['AcrAssociatedVpcId'] = $request->acrAssociatedVpcId;
+        }
+
+        if (null !== $request->acrInstanceId) {
+            @$query['AcrInstanceId'] = $request->acrInstanceId;
+        }
+
+        if (null !== $request->imageUri) {
+            @$query['ImageUri'] = $request->imageUri;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->repositoryName) {
+            @$query['RepositoryName'] = $request->repositoryName;
+        }
+
+        $body = [];
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
+        }
+
+        if (null !== $request->buildConfigShrink) {
+            @$body['BuildConfig'] = $request->buildConfigShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->providerImageId) {
+            @$body['ProviderImageId'] = $request->providerImageId;
+        }
+
+        if (null !== $request->supportedShrink) {
+            @$body['Supported'] = $request->supportedShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateImage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - UpdateImageRequest
+     *
+     * @returns UpdateImageResponse
+     *
+     * @param UpdateImageRequest $request
+     *
+     * @return UpdateImageResponse
+     */
+    public function updateImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateImageWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates an MCP Server.
      *
      * @remarks
@@ -28331,6 +29888,117 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSecurityStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the configuration of a specified personal development environment instance.
+     *
+     * @remarks
+     * Updates the configuration of a specified personal development environment (ServerIDE) instance. You can modify the CU, image, instance name, VPC, dataset, and credential configurations. If the CU and image parameters are not specified, the existing instance configurations are retained.
+     *
+     * @param tmpReq - UpdateServerIdeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServerIdeInstanceResponse
+     *
+     * @param UpdateServerIdeInstanceRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateServerIdeInstanceResponse
+     */
+    public function updateServerIdeInstanceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateServerIdeInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+
+        if (null !== $tmpReq->datasets) {
+            $request->datasetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->datasets, 'Datasets', 'json');
+        }
+
+        if (null !== $tmpReq->userVpc) {
+            $request->userVpcShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userVpc, 'UserVpc', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->credentialConfigShrink) {
+            @$body['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+
+        if (null !== $request->cu) {
+            @$body['Cu'] = $request->cu;
+        }
+
+        if (null !== $request->datasetsShrink) {
+            @$body['Datasets'] = $request->datasetsShrink;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->imageUrl) {
+            @$body['ImageUrl'] = $request->imageUrl;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->userVpcShrink) {
+            @$body['UserVpc'] = $request->userVpcShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateServerIdeInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateServerIdeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the configuration of a specified personal development environment instance.
+     *
+     * @remarks
+     * Updates the configuration of a specified personal development environment (ServerIDE) instance. You can modify the CU, image, instance name, VPC, dataset, and credential configurations. If the CU and image parameters are not specified, the existing instance configurations are retained.
+     *
+     * @param Request - UpdateServerIdeInstanceRequest
+     *
+     * @returns UpdateServerIdeInstanceResponse
+     *
+     * @param UpdateServerIdeInstanceRequest $request
+     *
+     * @return UpdateServerIdeInstanceResponse
+     */
+    public function updateServerIdeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateServerIdeInstanceWithOptions($request, $runtime);
     }
 
     /**
