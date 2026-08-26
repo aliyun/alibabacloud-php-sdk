@@ -17,10 +17,16 @@ use AlibabaCloud\SDK\Wyota\V20210420\Models\DeleteClientsRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\DeleteClientsResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeClientsRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeClientsResponse;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\GetCustomResourceStatsRequest;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\GetCustomResourceStatsResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\GetOrCreateInvitationCodeRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\GetOrCreateInvitationCodeResponse;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\GetTerminalCountRequest;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\GetTerminalCountResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListTerminalRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListTerminalResponse;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\ListVersionDistributionRequest;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\ListVersionDistributionResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\SendOpsMessageToTerminalsRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\SendOpsMessageToTerminalsResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindAccountLessLoginUserRequest;
@@ -37,7 +43,7 @@ class Wyota extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('wyota', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -342,7 +348,7 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * 解除桌面端、移动端纳管
+     * Removes managed terminal devices by UUID.
      *
      * @param request - DeleteClientsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -394,7 +400,7 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * 解除桌面端、移动端纳管
+     * Removes managed terminal devices by UUID.
      *
      * @param request - DeleteClientsRequest
      *
@@ -412,7 +418,7 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * 查询桌面端、移动端详细信息.
+     * Queries information about all managed clients.
      *
      * @param request - DescribeClientsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -512,7 +518,7 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * 查询桌面端、移动端详细信息.
+     * Queries information about all managed clients.
      *
      * @param request - DescribeClientsRequest
      *
@@ -530,7 +536,66 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * 获取桌面端纳管邀请码
+     * Retrieves custom resource statistics information.
+     *
+     * @param request - GetCustomResourceStatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomResourceStatsResponse
+     *
+     * @param GetCustomResourceStatsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetCustomResourceStatsResponse
+     */
+    public function getCustomResourceStatsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->mainBizType) {
+            @$body['MainBizType'] = $request->mainBizType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetCustomResourceStats',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCustomResourceStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves custom resource statistics information.
+     *
+     * @param request - GetCustomResourceStatsRequest
+     *
+     * @returns GetCustomResourceStatsResponse
+     *
+     * @param GetCustomResourceStatsRequest $request
+     *
+     * @return GetCustomResourceStatsResponse
+     */
+    public function getCustomResourceStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomResourceStatsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves or creates an invitation code for desktop device enrollment.
+     * Query mode: Pass only terminalGroupId to return the current invitation code and its expiration status in read-only mode.
+     * Creation mode: Pass terminalGroupId along with an expiration duration (expireDays or expireMinutes) to generate a new code that overwrites the existing invitation code.
      *
      * @param request - GetOrCreateInvitationCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -581,7 +646,9 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * 获取桌面端纳管邀请码
+     * Retrieves or creates an invitation code for desktop device enrollment.
+     * Query mode: Pass only terminalGroupId to return the current invitation code and its expiration status in read-only mode.
+     * Creation mode: Pass terminalGroupId along with an expiration duration (expireDays or expireMinutes) to generate a new code that overwrites the existing invitation code.
      *
      * @param request - GetOrCreateInvitationCodeRequest
      *
@@ -596,6 +663,63 @@ class Wyota extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOrCreateInvitationCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the number of terminals.
+     *
+     * @param request - GetTerminalCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTerminalCountResponse
+     *
+     * @param GetTerminalCountRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetTerminalCountResponse
+     */
+    public function getTerminalCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTerminalCount',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTerminalCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the number of terminals.
+     *
+     * @param request - GetTerminalCountRequest
+     *
+     * @returns GetTerminalCountResponse
+     *
+     * @param GetTerminalCountRequest $request
+     *
+     * @return GetTerminalCountResponse
+     */
+    public function getTerminalCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTerminalCountWithOptions($request, $runtime);
     }
 
     /**
@@ -704,6 +828,79 @@ class Wyota extends OpenApiClient
     }
 
     /**
+     * Queries the version distribution of terminals.
+     *
+     * @param request - ListVersionDistributionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVersionDistributionResponse
+     *
+     * @param ListVersionDistributionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListVersionDistributionResponse
+     */
+    public function listVersionDistributionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
+        }
+
+        if (null !== $request->inManage) {
+            @$body['InManage'] = $request->inManage;
+        }
+
+        if (null !== $request->mainBizType) {
+            @$body['MainBizType'] = $request->mainBizType;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->versionType) {
+            @$body['VersionType'] = $request->versionType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListVersionDistribution',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVersionDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the version distribution of terminals.
+     *
+     * @param request - ListVersionDistributionRequest
+     *
+     * @returns ListVersionDistributionResponse
+     *
+     * @param ListVersionDistributionRequest $request
+     *
+     * @return ListVersionDistributionResponse
+     */
+    public function listVersionDistribution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVersionDistributionWithOptions($request, $runtime);
+    }
+
+    /**
      * 向终端发送运维命令.
      *
      * @param request - SendOpsMessageToTerminalsRequest
@@ -727,6 +924,10 @@ class Wyota extends OpenApiClient
         $body = [];
         if (null !== $request->msg) {
             @$body['Msg'] = $request->msg;
+        }
+
+        if (null !== $request->opDomain) {
+            @$body['OpDomain'] = $request->opDomain;
         }
 
         if (null !== $request->opsAction) {

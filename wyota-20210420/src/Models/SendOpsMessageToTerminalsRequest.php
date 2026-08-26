@@ -21,6 +21,11 @@ class SendOpsMessageToTerminalsRequest extends Model
     /**
      * @var string
      */
+    public $opDomain;
+
+    /**
+     * @var string
+     */
     public $opsAction;
 
     /**
@@ -35,6 +40,7 @@ class SendOpsMessageToTerminalsRequest extends Model
     protected $_name = [
         'delay' => 'Delay',
         'msg' => 'Msg',
+        'opDomain' => 'OpDomain',
         'opsAction' => 'OpsAction',
         'uuids' => 'Uuids',
         'waitForAck' => 'WaitForAck',
@@ -57,6 +63,10 @@ class SendOpsMessageToTerminalsRequest extends Model
 
         if (null !== $this->msg) {
             $res['Msg'] = $this->msg;
+        }
+
+        if (null !== $this->opDomain) {
+            $res['OpDomain'] = $this->opDomain;
         }
 
         if (null !== $this->opsAction) {
@@ -95,6 +105,10 @@ class SendOpsMessageToTerminalsRequest extends Model
 
         if (isset($map['Msg'])) {
             $model->msg = $map['Msg'];
+        }
+
+        if (isset($map['OpDomain'])) {
+            $model->opDomain = $map['OpDomain'];
         }
 
         if (isset($map['OpsAction'])) {
