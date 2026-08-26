@@ -91,6 +91,11 @@ class AppInstanceProfile extends Model
     /**
      * @var string
      */
+    public $shareRenderWatermark;
+
+    /**
+     * @var string
+     */
     public $siteVersion;
 
     /**
@@ -129,6 +134,7 @@ class AppInstanceProfile extends Model
         'payTime' => 'PayTime',
         'previewUrl' => 'PreviewUrl',
         'seoSite' => 'SeoSite',
+        'shareRenderWatermark' => 'ShareRenderWatermark',
         'siteVersion' => 'SiteVersion',
         'siteVersionText' => 'SiteVersionText',
         'source' => 'Source',
@@ -206,6 +212,10 @@ class AppInstanceProfile extends Model
 
         if (null !== $this->seoSite) {
             $res['SeoSite'] = $this->seoSite;
+        }
+
+        if (null !== $this->shareRenderWatermark) {
+            $res['ShareRenderWatermark'] = $this->shareRenderWatermark;
         }
 
         if (null !== $this->siteVersion) {
@@ -301,6 +311,10 @@ class AppInstanceProfile extends Model
 
         if (isset($map['SeoSite'])) {
             $model->seoSite = $map['SeoSite'];
+        }
+
+        if (isset($map['ShareRenderWatermark'])) {
+            $model->shareRenderWatermark = $map['ShareRenderWatermark'];
         }
 
         if (isset($map['SiteVersion'])) {

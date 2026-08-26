@@ -1,3 +1,15 @@
+2026-08-26 Version: 2.36.2
+- Update API BindAppDomain: add request parameters DomainType.
+- Update API ListAppInstanceDomains: add request parameters DomainType.
+- Update API ListAppInstanceDomains: add response parameters Body.Module.Data.$.DeployType.
+- Update API ListAppInstanceDomains: add response parameters Body.Module.Data.$.DomainType.
+- Update API ListAppTemplates: add request parameters OrderColumn.
+- Update API ListAppTemplates: add request parameters OrderType.
+- Update API ListAppTemplates: add response parameters Body.Module.Data.$.IsRecommended.
+- Update API ListAppTemplates: add response parameters Body.Module.Next.IsRecommended.
+- Update API ReconnectAppChat: add request parameters LatestMessageCreateTime.
+
+
 2026-08-10 Version: 2.36.1
 - Update API GetAppPublishStatus: add response parameters Body.Module.CurrentStepCode.
 - Update API GetAppPublishStatus: add response parameters Body.Module.ErrorStepCode.

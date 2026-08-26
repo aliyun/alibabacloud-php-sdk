@@ -735,6 +735,10 @@ class WebsiteBuild extends OpenApiClient
             @$query['DomainName'] = $request->domainName;
         }
 
+        if (null !== $request->domainType) {
+            @$query['DomainType'] = $request->domainType;
+        }
+
         if (null !== $request->extend) {
             @$query['Extend'] = $request->extend;
         }
@@ -6840,7 +6844,7 @@ class WebsiteBuild extends OpenApiClient
      * Searches the conversation list.
      *
      * @remarks
-     * Creates an AI session by using Wanxiaozhi 2.0.
+     * Creates an AI session through the Wanxiaozhi 2.0 interface.
      *
      * @param request - ListAppConversationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6910,7 +6914,7 @@ class WebsiteBuild extends OpenApiClient
      * Searches the conversation list.
      *
      * @remarks
-     * Creates an AI session by using Wanxiaozhi 2.0.
+     * Creates an AI session through the Wanxiaozhi 2.0 interface.
      *
      * @param request - ListAppConversationsRequest
      *
@@ -7015,6 +7019,10 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->domainKeyword) {
             @$query['DomainKeyword'] = $request->domainKeyword;
+        }
+
+        if (null !== $request->domainType) {
+            @$query['DomainType'] = $request->domainType;
         }
 
         if (null !== $request->maxResults) {
@@ -7659,7 +7667,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of website templates.
+     * Queries a list of templates.
      *
      * @remarks
      * Retrieves the configuration information of the code generation plugin.
@@ -7702,6 +7710,14 @@ class WebsiteBuild extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
         if (null !== $request->pageNum) {
             @$query['PageNum'] = $request->pageNum;
         }
@@ -7737,7 +7753,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of website templates.
+     * Queries a list of templates.
      *
      * @remarks
      * Retrieves the configuration information of the code generation plugin.
@@ -10982,6 +10998,10 @@ class WebsiteBuild extends OpenApiClient
             @$body['LastEventId'] = $request->lastEventId;
         }
 
+        if (null !== $request->latestMessageCreateTime) {
+            @$body['LatestMessageCreateTime'] = $request->latestMessageCreateTime;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -11043,6 +11063,10 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->lastEventId) {
             @$body['LastEventId'] = $request->lastEventId;
+        }
+
+        if (null !== $request->latestMessageCreateTime) {
+            @$body['LatestMessageCreateTime'] = $request->latestMessageCreateTime;
         }
 
         $req = new OpenApiRequest([

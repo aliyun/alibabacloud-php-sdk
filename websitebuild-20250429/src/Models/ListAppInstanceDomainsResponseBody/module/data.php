@@ -26,6 +26,11 @@ class data extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $deployType;
+
+    /**
      * @var dnsConflict
      */
     public $dnsConflict;
@@ -34,6 +39,11 @@ class data extends Model
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var string
+     */
+    public $domainType;
 
     /**
      * @var migration
@@ -67,8 +77,10 @@ class data extends Model
     protected $_name = [
         'certificate' => 'Certificate',
         'createTime' => 'CreateTime',
+        'deployType' => 'DeployType',
         'dnsConflict' => 'DnsConflict',
         'domainName' => 'DomainName',
+        'domainType' => 'DomainType',
         'migration' => 'Migration',
         'overallStatus' => 'OverallStatus',
         'ownership' => 'Ownership',
@@ -114,12 +126,20 @@ class data extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->deployType) {
+            $res['DeployType'] = $this->deployType;
+        }
+
         if (null !== $this->dnsConflict) {
             $res['DnsConflict'] = null !== $this->dnsConflict ? $this->dnsConflict->toArray($noStream) : $this->dnsConflict;
         }
 
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+
+        if (null !== $this->domainType) {
+            $res['DomainType'] = $this->domainType;
         }
 
         if (null !== $this->migration) {
@@ -165,12 +185,20 @@ class data extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['DeployType'])) {
+            $model->deployType = $map['DeployType'];
+        }
+
         if (isset($map['DnsConflict'])) {
             $model->dnsConflict = dnsConflict::fromMap($map['DnsConflict']);
         }
 
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+
+        if (isset($map['DomainType'])) {
+            $model->domainType = $map['DomainType'];
         }
 
         if (isset($map['Migration'])) {

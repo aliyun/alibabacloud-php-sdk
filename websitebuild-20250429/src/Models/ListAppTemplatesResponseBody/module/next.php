@@ -64,6 +64,11 @@ class next extends Model
     public $industryName;
 
     /**
+     * @var bool
+     */
+    public $isRecommended;
+
+    /**
      * @var string
      */
     public $lastModifier;
@@ -144,6 +149,7 @@ class next extends Model
         'id' => 'Id',
         'industry' => 'Industry',
         'industryName' => 'IndustryName',
+        'isRecommended' => 'IsRecommended',
         'lastModifier' => 'LastModifier',
         'likeCount' => 'LikeCount',
         'liked' => 'Liked',
@@ -210,6 +216,10 @@ class next extends Model
 
         if (null !== $this->industryName) {
             $res['IndustryName'] = $this->industryName;
+        }
+
+        if (null !== $this->isRecommended) {
+            $res['IsRecommended'] = $this->isRecommended;
         }
 
         if (null !== $this->lastModifier) {
@@ -321,6 +331,10 @@ class next extends Model
 
         if (isset($map['IndustryName'])) {
             $model->industryName = $map['IndustryName'];
+        }
+
+        if (isset($map['IsRecommended'])) {
+            $model->isRecommended = $map['IsRecommended'];
         }
 
         if (isset($map['LastModifier'])) {

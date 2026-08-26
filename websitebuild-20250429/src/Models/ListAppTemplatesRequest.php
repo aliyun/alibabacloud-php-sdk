@@ -39,6 +39,16 @@ class ListAppTemplatesRequest extends Model
     public $nextToken;
 
     /**
+     * @var string
+     */
+    public $orderColumn;
+
+    /**
+     * @var string
+     */
+    public $orderType;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -64,6 +74,8 @@ class ListAppTemplatesRequest extends Model
         'keyword' => 'Keyword',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'orderColumn' => 'OrderColumn',
+        'orderType' => 'OrderType',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'productVersion' => 'ProductVersion',
@@ -100,6 +112,14 @@ class ListAppTemplatesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->orderColumn) {
+            $res['OrderColumn'] = $this->orderColumn;
+        }
+
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
         }
 
         if (null !== $this->pageNum) {
@@ -151,6 +171,14 @@ class ListAppTemplatesRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['OrderColumn'])) {
+            $model->orderColumn = $map['OrderColumn'];
+        }
+
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
         }
 
         if (isset($map['PageNum'])) {

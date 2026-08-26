@@ -22,10 +22,16 @@ class ReconnectAppChatRequest extends Model
      * @var int
      */
     public $lastEventId;
+
+    /**
+     * @var string
+     */
+    public $latestMessageCreateTime;
     protected $_name = [
         'chatId' => 'ChatId',
         'conversationId' => 'ConversationId',
         'lastEventId' => 'LastEventId',
+        'latestMessageCreateTime' => 'LatestMessageCreateTime',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ReconnectAppChatRequest extends Model
 
         if (null !== $this->lastEventId) {
             $res['LastEventId'] = $this->lastEventId;
+        }
+
+        if (null !== $this->latestMessageCreateTime) {
+            $res['LatestMessageCreateTime'] = $this->latestMessageCreateTime;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ReconnectAppChatRequest extends Model
 
         if (isset($map['LastEventId'])) {
             $model->lastEventId = $map['LastEventId'];
+        }
+
+        if (isset($map['LatestMessageCreateTime'])) {
+            $model->latestMessageCreateTime = $map['LatestMessageCreateTime'];
         }
 
         return $model;
