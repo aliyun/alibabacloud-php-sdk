@@ -11,6 +11,11 @@ class DeleteAgenticDBComputeClusterRequest extends Model
     /**
      * @var string
      */
+    public $branchId;
+
+    /**
+     * @var string
+     */
     public $computeClusterId;
 
     /**
@@ -21,11 +26,24 @@ class DeleteAgenticDBComputeClusterRequest extends Model
     /**
      * @var string
      */
+    public $projectId;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $tenantId;
     protected $_name = [
+        'branchId' => 'BranchId',
         'computeClusterId' => 'ComputeClusterId',
         'DBClusterId' => 'DBClusterId',
+        'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()
@@ -36,6 +54,10 @@ class DeleteAgenticDBComputeClusterRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchId) {
+            $res['BranchId'] = $this->branchId;
+        }
+
         if (null !== $this->computeClusterId) {
             $res['ComputeClusterId'] = $this->computeClusterId;
         }
@@ -44,8 +66,16 @@ class DeleteAgenticDBComputeClusterRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -59,6 +89,10 @@ class DeleteAgenticDBComputeClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchId'])) {
+            $model->branchId = $map['BranchId'];
+        }
+
         if (isset($map['ComputeClusterId'])) {
             $model->computeClusterId = $map['ComputeClusterId'];
         }
@@ -67,8 +101,16 @@ class DeleteAgenticDBComputeClusterRequest extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

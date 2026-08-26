@@ -41,6 +41,11 @@ class DescribeApplicationPerformanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $filterShrink;
+
+    /**
+     * @var string
+     */
     public $interval;
 
     /**
@@ -67,11 +72,6 @@ class DescribeApplicationPerformanceShrinkRequest extends Model
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $filterShrink;
     protected $_name = [
         'applicationId' => 'ApplicationId',
         'consumer' => 'Consumer',
@@ -79,13 +79,13 @@ class DescribeApplicationPerformanceShrinkRequest extends Model
         'downsample' => 'Downsample',
         'endStep' => 'EndStep',
         'endTime' => 'EndTime',
+        'filterShrink' => 'Filter',
         'interval' => 'Interval',
         'key' => 'Key',
         'maxPoints' => 'MaxPoints',
         'modelService' => 'ModelService',
         'startStep' => 'StartStep',
         'startTime' => 'StartTime',
-        'filterShrink' => 'filter',
     ];
 
     public function validate()
@@ -120,6 +120,10 @@ class DescribeApplicationPerformanceShrinkRequest extends Model
             $res['EndTime'] = $this->endTime;
         }
 
+        if (null !== $this->filterShrink) {
+            $res['Filter'] = $this->filterShrink;
+        }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
@@ -142,10 +146,6 @@ class DescribeApplicationPerformanceShrinkRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-
-        if (null !== $this->filterShrink) {
-            $res['filter'] = $this->filterShrink;
         }
 
         return $res;
@@ -183,6 +183,10 @@ class DescribeApplicationPerformanceShrinkRequest extends Model
             $model->endTime = $map['EndTime'];
         }
 
+        if (isset($map['Filter'])) {
+            $model->filterShrink = $map['Filter'];
+        }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
@@ -205,10 +209,6 @@ class DescribeApplicationPerformanceShrinkRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-
-        if (isset($map['filter'])) {
-            $model->filterShrink = $map['filter'];
         }
 
         return $model;

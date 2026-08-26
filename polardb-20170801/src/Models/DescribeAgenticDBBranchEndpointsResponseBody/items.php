@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBBranchEndpointsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBBranchEndpointsResponseBody\items\addressItems;
 
 class items extends Model
 {
@@ -17,6 +18,11 @@ class items extends Model
      * @var string
      */
     public $address;
+
+    /**
+     * @var addressItems[]
+     */
+    public $addressItems;
 
     /**
      * @var string
@@ -50,6 +56,7 @@ class items extends Model
     protected $_name = [
         'account' => 'Account',
         'address' => 'Address',
+        'addressItems' => 'AddressItems',
         'connectionString' => 'ConnectionString',
         'database' => 'Database',
         'endpointId' => 'EndpointId',
@@ -60,6 +67,9 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->addressItems)) {
+            Model::validateArray($this->addressItems);
+        }
         parent::validate();
     }
 
@@ -72,6 +82,17 @@ class items extends Model
 
         if (null !== $this->address) {
             $res['Address'] = $this->address;
+        }
+
+        if (null !== $this->addressItems) {
+            if (\is_array($this->addressItems)) {
+                $res['AddressItems'] = [];
+                $n1 = 0;
+                foreach ($this->addressItems as $item1) {
+                    $res['AddressItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->connectionString) {
@@ -115,6 +136,17 @@ class items extends Model
 
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
+        }
+
+        if (isset($map['AddressItems'])) {
+            if (!empty($map['AddressItems'])) {
+                $model->addressItems = [];
+                $n1 = 0;
+                foreach ($map['AddressItems'] as $item1) {
+                    $model->addressItems[$n1] = addressItems::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ConnectionString'])) {

@@ -39,6 +39,11 @@ class DescribeApplicationPerformanceRequest extends Model
     public $endTime;
 
     /**
+     * @var mixed[]
+     */
+    public $filter;
+
+    /**
      * @var string
      */
     public $interval;
@@ -67,11 +72,6 @@ class DescribeApplicationPerformanceRequest extends Model
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var mixed[]
-     */
-    public $filter;
     protected $_name = [
         'applicationId' => 'ApplicationId',
         'consumer' => 'Consumer',
@@ -79,13 +79,13 @@ class DescribeApplicationPerformanceRequest extends Model
         'downsample' => 'Downsample',
         'endStep' => 'EndStep',
         'endTime' => 'EndTime',
+        'filter' => 'Filter',
         'interval' => 'Interval',
         'key' => 'Key',
         'maxPoints' => 'MaxPoints',
         'modelService' => 'ModelService',
         'startStep' => 'StartStep',
         'startTime' => 'StartTime',
-        'filter' => 'filter',
     ];
 
     public function validate()
@@ -123,6 +123,15 @@ class DescribeApplicationPerformanceRequest extends Model
             $res['EndTime'] = $this->endTime;
         }
 
+        if (null !== $this->filter) {
+            if (\is_array($this->filter)) {
+                $res['Filter'] = [];
+                foreach ($this->filter as $key1 => $value1) {
+                    $res['Filter'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
@@ -145,15 +154,6 @@ class DescribeApplicationPerformanceRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-
-        if (null !== $this->filter) {
-            if (\is_array($this->filter)) {
-                $res['filter'] = [];
-                foreach ($this->filter as $key1 => $value1) {
-                    $res['filter'][$key1] = $value1;
-                }
-            }
         }
 
         return $res;
@@ -191,6 +191,15 @@ class DescribeApplicationPerformanceRequest extends Model
             $model->endTime = $map['EndTime'];
         }
 
+        if (isset($map['Filter'])) {
+            if (!empty($map['Filter'])) {
+                $model->filter = [];
+                foreach ($map['Filter'] as $key1 => $value1) {
+                    $model->filter[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
@@ -213,15 +222,6 @@ class DescribeApplicationPerformanceRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-
-        if (isset($map['filter'])) {
-            if (!empty($map['filter'])) {
-                $model->filter = [];
-                foreach ($map['filter'] as $key1 => $value1) {
-                    $model->filter[$key1] = $value1;
-                }
-            }
         }
 
         return $model;

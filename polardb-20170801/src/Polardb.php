@@ -143,6 +143,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGwConsumerOrderRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGwConsumerOrderResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKnowledgeSpaceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKnowledgeSpaceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateLakebaseS3AccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateLakebaseS3AccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelApiRequest;
@@ -243,6 +247,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDataNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDataNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteLakebaseS3AccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteLakebaseS3AccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteMaskingRulesRequest;
@@ -498,6 +504,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksStatRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksStatResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseAttributeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBasesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBasesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseS3AccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseS3AccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLicenseOrderDetailsRequest;
@@ -983,28 +993,28 @@ class Polardb extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'polardb.aliyuncs.com',
             'eu-west-1-oxs' => 'polardb.aliyuncs.com',
             'rus-west-1-pop' => 'polardb.aliyuncs.com',
-            'us-west-1' => 'polardb.us-west-1.aliyuncs.com',
-            'us-east-1' => 'polardb.us-east-1.aliyuncs.com',
-            'na-south-1' => 'polardb.na-south-1.aliyuncs.com',
-            'me-east-1' => 'polardb.me-east-1.aliyuncs.com',
-            'eu-west-1' => 'polardb.eu-west-1.aliyuncs.com',
-            'eu-central-1' => 'polardb.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'polardb.cn-zhangjiakou.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'polardb.cn-shenzhen-finance-1.aliyuncs.com',
-            'cn-shenzhen' => 'polardb.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'polardb.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-huhehaote' => 'polardb.cn-huhehaote.aliyuncs.com',
             'cn-hongkong' => 'polardb.cn-hongkong.aliyuncs.com',
-            'cn-guangzhou' => 'polardb.cn-guangzhou.aliyuncs.com',
-            'cn-chengdu' => 'polardb.cn-chengdu.aliyuncs.com',
-            'ap-southeast-8' => 'polardb.ap-southeast-8.aliyuncs.com',
-            'ap-southeast-7' => 'polardb.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-6' => 'polardb.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-5' => 'polardb.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'polardb.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'polardb.ap-southeast-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'polardb.cn-zhangjiakou.aliyuncs.com',
+            'cn-shenzhen' => 'polardb.cn-shenzhen.aliyuncs.com',
             'ap-northeast-2' => 'polardb.ap-northeast-2.aliyuncs.com',
             'ap-northeast-1' => 'polardb.ap-northeast-1.aliyuncs.com',
+            'cn-chengdu' => 'polardb.cn-chengdu.aliyuncs.com',
+            'cn-guangzhou' => 'polardb.cn-guangzhou.aliyuncs.com',
+            'ap-southeast-1' => 'polardb.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'polardb.ap-southeast-3.aliyuncs.com',
+            'cn-huhehaote' => 'polardb.cn-huhehaote.aliyuncs.com',
+            'ap-southeast-5' => 'polardb.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-6' => 'polardb.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-7' => 'polardb.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-8' => 'polardb.ap-southeast-8.aliyuncs.com',
+            'na-south-1' => 'polardb.na-south-1.aliyuncs.com',
+            'eu-central-1' => 'polardb.eu-central-1.aliyuncs.com',
+            'us-west-1' => 'polardb.us-west-1.aliyuncs.com',
+            'eu-west-1' => 'polardb.eu-west-1.aliyuncs.com',
+            'us-east-1' => 'polardb.us-east-1.aliyuncs.com',
+            'me-east-1' => 'polardb.me-east-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'polardb.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'polardb.cn-shenzhen-finance-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('polardb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1525,7 +1535,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 添加冷存授权账号.
+     * Adds authorized accounts for cold storage.
      *
      * @param request - AddPolarOSSAuthorizedAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1576,7 +1586,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 添加冷存授权账号.
+     * Adds authorized accounts for cold storage.
      *
      * @param request - AddPolarOSSAuthorizedAccountRequest
      *
@@ -3324,7 +3334,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * This topic describes how to create an AI cluster.
+     * Creates an AI cluster.
      *
      * @param request - CreateAIDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3499,7 +3509,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * This topic describes how to create an AI cluster.
+     * Creates an AI cluster.
      *
      * @param request - CreateAIDBClusterRequest
      *
@@ -3517,7 +3527,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a model service API key.
+     * Creates a model creation service API key.
      *
      * @param request - CreateAIDBClusterApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3564,7 +3574,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a model service API key.
+     * Creates a model creation service API key.
      *
      * @param request - CreateAIDBClusterApiKeyRequest
      *
@@ -4342,7 +4352,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建 AgenticDB 租户 API Key.
+     * Creates an API key for an AgenticDB tenant.
      *
      * @param request - CreateAgenticDBTenantApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4397,7 +4407,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建 AgenticDB 租户 API Key.
+     * Creates an API key for an AgenticDB tenant.
      *
      * @param request - CreateAgenticDBTenantApiKeyRequest
      *
@@ -7352,6 +7362,208 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Creates a knowledge base.
+     *
+     * @param request - CreateKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeBaseResponse
+     *
+     * @param CreateKnowledgeBaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateKnowledgeBaseResponse
+     */
+    public function createKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->knowledgeBaseType) {
+            @$query['KnowledgeBaseType'] = $request->knowledgeBaseType;
+        }
+
+        if (null !== $request->knowledgeSpaceId) {
+            @$query['KnowledgeSpaceId'] = $request->knowledgeSpaceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchMode) {
+            @$query['SearchMode'] = $request->searchMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeBase',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a knowledge base.
+     *
+     * @param request - CreateKnowledgeBaseRequest
+     *
+     * @returns CreateKnowledgeBaseResponse
+     *
+     * @param CreateKnowledgeBaseRequest $request
+     *
+     * @return CreateKnowledgeBaseResponse
+     */
+    public function createKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a knowledge space.
+     *
+     * @param request - CreateKnowledgeSpaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeSpaceResponse
+     *
+     * @param CreateKnowledgeSpaceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateKnowledgeSpaceResponse
+     */
+    public function createKnowledgeSpaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBType) {
+            @$query['DBType'] = $request->DBType;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->embeddingDimension) {
+            @$query['EmbeddingDimension'] = $request->embeddingDimension;
+        }
+
+        if (null !== $request->embeddingModel) {
+            @$query['EmbeddingModel'] = $request->embeddingModel;
+        }
+
+        if (null !== $request->enforceAcl) {
+            @$query['EnforceAcl'] = $request->enforceAcl;
+        }
+
+        if (null !== $request->LLMModel) {
+            @$query['LLMModel'] = $request->LLMModel;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->OSSAccessKey) {
+            @$query['OSSAccessKey'] = $request->OSSAccessKey;
+        }
+
+        if (null !== $request->OSSBucket) {
+            @$query['OSSBucket'] = $request->OSSBucket;
+        }
+
+        if (null !== $request->OSSSecretKey) {
+            @$query['OSSSecretKey'] = $request->OSSSecretKey;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->rerankModel) {
+            @$query['RerankModel'] = $request->rerankModel;
+        }
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
+        }
+
+        if (null !== $request->shardingSize) {
+            @$query['ShardingSize'] = $request->shardingSize;
+        }
+
+        if (null !== $request->shardingStrategy) {
+            @$query['ShardingStrategy'] = $request->shardingStrategy;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeSpace',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a knowledge space.
+     *
+     * @param request - CreateKnowledgeSpaceRequest
+     *
+     * @returns CreateKnowledgeSpaceResponse
+     *
+     * @param CreateKnowledgeSpaceRequest $request
+     *
+     * @return CreateKnowledgeSpaceResponse
+     */
+    public function createKnowledgeSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKnowledgeSpaceWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a PolarFS S3 account.
      *
      * @param request - CreateLakebaseS3AccountRequest
@@ -7425,7 +7637,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a model API.
+     * Creates a routing rule.
      *
      * @param request - CreateModelApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7441,6 +7653,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
         if (null !== $request->forceModel) {
             @$query['ForceModel'] = $request->forceModel;
         }
@@ -7500,7 +7716,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a model API.
+     * Creates a routing rule.
      *
      * @param request - CreateModelApiRequest
      *
@@ -9373,6 +9589,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
         if (null !== $request->computeClusterId) {
             @$query['ComputeClusterId'] = $request->computeClusterId;
         }
@@ -9381,8 +9601,16 @@ class Polardb extends OpenApiClient
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
         }
 
         $req = new OpenApiRequest([
@@ -11315,6 +11543,67 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Deletes a knowledge base.
+     *
+     * @param request - DeleteKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKnowledgeBaseResponse
+     *
+     * @param DeleteKnowledgeBaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteKnowledgeBaseResponse
+     */
+    public function deleteKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKnowledgeBase',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a knowledge base.
+     *
+     * @param request - DeleteKnowledgeBaseRequest
+     *
+     * @returns DeleteKnowledgeBaseResponse
+     *
+     * @param DeleteKnowledgeBaseRequest $request
+     *
+     * @return DeleteKnowledgeBaseResponse
+     */
+    public function deleteKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a PolarFS S3 account.
      *
      * @param request - DeleteLakebaseS3AccountRequest
@@ -12274,7 +12563,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除冷存授权账号.
+     * Deletes authorized accounts for cold storage.
      *
      * @param request - DeletePolarOSSAuthorizedAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12325,7 +12614,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除冷存授权账号.
+     * Deletes authorized accounts for cold storage.
      *
      * @param request - DeletePolarOSSAuthorizedAccountRequest
      *
@@ -12625,7 +12914,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of a custom instance.
+     * Queries the detailed attributes of a custom instance.
      *
      * @param request - DescribeAIDBClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12680,7 +12969,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of a custom instance.
+     * Queries the detailed attributes of a custom instance.
      *
      * @param request - DescribeAIDBClusterAttributeRequest
      *
@@ -13220,7 +13509,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * View custom clusters.
+     * Queries the list of custom AI clusters.
      *
      * @param request - DescribeAIDBClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13307,7 +13596,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * View custom clusters.
+     * Queries the list of custom AI clusters.
      *
      * @param request - DescribeAIDBClustersRequest
      *
@@ -14489,7 +14778,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询 AgenticDB 项目列表.
+     * Queries the list of AgenticDB projects.
      *
      * @param request - DescribeAgenticDBProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14552,7 +14841,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询 AgenticDB 项目列表.
+     * Queries the list of AgenticDB projects.
      *
      * @param request - DescribeAgenticDBProjectsRequest
      *
@@ -14969,7 +15258,7 @@ class Polardb extends OpenApiClient
         $request = new DescribeApplicationPerformanceShrinkRequest([]);
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->filter) {
-            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
         }
 
         $query = [];
@@ -14997,6 +15286,10 @@ class Polardb extends OpenApiClient
             @$query['EndTime'] = $request->endTime;
         }
 
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
+        }
+
         if (null !== $request->interval) {
             @$query['Interval'] = $request->interval;
         }
@@ -15019,10 +15312,6 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
-        }
-
-        if (null !== $request->filterShrink) {
-            @$query['filter'] = $request->filterShrink;
         }
 
         $req = new OpenApiRequest([
@@ -18541,7 +18830,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the transparent data encryption (TDE) settings for a specified PolarDB cluster.
+     * Queries the Transparent Data Encryption (TDE) settings of a PolarDB cluster.
      *
      * @param request - DescribeDBClusterTDERequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18596,7 +18885,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the transparent data encryption (TDE) settings for a specified PolarDB cluster.
+     * Queries the Transparent Data Encryption (TDE) settings of a PolarDB cluster.
      *
      * @param request - DescribeDBClusterTDERequest
      *
@@ -21652,6 +21941,144 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the details of a knowledge base.
+     *
+     * @param request - DescribeKnowledgeBaseAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKnowledgeBaseAttributeResponse
+     *
+     * @param DescribeKnowledgeBaseAttributeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeKnowledgeBaseAttributeResponse
+     */
+    public function describeKnowledgeBaseAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKnowledgeBaseAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKnowledgeBaseAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a knowledge base.
+     *
+     * @param request - DescribeKnowledgeBaseAttributeRequest
+     *
+     * @returns DescribeKnowledgeBaseAttributeResponse
+     *
+     * @param DescribeKnowledgeBaseAttributeRequest $request
+     *
+     * @return DescribeKnowledgeBaseAttributeResponse
+     */
+    public function describeKnowledgeBaseAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKnowledgeBaseAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of knowledge bases.
+     *
+     * @param request - DescribeKnowledgeBasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKnowledgeBasesResponse
+     *
+     * @param DescribeKnowledgeBasesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeKnowledgeBasesResponse
+     */
+    public function describeKnowledgeBasesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->knowledgeSpaceId) {
+            @$query['KnowledgeSpaceId'] = $request->knowledgeSpaceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKnowledgeBases',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKnowledgeBasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of knowledge bases.
+     *
+     * @param request - DescribeKnowledgeBasesRequest
+     *
+     * @returns DescribeKnowledgeBasesResponse
+     *
+     * @param DescribeKnowledgeBasesRequest $request
+     *
+     * @return DescribeKnowledgeBasesResponse
+     */
+    public function describeKnowledgeBases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKnowledgeBasesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a PolarFS S3 account.
      *
      * @param request - DescribeLakebaseS3AccountRequest
@@ -22199,7 +22626,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Model Query API.
+     * Queries model APIs.
      *
      * @param request - DescribeModelApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22274,7 +22701,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Model Query API.
+     * Queries model APIs.
      *
      * @param request - DescribeModelApisRequest
      *
@@ -27804,7 +28231,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Installs a PolarClaw plugin.
+     * Installs the PolarClaw plug-in.
      *
      * @param request - InstallPolarClawPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27855,7 +28282,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Installs a PolarClaw plugin.
+     * Installs the PolarClaw plug-in.
      *
      * @param request - InstallPolarClawPluginRequest
      *
@@ -34307,6 +34734,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
         if (null !== $request->gwClusterId) {
             @$query['GwClusterId'] = $request->gwClusterId;
         }

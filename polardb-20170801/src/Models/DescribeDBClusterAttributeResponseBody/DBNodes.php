@@ -54,6 +54,11 @@ class DBNodes extends Model
     public $DBNodeStatus;
 
     /**
+     * @var bool
+     */
+    public $dedicatedHostModel;
+
+    /**
      * @var int
      */
     public $failoverPriority;
@@ -167,6 +172,7 @@ class DBNodes extends Model
         'DBNodeId' => 'DBNodeId',
         'DBNodeRole' => 'DBNodeRole',
         'DBNodeStatus' => 'DBNodeStatus',
+        'dedicatedHostModel' => 'DedicatedHostModel',
         'failoverPriority' => 'FailoverPriority',
         'hotReplicaMode' => 'HotReplicaMode',
         'imciSwitch' => 'ImciSwitch',
@@ -232,6 +238,10 @@ class DBNodes extends Model
 
         if (null !== $this->DBNodeStatus) {
             $res['DBNodeStatus'] = $this->DBNodeStatus;
+        }
+
+        if (null !== $this->dedicatedHostModel) {
+            $res['DedicatedHostModel'] = $this->dedicatedHostModel;
         }
 
         if (null !== $this->failoverPriority) {
@@ -363,6 +373,10 @@ class DBNodes extends Model
 
         if (isset($map['DBNodeStatus'])) {
             $model->DBNodeStatus = $map['DBNodeStatus'];
+        }
+
+        if (isset($map['DedicatedHostModel'])) {
+            $model->dedicatedHostModel = $map['DedicatedHostModel'];
         }
 
         if (isset($map['FailoverPriority'])) {

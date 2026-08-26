@@ -16,6 +16,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $config;
+
+    /**
+     * @var string
+     */
     public $gmtCreated;
 
     /**
@@ -59,6 +64,7 @@ class items extends Model
     public $status;
     protected $_name = [
         'category' => 'Category',
+        'config' => 'Config',
         'gmtCreated' => 'GmtCreated',
         'modelApiId' => 'ModelApiId',
         'name' => 'Name',
@@ -80,6 +86,10 @@ class items extends Model
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
 
         if (null !== $this->gmtCreated) {
@@ -131,6 +141,10 @@ class items extends Model
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
 
         if (isset($map['GmtCreated'])) {

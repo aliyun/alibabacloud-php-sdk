@@ -59,6 +59,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     public $DBVersion;
 
     /**
+     * @var bool
+     */
+    public $dedicatedHostModel;
+
+    /**
      * @var string
      */
     public $ecsSecurityGroupId;
@@ -207,6 +212,7 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'DBInstanceStatusDesc' => 'DBInstanceStatusDesc',
         'DBNodes' => 'DBNodes',
         'DBVersion' => 'DBVersion',
+        'dedicatedHostModel' => 'DedicatedHostModel',
         'ecsSecurityGroupId' => 'EcsSecurityGroupId',
         'endpointList' => 'EndpointList',
         'expireTime' => 'ExpireTime',
@@ -301,6 +307,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->DBVersion) {
             $res['DBVersion'] = $this->DBVersion;
+        }
+
+        if (null !== $this->dedicatedHostModel) {
+            $res['DedicatedHostModel'] = $this->dedicatedHostModel;
         }
 
         if (null !== $this->ecsSecurityGroupId) {
@@ -481,6 +491,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (isset($map['DBVersion'])) {
             $model->DBVersion = $map['DBVersion'];
+        }
+
+        if (isset($map['DedicatedHostModel'])) {
+            $model->dedicatedHostModel = $map['DedicatedHostModel'];
         }
 
         if (isset($map['EcsSecurityGroupId'])) {
