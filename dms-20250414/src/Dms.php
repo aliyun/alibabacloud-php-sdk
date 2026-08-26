@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentThemeRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentThemeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeDatabaseRequest;
@@ -100,6 +102,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentMetricsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentMetricsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentThemeRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentThemeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDocumentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDocumentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeFileUploadSignatureRequest;
@@ -124,6 +128,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageMetricsReque
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageMetricsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentThemeUploadSignatureRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentThemeUploadSignatureResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentWorkspaceInfoRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentWorkspaceInfoResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeCatalogRequest;
@@ -177,6 +183,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentMemoryRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentThemeRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentThemeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceMemberRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceMemberResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceRequest;
@@ -225,6 +233,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyDataAgentMcpRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyDataAgentMcpResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyDataAgentThemeRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyDataAgentThemeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\OperateCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\OperateCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\RedeployAirflowRequest;
@@ -1554,6 +1564,83 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Creates a DataAgent theme.
+     *
+     * @param request - CreateDataAgentThemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataAgentThemeResponse
+     *
+     * @param CreateDataAgentThemeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDataAgentThemeResponse
+     */
+    public function createDataAgentThemeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->fileFrom) {
+            @$query['FileFrom'] = $request->fileFrom;
+        }
+
+        if (null !== $request->themeId) {
+            @$query['ThemeId'] = $request->themeId;
+        }
+
+        if (null !== $request->themeName) {
+            @$query['ThemeName'] = $request->themeName;
+        }
+
+        if (null !== $request->themeType) {
+            @$query['ThemeType'] = $request->themeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataAgentTheme',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataAgentThemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a DataAgent theme.
+     *
+     * @param request - CreateDataAgentThemeRequest
+     *
+     * @returns CreateDataAgentThemeResponse
+     *
+     * @param CreateDataAgentThemeRequest $request
+     *
+     * @return CreateDataAgentThemeResponse
+     */
+    public function createDataAgentTheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataAgentThemeWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a DataAgent workspace.
      *
      * @param request - CreateDataAgentWorkspaceRequest
@@ -1965,7 +2052,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 创建sql模版.
+     * Creates an SQL template.
      *
      * @param request - CreateOneMetaSqlTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2032,7 +2119,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 创建sql模版.
+     * Creates an SQL template.
      *
      * @param request - CreateOneMetaSqlTemplateRequest
      *
@@ -3061,7 +3148,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 删除onemeta3.0的Ossie模型.
+     * Deletes an Ossie model from onemeta 3.0.
      *
      * @param request - DeleteOneMetaOssieModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3100,7 +3187,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 删除onemeta3.0的Ossie模型.
+     * Deletes an Ossie model from onemeta 3.0.
      *
      * @param request - DeleteOneMetaOssieModelRequest
      *
@@ -3118,7 +3205,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 删除sql模版.
+     * Deletes a knowledge base in OneMeta 3.0.
      *
      * @param request - DeleteOneMetaSqlTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3157,7 +3244,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 删除sql模版.
+     * Deletes a knowledge base in OneMeta 3.0.
      *
      * @param request - DeleteOneMetaSqlTemplateRequest
      *
@@ -3442,6 +3529,63 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDataAgentSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+     *
+     * @param request - DescribeDataAgentThemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataAgentThemeResponse
+     *
+     * @param DescribeDataAgentThemeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDataAgentThemeResponse
+     */
+    public function describeDataAgentThemeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->themeId) {
+            @$query['ThemeId'] = $request->themeId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDataAgentTheme',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDataAgentThemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+     *
+     * @param request - DescribeDataAgentThemeRequest
+     *
+     * @returns DescribeDataAgentThemeResponse
+     *
+     * @param DescribeDataAgentThemeRequest $request
+     *
+     * @return DescribeDataAgentThemeResponse
+     */
+    public function describeDataAgentTheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataAgentThemeWithOptions($request, $runtime);
     }
 
     /**
@@ -4312,6 +4456,65 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Calls the GetDataAgentThemeUploadSignature operation to obtain OSS direct upload credentials for uploading a DataAgent theme file. After obtaining the credentials, use the PostObject method to upload the theme file directly to OSS. After the upload is complete, call the CreateDataAgentTheme operation with the returned ThemeId to complete theme creation.
+     * Refer to https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/ for instructions on uploading the theme file.
+     *
+     * @param request - GetDataAgentThemeUploadSignatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataAgentThemeUploadSignatureResponse
+     *
+     * @param GetDataAgentThemeUploadSignatureRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetDataAgentThemeUploadSignatureResponse
+     */
+    public function getDataAgentThemeUploadSignatureWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->themeId) {
+            @$query['ThemeId'] = $request->themeId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataAgentThemeUploadSignature',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataAgentThemeUploadSignatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Calls the GetDataAgentThemeUploadSignature operation to obtain OSS direct upload credentials for uploading a DataAgent theme file. After obtaining the credentials, use the PostObject method to upload the theme file directly to OSS. After the upload is complete, call the CreateDataAgentTheme operation with the returned ThemeId to complete theme creation.
+     * Refer to https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/ for instructions on uploading the theme file.
+     *
+     * @param request - GetDataAgentThemeUploadSignatureRequest
+     *
+     * @returns GetDataAgentThemeUploadSignatureResponse
+     *
+     * @param GetDataAgentThemeUploadSignatureRequest $request
+     *
+     * @return GetDataAgentThemeUploadSignatureResponse
+     */
+    public function getDataAgentThemeUploadSignature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataAgentThemeUploadSignatureWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of a collaborative workspace.
      *
      * @param request - GetDataAgentWorkspaceInfoRequest
@@ -4941,7 +5144,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 获取onemeta3.0的Ossie模型.
+     * Retrieves the Ossie model of onemeta 3.0.
      *
      * @param request - GetOneMetaOssieModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4984,7 +5187,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 获取onemeta3.0的Ossie模型.
+     * Retrieves the Ossie model of onemeta 3.0.
      *
      * @param request - GetOneMetaOssieModelRequest
      *
@@ -5284,7 +5487,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 导入Ossie模型.
+     * Creates an SQL template.
      *
      * @param request - ImportOneMetaOssieModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5351,7 +5554,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 导入Ossie模型.
+     * Creates an SQL template.
      *
      * @param request - ImportOneMetaOssieModelRequest
      *
@@ -6283,6 +6486,87 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataAgentSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+     *
+     * @param request - ListDataAgentThemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataAgentThemeResponse
+     *
+     * @param ListDataAgentThemeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListDataAgentThemeResponse
+     */
+    public function listDataAgentThemeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->themeFrom) {
+            @$query['ThemeFrom'] = $request->themeFrom;
+        }
+
+        if (null !== $request->themeType) {
+            @$query['ThemeType'] = $request->themeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataAgentTheme',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataAgentThemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+     *
+     * @param request - ListDataAgentThemeRequest
+     *
+     * @returns ListDataAgentThemeResponse
+     *
+     * @param ListDataAgentThemeRequest $request
+     *
+     * @return ListDataAgentThemeResponse
+     */
+    public function listDataAgentTheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataAgentThemeWithOptions($request, $runtime);
     }
 
     /**
@@ -7786,7 +8070,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 获取ossie模型列表.
+     * Retrieves a list of OSSIE models.
      *
      * @param request - ListOneMetaOssieModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7849,7 +8133,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 获取ossie模型列表.
+     * Retrieves a list of OSSIE models.
      *
      * @param request - ListOneMetaOssieModelsRequest
      *
@@ -7867,7 +8151,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 获取sql模版.
+     * Retrieves SQL templates.
      *
      * @param request - ListOneMetaSqlTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7934,7 +8218,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 获取sql模版.
+     * Retrieves SQL templates.
      *
      * @param request - ListOneMetaSqlTemplatesRequest
      *
@@ -8262,6 +8546,71 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDataAgentMcpWithOptions($request, $runtime);
+    }
+
+    /**
+     * ModifyDataAgentTheme.
+     *
+     * @param request - ModifyDataAgentThemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDataAgentThemeResponse
+     *
+     * @param ModifyDataAgentThemeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyDataAgentThemeResponse
+     */
+    public function modifyDataAgentThemeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->themeId) {
+            @$query['ThemeId'] = $request->themeId;
+        }
+
+        if (null !== $request->themeName) {
+            @$query['ThemeName'] = $request->themeName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDataAgentTheme',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDataAgentThemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ModifyDataAgentTheme.
+     *
+     * @param request - ModifyDataAgentThemeRequest
+     *
+     * @returns ModifyDataAgentThemeResponse
+     *
+     * @param ModifyDataAgentThemeRequest $request
+     *
+     * @return ModifyDataAgentThemeResponse
+     */
+    public function modifyDataAgentTheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDataAgentThemeWithOptions($request, $runtime);
     }
 
     /**
@@ -8660,12 +9009,10 @@ class Dms extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - `agent_id` and `session_id` are required fields.
      * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
      * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
      * - When `message_type` is `additional`, the `question` field is required.
-     * - `quoted_message` can be used to quote the user\\"s previous message content.
-     * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+     * - `quoted_message` can be used to quote the content of a previous user message.
      *
      * @param tmpReq - SendChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8782,12 +9129,10 @@ class Dms extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - `agent_id` and `session_id` are required fields.
      * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
      * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
      * - When `message_type` is `additional`, the `question` field is required.
-     * - `quoted_message` can be used to quote the user\\"s previous message content.
-     * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+     * - `quoted_message` can be used to quote the content of a previous user message.
      *
      * @param request - SendChatMessageRequest
      *
@@ -10085,7 +10430,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 更新Ossie模型.
+     * Updates an SQL template.
      *
      * @param request - UpdateOneMetaOssieModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10152,7 +10497,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 更新Ossie模型.
+     * Updates an SQL template.
      *
      * @param request - UpdateOneMetaOssieModelRequest
      *
@@ -10170,7 +10515,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 更新sql模版.
+     * Updates an SQL template.
      *
      * @param request - UpdateOneMetaSqlTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10237,7 +10582,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * 更新sql模版.
+     * Updates an SQL template.
      *
      * @param request - UpdateOneMetaSqlTemplateRequest
      *
