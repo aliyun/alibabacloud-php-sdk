@@ -235,6 +235,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFolderRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFolderResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteImageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteLineageRelationshipRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteLineageRelationshipResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMcpServerRequest;
@@ -8779,6 +8781,71 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFunctionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - DeleteImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteImageResponse
+     *
+     * @param DeleteImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteImageResponse
+     */
+    public function deleteImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteImage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an image.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     *
+     * @param Request - DeleteImageRequest
+     *
+     * @returns DeleteImageResponse
+     *
+     * @param DeleteImageRequest $request
+     *
+     * @return DeleteImageResponse
+     */
+    public function deleteImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteImageWithOptions($request, $runtime);
     }
 
     /**

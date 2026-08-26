@@ -1,3 +1,7 @@
+2026-08-26 Version: 8.3.0
+- Support API DeleteImage.
+
+
 2026-08-26 Version: 8.2.0
 - Support API BuildImage.
 - Support API CancelImageTest.
