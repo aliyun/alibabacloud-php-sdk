@@ -111,10 +111,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建产物上传凭证
+     * Creates an artifact upload credential.
      *
      * @remarks
-     * 获取上传内容所需链接，适用于大文件。
+     * Obtains the link required to upload content. This operation is applicable to large files.
      *
      * @param request - CreateArtifactUploadTokenRequest
      * @param headers - map
@@ -157,10 +157,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建产物上传凭证
+     * Creates an artifact upload credential.
      *
      * @remarks
-     * 获取上传内容所需链接，适用于大文件。
+     * Obtains the link required to upload content. This operation is applicable to large files.
      *
      * @param request - CreateArtifactUploadTokenRequest
      *
@@ -180,10 +180,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * New conversation.
+     * Creates a conversation.
      *
      * @remarks
-     * Starts a session.
+     * Initiates a conversation.
      *
      * @param request - CreateChatRequest
      * @param headers - map
@@ -254,10 +254,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * New conversation.
+     * Creates a conversation.
      *
      * @remarks
-     * Starts a session.
+     * Initiates a conversation.
      *
      * @param request - CreateChatRequest
      * @param headers - map
@@ -315,10 +315,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * New conversation.
+     * Creates a conversation.
      *
      * @remarks
-     * Starts a session.
+     * Initiates a conversation.
      *
      * @param request - CreateChatRequest
      *
@@ -337,7 +337,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Creates a digital employee.
+     * Creates a DigitalEmployee.
      *
      * @remarks
      * Creates a digital employee.
@@ -422,7 +422,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Creates a digital employee.
+     * Creates a DigitalEmployee.
      *
      * @remarks
      * Creates a digital employee.
@@ -1170,7 +1170,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 获取产物下载链接.
+     * Retrieves the download URL for an artifact.
+     *
+     * @remarks
+     * Retrieves the download URL for artifact content. This operation is suitable for large files.
      *
      * @param request - GetArtifactDownloadUrlRequest
      * @param headers - map
@@ -1213,7 +1216,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 获取产物下载链接.
+     * Retrieves the download URL for an artifact.
+     *
+     * @remarks
+     * Retrieves the download URL for artifact content. This operation is suitable for large files.
      *
      * @param request - GetArtifactDownloadUrlRequest
      *
@@ -1785,7 +1791,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Returns a list of digital employees.
+     * Lists digital employees.
      *
      * @remarks
      * Lists digital employees.
@@ -1860,7 +1866,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Returns a list of digital employees.
+     * Lists digital employees.
      *
      * @remarks
      * Lists digital employees.
