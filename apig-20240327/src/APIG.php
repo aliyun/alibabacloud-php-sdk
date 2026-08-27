@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\BatchImportHttpApisRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchImportHttpApisResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchRemoveConsumerGroupConsumersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchRemoveConsumerGroupConsumersResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchUpdateHttpApiOperationRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchUpdateHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAiModelCardRequest;
@@ -48,16 +50,24 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRouteRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRouteResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiVersionRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiVersionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateMcpServerRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateMcpServerResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateMigrationTaskRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateMigrationTaskResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePluginAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePluginClassRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePluginClassResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePluginWorkspaceRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePluginWorkspaceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateRiskCheckTaskRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateRiskCheckTaskResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateSecretRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateSecretResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceRequest;
@@ -86,6 +96,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiRouteResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteMcpServerResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteMigrationTaskRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteMigrationTaskResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginClassRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginClassResponse;
@@ -100,6 +112,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployMcpServerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DetachAndDeletePolicyRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DetachAndDeletePolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelCardRequest;
@@ -121,6 +135,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayElasticPolicyRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayElasticPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleSubjectUsageRequest;
@@ -131,13 +147,21 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiRouteResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetMcpServerResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetMigrationNamespacedServicesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetMigrationNamespacedServicesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetMigrationTaskRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetMigrationTaskResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginClassRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginClassResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginWorkspaceRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginWorkspaceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetRiskNotificationRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetRiskNotificationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetSecretResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetSecretValueResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetServiceResponse;
@@ -148,6 +172,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\InvokeAIAgentRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\InvokeAIAgentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelCardsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelCardsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelProvidersRequest;
@@ -170,24 +196,44 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListEnvironmentsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListEnvironmentsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListExternalServicesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListExternalServicesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayAuthorizableSecurityGroupsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayAuthorizableSecurityGroupsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayAuthorizedSecurityGroupRulesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayAuthorizedSecurityGroupRulesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayErrorAccessLogsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayErrorAccessLogsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayFeaturesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayLoadBalancersRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayLoadBalancersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayQuotaRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayQuotaRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysShrinkRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGlobalPoliciesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGlobalPoliciesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiOperationsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiOperationsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiRoutesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiRoutesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListInstallableGatewaysRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListInstallableGatewaysResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListK8sClusterSourcesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListK8sClusterSourcesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListMcpServersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListMcpServersResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListMigrationTasksRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListMigrationTasksResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListMseNacosSourcesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListMseNacosSourcesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginAttachmentsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginAttachmentsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginClassesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginClassesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginRepositoriesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginRepositoriesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPoliciesRequest;
@@ -242,6 +288,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateEnvironmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateEnvironmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayFeatureRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayFeatureResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayMaintenancePeriodRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayMaintenancePeriodResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayNameRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayNameResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayQuotaRuleRequest;
@@ -256,10 +304,16 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMcpServerRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMcpServerResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMigrationTaskRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMigrationTaskResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateNetworkAccessRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateNetworkAccessResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateRiskNotificationRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateRiskNotificationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateSecretRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateSecretResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceRequest;
@@ -268,6 +322,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceVersionRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceVersionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpgradeGatewayRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpgradeGatewayResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\VerifyMigrationTaskRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\VerifyMigrationTaskResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -893,6 +949,77 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->batchRemoveConsumerGroupConsumersWithOptions($consumerGroupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 批量更新消费者鉴权.
+     *
+     * @param request - BatchUpdateHttpApiOperationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchUpdateHttpApiOperationResponse
+     *
+     * @param string                             $httpApiId
+     * @param BatchUpdateHttpApiOperationRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return BatchUpdateHttpApiOperationResponse
+     */
+    public function batchUpdateHttpApiOperationWithOptions($httpApiId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->authConfig) {
+            @$body['authConfig'] = $request->authConfig;
+        }
+
+        if (null !== $request->enableAuth) {
+            @$body['enableAuth'] = $request->enableAuth;
+        }
+
+        if (null !== $request->operationIds) {
+            @$body['operationIds'] = $request->operationIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchUpdateHttpApiOperation',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/operations',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchUpdateHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量更新消费者鉴权.
+     *
+     * @param request - BatchUpdateHttpApiOperationRequest
+     *
+     * @returns BatchUpdateHttpApiOperationResponse
+     *
+     * @param string                             $httpApiId
+     * @param BatchUpdateHttpApiOperationRequest $request
+     *
+     * @return BatchUpdateHttpApiOperationResponse
+     */
+    public function batchUpdateHttpApiOperation($httpApiId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchUpdateHttpApiOperationWithOptions($httpApiId, $request, $headers, $runtime);
     }
 
     /**
@@ -2145,6 +2272,75 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 创建API版本.
+     *
+     * @remarks
+     * 接口支持创建多个服务。
+     *
+     * @param request - CreateHttpApiVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHttpApiVersionResponse
+     *
+     * @param string                      $httpApiId
+     * @param CreateHttpApiVersionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateHttpApiVersionResponse
+     */
+    public function createHttpApiVersionWithOptions($httpApiId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->versionConfig) {
+            @$body['versionConfig'] = $request->versionConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateHttpApiVersion',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/versions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateHttpApiVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建API版本.
+     *
+     * @remarks
+     * 接口支持创建多个服务。
+     *
+     * @param request - CreateHttpApiVersionRequest
+     *
+     * @returns CreateHttpApiVersionResponse
+     *
+     * @param string                      $httpApiId
+     * @param CreateHttpApiVersionRequest $request
+     *
+     * @return CreateHttpApiVersionResponse
+     */
+    public function createHttpApiVersion($httpApiId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createHttpApiVersionWithOptions($httpApiId, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates a Model Context Protocol (MCP) server.
      *
      * @param request - CreateMcpServerRequest
@@ -2255,6 +2451,95 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createMcpServerWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建迁移任务
+     *
+     * @param request - CreateMigrationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMigrationTaskResponse
+     *
+     * @param CreateMigrationTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateMigrationTaskResponse
+     */
+    public function createMigrationTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clusterId) {
+            @$body['clusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->environmentId) {
+            @$body['environmentId'] = $request->environmentId;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->httpApiId) {
+            @$body['httpApiId'] = $request->httpApiId;
+        }
+
+        if (null !== $request->ingressClass) {
+            @$body['ingressClass'] = $request->ingressClass;
+        }
+
+        if (null !== $request->migrationType) {
+            @$body['migrationType'] = $request->migrationType;
+        }
+
+        if (null !== $request->watchNamespace) {
+            @$body['watchNamespace'] = $request->watchNamespace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMigrationTask',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/migration-tasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMigrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建迁移任务
+     *
+     * @param request - CreateMigrationTaskRequest
+     *
+     * @returns CreateMigrationTaskResponse
+     *
+     * @param CreateMigrationTaskRequest $request
+     *
+     * @return CreateMigrationTaskResponse
+     */
+    public function createMigrationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMigrationTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2440,6 +2725,79 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 创建插件webide工作空间.
+     *
+     * @param request - CreatePluginWorkspaceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePluginWorkspaceResponse
+     *
+     * @param CreatePluginWorkspaceRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreatePluginWorkspaceResponse
+     */
+    public function createPluginWorkspaceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->gatewayType) {
+            @$body['gatewayType'] = $request->gatewayType;
+        }
+
+        if (null !== $request->organizationId) {
+            @$body['organizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->repoName) {
+            @$body['repoName'] = $request->repoName;
+        }
+
+        if (null !== $request->workspaceName) {
+            @$body['workspaceName'] = $request->workspaceName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePluginWorkspace',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-workspaces',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePluginWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建插件webide工作空间.
+     *
+     * @param request - CreatePluginWorkspaceRequest
+     *
+     * @returns CreatePluginWorkspaceResponse
+     *
+     * @param CreatePluginWorkspaceRequest $request
+     *
+     * @return CreatePluginWorkspaceResponse
+     */
+    public function createPluginWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPluginWorkspaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates a policy.
      *
      * @param request - CreatePolicyRequest
@@ -2587,6 +2945,63 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createPolicyAttachmentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建风险检查任务
+     *
+     * @param request - CreateRiskCheckTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRiskCheckTaskResponse
+     *
+     * @param string                     $gatewayId
+     * @param CreateRiskCheckTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateRiskCheckTaskResponse
+     */
+    public function createRiskCheckTaskWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'CreateRiskCheckTask',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/risk-check/tasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRiskCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建风险检查任务
+     *
+     * @param request - CreateRiskCheckTaskRequest
+     *
+     * @returns CreateRiskCheckTaskResponse
+     *
+     * @param string                     $gatewayId
+     * @param CreateRiskCheckTaskRequest $request
+     *
+     * @return CreateRiskCheckTaskResponse
+     */
+    public function createRiskCheckTask($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRiskCheckTaskWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -3683,6 +4098,63 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 删除迁移任务
+     *
+     * @param request - DeleteMigrationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMigrationTaskResponse
+     *
+     * @param string                     $taskId
+     * @param DeleteMigrationTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteMigrationTaskResponse
+     */
+    public function deleteMigrationTaskWithOptions($taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMigrationTask',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/migration-tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMigrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除迁移任务
+     *
+     * @param request - DeleteMigrationTaskRequest
+     *
+     * @returns DeleteMigrationTaskResponse
+     *
+     * @param string                     $taskId
+     * @param DeleteMigrationTaskRequest $request
+     *
+     * @return DeleteMigrationTaskResponse
+     */
+    public function deleteMigrationTask($taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMigrationTaskWithOptions($taskId, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a plugin mount.
      *
      * @param headers - map
@@ -4285,6 +4757,69 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->describeRegionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Disassociates and deletes a policy.
+     *
+     * @param request - DetachAndDeletePolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachAndDeletePolicyResponse
+     *
+     * @param string                       $policyId
+     * @param DetachAndDeletePolicyRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DetachAndDeletePolicyResponse
+     */
+    public function detachAndDeletePolicyWithOptions($policyId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->policyAttachmentId) {
+            @$query['policyAttachmentId'] = $request->policyAttachmentId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachAndDeletePolicy',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/policies/' . Url::percentEncode($policyId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DetachAndDeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disassociates and deletes a policy.
+     *
+     * @param request - DetachAndDeletePolicyRequest
+     *
+     * @returns DetachAndDeletePolicyResponse
+     *
+     * @param string                       $policyId
+     * @param DetachAndDeletePolicyRequest $request
+     *
+     * @return DetachAndDeletePolicyResponse
+     */
+    public function detachAndDeletePolicy($policyId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->detachAndDeletePolicyWithOptions($policyId, $request, $headers, $runtime);
     }
 
     /**
@@ -5035,6 +5570,63 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 获取网关弹性策略.
+     *
+     * @param request - GetGatewayElasticPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGatewayElasticPolicyResponse
+     *
+     * @param string                         $gatewayId
+     * @param GetGatewayElasticPolicyRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetGatewayElasticPolicyResponse
+     */
+    public function getGatewayElasticPolicyWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetGatewayElasticPolicy',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/elastic-policy',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGatewayElasticPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取网关弹性策略.
+     *
+     * @param request - GetGatewayElasticPolicyRequest
+     *
+     * @returns GetGatewayElasticPolicyResponse
+     *
+     * @param string                         $gatewayId
+     * @param GetGatewayElasticPolicyRequest $request
+     *
+     * @return GetGatewayElasticPolicyResponse
+     */
+    public function getGatewayElasticPolicy($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGatewayElasticPolicyWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the details of a gateway quota rate limiting rule.
      *
      * @remarks
@@ -5421,6 +6013,120 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 获取迁移任务中的命名空间和服务映射.
+     *
+     * @param request - GetMigrationNamespacedServicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMigrationNamespacedServicesResponse
+     *
+     * @param string                                $taskId
+     * @param GetMigrationNamespacedServicesRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetMigrationNamespacedServicesResponse
+     */
+    public function getMigrationNamespacedServicesWithOptions($taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMigrationNamespacedServices',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/migration-tasks/' . Url::percentEncode($taskId) . '/namespaced-services',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMigrationNamespacedServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取迁移任务中的命名空间和服务映射.
+     *
+     * @param request - GetMigrationNamespacedServicesRequest
+     *
+     * @returns GetMigrationNamespacedServicesResponse
+     *
+     * @param string                                $taskId
+     * @param GetMigrationNamespacedServicesRequest $request
+     *
+     * @return GetMigrationNamespacedServicesResponse
+     */
+    public function getMigrationNamespacedServices($taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMigrationNamespacedServicesWithOptions($taskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取迁移任务详情.
+     *
+     * @param request - GetMigrationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMigrationTaskResponse
+     *
+     * @param string                  $taskId
+     * @param GetMigrationTaskRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetMigrationTaskResponse
+     */
+    public function getMigrationTaskWithOptions($taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMigrationTask',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/migration-tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMigrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取迁移任务详情.
+     *
+     * @param request - GetMigrationTaskRequest
+     *
+     * @returns GetMigrationTaskResponse
+     *
+     * @param string                  $taskId
+     * @param GetMigrationTaskRequest $request
+     *
+     * @return GetMigrationTaskResponse
+     */
+    public function getMigrationTask($taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMigrationTaskWithOptions($taskId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries a plugin mount.
      *
      * @param headers - map
@@ -5526,6 +6232,63 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->getPluginClassWithOptions($pluginClassId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询插件webide工作空间.
+     *
+     * @param request - GetPluginWorkspaceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPluginWorkspaceResponse
+     *
+     * @param string                    $workspaceId
+     * @param GetPluginWorkspaceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetPluginWorkspaceResponse
+     */
+    public function getPluginWorkspaceWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetPluginWorkspace',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-workspaces/' . Url::percentEncode($workspaceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPluginWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询插件webide工作空间.
+     *
+     * @param request - GetPluginWorkspaceRequest
+     *
+     * @returns GetPluginWorkspaceResponse
+     *
+     * @param string                    $workspaceId
+     * @param GetPluginWorkspaceRequest $request
+     *
+     * @return GetPluginWorkspaceResponse
+     */
+    public function getPluginWorkspace($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPluginWorkspaceWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5689,6 +6452,69 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->getResourceOverviewWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取风险项通知配置.
+     *
+     * @param request - GetRiskNotificationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRiskNotificationResponse
+     *
+     * @param string                     $gatewayId
+     * @param GetRiskNotificationRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetRiskNotificationResponse
+     */
+    public function getRiskNotificationWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->riskCode) {
+            @$query['riskCode'] = $request->riskCode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRiskNotification',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/risk-check/notifications',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRiskNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取风险项通知配置.
+     *
+     * @param request - GetRiskNotificationRequest
+     *
+     * @returns GetRiskNotificationResponse
+     *
+     * @param string                     $gatewayId
+     * @param GetRiskNotificationRequest $request
+     *
+     * @return GetRiskNotificationResponse
+     */
+    public function getRiskNotification($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRiskNotificationWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -6146,6 +6972,154 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->installPluginWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 调用AIAgent.
+     *
+     * @param request - InvokeAIAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokeAIAgentResponse
+     *
+     * @param InvokeAIAgentRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InvokeAIAgentResponse
+     */
+    public function invokeAIAgentWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['agentName'] = $request->agentName;
+        }
+
+        if (null !== $request->bizParams) {
+            @$body['bizParams'] = $request->bizParams;
+        }
+
+        if (null !== $request->history) {
+            @$body['history'] = $request->history;
+        }
+
+        if (null !== $request->outputLanguage) {
+            @$body['outputLanguage'] = $request->outputLanguage;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['prompt'] = $request->prompt;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InvokeAIAgent',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/ai-agents/invoke',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield InvokeAIAgentResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 调用AIAgent.
+     *
+     * @param request - InvokeAIAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokeAIAgentResponse
+     *
+     * @param InvokeAIAgentRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InvokeAIAgentResponse
+     */
+    public function invokeAIAgentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['agentName'] = $request->agentName;
+        }
+
+        if (null !== $request->bizParams) {
+            @$body['bizParams'] = $request->bizParams;
+        }
+
+        if (null !== $request->history) {
+            @$body['history'] = $request->history;
+        }
+
+        if (null !== $request->outputLanguage) {
+            @$body['outputLanguage'] = $request->outputLanguage;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['prompt'] = $request->prompt;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InvokeAIAgent',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/ai-agents/invoke',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return InvokeAIAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 调用AIAgent.
+     *
+     * @param request - InvokeAIAgentRequest
+     *
+     * @returns InvokeAIAgentResponse
+     *
+     * @param InvokeAIAgentRequest $request
+     *
+     * @return InvokeAIAgentResponse
+     */
+    public function invokeAIAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->invokeAIAgentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7011,6 +7985,213 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Queries the security groups of an instance that can be used for authorization.
+     *
+     * @param request - ListGatewayAuthorizableSecurityGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayAuthorizableSecurityGroupsResponse
+     *
+     * @param string                                       $gatewayId
+     * @param ListGatewayAuthorizableSecurityGroupsRequest $request
+     * @param string[]                                     $headers
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListGatewayAuthorizableSecurityGroupsResponse
+     */
+    public function listGatewayAuthorizableSecurityGroupsWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->csClusterId) {
+            @$query['csClusterId'] = $request->csClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGatewayAuthorizableSecurityGroups',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/authorizable-security-groups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGatewayAuthorizableSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the security groups of an instance that can be used for authorization.
+     *
+     * @param request - ListGatewayAuthorizableSecurityGroupsRequest
+     *
+     * @returns ListGatewayAuthorizableSecurityGroupsResponse
+     *
+     * @param string                                       $gatewayId
+     * @param ListGatewayAuthorizableSecurityGroupsRequest $request
+     *
+     * @return ListGatewayAuthorizableSecurityGroupsResponse
+     */
+    public function listGatewayAuthorizableSecurityGroups($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayAuthorizableSecurityGroupsWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the security group rules of an instance that are in effect.
+     *
+     * @param request - ListGatewayAuthorizedSecurityGroupRulesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayAuthorizedSecurityGroupRulesResponse
+     *
+     * @param string                                         $gatewayId
+     * @param ListGatewayAuthorizedSecurityGroupRulesRequest $request
+     * @param string[]                                       $headers
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return ListGatewayAuthorizedSecurityGroupRulesResponse
+     */
+    public function listGatewayAuthorizedSecurityGroupRulesWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListGatewayAuthorizedSecurityGroupRules',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/authorized-security-groups-rules',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGatewayAuthorizedSecurityGroupRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the security group rules of an instance that are in effect.
+     *
+     * @param request - ListGatewayAuthorizedSecurityGroupRulesRequest
+     *
+     * @returns ListGatewayAuthorizedSecurityGroupRulesResponse
+     *
+     * @param string                                         $gatewayId
+     * @param ListGatewayAuthorizedSecurityGroupRulesRequest $request
+     *
+     * @return ListGatewayAuthorizedSecurityGroupRulesResponse
+     */
+    public function listGatewayAuthorizedSecurityGroupRules($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayAuthorizedSecurityGroupRulesWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取网关的错误访问日志.
+     *
+     * @param request - ListGatewayErrorAccessLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayErrorAccessLogsResponse
+     *
+     * @param string                            $gatewayId
+     * @param ListGatewayErrorAccessLogsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListGatewayErrorAccessLogsResponse
+     */
+    public function listGatewayErrorAccessLogsWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authority) {
+            @$query['authority'] = $request->authority;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->gatewayRequestId) {
+            @$query['gatewayRequestId'] = $request->gatewayRequestId;
+        }
+
+        if (null !== $request->path) {
+            @$query['path'] = $request->path;
+        }
+
+        if (null !== $request->responseCode) {
+            @$query['responseCode'] = $request->responseCode;
+        }
+
+        if (null !== $request->routeName) {
+            @$query['routeName'] = $request->routeName;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGatewayErrorAccessLogs',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/error-access-logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGatewayErrorAccessLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取网关的错误访问日志.
+     *
+     * @param request - ListGatewayErrorAccessLogsRequest
+     *
+     * @returns ListGatewayErrorAccessLogsResponse
+     *
+     * @param string                            $gatewayId
+     * @param ListGatewayErrorAccessLogsRequest $request
+     *
+     * @return ListGatewayErrorAccessLogsResponse
+     */
+    public function listGatewayErrorAccessLogs($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayErrorAccessLogsWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the list of gateway attribute parameter settings.
      *
      * @param headers - map
@@ -7059,6 +8240,89 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listGatewayFeaturesWithOptions($gatewayId, $headers, $runtime);
+    }
+
+    /**
+     * 获取网关负载均衡器列表.
+     *
+     * @param request - ListGatewayLoadBalancersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayLoadBalancersResponse
+     *
+     * @param string                          $gatewayId
+     * @param ListGatewayLoadBalancersRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListGatewayLoadBalancersResponse
+     */
+    public function listGatewayLoadBalancersWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->all) {
+            @$query['all'] = $request->all;
+        }
+
+        if (null !== $request->loadBalancerId) {
+            @$query['loadBalancerId'] = $request->loadBalancerId;
+        }
+
+        if (null !== $request->network) {
+            @$query['network'] = $request->network;
+        }
+
+        if (null !== $request->related) {
+            @$query['related'] = $request->related;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['vpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGatewayLoadBalancers',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/list-load-balancers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGatewayLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取网关负载均衡器列表.
+     *
+     * @param request - ListGatewayLoadBalancersRequest
+     *
+     * @returns ListGatewayLoadBalancersResponse
+     *
+     * @param string                          $gatewayId
+     * @param ListGatewayLoadBalancersRequest $request
+     *
+     * @return ListGatewayLoadBalancersResponse
+     */
+    public function listGatewayLoadBalancers($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayLoadBalancersWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -7243,6 +8507,115 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listGatewaysWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * ListGlobalPolicies.
+     *
+     * @param request - ListGlobalPoliciesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGlobalPoliciesResponse
+     *
+     * @param ListGlobalPoliciesRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListGlobalPoliciesResponse
+     */
+    public function listGlobalPoliciesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->attachResourceType) {
+            @$query['attachResourceType'] = $request->attachResourceType;
+        }
+
+        if (null !== $request->className) {
+            @$query['className'] = $request->className;
+        }
+
+        if (null !== $request->enable) {
+            @$query['enable'] = $request->enable;
+        }
+
+        if (null !== $request->environmentId) {
+            @$query['environmentId'] = $request->environmentId;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->globalPolicyType) {
+            @$query['globalPolicyType'] = $request->globalPolicyType;
+        }
+
+        if (null !== $request->ipAccessControlContent) {
+            @$query['ipAccessControlContent'] = $request->ipAccessControlContent;
+        }
+
+        if (null !== $request->ipAccessControlProtocolLayer) {
+            @$query['ipAccessControlProtocolLayer'] = $request->ipAccessControlProtocolLayer;
+        }
+
+        if (null !== $request->ipAccessControlResourceName) {
+            @$query['ipAccessControlResourceName'] = $request->ipAccessControlResourceName;
+        }
+
+        if (null !== $request->ipAccessControlType) {
+            @$query['ipAccessControlType'] = $request->ipAccessControlType;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGlobalPolicies',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/global-policies',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGlobalPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListGlobalPolicies.
+     *
+     * @param request - ListGlobalPoliciesRequest
+     *
+     * @returns ListGlobalPoliciesResponse
+     *
+     * @param ListGlobalPoliciesRequest $request
+     *
+     * @return ListGlobalPoliciesResponse
+     */
+    public function listGlobalPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGlobalPoliciesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7601,6 +8974,140 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * ListInstallableGateways.
+     *
+     * @param request - ListInstallableGatewaysRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstallableGatewaysResponse
+     *
+     * @param string                         $pluginClassId
+     * @param ListInstallableGatewaysRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListInstallableGatewaysResponse
+     */
+    public function listInstallableGatewaysWithOptions($pluginClassId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayType) {
+            @$query['gatewayType'] = $request->gatewayType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstallableGateways',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-classes/' . Url::percentEncode($pluginClassId) . '/installable-gateways',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstallableGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListInstallableGateways.
+     *
+     * @param request - ListInstallableGatewaysRequest
+     *
+     * @returns ListInstallableGatewaysResponse
+     *
+     * @param string                         $pluginClassId
+     * @param ListInstallableGatewaysRequest $request
+     *
+     * @return ListInstallableGatewaysResponse
+     */
+    public function listInstallableGateways($pluginClassId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstallableGatewaysWithOptions($pluginClassId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the Kubernetes (K8s) clusters that can be added as sources.
+     *
+     * @param request - ListK8sClusterSourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListK8sClusterSourcesResponse
+     *
+     * @param string                       $gatewayId
+     * @param ListK8sClusterSourcesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListK8sClusterSourcesResponse
+     */
+    public function listK8sClusterSourcesWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->vpcId) {
+            @$query['vpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListK8sClusterSources',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/gateways/' . Url::percentEncode($gatewayId) . '/service-sources/k8s-clusters',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListK8sClusterSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the Kubernetes (K8s) clusters that can be added as sources.
+     *
+     * @param request - ListK8sClusterSourcesRequest
+     *
+     * @returns ListK8sClusterSourcesResponse
+     *
+     * @param string                       $gatewayId
+     * @param ListK8sClusterSourcesRequest $request
+     *
+     * @return ListK8sClusterSourcesResponse
+     */
+    public function listK8sClusterSources($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listK8sClusterSourcesWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the list of MCP servers.
      *
      * @remarks
@@ -7689,6 +9196,128 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listMcpServersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取迁移任务列表.
+     *
+     * @param request - ListMigrationTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMigrationTasksResponse
+     *
+     * @param ListMigrationTasksRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListMigrationTasksResponse
+     */
+    public function listMigrationTasksWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMigrationTasks',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/migration-tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMigrationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取迁移任务列表.
+     *
+     * @param request - ListMigrationTasksRequest
+     *
+     * @returns ListMigrationTasksResponse
+     *
+     * @param ListMigrationTasksRequest $request
+     *
+     * @return ListMigrationTasksResponse
+     */
+    public function listMigrationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMigrationTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the MSE Nacos instances that can be added as sources.
+     *
+     * @param request - ListMseNacosSourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMseNacosSourcesResponse
+     *
+     * @param string                     $gatewayId
+     * @param ListMseNacosSourcesRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMseNacosSourcesResponse
+     */
+    public function listMseNacosSourcesWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListMseNacosSources',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/service-sources/mse-nacos-instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMseNacosSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the MSE Nacos instances that can be added as sources.
+     *
+     * @param request - ListMseNacosSourcesRequest
+     *
+     * @returns ListMseNacosSourcesResponse
+     *
+     * @param string                     $gatewayId
+     * @param ListMseNacosSourcesRequest $request
+     *
+     * @return ListMseNacosSourcesResponse
+     */
+    public function listMseNacosSources($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMseNacosSourcesWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -7889,6 +9518,61 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listPluginClassesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询自定义插件托管在云效上的仓库列表和组织信息.
+     *
+     * @param request - ListPluginRepositoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPluginRepositoriesResponse
+     *
+     * @param ListPluginRepositoriesRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListPluginRepositoriesResponse
+     */
+    public function listPluginRepositoriesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListPluginRepositories',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-repositories',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPluginRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自定义插件托管在云效上的仓库列表和组织信息.
+     *
+     * @param request - ListPluginRepositoriesRequest
+     *
+     * @returns ListPluginRepositoriesResponse
+     *
+     * @param ListPluginRepositoriesRequest $request
+     *
+     * @return ListPluginRepositoriesResponse
+     */
+    public function listPluginRepositories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPluginRepositoriesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -9663,6 +11347,9 @@ class APIG extends OpenApiClient
     /**
      * Updates a consumer authorization rule.
      *
+     * @remarks
+     * 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+     *
      * @param request - UpdateConsumerAuthorizationRuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9714,6 +11401,9 @@ class APIG extends OpenApiClient
 
     /**
      * Updates a consumer authorization rule.
+     *
+     * @remarks
+     * 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
      *
      * @param request - UpdateConsumerAuthorizationRuleRequest
      *
@@ -10044,6 +11734,69 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updateGatewayFeatureWithOptions($gatewayId, $name, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改网关运维时间.
+     *
+     * @param request - UpdateGatewayMaintenancePeriodRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayMaintenancePeriodResponse
+     *
+     * @param string                                $gatewayId
+     * @param UpdateGatewayMaintenancePeriodRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateGatewayMaintenancePeriodResponse
+     */
+    public function updateGatewayMaintenancePeriodWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->maintenancePeriod) {
+            @$body['maintenancePeriod'] = $request->maintenancePeriod;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGatewayMaintenancePeriod',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/maintenance-period',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGatewayMaintenancePeriodResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改网关运维时间.
+     *
+     * @param request - UpdateGatewayMaintenancePeriodRequest
+     *
+     * @returns UpdateGatewayMaintenancePeriodResponse
+     *
+     * @param string                                $gatewayId
+     * @param UpdateGatewayMaintenancePeriodRequest $request
+     *
+     * @return UpdateGatewayMaintenancePeriodResponse
+     */
+    public function updateGatewayMaintenancePeriod($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGatewayMaintenancePeriodWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -10687,6 +12440,160 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 更新迁移任务
+     *
+     * @param request - UpdateMigrationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMigrationTaskResponse
+     *
+     * @param string                     $taskId
+     * @param UpdateMigrationTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateMigrationTaskResponse
+     */
+    public function updateMigrationTaskWithOptions($taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clusterNamespace) {
+            @$body['clusterNamespace'] = $request->clusterNamespace;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->serviceName) {
+            @$body['serviceName'] = $request->serviceName;
+        }
+
+        if (null !== $request->slbId) {
+            @$body['slbId'] = $request->slbId;
+        }
+
+        if (null !== $request->switchType) {
+            @$body['switchType'] = $request->switchType;
+        }
+
+        if (null !== $request->target) {
+            @$body['target'] = $request->target;
+        }
+
+        if (null !== $request->virtualServices) {
+            @$body['virtualServices'] = $request->virtualServices;
+        }
+
+        if (null !== $request->weight) {
+            @$body['weight'] = $request->weight;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMigrationTask',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/migration-tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMigrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新迁移任务
+     *
+     * @param request - UpdateMigrationTaskRequest
+     *
+     * @returns UpdateMigrationTaskResponse
+     *
+     * @param string                     $taskId
+     * @param UpdateMigrationTaskRequest $request
+     *
+     * @return UpdateMigrationTaskResponse
+     */
+    public function updateMigrationTask($taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMigrationTaskWithOptions($taskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更改网关网络访问类型.
+     *
+     * @param request - UpdateNetworkAccessRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNetworkAccessResponse
+     *
+     * @param string                     $gatewayId
+     * @param UpdateNetworkAccessRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateNetworkAccessResponse
+     */
+    public function updateNetworkAccessWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->networkAccessType) {
+            @$query['networkAccessType'] = $request->networkAccessType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNetworkAccess',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/network-type',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNetworkAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更改网关网络访问类型.
+     *
+     * @param request - UpdateNetworkAccessRequest
+     *
+     * @returns UpdateNetworkAccessResponse
+     *
+     * @param string                     $gatewayId
+     * @param UpdateNetworkAccessRequest $request
+     *
+     * @return UpdateNetworkAccessResponse
+     */
+    public function updateNetworkAccess($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateNetworkAccessWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates a plugin mount.
      *
      * @param request - UpdatePluginAttachmentRequest
@@ -10826,6 +12733,73 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updatePolicyWithOptions($policyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新风险项通知配置.
+     *
+     * @param request - UpdateRiskNotificationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRiskNotificationResponse
+     *
+     * @param string                        $gatewayId
+     * @param UpdateRiskNotificationRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateRiskNotificationResponse
+     */
+    public function updateRiskNotificationWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->isMute) {
+            @$body['isMute'] = $request->isMute;
+        }
+
+        if (null !== $request->riskCode) {
+            @$body['riskCode'] = $request->riskCode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRiskNotification',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/risk-check/notifications',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRiskNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新风险项通知配置.
+     *
+     * @param request - UpdateRiskNotificationRequest
+     *
+     * @returns UpdateRiskNotificationResponse
+     *
+     * @param string                        $gatewayId
+     * @param UpdateRiskNotificationRequest $request
+     *
+     * @return UpdateRiskNotificationResponse
+     */
+    public function updateRiskNotification($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateRiskNotificationWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -11122,5 +13096,62 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->upgradeGatewayWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 检查迁移任务
+     *
+     * @param request - VerifyMigrationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyMigrationTaskResponse
+     *
+     * @param string                     $taskId
+     * @param VerifyMigrationTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return VerifyMigrationTaskResponse
+     */
+    public function verifyMigrationTaskWithOptions($taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'VerifyMigrationTask',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/migration-tasks/' . Url::percentEncode($taskId) . '/verify',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyMigrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查迁移任务
+     *
+     * @param request - VerifyMigrationTaskRequest
+     *
+     * @returns VerifyMigrationTaskResponse
+     *
+     * @param string                     $taskId
+     * @param VerifyMigrationTaskRequest $request
+     *
+     * @return VerifyMigrationTaskResponse
+     */
+    public function verifyMigrationTask($taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->verifyMigrationTaskWithOptions($taskId, $request, $headers, $runtime);
     }
 }
