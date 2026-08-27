@@ -12,8 +12,14 @@ class DescribeModelOperatorRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $region;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'region' => 'Region',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DescribeModelOperatorRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DescribeModelOperatorRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;

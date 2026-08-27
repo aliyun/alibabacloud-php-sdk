@@ -8,7 +8,12 @@ use AlibabaCloud\Dara\Model;
 
 class GetModelOperatorOrderRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $region;
     protected $_name = [
+        'region' => 'Region',
     ];
 
     public function validate()
@@ -18,7 +23,12 @@ class GetModelOperatorOrderRequest extends Model
 
     public function toArray($noStream = false)
     {
-        return [];
+        $res = [];
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+
+        return $res;
     }
 
     public function toMap($noStream = false)
@@ -28,6 +38,11 @@ class GetModelOperatorOrderRequest extends Model
 
     public static function fromMap($map = [])
     {
-        return new self();
+        $model = new self();
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+
+        return $model;
     }
 }
