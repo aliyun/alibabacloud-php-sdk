@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateRoleRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $newAllowConsoleLogin;
+
+    /**
      * @var string
      */
     public $newAssumeRolePolicyDocument;
@@ -28,6 +33,7 @@ class UpdateRoleRequest extends Model
      */
     public $roleName;
     protected $_name = [
+        'newAllowConsoleLogin' => 'NewAllowConsoleLogin',
         'newAssumeRolePolicyDocument' => 'NewAssumeRolePolicyDocument',
         'newDescription' => 'NewDescription',
         'newMaxSessionDuration' => 'NewMaxSessionDuration',
@@ -42,6 +48,10 @@ class UpdateRoleRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->newAllowConsoleLogin) {
+            $res['NewAllowConsoleLogin'] = $this->newAllowConsoleLogin;
+        }
+
         if (null !== $this->newAssumeRolePolicyDocument) {
             $res['NewAssumeRolePolicyDocument'] = $this->newAssumeRolePolicyDocument;
         }
@@ -69,6 +79,10 @@ class UpdateRoleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NewAllowConsoleLogin'])) {
+            $model->newAllowConsoleLogin = $map['NewAllowConsoleLogin'];
+        }
+
         if (isset($map['NewAssumeRolePolicyDocument'])) {
             $model->newAssumeRolePolicyDocument = $map['NewAssumeRolePolicyDocument'];
         }

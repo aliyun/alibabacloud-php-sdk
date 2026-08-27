@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\Ram\V20150501\Models\CreatePolicyVersionResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateRoleRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateRoleResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateRoleShrinkRequest;
+use AlibabaCloud\SDK\Ram\V20150501\Models\CreateServiceLinkedRoleRequest;
+use AlibabaCloud\SDK\Ram\V20150501\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\CreateVirtualMFADeviceRequest;
@@ -50,6 +52,8 @@ use AlibabaCloud\SDK\Ram\V20150501\Models\DeletePolicyVersionRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DeletePolicyVersionResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DeleteRoleRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DeleteRoleResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\DeleteServiceLinkedRoleRequest;
+use AlibabaCloud\SDK\Ram\V20150501\Models\DeleteServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DeleteVirtualMFADeviceRequest;
@@ -75,6 +79,8 @@ use AlibabaCloud\SDK\Ram\V20150501\Models\GetPolicyVersionResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetRoleRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetRoleResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetSecurityPreferenceResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\GetServiceLinkedRoleTemplateRequest;
+use AlibabaCloud\SDK\Ram\V20150501\Models\GetServiceLinkedRoleTemplateResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetUserMFAInfoRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetUserMFAInfoResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetUserRequest;
@@ -149,7 +155,31 @@ class Ram extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'central';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-beijing' => 'ram.aliyuncs.com',
+            'cn-qingdao' => 'ram.aliyuncs.com',
+            'cn-shanghai' => 'ram.aliyuncs.com',
+            'cn-hongkong' => 'ram.aliyuncs.com',
+            'cn-zhangjiakou' => 'ram.aliyuncs.com',
+            'cn-shenzhen' => 'ram.aliyuncs.com',
+            'ap-northeast-1' => 'ram.aliyuncs.com',
+            'cn-chengdu' => 'ram.aliyuncs.com',
+            'ap-southeast-1' => 'ram.aliyuncs.com',
+            'ap-southeast-3' => 'ram.aliyuncs.com',
+            'cn-huhehaote' => 'ram.aliyuncs.com',
+            'ap-southeast-5' => 'ram.aliyuncs.com',
+            'cn-hangzhou' => 'ram.aliyuncs.com',
+            'us-east-1' => 'ram.aliyuncs.com',
+            'eu-west-1' => 'ram.aliyuncs.com',
+            'us-west-1' => 'ram.aliyuncs.com',
+            'eu-central-1' => 'ram.aliyuncs.com',
+            'me-east-1' => 'ram.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'ram.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'ram.aliyuncs.com',
+            'cn-beijing-finance-1' => 'ram.aliyuncs.com',
+            'cn-hangzhou-finance' => 'ram.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ram', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -240,7 +270,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Attaches a policy to a Resource Access Management (RAM) user group.
+     * Calls the AttachPolicyToGroup operation to attach a permission to a specified user group.
      *
      * @param request - AttachPolicyToGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -291,7 +321,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Attaches a policy to a Resource Access Management (RAM) user group.
+     * Calls the AttachPolicyToGroup operation to attach a permission to a specified user group.
      *
      * @param request - AttachPolicyToGroupRequest
      *
@@ -309,7 +339,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Attaches a policy to a Resource Access Management (RAM) role.
+     * Calls the AttachPolicyToRole operation to add a permission to a specified role.
      *
      * @param request - AttachPolicyToRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -360,7 +390,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Attaches a policy to a Resource Access Management (RAM) role.
+     * Calls the AttachPolicyToRole operation to add a permission to a specified role.
      *
      * @param request - AttachPolicyToRoleRequest
      *
@@ -378,7 +408,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Attaches a policy to a Resource Access Management (RAM) user.
+     * Attaches an access policy to a specified user.
      *
      * @param request - AttachPolicyToUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -429,7 +459,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Attaches a policy to a Resource Access Management (RAM) user.
+     * Attaches an access policy to a specified user.
      *
      * @param request - AttachPolicyToUserRequest
      *
@@ -516,10 +546,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+     * Allows a Resource Access Management (RAM) user to invoke ChangePassword to change their own console logon password.
      *
      * @remarks
-     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+     * > This API operation can be invoked only by Resource Access Management (RAM) users. Before invoking this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True` in Settings, which allows RAM users to manage their own passwords.
+     * This operation is used only by the current RAM user to change their own console logon password. The `OldPassword` parameter must be provided when invoking this operation. If an administrator needs to set or reset the password for another RAM user, invoke `UpdateLoginProfile`.
      *
      * @param request - ChangePasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -562,10 +593,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+     * Allows a Resource Access Management (RAM) user to invoke ChangePassword to change their own console logon password.
      *
      * @remarks
-     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+     * > This API operation can be invoked only by Resource Access Management (RAM) users. Before invoking this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True` in Settings, which allows RAM users to manage their own passwords.
+     * This operation is used only by the current RAM user to change their own console logon password. The `OldPassword` parameter must be provided when invoking this operation. If an administrator needs to set or reset the password for another RAM user, invoke `UpdateLoginProfile`.
      *
      * @param request - ChangePasswordRequest
      *
@@ -585,7 +617,6 @@ class Ram extends OpenApiClient
     /**
      * Deletes the alias of an Alibaba Cloud account.
      *
-     * @param request - ClearAccountAliasRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ClearAccountAliasResponse
@@ -627,7 +658,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Creates an AccessKey pair for a Resource Access Management (RAM) user.
+     * Invokes the CreateAccessKey operation to create an AccessKey pair for a Resource Access Management (RAM) user.
+     *
+     * @remarks
+     * Each RAM user can have a maximum of two AccessKey pairs.
      *
      * @param request - CreateAccessKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -666,7 +700,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Creates an AccessKey pair for a Resource Access Management (RAM) user.
+     * Invokes the CreateAccessKey operation to create an AccessKey pair for a Resource Access Management (RAM) user.
+     *
+     * @remarks
+     * Each RAM user can have a maximum of two AccessKey pairs.
      *
      * @param request - CreateAccessKeyRequest
      *
@@ -966,11 +1003,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Creates a Resource Access Management (RAM) role.
+     * Creates a RAM role.
      *
      * @remarks
-     * ### [](#)Operation description
-     * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+     * ### Operation description
+     * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
      *
      * @param tmpReq - CreateRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -992,6 +1029,10 @@ class Ram extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->allowConsoleLogin) {
+            @$query['AllowConsoleLogin'] = $request->allowConsoleLogin;
+        }
+
         if (null !== $request->assumeRolePolicyDocument) {
             @$query['AssumeRolePolicyDocument'] = $request->assumeRolePolicyDocument;
         }
@@ -1031,11 +1072,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Creates a Resource Access Management (RAM) role.
+     * Creates a RAM role.
      *
      * @remarks
-     * ### [](#)Operation description
-     * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+     * ### Operation description
+     * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
      *
      * @param request - CreateRoleRequest
      *
@@ -1050,6 +1091,71 @@ class Ram extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a service-linked role.
+     *
+     * @param request - CreateServiceLinkedRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceLinkedRoleResponse
+     *
+     * @param CreateServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateServiceLinkedRoleResponse
+     */
+    public function createServiceLinkedRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customSuffix) {
+            @$query['CustomSuffix'] = $request->customSuffix;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateServiceLinkedRole',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a service-linked role.
+     *
+     * @param request - CreateServiceLinkedRoleRequest
+     *
+     * @returns CreateServiceLinkedRoleResponse
+     *
+     * @param CreateServiceLinkedRoleRequest $request
+     *
+     * @return CreateServiceLinkedRoleResponse
+     */
+    public function createServiceLinkedRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceLinkedRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -1189,7 +1295,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+     * Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
      *
      * @param request - DecodeDiagnosticMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1228,7 +1334,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+     * Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
      *
      * @param request - DecodeDiagnosticMessageRequest
      *
@@ -1614,6 +1720,63 @@ class Ram extends OpenApiClient
     }
 
     /**
+     * Deletes a service-linked role.
+     *
+     * @param request - DeleteServiceLinkedRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceLinkedRoleResponse
+     *
+     * @param DeleteServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteServiceLinkedRoleResponse
+     */
+    public function deleteServiceLinkedRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteServiceLinkedRole',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a service-linked role.
+     *
+     * @param request - DeleteServiceLinkedRoleRequest
+     *
+     * @returns DeleteServiceLinkedRoleResponse
+     *
+     * @param DeleteServiceLinkedRoleRequest $request
+     *
+     * @return DeleteServiceLinkedRoleResponse
+     */
+    public function deleteServiceLinkedRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteServiceLinkedRoleWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a Resource Access Management (RAM) user.
      *
      * @remarks
@@ -1734,7 +1897,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Detaches a policy from a Resource Access Management (RAM) user group.
+     * Calls the DetachPolicyFromGroup operation to revoke a specified permission from a user group.
      *
      * @param request - DetachPolicyFromGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1785,7 +1948,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Detaches a policy from a Resource Access Management (RAM) user group.
+     * Calls the DetachPolicyFromGroup operation to revoke a specified permission from a user group.
      *
      * @param request - DetachPolicyFromGroupRequest
      *
@@ -1803,7 +1966,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Detaches a policy from a Resource Access Management (RAM) role.
+     * Revokes a specified access policy from a role.
      *
      * @param request - DetachPolicyFromRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1854,7 +2017,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Detaches a policy from a Resource Access Management (RAM) role.
+     * Revokes a specified access policy from a role.
      *
      * @param request - DetachPolicyFromRoleRequest
      *
@@ -1872,7 +2035,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Detaches a policy from a Resource Access Management (RAM) user.
+     * Revokes a specified permission from a user by calling the DetachPolicyFromUser operation.
      *
      * @param request - DetachPolicyFromUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1923,7 +2086,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Detaches a policy from a Resource Access Management (RAM) user.
+     * Revokes a specified permission from a user by calling the DetachPolicyFromUser operation.
      *
      * @param request - DetachPolicyFromUserRequest
      *
@@ -1941,6 +2104,8 @@ class Ram extends OpenApiClient
     }
 
     /**
+     * Queries the last time when an AccessKey pair was used.
+     *
      * @param request - GetAccessKeyLastUsedRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1982,6 +2147,8 @@ class Ram extends OpenApiClient
     }
 
     /**
+     * Queries the last time when an AccessKey pair was used.
+     *
      * @param request - GetAccessKeyLastUsedRequest
      *
      * @returns GetAccessKeyLastUsedResponse
@@ -2000,7 +2167,6 @@ class Ram extends OpenApiClient
     /**
      * Queries the alias of an Alibaba Cloud account.
      *
-     * @param request - GetAccountAliasRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAccountAliasResponse
@@ -2042,7 +2208,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries information about a Resource Access Management (RAM) user group.
+     * Queries the information of a user group by calling the GetGroup operation.
      *
      * @param request - GetGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2081,7 +2247,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries information about a Resource Access Management (RAM) user group.
+     * Queries the information of a user group by calling the GetGroup operation.
      *
      * @param request - GetGroupRequest
      *
@@ -2099,7 +2265,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the logon configurations of a Resource Access Management (RAM) user.
+     * Invokes the GetLoginProfile operation to view the logon configuration of a Resource Access Management (RAM) user.
      *
      * @param request - GetLoginProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2138,7 +2304,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the logon configurations of a Resource Access Management (RAM) user.
+     * Invokes the GetLoginProfile operation to view the logon configuration of a Resource Access Management (RAM) user.
      *
      * @param request - GetLoginProfileRequest
      *
@@ -2158,7 +2324,6 @@ class Ram extends OpenApiClient
     /**
      * Queries the password policy of Resource Access Management (RAM) users, including the password strength.
      *
-     * @param request - GetPasswordPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetPasswordPolicyResponse
@@ -2200,7 +2365,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries information about a policy.
+     * Retrieves the information of a specified access policy.
      *
      * @param request - GetPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2243,7 +2408,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries information about a policy.
+     * Retrieves the information of a specified access policy.
      *
      * @param request - GetPolicyRequest
      *
@@ -2261,7 +2426,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the information about a policy version.
+     * Retrieves a specific version of an access policy.
      *
      * @param request - GetPolicyVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2308,7 +2473,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the information about a policy version.
+     * Retrieves a specific version of an access policy.
      *
      * @param request - GetPolicyVersionRequest
      *
@@ -2326,7 +2491,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries information about a Resource Access Management (RAM) role.
+     * Retrieves the information about a role.
      *
      * @param request - GetRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2365,7 +2530,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries information about a Resource Access Management (RAM) role.
+     * Retrieves the information about a role.
      *
      * @param request - GetRoleRequest
      *
@@ -2385,7 +2550,6 @@ class Ram extends OpenApiClient
     /**
      * Queries the security preferences.
      *
-     * @param request - GetSecurityPreferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSecurityPreferenceResponse
@@ -2427,10 +2591,67 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries information about a Resource Access Management (RAM) user.
+     * Retrieves the template of a service-linked role.
+     *
+     * @param request - GetServiceLinkedRoleTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceLinkedRoleTemplateResponse
+     *
+     * @param GetServiceLinkedRoleTemplateRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetServiceLinkedRoleTemplateResponse
+     */
+    public function getServiceLinkedRoleTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetServiceLinkedRoleTemplate',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServiceLinkedRoleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the template of a service-linked role.
+     *
+     * @param request - GetServiceLinkedRoleTemplateRequest
+     *
+     * @returns GetServiceLinkedRoleTemplateResponse
+     *
+     * @param GetServiceLinkedRoleTemplateRequest $request
+     *
+     * @return GetServiceLinkedRoleTemplateResponse
+     */
+    public function getServiceLinkedRoleTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceLinkedRoleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call the GetUser operation to query the details of a Resource Access Management (RAM) user.
      *
      * @remarks
-     * This topic provides an example on how to query information about the RAM user `alice`.
+     * This topic provides an example of how to query the details of the RAM user `alice`.
      *
      * @param request - GetUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2469,10 +2690,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries information about a Resource Access Management (RAM) user.
+     * You can call the GetUser operation to query the details of a Resource Access Management (RAM) user.
      *
      * @remarks
-     * This topic provides an example on how to query information about the RAM user `alice`.
+     * This topic provides an example of how to query the details of the RAM user `alice`.
      *
      * @param request - GetUserRequest
      *
@@ -2547,7 +2768,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries all AccessKey pairs that belong to a Resource Access Management (RAM) user.
+     * Lists the AccessKey pairs of a specified user.
      *
      * @param request - ListAccessKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2586,7 +2807,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries all AccessKey pairs that belong to a Resource Access Management (RAM) user.
+     * Lists the AccessKey pairs of a specified user.
      *
      * @param request - ListAccessKeysRequest
      *
@@ -2604,7 +2825,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the entities to which a policy is attached.
+     * Lists the entities that reference an access policy.
      *
      * @param request - ListEntitiesForPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2647,7 +2868,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the entities to which a policy is attached.
+     * Lists the entities that reference an access policy.
      *
      * @param request - ListEntitiesForPolicyRequest
      *
@@ -2665,7 +2886,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries Resource Access Management (RAM) user groups.
+     * Queries the list of user groups by calling the ListGroups operation.
      *
      * @param request - ListGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2708,7 +2929,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries Resource Access Management (RAM) user groups.
+     * Queries the list of user groups by calling the ListGroups operation.
      *
      * @param request - ListGroupsRequest
      *
@@ -2726,11 +2947,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+     * Invokes the ListGroupsForUser operation to query the information about the groups to which a specified Resource Access Management (RAM) user is added.
      *
      * @remarks
-     * ### [](#)
-     * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+     * ### Usage notes
+     * This topic provides an example on how to query the information about the groups to which the Resource Access Management (RAM) user `Alice` is added. The response shows that `Alice` is added to the group named `Dev-Team`.
      *
      * @param request - ListGroupsForUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2769,11 +2990,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+     * Invokes the ListGroupsForUser operation to query the information about the groups to which a specified Resource Access Management (RAM) user is added.
      *
      * @remarks
-     * ### [](#)
-     * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+     * ### Usage notes
+     * This topic provides an example on how to query the information about the groups to which the Resource Access Management (RAM) user `Alice` is added. The response shows that `Alice` is added to the group named `Dev-Team`.
      *
      * @param request - ListGroupsForUserRequest
      *
@@ -2791,7 +3012,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries a list of policies.
+     * Invokes the ListPolicies operation to list access policies.
      *
      * @param tmpReq - ListPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2848,7 +3069,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries a list of policies.
+     * Invokes the ListPolicies operation to list access policies.
      *
      * @param request - ListPoliciesRequest
      *
@@ -2866,7 +3087,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the policies that are attached to a Resource Access Management (RAM) user group.
+     * Lists the permission policies attached to a user group.
      *
      * @param request - ListPoliciesForGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2905,7 +3126,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the policies that are attached to a Resource Access Management (RAM) user group.
+     * Lists the permission policies attached to a user group.
      *
      * @param request - ListPoliciesForGroupRequest
      *
@@ -2923,7 +3144,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the policies that are attached to a Resource Access Management (RAM) role.
+     * Lists the access policies attached to a role.
      *
      * @param request - ListPoliciesForRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2962,7 +3183,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the policies that are attached to a Resource Access Management (RAM) role.
+     * Lists the access policies attached to a role.
      *
      * @param request - ListPoliciesForRoleRequest
      *
@@ -3043,7 +3264,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the versions of a policy.
+     * Lists the versions of an access policy.
      *
      * @param request - ListPolicyVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3086,7 +3307,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the versions of a policy.
+     * Lists the versions of an access policy.
      *
      * @param request - ListPolicyVersionsRequest
      *
@@ -3104,7 +3325,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries all Resource Access Management (RAM) roles.
+     * Lists RAM roles.
      *
      * @param tmpReq - ListRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3157,7 +3378,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries all Resource Access Management (RAM) roles.
+     * Lists RAM roles.
      *
      * @param request - ListRolesRequest
      *
@@ -3319,7 +3540,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries Resource Access Management (RAM) users in a RAM user group.
+     * Lists the Resource Access Management (RAM) users in a specified user group.
      *
      * @param request - ListUsersForGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3366,7 +3587,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries Resource Access Management (RAM) users in a RAM user group.
+     * Lists the Resource Access Management (RAM) users in a specified user group.
      *
      * @param request - ListUsersForGroupRequest
      *
@@ -3386,7 +3607,6 @@ class Ram extends OpenApiClient
     /**
      * Queries multi-factor authentication (MFA) devices.
      *
-     * @param request - ListVirtualMFADevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListVirtualMFADevicesResponse
@@ -4256,10 +4476,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Modifies information about a Resource Access Management (RAM) role.
+     * Calls the UpdateRole operation to update the information of a RAM role.
      *
      * @remarks
-     * This topic provides an example on how to change the description of `ECSAdmin` to `ECS administrator`.
+     * This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
      *
      * @param request - UpdateRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4275,6 +4495,10 @@ class Ram extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->newAllowConsoleLogin) {
+            @$query['NewAllowConsoleLogin'] = $request->newAllowConsoleLogin;
+        }
+
         if (null !== $request->newAssumeRolePolicyDocument) {
             @$query['NewAssumeRolePolicyDocument'] = $request->newAssumeRolePolicyDocument;
         }
@@ -4310,10 +4534,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Modifies information about a Resource Access Management (RAM) role.
+     * Calls the UpdateRole operation to update the information of a RAM role.
      *
      * @remarks
-     * This topic provides an example on how to change the description of `ECSAdmin` to `ECS administrator`.
+     * This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
      *
      * @param request - UpdateRoleRequest
      *

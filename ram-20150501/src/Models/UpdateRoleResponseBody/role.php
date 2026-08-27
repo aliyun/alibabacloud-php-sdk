@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class role extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowConsoleLogin;
+
+    /**
      * @var string
      */
     public $arn;
@@ -48,6 +53,7 @@ class role extends Model
      */
     public $updateDate;
     protected $_name = [
+        'allowConsoleLogin' => 'AllowConsoleLogin',
         'arn' => 'Arn',
         'assumeRolePolicyDocument' => 'AssumeRolePolicyDocument',
         'createDate' => 'CreateDate',
@@ -66,6 +72,10 @@ class role extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowConsoleLogin) {
+            $res['AllowConsoleLogin'] = $this->allowConsoleLogin;
+        }
+
         if (null !== $this->arn) {
             $res['Arn'] = $this->arn;
         }
@@ -109,6 +119,10 @@ class role extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowConsoleLogin'])) {
+            $model->allowConsoleLogin = $map['AllowConsoleLogin'];
+        }
+
         if (isset($map['Arn'])) {
             $model->arn = $map['Arn'];
         }

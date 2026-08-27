@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateRoleShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowConsoleLogin;
+
+    /**
      * @var string
      */
     public $assumeRolePolicyDocument;
@@ -33,6 +38,7 @@ class CreateRoleShrinkRequest extends Model
      */
     public $tagShrink;
     protected $_name = [
+        'allowConsoleLogin' => 'AllowConsoleLogin',
         'assumeRolePolicyDocument' => 'AssumeRolePolicyDocument',
         'description' => 'Description',
         'maxSessionDuration' => 'MaxSessionDuration',
@@ -48,6 +54,10 @@ class CreateRoleShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowConsoleLogin) {
+            $res['AllowConsoleLogin'] = $this->allowConsoleLogin;
+        }
+
         if (null !== $this->assumeRolePolicyDocument) {
             $res['AssumeRolePolicyDocument'] = $this->assumeRolePolicyDocument;
         }
@@ -79,6 +89,10 @@ class CreateRoleShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowConsoleLogin'])) {
+            $model->allowConsoleLogin = $map['AllowConsoleLogin'];
+        }
+
         if (isset($map['AssumeRolePolicyDocument'])) {
             $model->assumeRolePolicyDocument = $map['AssumeRolePolicyDocument'];
         }

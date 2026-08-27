@@ -2,22 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListRolesResponseBody\roles;
+namespace AlibabaCloud\SDK\Ram\V20150501\Models\CreateServiceLinkedRoleResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Ram\V20150501\Models\ListRolesResponseBody\roles\role\tags;
 
 class role extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $allowConsoleLogin;
+    public $arn;
 
     /**
      * @var string
      */
-    public $arn;
+    public $assumeRolePolicyDocument;
 
     /**
      * @var string
@@ -30,9 +29,9 @@ class role extends Model
     public $description;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $maxSessionDuration;
+    public $isServiceLinkedRole;
 
     /**
      * @var string
@@ -43,45 +42,30 @@ class role extends Model
      * @var string
      */
     public $roleName;
-
-    /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
-    public $updateDate;
     protected $_name = [
-        'allowConsoleLogin' => 'AllowConsoleLogin',
         'arn' => 'Arn',
+        'assumeRolePolicyDocument' => 'AssumeRolePolicyDocument',
         'createDate' => 'CreateDate',
         'description' => 'Description',
-        'maxSessionDuration' => 'MaxSessionDuration',
+        'isServiceLinkedRole' => 'IsServiceLinkedRole',
         'roleId' => 'RoleId',
         'roleName' => 'RoleName',
-        'tags' => 'Tags',
-        'updateDate' => 'UpdateDate',
     ];
 
     public function validate()
     {
-        if (null !== $this->tags) {
-            $this->tags->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->allowConsoleLogin) {
-            $res['AllowConsoleLogin'] = $this->allowConsoleLogin;
-        }
-
         if (null !== $this->arn) {
             $res['Arn'] = $this->arn;
+        }
+
+        if (null !== $this->assumeRolePolicyDocument) {
+            $res['AssumeRolePolicyDocument'] = $this->assumeRolePolicyDocument;
         }
 
         if (null !== $this->createDate) {
@@ -92,8 +76,8 @@ class role extends Model
             $res['Description'] = $this->description;
         }
 
-        if (null !== $this->maxSessionDuration) {
-            $res['MaxSessionDuration'] = $this->maxSessionDuration;
+        if (null !== $this->isServiceLinkedRole) {
+            $res['IsServiceLinkedRole'] = $this->isServiceLinkedRole;
         }
 
         if (null !== $this->roleId) {
@@ -102,14 +86,6 @@ class role extends Model
 
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
-        }
-
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
-        }
-
-        if (null !== $this->updateDate) {
-            $res['UpdateDate'] = $this->updateDate;
         }
 
         return $res;
@@ -123,12 +99,12 @@ class role extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AllowConsoleLogin'])) {
-            $model->allowConsoleLogin = $map['AllowConsoleLogin'];
-        }
-
         if (isset($map['Arn'])) {
             $model->arn = $map['Arn'];
+        }
+
+        if (isset($map['AssumeRolePolicyDocument'])) {
+            $model->assumeRolePolicyDocument = $map['AssumeRolePolicyDocument'];
         }
 
         if (isset($map['CreateDate'])) {
@@ -139,8 +115,8 @@ class role extends Model
             $model->description = $map['Description'];
         }
 
-        if (isset($map['MaxSessionDuration'])) {
-            $model->maxSessionDuration = $map['MaxSessionDuration'];
+        if (isset($map['IsServiceLinkedRole'])) {
+            $model->isServiceLinkedRole = $map['IsServiceLinkedRole'];
         }
 
         if (isset($map['RoleId'])) {
@@ -149,14 +125,6 @@ class role extends Model
 
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
-        }
-
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
-
-        if (isset($map['UpdateDate'])) {
-            $model->updateDate = $map['UpdateDate'];
         }
 
         return $model;

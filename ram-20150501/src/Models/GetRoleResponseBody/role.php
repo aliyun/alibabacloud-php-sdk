@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\GetRoleResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ram\V20150501\Models\GetRoleResponseBody\role\latestDeletionTask;
 
 class role extends Model
 {
+    /**
+     * @var bool
+     */
+    public $allowConsoleLogin;
+
     /**
      * @var string
      */
@@ -29,6 +35,16 @@ class role extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $isServiceLinkedRole;
+
+    /**
+     * @var latestDeletionTask
+     */
+    public $latestDeletionTask;
+
+    /**
      * @var int
      */
     public $maxSessionDuration;
@@ -46,26 +62,42 @@ class role extends Model
     /**
      * @var string
      */
+    public $rolePrincipalName;
+
+    /**
+     * @var string
+     */
     public $updateDate;
     protected $_name = [
+        'allowConsoleLogin' => 'AllowConsoleLogin',
         'arn' => 'Arn',
         'assumeRolePolicyDocument' => 'AssumeRolePolicyDocument',
         'createDate' => 'CreateDate',
         'description' => 'Description',
+        'isServiceLinkedRole' => 'IsServiceLinkedRole',
+        'latestDeletionTask' => 'LatestDeletionTask',
         'maxSessionDuration' => 'MaxSessionDuration',
         'roleId' => 'RoleId',
         'roleName' => 'RoleName',
+        'rolePrincipalName' => 'RolePrincipalName',
         'updateDate' => 'UpdateDate',
     ];
 
     public function validate()
     {
+        if (null !== $this->latestDeletionTask) {
+            $this->latestDeletionTask->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowConsoleLogin) {
+            $res['AllowConsoleLogin'] = $this->allowConsoleLogin;
+        }
+
         if (null !== $this->arn) {
             $res['Arn'] = $this->arn;
         }
@@ -82,6 +114,14 @@ class role extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->isServiceLinkedRole) {
+            $res['IsServiceLinkedRole'] = $this->isServiceLinkedRole;
+        }
+
+        if (null !== $this->latestDeletionTask) {
+            $res['LatestDeletionTask'] = null !== $this->latestDeletionTask ? $this->latestDeletionTask->toArray($noStream) : $this->latestDeletionTask;
+        }
+
         if (null !== $this->maxSessionDuration) {
             $res['MaxSessionDuration'] = $this->maxSessionDuration;
         }
@@ -92,6 +132,10 @@ class role extends Model
 
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
+        }
+
+        if (null !== $this->rolePrincipalName) {
+            $res['RolePrincipalName'] = $this->rolePrincipalName;
         }
 
         if (null !== $this->updateDate) {
@@ -109,6 +153,10 @@ class role extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowConsoleLogin'])) {
+            $model->allowConsoleLogin = $map['AllowConsoleLogin'];
+        }
+
         if (isset($map['Arn'])) {
             $model->arn = $map['Arn'];
         }
@@ -125,6 +173,14 @@ class role extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['IsServiceLinkedRole'])) {
+            $model->isServiceLinkedRole = $map['IsServiceLinkedRole'];
+        }
+
+        if (isset($map['LatestDeletionTask'])) {
+            $model->latestDeletionTask = latestDeletionTask::fromMap($map['LatestDeletionTask']);
+        }
+
         if (isset($map['MaxSessionDuration'])) {
             $model->maxSessionDuration = $map['MaxSessionDuration'];
         }
@@ -135,6 +191,10 @@ class role extends Model
 
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
+        }
+
+        if (isset($map['RolePrincipalName'])) {
+            $model->rolePrincipalName = $map['RolePrincipalName'];
         }
 
         if (isset($map['UpdateDate'])) {
