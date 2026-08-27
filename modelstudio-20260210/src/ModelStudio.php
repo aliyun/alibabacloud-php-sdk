@@ -29,6 +29,12 @@ use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DisableApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\EnableApiKeyRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\EnableApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetApiKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingOverviewRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingOverviewResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingOverviewShrinkRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingTrendRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingTrendResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingTrendShrinkRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetOrganizationMemberSeatStatsRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetOrganizationMemberSeatStatsResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetOrganizationRequest;
@@ -94,7 +100,6 @@ class ModelStudio extends OpenApiClient
             'cn-beijing' => 'modelstudio.cn-beijing.aliyuncs.com',
             'cn-hongkong' => 'modelstudio.cn-hongkong.aliyuncs.com',
             'ap-southeast-1' => 'modelstudio.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-1' => 'modelstudio.ap-northeast-1.aliyuncs.com',
             'us-east-1' => 'modelstudio.us-east-1.aliyuncs.com',
             'eu-central-1' => 'modelstudio.eu-central-1.aliyuncs.com',
         ];
@@ -914,6 +919,204 @@ class ModelStudio extends OpenApiClient
         $headers = [];
 
         return $this->getApiKeyWithOptions($apiKeyId, $headers, $runtime);
+    }
+
+    /**
+     * 查询账单概览.
+     *
+     * @param tmpReq - GetBillingOverviewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBillingOverviewResponse
+     *
+     * @param GetBillingOverviewRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetBillingOverviewResponse
+     */
+    public function getBillingOverviewWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetBillingOverviewShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
+        }
+
+        if (null !== $tmpReq->groupBy) {
+            $request->groupByShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupBy, 'groupBy', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->billMonth) {
+            @$query['billMonth'] = $request->billMonth;
+        }
+
+        if (null !== $request->filterShrink) {
+            @$query['filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->groupByShrink) {
+            @$query['groupBy'] = $request->groupByShrink;
+        }
+
+        if (null !== $request->locale) {
+            @$query['locale'] = $request->locale;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->topNum) {
+            @$query['topNum'] = $request->topNum;
+        }
+
+        if (null !== $request->zeroFilter) {
+            @$query['zeroFilter'] = $request->zeroFilter;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBillingOverview',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modelstudio/billing/overview',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBillingOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询账单概览.
+     *
+     * @param request - GetBillingOverviewRequest
+     *
+     * @returns GetBillingOverviewResponse
+     *
+     * @param GetBillingOverviewRequest $request
+     *
+     * @return GetBillingOverviewResponse
+     */
+    public function getBillingOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getBillingOverviewWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询账单趋势
+     *
+     * @param tmpReq - GetBillingTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBillingTrendResponse
+     *
+     * @param GetBillingTrendRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetBillingTrendResponse
+     */
+    public function getBillingTrendWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetBillingTrendShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
+        }
+
+        if (null !== $tmpReq->groupBy) {
+            $request->groupByShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupBy, 'groupBy', 'json');
+        }
+
+        if (null !== $tmpReq->timePeriod) {
+            $request->timePeriodShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->timePeriod, 'timePeriod', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->filterShrink) {
+            @$query['filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['granularity'] = $request->granularity;
+        }
+
+        if (null !== $request->groupByShrink) {
+            @$query['groupBy'] = $request->groupByShrink;
+        }
+
+        if (null !== $request->locale) {
+            @$query['locale'] = $request->locale;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->timePeriodShrink) {
+            @$query['timePeriod'] = $request->timePeriodShrink;
+        }
+
+        if (null !== $request->topNum) {
+            @$query['topNum'] = $request->topNum;
+        }
+
+        if (null !== $request->zeroFilter) {
+            @$query['zeroFilter'] = $request->zeroFilter;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBillingTrend',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modelstudio/billing/trend',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBillingTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询账单趋势
+     *
+     * @param request - GetBillingTrendRequest
+     *
+     * @returns GetBillingTrendResponse
+     *
+     * @param GetBillingTrendRequest $request
+     *
+     * @return GetBillingTrendResponse
+     */
+    public function getBillingTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getBillingTrendWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2392,7 +2595,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 更新业务空间模型授权.
+     * Updates model authorization for a workspace.
      *
      * @param request - UpdateModelPermissionsRequest
      * @param headers - map
@@ -2442,7 +2645,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 更新业务空间模型授权.
+     * Updates model authorization for a workspace.
      *
      * @param request - UpdateModelPermissionsRequest
      *
