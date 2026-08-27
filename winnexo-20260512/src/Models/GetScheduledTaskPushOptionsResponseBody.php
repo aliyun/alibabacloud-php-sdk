@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskPushOptionsResponseBody\channels;
 
-class GetGraphSchemaResponseBody extends Model
+class GetScheduledTaskPushOptionsResponseBody extends Model
 {
+    /**
+     * @var channels[]
+     */
+    public $channels;
+
     /**
      * @var string
      */
@@ -16,7 +22,7 @@ class GetGraphSchemaResponseBody extends Model
     /**
      * @var string
      */
-    public $graphName;
+    public $emptyHint;
 
     /**
      * @var string
@@ -27,45 +33,42 @@ class GetGraphSchemaResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $schemaId;
-
-    /**
-     * @var string
-     */
-    public $schemaVersion;
-
-    /**
-     * @var string
-     */
-    public $yamlEdit;
     protected $_name = [
+        'channels' => 'channels',
         'code' => 'code',
-        'graphName' => 'graphName',
+        'emptyHint' => 'emptyHint',
         'message' => 'message',
         'requestId' => 'requestId',
-        'schemaId' => 'schemaId',
-        'schemaVersion' => 'schemaVersion',
-        'yamlEdit' => 'yamlEdit',
     ];
 
     public function validate()
     {
+        if (\is_array($this->channels)) {
+            Model::validateArray($this->channels);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->channels) {
+            if (\is_array($this->channels)) {
+                $res['channels'] = [];
+                $n1 = 0;
+                foreach ($this->channels as $item1) {
+                    $res['channels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
 
-        if (null !== $this->graphName) {
-            $res['graphName'] = $this->graphName;
+        if (null !== $this->emptyHint) {
+            $res['emptyHint'] = $this->emptyHint;
         }
 
         if (null !== $this->message) {
@@ -74,18 +77,6 @@ class GetGraphSchemaResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
-        }
-
-        if (null !== $this->schemaId) {
-            $res['schemaId'] = $this->schemaId;
-        }
-
-        if (null !== $this->schemaVersion) {
-            $res['schemaVersion'] = $this->schemaVersion;
-        }
-
-        if (null !== $this->yamlEdit) {
-            $res['yamlEdit'] = $this->yamlEdit;
         }
 
         return $res;
@@ -99,12 +90,23 @@ class GetGraphSchemaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['channels'])) {
+            if (!empty($map['channels'])) {
+                $model->channels = [];
+                $n1 = 0;
+                foreach ($map['channels'] as $item1) {
+                    $model->channels[$n1] = channels::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
 
-        if (isset($map['graphName'])) {
-            $model->graphName = $map['graphName'];
+        if (isset($map['emptyHint'])) {
+            $model->emptyHint = $map['emptyHint'];
         }
 
         if (isset($map['message'])) {
@@ -113,18 +115,6 @@ class GetGraphSchemaResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
-        }
-
-        if (isset($map['schemaId'])) {
-            $model->schemaId = $map['schemaId'];
-        }
-
-        if (isset($map['schemaVersion'])) {
-            $model->schemaVersion = $map['schemaVersion'];
-        }
-
-        if (isset($map['yamlEdit'])) {
-            $model->yamlEdit = $map['yamlEdit'];
         }
 
         return $model;

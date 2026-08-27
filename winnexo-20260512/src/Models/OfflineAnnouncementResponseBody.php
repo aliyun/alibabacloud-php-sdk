@@ -6,8 +6,18 @@ namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetGraphSchemaResponseBody extends Model
+class OfflineAnnouncementResponseBody extends Model
 {
+    /**
+     * @var int
+     */
+    public $announcementId;
+
+    /**
+     * @var bool
+     */
+    public $changed;
+
     /**
      * @var string
      */
@@ -16,7 +26,7 @@ class GetGraphSchemaResponseBody extends Model
     /**
      * @var string
      */
-    public $graphName;
+    public $gmtModified;
 
     /**
      * @var string
@@ -31,25 +41,21 @@ class GetGraphSchemaResponseBody extends Model
     /**
      * @var string
      */
-    public $schemaId;
+    public $status;
 
     /**
-     * @var string
+     * @var int
      */
-    public $schemaVersion;
-
-    /**
-     * @var string
-     */
-    public $yamlEdit;
+    public $updatedBy;
     protected $_name = [
+        'announcementId' => 'announcementId',
+        'changed' => 'changed',
         'code' => 'code',
-        'graphName' => 'graphName',
+        'gmtModified' => 'gmtModified',
         'message' => 'message',
         'requestId' => 'requestId',
-        'schemaId' => 'schemaId',
-        'schemaVersion' => 'schemaVersion',
-        'yamlEdit' => 'yamlEdit',
+        'status' => 'status',
+        'updatedBy' => 'updatedBy',
     ];
 
     public function validate()
@@ -60,12 +66,20 @@ class GetGraphSchemaResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->announcementId) {
+            $res['announcementId'] = $this->announcementId;
+        }
+
+        if (null !== $this->changed) {
+            $res['changed'] = $this->changed;
+        }
+
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
 
-        if (null !== $this->graphName) {
-            $res['graphName'] = $this->graphName;
+        if (null !== $this->gmtModified) {
+            $res['gmtModified'] = $this->gmtModified;
         }
 
         if (null !== $this->message) {
@@ -76,16 +90,12 @@ class GetGraphSchemaResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->schemaId) {
-            $res['schemaId'] = $this->schemaId;
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
-        if (null !== $this->schemaVersion) {
-            $res['schemaVersion'] = $this->schemaVersion;
-        }
-
-        if (null !== $this->yamlEdit) {
-            $res['yamlEdit'] = $this->yamlEdit;
+        if (null !== $this->updatedBy) {
+            $res['updatedBy'] = $this->updatedBy;
         }
 
         return $res;
@@ -99,12 +109,20 @@ class GetGraphSchemaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['announcementId'])) {
+            $model->announcementId = $map['announcementId'];
+        }
+
+        if (isset($map['changed'])) {
+            $model->changed = $map['changed'];
+        }
+
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
 
-        if (isset($map['graphName'])) {
-            $model->graphName = $map['graphName'];
+        if (isset($map['gmtModified'])) {
+            $model->gmtModified = $map['gmtModified'];
         }
 
         if (isset($map['message'])) {
@@ -115,16 +133,12 @@ class GetGraphSchemaResponseBody extends Model
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['schemaId'])) {
-            $model->schemaId = $map['schemaId'];
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
-        if (isset($map['schemaVersion'])) {
-            $model->schemaVersion = $map['schemaVersion'];
-        }
-
-        if (isset($map['yamlEdit'])) {
-            $model->yamlEdit = $map['yamlEdit'];
+        if (isset($map['updatedBy'])) {
+            $model->updatedBy = $map['updatedBy'];
         }
 
         return $model;

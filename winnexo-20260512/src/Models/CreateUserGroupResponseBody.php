@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SendAsyncChatMessageResponseBody extends Model
+class CreateUserGroupResponseBody extends Model
 {
     /**
      * @var string
@@ -21,35 +21,17 @@ class SendAsyncChatMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $messageId;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
-     * @var bool
+     * @var mixed
      */
-    public $sessionCreated;
-
-    /**
-     * @var string
-     */
-    public $sessionId;
-
-    /**
-     * @var string
-     */
-    public $userMessageId;
+    public $userGroup;
     protected $_name = [
         'code' => 'code',
         'message' => 'message',
-        'messageId' => 'messageId',
         'requestId' => 'requestId',
-        'sessionCreated' => 'sessionCreated',
-        'sessionId' => 'sessionId',
-        'userMessageId' => 'userMessageId',
+        'userGroup' => 'userGroup',
     ];
 
     public function validate()
@@ -68,24 +50,12 @@ class SendAsyncChatMessageResponseBody extends Model
             $res['message'] = $this->message;
         }
 
-        if (null !== $this->messageId) {
-            $res['messageId'] = $this->messageId;
-        }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->sessionCreated) {
-            $res['sessionCreated'] = $this->sessionCreated;
-        }
-
-        if (null !== $this->sessionId) {
-            $res['sessionId'] = $this->sessionId;
-        }
-
-        if (null !== $this->userMessageId) {
-            $res['userMessageId'] = $this->userMessageId;
+        if (null !== $this->userGroup) {
+            $res['userGroup'] = $this->userGroup;
         }
 
         return $res;
@@ -107,24 +77,12 @@ class SendAsyncChatMessageResponseBody extends Model
             $model->message = $map['message'];
         }
 
-        if (isset($map['messageId'])) {
-            $model->messageId = $map['messageId'];
-        }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['sessionCreated'])) {
-            $model->sessionCreated = $map['sessionCreated'];
-        }
-
-        if (isset($map['sessionId'])) {
-            $model->sessionId = $map['sessionId'];
-        }
-
-        if (isset($map['userMessageId'])) {
-            $model->userMessageId = $map['userMessageId'];
+        if (isset($map['userGroup'])) {
+            $model->userGroup = $map['userGroup'];
         }
 
         return $model;

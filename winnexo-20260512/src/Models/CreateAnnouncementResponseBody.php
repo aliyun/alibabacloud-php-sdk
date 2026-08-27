@@ -6,12 +6,22 @@ namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SendAsyncChatMessageResponseBody extends Model
+class CreateAnnouncementResponseBody extends Model
 {
+    /**
+     * @var int
+     */
+    public $announcementId;
+
     /**
      * @var string
      */
     public $code;
+
+    /**
+     * @var int
+     */
+    public $createdBy;
 
     /**
      * @var string
@@ -21,7 +31,7 @@ class SendAsyncChatMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $messageId;
+    public $publishedAt;
 
     /**
      * @var string
@@ -29,27 +39,23 @@ class SendAsyncChatMessageResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $sessionCreated;
+    public $sourceType;
 
     /**
      * @var string
      */
-    public $sessionId;
-
-    /**
-     * @var string
-     */
-    public $userMessageId;
+    public $status;
     protected $_name = [
+        'announcementId' => 'announcementId',
         'code' => 'code',
+        'createdBy' => 'createdBy',
         'message' => 'message',
-        'messageId' => 'messageId',
+        'publishedAt' => 'publishedAt',
         'requestId' => 'requestId',
-        'sessionCreated' => 'sessionCreated',
-        'sessionId' => 'sessionId',
-        'userMessageId' => 'userMessageId',
+        'sourceType' => 'sourceType',
+        'status' => 'status',
     ];
 
     public function validate()
@@ -60,32 +66,36 @@ class SendAsyncChatMessageResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->announcementId) {
+            $res['announcementId'] = $this->announcementId;
+        }
+
         if (null !== $this->code) {
             $res['code'] = $this->code;
+        }
+
+        if (null !== $this->createdBy) {
+            $res['createdBy'] = $this->createdBy;
         }
 
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
 
-        if (null !== $this->messageId) {
-            $res['messageId'] = $this->messageId;
+        if (null !== $this->publishedAt) {
+            $res['publishedAt'] = $this->publishedAt;
         }
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->sessionCreated) {
-            $res['sessionCreated'] = $this->sessionCreated;
+        if (null !== $this->sourceType) {
+            $res['sourceType'] = $this->sourceType;
         }
 
-        if (null !== $this->sessionId) {
-            $res['sessionId'] = $this->sessionId;
-        }
-
-        if (null !== $this->userMessageId) {
-            $res['userMessageId'] = $this->userMessageId;
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -99,32 +109,36 @@ class SendAsyncChatMessageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['announcementId'])) {
+            $model->announcementId = $map['announcementId'];
+        }
+
         if (isset($map['code'])) {
             $model->code = $map['code'];
+        }
+
+        if (isset($map['createdBy'])) {
+            $model->createdBy = $map['createdBy'];
         }
 
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
 
-        if (isset($map['messageId'])) {
-            $model->messageId = $map['messageId'];
+        if (isset($map['publishedAt'])) {
+            $model->publishedAt = $map['publishedAt'];
         }
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['sessionCreated'])) {
-            $model->sessionCreated = $map['sessionCreated'];
+        if (isset($map['sourceType'])) {
+            $model->sourceType = $map['sourceType'];
         }
 
-        if (isset($map['sessionId'])) {
-            $model->sessionId = $map['sessionId'];
-        }
-
-        if (isset($map['userMessageId'])) {
-            $model->userMessageId = $map['userMessageId'];
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

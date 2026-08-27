@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SendAsyncChatMessageResponseBody extends Model
+class RemoveUserGroupMembersResponseBody extends Model
 {
+    /**
+     * @var int
+     */
+    public $affectedCount;
+
     /**
      * @var string
      */
@@ -21,35 +26,24 @@ class SendAsyncChatMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $messageId;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $sessionCreated;
+    public $requestedCount;
 
     /**
      * @var string
      */
-    public $sessionId;
-
-    /**
-     * @var string
-     */
-    public $userMessageId;
+    public $userGroupId;
     protected $_name = [
+        'affectedCount' => 'affectedCount',
         'code' => 'code',
         'message' => 'message',
-        'messageId' => 'messageId',
         'requestId' => 'requestId',
-        'sessionCreated' => 'sessionCreated',
-        'sessionId' => 'sessionId',
-        'userMessageId' => 'userMessageId',
+        'requestedCount' => 'requestedCount',
+        'userGroupId' => 'userGroupId',
     ];
 
     public function validate()
@@ -60,6 +54,10 @@ class SendAsyncChatMessageResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->affectedCount) {
+            $res['affectedCount'] = $this->affectedCount;
+        }
+
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
@@ -68,24 +66,16 @@ class SendAsyncChatMessageResponseBody extends Model
             $res['message'] = $this->message;
         }
 
-        if (null !== $this->messageId) {
-            $res['messageId'] = $this->messageId;
-        }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->sessionCreated) {
-            $res['sessionCreated'] = $this->sessionCreated;
+        if (null !== $this->requestedCount) {
+            $res['requestedCount'] = $this->requestedCount;
         }
 
-        if (null !== $this->sessionId) {
-            $res['sessionId'] = $this->sessionId;
-        }
-
-        if (null !== $this->userMessageId) {
-            $res['userMessageId'] = $this->userMessageId;
+        if (null !== $this->userGroupId) {
+            $res['userGroupId'] = $this->userGroupId;
         }
 
         return $res;
@@ -99,6 +89,10 @@ class SendAsyncChatMessageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['affectedCount'])) {
+            $model->affectedCount = $map['affectedCount'];
+        }
+
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
@@ -107,24 +101,16 @@ class SendAsyncChatMessageResponseBody extends Model
             $model->message = $map['message'];
         }
 
-        if (isset($map['messageId'])) {
-            $model->messageId = $map['messageId'];
-        }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['sessionCreated'])) {
-            $model->sessionCreated = $map['sessionCreated'];
+        if (isset($map['requestedCount'])) {
+            $model->requestedCount = $map['requestedCount'];
         }
 
-        if (isset($map['sessionId'])) {
-            $model->sessionId = $map['sessionId'];
-        }
-
-        if (isset($map['userMessageId'])) {
-            $model->userMessageId = $map['userMessageId'];
+        if (isset($map['userGroupId'])) {
+            $model->userGroupId = $map['userGroupId'];
         }
 
         return $model;

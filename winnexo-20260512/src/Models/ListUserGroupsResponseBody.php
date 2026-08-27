@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetGraphSchemaResponseBody extends Model
+class ListUserGroupsResponseBody extends Model
 {
     /**
      * @var string
@@ -14,9 +14,9 @@ class GetGraphSchemaResponseBody extends Model
     public $code;
 
     /**
-     * @var string
+     * @var mixed[]
      */
-    public $graphName;
+    public $items;
 
     /**
      * @var string
@@ -27,33 +27,18 @@ class GetGraphSchemaResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $schemaId;
-
-    /**
-     * @var string
-     */
-    public $schemaVersion;
-
-    /**
-     * @var string
-     */
-    public $yamlEdit;
     protected $_name = [
         'code' => 'code',
-        'graphName' => 'graphName',
+        'items' => 'items',
         'message' => 'message',
         'requestId' => 'requestId',
-        'schemaId' => 'schemaId',
-        'schemaVersion' => 'schemaVersion',
-        'yamlEdit' => 'yamlEdit',
     ];
 
     public function validate()
     {
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
         parent::validate();
     }
 
@@ -64,8 +49,15 @@ class GetGraphSchemaResponseBody extends Model
             $res['code'] = $this->code;
         }
 
-        if (null !== $this->graphName) {
-            $res['graphName'] = $this->graphName;
+        if (null !== $this->items) {
+            if (\is_array($this->items)) {
+                $res['items'] = [];
+                $n1 = 0;
+                foreach ($this->items as $item1) {
+                    $res['items'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->message) {
@@ -74,18 +66,6 @@ class GetGraphSchemaResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
-        }
-
-        if (null !== $this->schemaId) {
-            $res['schemaId'] = $this->schemaId;
-        }
-
-        if (null !== $this->schemaVersion) {
-            $res['schemaVersion'] = $this->schemaVersion;
-        }
-
-        if (null !== $this->yamlEdit) {
-            $res['yamlEdit'] = $this->yamlEdit;
         }
 
         return $res;
@@ -103,8 +83,15 @@ class GetGraphSchemaResponseBody extends Model
             $model->code = $map['code'];
         }
 
-        if (isset($map['graphName'])) {
-            $model->graphName = $map['graphName'];
+        if (isset($map['items'])) {
+            if (!empty($map['items'])) {
+                $model->items = [];
+                $n1 = 0;
+                foreach ($map['items'] as $item1) {
+                    $model->items[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['message'])) {
@@ -113,18 +100,6 @@ class GetGraphSchemaResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
-        }
-
-        if (isset($map['schemaId'])) {
-            $model->schemaId = $map['schemaId'];
-        }
-
-        if (isset($map['schemaVersion'])) {
-            $model->schemaVersion = $map['schemaVersion'];
-        }
-
-        if (isset($map['yamlEdit'])) {
-            $model->yamlEdit = $map['yamlEdit'];
         }
 
         return $model;

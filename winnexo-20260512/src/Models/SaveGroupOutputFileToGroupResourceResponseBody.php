@@ -5,8 +5,9 @@
 namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGroupOutputFileToGroupResourceResponseBody\results;
 
-class SendAsyncChatMessageResponseBody extends Model
+class SaveGroupOutputFileToGroupResourceResponseBody extends Model
 {
     /**
      * @var string
@@ -21,39 +22,24 @@ class SendAsyncChatMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $messageId;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
-     * @var bool
+     * @var results[]
      */
-    public $sessionCreated;
-
-    /**
-     * @var string
-     */
-    public $sessionId;
-
-    /**
-     * @var string
-     */
-    public $userMessageId;
+    public $results;
     protected $_name = [
         'code' => 'code',
         'message' => 'message',
-        'messageId' => 'messageId',
         'requestId' => 'requestId',
-        'sessionCreated' => 'sessionCreated',
-        'sessionId' => 'sessionId',
-        'userMessageId' => 'userMessageId',
+        'results' => 'results',
     ];
 
     public function validate()
     {
+        if (\is_array($this->results)) {
+            Model::validateArray($this->results);
+        }
         parent::validate();
     }
 
@@ -68,24 +54,19 @@ class SendAsyncChatMessageResponseBody extends Model
             $res['message'] = $this->message;
         }
 
-        if (null !== $this->messageId) {
-            $res['messageId'] = $this->messageId;
-        }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->sessionCreated) {
-            $res['sessionCreated'] = $this->sessionCreated;
-        }
-
-        if (null !== $this->sessionId) {
-            $res['sessionId'] = $this->sessionId;
-        }
-
-        if (null !== $this->userMessageId) {
-            $res['userMessageId'] = $this->userMessageId;
+        if (null !== $this->results) {
+            if (\is_array($this->results)) {
+                $res['results'] = [];
+                $n1 = 0;
+                foreach ($this->results as $item1) {
+                    $res['results'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -107,24 +88,19 @@ class SendAsyncChatMessageResponseBody extends Model
             $model->message = $map['message'];
         }
 
-        if (isset($map['messageId'])) {
-            $model->messageId = $map['messageId'];
-        }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['sessionCreated'])) {
-            $model->sessionCreated = $map['sessionCreated'];
-        }
-
-        if (isset($map['sessionId'])) {
-            $model->sessionId = $map['sessionId'];
-        }
-
-        if (isset($map['userMessageId'])) {
-            $model->userMessageId = $map['userMessageId'];
+        if (isset($map['results'])) {
+            if (!empty($map['results'])) {
+                $model->results = [];
+                $n1 = 0;
+                foreach ($map['results'] as $item1) {
+                    $model->results[$n1] = results::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

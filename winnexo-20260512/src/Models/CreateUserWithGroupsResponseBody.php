@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetGraphSchemaResponseBody extends Model
+class CreateUserWithGroupsResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $accountId;
+
     /**
      * @var string
      */
@@ -16,7 +21,12 @@ class GetGraphSchemaResponseBody extends Model
     /**
      * @var string
      */
-    public $graphName;
+    public $displayName;
+
+    /**
+     * @var bool
+     */
+    public $isNewUser;
 
     /**
      * @var string
@@ -31,25 +41,15 @@ class GetGraphSchemaResponseBody extends Model
     /**
      * @var string
      */
-    public $schemaId;
-
-    /**
-     * @var string
-     */
-    public $schemaVersion;
-
-    /**
-     * @var string
-     */
-    public $yamlEdit;
+    public $wnUserId;
     protected $_name = [
+        'accountId' => 'accountId',
         'code' => 'code',
-        'graphName' => 'graphName',
+        'displayName' => 'displayName',
+        'isNewUser' => 'isNewUser',
         'message' => 'message',
         'requestId' => 'requestId',
-        'schemaId' => 'schemaId',
-        'schemaVersion' => 'schemaVersion',
-        'yamlEdit' => 'yamlEdit',
+        'wnUserId' => 'wnUserId',
     ];
 
     public function validate()
@@ -60,12 +60,20 @@ class GetGraphSchemaResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['accountId'] = $this->accountId;
+        }
+
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
 
-        if (null !== $this->graphName) {
-            $res['graphName'] = $this->graphName;
+        if (null !== $this->displayName) {
+            $res['displayName'] = $this->displayName;
+        }
+
+        if (null !== $this->isNewUser) {
+            $res['isNewUser'] = $this->isNewUser;
         }
 
         if (null !== $this->message) {
@@ -76,16 +84,8 @@ class GetGraphSchemaResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->schemaId) {
-            $res['schemaId'] = $this->schemaId;
-        }
-
-        if (null !== $this->schemaVersion) {
-            $res['schemaVersion'] = $this->schemaVersion;
-        }
-
-        if (null !== $this->yamlEdit) {
-            $res['yamlEdit'] = $this->yamlEdit;
+        if (null !== $this->wnUserId) {
+            $res['wnUserId'] = $this->wnUserId;
         }
 
         return $res;
@@ -99,12 +99,20 @@ class GetGraphSchemaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['accountId'])) {
+            $model->accountId = $map['accountId'];
+        }
+
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
 
-        if (isset($map['graphName'])) {
-            $model->graphName = $map['graphName'];
+        if (isset($map['displayName'])) {
+            $model->displayName = $map['displayName'];
+        }
+
+        if (isset($map['isNewUser'])) {
+            $model->isNewUser = $map['isNewUser'];
         }
 
         if (isset($map['message'])) {
@@ -115,16 +123,8 @@ class GetGraphSchemaResponseBody extends Model
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['schemaId'])) {
-            $model->schemaId = $map['schemaId'];
-        }
-
-        if (isset($map['schemaVersion'])) {
-            $model->schemaVersion = $map['schemaVersion'];
-        }
-
-        if (isset($map['yamlEdit'])) {
-            $model->yamlEdit = $map['yamlEdit'];
+        if (isset($map['wnUserId'])) {
+            $model->wnUserId = $map['wnUserId'];
         }
 
         return $model;

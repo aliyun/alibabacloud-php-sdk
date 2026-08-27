@@ -15,8 +15,14 @@ use AlibabaCloud\Dara\Url;
 use AlibabaCloud\Dara\Util\FormUtil;
 use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\AddUserGroupMembersRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\AddUserGroupMembersResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\AddUserGroupMembersShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CheckHealthRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CheckHealthResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateAnnouncementRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateAnnouncementResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateAnnouncementShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateConversationRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateConversationResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateConversationShrinkRequest;
@@ -25,10 +31,19 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateCustomOrgResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupAliDingChatRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupAliDingChatResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupAliDingChatShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupDingtalkChatRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupDingtalkChatResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupDingtalkChatShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupFeishuDocRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupFeishuDocResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupFeishuDocShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseAliDingDocRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseAliDingDocResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseFeishuDocRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseFeishuDocResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseFeishuDocShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseFileResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseTextRequest;
@@ -43,6 +58,9 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalAlidingKnowledgeBase
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalAlidingKnowledgeBaseShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalAliDingMeetingRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalAliDingMeetingResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalDingtalkChatRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalDingtalkChatResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalDingtalkChatShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalDingtalkMeetingRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalDingtalkMeetingResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalDingtalkMinutesRequest;
@@ -52,6 +70,9 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalDirectoryResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFeishuChatRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFeishuChatResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFeishuChatShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFeishuDocRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFeishuDocResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFeishuDocShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFeishuMinuteRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFeishuMinuteResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFileRequest;
@@ -66,9 +87,14 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateScheduledTaskResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateScheduledTaskShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTenantDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTenantDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserGroupRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserGroupResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserWithGroupsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserWithGroupsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserWithGroupsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteChatSessionRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteChatSessionResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteSourceRequest;
@@ -91,6 +117,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskExecutionDetailReq
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskExecutionDetailResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskExecutionRecordsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskExecutionRecordsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskPushOptionsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskPushOptionsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskUnderstandDetailRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskUnderstandDetailResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskUnderstandDetailShrinkRequest;
@@ -102,10 +130,14 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetSourceUploadSignatureRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetSourceUploadSignatureResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetTokenEnsureEnableRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetTokenEnsureEnableResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetTokenInfoRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetTokenInfoResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserCreditUsageRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserCreditUsageResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserGroupRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserGroupResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserInfoRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserInfoResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserRequest;
@@ -113,6 +145,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GrantAgentUsersRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GrantAgentUsersResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GrantAgentUsersShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListActiveAnnouncementsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListActiveAnnouncementsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAdminKnowledgeBasesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAdminKnowledgeBasesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAdminKnowledgeBasesShrinkRequest;
@@ -147,6 +181,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListSkillsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListSkillsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListTenantDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListTenantDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListUserGroupsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListUserGroupsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListUsersRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListUsersResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListUsersShrinkRequest;
@@ -164,6 +200,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveKnowledgeBaseResourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveKnowledgeBaseResourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveResourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveResourceResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\OfflineAnnouncementRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\OfflineAnnouncementResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewKnowledgeBaseSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewKnowledgeBaseSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewPersonalSourceHeaders;
@@ -177,6 +215,9 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\QuerySyncResultRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\QuerySyncResultResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RecommendNextActionsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RecommendNextActionsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\RemoveUserGroupMembersRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\RemoveUserGroupMembersResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\RemoveUserGroupMembersShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RemoveUserRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RemoveUserResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RenameKnowledgeBaseSourceRequest;
@@ -206,6 +247,12 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\RevokeAgentUsersShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RunSkillRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RunSkillResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RunSkillShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGroupOutputFileToGroupResourceRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGroupOutputFileToGroupResourceResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGroupOutputFileToGroupResourceShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGroupOutputFileToPersonalResourceRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGroupOutputFileToPersonalResourceResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGroupOutputFileToPersonalResourceShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveOutputFileToResourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveOutputFileToResourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveOutputFileToResourceShrinkRequest;
@@ -244,6 +291,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateSourceContentRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateSourceContentResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateTenantDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateTenantDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserGroupRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserGroupResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserInfoRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserInfoResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserRequest;
@@ -265,6 +314,11 @@ class WinNexo extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shanghai' => 'winnexo.cn-shanghai.aliyuncs.com',
+            'cn-zhangjiakou' => 'winnexo.cn-zhangjiakou.aliyuncs.com',
+            'cn-hangzhou' => 'winnexo.cn-hangzhou.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('winnexo', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -392,6 +446,97 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Adds multiple tenant members to a specified user group in a single request.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation supports batch addition of members by providing a user group ID and one or more user IDs.
+     * - Duplicate entries in the user ID list do not cause errors. The system automatically handles duplicates to ensure each user is added only once.
+     * - The caller must have the required permissions to perform this operation.
+     * - This operation is applicable to scenarios that require quick team structure management or access control policy adjustments.
+     *
+     * @param tmpReq - AddUserGroupMembersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddUserGroupMembersResponse
+     *
+     * @param AddUserGroupMembersRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddUserGroupMembersResponse
+     */
+    public function addUserGroupMembersWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddUserGroupMembersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userIds) {
+            $request->userIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'userIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->userGroupId) {
+            @$body['userGroupId'] = $request->userGroupId;
+        }
+
+        if (null !== $request->userIdsShrink) {
+            @$body['userIds'] = $request->userIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddUserGroupMembers',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/addUserGroupMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds multiple tenant members to a specified user group in a single request.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation supports batch addition of members by providing a user group ID and one or more user IDs.
+     * - Duplicate entries in the user ID list do not cause errors. The system automatically handles duplicates to ensure each user is added only once.
+     * - The caller must have the required permissions to perform this operation.
+     * - This operation is applicable to scenarios that require quick team structure management or access control policy adjustments.
+     *
+     * @param Request - AddUserGroupMembersRequest
+     *
+     * @returns AddUserGroupMembersResponse
+     *
+     * @param AddUserGroupMembersRequest $request
+     *
+     * @return AddUserGroupMembersResponse
+     */
+    public function addUserGroupMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addUserGroupMembersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Performs a service health check.
      *
      * @param Request - CheckHealthRequest
@@ -450,6 +595,143 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->checkHealthWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a service notice.
+     *
+     * @remarks
+     * ## Operation description
+     * Creates a service notice. The caller identity must be mapped to a real platform user in the system O&M tenant and must have notice management permissions.
+     * - `priority`: The importance level of the notice. Valid values: URGENT, IMPORTANT, and GENERAL.
+     * - `targetTenantIds` / `targetRoleCodes`: Used only when the corresponding target mode is set to SPECIFIED. Pass values as a JSON array.
+     * - `effectiveStart` / `effectiveEnd`: ISO 8601 timestamps with time zone information.
+     * - `publishNow`: If set to true, the notice is published immediately after creation. Otherwise, it is saved as a draft.
+     *
+     * @param tmpReq - CreateAnnouncementRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAnnouncementResponse
+     *
+     * @param CreateAnnouncementRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateAnnouncementResponse
+     */
+    public function createAnnouncementWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAnnouncementShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->targetRoleCodes) {
+            $request->targetRoleCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targetRoleCodes, 'targetRoleCodes', 'json');
+        }
+
+        if (null !== $tmpReq->targetTenantIds) {
+            $request->targetTenantIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targetTenantIds, 'targetTenantIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        if (null !== $request->displayPage) {
+            @$body['displayPage'] = $request->displayPage;
+        }
+
+        if (null !== $request->displayType) {
+            @$body['displayType'] = $request->displayType;
+        }
+
+        if (null !== $request->effectiveEnd) {
+            @$body['effectiveEnd'] = $request->effectiveEnd;
+        }
+
+        if (null !== $request->effectiveStart) {
+            @$body['effectiveStart'] = $request->effectiveStart;
+        }
+
+        if (null !== $request->priority) {
+            @$body['priority'] = $request->priority;
+        }
+
+        if (null !== $request->publishNow) {
+            @$body['publishNow'] = $request->publishNow;
+        }
+
+        if (null !== $request->targetRoleCodesShrink) {
+            @$body['targetRoleCodes'] = $request->targetRoleCodesShrink;
+        }
+
+        if (null !== $request->targetRoleMode) {
+            @$body['targetRoleMode'] = $request->targetRoleMode;
+        }
+
+        if (null !== $request->targetTenantIdsShrink) {
+            @$body['targetTenantIds'] = $request->targetTenantIdsShrink;
+        }
+
+        if (null !== $request->targetTenantMode) {
+            @$body['targetTenantMode'] = $request->targetTenantMode;
+        }
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAnnouncement',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createAnnouncement',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAnnouncementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a service notice.
+     *
+     * @remarks
+     * ## Operation description
+     * Creates a service notice. The caller identity must be mapped to a real platform user in the system O&M tenant and must have notice management permissions.
+     * - `priority`: The importance level of the notice. Valid values: URGENT, IMPORTANT, and GENERAL.
+     * - `targetTenantIds` / `targetRoleCodes`: Used only when the corresponding target mode is set to SPECIFIED. Pass values as a JSON array.
+     * - `effectiveStart` / `effectiveEnd`: ISO 8601 timestamps with time zone information.
+     * - `publishNow`: If set to true, the notice is published immediately after creation. Otherwise, it is saved as a draft.
+     *
+     * @param Request - CreateAnnouncementRequest
+     *
+     * @returns CreateAnnouncementResponse
+     *
+     * @param CreateAnnouncementRequest $request
+     *
+     * @return CreateAnnouncementResponse
+     */
+    public function createAnnouncement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAnnouncementWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -746,6 +1028,250 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Creates a group-level DingTalk chat knowledge source.
+     *
+     * @remarks
+     * ## Operation description
+     * - Connects a specified DingTalk chat to the knowledge base of a group that the caller has joined.
+     * - The resource type is fixed to DINGTALK, the scope is fixed to GROUP, and the owning user is parsed from the gateway authentication identity.
+     * - groupId, chatId, and historyStartTime are required.
+     * - updateFrequency can be configured by using a preset or a five-field cron expression for subsequent synchronization frequency.
+     * - The server verifies the caller\\"s group membership and the target group directory permissions. The same chat can be created as different sources.
+     *
+     * @param tmpReq - CreateGroupDingtalkChatRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupDingtalkChatResponse
+     *
+     * @param CreateGroupDingtalkChatRequest $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateGroupDingtalkChatResponse
+     */
+    public function createGroupDingtalkChatWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateGroupDingtalkChatShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateFrequency) {
+            $request->updateFrequencyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateFrequency, 'updateFrequency', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->chatId) {
+            @$body['chatId'] = $request->chatId;
+        }
+
+        if (null !== $request->chatName) {
+            @$body['chatName'] = $request->chatName;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->historyStartTime) {
+            @$body['historyStartTime'] = $request->historyStartTime;
+        }
+
+        if (null !== $request->notes) {
+            @$body['notes'] = $request->notes;
+        }
+
+        if (null !== $request->operatingObjectName) {
+            @$body['operatingObjectName'] = $request->operatingObjectName;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        if (null !== $request->updateFrequencyShrink) {
+            @$body['updateFrequency'] = $request->updateFrequencyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGroupDingtalkChat',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createGroupDingtalkChat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGroupDingtalkChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a group-level DingTalk chat knowledge source.
+     *
+     * @remarks
+     * ## Operation description
+     * - Connects a specified DingTalk chat to the knowledge base of a group that the caller has joined.
+     * - The resource type is fixed to DINGTALK, the scope is fixed to GROUP, and the owning user is parsed from the gateway authentication identity.
+     * - groupId, chatId, and historyStartTime are required.
+     * - updateFrequency can be configured by using a preset or a five-field cron expression for subsequent synchronization frequency.
+     * - The server verifies the caller\\"s group membership and the target group directory permissions. The same chat can be created as different sources.
+     *
+     * @param Request - CreateGroupDingtalkChatRequest
+     *
+     * @returns CreateGroupDingtalkChatResponse
+     *
+     * @param CreateGroupDingtalkChatRequest $request
+     *
+     * @return CreateGroupDingtalkChatResponse
+     */
+    public function createGroupDingtalkChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGroupDingtalkChatWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a group knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+     *
+     * @remarks
+     * ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + GROUP`. `groupId` is required. If `directoryId` is omitted, the root directory of the group knowledge base is used. Group membership and directory write permissions are verified by the backend.
+     *
+     * @param tmpReq - CreateGroupFeishuDocRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupFeishuDocResponse
+     *
+     * @param CreateGroupFeishuDocRequest $tmpReq
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateGroupFeishuDocResponse
+     */
+    public function createGroupFeishuDocWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateGroupFeishuDocShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->objectBindings) {
+            $request->objectBindingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectBindings, 'objectBindings', 'json');
+        }
+
+        if (null !== $tmpReq->syncConfig) {
+            $request->syncConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->syncConfig, 'syncConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->docUrl) {
+            @$body['docUrl'] = $request->docUrl;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->notes) {
+            @$body['notes'] = $request->notes;
+        }
+
+        if (null !== $request->objectBindingsShrink) {
+            @$body['objectBindings'] = $request->objectBindingsShrink;
+        }
+
+        if (null !== $request->operatingObjectName) {
+            @$body['operatingObjectName'] = $request->operatingObjectName;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        if (null !== $request->syncConfigShrink) {
+            @$body['syncConfig'] = $request->syncConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGroupFeishuDoc',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createGroupFeishuDoc',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGroupFeishuDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a group knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+     *
+     * @remarks
+     * ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + GROUP`. `groupId` is required. If `directoryId` is omitted, the root directory of the group knowledge base is used. Group membership and directory write permissions are verified by the backend.
+     *
+     * @param Request - CreateGroupFeishuDocRequest
+     *
+     * @returns CreateGroupFeishuDocResponse
+     *
+     * @param CreateGroupFeishuDocRequest $request
+     *
+     * @return CreateGroupFeishuDocResponse
+     */
+    public function createGroupFeishuDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGroupFeishuDocWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Uploads an AliDing online document to the enterprise knowledge base. Management permissions are required.
      *
      * @remarks
@@ -945,6 +1471,121 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->createKnowledgeBaseDirectoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a single Lark online document in the enterprise knowledge base using the current user\\"s Lark authorization.
+     *
+     * @remarks
+     * ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + TENANT`. `directoryId` is required. The invoker must have the enterprise knowledge base feature permission and knowledge base management permission on the target knowledge base.
+     *
+     * @param tmpReq - CreateKnowledgeBaseFeishuDocRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeBaseFeishuDocResponse
+     *
+     * @param CreateKnowledgeBaseFeishuDocRequest $tmpReq
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateKnowledgeBaseFeishuDocResponse
+     */
+    public function createKnowledgeBaseFeishuDocWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateKnowledgeBaseFeishuDocShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->objectBindings) {
+            $request->objectBindingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectBindings, 'objectBindings', 'json');
+        }
+
+        if (null !== $tmpReq->syncConfig) {
+            $request->syncConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->syncConfig, 'syncConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->docUrl) {
+            @$body['docUrl'] = $request->docUrl;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->notes) {
+            @$body['notes'] = $request->notes;
+        }
+
+        if (null !== $request->objectBindingsShrink) {
+            @$body['objectBindings'] = $request->objectBindingsShrink;
+        }
+
+        if (null !== $request->operatingObjectName) {
+            @$body['operatingObjectName'] = $request->operatingObjectName;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        if (null !== $request->syncConfigShrink) {
+            @$body['syncConfig'] = $request->syncConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeBaseFeishuDoc',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createKnowledgeBaseFeishuDoc',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeBaseFeishuDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a single Lark online document in the enterprise knowledge base using the current user\\"s Lark authorization.
+     *
+     * @remarks
+     * ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + TENANT`. `directoryId` is required. The invoker must have the enterprise knowledge base feature permission and knowledge base management permission on the target knowledge base.
+     *
+     * @param Request - CreateKnowledgeBaseFeishuDocRequest
+     *
+     * @returns CreateKnowledgeBaseFeishuDocResponse
+     *
+     * @param CreateKnowledgeBaseFeishuDocRequest $request
+     *
+     * @return CreateKnowledgeBaseFeishuDocResponse
+     */
+    public function createKnowledgeBaseFeishuDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createKnowledgeBaseFeishuDocWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1630,6 +2271,127 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Creates a personal DingTalk group chat knowledge source.
+     *
+     * @remarks
+     * ## Operation description
+     * - Connects a specified DingTalk group chat to the personal knowledge base of the current user.
+     * - The resource type is fixed to DINGTALK, the scope is fixed to PERSONAL, and the owning user is parsed from the gateway authentication identity.
+     * - historyStartTime is required and supports YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
+     * - updateFrequency can be configured with a preset or a five-field cron expression for subsequent synchronization frequency.
+     * - The same group chat can be created as different sources. Each source is isolated by sourceId.
+     *
+     * @param tmpReq - CreatePersonalDingtalkChatRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePersonalDingtalkChatResponse
+     *
+     * @param CreatePersonalDingtalkChatRequest $tmpReq
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreatePersonalDingtalkChatResponse
+     */
+    public function createPersonalDingtalkChatWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePersonalDingtalkChatShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateFrequency) {
+            $request->updateFrequencyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateFrequency, 'updateFrequency', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->chatId) {
+            @$body['chatId'] = $request->chatId;
+        }
+
+        if (null !== $request->chatName) {
+            @$body['chatName'] = $request->chatName;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->historyStartTime) {
+            @$body['historyStartTime'] = $request->historyStartTime;
+        }
+
+        if (null !== $request->notes) {
+            @$body['notes'] = $request->notes;
+        }
+
+        if (null !== $request->operatingObjectName) {
+            @$body['operatingObjectName'] = $request->operatingObjectName;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        if (null !== $request->updateFrequencyShrink) {
+            @$body['updateFrequency'] = $request->updateFrequencyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePersonalDingtalkChat',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createPersonalDingtalkChat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePersonalDingtalkChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a personal DingTalk group chat knowledge source.
+     *
+     * @remarks
+     * ## Operation description
+     * - Connects a specified DingTalk group chat to the personal knowledge base of the current user.
+     * - The resource type is fixed to DINGTALK, the scope is fixed to PERSONAL, and the owning user is parsed from the gateway authentication identity.
+     * - historyStartTime is required and supports YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
+     * - updateFrequency can be configured with a preset or a five-field cron expression for subsequent synchronization frequency.
+     * - The same group chat can be created as different sources. Each source is isolated by sourceId.
+     *
+     * @param Request - CreatePersonalDingtalkChatRequest
+     *
+     * @returns CreatePersonalDingtalkChatResponse
+     *
+     * @param CreatePersonalDingtalkChatRequest $request
+     *
+     * @return CreatePersonalDingtalkChatResponse
+     */
+    public function createPersonalDingtalkChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPersonalDingtalkChatWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Uploads a DingTalk meeting to the personal resource library of the current digital employee.
      *
      * @remarks
@@ -2058,6 +2820,121 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->createPersonalFeishuChatWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a personal knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+     *
+     * @remarks
+     * ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + PERSONAL`. The Lark connector user is determined by the trusted OpenAPI identity. If `directoryId` is omitted, the current user\\"s default personal root directory is used.
+     *
+     * @param tmpReq - CreatePersonalFeishuDocRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePersonalFeishuDocResponse
+     *
+     * @param CreatePersonalFeishuDocRequest $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreatePersonalFeishuDocResponse
+     */
+    public function createPersonalFeishuDocWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePersonalFeishuDocShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->objectBindings) {
+            $request->objectBindingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectBindings, 'objectBindings', 'json');
+        }
+
+        if (null !== $tmpReq->syncConfig) {
+            $request->syncConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->syncConfig, 'syncConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->docUrl) {
+            @$body['docUrl'] = $request->docUrl;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->notes) {
+            @$body['notes'] = $request->notes;
+        }
+
+        if (null !== $request->objectBindingsShrink) {
+            @$body['objectBindings'] = $request->objectBindingsShrink;
+        }
+
+        if (null !== $request->operatingObjectName) {
+            @$body['operatingObjectName'] = $request->operatingObjectName;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        if (null !== $request->syncConfigShrink) {
+            @$body['syncConfig'] = $request->syncConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePersonalFeishuDoc',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createPersonalFeishuDoc',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePersonalFeishuDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a personal knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+     *
+     * @remarks
+     * ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + PERSONAL`. The Lark connector user is determined by the trusted OpenAPI identity. If `directoryId` is omitted, the current user\\"s default personal root directory is used.
+     *
+     * @param Request - CreatePersonalFeishuDocRequest
+     *
+     * @returns CreatePersonalFeishuDocResponse
+     *
+     * @param CreatePersonalFeishuDocRequest $request
+     *
+     * @return CreatePersonalFeishuDocResponse
+     */
+    public function createPersonalFeishuDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPersonalFeishuDocWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2863,6 +3740,204 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Creates a user group under the tenant to which the authenticated identity belongs.
+     *
+     * @remarks
+     * WinNexo user management OpenAPI: Creates a user group. The tenant identity is derived from the authentication context.
+     *
+     * @param Request - CreateUserGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserGroupResponse
+     *
+     * @param CreateUserGroupRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateUserGroupResponse
+     */
+    public function createUserGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->parentId) {
+            @$body['parentId'] = $request->parentId;
+        }
+
+        if (null !== $request->userGroupName) {
+            @$body['userGroupName'] = $request->userGroupName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUserGroup',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createUserGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a user group under the tenant to which the authenticated identity belongs.
+     *
+     * @remarks
+     * WinNexo user management OpenAPI: Creates a user group. The tenant identity is derived from the authentication context.
+     *
+     * @param Request - CreateUserGroupRequest
+     *
+     * @returns CreateUserGroupResponse
+     *
+     * @param CreateUserGroupRequest $request
+     *
+     * @return CreateUserGroupResponse
+     */
+    public function createUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createUserGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a WINNEXO user in the current tenant and assigns roles and user groups to the user.
+     *
+     * @remarks
+     * Creates a user and sets initial roles and user groups via OpenAPI.
+     *     Business orchestration:
+     *     1. Parses roleCodes → role_ids (system role enumeration validation)
+     *     2. Checks whether the user already exists (used to return the isNewUser flag)
+     *     3. Validates the tenant ownership of userGroupIds and completes creation/joining (the password must be passed in by the caller as RSA ciphertext)
+     *     4. Returns the creation result (including the isNewUser flag)
+     *     Error codes:
+     *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to resume.
+     *     - ERR.User.AlreadyInTenant: The user is already an active member of the tenant.
+     *     - ERR.User.DisplayNameDuplicateInTenant: The display name is duplicate within the tenant.
+     *
+     * @param tmpReq - CreateUserWithGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserWithGroupsResponse
+     *
+     * @param CreateUserWithGroupsRequest $tmpReq
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateUserWithGroupsResponse
+     */
+    public function createUserWithGroupsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateUserWithGroupsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->roleCodes) {
+            $request->roleCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'roleCodes', 'json');
+        }
+
+        if (null !== $tmpReq->userGroupIds) {
+            $request->userGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userGroupIds, 'userGroupIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->passwordEncrypted) {
+            @$body['passwordEncrypted'] = $request->passwordEncrypted;
+        }
+
+        if (null !== $request->roleCodesShrink) {
+            @$body['roleCodes'] = $request->roleCodesShrink;
+        }
+
+        if (null !== $request->userGroupIdsShrink) {
+            @$body['userGroupIds'] = $request->userGroupIdsShrink;
+        }
+
+        if (null !== $request->wnAccountId) {
+            @$body['wnAccountId'] = $request->wnAccountId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUserWithGroups',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createUserWithGroups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUserWithGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a WINNEXO user in the current tenant and assigns roles and user groups to the user.
+     *
+     * @remarks
+     * Creates a user and sets initial roles and user groups via OpenAPI.
+     *     Business orchestration:
+     *     1. Parses roleCodes → role_ids (system role enumeration validation)
+     *     2. Checks whether the user already exists (used to return the isNewUser flag)
+     *     3. Validates the tenant ownership of userGroupIds and completes creation/joining (the password must be passed in by the caller as RSA ciphertext)
+     *     4. Returns the creation result (including the isNewUser flag)
+     *     Error codes:
+     *     - ERR.User.DeactivatedInTenant: The user is deactivated in the tenant. Use updateUser to resume.
+     *     - ERR.User.AlreadyInTenant: The user is already an active member of the tenant.
+     *     - ERR.User.DisplayNameDuplicateInTenant: The display name is duplicate within the tenant.
+     *
+     * @param Request - CreateUserWithGroupsRequest
+     *
+     * @returns CreateUserWithGroupsResponse
+     *
+     * @param CreateUserWithGroupsRequest $request
+     *
+     * @return CreateUserWithGroupsResponse
+     */
+    public function createUserWithGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createUserWithGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a session.
      *
      * @remarks
@@ -3371,7 +4446,7 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Retrieves the active Graph Schema that is readable by the current user.
+     * Retrieves the active Graph Schema readable by the current user.
      *
      * @remarks
      * Reads the active schema_content and securely trims it based on the token user\\"s semantic resource READ permissions.
@@ -3422,7 +4497,7 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Retrieves the active Graph Schema that is readable by the current user.
+     * Retrieves the active Graph Schema readable by the current user.
      *
      * @remarks
      * Reads the active schema_content and securely trims it based on the token user\\"s semantic resource READ permissions.
@@ -3795,6 +4870,83 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->getScheduledTaskExecutionRecordsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the push configuration options for scheduled tasks.
+     *
+     * @remarks
+     * Queries the channels and methods available to the current user for scheduled task push notifications.
+     *
+     * @param Request - GetScheduledTaskPushOptionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScheduledTaskPushOptionsResponse
+     *
+     * @param GetScheduledTaskPushOptionsRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetScheduledTaskPushOptionsResponse
+     */
+    public function getScheduledTaskPushOptionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->digitalEmployeeName) {
+            @$body['digitalEmployeeName'] = $request->digitalEmployeeName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetScheduledTaskPushOptions',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getScheduledTaskPushOptions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetScheduledTaskPushOptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the push configuration options for scheduled tasks.
+     *
+     * @remarks
+     * Queries the channels and methods available to the current user for scheduled task push notifications.
+     *
+     * @param Request - GetScheduledTaskPushOptionsRequest
+     *
+     * @returns GetScheduledTaskPushOptionsResponse
+     *
+     * @param GetScheduledTaskPushOptionsRequest $request
+     *
+     * @return GetScheduledTaskPushOptionsResponse
+     */
+    public function getScheduledTaskPushOptions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getScheduledTaskPushOptionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4276,6 +5428,95 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Retrieves an API token and ensures that it is active.
+     *
+     * @remarks
+     * Retrieves the INSTANCE token for a user and ensures that it is in an active state (idempotent).
+     *     Business logic:
+     *     1. Obtains user_id from identity (caller_type=user is enforced).
+     *     2. Constructs an AuthContext and delegates permission verification to UserTokenAuthorizedService.
+     *     3. Calls ensure_active_token:
+     *        - If an ACTIVE token exists, returns the token in plaintext as-is (no reset, no key rotation).
+     *        - If an INACTIVE token exists, automatically re-enables it and returns the plaintext.
+     *        - If no token exists (or only expired RESET records exist), creates a new token and returns the plaintext.
+     *     Difference from EnableToken: When an ACTIVE token already exists, EnableToken returns only the masked value. This operation guarantees that a usable plaintext credential is returned without destroying the existing token.
+     *
+     * @param Request - GetTokenEnsureEnableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTokenEnsureEnableResponse
+     *
+     * @param GetTokenEnsureEnableRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetTokenEnsureEnableResponse
+     */
+    public function getTokenEnsureEnableWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->wnUserId) {
+            @$body['wnUserId'] = $request->wnUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTokenEnsureEnable',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getTokenEnsureEnable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTokenEnsureEnableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves an API token and ensures that it is active.
+     *
+     * @remarks
+     * Retrieves the INSTANCE token for a user and ensures that it is in an active state (idempotent).
+     *     Business logic:
+     *     1. Obtains user_id from identity (caller_type=user is enforced).
+     *     2. Constructs an AuthContext and delegates permission verification to UserTokenAuthorizedService.
+     *     3. Calls ensure_active_token:
+     *        - If an ACTIVE token exists, returns the token in plaintext as-is (no reset, no key rotation).
+     *        - If an INACTIVE token exists, automatically re-enables it and returns the plaintext.
+     *        - If no token exists (or only expired RESET records exist), creates a new token and returns the plaintext.
+     *     Difference from EnableToken: When an ACTIVE token already exists, EnableToken returns only the masked value. This operation guarantees that a usable plaintext credential is returned without destroying the existing token.
+     *
+     * @param Request - GetTokenEnsureEnableRequest
+     *
+     * @returns GetTokenEnsureEnableResponse
+     *
+     * @param GetTokenEnsureEnableRequest $request
+     *
+     * @return GetTokenEnsureEnableResponse
+     */
+    public function getTokenEnsureEnable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTokenEnsureEnableWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the token status of a user.
      *
      * @remarks
@@ -4529,6 +5770,91 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Queries the details of a specified user group, including its parent group, child groups, and members.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation retrieves the details of a specified user group, including the basic information of the user group, parent user group information, direct child user group list, and direct member list.
+     * - `userGroupId` is a required parameter that must be provided in the request body.
+     * - `tenantId` is an optional parameter that can be passed through the query string.
+     * - The operation supports multiple authentication methods, including AK, BearerToken, and APP authentication.
+     * - The content type for both requests and responses is `application/json`.
+     * - Ensure that you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
+     *
+     * @param Request - GetUserGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserGroupResponse
+     *
+     * @param GetUserGroupRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetUserGroupResponse
+     */
+    public function getUserGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->userGroupId) {
+            @$body['userGroupId'] = $request->userGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserGroup',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getUserGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a specified user group, including its parent group, child groups, and members.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation retrieves the details of a specified user group, including the basic information of the user group, parent user group information, direct child user group list, and direct member list.
+     * - `userGroupId` is a required parameter that must be provided in the request body.
+     * - `tenantId` is an optional parameter that can be passed through the query string.
+     * - The operation supports multiple authentication methods, including AK, BearerToken, and APP authentication.
+     * - The content type for both requests and responses is `application/json`.
+     * - Ensure that you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
+     *
+     * @param Request - GetUserGroupRequest
+     *
+     * @returns GetUserGroupResponse
+     *
+     * @param GetUserGroupRequest $request
+     *
+     * @return GetUserGroupResponse
+     */
+    public function getUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getUserGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the complete information of the authenticated user through OpenAPI, including basic information and tenant list.
      *
      * @remarks
@@ -4720,6 +6046,85 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->grantAgentUsersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries currently effective service notices.
+     *
+     * @remarks
+     * ## Request description
+     * Performs a paging query for published platform notices that are effective within the current database time window. The invoking identity must be a real user who has the notice viewing permission in the system O&M tenant.
+     *
+     * @param Request - ListActiveAnnouncementsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListActiveAnnouncementsResponse
+     *
+     * @param ListActiveAnnouncementsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListActiveAnnouncementsResponse
+     */
+    public function listActiveAnnouncementsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->pageNumber) {
+            @$body['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListActiveAnnouncements',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listActiveAnnouncements',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListActiveAnnouncementsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries currently effective service notices.
+     *
+     * @remarks
+     * ## Request description
+     * Performs a paging query for published platform notices that are effective within the current database time window. The invoking identity must be a real user who has the notice viewing permission in the system O&M tenant.
+     *
+     * @param Request - ListActiveAnnouncementsRequest
+     *
+     * @returns ListActiveAnnouncementsResponse
+     *
+     * @param ListActiveAnnouncementsRequest $request
+     *
+     * @return ListActiveAnnouncementsResponse
+     */
+    public function listActiveAnnouncements($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listActiveAnnouncementsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6200,6 +7605,81 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Returns the multi-level user group tree for the current tenant.
+     *
+     * @remarks
+     * ## Request description
+     * This API is used to query the complete user group hierarchy under a specified tenant, including the basic information of each user group and its direct child user group list. Use the `tenantId` parameter to specify the tenant ID to query. If this parameter is not provided, the caller\\"s tenant ID is used by default.
+     * ### Precautions
+     * - This operation returns only the direct member count and direct child user group count. It does not include information about indirect members or child groups.
+     * - The external synchronization status field is empty when data is normal. It is populated with relevant information only when data is out of sync between an external system (such as WeCom) and the internal system.
+     *
+     * @param Request - ListUserGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserGroupsResponse
+     *
+     * @param ListUserGroupsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListUserGroupsResponse
+     */
+    public function listUserGroupsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserGroups',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listUserGroups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Returns the multi-level user group tree for the current tenant.
+     *
+     * @remarks
+     * ## Request description
+     * This API is used to query the complete user group hierarchy under a specified tenant, including the basic information of each user group and its direct child user group list. Use the `tenantId` parameter to specify the tenant ID to query. If this parameter is not provided, the caller\\"s tenant ID is used by default.
+     * ### Precautions
+     * - This operation returns only the direct member count and direct child user group count. It does not include information about indirect members or child groups.
+     * - The external synchronization status field is empty when data is normal. It is populated with relevant information only when data is out of sync between an external system (such as WeCom) and the internal system.
+     *
+     * @param Request - ListUserGroupsRequest
+     *
+     * @returns ListUserGroupsResponse
+     *
+     * @param ListUserGroupsRequest $request
+     *
+     * @return ListUserGroupsResponse
+     */
+    public function listUserGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listUserGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the knowledge base directory content visible to the current OpenAPI user.
      *
      * @remarks
@@ -6898,6 +8378,83 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Offlines a service notice.
+     *
+     * @remarks
+     * ## Request description
+     * Idempotently offlines a platform announcement by announcement ID. Returns `changed=true` when a PUBLISHED announcement is offlined for the first time. Returns `changed=false` when the announcement is already offline or expired.
+     * The caller must belong to the system operations tenant and have announcement management permissions.
+     *
+     * @param Request - OfflineAnnouncementRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflineAnnouncementResponse
+     *
+     * @param OfflineAnnouncementRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return OfflineAnnouncementResponse
+     */
+    public function offlineAnnouncementWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->announcementId) {
+            @$body['announcementId'] = $request->announcementId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OfflineAnnouncement',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/offlineAnnouncement',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OfflineAnnouncementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Offlines a service notice.
+     *
+     * @remarks
+     * ## Request description
+     * Idempotently offlines a platform announcement by announcement ID. Returns `changed=true` when a PUBLISHED announcement is offlined for the first time. Returns `changed=false` when the announcement is already offline or expired.
+     * The caller must belong to the system operations tenant and have announcement management permissions.
+     *
+     * @param Request - OfflineAnnouncementRequest
+     *
+     * @returns OfflineAnnouncementResponse
+     *
+     * @param OfflineAnnouncementRequest $request
+     *
+     * @return OfflineAnnouncementResponse
+     */
+    public function offlineAnnouncement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->offlineAnnouncementWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Previews the knowledge content in a specified enterprise knowledge base.
      *
      * @remarks
@@ -7521,6 +9078,99 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->removeUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Removes direct member relationships in bulk from a specified user group.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation supports batch removal of direct member relationships between users and a specified user group by providing the user group ID and one or more user IDs.
+     * - The `userIds` parameter accepts an integer array that represents the list of platform user IDs to be removed.
+     * - If a user you attempt to remove is not a direct member of the user group, the final result count is not affected.
+     * - After a successful call, the response returns information such as the number of members actually removed and the number of members before the request was processed.
+     * - This operation requires appropriate permission authentication and is recorded in operation logs.
+     *
+     * @param tmpReq - RemoveUserGroupMembersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUserGroupMembersResponse
+     *
+     * @param RemoveUserGroupMembersRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RemoveUserGroupMembersResponse
+     */
+    public function removeUserGroupMembersWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RemoveUserGroupMembersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userIds) {
+            $request->userIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'userIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->userGroupId) {
+            @$body['userGroupId'] = $request->userGroupId;
+        }
+
+        if (null !== $request->userIdsShrink) {
+            @$body['userIds'] = $request->userIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveUserGroupMembers',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/removeUserGroupMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes direct member relationships in bulk from a specified user group.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation supports batch removal of direct member relationships between users and a specified user group by providing the user group ID and one or more user IDs.
+     * - The `userIds` parameter accepts an integer array that represents the list of platform user IDs to be removed.
+     * - If a user you attempt to remove is not a direct member of the user group, the final result count is not affected.
+     * - After a successful call, the response returns information such as the number of members actually removed and the number of members before the request was processed.
+     * - This operation requires appropriate permission authentication and is recorded in operation logs.
+     *
+     * @param Request - RemoveUserGroupMembersRequest
+     *
+     * @returns RemoveUserGroupMembersResponse
+     *
+     * @param RemoveUserGroupMembersRequest $request
+     *
+     * @return RemoveUserGroupMembersResponse
+     */
+    public function removeUserGroupMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeUserGroupMembersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8649,6 +10299,212 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->runSkillWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Saves group outputs in batches to the collaboration group repository.
+     *
+     * @remarks
+     * ## Request description
+     * - Saves specified group outputs to the repository directory of the same collaboration group.
+     * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+     * - The caller must be a platform user and a member of the target group. The caller can archive group outputs visible to them, including outputs created by other members.
+     * - If `directoryId` is not specified, the default repository directory of the target group is used.
+     * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. If any entry does not exist, is not visible, or cannot be operated on, the entire batch fails.
+     * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure of a single entry does not affect other entries.
+     *
+     * @param tmpReq - SaveGroupOutputFileToGroupResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveGroupOutputFileToGroupResourceResponse
+     *
+     * @param SaveGroupOutputFileToGroupResourceRequest $tmpReq
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SaveGroupOutputFileToGroupResourceResponse
+     */
+    public function saveGroupOutputFileToGroupResourceWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SaveGroupOutputFileToGroupResourceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->itemIds) {
+            $request->itemIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->itemIds, 'itemIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->itemIdsShrink) {
+            @$body['itemIds'] = $request->itemIdsShrink;
+        }
+
+        if (null !== $request->mode) {
+            @$body['mode'] = $request->mode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SaveGroupOutputFileToGroupResource',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/saveGroupOutputFileToGroupResource',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveGroupOutputFileToGroupResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Saves group outputs in batches to the collaboration group repository.
+     *
+     * @remarks
+     * ## Request description
+     * - Saves specified group outputs to the repository directory of the same collaboration group.
+     * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+     * - The caller must be a platform user and a member of the target group. The caller can archive group outputs visible to them, including outputs created by other members.
+     * - If `directoryId` is not specified, the default repository directory of the target group is used.
+     * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. If any entry does not exist, is not visible, or cannot be operated on, the entire batch fails.
+     * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure of a single entry does not affect other entries.
+     *
+     * @param Request - SaveGroupOutputFileToGroupResourceRequest
+     *
+     * @returns SaveGroupOutputFileToGroupResourceResponse
+     *
+     * @param SaveGroupOutputFileToGroupResourceRequest $request
+     *
+     * @return SaveGroupOutputFileToGroupResourceResponse
+     */
+    public function saveGroupOutputFileToGroupResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->saveGroupOutputFileToGroupResourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Batch saves group outputs to the current operator\\"s personal knowledge base.
+     *
+     * @remarks
+     * ## Request description
+     * - Saves specified group outputs to the current operator\\"s personal knowledge base.
+     * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+     * - The caller must be a member of the target group who is associated with a platform user. Regular members can only archive outputs they created, while group administrators can archive visible outputs from other members. Personal ownership is always derived from the gateway authentication identity.
+     * - If `directoryId` is not specified, the current operator\\"s default personal directory is used.
+     * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. The entire batch fails if any entry does not exist, is not visible, or cannot be operated on.
+     * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure to save a single entry does not affect other entries.
+     *
+     * @param tmpReq - SaveGroupOutputFileToPersonalResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveGroupOutputFileToPersonalResourceResponse
+     *
+     * @param SaveGroupOutputFileToPersonalResourceRequest $tmpReq
+     * @param string[]                                     $headers
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SaveGroupOutputFileToPersonalResourceResponse
+     */
+    public function saveGroupOutputFileToPersonalResourceWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SaveGroupOutputFileToPersonalResourceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->itemIds) {
+            $request->itemIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->itemIds, 'itemIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->itemIdsShrink) {
+            @$body['itemIds'] = $request->itemIdsShrink;
+        }
+
+        if (null !== $request->mode) {
+            @$body['mode'] = $request->mode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SaveGroupOutputFileToPersonalResource',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/saveGroupOutputFileToPersonalResource',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveGroupOutputFileToPersonalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Batch saves group outputs to the current operator\\"s personal knowledge base.
+     *
+     * @remarks
+     * ## Request description
+     * - Saves specified group outputs to the current operator\\"s personal knowledge base.
+     * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
+     * - The caller must be a member of the target group who is associated with a platform user. Regular members can only archive outputs they created, while group administrators can archive visible outputs from other members. Personal ownership is always derived from the gateway authentication identity.
+     * - If `directoryId` is not specified, the current operator\\"s default personal directory is used.
+     * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. The entire batch fails if any entry does not exist, is not visible, or cannot be operated on.
+     * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure to save a single entry does not affect other entries.
+     *
+     * @param Request - SaveGroupOutputFileToPersonalResourceRequest
+     *
+     * @returns SaveGroupOutputFileToPersonalResourceResponse
+     *
+     * @param SaveGroupOutputFileToPersonalResourceRequest $request
+     *
+     * @return SaveGroupOutputFileToPersonalResourceResponse
+     */
+    public function saveGroupOutputFileToPersonalResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->saveGroupOutputFileToPersonalResourceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10545,6 +12401,95 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->updateUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the name, description, and parent relationship of a specified user group.
+     *
+     * @remarks
+     * WinNexo user management OpenAPI: updates a user group. The tenant identity is obtained from the authentication context.
+     *
+     * @param Request - UpdateUserGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserGroupResponse
+     *
+     * @param UpdateUserGroupRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateUserGroupResponse
+     */
+    public function updateUserGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->moveToRoot) {
+            @$body['moveToRoot'] = $request->moveToRoot;
+        }
+
+        if (null !== $request->parentId) {
+            @$body['parentId'] = $request->parentId;
+        }
+
+        if (null !== $request->userGroupId) {
+            @$body['userGroupId'] = $request->userGroupId;
+        }
+
+        if (null !== $request->userGroupName) {
+            @$body['userGroupName'] = $request->userGroupName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUserGroup',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/updateUserGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the name, description, and parent relationship of a specified user group.
+     *
+     * @remarks
+     * WinNexo user management OpenAPI: updates a user group. The tenant identity is obtained from the authentication context.
+     *
+     * @param Request - UpdateUserGroupRequest
+     *
+     * @returns UpdateUserGroupResponse
+     *
+     * @param UpdateUserGroupRequest $request
+     *
+     * @return UpdateUserGroupResponse
+     */
+    public function updateUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateUserGroupWithOptions($request, $headers, $runtime);
     }
 
     /**

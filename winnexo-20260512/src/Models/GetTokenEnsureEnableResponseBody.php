@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SendAsyncChatMessageResponseBody extends Model
+class GetTokenEnsureEnableResponseBody extends Model
 {
     /**
      * @var string
@@ -16,12 +16,12 @@ class SendAsyncChatMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
+    public $gmtCreate;
 
     /**
      * @var string
      */
-    public $messageId;
+    public $message;
 
     /**
      * @var string
@@ -29,27 +29,21 @@ class SendAsyncChatMessageResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $sessionCreated;
+    public $token;
 
     /**
      * @var string
      */
-    public $sessionId;
-
-    /**
-     * @var string
-     */
-    public $userMessageId;
+    public $tokenMasked;
     protected $_name = [
         'code' => 'code',
+        'gmtCreate' => 'gmtCreate',
         'message' => 'message',
-        'messageId' => 'messageId',
         'requestId' => 'requestId',
-        'sessionCreated' => 'sessionCreated',
-        'sessionId' => 'sessionId',
-        'userMessageId' => 'userMessageId',
+        'token' => 'token',
+        'tokenMasked' => 'tokenMasked',
     ];
 
     public function validate()
@@ -64,28 +58,24 @@ class SendAsyncChatMessageResponseBody extends Model
             $res['code'] = $this->code;
         }
 
-        if (null !== $this->message) {
-            $res['message'] = $this->message;
+        if (null !== $this->gmtCreate) {
+            $res['gmtCreate'] = $this->gmtCreate;
         }
 
-        if (null !== $this->messageId) {
-            $res['messageId'] = $this->messageId;
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
         }
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->sessionCreated) {
-            $res['sessionCreated'] = $this->sessionCreated;
+        if (null !== $this->token) {
+            $res['token'] = $this->token;
         }
 
-        if (null !== $this->sessionId) {
-            $res['sessionId'] = $this->sessionId;
-        }
-
-        if (null !== $this->userMessageId) {
-            $res['userMessageId'] = $this->userMessageId;
+        if (null !== $this->tokenMasked) {
+            $res['tokenMasked'] = $this->tokenMasked;
         }
 
         return $res;
@@ -103,28 +93,24 @@ class SendAsyncChatMessageResponseBody extends Model
             $model->code = $map['code'];
         }
 
-        if (isset($map['message'])) {
-            $model->message = $map['message'];
+        if (isset($map['gmtCreate'])) {
+            $model->gmtCreate = $map['gmtCreate'];
         }
 
-        if (isset($map['messageId'])) {
-            $model->messageId = $map['messageId'];
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
         }
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['sessionCreated'])) {
-            $model->sessionCreated = $map['sessionCreated'];
+        if (isset($map['token'])) {
+            $model->token = $map['token'];
         }
 
-        if (isset($map['sessionId'])) {
-            $model->sessionId = $map['sessionId'];
-        }
-
-        if (isset($map['userMessageId'])) {
-            $model->userMessageId = $map['userMessageId'];
+        if (isset($map['tokenMasked'])) {
+            $model->tokenMasked = $map['tokenMasked'];
         }
 
         return $model;
