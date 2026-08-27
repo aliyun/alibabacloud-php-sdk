@@ -1,3 +1,14 @@
+2026-08-27 Version: 2.37.0
+- Support API DeleteAppSceneRecipient.
+- Update API ListAppInstanceDomains: add request parameters StatusQueryMode.
+- Update API ListAppInstanceDomains: add response parameters Body.Module.Data.$.IcpFilingStatus.
+- Update API ListAppInstanceDomains: add response parameters Body.Module.Data.$.Offline.
+- Update API ListAppInstanceDomains: add response parameters Body.Module.Next.DeployType.
+- Update API ListAppInstanceDomains: add response parameters Body.Module.Next.DomainType.
+- Update API ListAppInstanceDomains: add response parameters Body.Module.Next.IcpFilingStatus.
+- Update API ListAppInstanceDomains: add response parameters Body.Module.Next.Offline.
+
+
 2026-08-26 Version: 2.36.2
 - Update API BindAppDomain: add request parameters DomainType.
 - Update API ListAppInstanceDomains: add request parameters DomainType.

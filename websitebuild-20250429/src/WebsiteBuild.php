@@ -72,6 +72,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppNotificationSceneReq
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppNotificationSceneResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppPluginRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppPluginResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppSceneRecipientRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppSceneRecipientResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppSupabaseSecretsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppSupabaseSecretsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialDirectoryRequest;
@@ -2966,6 +2968,77 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppPluginWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a scenario recipient.
+     *
+     * @remarks
+     * Queries application instance information.
+     *
+     * @param request - DeleteAppSceneRecipientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppSceneRecipientResponse
+     *
+     * @param DeleteAppSceneRecipientRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAppSceneRecipientResponse
+     */
+    public function deleteAppSceneRecipientWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->recipientId) {
+            @$query['RecipientId'] = $request->recipientId;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAppSceneRecipient',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAppSceneRecipientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a scenario recipient.
+     *
+     * @remarks
+     * Queries application instance information.
+     *
+     * @param request - DeleteAppSceneRecipientRequest
+     *
+     * @returns DeleteAppSceneRecipientResponse
+     *
+     * @param DeleteAppSceneRecipientRequest $request
+     *
+     * @return DeleteAppSceneRecipientResponse
+     */
+    public function deleteAppSceneRecipient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppSceneRecipientWithOptions($request, $runtime);
     }
 
     /**
@@ -7047,6 +7120,10 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->statusQueryMode) {
+            @$query['StatusQueryMode'] = $request->statusQueryMode;
         }
 
         $req = new OpenApiRequest([

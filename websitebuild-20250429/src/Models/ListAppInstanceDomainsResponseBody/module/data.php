@@ -46,9 +46,19 @@ class data extends Model
     public $domainType;
 
     /**
+     * @var string
+     */
+    public $icpFilingStatus;
+
+    /**
      * @var migration
      */
     public $migration;
+
+    /**
+     * @var bool
+     */
+    public $offline;
 
     /**
      * @var string
@@ -81,7 +91,9 @@ class data extends Model
         'dnsConflict' => 'DnsConflict',
         'domainName' => 'DomainName',
         'domainType' => 'DomainType',
+        'icpFilingStatus' => 'IcpFilingStatus',
         'migration' => 'Migration',
+        'offline' => 'Offline',
         'overallStatus' => 'OverallStatus',
         'ownership' => 'Ownership',
         'qualification' => 'Qualification',
@@ -142,8 +154,16 @@ class data extends Model
             $res['DomainType'] = $this->domainType;
         }
 
+        if (null !== $this->icpFilingStatus) {
+            $res['IcpFilingStatus'] = $this->icpFilingStatus;
+        }
+
         if (null !== $this->migration) {
             $res['Migration'] = null !== $this->migration ? $this->migration->toArray($noStream) : $this->migration;
+        }
+
+        if (null !== $this->offline) {
+            $res['Offline'] = $this->offline;
         }
 
         if (null !== $this->overallStatus) {
@@ -201,8 +221,16 @@ class data extends Model
             $model->domainType = $map['DomainType'];
         }
 
+        if (isset($map['IcpFilingStatus'])) {
+            $model->icpFilingStatus = $map['IcpFilingStatus'];
+        }
+
         if (isset($map['Migration'])) {
             $model->migration = migration::fromMap($map['Migration']);
+        }
+
+        if (isset($map['Offline'])) {
+            $model->offline = $map['Offline'];
         }
 
         if (isset($map['OverallStatus'])) {

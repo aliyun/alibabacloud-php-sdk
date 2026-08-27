@@ -26,6 +26,11 @@ class next extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $deployType;
+
+    /**
      * @var dnsConflict
      */
     public $dnsConflict;
@@ -36,9 +41,24 @@ class next extends Model
     public $domainName;
 
     /**
+     * @var string
+     */
+    public $domainType;
+
+    /**
+     * @var string
+     */
+    public $icpFilingStatus;
+
+    /**
      * @var migration
      */
     public $migration;
+
+    /**
+     * @var bool
+     */
+    public $offline;
 
     /**
      * @var string
@@ -67,9 +87,13 @@ class next extends Model
     protected $_name = [
         'certificate' => 'Certificate',
         'createTime' => 'CreateTime',
+        'deployType' => 'DeployType',
         'dnsConflict' => 'DnsConflict',
         'domainName' => 'DomainName',
+        'domainType' => 'DomainType',
+        'icpFilingStatus' => 'IcpFilingStatus',
         'migration' => 'Migration',
+        'offline' => 'Offline',
         'overallStatus' => 'OverallStatus',
         'ownership' => 'Ownership',
         'qualification' => 'Qualification',
@@ -114,6 +138,10 @@ class next extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->deployType) {
+            $res['DeployType'] = $this->deployType;
+        }
+
         if (null !== $this->dnsConflict) {
             $res['DnsConflict'] = null !== $this->dnsConflict ? $this->dnsConflict->toArray($noStream) : $this->dnsConflict;
         }
@@ -122,8 +150,20 @@ class next extends Model
             $res['DomainName'] = $this->domainName;
         }
 
+        if (null !== $this->domainType) {
+            $res['DomainType'] = $this->domainType;
+        }
+
+        if (null !== $this->icpFilingStatus) {
+            $res['IcpFilingStatus'] = $this->icpFilingStatus;
+        }
+
         if (null !== $this->migration) {
             $res['Migration'] = null !== $this->migration ? $this->migration->toArray($noStream) : $this->migration;
+        }
+
+        if (null !== $this->offline) {
+            $res['Offline'] = $this->offline;
         }
 
         if (null !== $this->overallStatus) {
@@ -165,6 +205,10 @@ class next extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['DeployType'])) {
+            $model->deployType = $map['DeployType'];
+        }
+
         if (isset($map['DnsConflict'])) {
             $model->dnsConflict = dnsConflict::fromMap($map['DnsConflict']);
         }
@@ -173,8 +217,20 @@ class next extends Model
             $model->domainName = $map['DomainName'];
         }
 
+        if (isset($map['DomainType'])) {
+            $model->domainType = $map['DomainType'];
+        }
+
+        if (isset($map['IcpFilingStatus'])) {
+            $model->icpFilingStatus = $map['IcpFilingStatus'];
+        }
+
         if (isset($map['Migration'])) {
             $model->migration = migration::fromMap($map['Migration']);
+        }
+
+        if (isset($map['Offline'])) {
+            $model->offline = $map['Offline'];
         }
 
         if (isset($map['OverallStatus'])) {

@@ -52,6 +52,11 @@ class ListAppInstanceDomainsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $statusQueryMode;
     protected $_name = [
         'bizId' => 'BizId',
         'domainKeyword' => 'DomainKeyword',
@@ -62,6 +67,7 @@ class ListAppInstanceDomainsRequest extends Model
         'orderType' => 'OrderType',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
+        'statusQueryMode' => 'StatusQueryMode',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class ListAppInstanceDomainsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->statusQueryMode) {
+            $res['StatusQueryMode'] = $this->statusQueryMode;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class ListAppInstanceDomainsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['StatusQueryMode'])) {
+            $model->statusQueryMode = $map['StatusQueryMode'];
         }
 
         return $model;
