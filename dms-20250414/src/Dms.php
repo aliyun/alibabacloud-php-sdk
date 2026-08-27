@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSkillMetaRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSkillMetaResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentThemeRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentThemeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentWorkspaceRequest;
@@ -72,6 +74,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentMemoryRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentSkillMetaRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentSkillMetaResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeDatabaseRequest;
@@ -112,6 +116,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseStatsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseStatsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseUploadSignatureRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseUploadSignatureResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeSkillFileUploadSignatureRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeSkillFileUploadSignatureResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticAgentByInstallTokenRequest;
@@ -126,8 +132,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentSubAccountInfoRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentSubAccountInfoResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageMetricsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageMetricsResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageMetricsShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentTaskModelUsageShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentThemeUploadSignatureRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentThemeUploadSignatureResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentWorkspaceInfoRequest;
@@ -183,6 +191,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentMemoryRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSkillMetaRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSkillMetaResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentThemeRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentThemeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceMemberRequest;
@@ -1564,6 +1574,75 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Creates and registers a DataAgent skill.
+     *
+     * @param request - CreateDataAgentSkillMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataAgentSkillMetaResponse
+     *
+     * @param CreateDataAgentSkillMetaRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateDataAgentSkillMetaResponse
+     */
+    public function createDataAgentSkillMetaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['SkillName'] = $request->skillName;
+        }
+
+        if (null !== $request->uploadLocation) {
+            @$query['UploadLocation'] = $request->uploadLocation;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataAgentSkillMeta',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataAgentSkillMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates and registers a DataAgent skill.
+     *
+     * @param request - CreateDataAgentSkillMetaRequest
+     *
+     * @returns CreateDataAgentSkillMetaResponse
+     *
+     * @param CreateDataAgentSkillMetaRequest $request
+     *
+     * @return CreateDataAgentSkillMetaResponse
+     */
+    public function createDataAgentSkillMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataAgentSkillMetaWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a DataAgent theme.
      *
      * @param request - CreateDataAgentThemeRequest
@@ -2585,6 +2664,67 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDataAgentMemoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a DataAgent skill.
+     *
+     * @param request - DeleteDataAgentSkillMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataAgentSkillMetaResponse
+     *
+     * @param DeleteDataAgentSkillMetaRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteDataAgentSkillMetaResponse
+     */
+    public function deleteDataAgentSkillMetaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataAgentSkillMeta',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataAgentSkillMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a DataAgent skill.
+     *
+     * @param request - DeleteDataAgentSkillMetaRequest
+     *
+     * @returns DeleteDataAgentSkillMetaResponse
+     *
+     * @param DeleteDataAgentSkillMetaRequest $request
+     *
+     * @return DeleteDataAgentSkillMetaResponse
+     */
+    public function deleteDataAgentSkillMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataAgentSkillMetaWithOptions($request, $runtime);
     }
 
     /**
@@ -3829,6 +3969,63 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Retrieves the signature information for uploading skill files.
+     *
+     * @param request - DescribeSkillFileUploadSignatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSkillFileUploadSignatureResponse
+     *
+     * @param DescribeSkillFileUploadSignatureRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeSkillFileUploadSignatureResponse
+     */
+    public function describeSkillFileUploadSignatureWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSkillFileUploadSignature',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSkillFileUploadSignatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the signature information for uploading skill files.
+     *
+     * @param request - DescribeSkillFileUploadSignatureRequest
+     *
+     * @returns DescribeSkillFileUploadSignatureResponse
+     *
+     * @param DescribeSkillFileUploadSignatureRequest $request
+     *
+     * @return DescribeSkillFileUploadSignatureResponse
+     */
+    public function describeSkillFileUploadSignature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSkillFileUploadSignatureWithOptions($request, $runtime);
+    }
+
+    /**
      * Calls back after a file is uploaded.
      *
      * @param request - FileUploadCallbackRequest
@@ -4301,21 +4498,27 @@ class Dms extends OpenApiClient
      * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
      *
      * @remarks
-     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
      *
-     * @param request - GetDataAgentTaskModelUsageRequest
+     * @param tmpReq - GetDataAgentTaskModelUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDataAgentTaskModelUsageResponse
      *
-     * @param GetDataAgentTaskModelUsageRequest $request
+     * @param GetDataAgentTaskModelUsageRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
      * @return GetDataAgentTaskModelUsageResponse
      */
-    public function getDataAgentTaskModelUsageWithOptions($request, $runtime)
+    public function getDataAgentTaskModelUsageWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GetDataAgentTaskModelUsageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
         $query = [];
         if (null !== $request->beginTime) {
             @$query['BeginTime'] = $request->beginTime;
@@ -4327,6 +4530,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
 
         if (null !== $request->payLevel) {
@@ -4359,7 +4566,7 @@ class Dms extends OpenApiClient
      * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
      *
      * @remarks
-     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
      *
      * @param request - GetDataAgentTaskModelUsageRequest
      *
@@ -4382,19 +4589,25 @@ class Dms extends OpenApiClient
      * @remarks
      * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
      *
-     * @param request - GetDataAgentTaskModelUsageMetricsRequest
+     * @param tmpReq - GetDataAgentTaskModelUsageMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDataAgentTaskModelUsageMetricsResponse
      *
-     * @param GetDataAgentTaskModelUsageMetricsRequest $request
+     * @param GetDataAgentTaskModelUsageMetricsRequest $tmpReq
      * @param RuntimeOptions                           $runtime
      *
      * @return GetDataAgentTaskModelUsageMetricsResponse
      */
-    public function getDataAgentTaskModelUsageMetricsWithOptions($request, $runtime)
+    public function getDataAgentTaskModelUsageMetricsWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GetDataAgentTaskModelUsageMetricsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
         $query = [];
         if (null !== $request->beginTime) {
             @$query['BeginTime'] = $request->beginTime;
@@ -4406,6 +4619,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
 
         if (null !== $request->payLevel) {
@@ -6489,6 +6706,87 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of DataAgent skills.
+     *
+     * @param request - ListDataAgentSkillMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataAgentSkillMetaResponse
+     *
+     * @param ListDataAgentSkillMetaRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDataAgentSkillMetaResponse
+     */
+    public function listDataAgentSkillMetaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->skillFrom) {
+            @$query['SkillFrom'] = $request->skillFrom;
+        }
+
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['SkillName'] = $request->skillName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataAgentSkillMeta',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataAgentSkillMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of DataAgent skills.
+     *
+     * @param request - ListDataAgentSkillMetaRequest
+     *
+     * @returns ListDataAgentSkillMetaResponse
+     *
+     * @param ListDataAgentSkillMetaRequest $request
+     *
+     * @return ListDataAgentSkillMetaResponse
+     */
+    public function listDataAgentSkillMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataAgentSkillMetaWithOptions($request, $runtime);
+    }
+
+    /**
      * Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
      *
      * @param request - ListDataAgentThemeRequest
@@ -8549,7 +8847,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * ModifyDataAgentTheme.
+     * Calls the ModifyDataAgentTheme operation to modify the display name and description of a DataAgent theme. Passing null for a parameter value indicates that the corresponding field is not modified. Passing an empty string clears the field.
      *
      * @param request - ModifyDataAgentThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8596,7 +8894,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * ModifyDataAgentTheme.
+     * Calls the ModifyDataAgentTheme operation to modify the display name and description of a DataAgent theme. Passing null for a parameter value indicates that the corresponding field is not modified. Passing an empty string clears the field.
      *
      * @param request - ModifyDataAgentThemeRequest
      *

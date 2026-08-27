@@ -24,6 +24,11 @@ class GetDataAgentTaskModelUsageRequest extends Model
     public $endTime;
 
     /**
+     * @var string[]
+     */
+    public $instanceIds;
+
+    /**
      * @var string
      */
     public $payLevel;
@@ -36,12 +41,16 @@ class GetDataAgentTaskModelUsageRequest extends Model
         'beginTime' => 'BeginTime',
         'DMSUnit' => 'DMSUnit',
         'endTime' => 'EndTime',
+        'instanceIds' => 'InstanceIds',
         'payLevel' => 'PayLevel',
         'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
         parent::validate();
     }
 
@@ -58,6 +67,17 @@ class GetDataAgentTaskModelUsageRequest extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->instanceIds) {
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->payLevel) {
@@ -89,6 +109,17 @@ class GetDataAgentTaskModelUsageRequest extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['PayLevel'])) {

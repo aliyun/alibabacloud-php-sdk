@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Dms\V20250414\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetDataAgentTaskModelUsageMetricsRequest extends Model
+class GetDataAgentTaskModelUsageShrinkRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $beginTime;
 
@@ -19,14 +19,14 @@ class GetDataAgentTaskModelUsageMetricsRequest extends Model
     public $DMSUnit;
 
     /**
-     * @var string
+     * @var int
      */
     public $endTime;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $instanceIds;
+    public $instanceIdsShrink;
 
     /**
      * @var string
@@ -41,16 +41,13 @@ class GetDataAgentTaskModelUsageMetricsRequest extends Model
         'beginTime' => 'BeginTime',
         'DMSUnit' => 'DMSUnit',
         'endTime' => 'EndTime',
-        'instanceIds' => 'InstanceIds',
+        'instanceIdsShrink' => 'InstanceIds',
         'payLevel' => 'PayLevel',
         'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->instanceIds)) {
-            Model::validateArray($this->instanceIds);
-        }
         parent::validate();
     }
 
@@ -69,15 +66,8 @@ class GetDataAgentTaskModelUsageMetricsRequest extends Model
             $res['EndTime'] = $this->endTime;
         }
 
-        if (null !== $this->instanceIds) {
-            if (\is_array($this->instanceIds)) {
-                $res['InstanceIds'] = [];
-                $n1 = 0;
-                foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->instanceIdsShrink) {
+            $res['InstanceIds'] = $this->instanceIdsShrink;
         }
 
         if (null !== $this->payLevel) {
@@ -112,14 +102,7 @@ class GetDataAgentTaskModelUsageMetricsRequest extends Model
         }
 
         if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = [];
-                $n1 = 0;
-                foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->instanceIdsShrink = $map['InstanceIds'];
         }
 
         if (isset($map['PayLevel'])) {
