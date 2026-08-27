@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cams\V20200606\Models\FlowBindPhoneRequest\multiWabaPhoneNumbers;
 
 class FlowBindPhoneRequest extends Model
 {
@@ -27,6 +28,11 @@ class FlowBindPhoneRequest extends Model
      * @var string
      */
     public $flowVersion;
+
+    /**
+     * @var multiWabaPhoneNumbers[]
+     */
+    public $multiWabaPhoneNumbers;
 
     /**
      * @var int
@@ -57,6 +63,7 @@ class FlowBindPhoneRequest extends Model
         'channelType' => 'ChannelType',
         'flowCode' => 'FlowCode',
         'flowVersion' => 'FlowVersion',
+        'multiWabaPhoneNumbers' => 'MultiWabaPhoneNumbers',
         'ownerId' => 'OwnerId',
         'phoneNumbers' => 'PhoneNumbers',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -66,6 +73,9 @@ class FlowBindPhoneRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->multiWabaPhoneNumbers)) {
+            Model::validateArray($this->multiWabaPhoneNumbers);
+        }
         if (\is_array($this->phoneNumbers)) {
             Model::validateArray($this->phoneNumbers);
         }
@@ -89,6 +99,17 @@ class FlowBindPhoneRequest extends Model
 
         if (null !== $this->flowVersion) {
             $res['FlowVersion'] = $this->flowVersion;
+        }
+
+        if (null !== $this->multiWabaPhoneNumbers) {
+            if (\is_array($this->multiWabaPhoneNumbers)) {
+                $res['MultiWabaPhoneNumbers'] = [];
+                $n1 = 0;
+                foreach ($this->multiWabaPhoneNumbers as $item1) {
+                    $res['MultiWabaPhoneNumbers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->ownerId) {
@@ -143,6 +164,17 @@ class FlowBindPhoneRequest extends Model
 
         if (isset($map['FlowVersion'])) {
             $model->flowVersion = $map['FlowVersion'];
+        }
+
+        if (isset($map['MultiWabaPhoneNumbers'])) {
+            if (!empty($map['MultiWabaPhoneNumbers'])) {
+                $model->multiWabaPhoneNumbers = [];
+                $n1 = 0;
+                foreach ($map['MultiWabaPhoneNumbers'] as $item1) {
+                    $model->multiWabaPhoneNumbers[$n1] = multiWabaPhoneNumbers::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['OwnerId'])) {

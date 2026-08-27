@@ -11,6 +11,11 @@ class ListInstanceRequest extends Model
     /**
      * @var string
      */
+    public $bindId;
+
+    /**
+     * @var string
+     */
     public $channelType;
 
     /**
@@ -27,6 +32,11 @@ class ListInstanceRequest extends Model
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var bool
+     */
+    public $isBind;
 
     /**
      * @var int
@@ -48,10 +58,12 @@ class ListInstanceRequest extends Model
      */
     public $submitTime;
     protected $_name = [
+        'bindId' => 'BindId',
         'channelType' => 'ChannelType',
         'filterStr' => 'FilterStr',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
+        'isBind' => 'IsBind',
         'pageIndex' => 'PageIndex',
         'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
@@ -66,6 +78,10 @@ class ListInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bindId) {
+            $res['BindId'] = $this->bindId;
+        }
+
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
@@ -80,6 +96,10 @@ class ListInstanceRequest extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->isBind) {
+            $res['IsBind'] = $this->isBind;
         }
 
         if (null !== $this->pageIndex) {
@@ -109,6 +129,10 @@ class ListInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BindId'])) {
+            $model->bindId = $map['BindId'];
+        }
+
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
         }
@@ -123,6 +147,10 @@ class ListInstanceRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['IsBind'])) {
+            $model->isBind = $map['IsBind'];
         }
 
         if (isset($map['PageIndex'])) {

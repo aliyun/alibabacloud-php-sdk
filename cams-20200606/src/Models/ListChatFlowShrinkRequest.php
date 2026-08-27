@@ -21,6 +21,16 @@ class ListChatFlowShrinkRequest extends Model
     /**
      * @var string
      */
+    public $flowCode;
+
+    /**
+     * @var string
+     */
+    public $flowStatus;
+
+    /**
+     * @var string
+     */
     public $flowTriggerType;
 
     /**
@@ -46,6 +56,11 @@ class ListChatFlowShrinkRequest extends Model
     /**
      * @var string
      */
+    public $phoneNumber;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -62,18 +77,27 @@ class ListChatFlowShrinkRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
         'bizCode' => 'BizCode',
         'bizExtendShrink' => 'BizExtend',
+        'flowCode' => 'FlowCode',
+        'flowStatus' => 'FlowStatus',
         'flowTriggerType' => 'FlowTriggerType',
         'keyword' => 'Keyword',
         'ownerId' => 'OwnerId',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
+        'phoneNumber' => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'returnWithOnlineVersion' => 'ReturnWithOnlineVersion',
         'status' => 'Status',
+        'title' => 'Title',
     ];
 
     public function validate()
@@ -90,6 +114,14 @@ class ListChatFlowShrinkRequest extends Model
 
         if (null !== $this->bizExtendShrink) {
             $res['BizExtend'] = $this->bizExtendShrink;
+        }
+
+        if (null !== $this->flowCode) {
+            $res['FlowCode'] = $this->flowCode;
+        }
+
+        if (null !== $this->flowStatus) {
+            $res['FlowStatus'] = $this->flowStatus;
         }
 
         if (null !== $this->flowTriggerType) {
@@ -112,6 +144,10 @@ class ListChatFlowShrinkRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->phoneNumber) {
+            $res['PhoneNumber'] = $this->phoneNumber;
+        }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -126,6 +162,10 @@ class ListChatFlowShrinkRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -145,6 +185,14 @@ class ListChatFlowShrinkRequest extends Model
 
         if (isset($map['BizExtend'])) {
             $model->bizExtendShrink = $map['BizExtend'];
+        }
+
+        if (isset($map['FlowCode'])) {
+            $model->flowCode = $map['FlowCode'];
+        }
+
+        if (isset($map['FlowStatus'])) {
+            $model->flowStatus = $map['FlowStatus'];
         }
 
         if (isset($map['FlowTriggerType'])) {
@@ -167,6 +215,10 @@ class ListChatFlowShrinkRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['PhoneNumber'])) {
+            $model->phoneNumber = $map['PhoneNumber'];
+        }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -181,6 +233,10 @@ class ListChatFlowShrinkRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

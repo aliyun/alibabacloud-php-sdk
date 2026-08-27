@@ -21,7 +21,22 @@ class CreateChatFlowRequest extends Model
     /**
      * @var string
      */
+    public $createFromFlowCode;
+
+    /**
+     * @var string
+     */
+    public $createFromFlowVersion;
+
+    /**
+     * @var string
+     */
     public $flowTriggerType;
+
+    /**
+     * @var string[]
+     */
+    public $lifeCycleExtendData;
 
     /**
      * @var int
@@ -50,7 +65,10 @@ class CreateChatFlowRequest extends Model
     protected $_name = [
         'bizCode' => 'BizCode',
         'bizExtend' => 'BizExtend',
+        'createFromFlowCode' => 'CreateFromFlowCode',
+        'createFromFlowVersion' => 'CreateFromFlowVersion',
         'flowTriggerType' => 'FlowTriggerType',
+        'lifeCycleExtendData' => 'LifeCycleExtendData',
         'ownerId' => 'OwnerId',
         'remark' => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -62,6 +80,9 @@ class CreateChatFlowRequest extends Model
     {
         if (\is_array($this->bizExtend)) {
             Model::validateArray($this->bizExtend);
+        }
+        if (\is_array($this->lifeCycleExtendData)) {
+            Model::validateArray($this->lifeCycleExtendData);
         }
         parent::validate();
     }
@@ -82,8 +103,25 @@ class CreateChatFlowRequest extends Model
             }
         }
 
+        if (null !== $this->createFromFlowCode) {
+            $res['CreateFromFlowCode'] = $this->createFromFlowCode;
+        }
+
+        if (null !== $this->createFromFlowVersion) {
+            $res['CreateFromFlowVersion'] = $this->createFromFlowVersion;
+        }
+
         if (null !== $this->flowTriggerType) {
             $res['FlowTriggerType'] = $this->flowTriggerType;
+        }
+
+        if (null !== $this->lifeCycleExtendData) {
+            if (\is_array($this->lifeCycleExtendData)) {
+                $res['LifeCycleExtendData'] = [];
+                foreach ($this->lifeCycleExtendData as $key1 => $value1) {
+                    $res['LifeCycleExtendData'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->ownerId) {
@@ -130,8 +168,25 @@ class CreateChatFlowRequest extends Model
             }
         }
 
+        if (isset($map['CreateFromFlowCode'])) {
+            $model->createFromFlowCode = $map['CreateFromFlowCode'];
+        }
+
+        if (isset($map['CreateFromFlowVersion'])) {
+            $model->createFromFlowVersion = $map['CreateFromFlowVersion'];
+        }
+
         if (isset($map['FlowTriggerType'])) {
             $model->flowTriggerType = $map['FlowTriggerType'];
+        }
+
+        if (isset($map['LifeCycleExtendData'])) {
+            if (!empty($map['LifeCycleExtendData'])) {
+                $model->lifeCycleExtendData = [];
+                foreach ($map['LifeCycleExtendData'] as $key1 => $value1) {
+                    $model->lifeCycleExtendData[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['OwnerId'])) {

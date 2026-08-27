@@ -66,6 +66,11 @@ class CreateChatappTemplateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $productSetId;
+
+    /**
+     * @var string
+     */
     public $templateType;
     protected $_name = [
         'allowCategoryChange' => 'AllowCategoryChange',
@@ -79,6 +84,7 @@ class CreateChatappTemplateShrinkRequest extends Model
         'language' => 'Language',
         'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
         'name' => 'Name',
+        'productSetId' => 'ProductSetId',
         'templateType' => 'TemplateType',
     ];
 
@@ -132,6 +138,10 @@ class CreateChatappTemplateShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->productSetId) {
+            $res['ProductSetId'] = $this->productSetId;
         }
 
         if (null !== $this->templateType) {
@@ -191,6 +201,10 @@ class CreateChatappTemplateShrinkRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ProductSetId'])) {
+            $model->productSetId = $map['ProductSetId'];
         }
 
         if (isset($map['TemplateType'])) {

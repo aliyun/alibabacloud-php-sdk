@@ -21,6 +21,11 @@ class ReadFlowVersionShrinkRequest extends Model
     /**
      * @var string
      */
+    public $draftVersion;
+
+    /**
+     * @var string
+     */
     public $flowCode;
 
     /**
@@ -50,6 +55,7 @@ class ReadFlowVersionShrinkRequest extends Model
     protected $_name = [
         'bizCode' => 'BizCode',
         'bizExtendShrink' => 'BizExtend',
+        'draftVersion' => 'DraftVersion',
         'flowCode' => 'FlowCode',
         'flowVersion' => 'FlowVersion',
         'ownerId' => 'OwnerId',
@@ -72,6 +78,10 @@ class ReadFlowVersionShrinkRequest extends Model
 
         if (null !== $this->bizExtendShrink) {
             $res['BizExtend'] = $this->bizExtendShrink;
+        }
+
+        if (null !== $this->draftVersion) {
+            $res['DraftVersion'] = $this->draftVersion;
         }
 
         if (null !== $this->flowCode) {
@@ -115,6 +125,10 @@ class ReadFlowVersionShrinkRequest extends Model
 
         if (isset($map['BizExtend'])) {
             $model->bizExtendShrink = $map['BizExtend'];
+        }
+
+        if (isset($map['DraftVersion'])) {
+            $model->draftVersion = $map['DraftVersion'];
         }
 
         if (isset($map['FlowCode'])) {

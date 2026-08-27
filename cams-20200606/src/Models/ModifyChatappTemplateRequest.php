@@ -57,6 +57,11 @@ class ModifyChatappTemplateRequest extends Model
     /**
      * @var string
      */
+    public $productSetId;
+
+    /**
+     * @var string
+     */
     public $templateCode;
 
     /**
@@ -78,6 +83,7 @@ class ModifyChatappTemplateRequest extends Model
         'isvCode' => 'IsvCode',
         'language' => 'Language',
         'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
+        'productSetId' => 'ProductSetId',
         'templateCode' => 'TemplateCode',
         'templateName' => 'TemplateName',
         'templateType' => 'TemplateType',
@@ -143,6 +149,10 @@ class ModifyChatappTemplateRequest extends Model
 
         if (null !== $this->messageSendTtlSeconds) {
             $res['MessageSendTtlSeconds'] = $this->messageSendTtlSeconds;
+        }
+
+        if (null !== $this->productSetId) {
+            $res['ProductSetId'] = $this->productSetId;
         }
 
         if (null !== $this->templateCode) {
@@ -214,6 +224,10 @@ class ModifyChatappTemplateRequest extends Model
 
         if (isset($map['MessageSendTtlSeconds'])) {
             $model->messageSendTtlSeconds = $map['MessageSendTtlSeconds'];
+        }
+
+        if (isset($map['ProductSetId'])) {
+            $model->productSetId = $map['ProductSetId'];
         }
 
         if (isset($map['TemplateCode'])) {

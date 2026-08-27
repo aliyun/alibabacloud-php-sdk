@@ -21,6 +21,11 @@ class ReadFlowVersionRequest extends Model
     /**
      * @var string
      */
+    public $draftVersion;
+
+    /**
+     * @var string
+     */
     public $flowCode;
 
     /**
@@ -50,6 +55,7 @@ class ReadFlowVersionRequest extends Model
     protected $_name = [
         'bizCode' => 'BizCode',
         'bizExtend' => 'BizExtend',
+        'draftVersion' => 'DraftVersion',
         'flowCode' => 'FlowCode',
         'flowVersion' => 'FlowVersion',
         'ownerId' => 'OwnerId',
@@ -80,6 +86,10 @@ class ReadFlowVersionRequest extends Model
                     $res['BizExtend'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->draftVersion) {
+            $res['DraftVersion'] = $this->draftVersion;
         }
 
         if (null !== $this->flowCode) {
@@ -128,6 +138,10 @@ class ReadFlowVersionRequest extends Model
                     $model->bizExtend[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['DraftVersion'])) {
+            $model->draftVersion = $map['DraftVersion'];
         }
 
         if (isset($map['FlowCode'])) {

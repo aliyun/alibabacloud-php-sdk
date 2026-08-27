@@ -33,12 +33,18 @@ class GetChatappTemplateDetailResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
         'code' => 'Code',
         'data' => 'Data',
         'message' => 'Message',
         'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -72,6 +78,10 @@ class GetChatappTemplateDetailResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+
         return $res;
     }
 
@@ -101,6 +111,10 @@ class GetChatappTemplateDetailResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

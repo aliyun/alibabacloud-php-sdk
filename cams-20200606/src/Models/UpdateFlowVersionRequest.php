@@ -52,6 +52,11 @@ class UpdateFlowVersionRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'bizCode' => 'BizCode',
         'bizExtend' => 'BizExtend',
@@ -62,6 +67,7 @@ class UpdateFlowVersionRequest extends Model
         'remark' => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class UpdateFlowVersionRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+
         return $res;
     }
 
@@ -166,6 +176,10 @@ class UpdateFlowVersionRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

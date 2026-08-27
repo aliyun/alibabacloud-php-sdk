@@ -57,6 +57,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $productSetId;
+
+    /**
+     * @var string
+     */
     public $qualityScore;
 
     /**
@@ -83,6 +88,7 @@ class data extends Model
         'language' => 'Language',
         'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
         'name' => 'Name',
+        'productSetId' => 'ProductSetId',
         'qualityScore' => 'QualityScore',
         'reason' => 'Reason',
         'templateCode' => 'TemplateCode',
@@ -149,6 +155,10 @@ class data extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->productSetId) {
+            $res['ProductSetId'] = $this->productSetId;
         }
 
         if (null !== $this->qualityScore) {
@@ -224,6 +234,10 @@ class data extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ProductSetId'])) {
+            $model->productSetId = $map['ProductSetId'];
         }
 
         if (isset($map['QualityScore'])) {

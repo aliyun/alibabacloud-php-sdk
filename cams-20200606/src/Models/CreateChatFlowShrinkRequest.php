@@ -21,7 +21,22 @@ class CreateChatFlowShrinkRequest extends Model
     /**
      * @var string
      */
+    public $createFromFlowCode;
+
+    /**
+     * @var string
+     */
+    public $createFromFlowVersion;
+
+    /**
+     * @var string
+     */
     public $flowTriggerType;
+
+    /**
+     * @var string
+     */
+    public $lifeCycleExtendDataShrink;
 
     /**
      * @var int
@@ -50,7 +65,10 @@ class CreateChatFlowShrinkRequest extends Model
     protected $_name = [
         'bizCode' => 'BizCode',
         'bizExtendShrink' => 'BizExtend',
+        'createFromFlowCode' => 'CreateFromFlowCode',
+        'createFromFlowVersion' => 'CreateFromFlowVersion',
         'flowTriggerType' => 'FlowTriggerType',
+        'lifeCycleExtendDataShrink' => 'LifeCycleExtendData',
         'ownerId' => 'OwnerId',
         'remark' => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -74,8 +92,20 @@ class CreateChatFlowShrinkRequest extends Model
             $res['BizExtend'] = $this->bizExtendShrink;
         }
 
+        if (null !== $this->createFromFlowCode) {
+            $res['CreateFromFlowCode'] = $this->createFromFlowCode;
+        }
+
+        if (null !== $this->createFromFlowVersion) {
+            $res['CreateFromFlowVersion'] = $this->createFromFlowVersion;
+        }
+
         if (null !== $this->flowTriggerType) {
             $res['FlowTriggerType'] = $this->flowTriggerType;
+        }
+
+        if (null !== $this->lifeCycleExtendDataShrink) {
+            $res['LifeCycleExtendData'] = $this->lifeCycleExtendDataShrink;
         }
 
         if (null !== $this->ownerId) {
@@ -117,8 +147,20 @@ class CreateChatFlowShrinkRequest extends Model
             $model->bizExtendShrink = $map['BizExtend'];
         }
 
+        if (isset($map['CreateFromFlowCode'])) {
+            $model->createFromFlowCode = $map['CreateFromFlowCode'];
+        }
+
+        if (isset($map['CreateFromFlowVersion'])) {
+            $model->createFromFlowVersion = $map['CreateFromFlowVersion'];
+        }
+
         if (isset($map['FlowTriggerType'])) {
             $model->flowTriggerType = $map['FlowTriggerType'];
+        }
+
+        if (isset($map['LifeCycleExtendData'])) {
+            $model->lifeCycleExtendDataShrink = $map['LifeCycleExtendData'];
         }
 
         if (isset($map['OwnerId'])) {

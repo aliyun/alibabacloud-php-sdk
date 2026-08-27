@@ -67,6 +67,11 @@ class CreateChatappTemplateRequest extends Model
     /**
      * @var string
      */
+    public $productSetId;
+
+    /**
+     * @var string
+     */
     public $templateType;
     protected $_name = [
         'allowCategoryChange' => 'AllowCategoryChange',
@@ -80,6 +85,7 @@ class CreateChatappTemplateRequest extends Model
         'language' => 'Language',
         'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
         'name' => 'Name',
+        'productSetId' => 'ProductSetId',
         'templateType' => 'TemplateType',
     ];
 
@@ -153,6 +159,10 @@ class CreateChatappTemplateRequest extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->productSetId) {
+            $res['ProductSetId'] = $this->productSetId;
+        }
+
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
@@ -222,6 +232,10 @@ class CreateChatappTemplateRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ProductSetId'])) {
+            $model->productSetId = $map['ProductSetId'];
         }
 
         if (isset($map['TemplateType'])) {

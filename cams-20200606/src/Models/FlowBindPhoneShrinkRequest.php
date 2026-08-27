@@ -29,6 +29,11 @@ class FlowBindPhoneShrinkRequest extends Model
     public $flowVersion;
 
     /**
+     * @var string
+     */
+    public $multiWabaPhoneNumbersShrink;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -57,6 +62,7 @@ class FlowBindPhoneShrinkRequest extends Model
         'channelType' => 'ChannelType',
         'flowCode' => 'FlowCode',
         'flowVersion' => 'FlowVersion',
+        'multiWabaPhoneNumbersShrink' => 'MultiWabaPhoneNumbers',
         'ownerId' => 'OwnerId',
         'phoneNumbersShrink' => 'PhoneNumbers',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -86,6 +92,10 @@ class FlowBindPhoneShrinkRequest extends Model
 
         if (null !== $this->flowVersion) {
             $res['FlowVersion'] = $this->flowVersion;
+        }
+
+        if (null !== $this->multiWabaPhoneNumbersShrink) {
+            $res['MultiWabaPhoneNumbers'] = $this->multiWabaPhoneNumbersShrink;
         }
 
         if (null !== $this->ownerId) {
@@ -133,6 +143,10 @@ class FlowBindPhoneShrinkRequest extends Model
 
         if (isset($map['FlowVersion'])) {
             $model->flowVersion = $map['FlowVersion'];
+        }
+
+        if (isset($map['MultiWabaPhoneNumbers'])) {
+            $model->multiWabaPhoneNumbersShrink = $map['MultiWabaPhoneNumbers'];
         }
 
         if (isset($map['OwnerId'])) {

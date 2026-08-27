@@ -52,6 +52,11 @@ class UpdateFlowVersionShrinkRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'bizCode' => 'BizCode',
         'bizExtendShrink' => 'BizExtend',
@@ -62,6 +67,7 @@ class UpdateFlowVersionShrinkRequest extends Model
         'remark' => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class UpdateFlowVersionShrinkRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class UpdateFlowVersionShrinkRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
