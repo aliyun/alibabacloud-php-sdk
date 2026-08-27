@@ -16,6 +16,11 @@ class AuthorizeFileUploadRequest extends Model
     /**
      * @var string
      */
+    public $batchSize;
+
+    /**
+     * @var string
+     */
     public $fileFormat;
 
     /**
@@ -24,6 +29,7 @@ class AuthorizeFileUploadRequest extends Model
     public $regionId;
     protected $_name = [
         'agentName' => 'AgentName',
+        'batchSize' => 'BatchSize',
         'fileFormat' => 'FileFormat',
         'regionId' => 'RegionId',
     ];
@@ -38,6 +44,10 @@ class AuthorizeFileUploadRequest extends Model
         $res = [];
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
+        }
+
+        if (null !== $this->batchSize) {
+            $res['BatchSize'] = $this->batchSize;
         }
 
         if (null !== $this->fileFormat) {
@@ -61,6 +71,10 @@ class AuthorizeFileUploadRequest extends Model
         $model = new self();
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
+        }
+
+        if (isset($map['BatchSize'])) {
+            $model->batchSize = $map['BatchSize'];
         }
 
         if (isset($map['FileFormat'])) {

@@ -189,6 +189,10 @@ class DtsAI extends OpenApiClient
             @$query['AgentName'] = $request->agentName;
         }
 
+        if (null !== $request->batchSize) {
+            @$query['BatchSize'] = $request->batchSize;
+        }
+
         if (null !== $request->fileFormat) {
             @$query['FileFormat'] = $request->fileFormat;
         }

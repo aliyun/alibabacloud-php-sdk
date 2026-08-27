@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\DtsAI\V20260401\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\DtsAI\V20260401\Models\AuthorizeFileUploadResponseBody\authorizations;
 
 class AuthorizeFileUploadResponseBody extends Model
 {
@@ -12,6 +13,11 @@ class AuthorizeFileUploadResponseBody extends Model
      * @var string
      */
     public $accessKeyId;
+
+    /**
+     * @var authorizations[]
+     */
+    public $authorizations;
 
     /**
      * @var string
@@ -37,6 +43,11 @@ class AuthorizeFileUploadResponseBody extends Model
      * @var string
      */
     public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $expireTime;
 
     /**
      * @var int
@@ -69,11 +80,13 @@ class AuthorizeFileUploadResponseBody extends Model
     public $success;
     protected $_name = [
         'accessKeyId' => 'AccessKeyId',
+        'authorizations' => 'Authorizations',
         'bucket' => 'Bucket',
         'encodedPolicy' => 'EncodedPolicy',
         'endpoint' => 'Endpoint',
         'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'expireTime' => 'ExpireTime',
         'httpStatusCode' => 'HttpStatusCode',
         'objectKey' => 'ObjectKey',
         'requestId' => 'RequestId',
@@ -84,6 +97,9 @@ class AuthorizeFileUploadResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->authorizations)) {
+            Model::validateArray($this->authorizations);
+        }
         parent::validate();
     }
 
@@ -92,6 +108,17 @@ class AuthorizeFileUploadResponseBody extends Model
         $res = [];
         if (null !== $this->accessKeyId) {
             $res['AccessKeyId'] = $this->accessKeyId;
+        }
+
+        if (null !== $this->authorizations) {
+            if (\is_array($this->authorizations)) {
+                $res['Authorizations'] = [];
+                $n1 = 0;
+                foreach ($this->authorizations as $item1) {
+                    $res['Authorizations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->bucket) {
@@ -112,6 +139,10 @@ class AuthorizeFileUploadResponseBody extends Model
 
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
 
         if (null !== $this->httpStatusCode) {
@@ -153,6 +184,17 @@ class AuthorizeFileUploadResponseBody extends Model
             $model->accessKeyId = $map['AccessKeyId'];
         }
 
+        if (isset($map['Authorizations'])) {
+            if (!empty($map['Authorizations'])) {
+                $model->authorizations = [];
+                $n1 = 0;
+                foreach ($map['Authorizations'] as $item1) {
+                    $model->authorizations[$n1] = authorizations::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
@@ -171,6 +213,10 @@ class AuthorizeFileUploadResponseBody extends Model
 
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
 
         if (isset($map['HttpStatusCode'])) {
