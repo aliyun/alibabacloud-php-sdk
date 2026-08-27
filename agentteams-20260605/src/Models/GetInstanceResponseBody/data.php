@@ -12,6 +12,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $aiRegistryNamespaceId;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -74,6 +79,7 @@ class data extends Model
      */
     public $zones;
     protected $_name = [
+        'aiRegistryNamespaceId' => 'AiRegistryNamespaceId',
         'createTime' => 'CreateTime',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
@@ -100,6 +106,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiRegistryNamespaceId) {
+            $res['AiRegistryNamespaceId'] = $this->aiRegistryNamespaceId;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -170,6 +180,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiRegistryNamespaceId'])) {
+            $model->aiRegistryNamespaceId = $map['AiRegistryNamespaceId'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
