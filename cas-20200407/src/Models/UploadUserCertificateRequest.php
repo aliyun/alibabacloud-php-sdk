@@ -17,6 +17,11 @@ class UploadUserCertificateRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $encryptCert;
 
     /**
@@ -55,6 +60,7 @@ class UploadUserCertificateRequest extends Model
     public $tags;
     protected $_name = [
         'cert' => 'Cert',
+        'clientToken' => 'ClientToken',
         'encryptCert' => 'EncryptCert',
         'encryptPrivateKey' => 'EncryptPrivateKey',
         'key' => 'Key',
@@ -78,6 +84,10 @@ class UploadUserCertificateRequest extends Model
         $res = [];
         if (null !== $this->cert) {
             $res['Cert'] = $this->cert;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->encryptCert) {
@@ -132,6 +142,10 @@ class UploadUserCertificateRequest extends Model
         $model = new self();
         if (isset($map['Cert'])) {
             $model->cert = $map['Cert'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['EncryptCert'])) {

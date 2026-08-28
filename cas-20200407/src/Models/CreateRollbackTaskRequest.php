@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteInstanceRequest extends Model
+class CreateRollbackTaskRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $jobId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $instanceId;
+    public $workerId;
     protected $_name = [
-        'clientToken' => 'ClientToken',
-        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
+        'workerId' => 'WorkerId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class DeleteInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->workerId) {
+            $res['WorkerId'] = $this->workerId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class DeleteInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['WorkerId'])) {
+            $model->workerId = $map['WorkerId'];
         }
 
         return $model;

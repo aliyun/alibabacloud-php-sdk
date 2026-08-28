@@ -12,8 +12,14 @@ class DeleteUserCertificateRequest extends Model
      * @var int
      */
     public $certId;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
     protected $_name = [
         'certId' => 'CertId',
+        'clientToken' => 'ClientToken',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DeleteUserCertificateRequest extends Model
         $res = [];
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DeleteUserCertificateRequest extends Model
         $model = new self();
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

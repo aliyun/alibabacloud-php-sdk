@@ -1,3 +1,11 @@
+2026-08-28 Version: 3.9.0
+- Support API CreateRollbackTask.
+- Support API ShareCertificate.
+- Update API DeleteInstance: add request parameters ClientToken.
+- Update API DeleteUserCertificate: add request parameters ClientToken.
+- Update API UploadUserCertificate: add request parameters ClientToken.
+
+
 2026-08-19 Version: 3.8.0
 - Support API ListTagKeys.
 - Support API ListTagResources.

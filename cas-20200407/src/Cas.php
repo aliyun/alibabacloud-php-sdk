@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateDeploymentJobRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateDeploymentJobResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateRollbackTaskRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateRollbackTaskResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWarehouseRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWarehouseResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHClientCertificateRequest;
@@ -146,6 +148,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ShareCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ShareCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\TagResourcesRequest;
@@ -1305,6 +1309,67 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * Rolls back a deployment.
+     *
+     * @param request - CreateRollbackTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRollbackTaskResponse
+     *
+     * @param CreateRollbackTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateRollbackTaskResponse
+     */
+    public function createRollbackTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->workerId) {
+            @$query['WorkerId'] = $request->workerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRollbackTask',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRollbackTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Rolls back a deployment.
+     *
+     * @param request - CreateRollbackTaskRequest
+     *
+     * @returns CreateRollbackTaskResponse
+     *
+     * @param CreateRollbackTaskRequest $request
+     *
+     * @return CreateRollbackTaskResponse
+     */
+    public function createRollbackTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRollbackTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Issues a single client certificate from the general user certificate repository.
      *
      * @remarks
@@ -1432,7 +1497,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Creates a certificate warehouse.
+     * Creates a certificate repository.
+     *
+     * @remarks
+     * This operation is used to query the list of certificate repositories.
+     * ### QPS limit
+     * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - CreateWarehouseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1479,7 +1549,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Creates a certificate warehouse.
+     * Creates a certificate repository.
+     *
+     * @remarks
+     * This operation is used to query the list of certificate repositories.
+     * ### QPS limit
+     * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - CreateWarehouseRequest
      *
@@ -1938,7 +2013,13 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Deletes a Certificate Management Service instance.
+     * Deletes an instance.
+     *
+     * @remarks
+     * Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
      *
      * @param request - DeleteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1954,6 +2035,10 @@ class Cas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -1977,7 +2062,13 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Deletes a Certificate Management Service instance.
+     * Deletes an instance.
+     *
+     * @remarks
+     * Queries the status information of a private Certificate Authority (CA) instance that you purchased in the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of certificates included, and the number of certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
      *
      * @param request - DeleteInstanceRequest
      *
@@ -2062,10 +2153,10 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Deletes an expired, revoked, or manually uploaded certificate from Certificate Management Service.
+     * Deletes an expired, revoked, or uploaded certificate.
      *
      * @remarks
-     * This operation is limited to 100 queries per second (QPS) per user. API calls exceeding this limit are throttled, which can impact your business. We recommend calling this operation at a reasonable rate to avoid this.
+     * The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DeleteUserCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2083,6 +2174,10 @@ class Cas extends OpenApiClient
         $query = [];
         if (null !== $request->certId) {
             @$query['CertId'] = $request->certId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         $req = new OpenApiRequest([
@@ -2104,10 +2199,10 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Deletes an expired, revoked, or manually uploaded certificate from Certificate Management Service.
+     * Deletes an expired, revoked, or uploaded certificate.
      *
      * @remarks
-     * This operation is limited to 100 queries per second (QPS) per user. API calls exceeding this limit are throttled, which can impact your business. We recommend calling this operation at a reasonable rate to avoid this.
+     * The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DeleteUserCertificateRequest
      *
@@ -2849,12 +2944,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * 获取证书资源包数量.
+     * Retrieves the number of certificate resource plans.
      *
      * @remarks
-     * 本接口用于查询您已创建的CA证书（包括根CA证书、子CA证书）的数量。
-     * ## QPS限制
-     * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+     * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
      *
      * @param request - GetCertificatePackageCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2886,12 +2981,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * 获取证书资源包数量.
+     * Retrieves the number of certificate resource plans.
      *
      * @remarks
-     * 本接口用于查询您已创建的CA证书（包括根CA证书、子CA证书）的数量。
-     * ## QPS限制
-     * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+     * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
      *
      * @param request - GetCertificatePackageCountRequest
      *
@@ -3626,12 +3721,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the certificate application repositories in your account.
+     * Queries the list of certificate repositories.
      *
      * @remarks
-     * You can call the ListCertWarehouse operation to query certificate repositories.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Queries the list of certificate repositories.
+     * ### QPS limit
+     * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
      *
      * @param request - ListCertWarehouseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3686,12 +3781,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the certificate application repositories in your account.
+     * Queries the list of certificate repositories.
      *
      * @remarks
-     * You can call the ListCertWarehouse operation to query certificate repositories.
-     * ### Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Queries the list of certificate repositories.
+     * ### QPS limit
+     * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
      *
      * @param request - ListCertWarehouseRequest
      *
@@ -4514,13 +4609,13 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * 获取资源对应的标签.
+     * Retrieves the tags associated with a resource.
      *
      * @remarks
-     * 本接口用于通过私有CA实例的ID，查询您通过SSL证书服务控制台购买的私有CA实例的状态信息，例如，CA实例的状态、包含的证书数量、已签发的证书数量等。
-     * 调用本接口前，您必须已经通过[数字证书管理服务控制台](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist)购买了私有CA。具体操作，请参见[购买私有CA](https://help.aliyun.com/document_detail/208553.html)。
-     * ## QPS限制
-     * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+     * This operation queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of digital certificates included, and the number of digital certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation appropriately.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4579,13 +4674,13 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * 获取资源对应的标签.
+     * Retrieves the tags associated with a resource.
      *
      * @remarks
-     * 本接口用于通过私有CA实例的ID，查询您通过SSL证书服务控制台购买的私有CA实例的状态信息，例如，CA实例的状态、包含的证书数量、已签发的证书数量等。
-     * 调用本接口前，您必须已经通过[数字证书管理服务控制台](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist)购买了私有CA。具体操作，请参见[购买私有CA](https://help.aliyun.com/document_detail/208553.html)。
-     * ## QPS限制
-     * 本接口的单用户QPS限制为10次/秒。超过限制，API调用将会被限流，这可能影响您的业务，请合理调用。
+     * This operation queries the status information of a private Certificate Authority (CA) instance that you purchased through the SSL Certificate console by using the ID of the private CA instance. For example, you can query the status of the CA instance, the number of digital certificates included, and the number of digital certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation appropriately.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -4606,7 +4701,7 @@ class Cas extends OpenApiClient
      * Retrieves the list of managed orders.
      *
      * @remarks
-     * This operation is used to query user certificates or order lists. When OrderType is set to CERT or UPLOAD, it queries the certificate list. When OrderType is set to CPACK or BUY, it queries the order list.
+     * Queries the managed orders for a certificate or order.
      * ## QPS limit
      * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
@@ -4662,7 +4757,7 @@ class Cas extends OpenApiClient
      * Retrieves the list of managed orders.
      *
      * @remarks
-     * This operation is used to query user certificates or order lists. When OrderType is set to CERT or UPLOAD, it queries the certificate list. When OrderType is set to CPACK or BUY, it queries the order list.
+     * Queries the managed orders for a certificate or order.
      * ## QPS limit
      * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
@@ -5132,6 +5227,11 @@ class Cas extends OpenApiClient
     /**
      * Revokes a certificate.
      *
+     * @remarks
+     * Invokes this operation to query the details of all revoked client certificates and server certificates by paging. The details include the unique identifier, serial number, and revocation date of each certificate.
+     * ## QPS limit
+     * The queries per second (QPS) limit for a single user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+     *
      * @param request - RevokeCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5174,6 +5274,11 @@ class Cas extends OpenApiClient
 
     /**
      * Revokes a certificate.
+     *
+     * @remarks
+     * Invokes this operation to query the details of all revoked client certificates and server certificates by paging. The details include the unique identifier, serial number, and revocation date of each certificate.
+     * ## QPS limit
+     * The queries per second (QPS) limit for a single user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
      *
      * @param request - RevokeCertificateRequest
      *
@@ -5251,6 +5356,67 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeWHClientCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 共享证书.
+     *
+     * @param request - ShareCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ShareCertificateResponse
+     *
+     * @param ShareCertificateRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ShareCertificateResponse
+     */
+    public function shareCertificateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certificateId) {
+            @$query['CertificateId'] = $request->certificateId;
+        }
+
+        if (null !== $request->targetUserId) {
+            @$query['TargetUserId'] = $request->targetUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ShareCertificate',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ShareCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 共享证书.
+     *
+     * @param request - ShareCertificateRequest
+     *
+     * @returns ShareCertificateResponse
+     *
+     * @param ShareCertificateRequest $request
+     *
+     * @return ShareCertificateResponse
+     */
+    public function shareCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->shareCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -5689,7 +5855,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
+     * Uploads the private key corresponding to a CSR if you did not provide the CSR private key when uploading the local CSR.
      *
      * @param request - UpdateCsrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5732,7 +5898,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
+     * Uploads the private key corresponding to a CSR if you did not provide the CSR private key when uploading the local CSR.
      *
      * @param request - UpdateCsrRequest
      *
@@ -6001,7 +6167,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Rolls back or re-executes a worker task in a certificate deployment task.
+     * Updates the status of a worker task in a deployment task.
      *
      * @param request - UpdateWorkerResourceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6048,7 +6214,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Rolls back or re-executes a worker task in a certificate deployment task.
+     * Updates the status of a worker task in a deployment task.
      *
      * @param request - UpdateWorkerResourceStatusRequest
      *
@@ -6131,12 +6297,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Uploads a PCA certificate to a certificate warehouse.
+     * Uploads a PCA certificate to a certificate repository.
      *
      * @remarks
-     * Use this operation to upload a PCA certificate to a certificate warehouse.
+     * Uploads a PCA certificate to a certificate repository.
      * ## QPS limit
-     * The QPS limit for this operation is 10 requests per second per user. Exceeding this limit triggers throttling, which can affect your business.
+     * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
      *
      * @param request - UploadPCACertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6187,12 +6353,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Uploads a PCA certificate to a certificate warehouse.
+     * Uploads a PCA certificate to a certificate repository.
      *
      * @remarks
-     * Use this operation to upload a PCA certificate to a certificate warehouse.
+     * Uploads a PCA certificate to a certificate repository.
      * ## QPS limit
-     * The QPS limit for this operation is 10 requests per second per user. Exceeding this limit triggers throttling, which can affect your business.
+     * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
      *
      * @param request - UploadPCACertRequest
      *
@@ -6210,10 +6376,16 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Uploads a certificate and its private key to Certificate Management Service. Both SM and non-SM certificates are supported.
+     * Uploads a certificate, including a standard Chinese national cryptographic (China SM) certificate or a non-China SM certificate.
      *
      * @remarks
-     * The queries per second (QPS) limit for this operation is 100 for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+     * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms. The China SM certificate includes an encryption certificate and a signing certificate. The China SM certificate is used in China to comply with the national cryptographic standards.
+     * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
+     * The China SM certificate includes an encryption certificate and a signing certificate.
+     * The China SM certificate is used in China to comply with the national cryptographic standards.
+     * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
+     * The China SM certificate includes an encryption certificate and a signing certificate.
+     * The throttling limit for this API is 100 queries per second (QPS) per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API at a reasonable frequency.
      *
      * @param request - UploadUserCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6231,6 +6403,10 @@ class Cas extends OpenApiClient
         $query = [];
         if (null !== $request->cert) {
             @$query['Cert'] = $request->cert;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->encryptCert) {
@@ -6284,10 +6460,16 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Uploads a certificate and its private key to Certificate Management Service. Both SM and non-SM certificates are supported.
+     * Uploads a certificate, including a standard Chinese national cryptographic (China SM) certificate or a non-China SM certificate.
      *
      * @remarks
-     * The queries per second (QPS) limit for this operation is 100 for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+     * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms. The China SM certificate includes an encryption certificate and a signing certificate. The China SM certificate is used in China to comply with the national cryptographic standards.
+     * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
+     * The China SM certificate includes an encryption certificate and a signing certificate.
+     * The China SM certificate is used in China to comply with the national cryptographic standards.
+     * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
+     * The China SM certificate includes an encryption certificate and a signing certificate.
+     * The throttling limit for this API is 100 queries per second (QPS) per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API at a reasonable frequency.
      *
      * @param request - UploadUserCertificateRequest
      *

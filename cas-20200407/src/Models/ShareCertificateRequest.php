@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteInstanceRequest extends Model
+class ShareCertificateRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $certificateId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $instanceId;
+    public $targetUserId;
     protected $_name = [
-        'clientToken' => 'ClientToken',
-        'instanceId' => 'InstanceId',
+        'certificateId' => 'CertificateId',
+        'targetUserId' => 'TargetUserId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class DeleteInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->certificateId) {
+            $res['CertificateId'] = $this->certificateId;
         }
 
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->targetUserId) {
+            $res['TargetUserId'] = $this->targetUserId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class DeleteInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['CertificateId'])) {
+            $model->certificateId = $map['CertificateId'];
         }
 
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['TargetUserId'])) {
+            $model->targetUserId = $map['TargetUserId'];
         }
 
         return $model;
