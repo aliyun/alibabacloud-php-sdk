@@ -22,10 +22,16 @@ class GetGatewayQuotaRuleRequest extends Model
      * @var bool
      */
     public $withConsumers;
+
+    /**
+     * @var bool
+     */
+    public $withSubjects;
     protected $_name = [
         'consumerPageNumber' => 'consumerPageNumber',
         'consumerPageSize' => 'consumerPageSize',
         'withConsumers' => 'withConsumers',
+        'withSubjects' => 'withSubjects',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class GetGatewayQuotaRuleRequest extends Model
 
         if (null !== $this->withConsumers) {
             $res['withConsumers'] = $this->withConsumers;
+        }
+
+        if (null !== $this->withSubjects) {
+            $res['withSubjects'] = $this->withSubjects;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class GetGatewayQuotaRuleRequest extends Model
 
         if (isset($map['withConsumers'])) {
             $model->withConsumers = $map['withConsumers'];
+        }
+
+        if (isset($map['withSubjects'])) {
+            $model->withSubjects = $map['withSubjects'];
         }
 
         return $model;

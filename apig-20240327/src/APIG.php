@@ -236,18 +236,26 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginRepositoriesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginRepositoriesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginWorkspaceRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginWorkspaceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPoliciesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPoliciesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPolicyClassesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPolicyClassesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListRiskCheckResultsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListRiskCheckResultsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSecretReferencesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSecretReferencesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSecretsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSecretsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListServicesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListServicesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListSourcesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListSourcesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSslCertsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSslCertsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListSyncMCPServerRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListSyncMCPServerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListTagResourcesShrinkRequest;
@@ -255,10 +263,14 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListZonesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListZonesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\RefreshPluginOAuthCodeRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\RefreshPluginOAuthCodeResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RemoveConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ResetGatewayQuotaRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ResetGatewayQuotaRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RestartGatewayResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\RunPluginPipelineRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\RunPluginPipelineResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\SyncMCPServersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\SyncMCPServersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\TagResourcesRequest;
@@ -276,6 +288,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAiModelProviderRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAiModelProviderResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAndAttachPolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAndAttachPolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAuthorizationRuleRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerAuthorizationRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerGroupRequest;
@@ -286,8 +300,12 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateEnvironmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateEnvironmentResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayElasticPolicyRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayElasticPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayFeatureRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayFeatureResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayLoadBalancerRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayLoadBalancerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayMaintenancePeriodRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayMaintenancePeriodResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayNameRequest;
@@ -394,15 +412,15 @@ class APIG extends OpenApiClient
      * Creates a gateway quota throttling rule.
      *
      * @remarks
-     * Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+     * Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
      * >
-     * >  Recommended call sequence:
-     * > - Step 1: Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun to true.
-     * > - - The response contains a conflict preview with a conflictHash value.
-     * > - Step 2: Submit the request after confirmation.
-     * > - - No conflicts: Set dryRun to false and overwrite to false.
-     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * >  Recommended call logic:
+     * > - 1. Perform a dry run to check for rule conflicts.
+     * > - - Set dryRun=true.
+     * > - - The response contains a conflict preview with conflictHash.
+     * > - 2. Submit the request after confirmation.
+     * > - - No conflicts: dryRun=false, overwrite=false.
+     * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
      *
      * @param request - AddGatewayQuotaRuleRequest
      * @param headers - map
@@ -461,6 +479,10 @@ class APIG extends OpenApiClient
             @$body['ruleName'] = $request->ruleName;
         }
 
+        if (null !== $request->subjectType) {
+            @$body['subjectType'] = $request->subjectType;
+        }
+
         if (null !== $request->timezone) {
             @$body['timezone'] = $request->timezone;
         }
@@ -492,15 +514,15 @@ class APIG extends OpenApiClient
      * Creates a gateway quota throttling rule.
      *
      * @remarks
-     * Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+     * Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
      * >
-     * >  Recommended call sequence:
-     * > - Step 1: Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun to true.
-     * > - - The response contains a conflict preview with a conflictHash value.
-     * > - Step 2: Submit the request after confirmation.
-     * > - - No conflicts: Set dryRun to false and overwrite to false.
-     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * >  Recommended call logic:
+     * > - 1. Perform a dry run to check for rule conflicts.
+     * > - - Set dryRun=true.
+     * > - - The response contains a conflict preview with conflictHash.
+     * > - 2. Submit the request after confirmation.
+     * > - - No conflicts: dryRun=false, overwrite=false.
+     * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
      *
      * @param request - AddGatewayQuotaRuleRequest
      *
@@ -4650,6 +4672,9 @@ class APIG extends OpenApiClient
     /**
      * Publishes an MCP server.
      *
+     * @remarks
+     * Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4683,6 +4708,9 @@ class APIG extends OpenApiClient
 
     /**
      * Publishes an MCP server.
+     *
+     * @remarks
+     * Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
      *
      * @returns DeployMcpServerResponse
      *
@@ -5662,6 +5690,10 @@ class APIG extends OpenApiClient
             @$query['withConsumers'] = $request->withConsumers;
         }
 
+        if (null !== $request->withSubjects) {
+            @$query['withSubjects'] = $request->withSubjects;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -5709,7 +5741,7 @@ class APIG extends OpenApiClient
      * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
-     * This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+     * Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      * @param headers - map
@@ -5765,7 +5797,7 @@ class APIG extends OpenApiClient
      * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
-     * This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+     * Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      *
@@ -7900,7 +7932,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the external service information of a gateway.
+     * Retrieves external service information for a gateway.
      *
      * @remarks
      * This operation supports creating multiple services.
@@ -7962,7 +7994,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the external service information of a gateway.
+     * Retrieves external service information for a gateway.
      *
      * @remarks
      * This operation supports creating multiple services.
@@ -9576,6 +9608,67 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 获取用户插件webide工作空间列表.
+     *
+     * @param request - ListPluginWorkspaceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPluginWorkspaceResponse
+     *
+     * @param ListPluginWorkspaceRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListPluginWorkspaceResponse
+     */
+    public function listPluginWorkspaceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayType) {
+            @$query['gatewayType'] = $request->gatewayType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPluginWorkspace',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-workspaces',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPluginWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户插件webide工作空间列表.
+     *
+     * @param request - ListPluginWorkspaceRequest
+     *
+     * @returns ListPluginWorkspaceResponse
+     *
+     * @param ListPluginWorkspaceRequest $request
+     *
+     * @return ListPluginWorkspaceResponse
+     */
+    public function listPluginWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPluginWorkspaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves a list of plugins.
      *
      * @param request - ListPluginsRequest
@@ -9839,6 +9932,81 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 查询风险检测结果.
+     *
+     * @param request - ListRiskCheckResultsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRiskCheckResultsResponse
+     *
+     * @param string                      $gatewayId
+     * @param ListRiskCheckResultsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListRiskCheckResultsResponse
+     */
+    public function listRiskCheckResultsWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRiskCheckResults',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/risk-check/results',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRiskCheckResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询风险检测结果.
+     *
+     * @param request - ListRiskCheckResultsRequest
+     *
+     * @returns ListRiskCheckResultsResponse
+     *
+     * @param string                      $gatewayId
+     * @param ListRiskCheckResultsRequest $request
+     *
+     * @return ListRiskCheckResultsResponse
+     */
+    public function listRiskCheckResults($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRiskCheckResultsWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
      * Lists secret references.
      *
      * @remarks
@@ -10076,6 +10244,83 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Queries sources.
+     *
+     * @param request - ListSourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSourcesResponse
+     *
+     * @param ListSourcesRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSourcesResponse
+     */
+    public function listSourcesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSources',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/sources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries sources.
+     *
+     * @param request - ListSourcesRequest
+     *
+     * @returns ListSourcesResponse
+     *
+     * @param ListSourcesRequest $request
+     *
+     * @return ListSourcesResponse
+     */
+    public function listSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves a list of certificates.
      *
      * @param request - ListSslCertsRequest
@@ -10146,6 +10391,75 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listSslCertsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询已同步的MCP Server列表.
+     *
+     * @param request - ListSyncMCPServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSyncMCPServerResponse
+     *
+     * @param ListSyncMCPServerRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListSyncMCPServerResponse
+     */
+    public function listSyncMCPServerWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->sourceId) {
+            @$query['sourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSyncMCPServer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/mcp-servers/sync-mcp-server/list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSyncMCPServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询已同步的MCP Server列表.
+     *
+     * @param request - ListSyncMCPServerRequest
+     *
+     * @returns ListSyncMCPServerResponse
+     *
+     * @param ListSyncMCPServerRequest $request
+     *
+     * @return ListSyncMCPServerResponse
+     */
+    public function listSyncMCPServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSyncMCPServerWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10406,6 +10720,67 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 刷新插件托管仓库的oauth code.
+     *
+     * @param request - RefreshPluginOAuthCodeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshPluginOAuthCodeResponse
+     *
+     * @param RefreshPluginOAuthCodeRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RefreshPluginOAuthCodeResponse
+     */
+    public function refreshPluginOAuthCodeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RefreshPluginOAuthCode',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-oauth-codes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RefreshPluginOAuthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 刷新插件托管仓库的oauth code.
+     *
+     * @param request - RefreshPluginOAuthCodeRequest
+     *
+     * @returns RefreshPluginOAuthCodeResponse
+     *
+     * @param RefreshPluginOAuthCodeRequest $request
+     *
+     * @return RefreshPluginOAuthCodeResponse
+     */
+    public function refreshPluginOAuthCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->refreshPluginOAuthCodeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Deletes an API consumer authorization rule.
      *
      * @param headers - map
@@ -10460,15 +10835,15 @@ class APIG extends OpenApiClient
      * Resets a quota throttling rule on a gateway.
      *
      * @remarks
-     * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
+     * Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
      * >
-     * >  Recommended call sequence:
+     * >  Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun to true.
+     * > - - Set dryRun=true.
      * > - - The response contains a conflict preview with conflictHash.
      * > - 2. Submit the request after confirmation.
-     * > - - No conflicts: Set dryRun to false and overwrite to false.
-     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * > - - No conflict: dryRun=false, overwrite=false.
+     * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
      *
      * @param request - ResetGatewayQuotaRuleRequest
      * @param headers - map
@@ -10543,15 +10918,15 @@ class APIG extends OpenApiClient
      * Resets a quota throttling rule on a gateway.
      *
      * @remarks
-     * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
+     * Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
      * >
-     * >  Recommended call sequence:
+     * >  Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun to true.
+     * > - - Set dryRun=true.
      * > - - The response contains a conflict preview with conflictHash.
      * > - 2. Submit the request after confirmation.
-     * > - - No conflicts: Set dryRun to false and overwrite to false.
-     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * > - - No conflict: dryRun=false, overwrite=false.
+     * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
      *
      * @param request - ResetGatewayQuotaRuleRequest
      *
@@ -10620,6 +10995,63 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->restartGatewayWithOptions($gatewayId, $headers, $runtime);
+    }
+
+    /**
+     * 插件工作空间运行流水线
+     *
+     * @param request - RunPluginPipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunPluginPipelineResponse
+     *
+     * @param string                   $workspaceId
+     * @param RunPluginPipelineRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RunPluginPipelineResponse
+     */
+    public function runPluginPipelineWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'RunPluginPipeline',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-workspaces/' . Url::percentEncode($workspaceId) . '/pipeline-run',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RunPluginPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 插件工作空间运行流水线
+     *
+     * @param request - RunPluginPipelineRequest
+     *
+     * @returns RunPluginPipelineResponse
+     *
+     * @param string                   $workspaceId
+     * @param RunPluginPipelineRequest $request
+     *
+     * @return RunPluginPipelineResponse
+     */
+    public function runPluginPipeline($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runPluginPipelineWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -11266,6 +11698,69 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 更新消费者授权规则.
+     *
+     * @param request - UpdateAuthorizationRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAuthorizationRuleResponse
+     *
+     * @param string                         $consumerAuthorizationRuleId
+     * @param UpdateAuthorizationRuleRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAuthorizationRuleResponse
+     */
+    public function updateAuthorizationRuleWithOptions($consumerAuthorizationRuleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->resources) {
+            @$body['resources'] = $request->resources;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAuthorizationRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/authorization-rules/' . Url::percentEncode($consumerAuthorizationRuleId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新消费者授权规则.
+     *
+     * @param request - UpdateAuthorizationRuleRequest
+     *
+     * @returns UpdateAuthorizationRuleResponse
+     *
+     * @param string                         $consumerAuthorizationRuleId
+     * @param UpdateAuthorizationRuleRequest $request
+     *
+     * @return UpdateAuthorizationRuleResponse
+     */
+    public function updateAuthorizationRule($consumerAuthorizationRuleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAuthorizationRuleWithOptions($consumerAuthorizationRuleId, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates a consumer.
      *
      * @param request - UpdateConsumerRequest
@@ -11672,6 +12167,69 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 更新网关弹性策略.
+     *
+     * @param request - UpdateGatewayElasticPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayElasticPolicyResponse
+     *
+     * @param string                            $gatewayId
+     * @param UpdateGatewayElasticPolicyRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateGatewayElasticPolicyResponse
+     */
+    public function updateGatewayElasticPolicyWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->elasticPolicy) {
+            @$body['elasticPolicy'] = $request->elasticPolicy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGatewayElasticPolicy',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/elastic-policy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGatewayElasticPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新网关弹性策略.
+     *
+     * @param request - UpdateGatewayElasticPolicyRequest
+     *
+     * @returns UpdateGatewayElasticPolicyResponse
+     *
+     * @param string                            $gatewayId
+     * @param UpdateGatewayElasticPolicyRequest $request
+     *
+     * @return UpdateGatewayElasticPolicyResponse
+     */
+    public function updateGatewayElasticPolicy($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGatewayElasticPolicyWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates the attribute parameters of a gateway.
      *
      * @param request - UpdateGatewayFeatureRequest
@@ -11734,6 +12292,77 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updateGatewayFeatureWithOptions($gatewayId, $name, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新网关负载均衡器.
+     *
+     * @param request - UpdateGatewayLoadBalancerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayLoadBalancerResponse
+     *
+     * @param string                           $gatewayId
+     * @param UpdateGatewayLoadBalancerRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateGatewayLoadBalancerResponse
+     */
+    public function updateGatewayLoadBalancerWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->loadBalancerDTO) {
+            @$body['loadBalancerDTO'] = $request->loadBalancerDTO;
+        }
+
+        if (null !== $request->option) {
+            @$body['option'] = $request->option;
+        }
+
+        if (null !== $request->ports) {
+            @$body['ports'] = $request->ports;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGatewayLoadBalancer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/update-load-balancer',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGatewayLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新网关负载均衡器.
+     *
+     * @param request - UpdateGatewayLoadBalancerRequest
+     *
+     * @returns UpdateGatewayLoadBalancerResponse
+     *
+     * @param string                           $gatewayId
+     * @param UpdateGatewayLoadBalancerRequest $request
+     *
+     * @return UpdateGatewayLoadBalancerResponse
+     */
+    public function updateGatewayLoadBalancer($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGatewayLoadBalancerWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -11868,17 +12497,17 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Edits a quota throttling rule on a gateway.
+     * Edits a quota rate-limiting rule on a gateway.
      *
      * @remarks
-     * Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+     * Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
      * >  Recommended call logic:
-     * > - Step 1: Perform a dry run to check for rule conflicts.
+     * > - 1. Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
      * > - - The response contains a conflict preview with conflictHash.
-     * > - Step 2: Submit the request after confirmation.
-     * > - - No conflicts: Set dryRun to false and overwrite to false.
-     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * > - 2. Submit the request after confirmation.
+     * > - - No conflict: Set dryRun to false and overwrite to false.
+     * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - UpdateGatewayQuotaRuleRequest
      * @param headers - map
@@ -11950,17 +12579,17 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Edits a quota throttling rule on a gateway.
+     * Edits a quota rate-limiting rule on a gateway.
      *
      * @remarks
-     * Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+     * Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
      * >  Recommended call logic:
-     * > - Step 1: Perform a dry run to check for rule conflicts.
+     * > - 1. Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
      * > - - The response contains a conflict preview with conflictHash.
-     * > - Step 2: Submit the request after confirmation.
-     * > - - No conflicts: Set dryRun to false and overwrite to false.
-     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * > - 2. Submit the request after confirmation.
+     * > - - No conflict: Set dryRun to false and overwrite to false.
+     * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - UpdateGatewayQuotaRuleRequest
      *

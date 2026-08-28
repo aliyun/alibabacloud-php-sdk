@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleResponseBody
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleResponseBody\data\consumers;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleResponseBody\data\subjects;
 
 class data extends Model
 {
@@ -55,6 +56,21 @@ class data extends Model
     public $ruleStatus;
 
     /**
+     * @var int
+     */
+    public $subjectCount;
+
+    /**
+     * @var string
+     */
+    public $subjectType;
+
+    /**
+     * @var subjects[]
+     */
+    public $subjects;
+
+    /**
      * @var string
      */
     public $timezone;
@@ -73,6 +89,9 @@ class data extends Model
         'ruleId' => 'ruleId',
         'ruleName' => 'ruleName',
         'ruleStatus' => 'ruleStatus',
+        'subjectCount' => 'subjectCount',
+        'subjectType' => 'subjectType',
+        'subjects' => 'subjects',
         'timezone' => 'timezone',
         'windowAlignment' => 'windowAlignment',
     ];
@@ -81,6 +100,9 @@ class data extends Model
     {
         if (\is_array($this->consumers)) {
             Model::validateArray($this->consumers);
+        }
+        if (\is_array($this->subjects)) {
+            Model::validateArray($this->subjects);
         }
         parent::validate();
     }
@@ -129,6 +151,25 @@ class data extends Model
 
         if (null !== $this->ruleStatus) {
             $res['ruleStatus'] = $this->ruleStatus;
+        }
+
+        if (null !== $this->subjectCount) {
+            $res['subjectCount'] = $this->subjectCount;
+        }
+
+        if (null !== $this->subjectType) {
+            $res['subjectType'] = $this->subjectType;
+        }
+
+        if (null !== $this->subjects) {
+            if (\is_array($this->subjects)) {
+                $res['subjects'] = [];
+                $n1 = 0;
+                foreach ($this->subjects as $item1) {
+                    $res['subjects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->timezone) {
@@ -191,6 +232,25 @@ class data extends Model
 
         if (isset($map['ruleStatus'])) {
             $model->ruleStatus = $map['ruleStatus'];
+        }
+
+        if (isset($map['subjectCount'])) {
+            $model->subjectCount = $map['subjectCount'];
+        }
+
+        if (isset($map['subjectType'])) {
+            $model->subjectType = $map['subjectType'];
+        }
+
+        if (isset($map['subjects'])) {
+            if (!empty($map['subjects'])) {
+                $model->subjects = [];
+                $n1 = 0;
+                foreach ($map['subjects'] as $item1) {
+                    $model->subjects[$n1] = subjects::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['timezone'])) {

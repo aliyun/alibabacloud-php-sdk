@@ -61,6 +61,11 @@ class AddGatewayQuotaRuleRequest extends Model
     /**
      * @var string
      */
+    public $subjectType;
+
+    /**
+     * @var string
+     */
     public $timezone;
 
     /**
@@ -78,6 +83,7 @@ class AddGatewayQuotaRuleRequest extends Model
         'quotaDimension' => 'quotaDimension',
         'quotaLimit' => 'quotaLimit',
         'ruleName' => 'ruleName',
+        'subjectType' => 'subjectType',
         'timezone' => 'timezone',
         'windowAlignment' => 'windowAlignment',
     ];
@@ -148,6 +154,10 @@ class AddGatewayQuotaRuleRequest extends Model
 
         if (null !== $this->ruleName) {
             $res['ruleName'] = $this->ruleName;
+        }
+
+        if (null !== $this->subjectType) {
+            $res['subjectType'] = $this->subjectType;
         }
 
         if (null !== $this->timezone) {
@@ -221,6 +231,10 @@ class AddGatewayQuotaRuleRequest extends Model
 
         if (isset($map['ruleName'])) {
             $model->ruleName = $map['ruleName'];
+        }
+
+        if (isset($map['subjectType'])) {
+            $model->subjectType = $map['subjectType'];
         }
 
         if (isset($map['timezone'])) {

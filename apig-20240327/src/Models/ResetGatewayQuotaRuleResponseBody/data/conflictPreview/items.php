@@ -27,11 +27,29 @@ class items extends Model
      * @var string
      */
     public $consumerName;
+
+    /**
+     * @var string
+     */
+    public $subjectId;
+
+    /**
+     * @var string
+     */
+    public $subjectName;
+
+    /**
+     * @var string
+     */
+    public $subjectType;
     protected $_name = [
         'conflictPeriodType' => 'conflictPeriodType',
         'conflictType' => 'conflictType',
         'consumerId' => 'consumerId',
         'consumerName' => 'consumerName',
+        'subjectId' => 'subjectId',
+        'subjectName' => 'subjectName',
+        'subjectType' => 'subjectType',
     ];
 
     public function validate()
@@ -56,6 +74,18 @@ class items extends Model
 
         if (null !== $this->consumerName) {
             $res['consumerName'] = $this->consumerName;
+        }
+
+        if (null !== $this->subjectId) {
+            $res['subjectId'] = $this->subjectId;
+        }
+
+        if (null !== $this->subjectName) {
+            $res['subjectName'] = $this->subjectName;
+        }
+
+        if (null !== $this->subjectType) {
+            $res['subjectType'] = $this->subjectType;
         }
 
         return $res;
@@ -83,6 +113,18 @@ class items extends Model
 
         if (isset($map['consumerName'])) {
             $model->consumerName = $map['consumerName'];
+        }
+
+        if (isset($map['subjectId'])) {
+            $model->subjectId = $map['subjectId'];
+        }
+
+        if (isset($map['subjectName'])) {
+            $model->subjectName = $map['subjectName'];
+        }
+
+        if (isset($map['subjectType'])) {
+            $model->subjectType = $map['subjectType'];
         }
 
         return $model;

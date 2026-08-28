@@ -35,6 +35,11 @@ class data extends Model
     public $overLimit;
 
     /**
+     * @var string
+     */
+    public $subjectType;
+
+    /**
      * @var int
      */
     public $totalQuota;
@@ -49,6 +54,7 @@ class data extends Model
         'inputAmount' => 'inputAmount',
         'outputAmount' => 'outputAmount',
         'overLimit' => 'overLimit',
+        'subjectType' => 'subjectType',
         'totalQuota' => 'totalQuota',
         'usedAmount' => 'usedAmount',
     ];
@@ -82,6 +88,10 @@ class data extends Model
 
         if (null !== $this->overLimit) {
             $res['overLimit'] = $this->overLimit;
+        }
+
+        if (null !== $this->subjectType) {
+            $res['subjectType'] = $this->subjectType;
         }
 
         if (null !== $this->totalQuota) {
@@ -121,6 +131,10 @@ class data extends Model
 
         if (isset($map['overLimit'])) {
             $model->overLimit = $map['overLimit'];
+        }
+
+        if (isset($map['subjectType'])) {
+            $model->subjectType = $map['subjectType'];
         }
 
         if (isset($map['totalQuota'])) {

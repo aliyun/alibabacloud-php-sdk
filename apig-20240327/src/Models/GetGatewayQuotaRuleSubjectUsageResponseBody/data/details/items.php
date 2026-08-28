@@ -14,6 +14,11 @@ class items extends Model
     public $cachedAmount;
 
     /**
+     * @var string
+     */
+    public $consumer;
+
+    /**
      * @var int
      */
     public $inputAmount;
@@ -31,6 +36,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -39,9 +49,11 @@ class items extends Model
     public $usedAmount;
     protected $_name = [
         'cachedAmount' => 'cachedAmount',
+        'consumer' => 'consumer',
         'inputAmount' => 'inputAmount',
         'model' => 'model',
         'outputAmount' => 'outputAmount',
+        'requestId' => 'requestId',
         'startTime' => 'startTime',
         'usedAmount' => 'usedAmount',
     ];
@@ -58,6 +70,10 @@ class items extends Model
             $res['cachedAmount'] = $this->cachedAmount;
         }
 
+        if (null !== $this->consumer) {
+            $res['consumer'] = $this->consumer;
+        }
+
         if (null !== $this->inputAmount) {
             $res['inputAmount'] = $this->inputAmount;
         }
@@ -68,6 +84,10 @@ class items extends Model
 
         if (null !== $this->outputAmount) {
             $res['outputAmount'] = $this->outputAmount;
+        }
+
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         if (null !== $this->startTime) {
@@ -93,6 +113,10 @@ class items extends Model
             $model->cachedAmount = $map['cachedAmount'];
         }
 
+        if (isset($map['consumer'])) {
+            $model->consumer = $map['consumer'];
+        }
+
         if (isset($map['inputAmount'])) {
             $model->inputAmount = $map['inputAmount'];
         }
@@ -103,6 +127,10 @@ class items extends Model
 
         if (isset($map['outputAmount'])) {
             $model->outputAmount = $map['outputAmount'];
+        }
+
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         if (isset($map['startTime'])) {
