@@ -11,8 +11,14 @@ class LanguageDetectRequest extends Model
     /**
      * @var string
      */
+    public $scene;
+
+    /**
+     * @var string
+     */
     public $sourceText;
     protected $_name = [
+        'scene' => 'Scene',
         'sourceText' => 'SourceText',
     ];
 
@@ -24,6 +30,10 @@ class LanguageDetectRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
+        }
+
         if (null !== $this->sourceText) {
             $res['SourceText'] = $this->sourceText;
         }
@@ -39,6 +49,10 @@ class LanguageDetectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
+        }
+
         if (isset($map['SourceText'])) {
             $model->sourceText = $map['SourceText'];
         }
