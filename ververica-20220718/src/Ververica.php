@@ -152,6 +152,12 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GetLineageInfoRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetLineageInfoResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetMemberHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetMemberResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPatrolConfigHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPatrolConfigRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPatrolConfigResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPatrolReportDetailHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPatrolReportDetailRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPatrolReportDetailResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPreSignedUrlForPutObjectHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPreSignedUrlForPutObjectRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPreSignedUrlForPutObjectResponse;
@@ -196,6 +202,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\ListJobsResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListMembersHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListMembersRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListMembersResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListPatrolReportsHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListPatrolReportsRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListPatrolReportsResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListSavepointsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListSavepointsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListSavepointsResponse;
@@ -240,6 +249,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\StopSqlExecutionResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\TriggerPatrolHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\TriggerPatrolRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\TriggerPatrolResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateAutopilotPolicyHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateAutopilotPolicyRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateAutopilotPolicyResponse;
@@ -264,6 +276,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateFolderResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdatePatrolConfigHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdatePatrolConfigRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdatePatrolConfigResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateScheduledPlanHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateScheduledPlanRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateScheduledPlanResponse;
@@ -297,24 +312,24 @@ class Ververica extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
+            'cn-qingdao' => 'ververica.cn-qingdao.aliyuncs.com',
+            'cn-shenzhen' => 'ververica.cn-shenzhen.aliyuncs.com',
+            'cn-wulanchabu' => 'ververica.cn-wulanchabu.aliyuncs.com',
+            'cn-beijing' => 'ververica.cn-beijing.aliyuncs.com',
+            'ap-northeast-1' => 'ververica.ap-northeast-1.aliyuncs.com',
+            'cn-chengdu' => 'ververica.cn-chengdu.aliyuncs.com',
+            'cn-shanghai' => 'ververica.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'ververica.cn-hongkong.aliyuncs.com',
+            'ap-southeast-1' => 'ververica.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'ververica.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'ververica.ap-southeast-5.aliyuncs.com',
+            'cn-zhangjiakou' => 'ververica.cn-zhangjiakou.aliyuncs.com',
+            'cn-hangzhou' => 'ververica.cn-hangzhou.aliyuncs.com',
             'us-west-1' => 'ververica.us-west-1.aliyuncs.com',
             'us-east-1' => 'ververica.us-east-1.aliyuncs.com',
-            'eu-west-1' => 'ververica.eu-west-1.aliyuncs.com',
             'eu-central-1' => 'ververica.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'ververica.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu' => 'ververica.cn-wulanchabu.aliyuncs.com',
-            'cn-shenzhen' => 'ververica.cn-shenzhen.aliyuncs.com',
+            'eu-west-1' => 'ververica.eu-west-1.aliyuncs.com',
             'cn-shanghai-finance-1' => 'ververica.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shanghai' => 'ververica.cn-shanghai.aliyuncs.com',
-            'cn-qingdao' => 'ververica.cn-qingdao.aliyuncs.com',
-            'cn-hongkong' => 'ververica.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'ververica.cn-hangzhou.aliyuncs.com',
-            'cn-chengdu' => 'ververica.cn-chengdu.aliyuncs.com',
-            'cn-beijing' => 'ververica.cn-beijing.aliyuncs.com',
-            'ap-southeast-5' => 'ververica.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'ververica.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'ververica.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-1' => 'ververica.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ververica', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -2530,7 +2545,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
+     * Runs metadata-related SQL statements. Only DDL and DML statements are supported. DQL statements are not supported.
      *
      * @param request - ExecuteSqlStatementRequest
      * @param headers - ExecuteSqlStatementHeaders
@@ -2577,7 +2592,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
+     * Runs metadata-related SQL statements. Only DDL and DML statements are supported. DQL statements are not supported.
      *
      * @param request - ExecuteSqlStatementRequest
      *
@@ -2968,7 +2983,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+     * Retrieves the Autopilot tuning configuration.
      *
      * @param request - GetAutopilotPolicyRequest
      * @param headers - GetAutopilotPolicyHeaders
@@ -3015,7 +3030,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+     * Retrieves the Autopilot tuning configuration.
      *
      * @param request - GetAutopilotPolicyRequest
      *
@@ -3108,7 +3123,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Retrieves information about one or more databases in a specified catalog.
+     * Retrieves information about a specified database or lists all databases under a specified catalog.
      *
      * @param request - GetDatabasesRequest
      * @param headers - GetDatabasesHeaders
@@ -3161,7 +3176,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Retrieves information about one or more databases in a specified catalog.
+     * Retrieves information about a specified database or lists all databases under a specified catalog.
      *
      * @param request - GetDatabasesRequest
      *
@@ -3790,7 +3805,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Retrieves specific folder information.
+     * Retrieves the details of a specific folder.
      *
      * @param request - GetFolderRequest
      * @param headers - GetFolderHeaders
@@ -3846,7 +3861,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Retrieves specific folder information.
+     * Retrieves the details of a specific folder.
      *
      * @param request - GetFolderRequest
      *
@@ -4305,6 +4320,152 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * Retrieves the inspection configuration.
+     *
+     * @param request - GetPatrolConfigRequest
+     * @param headers - GetPatrolConfigHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPatrolConfigResponse
+     *
+     * @param string                 $namespace_
+     * @param GetPatrolConfigRequest $request
+     * @param GetPatrolConfigHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetPatrolConfigResponse
+     */
+    public function getPatrolConfigWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action' => 'GetPatrolConfig',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/autopilot/v2/namespaces/' . Url::percentEncode($namespace_) . '/patrol-config',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPatrolConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the inspection configuration.
+     *
+     * @param request - GetPatrolConfigRequest
+     *
+     * @returns GetPatrolConfigResponse
+     *
+     * @param string                 $namespace_
+     * @param GetPatrolConfigRequest $request
+     *
+     * @return GetPatrolConfigResponse
+     */
+    public function getPatrolConfig($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetPatrolConfigHeaders([]);
+
+        return $this->getPatrolConfigWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the details of an inspection report.
+     *
+     * @param request - GetPatrolReportDetailRequest
+     * @param headers - GetPatrolReportDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPatrolReportDetailResponse
+     *
+     * @param string                       $namespace_
+     * @param GetPatrolReportDetailRequest $request
+     * @param GetPatrolReportDetailHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetPatrolReportDetailResponse
+     */
+    public function getPatrolReportDetailWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->date) {
+            @$query['date'] = $request->date;
+        }
+
+        if (null !== $request->reportId) {
+            @$query['reportId'] = $request->reportId;
+        }
+
+        if (null !== $request->timezone) {
+            @$query['timezone'] = $request->timezone;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPatrolReportDetail',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/autopilot/v2/namespaces/' . Url::percentEncode($namespace_) . '/patrol-reports/details',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPatrolReportDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an inspection report.
+     *
+     * @param request - GetPatrolReportDetailRequest
+     *
+     * @returns GetPatrolReportDetailResponse
+     *
+     * @param string                       $namespace_
+     * @param GetPatrolReportDetailRequest $request
+     *
+     * @return GetPatrolReportDetailResponse
+     */
+    public function getPatrolReportDetail($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetPatrolReportDetailHeaders([]);
+
+        return $this->getPatrolReportDetailWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取上传文件URL.
      *
      * @param request - GetPreSignedUrlForPutObjectRequest
@@ -4569,7 +4730,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific table or all tables in a database within a specified catalog.
+     * Retrieves the details of a specific table or information about all tables under a specified database in a catalog.
      *
      * @param request - GetTablesRequest
      * @param headers - GetTablesHeaders
@@ -4623,7 +4784,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific table or all tables in a database within a specified catalog.
+     * Retrieves the details of a specific table or information about all tables under a specified database in a catalog.
      *
      * @param request - GetTablesRequest
      *
@@ -5549,6 +5710,102 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * Queries the list of inspection reports.
+     *
+     * @param request - ListPatrolReportsRequest
+     * @param headers - ListPatrolReportsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPatrolReportsResponse
+     *
+     * @param string                   $namespace_
+     * @param ListPatrolReportsRequest $request
+     * @param ListPatrolReportsHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListPatrolReportsResponse
+     */
+    public function listPatrolReportsWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->scopeType) {
+            @$query['scopeType'] = $request->scopeType;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->triggerType) {
+            @$query['triggerType'] = $request->triggerType;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPatrolReports',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/autopilot/v2/namespaces/' . Url::percentEncode($namespace_) . '/patrol-reports',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPatrolReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of inspection reports.
+     *
+     * @param request - ListPatrolReportsRequest
+     *
+     * @returns ListPatrolReportsResponse
+     *
+     * @param string                   $namespace_
+     * @param ListPatrolReportsRequest $request
+     *
+     * @return ListPatrolReportsResponse
+     */
+    public function listPatrolReports($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListPatrolReportsHeaders([]);
+
+        return $this->listPatrolReportsWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
      * Obtains a list of savepoints or checkpoints.
      *
      * @param request - ListSavepointsRequest
@@ -6278,7 +6535,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Executes an SQL query script task.
+     * Executes an SQL data query script task.
      *
      * @param request - StartSqlExecutionRequest
      * @param headers - StartSqlExecutionHeaders
@@ -6325,7 +6582,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Executes an SQL query script task.
+     * Executes an SQL data query script task.
      *
      * @param request - StartSqlExecutionRequest
      *
@@ -6676,6 +6933,82 @@ class Ververica extends OpenApiClient
         $headers = new SubmitSqlPreviewHeaders([]);
 
         return $this->submitSqlPreviewWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
+     * Triggers an inspection.
+     *
+     * @param request - TriggerPatrolRequest
+     * @param headers - TriggerPatrolHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TriggerPatrolResponse
+     *
+     * @param string               $namespace_
+     * @param TriggerPatrolRequest $request
+     * @param TriggerPatrolHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return TriggerPatrolResponse
+     */
+    public function triggerPatrolWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->scopeConfig) {
+            @$body['scopeConfig'] = $request->scopeConfig;
+        }
+
+        if (null !== $request->scopeType) {
+            @$body['scopeType'] = $request->scopeType;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TriggerPatrol',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/autopilot/v2/namespaces/' . Url::percentEncode($namespace_) . '/patrol-reports/trigger',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TriggerPatrolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Triggers an inspection.
+     *
+     * @param request - TriggerPatrolRequest
+     *
+     * @returns TriggerPatrolResponse
+     *
+     * @param string               $namespace_
+     * @param TriggerPatrolRequest $request
+     *
+     * @return TriggerPatrolResponse
+     */
+    public function triggerPatrol($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TriggerPatrolHeaders([]);
+
+        return $this->triggerPatrolWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
@@ -7245,6 +7578,94 @@ class Ververica extends OpenApiClient
         $headers = new UpdateMemberHeaders([]);
 
         return $this->updateMemberWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the inspection configuration.
+     *
+     * @param request - UpdatePatrolConfigRequest
+     * @param headers - UpdatePatrolConfigHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePatrolConfigResponse
+     *
+     * @param string                    $namespace_
+     * @param UpdatePatrolConfigRequest $request
+     * @param UpdatePatrolConfigHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdatePatrolConfigResponse
+     */
+    public function updatePatrolConfigWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cron) {
+            @$body['cron'] = $request->cron;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->scopeConfig) {
+            @$body['scopeConfig'] = $request->scopeConfig;
+        }
+
+        if (null !== $request->scopeType) {
+            @$body['scopeType'] = $request->scopeType;
+        }
+
+        if (null !== $request->timezone) {
+            @$body['timezone'] = $request->timezone;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePatrolConfig',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/autopilot/v2/namespaces/' . Url::percentEncode($namespace_) . '/patrol-config',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePatrolConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the inspection configuration.
+     *
+     * @param request - UpdatePatrolConfigRequest
+     *
+     * @returns UpdatePatrolConfigResponse
+     *
+     * @param string                    $namespace_
+     * @param UpdatePatrolConfigRequest $request
+     *
+     * @return UpdatePatrolConfigResponse
+     */
+    public function updatePatrolConfig($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdatePatrolConfigHeaders([]);
+
+        return $this->updatePatrolConfigWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
