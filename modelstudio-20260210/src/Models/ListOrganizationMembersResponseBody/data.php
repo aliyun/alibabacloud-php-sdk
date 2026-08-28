@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListOrganizationMembersResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListOrganizationMembersResponseBody\data\packLimitInfo;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListOrganizationMembersResponseBody\data\subscriptionInfo;
 
 class data extends Model
 {
@@ -49,6 +51,11 @@ class data extends Model
     public $orgId;
 
     /**
+     * @var packLimitInfo
+     */
+    public $packLimitInfo;
+
+    /**
      * @var string[]
      */
     public $roles;
@@ -67,6 +74,11 @@ class data extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var subscriptionInfo
+     */
+    public $subscriptionInfo;
     protected $_name = [
         'accountBizId' => 'AccountBizId',
         'accountId' => 'AccountId',
@@ -76,16 +88,24 @@ class data extends Model
         'gmtCreate' => 'GmtCreate',
         'maskedApiKey' => 'MaskedApiKey',
         'orgId' => 'OrgId',
+        'packLimitInfo' => 'PackLimitInfo',
         'roles' => 'Roles',
         'seatId' => 'SeatId',
         'specType' => 'SpecType',
         'status' => 'Status',
+        'subscriptionInfo' => 'SubscriptionInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->packLimitInfo) {
+            $this->packLimitInfo->validate();
+        }
         if (\is_array($this->roles)) {
             Model::validateArray($this->roles);
+        }
+        if (null !== $this->subscriptionInfo) {
+            $this->subscriptionInfo->validate();
         }
         parent::validate();
     }
@@ -125,6 +145,10 @@ class data extends Model
             $res['OrgId'] = $this->orgId;
         }
 
+        if (null !== $this->packLimitInfo) {
+            $res['PackLimitInfo'] = null !== $this->packLimitInfo ? $this->packLimitInfo->toArray($noStream) : $this->packLimitInfo;
+        }
+
         if (null !== $this->roles) {
             if (\is_array($this->roles)) {
                 $res['Roles'] = [];
@@ -146,6 +170,10 @@ class data extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->subscriptionInfo) {
+            $res['SubscriptionInfo'] = null !== $this->subscriptionInfo ? $this->subscriptionInfo->toArray($noStream) : $this->subscriptionInfo;
         }
 
         return $res;
@@ -191,6 +219,10 @@ class data extends Model
             $model->orgId = $map['OrgId'];
         }
 
+        if (isset($map['PackLimitInfo'])) {
+            $model->packLimitInfo = packLimitInfo::fromMap($map['PackLimitInfo']);
+        }
+
         if (isset($map['Roles'])) {
             if (!empty($map['Roles'])) {
                 $model->roles = [];
@@ -212,6 +244,10 @@ class data extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SubscriptionInfo'])) {
+            $model->subscriptionInfo = subscriptionInfo::fromMap($map['SubscriptionInfo']);
         }
 
         return $model;
