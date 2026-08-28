@@ -29,11 +29,17 @@ class TongyiChatDebugInfoResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $sessionId;
     protected $_name = [
         'answerInfo' => 'AnswerInfo',
         'messageId' => 'MessageId',
         'pipeline' => 'Pipeline',
         'requestId' => 'RequestId',
+        'sessionId' => 'SessionId',
     ];
 
     public function validate()
@@ -73,6 +79,10 @@ class TongyiChatDebugInfoResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
+        }
+
         return $res;
     }
 
@@ -105,6 +115,10 @@ class TongyiChatDebugInfoResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         return $model;
