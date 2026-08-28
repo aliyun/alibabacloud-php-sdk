@@ -11,6 +11,16 @@ class config extends Model
     /**
      * @var string
      */
+    public $agent;
+
+    /**
+     * @var string
+     */
+    public $agentId;
+
+    /**
+     * @var string
+     */
     public $font;
 
     /**
@@ -28,6 +38,8 @@ class config extends Model
      */
     public $targetLanguage;
     protected $_name = [
+        'agent' => 'Agent',
+        'agentId' => 'AgentId',
         'font' => 'Font',
         'sourceLanguage' => 'SourceLanguage',
         'style' => 'Style',
@@ -42,6 +54,14 @@ class config extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agent) {
+            $res['Agent'] = $this->agent;
+        }
+
+        if (null !== $this->agentId) {
+            $res['AgentId'] = $this->agentId;
+        }
+
         if (null !== $this->font) {
             $res['Font'] = $this->font;
         }
@@ -69,6 +89,14 @@ class config extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Agent'])) {
+            $model->agent = $map['Agent'];
+        }
+
+        if (isset($map['AgentId'])) {
+            $model->agentId = $map['AgentId'];
+        }
+
         if (isset($map['Font'])) {
             $model->font = $map['Font'];
         }
