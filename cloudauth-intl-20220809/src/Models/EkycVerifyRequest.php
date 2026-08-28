@@ -61,6 +61,11 @@ class EkycVerifyRequest extends Model
     /**
      * @var string
      */
+    public $idSpoof;
+
+    /**
+     * @var string
+     */
     public $idThreshold;
 
     /**
@@ -88,6 +93,7 @@ class EkycVerifyRequest extends Model
         'faceQualityCheck' => 'FaceQualityCheck',
         'idOcrPictureBase64' => 'IdOcrPictureBase64',
         'idOcrPictureUrl' => 'IdOcrPictureUrl',
+        'idSpoof' => 'IdSpoof',
         'idThreshold' => 'IdThreshold',
         'merchantBizId' => 'MerchantBizId',
         'merchantUserId' => 'MerchantUserId',
@@ -140,6 +146,10 @@ class EkycVerifyRequest extends Model
 
         if (null !== $this->idOcrPictureUrl) {
             $res['IdOcrPictureUrl'] = $this->idOcrPictureUrl;
+        }
+
+        if (null !== $this->idSpoof) {
+            $res['IdSpoof'] = $this->idSpoof;
         }
 
         if (null !== $this->idThreshold) {
@@ -207,6 +217,10 @@ class EkycVerifyRequest extends Model
 
         if (isset($map['IdOcrPictureUrl'])) {
             $model->idOcrPictureUrl = $map['IdOcrPictureUrl'];
+        }
+
+        if (isset($map['IdSpoof'])) {
+            $model->idSpoof = $map['IdSpoof'];
         }
 
         if (isset($map['IdThreshold'])) {

@@ -11,6 +11,11 @@ class CredentialRecognitionIntlRequest extends Model
     /**
      * @var string
      */
+    public $checkRuleConfig;
+
+    /**
+     * @var string
+     */
     public $credentialOcrPictureBase64;
 
     /**
@@ -31,18 +36,37 @@ class CredentialRecognitionIntlRequest extends Model
     /**
      * @var string
      */
+    public $idQuality;
+
+    /**
+     * @var string
+     */
     public $ocrArea;
+
+    /**
+     * @var string
+     */
+    public $ocrTranslation;
+
+    /**
+     * @var string
+     */
+    public $ocrValueStandard;
 
     /**
      * @var string
      */
     public $productCode;
     protected $_name = [
+        'checkRuleConfig' => 'CheckRuleConfig',
         'credentialOcrPictureBase64' => 'CredentialOcrPictureBase64',
         'credentialOcrPictureUrl' => 'CredentialOcrPictureUrl',
         'docType' => 'DocType',
         'fraudCheck' => 'FraudCheck',
+        'idQuality' => 'IdQuality',
         'ocrArea' => 'OcrArea',
+        'ocrTranslation' => 'OcrTranslation',
+        'ocrValueStandard' => 'OcrValueStandard',
         'productCode' => 'ProductCode',
     ];
 
@@ -54,6 +78,10 @@ class CredentialRecognitionIntlRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->checkRuleConfig) {
+            $res['CheckRuleConfig'] = $this->checkRuleConfig;
+        }
+
         if (null !== $this->credentialOcrPictureBase64) {
             $res['CredentialOcrPictureBase64'] = $this->credentialOcrPictureBase64;
         }
@@ -70,8 +98,20 @@ class CredentialRecognitionIntlRequest extends Model
             $res['FraudCheck'] = $this->fraudCheck;
         }
 
+        if (null !== $this->idQuality) {
+            $res['IdQuality'] = $this->idQuality;
+        }
+
         if (null !== $this->ocrArea) {
             $res['OcrArea'] = $this->ocrArea;
+        }
+
+        if (null !== $this->ocrTranslation) {
+            $res['OcrTranslation'] = $this->ocrTranslation;
+        }
+
+        if (null !== $this->ocrValueStandard) {
+            $res['OcrValueStandard'] = $this->ocrValueStandard;
         }
 
         if (null !== $this->productCode) {
@@ -89,6 +129,10 @@ class CredentialRecognitionIntlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckRuleConfig'])) {
+            $model->checkRuleConfig = $map['CheckRuleConfig'];
+        }
+
         if (isset($map['CredentialOcrPictureBase64'])) {
             $model->credentialOcrPictureBase64 = $map['CredentialOcrPictureBase64'];
         }
@@ -105,8 +149,20 @@ class CredentialRecognitionIntlRequest extends Model
             $model->fraudCheck = $map['FraudCheck'];
         }
 
+        if (isset($map['IdQuality'])) {
+            $model->idQuality = $map['IdQuality'];
+        }
+
         if (isset($map['OcrArea'])) {
             $model->ocrArea = $map['OcrArea'];
+        }
+
+        if (isset($map['OcrTranslation'])) {
+            $model->ocrTranslation = $map['OcrTranslation'];
+        }
+
+        if (isset($map['OcrValueStandard'])) {
+            $model->ocrValueStandard = $map['OcrValueStandard'];
         }
 
         if (isset($map['ProductCode'])) {

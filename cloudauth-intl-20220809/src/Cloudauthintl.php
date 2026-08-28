@@ -1088,10 +1088,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
+     * An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
      *
      * @remarks
-     * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+     * Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
      *
      * @param Request - CredentialRecognitionIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1115,8 +1115,20 @@ class Cloudauthintl extends OpenApiClient
             @$query['FraudCheck'] = $request->fraudCheck;
         }
 
+        if (null !== $request->idQuality) {
+            @$query['IdQuality'] = $request->idQuality;
+        }
+
         if (null !== $request->ocrArea) {
             @$query['OcrArea'] = $request->ocrArea;
+        }
+
+        if (null !== $request->ocrTranslation) {
+            @$query['OcrTranslation'] = $request->ocrTranslation;
+        }
+
+        if (null !== $request->ocrValueStandard) {
+            @$query['OcrValueStandard'] = $request->ocrValueStandard;
         }
 
         if (null !== $request->productCode) {
@@ -1124,6 +1136,10 @@ class Cloudauthintl extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->checkRuleConfig) {
+            @$body['CheckRuleConfig'] = $request->checkRuleConfig;
+        }
+
         if (null !== $request->credentialOcrPictureBase64) {
             @$body['CredentialOcrPictureBase64'] = $request->credentialOcrPictureBase64;
         }
@@ -1152,10 +1168,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
+     * An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
      *
      * @remarks
-     * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+     * Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
      *
      * @param Request - CredentialRecognitionIntlRequest
      *
@@ -1176,7 +1192,7 @@ class Cloudauthintl extends OpenApiClient
      * Submits credential recognition information.
      *
      * @remarks
-     * Initializes the credential recognition OCR operation and retrieves a transactionId.
+     * Initializes the credential recognition OCR operation and returns a transactionId.
      *
      * @param Request - CredentialSubmitIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1200,12 +1216,24 @@ class Cloudauthintl extends OpenApiClient
             @$query['FraudCheck'] = $request->fraudCheck;
         }
 
+        if (null !== $request->idQuality) {
+            @$query['IdQuality'] = $request->idQuality;
+        }
+
         if (null !== $request->merchantBizId) {
             @$query['MerchantBizId'] = $request->merchantBizId;
         }
 
         if (null !== $request->ocrArea) {
             @$query['OcrArea'] = $request->ocrArea;
+        }
+
+        if (null !== $request->ocrTranslation) {
+            @$query['OcrTranslation'] = $request->ocrTranslation;
+        }
+
+        if (null !== $request->ocrValueStandard) {
+            @$query['OcrValueStandard'] = $request->ocrValueStandard;
         }
 
         if (null !== $request->productCode) {
@@ -1217,6 +1245,10 @@ class Cloudauthintl extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->checkRuleConfig) {
+            @$body['CheckRuleConfig'] = $request->checkRuleConfig;
+        }
+
         if (null !== $request->credentialOcrPictureBase64) {
             @$body['CredentialOcrPictureBase64'] = $request->credentialOcrPictureBase64;
         }
@@ -1248,7 +1280,7 @@ class Cloudauthintl extends OpenApiClient
      * Submits credential recognition information.
      *
      * @remarks
-     * Initializes the credential recognition OCR operation and retrieves a transactionId.
+     * Initializes the credential recognition OCR operation and returns a transactionId.
      *
      * @param Request - CredentialSubmitIntlRequest
      *
@@ -2676,6 +2708,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
         }
 
+        if (null !== $request->idSpoof) {
+            @$query['IdSpoof'] = $request->idSpoof;
+        }
+
         if (null !== $request->idThreshold) {
             @$query['IdThreshold'] = $request->idThreshold;
         }
@@ -2739,7 +2775,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * The eKYC solution server-side API.
+     * Provides a server-side-only API for the eKYC solution.
      *
      * @param Request - EkycVerifyV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2785,6 +2821,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->idOcrPictureUrl) {
             @$query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        }
+
+        if (null !== $request->idSpoof) {
+            @$query['IdSpoof'] = $request->idSpoof;
         }
 
         if (null !== $request->idThreshold) {
@@ -2840,7 +2880,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * The eKYC solution server-side API.
+     * Provides a server-side-only API for the eKYC solution.
      *
      * @param Request - EkycVerifyV2Request
      *
@@ -3056,7 +3096,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
+     * Compares two face images using face recognition technology and returns the comparison result and similarity score.
      *
      * @param Request - FaceCompareV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3129,7 +3169,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
+     * Compares two face images using face recognition technology and returns the comparison result and similarity score.
      *
      * @param Request - FaceCompareV2Request
      *
