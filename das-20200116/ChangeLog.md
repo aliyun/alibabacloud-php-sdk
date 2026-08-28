@@ -1,3 +1,9 @@
+2026-08-28 Version: 3.2.0
+- Support API DescribeDasOpsConfig.
+- Support API ModifyDasOpsConfig.
+- Support API ModifyForwardSqlLogConfig.
+
+
 2026-08-26 Version: 3.1.4
 - Update API Chat: add response parameters Body.AgentId.
 - Update API Chat: add response parameters Body.Kind.
