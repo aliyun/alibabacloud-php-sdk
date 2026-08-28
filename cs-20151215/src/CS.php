@@ -170,6 +170,9 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterInspectReportsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterInspectReportsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentInstanceNodesRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentInstanceNodesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentInstanceNodesShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentInstancesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListNodePoolComponentsRequest;
@@ -7413,6 +7416,95 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->listClusterKubeconfigStatesWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询节点组件在节点上的状态
+     *
+     * @param tmpReq - ListNodePoolComponentInstanceNodesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodePoolComponentInstanceNodesResponse
+     *
+     * @param string                                    $clusterId
+     * @param string                                    $nodepoolId
+     * @param string                                    $name
+     * @param ListNodePoolComponentInstanceNodesRequest $tmpReq
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListNodePoolComponentInstanceNodesResponse
+     */
+    public function listNodePoolComponentInstanceNodesWithOptions($clusterId, $nodepoolId, $name, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListNodePoolComponentInstanceNodesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeNames) {
+            $request->nodeNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeNames, 'node_names', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->configRevision) {
+            @$query['config_revision'] = $request->configRevision;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['max_results'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['next_token'] = $request->nextToken;
+        }
+
+        if (null !== $request->nodeNamesShrink) {
+            @$query['node_names'] = $request->nodeNamesShrink;
+        }
+
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNodePoolComponentInstanceNodes',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/nodepools/' . Url::percentEncode($nodepoolId) . '/component_instances/' . Url::percentEncode($name) . '/nodes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNodePoolComponentInstanceNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询节点组件在节点上的状态
+     *
+     * @param request - ListNodePoolComponentInstanceNodesRequest
+     *
+     * @returns ListNodePoolComponentInstanceNodesResponse
+     *
+     * @param string                                    $clusterId
+     * @param string                                    $nodepoolId
+     * @param string                                    $name
+     * @param ListNodePoolComponentInstanceNodesRequest $request
+     *
+     * @return ListNodePoolComponentInstanceNodesResponse
+     */
+    public function listNodePoolComponentInstanceNodes($clusterId, $nodepoolId, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listNodePoolComponentInstanceNodesWithOptions($clusterId, $nodepoolId, $name, $request, $headers, $runtime);
     }
 
     /**
