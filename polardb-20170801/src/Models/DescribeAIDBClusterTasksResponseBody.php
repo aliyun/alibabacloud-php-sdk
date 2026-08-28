@@ -25,6 +25,21 @@ class DescribeAIDBClusterTasksResponseBody extends Model
     public $items;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var string
+     */
+    public $pageRecordCount;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $relativeDBClusterId;
@@ -38,13 +53,22 @@ class DescribeAIDBClusterTasksResponseBody extends Model
      * @var string
      */
     public $taskType;
+
+    /**
+     * @var string
+     */
+    public $totalRecordCount;
     protected $_name = [
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
         'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'pageSize' => 'PageSize',
         'relativeDBClusterId' => 'RelativeDBClusterId',
         'requestId' => 'RequestId',
         'taskType' => 'TaskType',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -77,6 +101,18 @@ class DescribeAIDBClusterTasksResponseBody extends Model
             }
         }
 
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageRecordCount) {
+            $res['PageRecordCount'] = $this->pageRecordCount;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
         if (null !== $this->relativeDBClusterId) {
             $res['RelativeDBClusterId'] = $this->relativeDBClusterId;
         }
@@ -87,6 +123,10 @@ class DescribeAIDBClusterTasksResponseBody extends Model
 
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
+        }
+
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
 
         return $res;
@@ -119,6 +159,18 @@ class DescribeAIDBClusterTasksResponseBody extends Model
             }
         }
 
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageRecordCount'])) {
+            $model->pageRecordCount = $map['PageRecordCount'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
         if (isset($map['RelativeDBClusterId'])) {
             $model->relativeDBClusterId = $map['RelativeDBClusterId'];
         }
@@ -129,6 +181,10 @@ class DescribeAIDBClusterTasksResponseBody extends Model
 
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
+        }
+
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
 
         return $model;

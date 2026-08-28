@@ -354,6 +354,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSessionIdsReque
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSessionIdsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSSLRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSSLResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationUsageRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationUsageResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeRequest;
@@ -13418,11 +13420,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of model operators for a specified PolarDB database instance.
+     * Retrieves the list of template operators for a specified PolarDB database instance.
      *
      * @remarks
-     * ## Description
-     * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+     * ## Request description
+     * - This operation supports filtering and returning the list of template operators based on the `RelativeDBClusterId` and `KubeType` parameters.
      * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
      *
      * @param request - DescribeAIDBClusterTasksRequest
@@ -13449,6 +13451,14 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
 
         if (null !== $request->regionId) {
@@ -13486,11 +13496,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of model operators for a specified PolarDB database instance.
+     * Retrieves the list of template operators for a specified PolarDB database instance.
      *
      * @remarks
-     * ## Description
-     * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+     * ## Request description
+     * - This operation supports filtering and returning the list of template operators based on the `RelativeDBClusterId` and `KubeType` parameters.
      * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
      *
      * @param request - DescribeAIDBClusterTasksRequest
@@ -15001,10 +15011,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the detailed information of a specified PolarDB application.
+     * Retrieves the details of a specified PolarDB instance application.
      *
      * @remarks
-     * This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
+     * This API operation queries all information about a specific PolarDB application, including but not limited to component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15043,10 +15053,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the detailed information of a specified PolarDB application.
+     * Retrieves the details of a specified PolarDB instance application.
      *
      * @remarks
-     * This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
+     * This API operation queries all information about a specific PolarDB application, including but not limited to component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      *
@@ -15413,6 +15423,63 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApplicationPromptsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the SSL configuration of an application.
+     *
+     * @param request - DescribeApplicationSSLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationSSLResponse
+     *
+     * @param DescribeApplicationSSLRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeApplicationSSLResponse
+     */
+    public function describeApplicationSSLWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationSSL',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the SSL configuration of an application.
+     *
+     * @param request - DescribeApplicationSSLRequest
+     *
+     * @returns DescribeApplicationSSLResponse
+     *
+     * @param DescribeApplicationSSLRequest $request
+     *
+     * @return DescribeApplicationSSLResponse
+     */
+    public function describeApplicationSSL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationSSLWithOptions($request, $runtime);
     }
 
     /**
@@ -22002,7 +22069,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of knowledge bases.
+     * Queries the list of knowledge bases.
      *
      * @param request - DescribeKnowledgeBasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22061,7 +22128,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of knowledge bases.
+     * Queries the list of knowledge bases.
      *
      * @param request - DescribeKnowledgeBasesRequest
      *
@@ -26034,7 +26101,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries one or more vSwitches.
+     * 查询交换机.
      *
      * @param request - DescribeVSwitchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26117,7 +26184,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries one or more vSwitches.
+     * 查询交换机.
      *
      * @param request - DescribeVSwitchesRequest
      *

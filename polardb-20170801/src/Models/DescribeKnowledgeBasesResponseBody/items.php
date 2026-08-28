@@ -31,6 +31,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $knowledgeBaseType;
+
+    /**
+     * @var string
+     */
     public $knowledgeSpaceId;
 
     /**
@@ -57,6 +62,7 @@ class items extends Model
         'creationTime' => 'CreationTime',
         'description' => 'Description',
         'knowledgeBaseId' => 'KnowledgeBaseId',
+        'knowledgeBaseType' => 'KnowledgeBaseType',
         'knowledgeSpaceId' => 'KnowledgeSpaceId',
         'name' => 'Name',
         'status' => 'Status',
@@ -86,6 +92,10 @@ class items extends Model
 
         if (null !== $this->knowledgeBaseId) {
             $res['KnowledgeBaseId'] = $this->knowledgeBaseId;
+        }
+
+        if (null !== $this->knowledgeBaseType) {
+            $res['KnowledgeBaseType'] = $this->knowledgeBaseType;
         }
 
         if (null !== $this->knowledgeSpaceId) {
@@ -133,6 +143,10 @@ class items extends Model
 
         if (isset($map['KnowledgeBaseId'])) {
             $model->knowledgeBaseId = $map['KnowledgeBaseId'];
+        }
+
+        if (isset($map['KnowledgeBaseType'])) {
+            $model->knowledgeBaseType = $map['KnowledgeBaseType'];
         }
 
         if (isset($map['KnowledgeSpaceId'])) {

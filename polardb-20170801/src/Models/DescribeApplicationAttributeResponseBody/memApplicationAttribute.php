@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\memApplicationAttribute\sessionStore;
 
 class memApplicationAttribute extends Model
 {
@@ -39,6 +40,11 @@ class memApplicationAttribute extends Model
     public $rerankerModelName;
 
     /**
+     * @var sessionStore
+     */
+    public $sessionStore;
+
+    /**
      * @var string
      */
     public $userName;
@@ -49,11 +55,15 @@ class memApplicationAttribute extends Model
         'llmModelName' => 'LlmModelName',
         'projectName' => 'ProjectName',
         'rerankerModelName' => 'RerankerModelName',
+        'sessionStore' => 'SessionStore',
         'userName' => 'UserName',
     ];
 
     public function validate()
     {
+        if (null !== $this->sessionStore) {
+            $this->sessionStore->validate();
+        }
         parent::validate();
     }
 
@@ -82,6 +92,10 @@ class memApplicationAttribute extends Model
 
         if (null !== $this->rerankerModelName) {
             $res['RerankerModelName'] = $this->rerankerModelName;
+        }
+
+        if (null !== $this->sessionStore) {
+            $res['SessionStore'] = null !== $this->sessionStore ? $this->sessionStore->toArray($noStream) : $this->sessionStore;
         }
 
         if (null !== $this->userName) {
@@ -121,6 +135,10 @@ class memApplicationAttribute extends Model
 
         if (isset($map['RerankerModelName'])) {
             $model->rerankerModelName = $map['RerankerModelName'];
+        }
+
+        if (isset($map['SessionStore'])) {
+            $model->sessionStore = sessionStore::fromMap($map['SessionStore']);
         }
 
         if (isset($map['UserName'])) {

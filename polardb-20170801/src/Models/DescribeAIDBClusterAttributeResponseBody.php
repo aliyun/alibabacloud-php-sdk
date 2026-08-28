@@ -91,6 +91,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $inferenceEngine;
+
+    /**
+     * @var string
+     */
     public $internalIp;
 
     /**
@@ -218,6 +223,7 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
         'gatewayId' => 'GatewayId',
+        'inferenceEngine' => 'InferenceEngine',
         'internalIp' => 'InternalIp',
         'KVCacheInstanceId' => 'KVCacheInstanceId',
         'kubeClusterId' => 'KubeClusterId',
@@ -338,6 +344,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->inferenceEngine) {
+            $res['InferenceEngine'] = $this->inferenceEngine;
         }
 
         if (null !== $this->internalIp) {
@@ -522,6 +532,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
+        }
+
+        if (isset($map['InferenceEngine'])) {
+            $model->inferenceEngine = $map['InferenceEngine'];
         }
 
         if (isset($map['InternalIp'])) {
