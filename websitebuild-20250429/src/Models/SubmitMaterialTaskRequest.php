@@ -11,6 +11,11 @@ class SubmitMaterialTaskRequest extends Model
     /**
      * @var string
      */
+    public $bizGroupId;
+
+    /**
+     * @var string
+     */
     public $taskParam;
 
     /**
@@ -18,6 +23,7 @@ class SubmitMaterialTaskRequest extends Model
      */
     public $taskType;
     protected $_name = [
+        'bizGroupId' => 'BizGroupId',
         'taskParam' => 'TaskParam',
         'taskType' => 'TaskType',
     ];
@@ -30,6 +36,10 @@ class SubmitMaterialTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizGroupId) {
+            $res['BizGroupId'] = $this->bizGroupId;
+        }
+
         if (null !== $this->taskParam) {
             $res['TaskParam'] = $this->taskParam;
         }
@@ -49,6 +59,10 @@ class SubmitMaterialTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizGroupId'])) {
+            $model->bizGroupId = $map['BizGroupId'];
+        }
+
         if (isset($map['TaskParam'])) {
             $model->taskParam = $map['TaskParam'];
         }

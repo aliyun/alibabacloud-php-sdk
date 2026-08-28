@@ -11,6 +11,11 @@ class AppMaterialTask extends Model
     /**
      * @var string
      */
+    public $bizGroupId;
+
+    /**
+     * @var string
+     */
     public $completeTime;
 
     /**
@@ -58,6 +63,7 @@ class AppMaterialTask extends Model
      */
     public $taskType;
     protected $_name = [
+        'bizGroupId' => 'BizGroupId',
         'completeTime' => 'CompleteTime',
         'completeTimeFormat' => 'CompleteTimeFormat',
         'failReason' => 'FailReason',
@@ -81,6 +87,10 @@ class AppMaterialTask extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizGroupId) {
+            $res['BizGroupId'] = $this->bizGroupId;
+        }
+
         if (null !== $this->completeTime) {
             $res['CompleteTime'] = $this->completeTime;
         }
@@ -139,6 +149,10 @@ class AppMaterialTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizGroupId'])) {
+            $model->bizGroupId = $map['BizGroupId'];
+        }
+
         if (isset($map['CompleteTime'])) {
             $model->completeTime = $map['CompleteTime'];
         }

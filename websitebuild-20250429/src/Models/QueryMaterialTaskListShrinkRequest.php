@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class QueryMaterialTaskListShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizGroupId;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -48,6 +53,7 @@ class QueryMaterialTaskListShrinkRequest extends Model
      */
     public $taskTypeListShrink;
     protected $_name = [
+        'bizGroupId' => 'BizGroupId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'orderColumn' => 'OrderColumn',
@@ -66,6 +72,10 @@ class QueryMaterialTaskListShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizGroupId) {
+            $res['BizGroupId'] = $this->bizGroupId;
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -109,6 +119,10 @@ class QueryMaterialTaskListShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizGroupId'])) {
+            $model->bizGroupId = $map['BizGroupId'];
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }

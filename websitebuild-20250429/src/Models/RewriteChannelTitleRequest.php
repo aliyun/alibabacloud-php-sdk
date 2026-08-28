@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SubmitMaterialTaskResponseBody;
+namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class module extends Model
+class RewriteChannelTitleRequest extends Model
 {
     /**
      * @var string
      */
-    public $bizGroupId;
+    public $draftId;
 
     /**
      * @var string
      */
-    public $taskId;
+    public $userRequirement;
     protected $_name = [
-        'bizGroupId' => 'BizGroupId',
-        'taskId' => 'TaskId',
+        'draftId' => 'DraftId',
+        'userRequirement' => 'UserRequirement',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class module extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->bizGroupId) {
-            $res['BizGroupId'] = $this->bizGroupId;
+        if (null !== $this->draftId) {
+            $res['DraftId'] = $this->draftId;
         }
 
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->userRequirement) {
+            $res['UserRequirement'] = $this->userRequirement;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class module extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BizGroupId'])) {
-            $model->bizGroupId = $map['BizGroupId'];
+        if (isset($map['DraftId'])) {
+            $model->draftId = $map['DraftId'];
         }
 
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['UserRequirement'])) {
+            $model->userRequirement = $map['UserRequirement'];
         }
 
         return $model;

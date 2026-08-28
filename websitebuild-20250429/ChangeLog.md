@@ -1,3 +1,17 @@
+2026-08-28 Version: 2.38.0
+- Support API CreateDistribution.
+- Support API ReportChannelPublishResult.
+- Support API RetryChannelPublish.
+- Support API RewriteChannelTitle.
+- Support API SaveChannelDraft.
+- Support API TranslateChannelDraft.
+- Update API ListAppInstances: add request parameters QueryMode.
+- Update API QueryMaterialTaskList: add request parameters BizGroupId.
+- Update API SubmitMaterialTask: add request parameters BizGroupId.
+- Update API SubmitMaterialTask: add response parameters Body.Module.BizGroupId.
+- Update API UploadMaterialFile: add request parameters OssKey.
+
+
 2026-08-27 Version: 2.37.0
 - Support API DeleteAppSceneRecipient.
 - Update API ListAppInstanceDomains: add request parameters StatusQueryMode.

@@ -69,6 +69,11 @@ class ListAppInstancesRequest extends Model
     public $query;
 
     /**
+     * @var string
+     */
+    public $queryMode;
+
+    /**
      * @var string[]
      */
     public $statusList;
@@ -85,6 +90,7 @@ class ListAppInstancesRequest extends Model
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'query' => 'Query',
+        'queryMode' => 'QueryMode',
         'statusList' => 'StatusList',
     ];
 
@@ -155,6 +161,10 @@ class ListAppInstancesRequest extends Model
 
         if (null !== $this->query) {
             $res['Query'] = $this->query;
+        }
+
+        if (null !== $this->queryMode) {
+            $res['QueryMode'] = $this->queryMode;
         }
 
         if (null !== $this->statusList) {
@@ -232,6 +242,10 @@ class ListAppInstancesRequest extends Model
 
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
+        }
+
+        if (isset($map['QueryMode'])) {
+            $model->queryMode = $map['QueryMode'];
         }
 
         if (isset($map['StatusList'])) {

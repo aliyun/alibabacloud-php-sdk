@@ -48,6 +48,9 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppPluginRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppPluginResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppTokenServiceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppTokenServiceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateDistributionRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateDistributionResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateDistributionShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateInspirationRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateInspirationResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskRequest;
@@ -312,8 +315,14 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppSandboxRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppSandboxResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ReportChannelPublishResultRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ReportChannelPublishResultResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RetryChannelPublishRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RetryChannelPublishResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RevokeRbacUserRoleRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RevokeRbacUserRoleResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RewriteChannelTitleRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RewriteChannelTitleResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppCodeSnapshotRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppCodeSnapshotResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppInstancePublishRequest;
@@ -324,6 +333,9 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveAppRequirementRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveAppRequirementResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveAppSupabaseSecretsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveAppSupabaseSecretsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveChannelDraftRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveChannelDraftResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveChannelDraftShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageShrinkRequest;
@@ -340,6 +352,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SwitchAppConversationResponse
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\TranslateChannelDraftRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\TranslateChannelDraftResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UnbindAppDomainRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UnbindAppDomainResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UninstallAppPluginRequest;
@@ -2172,6 +2186,79 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppTokenServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Distributes and generates channel drafts.
+     *
+     * @remarks
+     * Distributes and generates channel drafts.
+     *
+     * @param tmpReq - CreateDistributionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDistributionResponse
+     *
+     * @param CreateDistributionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDistributionResponse
+     */
+    public function createDistributionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDistributionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->channels) {
+            $request->channelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channels, 'Channels', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->articleId) {
+            @$query['ArticleId'] = $request->articleId;
+        }
+
+        if (null !== $request->channelsShrink) {
+            @$query['Channels'] = $request->channelsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDistribution',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Distributes and generates channel drafts.
+     *
+     * @remarks
+     * Distributes and generates channel drafts.
+     *
+     * @param request - CreateDistributionRequest
+     *
+     * @returns CreateDistributionResponse
+     *
+     * @param CreateDistributionRequest $request
+     *
+     * @return CreateDistributionResponse
+     */
+    public function createDistribution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDistributionWithOptions($request, $runtime);
     }
 
     /**
@@ -4171,6 +4258,9 @@ class WebsiteBuild extends OpenApiClient
     /**
      * Queries the details of a website builder application instance.
      *
+     * @remarks
+     * Queries the details of a website builder application instance.
+     *
      * @param request - GetAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4208,6 +4298,9 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Queries the details of a website builder application instance.
+     *
+     * @remarks
      * Queries the details of a website builder application instance.
      *
      * @param request - GetAppInstanceRequest
@@ -7237,6 +7330,10 @@ class WebsiteBuild extends OpenApiClient
             @$query['Query'] = $request->query;
         }
 
+        if (null !== $request->queryMode) {
+            @$query['QueryMode'] = $request->queryMode;
+        }
+
         if (null !== $request->statusListShrink) {
             @$query['StatusList'] = $request->statusListShrink;
         }
@@ -8671,6 +8768,9 @@ class WebsiteBuild extends OpenApiClient
     /**
      * Modifies the specifications of a website building application instance.
      *
+     * @remarks
+     * Modifies the specifications of a website building application instance.
+     *
      * @param request - ModifyAppInstanceSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8732,6 +8832,9 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Modifies the specifications of a website building application instance.
+     *
+     * @remarks
      * Modifies the specifications of a website building application instance.
      *
      * @param request - ModifyAppInstanceSpecRequest
@@ -10451,7 +10554,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Query Material Generation Task List.
+     * Queries the list of material generation tasks.
+     *
+     * @remarks
+     * Queries the list of material generation tasks.
      *
      * @param tmpReq - QueryMaterialTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10477,6 +10583,10 @@ class WebsiteBuild extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->bizGroupId) {
+            @$query['BizGroupId'] = $request->bizGroupId;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
@@ -10528,7 +10638,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Query Material Generation Task List.
+     * Queries the list of material generation tasks.
+     *
+     * @remarks
+     * Queries the list of material generation tasks.
      *
      * @param request - QueryMaterialTaskListRequest
      *
@@ -11531,6 +11644,148 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Reports the publish result back to the system.
+     *
+     * @remarks
+     * Reports the publish result back to the system.
+     *
+     * @param request - ReportChannelPublishResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReportChannelPublishResultResponse
+     *
+     * @param ReportChannelPublishResultRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ReportChannelPublishResultResponse
+     */
+    public function reportChannelPublishResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->draftId) {
+            @$query['DraftId'] = $request->draftId;
+        }
+
+        if (null !== $request->externalId) {
+            @$query['ExternalId'] = $request->externalId;
+        }
+
+        if (null !== $request->externalUrl) {
+            @$query['ExternalUrl'] = $request->externalUrl;
+        }
+
+        if (null !== $request->failReason) {
+            @$query['FailReason'] = $request->failReason;
+        }
+
+        if (null !== $request->success) {
+            @$query['Success'] = $request->success;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReportChannelPublishResult',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReportChannelPublishResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Reports the publish result back to the system.
+     *
+     * @remarks
+     * Reports the publish result back to the system.
+     *
+     * @param request - ReportChannelPublishResultRequest
+     *
+     * @returns ReportChannelPublishResultResponse
+     *
+     * @param ReportChannelPublishResultRequest $request
+     *
+     * @return ReportChannelPublishResultResponse
+     */
+    public function reportChannelPublishResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reportChannelPublishResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retries a publish operation.
+     *
+     * @remarks
+     * Retries a publish operation.
+     *
+     * @param request - RetryChannelPublishRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetryChannelPublishResponse
+     *
+     * @param RetryChannelPublishRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RetryChannelPublishResponse
+     */
+    public function retryChannelPublishWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->draftId) {
+            @$query['DraftId'] = $request->draftId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RetryChannelPublish',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RetryChannelPublishResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retries a publish operation.
+     *
+     * @remarks
+     * Retries a publish operation.
+     *
+     * @param request - RetryChannelPublishRequest
+     *
+     * @returns RetryChannelPublishResponse
+     *
+     * @param RetryChannelPublishRequest $request
+     *
+     * @return RetryChannelPublishResponse
+     */
+    public function retryChannelPublish($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryChannelPublishWithOptions($request, $runtime);
+    }
+
+    /**
      * Revokes a user role.
      *
      * @remarks
@@ -11595,6 +11850,73 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeRbacUserRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Rewrites a channel title using AI.
+     *
+     * @remarks
+     * Rewrites a channel title.
+     *
+     * @param request - RewriteChannelTitleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RewriteChannelTitleResponse
+     *
+     * @param RewriteChannelTitleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RewriteChannelTitleResponse
+     */
+    public function rewriteChannelTitleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->draftId) {
+            @$query['DraftId'] = $request->draftId;
+        }
+
+        if (null !== $request->userRequirement) {
+            @$query['UserRequirement'] = $request->userRequirement;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RewriteChannelTitle',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RewriteChannelTitleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Rewrites a channel title using AI.
+     *
+     * @remarks
+     * Rewrites a channel title.
+     *
+     * @param request - RewriteChannelTitleRequest
+     *
+     * @returns RewriteChannelTitleResponse
+     *
+     * @param RewriteChannelTitleRequest $request
+     *
+     * @return RewriteChannelTitleResponse
+     */
+    public function rewriteChannelTitle($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rewriteChannelTitleWithOptions($request, $runtime);
     }
 
     /**
@@ -11943,6 +12265,87 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Saves a channel draft.
+     *
+     * @remarks
+     * Saves a channel draft.
+     *
+     * @param tmpReq - SaveChannelDraftRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveChannelDraftResponse
+     *
+     * @param SaveChannelDraftRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SaveChannelDraftResponse
+     */
+    public function saveChannelDraftWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SaveChannelDraftShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->coverImages) {
+            $request->coverImagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->coverImages, 'CoverImages', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->adaptedContent) {
+            @$query['AdaptedContent'] = $request->adaptedContent;
+        }
+
+        if (null !== $request->adaptedTitle) {
+            @$query['AdaptedTitle'] = $request->adaptedTitle;
+        }
+
+        if (null !== $request->coverImagesShrink) {
+            @$query['CoverImages'] = $request->coverImagesShrink;
+        }
+
+        if (null !== $request->draftId) {
+            @$query['DraftId'] = $request->draftId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SaveChannelDraft',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveChannelDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Saves a channel draft.
+     *
+     * @remarks
+     * Saves a channel draft.
+     *
+     * @param request - SaveChannelDraftRequest
+     *
+     * @returns SaveChannelDraftResponse
+     *
+     * @param SaveChannelDraftRequest $request
+     *
+     * @return SaveChannelDraftResponse
+     */
+    public function saveChannelDraft($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveChannelDraftWithOptions($request, $runtime);
+    }
+
+    /**
      * Searches for images.
      *
      * @param tmpReq - SearchImageRequest
@@ -12287,6 +12690,9 @@ class WebsiteBuild extends OpenApiClient
     /**
      * Submits a material generation task.
      *
+     * @remarks
+     * Submits a material generation task.
+     *
      * @param request - SubmitMaterialTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12301,6 +12707,10 @@ class WebsiteBuild extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bizGroupId) {
+            @$query['BizGroupId'] = $request->bizGroupId;
+        }
+
         if (null !== $request->taskParam) {
             @$query['TaskParam'] = $request->taskParam;
         }
@@ -12328,6 +12738,9 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Submits a material generation task.
+     *
+     * @remarks
      * Submits a material generation task.
      *
      * @param request - SubmitMaterialTaskRequest
@@ -12493,6 +12906,69 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->syncAppInstanceForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * Translates a channel draft.
+     *
+     * @remarks
+     * Translates a channel draft.
+     *
+     * @param request - TranslateChannelDraftRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TranslateChannelDraftResponse
+     *
+     * @param TranslateChannelDraftRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TranslateChannelDraftResponse
+     */
+    public function translateChannelDraftWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->draftId) {
+            @$query['DraftId'] = $request->draftId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TranslateChannelDraft',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TranslateChannelDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Translates a channel draft.
+     *
+     * @remarks
+     * Translates a channel draft.
+     *
+     * @param request - TranslateChannelDraftRequest
+     *
+     * @returns TranslateChannelDraftResponse
+     *
+     * @param TranslateChannelDraftRequest $request
+     *
+     * @return TranslateChannelDraftResponse
+     */
+    public function translateChannelDraft($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->translateChannelDraftWithOptions($request, $runtime);
     }
 
     /**
@@ -13667,6 +14143,9 @@ class WebsiteBuild extends OpenApiClient
     /**
      * Uploads a material file.
      *
+     * @remarks
+     * The Supabase instance information corresponding to the operation resource.
+     *
      * @param request - UploadMaterialFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13697,6 +14176,10 @@ class WebsiteBuild extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->ossKey) {
+            @$query['OssKey'] = $request->ossKey;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -13717,6 +14200,9 @@ class WebsiteBuild extends OpenApiClient
 
     /**
      * Uploads a material file.
+     *
+     * @remarks
+     * The Supabase instance information corresponding to the operation resource.
      *
      * @param request - UploadMaterialFileRequest
      *

@@ -27,11 +27,17 @@ class UploadMaterialFileRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $ossKey;
     protected $_name = [
         'bizId' => 'BizId',
         'directoryId' => 'DirectoryId',
         'fileUrl' => 'FileUrl',
         'name' => 'Name',
+        'ossKey' => 'OssKey',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class UploadMaterialFileRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->ossKey) {
+            $res['OssKey'] = $this->ossKey;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class UploadMaterialFileRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['OssKey'])) {
+            $model->ossKey = $map['OssKey'];
         }
 
         return $model;

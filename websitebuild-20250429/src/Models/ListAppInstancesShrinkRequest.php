@@ -71,6 +71,11 @@ class ListAppInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $queryMode;
+
+    /**
+     * @var string
+     */
     public $statusListShrink;
     protected $_name = [
         'bizId' => 'BizId',
@@ -85,6 +90,7 @@ class ListAppInstancesShrinkRequest extends Model
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'query' => 'Query',
+        'queryMode' => 'QueryMode',
         'statusListShrink' => 'StatusList',
     ];
 
@@ -142,6 +148,10 @@ class ListAppInstancesShrinkRequest extends Model
 
         if (null !== $this->query) {
             $res['Query'] = $this->query;
+        }
+
+        if (null !== $this->queryMode) {
+            $res['QueryMode'] = $this->queryMode;
         }
 
         if (null !== $this->statusListShrink) {
@@ -205,6 +215,10 @@ class ListAppInstancesShrinkRequest extends Model
 
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
+        }
+
+        if (isset($map['QueryMode'])) {
+            $model->queryMode = $map['QueryMode'];
         }
 
         if (isset($map['StatusList'])) {
