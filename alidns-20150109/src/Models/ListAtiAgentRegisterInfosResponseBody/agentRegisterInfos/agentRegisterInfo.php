@@ -57,6 +57,11 @@ class agentRegisterInfo extends Model
     /**
      * @var string
      */
+    public $trustLevel;
+
+    /**
+     * @var string
+     */
     public $updateTimestamp;
     protected $_name = [
         'agentDisplayName' => 'AgentDisplayName',
@@ -68,6 +73,7 @@ class agentRegisterInfo extends Model
         'createTimestamp' => 'CreateTimestamp',
         'endpoints' => 'Endpoints',
         'status' => 'Status',
+        'trustLevel' => 'TrustLevel',
         'updateTimestamp' => 'UpdateTimestamp',
     ];
 
@@ -116,6 +122,10 @@ class agentRegisterInfo extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->trustLevel) {
+            $res['TrustLevel'] = $this->trustLevel;
         }
 
         if (null !== $this->updateTimestamp) {
@@ -167,6 +177,10 @@ class agentRegisterInfo extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['TrustLevel'])) {
+            $model->trustLevel = $map['TrustLevel'];
         }
 
         if (isset($map['UpdateTimestamp'])) {

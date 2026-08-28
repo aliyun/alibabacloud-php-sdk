@@ -27,12 +27,22 @@ class CreateAtiAgentRegisterInfoRequest extends Model
     /**
      * @var string
      */
+    public $agentSubHost;
+
+    /**
+     * @var string
+     */
     public $agentVersion;
 
     /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $domainMode;
 
     /**
      * @var endpoints[]
@@ -47,8 +57,10 @@ class CreateAtiAgentRegisterInfoRequest extends Model
         'agentDescription' => 'AgentDescription',
         'agentDisplayName' => 'AgentDisplayName',
         'agentHost' => 'AgentHost',
+        'agentSubHost' => 'AgentSubHost',
         'agentVersion' => 'AgentVersion',
         'clientToken' => 'ClientToken',
+        'domainMode' => 'DomainMode',
         'endpoints' => 'Endpoints',
         'registrantId' => 'RegistrantId',
     ];
@@ -76,12 +88,20 @@ class CreateAtiAgentRegisterInfoRequest extends Model
             $res['AgentHost'] = $this->agentHost;
         }
 
+        if (null !== $this->agentSubHost) {
+            $res['AgentSubHost'] = $this->agentSubHost;
+        }
+
         if (null !== $this->agentVersion) {
             $res['AgentVersion'] = $this->agentVersion;
         }
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->domainMode) {
+            $res['DomainMode'] = $this->domainMode;
         }
 
         if (null !== $this->endpoints) {
@@ -122,12 +142,20 @@ class CreateAtiAgentRegisterInfoRequest extends Model
             $model->agentHost = $map['AgentHost'];
         }
 
+        if (isset($map['AgentSubHost'])) {
+            $model->agentSubHost = $map['AgentSubHost'];
+        }
+
         if (isset($map['AgentVersion'])) {
             $model->agentVersion = $map['AgentVersion'];
         }
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DomainMode'])) {
+            $model->domainMode = $map['DomainMode'];
         }
 
         if (isset($map['Endpoints'])) {

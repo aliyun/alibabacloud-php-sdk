@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody\accessDeniedDetail;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody\records;
 
 class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody extends Model
 {
@@ -45,6 +46,11 @@ class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody extends Model
     public $recordValue;
 
     /**
+     * @var records
+     */
+    public $records;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -61,6 +67,7 @@ class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody extends Model
         'recordName' => 'RecordName',
         'recordType' => 'RecordType',
         'recordValue' => 'RecordValue',
+        'records' => 'Records',
         'requestId' => 'RequestId',
         'updateTimestamp' => 'UpdateTimestamp',
     ];
@@ -69,6 +76,9 @@ class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody extends Model
     {
         if (null !== $this->accessDeniedDetail) {
             $this->accessDeniedDetail->validate();
+        }
+        if (null !== $this->records) {
+            $this->records->validate();
         }
         parent::validate();
     }
@@ -102,6 +112,10 @@ class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody extends Model
 
         if (null !== $this->recordValue) {
             $res['RecordValue'] = $this->recordValue;
+        }
+
+        if (null !== $this->records) {
+            $res['Records'] = null !== $this->records ? $this->records->toArray($noStream) : $this->records;
         }
 
         if (null !== $this->requestId) {
@@ -149,6 +163,10 @@ class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody extends Model
 
         if (isset($map['RecordValue'])) {
             $model->recordValue = $map['RecordValue'];
+        }
+
+        if (isset($map['Records'])) {
+            $model->records = records::fromMap($map['Records']);
         }
 
         if (isset($map['RequestId'])) {

@@ -550,6 +550,7 @@ class Alidns extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
+            'cn-hangzhou' => 'alidns.aliyuncs.com',
             'public' => 'alidns.aliyuncs.com',
         ];
         $this->checkConfig($config);
@@ -2340,12 +2341,20 @@ class Alidns extends OpenApiClient
             @$query['AgentHost'] = $request->agentHost;
         }
 
+        if (null !== $request->agentSubHost) {
+            @$query['AgentSubHost'] = $request->agentSubHost;
+        }
+
         if (null !== $request->agentVersion) {
             @$query['AgentVersion'] = $request->agentVersion;
         }
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->domainMode) {
+            @$query['DomainMode'] = $request->domainMode;
         }
 
         if (null !== $request->endpointsShrink) {
@@ -4282,7 +4291,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of an Agent registration.
+     * Queries the details of Agent registration information.
      *
      * @param request - DescribeAtiAgentRegisterInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4325,7 +4334,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of an Agent registration.
+     * Queries the details of Agent registration information.
      *
      * @param request - DescribeAtiAgentRegisterInfoRequest
      *
@@ -4343,7 +4352,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 为sdk查询agent信息功能.
+     * Queries agent information from the Agent marketplace for the SDK.
      *
      * @param request - DescribeAtiAgentRegisterInfoMarketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4379,6 +4388,10 @@ class Alidns extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->trustLevel) {
+            @$query['TrustLevel'] = $request->trustLevel;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4398,7 +4411,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 为sdk查询agent信息功能.
+     * Queries agent information from the Agent marketplace for the SDK.
      *
      * @param request - DescribeAtiAgentRegisterInfoMarketRequest
      *
@@ -11792,7 +11805,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the list of real-name registered contacts.
+     * Queries the list of real-name registrants.
      *
      * @param request - ListAtiChangeLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11863,7 +11876,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the list of real-name registered contacts.
+     * Queries the list of real-name registrants.
      *
      * @param request - ListAtiChangeLogsRequest
      *
@@ -11881,7 +11894,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询实名注册人列表.
+     * Queries the list of real-name verified registrants.
      *
      * @param request - ListAtiRegistrantsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11944,7 +11957,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询实名注册人列表.
+     * Queries the list of real-name verified registrants.
      *
      * @param request - ListAtiRegistrantsRequest
      *
@@ -15914,12 +15927,20 @@ class Alidns extends OpenApiClient
             @$query['AgentRegisterInfoId'] = $request->agentRegisterInfoId;
         }
 
+        if (null !== $request->agentSubHost) {
+            @$query['AgentSubHost'] = $request->agentSubHost;
+        }
+
         if (null !== $request->agentVersion) {
             @$query['AgentVersion'] = $request->agentVersion;
         }
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->domainMode) {
+            @$query['DomainMode'] = $request->domainMode;
         }
 
         if (null !== $request->endpointsShrink) {
@@ -15967,7 +15988,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 更新告警设置.
+     * Updates alert settings.
      *
      * @param request - UpdateAtiAlertSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16014,7 +16035,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 更新告警设置.
+     * Updates alert settings.
      *
      * @param request - UpdateAtiAlertSettingsRequest
      *
@@ -16032,7 +16053,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a registrant profile.
+     * Modifies a real-name registrant.
      *
      * @param request - UpdateAtiRegistrantRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16115,7 +16136,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a registrant profile.
+     * Modifies a real-name registrant.
      *
      * @param request - UpdateAtiRegistrantRequest
      *
@@ -19780,6 +19801,10 @@ class Alidns extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->trustLevel) {
+            @$query['TrustLevel'] = $request->trustLevel;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -19817,7 +19842,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 触发 ACME 预检
+     * Triggers an ACME pre-check.
      *
      * @param request - VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19860,7 +19885,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 触发 ACME 预检
+     * Triggers an ACME pre-check.
      *
      * @param request - VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
      *

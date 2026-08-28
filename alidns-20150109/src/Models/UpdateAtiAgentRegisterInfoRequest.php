@@ -32,12 +32,22 @@ class UpdateAtiAgentRegisterInfoRequest extends Model
     /**
      * @var string
      */
+    public $agentSubHost;
+
+    /**
+     * @var string
+     */
     public $agentVersion;
 
     /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $domainMode;
 
     /**
      * @var endpoints[]
@@ -53,8 +63,10 @@ class UpdateAtiAgentRegisterInfoRequest extends Model
         'agentDisplayName' => 'AgentDisplayName',
         'agentHost' => 'AgentHost',
         'agentRegisterInfoId' => 'AgentRegisterInfoId',
+        'agentSubHost' => 'AgentSubHost',
         'agentVersion' => 'AgentVersion',
         'clientToken' => 'ClientToken',
+        'domainMode' => 'DomainMode',
         'endpoints' => 'Endpoints',
         'registrantId' => 'RegistrantId',
     ];
@@ -86,12 +98,20 @@ class UpdateAtiAgentRegisterInfoRequest extends Model
             $res['AgentRegisterInfoId'] = $this->agentRegisterInfoId;
         }
 
+        if (null !== $this->agentSubHost) {
+            $res['AgentSubHost'] = $this->agentSubHost;
+        }
+
         if (null !== $this->agentVersion) {
             $res['AgentVersion'] = $this->agentVersion;
         }
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->domainMode) {
+            $res['DomainMode'] = $this->domainMode;
         }
 
         if (null !== $this->endpoints) {
@@ -136,12 +156,20 @@ class UpdateAtiAgentRegisterInfoRequest extends Model
             $model->agentRegisterInfoId = $map['AgentRegisterInfoId'];
         }
 
+        if (isset($map['AgentSubHost'])) {
+            $model->agentSubHost = $map['AgentSubHost'];
+        }
+
         if (isset($map['AgentVersion'])) {
             $model->agentVersion = $map['AgentVersion'];
         }
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DomainMode'])) {
+            $model->domainMode = $map['DomainMode'];
         }
 
         if (isset($map['Endpoints'])) {

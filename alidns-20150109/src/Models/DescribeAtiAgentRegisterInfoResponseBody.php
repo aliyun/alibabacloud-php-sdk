@@ -44,6 +44,11 @@ class DescribeAtiAgentRegisterInfoResponseBody extends Model
     /**
      * @var string
      */
+    public $agentSubHost;
+
+    /**
+     * @var string
+     */
     public $agentVersion;
 
     /**
@@ -55,6 +60,11 @@ class DescribeAtiAgentRegisterInfoResponseBody extends Model
      * @var int
      */
     public $createTimestamp;
+
+    /**
+     * @var string
+     */
+    public $domainMode;
 
     /**
      * @var endpoints
@@ -107,6 +117,11 @@ class DescribeAtiAgentRegisterInfoResponseBody extends Model
     public $trustCardUrl;
 
     /**
+     * @var string
+     */
+    public $trustLevel;
+
+    /**
      * @var int
      */
     public $updateTimestamp;
@@ -117,9 +132,11 @@ class DescribeAtiAgentRegisterInfoResponseBody extends Model
         'agentHost' => 'AgentHost',
         'agentId' => 'AgentId',
         'agentRegisterInfoId' => 'AgentRegisterInfoId',
+        'agentSubHost' => 'AgentSubHost',
         'agentVersion' => 'AgentVersion',
         'atiName' => 'AtiName',
         'createTimestamp' => 'CreateTimestamp',
+        'domainMode' => 'DomainMode',
         'endpoints' => 'Endpoints',
         'identityCertSerialNumber' => 'IdentityCertSerialNumber',
         'registrantId' => 'RegistrantId',
@@ -130,6 +147,7 @@ class DescribeAtiAgentRegisterInfoResponseBody extends Model
         'status' => 'Status',
         'trustCard' => 'TrustCard',
         'trustCardUrl' => 'TrustCardUrl',
+        'trustLevel' => 'TrustLevel',
         'updateTimestamp' => 'UpdateTimestamp',
     ];
 
@@ -174,6 +192,10 @@ class DescribeAtiAgentRegisterInfoResponseBody extends Model
             $res['AgentRegisterInfoId'] = $this->agentRegisterInfoId;
         }
 
+        if (null !== $this->agentSubHost) {
+            $res['AgentSubHost'] = $this->agentSubHost;
+        }
+
         if (null !== $this->agentVersion) {
             $res['AgentVersion'] = $this->agentVersion;
         }
@@ -184,6 +206,10 @@ class DescribeAtiAgentRegisterInfoResponseBody extends Model
 
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+
+        if (null !== $this->domainMode) {
+            $res['DomainMode'] = $this->domainMode;
         }
 
         if (null !== $this->endpoints) {
@@ -226,6 +252,10 @@ class DescribeAtiAgentRegisterInfoResponseBody extends Model
             $res['TrustCardUrl'] = $this->trustCardUrl;
         }
 
+        if (null !== $this->trustLevel) {
+            $res['TrustLevel'] = $this->trustLevel;
+        }
+
         if (null !== $this->updateTimestamp) {
             $res['UpdateTimestamp'] = $this->updateTimestamp;
         }
@@ -265,6 +295,10 @@ class DescribeAtiAgentRegisterInfoResponseBody extends Model
             $model->agentRegisterInfoId = $map['AgentRegisterInfoId'];
         }
 
+        if (isset($map['AgentSubHost'])) {
+            $model->agentSubHost = $map['AgentSubHost'];
+        }
+
         if (isset($map['AgentVersion'])) {
             $model->agentVersion = $map['AgentVersion'];
         }
@@ -275,6 +309,10 @@ class DescribeAtiAgentRegisterInfoResponseBody extends Model
 
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
+        }
+
+        if (isset($map['DomainMode'])) {
+            $model->domainMode = $map['DomainMode'];
         }
 
         if (isset($map['Endpoints'])) {
@@ -315,6 +353,10 @@ class DescribeAtiAgentRegisterInfoResponseBody extends Model
 
         if (isset($map['TrustCardUrl'])) {
             $model->trustCardUrl = $map['TrustCardUrl'];
+        }
+
+        if (isset($map['TrustLevel'])) {
+            $model->trustLevel = $map['TrustLevel'];
         }
 
         if (isset($map['UpdateTimestamp'])) {

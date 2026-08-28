@@ -17,9 +17,15 @@ class VerifyAtiAgentDnsRecordsRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $trustLevel;
     protected $_name = [
         'agentRegisterInfoId' => 'AgentRegisterInfoId',
         'clientToken' => 'ClientToken',
+        'trustLevel' => 'TrustLevel',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class VerifyAtiAgentDnsRecordsRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->trustLevel) {
+            $res['TrustLevel'] = $this->trustLevel;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class VerifyAtiAgentDnsRecordsRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['TrustLevel'])) {
+            $model->trustLevel = $map['TrustLevel'];
         }
 
         return $model;

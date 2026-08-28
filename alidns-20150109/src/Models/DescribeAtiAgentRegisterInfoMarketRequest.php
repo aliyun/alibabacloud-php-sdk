@@ -32,12 +32,18 @@ class DescribeAtiAgentRegisterInfoMarketRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $trustLevel;
     protected $_name = [
         'agentHost' => 'AgentHost',
         'agentVersion' => 'AgentVersion',
         'clientToken' => 'ClientToken',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'trustLevel' => 'TrustLevel',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class DescribeAtiAgentRegisterInfoMarketRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->trustLevel) {
+            $res['TrustLevel'] = $this->trustLevel;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class DescribeAtiAgentRegisterInfoMarketRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['TrustLevel'])) {
+            $model->trustLevel = $map['TrustLevel'];
         }
 
         return $model;
