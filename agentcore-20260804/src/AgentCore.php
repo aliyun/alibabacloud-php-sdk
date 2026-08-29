@@ -5024,8 +5024,16 @@ class AgentCore extends OpenApiClient
             @$query['maxResults'] = $request->maxResults;
         }
 
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
         if (null !== $request->nextToken) {
             @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchType) {
+            @$query['searchType'] = $request->searchType;
         }
 
         $req = new OpenApiRequest([
@@ -5074,6 +5082,9 @@ class AgentCore extends OpenApiClient
     /**
      * 查询模型连接列表.
      *
+     * @remarks
+     * 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+     *
      * @param request - ListModelConnectionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5115,6 +5126,10 @@ class AgentCore extends OpenApiClient
             @$query['providerType'] = $request->providerType;
         }
 
+        if (null !== $request->searchType) {
+            @$query['searchType'] = $request->searchType;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -5136,6 +5151,9 @@ class AgentCore extends OpenApiClient
 
     /**
      * 查询模型连接列表.
+     *
+     * @remarks
+     * 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
      *
      * @param request - ListModelConnectionsRequest
      *

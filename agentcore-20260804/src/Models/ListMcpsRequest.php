@@ -16,10 +16,22 @@ class ListMcpsRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $searchType;
     protected $_name = [
         'maxResults' => 'maxResults',
+        'name' => 'name',
         'nextToken' => 'nextToken',
+        'searchType' => 'searchType',
     ];
 
     public function validate()
@@ -34,8 +46,16 @@ class ListMcpsRequest extends Model
             $res['maxResults'] = $this->maxResults;
         }
 
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->searchType) {
+            $res['searchType'] = $this->searchType;
         }
 
         return $res;
@@ -53,8 +73,16 @@ class ListMcpsRequest extends Model
             $model->maxResults = $map['maxResults'];
         }
 
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['searchType'])) {
+            $model->searchType = $map['searchType'];
         }
 
         return $model;

@@ -37,6 +37,11 @@ class ListModelConnectionsRequest extends Model
      * @var string
      */
     public $providerType;
+
+    /**
+     * @var string
+     */
+    public $searchType;
     protected $_name = [
         'includeModels' => 'includeModels',
         'maxResults' => 'maxResults',
@@ -44,6 +49,7 @@ class ListModelConnectionsRequest extends Model
         'nextToken' => 'nextToken',
         'protocol' => 'protocol',
         'providerType' => 'providerType',
+        'searchType' => 'searchType',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class ListModelConnectionsRequest extends Model
 
         if (null !== $this->providerType) {
             $res['providerType'] = $this->providerType;
+        }
+
+        if (null !== $this->searchType) {
+            $res['searchType'] = $this->searchType;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class ListModelConnectionsRequest extends Model
 
         if (isset($map['providerType'])) {
             $model->providerType = $map['providerType'];
+        }
+
+        if (isset($map['searchType'])) {
+            $model->searchType = $map['searchType'];
         }
 
         return $model;
