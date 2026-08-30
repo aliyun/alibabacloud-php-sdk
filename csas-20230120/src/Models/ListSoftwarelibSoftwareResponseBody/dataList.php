@@ -87,6 +87,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $runAsAccount;
+
+    /**
+     * @var string
+     */
     public $softwareId;
 
     /**
@@ -134,6 +139,7 @@ class dataList extends Model
         'macIntelVersion' => 'MacIntelVersion',
         'matchMode' => 'MatchMode',
         'officialDownloadUrl' => 'OfficialDownloadUrl',
+        'runAsAccount' => 'RunAsAccount',
         'softwareId' => 'SoftwareId',
         'softwareName' => 'SoftwareName',
         'sourceRemoved' => 'SourceRemoved',
@@ -235,6 +241,10 @@ class dataList extends Model
 
         if (null !== $this->officialDownloadUrl) {
             $res['OfficialDownloadUrl'] = $this->officialDownloadUrl;
+        }
+
+        if (null !== $this->runAsAccount) {
+            $res['RunAsAccount'] = $this->runAsAccount;
         }
 
         if (null !== $this->softwareId) {
@@ -362,6 +372,10 @@ class dataList extends Model
 
         if (isset($map['OfficialDownloadUrl'])) {
             $model->officialDownloadUrl = $map['OfficialDownloadUrl'];
+        }
+
+        if (isset($map['RunAsAccount'])) {
+            $model->runAsAccount = $map['RunAsAccount'];
         }
 
         if (isset($map['SoftwareId'])) {

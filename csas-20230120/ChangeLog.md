@@ -1,3 +1,16 @@
+2026-08-30 Version: 1.26.0
+- Support API BindSaseUserTag.
+- Support API CreateSaseUserTag.
+- Support API DeleteSaseUserTag.
+- Support API GetSaseUserTag.
+- Support API ListDlpOutboundLogs.
+- Support API ListDomainAccessLogs.
+- Support API ListSaseUserTags.
+- Support API UnbindSaseUserTag.
+- Support API UpdateSaseUserTag.
+- Update API ListSoftwarelibSoftware: add response parameters Body.DataList.$.RunAsAccount.
+
+
 2026-08-25 Version: 1.25.0
 - Support API CreateSoftwarelibDistributeTask.
 - Support API CreateSoftwarelibVersion.

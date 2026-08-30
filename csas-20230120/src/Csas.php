@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessApplicationRe
 use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\BatchDeletePrivateAccessPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\BindSaseUserTagRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\BindSaseUserTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CancelVirusScanTasksRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CancelVirusScanTasksResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CancelVulScanTasksRequest;
@@ -67,6 +69,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateProhibitedTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateSaseUserTagRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateSaseUserTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateSoftwarelibDistributeTaskRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateSoftwarelibDistributeTaskResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateSoftwarelibVersionRequest;
@@ -135,6 +139,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteProhibitedTagsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteProhibitedTagsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteRegistrationPoliciesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteRegistrationPoliciesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteSaseUserTagRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteSaseUserTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserDevicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserGroupRequest;
@@ -197,6 +203,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetProhibitedSoftwareResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetProhibitedSoftwareShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetRegistrationPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetRegistrationPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetSaseUserTagRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetSaseUserTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceWorkloadTrendRequest;
@@ -241,6 +249,10 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListDeviceGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDeviceGroupsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDevicesForVulnerabilityRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDevicesForVulnerabilityResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDlpOutboundLogsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDlpOutboundLogsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainAccessLogsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainAccessLogsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainItemsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainItemsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDomainMetasRequest;
@@ -305,6 +317,9 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListRiskItemsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListRiskItemsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListSaseUserTagsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListSaseUserTagsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListSaseUserTagsShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListSoftwareForUserDeviceRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListSoftwareForUserDeviceResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListSoftwarelibSoftwareRequest;
@@ -363,6 +378,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserDeviceSessionRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserDeviceSessionResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UnbindSaseUserTagRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UnbindSaseUserTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateAntiVirusRealTimeDefenceStrategyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateAntiVirusRealTimeDefenceStrategyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest;
@@ -415,6 +432,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRiskStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRiskStatusResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateSaseUserTagRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateSaseUserTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUninstallApplicationsStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUninstallApplicationsStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesSharingStatusRequest;
@@ -1015,6 +1034,70 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchDeletePrivateAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Associates user labels.
+     *
+     * @param request - BindSaseUserTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindSaseUserTagResponse
+     *
+     * @param BindSaseUserTagRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return BindSaseUserTagResponse
+     */
+    public function bindSaseUserTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->saseUserIds) {
+            @$bodyFlat['SaseUserIds'] = $request->saseUserIds;
+        }
+
+        if (null !== $request->tagIds) {
+            @$bodyFlat['TagIds'] = $request->tagIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BindSaseUserTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BindSaseUserTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Associates user labels.
+     *
+     * @param request - BindSaseUserTagRequest
+     *
+     * @returns BindSaseUserTagResponse
+     *
+     * @param BindSaseUserTagRequest $request
+     *
+     * @return BindSaseUserTagResponse
+     */
+    public function bindSaseUserTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindSaseUserTagWithOptions($request, $runtime);
     }
 
     /**
@@ -2729,6 +2812,67 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRegistrationPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a user tag.
+     *
+     * @param request - CreateSaseUserTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSaseUserTagResponse
+     *
+     * @param CreateSaseUserTagRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateSaseUserTagResponse
+     */
+    public function createSaseUserTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSaseUserTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSaseUserTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a user tag.
+     *
+     * @param request - CreateSaseUserTagRequest
+     *
+     * @returns CreateSaseUserTagResponse
+     *
+     * @param CreateSaseUserTagRequest $request
+     *
+     * @return CreateSaseUserTagResponse
+     */
+    public function createSaseUserTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSaseUserTagWithOptions($request, $runtime);
     }
 
     /**
@@ -5173,6 +5317,66 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Deletes user tags.
+     *
+     * @param request - DeleteSaseUserTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSaseUserTagResponse
+     *
+     * @param DeleteSaseUserTagRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteSaseUserTagResponse
+     */
+    public function deleteSaseUserTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->tagIds) {
+            @$bodyFlat['TagIds'] = $request->tagIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSaseUserTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSaseUserTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes user tags.
+     *
+     * @param request - DeleteSaseUserTagRequest
+     *
+     * @returns DeleteSaseUserTagResponse
+     *
+     * @param DeleteSaseUserTagRequest $request
+     *
+     * @return DeleteSaseUserTagResponse
+     */
+    public function deleteSaseUserTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSaseUserTagWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes user endpoint devices in batches.
      *
      * @remarks
@@ -6974,6 +7178,63 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Retrieves a single user tag.
+     *
+     * @param request - GetSaseUserTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSaseUserTagResponse
+     *
+     * @param GetSaseUserTagRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetSaseUserTagResponse
+     */
+    public function getSaseUserTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->tagId) {
+            @$body['TagId'] = $request->tagId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetSaseUserTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSaseUserTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a single user tag.
+     *
+     * @param request - GetSaseUserTagRequest
+     *
+     * @returns GetSaseUserTagResponse
+     *
+     * @param GetSaseUserTagRequest $request
+     *
+     * @return GetSaseUserTagResponse
+     */
+    public function getSaseUserTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSaseUserTagWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a user endpoint device under the current Alibaba Cloud account.
      *
      * @param request - GetUserDeviceRequest
@@ -8171,6 +8432,154 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDevicesForVulnerabilityWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists DLP outbound file transfer logs.
+     *
+     * @param request - ListDlpOutboundLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDlpOutboundLogsResponse
+     *
+     * @param ListDlpOutboundLogsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDlpOutboundLogsResponse
+     */
+    public function listDlpOutboundLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->logId) {
+            @$body['LogId'] = $request->logId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->policyAction) {
+            @$body['PolicyAction'] = $request->policyAction;
+        }
+
+        if (null !== $request->srcFileName) {
+            @$body['SrcFileName'] = $request->srcFileName;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->subChannelType) {
+            @$body['SubChannelType'] = $request->subChannelType;
+        }
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDlpOutboundLogs',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDlpOutboundLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists DLP outbound file transfer logs.
+     *
+     * @param request - ListDlpOutboundLogsRequest
+     *
+     * @returns ListDlpOutboundLogsResponse
+     *
+     * @param ListDlpOutboundLogsRequest $request
+     *
+     * @return ListDlpOutboundLogsResponse
+     */
+    public function listDlpOutboundLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDlpOutboundLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the Internet access logs of endpoints by using paging.
+     *
+     * @remarks
+     * Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+     *
+     * @param request - ListDomainAccessLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDomainAccessLogsResponse
+     *
+     * @param ListDomainAccessLogsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDomainAccessLogsResponse
+     */
+    public function listDomainAccessLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDomainAccessLogs',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDomainAccessLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the Internet access logs of endpoints by using paging.
+     *
+     * @remarks
+     * Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+     *
+     * @param request - ListDomainAccessLogsRequest
+     *
+     * @returns ListDomainAccessLogsResponse
+     *
+     * @param ListDomainAccessLogsRequest $request
+     *
+     * @return ListDomainAccessLogsResponse
+     */
+    public function listDomainAccessLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDomainAccessLogsWithOptions($request, $runtime);
     }
 
     /**
@@ -10081,6 +10490,81 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of user labels.
+     *
+     * @param tmpReq - ListSaseUserTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSaseUserTagsResponse
+     *
+     * @param ListSaseUserTagsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListSaseUserTagsResponse
+     */
+    public function listSaseUserTagsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListSaseUserTagsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tagIds) {
+            $request->tagIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->tagIdsShrink) {
+            @$body['TagIds'] = $request->tagIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListSaseUserTags',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSaseUserTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of user labels.
+     *
+     * @param request - ListSaseUserTagsRequest
+     *
+     * @returns ListSaseUserTagsResponse
+     *
+     * @param ListSaseUserTagsRequest $request
+     *
+     * @return ListSaseUserTagsResponse
+     */
+    public function listSaseUserTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSaseUserTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
      *
      * @param request - ListSoftwareForUserDeviceRequest
@@ -11886,6 +12370,70 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeUserSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Unbinds user labels.
+     *
+     * @param request - UnbindSaseUserTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindSaseUserTagResponse
+     *
+     * @param UnbindSaseUserTagRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UnbindSaseUserTagResponse
+     */
+    public function unbindSaseUserTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->saseUserIds) {
+            @$bodyFlat['SaseUserIds'] = $request->saseUserIds;
+        }
+
+        if (null !== $request->tagIds) {
+            @$bodyFlat['TagIds'] = $request->tagIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UnbindSaseUserTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnbindSaseUserTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Unbinds user labels.
+     *
+     * @param request - UnbindSaseUserTagRequest
+     *
+     * @returns UnbindSaseUserTagResponse
+     *
+     * @param UnbindSaseUserTagRequest $request
+     *
+     * @return UnbindSaseUserTagResponse
+     */
+    public function unbindSaseUserTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindSaseUserTagWithOptions($request, $runtime);
     }
 
     /**
@@ -13926,6 +14474,71 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRiskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a user tag.
+     *
+     * @param request - UpdateSaseUserTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSaseUserTagResponse
+     *
+     * @param UpdateSaseUserTagRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateSaseUserTagResponse
+     */
+    public function updateSaseUserTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->tagId) {
+            @$body['TagId'] = $request->tagId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSaseUserTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSaseUserTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a user tag.
+     *
+     * @param request - UpdateSaseUserTagRequest
+     *
+     * @returns UpdateSaseUserTagResponse
+     *
+     * @param UpdateSaseUserTagRequest $request
+     *
+     * @return UpdateSaseUserTagResponse
+     */
+    public function updateSaseUserTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSaseUserTagWithOptions($request, $runtime);
     }
 
     /**
