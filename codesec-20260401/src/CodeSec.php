@@ -22,7 +22,11 @@ class CodeSec extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'ap-southeast-1' => 'codesec.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou' => 'codesec.cn-hangzhou.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('codesec', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -52,7 +56,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * List projects for tenant.
+     * Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
      *
      * @param request - DescribeProjectsRequest
      * @param headers - map
@@ -102,7 +106,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * List projects for tenant.
+     * Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
      *
      * @param request - DescribeProjectsRequest
      *
@@ -121,7 +125,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * List findings for one engine (SAST / SCA).
+     * Queries the task result list to retrieve detailed SAST or SCA results for a specific scan.
      *
      * @param request - DescribeScanResultsByEngineRequest
      * @param headers - map
@@ -182,7 +186,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * List findings for one engine (SAST / SCA).
+     * Queries the task result list to retrieve detailed SAST or SCA results for a specific scan.
      *
      * @param request - DescribeScanResultsByEngineRequest
      *
@@ -204,7 +208,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * List scans for project.
+     * Lists scan tasks under a specified project with pagination.
      *
      * @param request - DescribeScansRequest
      * @param headers - map
@@ -259,7 +263,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * List scans for project.
+     * Lists scan tasks under a specified project with pagination.
      *
      * @param request - DescribeScansRequest
      *

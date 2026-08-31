@@ -26,6 +26,11 @@ class items extends Model
     public $createdBy;
 
     /**
+     * @var string
+     */
+    public $currentPhase;
+
+    /**
      * @var engineSnapshot
      */
     public $engineSnapshot;
@@ -88,6 +93,7 @@ class items extends Model
         'codeBundleId' => 'codeBundleId',
         'createdAt' => 'createdAt',
         'createdBy' => 'createdBy',
+        'currentPhase' => 'currentPhase',
         'engineSnapshot' => 'engineSnapshot',
         'finishedAt' => 'finishedAt',
         'id' => 'id',
@@ -126,6 +132,10 @@ class items extends Model
 
         if (null !== $this->createdBy) {
             $res['createdBy'] = $this->createdBy;
+        }
+
+        if (null !== $this->currentPhase) {
+            $res['currentPhase'] = $this->currentPhase;
         }
 
         if (null !== $this->engineSnapshot) {
@@ -197,6 +207,10 @@ class items extends Model
 
         if (isset($map['createdBy'])) {
             $model->createdBy = $map['createdBy'];
+        }
+
+        if (isset($map['currentPhase'])) {
+            $model->currentPhase = $map['currentPhase'];
         }
 
         if (isset($map['engineSnapshot'])) {
