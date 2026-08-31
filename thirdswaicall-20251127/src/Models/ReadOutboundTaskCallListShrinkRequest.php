@@ -56,6 +56,11 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
     /**
      * @var string
      */
+    public $durationRangeListShrink;
+
+    /**
+     * @var string
+     */
     public $labelTagsShrink;
 
     /**
@@ -92,6 +97,7 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
         'currentWorkspaceId' => 'CurrentWorkspaceId',
         'customerNameOrPhone' => 'CustomerNameOrPhone',
         'displayStatusListShrink' => 'DisplayStatusList',
+        'durationRangeListShrink' => 'DurationRangeList',
         'labelTagsShrink' => 'LabelTags',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -142,6 +148,10 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
 
         if (null !== $this->displayStatusListShrink) {
             $res['DisplayStatusList'] = $this->displayStatusListShrink;
+        }
+
+        if (null !== $this->durationRangeListShrink) {
+            $res['DurationRangeList'] = $this->durationRangeListShrink;
         }
 
         if (null !== $this->labelTagsShrink) {
@@ -213,6 +223,10 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
 
         if (isset($map['DisplayStatusList'])) {
             $model->displayStatusListShrink = $map['DisplayStatusList'];
+        }
+
+        if (isset($map['DurationRangeList'])) {
+            $model->durationRangeListShrink = $map['DurationRangeList'];
         }
 
         if (isset($map['LabelTags'])) {

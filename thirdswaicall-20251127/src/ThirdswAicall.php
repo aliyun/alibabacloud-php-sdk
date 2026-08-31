@@ -231,6 +231,10 @@ class ThirdswAicall extends OpenApiClient
             $request->displayStatusListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->displayStatusList, 'DisplayStatusList', 'json');
         }
 
+        if (null !== $tmpReq->durationRangeList) {
+            $request->durationRangeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->durationRangeList, 'DurationRangeList', 'json');
+        }
+
         if (null !== $tmpReq->labelTags) {
             $request->labelTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelTags, 'LabelTags', 'json');
         }
@@ -270,6 +274,10 @@ class ThirdswAicall extends OpenApiClient
 
         if (null !== $request->displayStatusListShrink) {
             @$body['DisplayStatusList'] = $request->displayStatusListShrink;
+        }
+
+        if (null !== $request->durationRangeListShrink) {
+            @$body['DurationRangeList'] = $request->durationRangeListShrink;
         }
 
         if (null !== $request->labelTagsShrink) {

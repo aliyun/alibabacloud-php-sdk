@@ -56,6 +56,11 @@ class ReadOutboundTaskCallListRequest extends Model
     /**
      * @var string[]
      */
+    public $durationRangeList;
+
+    /**
+     * @var string[]
+     */
     public $labelTags;
 
     /**
@@ -92,6 +97,7 @@ class ReadOutboundTaskCallListRequest extends Model
         'currentWorkspaceId' => 'CurrentWorkspaceId',
         'customerNameOrPhone' => 'CustomerNameOrPhone',
         'displayStatusList' => 'DisplayStatusList',
+        'durationRangeList' => 'DurationRangeList',
         'labelTags' => 'LabelTags',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -104,6 +110,9 @@ class ReadOutboundTaskCallListRequest extends Model
     {
         if (\is_array($this->displayStatusList)) {
             Model::validateArray($this->displayStatusList);
+        }
+        if (\is_array($this->durationRangeList)) {
+            Model::validateArray($this->durationRangeList);
         }
         if (\is_array($this->labelTags)) {
             Model::validateArray($this->labelTags);
@@ -152,6 +161,17 @@ class ReadOutboundTaskCallListRequest extends Model
                 $n1 = 0;
                 foreach ($this->displayStatusList as $item1) {
                     $res['DisplayStatusList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->durationRangeList) {
+            if (\is_array($this->durationRangeList)) {
+                $res['DurationRangeList'] = [];
+                $n1 = 0;
+                foreach ($this->durationRangeList as $item1) {
+                    $res['DurationRangeList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -237,6 +257,17 @@ class ReadOutboundTaskCallListRequest extends Model
                 $n1 = 0;
                 foreach ($map['DisplayStatusList'] as $item1) {
                     $model->displayStatusList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['DurationRangeList'])) {
+            if (!empty($map['DurationRangeList'])) {
+                $model->durationRangeList = [];
+                $n1 = 0;
+                foreach ($map['DurationRangeList'] as $item1) {
+                    $model->durationRangeList[$n1] = $item1;
                     ++$n1;
                 }
             }
