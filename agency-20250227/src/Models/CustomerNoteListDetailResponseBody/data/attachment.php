@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class attachment extends Model
 {
     /**
+     * @var string
+     */
+    public $downloadUrl;
+
+    /**
      * @var int
      */
     public $id;
@@ -33,6 +38,7 @@ class attachment extends Model
      */
     public $type;
     protected $_name = [
+        'downloadUrl' => 'DownloadUrl',
         'id' => 'Id',
         'name' => 'Name',
         'signature' => 'Signature',
@@ -48,6 +54,10 @@ class attachment extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->downloadUrl) {
+            $res['DownloadUrl'] = $this->downloadUrl;
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -79,6 +89,10 @@ class attachment extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DownloadUrl'])) {
+            $model->downloadUrl = $map['DownloadUrl'];
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

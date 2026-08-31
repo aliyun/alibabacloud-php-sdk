@@ -128,7 +128,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 创建客户小记.
+     * Creates a customer note.
      *
      * @param request - CustomerNoteCreateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -187,7 +187,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 创建客户小记.
+     * Creates a customer note.
      *
      * @param request - CustomerNoteCreateRequest
      *
@@ -205,7 +205,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 编辑客户小记.
+     * Edits a customer note.
      *
      * @param request - CustomerNoteEditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -260,7 +260,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 编辑客户小记.
+     * Edits a customer note.
      *
      * @param request - CustomerNoteEditRequest
      *
@@ -278,7 +278,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 分页查询客户小记列表.
+     * Queries a paged query list of customer notes with paging support.
      *
      * @param request - CustomerNoteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -325,7 +325,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 分页查询客户小记列表.
+     * Queries a paged query list of customer notes with paging support.
      *
      * @param request - CustomerNoteListRequest
      *
@@ -343,7 +343,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询客户小记详情.
+     * Queries the details of a customer note.
      *
      * @param request - CustomerNoteListDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -382,7 +382,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询客户小记详情.
+     * Queries the details of a customer note.
      *
      * @param request - CustomerNoteListDetailRequest
      *
