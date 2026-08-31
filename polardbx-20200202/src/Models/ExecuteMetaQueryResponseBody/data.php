@@ -9,9 +9,34 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $appliedOffset;
+
+    /**
+     * @var int
+     */
+    public $appliedRowLimit;
+
+    /**
      * @var string[]
      */
     public $columns;
+
+    /**
+     * @var bool
+     */
+    public $hasMore;
+
+    /**
+     * @var int
+     */
+    public $recordsSizeBytes;
+
+    /**
+     * @var int
+     */
+    public $returnedRowCount;
 
     /**
      * @var int
@@ -23,7 +48,12 @@ class data extends Model
      */
     public $rows;
     protected $_name = [
+        'appliedOffset' => 'AppliedOffset',
+        'appliedRowLimit' => 'AppliedRowLimit',
         'columns' => 'Columns',
+        'hasMore' => 'HasMore',
+        'recordsSizeBytes' => 'RecordsSizeBytes',
+        'returnedRowCount' => 'ReturnedRowCount',
         'rowCount' => 'RowCount',
         'rows' => 'Rows',
     ];
@@ -42,6 +72,14 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appliedOffset) {
+            $res['AppliedOffset'] = $this->appliedOffset;
+        }
+
+        if (null !== $this->appliedRowLimit) {
+            $res['AppliedRowLimit'] = $this->appliedRowLimit;
+        }
+
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['Columns'] = [];
@@ -51,6 +89,18 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->hasMore) {
+            $res['HasMore'] = $this->hasMore;
+        }
+
+        if (null !== $this->recordsSizeBytes) {
+            $res['RecordsSizeBytes'] = $this->recordsSizeBytes;
+        }
+
+        if (null !== $this->returnedRowCount) {
+            $res['ReturnedRowCount'] = $this->returnedRowCount;
         }
 
         if (null !== $this->rowCount) {
@@ -84,6 +134,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppliedOffset'])) {
+            $model->appliedOffset = $map['AppliedOffset'];
+        }
+
+        if (isset($map['AppliedRowLimit'])) {
+            $model->appliedRowLimit = $map['AppliedRowLimit'];
+        }
+
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
@@ -93,6 +151,18 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['HasMore'])) {
+            $model->hasMore = $map['HasMore'];
+        }
+
+        if (isset($map['RecordsSizeBytes'])) {
+            $model->recordsSizeBytes = $map['RecordsSizeBytes'];
+        }
+
+        if (isset($map['ReturnedRowCount'])) {
+            $model->returnedRowCount = $map['ReturnedRowCount'];
         }
 
         if (isset($map['RowCount'])) {

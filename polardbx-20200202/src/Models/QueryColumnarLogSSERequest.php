@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ExecuteMetaQueryRequest extends Model
+class QueryColumnarLogSSERequest extends Model
 {
     /**
      * @var string
@@ -26,18 +26,12 @@ class ExecuteMetaQueryRequest extends Model
     /**
      * @var string
      */
-    public $sql;
-
-    /**
-     * @var string
-     */
-    public $storageInstId;
+    public $SQL;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
         'maxResultRows' => 'MaxResultRows',
         'regionId' => 'RegionId',
-        'sql' => 'Sql',
-        'storageInstId' => 'StorageInstId',
+        'SQL' => 'SQL',
     ];
 
     public function validate()
@@ -60,12 +54,8 @@ class ExecuteMetaQueryRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
-        if (null !== $this->sql) {
-            $res['Sql'] = $this->sql;
-        }
-
-        if (null !== $this->storageInstId) {
-            $res['StorageInstId'] = $this->storageInstId;
+        if (null !== $this->SQL) {
+            $res['SQL'] = $this->SQL;
         }
 
         return $res;
@@ -91,12 +81,8 @@ class ExecuteMetaQueryRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
-        if (isset($map['Sql'])) {
-            $model->sql = $map['Sql'];
-        }
-
-        if (isset($map['StorageInstId'])) {
-            $model->storageInstId = $map['StorageInstId'];
+        if (isset($map['SQL'])) {
+            $model->SQL = $map['SQL'];
         }
 
         return $model;
