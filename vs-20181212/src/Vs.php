@@ -460,9 +460,9 @@ class Vs extends OpenApiClient
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-shenzhen' => 'vs.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai' => 'vs.cn-shanghai.aliyuncs.com',
             'cn-qingdao' => 'vs.cn-qingdao.aliyuncs.com',
             'cn-beijing' => 'vs.cn-beijing.aliyuncs.com',
+            'cn-shanghai' => 'vs.cn-shanghai.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('vs', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -5356,7 +5356,7 @@ class Vs extends OpenApiClient
      * Queries the list of Comfy tasks.
      *
      * @remarks
-     * > This query does not support pagination. Only iterative retrieval is supported. Use the extStartTime value from the response as the StartTime parameter in a new request to retrieve the next page.
+     * > Currently, screenshot queries do not support pagination. Only iterative queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
      *
      * @param request - DescribeComfyTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5414,7 +5414,7 @@ class Vs extends OpenApiClient
      * Queries the list of Comfy tasks.
      *
      * @remarks
-     * > This query does not support pagination. Only iterative retrieval is supported. Use the extStartTime value from the response as the StartTime parameter in a new request to retrieve the next page.
+     * > Currently, screenshot queries do not support pagination. Only iterative queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
      *
      * @param request - DescribeComfyTasksRequest
      *

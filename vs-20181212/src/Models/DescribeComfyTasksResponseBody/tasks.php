@@ -26,12 +26,22 @@ class tasks extends Model
     /**
      * @var string
      */
+    public $taskErrorMessage;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
      * @var string
      */
     public $taskState;
+
+    /**
+     * @var string
+     */
+    public $taskStateMessage;
 
     /**
      * @var string
@@ -46,8 +56,10 @@ class tasks extends Model
         'creationTime' => 'CreationTime',
         'endTime' => 'EndTime',
         'hiveId' => 'HiveId',
+        'taskErrorMessage' => 'TaskErrorMessage',
         'taskId' => 'TaskId',
         'taskState' => 'TaskState',
+        'taskStateMessage' => 'TaskStateMessage',
         'updatedTime' => 'UpdatedTime',
         'workflowId' => 'WorkflowId',
     ];
@@ -72,12 +84,20 @@ class tasks extends Model
             $res['HiveId'] = $this->hiveId;
         }
 
+        if (null !== $this->taskErrorMessage) {
+            $res['TaskErrorMessage'] = $this->taskErrorMessage;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
 
         if (null !== $this->taskState) {
             $res['TaskState'] = $this->taskState;
+        }
+
+        if (null !== $this->taskStateMessage) {
+            $res['TaskStateMessage'] = $this->taskStateMessage;
         }
 
         if (null !== $this->updatedTime) {
@@ -111,12 +131,20 @@ class tasks extends Model
             $model->hiveId = $map['HiveId'];
         }
 
+        if (isset($map['TaskErrorMessage'])) {
+            $model->taskErrorMessage = $map['TaskErrorMessage'];
+        }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
 
         if (isset($map['TaskState'])) {
             $model->taskState = $map['TaskState'];
+        }
+
+        if (isset($map['TaskStateMessage'])) {
+            $model->taskStateMessage = $map['TaskStateMessage'];
         }
 
         if (isset($map['UpdatedTime'])) {
