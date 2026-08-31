@@ -16,9 +16,15 @@ class logstore extends Model
     /**
      * @var string
      */
+    public $project;
+
+    /**
+     * @var string
+     */
     public $query;
     protected $_name = [
         'logstore' => 'logstore',
+        'project' => 'project',
         'query' => 'query',
     ];
 
@@ -32,6 +38,10 @@ class logstore extends Model
         $res = [];
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
+        }
+
+        if (null !== $this->project) {
+            $res['project'] = $this->project;
         }
 
         if (null !== $this->query) {
@@ -51,6 +61,10 @@ class logstore extends Model
         $model = new self();
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];
+        }
+
+        if (isset($map['project'])) {
+            $model->project = $map['project'];
         }
 
         if (isset($map['query'])) {

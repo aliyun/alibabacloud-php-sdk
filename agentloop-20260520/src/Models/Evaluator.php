@@ -44,6 +44,11 @@ class Evaluator extends Model
     public $type;
 
     /**
+     * @var EvaluatorVariableExtractorMappingValue[]
+     */
+    public $variableExtractorMapping;
+
+    /**
      * @var string[]
      */
     public $variableMapping;
@@ -55,6 +60,7 @@ class Evaluator extends Model
         'resultName' => 'resultName',
         'resultType' => 'resultType',
         'type' => 'type',
+        'variableExtractorMapping' => 'variableExtractorMapping',
         'variableMapping' => 'variableMapping',
     ];
 
@@ -65,6 +71,9 @@ class Evaluator extends Model
         }
         if (\is_array($this->filters)) {
             Model::validateArray($this->filters);
+        }
+        if (\is_array($this->variableExtractorMapping)) {
+            Model::validateArray($this->variableExtractorMapping);
         }
         if (\is_array($this->variableMapping)) {
             Model::validateArray($this->variableMapping);
@@ -111,6 +120,15 @@ class Evaluator extends Model
 
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+
+        if (null !== $this->variableExtractorMapping) {
+            if (\is_array($this->variableExtractorMapping)) {
+                $res['variableExtractorMapping'] = [];
+                foreach ($this->variableExtractorMapping as $key1 => $value1) {
+                    $res['variableExtractorMapping'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
         }
 
         if (null !== $this->variableMapping) {
@@ -169,6 +187,15 @@ class Evaluator extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['variableExtractorMapping'])) {
+            if (!empty($map['variableExtractorMapping'])) {
+                $model->variableExtractorMapping = [];
+                foreach ($map['variableExtractorMapping'] as $key1 => $value1) {
+                    $model->variableExtractorMapping[$key1] = EvaluatorVariableExtractorMappingValue::fromMap($value1);
+                }
+            }
         }
 
         if (isset($map['variableMapping'])) {

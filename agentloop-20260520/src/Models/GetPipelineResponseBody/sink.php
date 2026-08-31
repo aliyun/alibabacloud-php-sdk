@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponseBody\sink\condition;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponseBody\sink\dataset;
 
 class sink extends Model
 {
+    /**
+     * @var condition
+     */
+    public $condition;
+
     /**
      * @var dataset
      */
@@ -19,12 +25,16 @@ class sink extends Model
      */
     public $type;
     protected $_name = [
+        'condition' => 'condition',
         'dataset' => 'dataset',
         'type' => 'type',
     ];
 
     public function validate()
     {
+        if (null !== $this->condition) {
+            $this->condition->validate();
+        }
         if (null !== $this->dataset) {
             $this->dataset->validate();
         }
@@ -34,6 +44,10 @@ class sink extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->condition) {
+            $res['condition'] = null !== $this->condition ? $this->condition->toArray($noStream) : $this->condition;
+        }
+
         if (null !== $this->dataset) {
             $res['dataset'] = null !== $this->dataset ? $this->dataset->toArray($noStream) : $this->dataset;
         }
@@ -53,6 +67,10 @@ class sink extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['condition'])) {
+            $model->condition = condition::fromMap($map['condition']);
+        }
+
         if (isset($map['dataset'])) {
             $model->dataset = dataset::fromMap($map['dataset']);
         }
