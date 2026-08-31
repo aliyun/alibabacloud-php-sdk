@@ -54,6 +54,11 @@ class subDirectories extends Model
     public $fileCountOnline;
 
     /**
+     * @var int
+     */
+    public $inode;
+
+    /**
      * @var string
      */
     public $lastAccessTime;
@@ -72,6 +77,7 @@ class subDirectories extends Model
         'fileCount' => 'FileCount',
         'fileCountOffline' => 'FileCountOffline',
         'fileCountOnline' => 'FileCountOnline',
+        'inode' => 'Inode',
         'lastAccessTime' => 'LastAccessTime',
         'updatedAt' => 'UpdatedAt',
     ];
@@ -118,6 +124,10 @@ class subDirectories extends Model
 
         if (null !== $this->fileCountOnline) {
             $res['FileCountOnline'] = $this->fileCountOnline;
+        }
+
+        if (null !== $this->inode) {
+            $res['Inode'] = $this->inode;
         }
 
         if (null !== $this->lastAccessTime) {
@@ -173,6 +183,10 @@ class subDirectories extends Model
 
         if (isset($map['FileCountOnline'])) {
             $model->fileCountOnline = $map['FileCountOnline'];
+        }
+
+        if (isset($map['Inode'])) {
+            $model->inode = $map['Inode'];
         }
 
         if (isset($map['LastAccessTime'])) {

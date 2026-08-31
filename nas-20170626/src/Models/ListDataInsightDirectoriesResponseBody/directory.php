@@ -40,6 +40,11 @@ class directory extends Model
     public $fileCountOnline;
 
     /**
+     * @var int
+     */
+    public $inode;
+
+    /**
      * @var subDirectories[]
      */
     public $subDirectories;
@@ -50,6 +55,7 @@ class directory extends Model
         'fileCount' => 'FileCount',
         'fileCountOffline' => 'FileCountOffline',
         'fileCountOnline' => 'FileCountOnline',
+        'inode' => 'Inode',
         'subDirectories' => 'SubDirectories',
     ];
 
@@ -86,6 +92,10 @@ class directory extends Model
 
         if (null !== $this->fileCountOnline) {
             $res['FileCountOnline'] = $this->fileCountOnline;
+        }
+
+        if (null !== $this->inode) {
+            $res['Inode'] = $this->inode;
         }
 
         if (null !== $this->subDirectories) {
@@ -132,6 +142,10 @@ class directory extends Model
 
         if (isset($map['FileCountOnline'])) {
             $model->fileCountOnline = $map['FileCountOnline'];
+        }
+
+        if (isset($map['Inode'])) {
+            $model->inode = $map['Inode'];
         }
 
         if (isset($map['SubDirectories'])) {
