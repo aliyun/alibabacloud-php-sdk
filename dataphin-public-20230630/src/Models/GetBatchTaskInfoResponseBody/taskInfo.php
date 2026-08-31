@@ -53,9 +53,19 @@ class taskInfo extends Model
     public $developOwnerId;
 
     /**
+     * @var string[]
+     */
+    public $developOwnerIdList;
+
+    /**
      * @var string
      */
     public $developOwnerName;
+
+    /**
+     * @var string[]
+     */
+    public $developOwnerNameList;
 
     /**
      * @var int
@@ -118,9 +128,19 @@ class taskInfo extends Model
     public $opsOwnerId;
 
     /**
+     * @var string[]
+     */
+    public $opsOwnerIdList;
+
+    /**
      * @var string
      */
     public $opsOwnerName;
+
+    /**
+     * @var string[]
+     */
+    public $opsOwnerNameList;
 
     /**
      * @var string
@@ -205,7 +225,9 @@ class taskInfo extends Model
         'dataSourceId' => 'DataSourceId',
         'dataSourceSchema' => 'DataSourceSchema',
         'developOwnerId' => 'DevelopOwnerId',
+        'developOwnerIdList' => 'DevelopOwnerIdList',
         'developOwnerName' => 'DevelopOwnerName',
+        'developOwnerNameList' => 'DevelopOwnerNameList',
         'fileId' => 'FileId',
         'hasDevNode' => 'HasDevNode',
         'name' => 'Name',
@@ -218,7 +240,9 @@ class taskInfo extends Model
         'nodeStatus' => 'NodeStatus',
         'operatorUserId' => 'OperatorUserId',
         'opsOwnerId' => 'OpsOwnerId',
+        'opsOwnerIdList' => 'OpsOwnerIdList',
         'opsOwnerName' => 'OpsOwnerName',
+        'opsOwnerNameList' => 'OpsOwnerNameList',
         'ownerName' => 'OwnerName',
         'ownerUserId' => 'OwnerUserId',
         'paramList' => 'ParamList',
@@ -241,8 +265,20 @@ class taskInfo extends Model
         if (null !== $this->customScheduleConfig) {
             $this->customScheduleConfig->validate();
         }
+        if (\is_array($this->developOwnerIdList)) {
+            Model::validateArray($this->developOwnerIdList);
+        }
+        if (\is_array($this->developOwnerNameList)) {
+            Model::validateArray($this->developOwnerNameList);
+        }
         if (\is_array($this->nodeOutputNameList)) {
             Model::validateArray($this->nodeOutputNameList);
+        }
+        if (\is_array($this->opsOwnerIdList)) {
+            Model::validateArray($this->opsOwnerIdList);
+        }
+        if (\is_array($this->opsOwnerNameList)) {
+            Model::validateArray($this->opsOwnerNameList);
         }
         if (\is_array($this->paramList)) {
             Model::validateArray($this->paramList);
@@ -291,8 +327,30 @@ class taskInfo extends Model
             $res['DevelopOwnerId'] = $this->developOwnerId;
         }
 
+        if (null !== $this->developOwnerIdList) {
+            if (\is_array($this->developOwnerIdList)) {
+                $res['DevelopOwnerIdList'] = [];
+                $n1 = 0;
+                foreach ($this->developOwnerIdList as $item1) {
+                    $res['DevelopOwnerIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->developOwnerName) {
             $res['DevelopOwnerName'] = $this->developOwnerName;
+        }
+
+        if (null !== $this->developOwnerNameList) {
+            if (\is_array($this->developOwnerNameList)) {
+                $res['DevelopOwnerNameList'] = [];
+                $n1 = 0;
+                foreach ($this->developOwnerNameList as $item1) {
+                    $res['DevelopOwnerNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->fileId) {
@@ -350,8 +408,30 @@ class taskInfo extends Model
             $res['OpsOwnerId'] = $this->opsOwnerId;
         }
 
+        if (null !== $this->opsOwnerIdList) {
+            if (\is_array($this->opsOwnerIdList)) {
+                $res['OpsOwnerIdList'] = [];
+                $n1 = 0;
+                foreach ($this->opsOwnerIdList as $item1) {
+                    $res['OpsOwnerIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->opsOwnerName) {
             $res['OpsOwnerName'] = $this->opsOwnerName;
+        }
+
+        if (null !== $this->opsOwnerNameList) {
+            if (\is_array($this->opsOwnerNameList)) {
+                $res['OpsOwnerNameList'] = [];
+                $n1 = 0;
+                foreach ($this->opsOwnerNameList as $item1) {
+                    $res['OpsOwnerNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->ownerName) {
@@ -471,8 +551,30 @@ class taskInfo extends Model
             $model->developOwnerId = $map['DevelopOwnerId'];
         }
 
+        if (isset($map['DevelopOwnerIdList'])) {
+            if (!empty($map['DevelopOwnerIdList'])) {
+                $model->developOwnerIdList = [];
+                $n1 = 0;
+                foreach ($map['DevelopOwnerIdList'] as $item1) {
+                    $model->developOwnerIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['DevelopOwnerName'])) {
             $model->developOwnerName = $map['DevelopOwnerName'];
+        }
+
+        if (isset($map['DevelopOwnerNameList'])) {
+            if (!empty($map['DevelopOwnerNameList'])) {
+                $model->developOwnerNameList = [];
+                $n1 = 0;
+                foreach ($map['DevelopOwnerNameList'] as $item1) {
+                    $model->developOwnerNameList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['FileId'])) {
@@ -530,8 +632,30 @@ class taskInfo extends Model
             $model->opsOwnerId = $map['OpsOwnerId'];
         }
 
+        if (isset($map['OpsOwnerIdList'])) {
+            if (!empty($map['OpsOwnerIdList'])) {
+                $model->opsOwnerIdList = [];
+                $n1 = 0;
+                foreach ($map['OpsOwnerIdList'] as $item1) {
+                    $model->opsOwnerIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['OpsOwnerName'])) {
             $model->opsOwnerName = $map['OpsOwnerName'];
+        }
+
+        if (isset($map['OpsOwnerNameList'])) {
+            if (!empty($map['OpsOwnerNameList'])) {
+                $model->opsOwnerNameList = [];
+                $n1 = 0;
+                foreach ($map['OpsOwnerNameList'] as $item1) {
+                    $model->opsOwnerNameList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['OwnerName'])) {

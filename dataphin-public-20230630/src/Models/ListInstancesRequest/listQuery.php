@@ -102,6 +102,11 @@ class listQuery extends Model
      * @var string[]
      */
     public $subBizTypeList;
+
+    /**
+     * @var string[]
+     */
+    public $tagList;
     protected $_name = [
         'bizType' => 'BizType',
         'bizUnitId' => 'BizUnitId',
@@ -122,6 +127,7 @@ class listQuery extends Model
         'scheduleType' => 'ScheduleType',
         'searchText' => 'SearchText',
         'subBizTypeList' => 'SubBizTypeList',
+        'tagList' => 'TagList',
     ];
 
     public function validate()
@@ -140,6 +146,9 @@ class listQuery extends Model
         }
         if (\is_array($this->subBizTypeList)) {
             Model::validateArray($this->subBizTypeList);
+        }
+        if (\is_array($this->tagList)) {
+            Model::validateArray($this->tagList);
         }
         parent::validate();
     }
@@ -253,6 +262,17 @@ class listQuery extends Model
                 $n1 = 0;
                 foreach ($this->subBizTypeList as $item1) {
                     $res['SubBizTypeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->tagList) {
+            if (\is_array($this->tagList)) {
+                $res['TagList'] = [];
+                $n1 = 0;
+                foreach ($this->tagList as $item1) {
+                    $res['TagList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -375,6 +395,17 @@ class listQuery extends Model
                 $n1 = 0;
                 foreach ($map['SubBizTypeList'] as $item1) {
                     $model->subBizTypeList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['TagList'])) {
+            if (!empty($map['TagList'])) {
+                $model->tagList = [];
+                $n1 = 0;
+                foreach ($map['TagList'] as $item1) {
+                    $model->tagList[$n1] = $item1;
                     ++$n1;
                 }
             }

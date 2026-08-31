@@ -16,10 +16,22 @@ class GetUserBySourceIdRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $sourceId;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
     ];
 
     public function validate()
@@ -34,8 +46,16 @@ class GetUserBySourceIdRequest extends Model
             $res['OpTenantId'] = $this->opTenantId;
         }
 
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
+        }
+
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
+        }
+
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
 
         return $res;
@@ -53,8 +73,16 @@ class GetUserBySourceIdRequest extends Model
             $model->opTenantId = $map['OpTenantId'];
         }
 
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
+        }
+
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
+        }
+
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
 
         return $model;

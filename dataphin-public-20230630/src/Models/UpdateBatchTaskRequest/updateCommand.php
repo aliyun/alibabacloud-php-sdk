@@ -43,6 +43,11 @@ class updateCommand extends Model
     public $dataSourceSchema;
 
     /**
+     * @var string[]
+     */
+    public $developOwnerIdList;
+
+    /**
      * @var string
      */
     public $engine;
@@ -118,6 +123,7 @@ class updateCommand extends Model
         'dataSourceCatalog' => 'DataSourceCatalog',
         'dataSourceId' => 'DataSourceId',
         'dataSourceSchema' => 'DataSourceSchema',
+        'developOwnerIdList' => 'DevelopOwnerIdList',
         'engine' => 'Engine',
         'fileId' => 'FileId',
         'name' => 'Name',
@@ -138,6 +144,9 @@ class updateCommand extends Model
     {
         if (null !== $this->customScheduleConfig) {
             $this->customScheduleConfig->validate();
+        }
+        if (\is_array($this->developOwnerIdList)) {
+            Model::validateArray($this->developOwnerIdList);
         }
         if (\is_array($this->nodeOutputNameList)) {
             Model::validateArray($this->nodeOutputNameList);
@@ -182,6 +191,17 @@ class updateCommand extends Model
 
         if (null !== $this->dataSourceSchema) {
             $res['DataSourceSchema'] = $this->dataSourceSchema;
+        }
+
+        if (null !== $this->developOwnerIdList) {
+            if (\is_array($this->developOwnerIdList)) {
+                $res['DevelopOwnerIdList'] = [];
+                $n1 = 0;
+                foreach ($this->developOwnerIdList as $item1) {
+                    $res['DevelopOwnerIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->engine) {
@@ -301,6 +321,17 @@ class updateCommand extends Model
 
         if (isset($map['DataSourceSchema'])) {
             $model->dataSourceSchema = $map['DataSourceSchema'];
+        }
+
+        if (isset($map['DevelopOwnerIdList'])) {
+            if (!empty($map['DevelopOwnerIdList'])) {
+                $model->developOwnerIdList = [];
+                $n1 = 0;
+                foreach ($map['DevelopOwnerIdList'] as $item1) {
+                    $model->developOwnerIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Engine'])) {

@@ -21,10 +21,16 @@ class UpdateUserGroupSwitchRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $userGroupId;
     protected $_name = [
         'active' => 'Active',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'userGroupId' => 'UserGroupId',
     ];
 
@@ -42,6 +48,10 @@ class UpdateUserGroupSwitchRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->userGroupId) {
@@ -65,6 +75,10 @@ class UpdateUserGroupSwitchRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['UserGroupId'])) {

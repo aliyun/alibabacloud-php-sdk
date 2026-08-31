@@ -21,10 +21,16 @@ class CreateDatasetShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $projectId;
     protected $_name = [
         'createCommandShrink' => 'CreateCommand',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'projectId' => 'ProjectId',
     ];
 
@@ -42,6 +48,10 @@ class CreateDatasetShrinkRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->projectId) {
@@ -65,6 +75,10 @@ class CreateDatasetShrinkRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['ProjectId'])) {

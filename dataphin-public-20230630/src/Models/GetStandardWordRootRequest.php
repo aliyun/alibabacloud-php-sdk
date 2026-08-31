@@ -22,10 +22,16 @@ class GetStandardWordRootRequest extends Model
      * @var int
      */
     public $opTenantId;
+
+    /**
+     * @var string
+     */
+    public $opUserId;
     protected $_name = [
         'name' => 'Name',
         'nullable' => 'Nullable',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class GetStandardWordRootRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class GetStandardWordRootRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         return $model;

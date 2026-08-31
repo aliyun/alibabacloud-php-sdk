@@ -16,6 +16,11 @@ class PublishKgSchemaShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $publishCommandShrink;
 
     /**
@@ -24,6 +29,7 @@ class PublishKgSchemaShrinkRequest extends Model
     public $workspaceId;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'publishCommandShrink' => 'PublishCommand',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -38,6 +44,10 @@ class PublishKgSchemaShrinkRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->publishCommandShrink) {
@@ -61,6 +71,10 @@ class PublishKgSchemaShrinkRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['PublishCommand'])) {

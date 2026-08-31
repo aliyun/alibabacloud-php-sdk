@@ -15,6 +15,11 @@ class PublishKgSchemaRequest extends Model
     public $opTenantId;
 
     /**
+     * @var string
+     */
+    public $opUserId;
+
+    /**
      * @var publishCommand
      */
     public $publishCommand;
@@ -25,6 +30,7 @@ class PublishKgSchemaRequest extends Model
     public $workspaceId;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'publishCommand' => 'PublishCommand',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -42,6 +48,10 @@ class PublishKgSchemaRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->publishCommand) {
@@ -65,6 +75,10 @@ class PublishKgSchemaRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['PublishCommand'])) {

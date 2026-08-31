@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDatasetsResponseBody\pageResult\resultData;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDatasetsResponseBody\pageResult\resultData\versionList\apiInfo;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDatasetsResponseBody\pageResult\resultData\versionList\dataVersionConfig;
 
 class versionList extends Model
 {
+    /**
+     * @var apiInfo
+     */
+    public $apiInfo;
+
     /**
      * @var string
      */
@@ -44,6 +50,7 @@ class versionList extends Model
      */
     public $version;
     protected $_name = [
+        'apiInfo' => 'ApiInfo',
         'creator' => 'Creator',
         'dataVersionConfig' => 'DataVersionConfig',
         'datasetId' => 'DatasetId',
@@ -55,6 +62,9 @@ class versionList extends Model
 
     public function validate()
     {
+        if (null !== $this->apiInfo) {
+            $this->apiInfo->validate();
+        }
         if (null !== $this->dataVersionConfig) {
             $this->dataVersionConfig->validate();
         }
@@ -64,6 +74,10 @@ class versionList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiInfo) {
+            $res['ApiInfo'] = null !== $this->apiInfo ? $this->apiInfo->toArray($noStream) : $this->apiInfo;
+        }
+
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
@@ -103,6 +117,10 @@ class versionList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiInfo'])) {
+            $model->apiInfo = apiInfo::fromMap($map['ApiInfo']);
+        }
+
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }

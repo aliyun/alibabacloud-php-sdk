@@ -15,6 +15,11 @@ class RevokeDataServiceApiRequest extends Model
     public $opTenantId;
 
     /**
+     * @var string
+     */
+    public $opUserId;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -25,6 +30,7 @@ class RevokeDataServiceApiRequest extends Model
     public $revokeCommand;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'projectId' => 'ProjectId',
         'revokeCommand' => 'RevokeCommand',
     ];
@@ -42,6 +48,10 @@ class RevokeDataServiceApiRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->projectId) {
@@ -65,6 +75,10 @@ class RevokeDataServiceApiRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['ProjectId'])) {

@@ -21,10 +21,16 @@ class GetPipelineByIdShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $queryIdShrink;
     protected $_name = [
         'contextShrink' => 'Context',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'queryIdShrink' => 'QueryId',
     ];
 
@@ -42,6 +48,10 @@ class GetPipelineByIdShrinkRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->queryIdShrink) {
@@ -65,6 +75,10 @@ class GetPipelineByIdShrinkRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['QueryId'])) {

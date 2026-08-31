@@ -21,10 +21,16 @@ class BatchCreateKgRelationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'createCommandShrink' => 'CreateCommand',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -42,6 +48,10 @@ class BatchCreateKgRelationShrinkRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->workspaceId) {
@@ -65,6 +75,10 @@ class BatchCreateKgRelationShrinkRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['WorkspaceId'])) {

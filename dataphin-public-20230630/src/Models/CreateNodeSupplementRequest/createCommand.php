@@ -74,6 +74,11 @@ class createCommand extends Model
     public $projectId;
 
     /**
+     * @var bool
+     */
+    public $runImmediately;
+
+    /**
      * @var string
      */
     public $startBizDate;
@@ -90,6 +95,7 @@ class createCommand extends Model
         'nodeParamsList' => 'NodeParamsList',
         'parallelism' => 'Parallelism',
         'projectId' => 'ProjectId',
+        'runImmediately' => 'RunImmediately',
         'startBizDate' => 'StartBizDate',
     ];
 
@@ -199,6 +205,10 @@ class createCommand extends Model
             $res['ProjectId'] = $this->projectId;
         }
 
+        if (null !== $this->runImmediately) {
+            $res['RunImmediately'] = $this->runImmediately;
+        }
+
         if (null !== $this->startBizDate) {
             $res['StartBizDate'] = $this->startBizDate;
         }
@@ -295,6 +305,10 @@ class createCommand extends Model
 
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['RunImmediately'])) {
+            $model->runImmediately = $map['RunImmediately'];
         }
 
         if (isset($map['StartBizDate'])) {

@@ -14,6 +14,11 @@ class GetAdHocTaskResultRequest extends Model
     public $opTenantId;
 
     /**
+     * @var string
+     */
+    public $opUserId;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -29,6 +34,7 @@ class GetAdHocTaskResultRequest extends Model
     public $taskId;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'projectId' => 'ProjectId',
         'subTaskId' => 'SubTaskId',
         'taskId' => 'TaskId',
@@ -44,6 +50,10 @@ class GetAdHocTaskResultRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->projectId) {
@@ -71,6 +81,10 @@ class GetAdHocTaskResultRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['ProjectId'])) {

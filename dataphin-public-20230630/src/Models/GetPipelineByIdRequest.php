@@ -21,12 +21,18 @@ class GetPipelineByIdRequest extends Model
     public $opTenantId;
 
     /**
+     * @var string
+     */
+    public $opUserId;
+
+    /**
      * @var queryId
      */
     public $queryId;
     protected $_name = [
         'context' => 'Context',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'queryId' => 'QueryId',
     ];
 
@@ -52,6 +58,10 @@ class GetPipelineByIdRequest extends Model
             $res['OpTenantId'] = $this->opTenantId;
         }
 
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
+        }
+
         if (null !== $this->queryId) {
             $res['QueryId'] = null !== $this->queryId ? $this->queryId->toArray($noStream) : $this->queryId;
         }
@@ -73,6 +83,10 @@ class GetPipelineByIdRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['QueryId'])) {

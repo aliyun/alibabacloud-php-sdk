@@ -15,11 +15,17 @@ class UpdateBizMetricRequest extends Model
     public $opTenantId;
 
     /**
+     * @var string
+     */
+    public $opUserId;
+
+    /**
      * @var updateBizMetricCommand
      */
     public $updateBizMetricCommand;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'updateBizMetricCommand' => 'UpdateBizMetricCommand',
     ];
 
@@ -36,6 +42,10 @@ class UpdateBizMetricRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->updateBizMetricCommand) {
@@ -55,6 +65,10 @@ class UpdateBizMetricRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['UpdateBizMetricCommand'])) {

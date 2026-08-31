@@ -12,8 +12,14 @@ class removeCommand extends Model
      * @var string
      */
     public $sourceId;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
     protected $_name = [
         'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class removeCommand extends Model
         $res = [];
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
+        }
+
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class removeCommand extends Model
         $model = new self();
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
+        }
+
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
 
         return $model;

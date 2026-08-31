@@ -32,12 +32,18 @@ class GetInstanceDownStreamRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $runStatus;
     protected $_name = [
         'downStreamDepth' => 'DownStreamDepth',
         'env' => 'Env',
         'instanceGet' => 'InstanceGet',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'runStatus' => 'RunStatus',
     ];
 
@@ -66,6 +72,10 @@ class GetInstanceDownStreamRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->runStatus) {
@@ -97,6 +107,10 @@ class GetInstanceDownStreamRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['RunStatus'])) {

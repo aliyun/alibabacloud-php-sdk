@@ -16,9 +16,15 @@ class SyncDepartmentUserShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $syncDepartmentUserCommandShrink;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'syncDepartmentUserCommandShrink' => 'SyncDepartmentUserCommand',
     ];
 
@@ -32,6 +38,10 @@ class SyncDepartmentUserShrinkRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->syncDepartmentUserCommandShrink) {
@@ -51,6 +61,10 @@ class SyncDepartmentUserShrinkRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['SyncDepartmentUserCommand'])) {

@@ -21,10 +21,16 @@ class ResumePhysicalNodeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $resumeCommandShrink;
     protected $_name = [
         'env' => 'Env',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'resumeCommandShrink' => 'ResumeCommand',
     ];
 
@@ -42,6 +48,10 @@ class ResumePhysicalNodeShrinkRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->resumeCommandShrink) {
@@ -65,6 +75,10 @@ class ResumePhysicalNodeShrinkRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['ResumeCommand'])) {

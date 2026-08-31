@@ -37,6 +37,11 @@ class listCatalogAssetsQuery extends Model
      * @var string
      */
     public $queryMode;
+
+    /**
+     * @var int[]
+     */
+    public $shelveDirectoryIds;
     protected $_name = [
         'assetType' => 'AssetType',
         'keyword' => 'Keyword',
@@ -44,10 +49,14 @@ class listCatalogAssetsQuery extends Model
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'queryMode' => 'QueryMode',
+        'shelveDirectoryIds' => 'ShelveDirectoryIds',
     ];
 
     public function validate()
     {
+        if (\is_array($this->shelveDirectoryIds)) {
+            Model::validateArray($this->shelveDirectoryIds);
+        }
         parent::validate();
     }
 
@@ -76,6 +85,17 @@ class listCatalogAssetsQuery extends Model
 
         if (null !== $this->queryMode) {
             $res['QueryMode'] = $this->queryMode;
+        }
+
+        if (null !== $this->shelveDirectoryIds) {
+            if (\is_array($this->shelveDirectoryIds)) {
+                $res['ShelveDirectoryIds'] = [];
+                $n1 = 0;
+                foreach ($this->shelveDirectoryIds as $item1) {
+                    $res['ShelveDirectoryIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -111,6 +131,17 @@ class listCatalogAssetsQuery extends Model
 
         if (isset($map['QueryMode'])) {
             $model->queryMode = $map['QueryMode'];
+        }
+
+        if (isset($map['ShelveDirectoryIds'])) {
+            if (!empty($map['ShelveDirectoryIds'])) {
+                $model->shelveDirectoryIds = [];
+                $n1 = 0;
+                foreach ($map['ShelveDirectoryIds'] as $item1) {
+                    $model->shelveDirectoryIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

@@ -21,10 +21,16 @@ class UpdatePipelineShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $updateCommandShrink;
     protected $_name = [
         'contextShrink' => 'Context',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'updateCommandShrink' => 'UpdateCommand',
     ];
 
@@ -42,6 +48,10 @@ class UpdatePipelineShrinkRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->updateCommandShrink) {
@@ -65,6 +75,10 @@ class UpdatePipelineShrinkRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['UpdateCommand'])) {

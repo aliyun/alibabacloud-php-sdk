@@ -22,6 +22,11 @@ class ListKgRelationRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $relationType;
 
     /**
@@ -31,6 +36,7 @@ class ListKgRelationRequest extends Model
     protected $_name = [
         'listQuery' => 'ListQuery',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'relationType' => 'RelationType',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -52,6 +58,10 @@ class ListKgRelationRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->relationType) {
@@ -79,6 +89,10 @@ class ListKgRelationRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['RelationType'])) {

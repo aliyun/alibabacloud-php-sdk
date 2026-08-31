@@ -15,11 +15,17 @@ class SyncDepartmentRequest extends Model
     public $opTenantId;
 
     /**
+     * @var string
+     */
+    public $opUserId;
+
+    /**
      * @var syncDepartmentCommand
      */
     public $syncDepartmentCommand;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'syncDepartmentCommand' => 'SyncDepartmentCommand',
     ];
 
@@ -36,6 +42,10 @@ class SyncDepartmentRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->syncDepartmentCommand) {
@@ -55,6 +65,10 @@ class SyncDepartmentRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['SyncDepartmentCommand'])) {

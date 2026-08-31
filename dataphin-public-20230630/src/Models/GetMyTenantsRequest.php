@@ -17,9 +17,15 @@ class GetMyTenantsRequest extends Model
      * @var int
      */
     public $opTenantId;
+
+    /**
+     * @var string
+     */
+    public $opUserId;
     protected $_name = [
         'featureCodeList' => 'FeatureCodeList',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
     ];
 
     public function validate()
@@ -48,6 +54,10 @@ class GetMyTenantsRequest extends Model
             $res['OpTenantId'] = $this->opTenantId;
         }
 
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
+        }
+
         return $res;
     }
 
@@ -72,6 +82,10 @@ class GetMyTenantsRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         return $model;

@@ -22,10 +22,16 @@ class GetTableColumnLineagesRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $tableGuid;
     protected $_name = [
         'filterQuery' => 'FilterQuery',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'tableGuid' => 'TableGuid',
     ];
 
@@ -46,6 +52,10 @@ class GetTableColumnLineagesRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->tableGuid) {
@@ -69,6 +79,10 @@ class GetTableColumnLineagesRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['TableGuid'])) {

@@ -16,6 +16,11 @@ class UpdateDatasetShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
@@ -24,6 +29,7 @@ class UpdateDatasetShrinkRequest extends Model
     public $updateCommandShrink;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'projectId' => 'ProjectId',
         'updateCommandShrink' => 'UpdateCommand',
     ];
@@ -38,6 +44,10 @@ class UpdateDatasetShrinkRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->projectId) {
@@ -61,6 +71,10 @@ class UpdateDatasetShrinkRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['ProjectId'])) {

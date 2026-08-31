@@ -16,6 +16,11 @@ class GetKgRelationRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $relationId;
 
     /**
@@ -29,6 +34,7 @@ class GetKgRelationRequest extends Model
     public $workspaceId;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'relationId' => 'RelationId',
         'relationType' => 'RelationType',
         'workspaceId' => 'WorkspaceId',
@@ -44,6 +50,10 @@ class GetKgRelationRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->relationId) {
@@ -71,6 +81,10 @@ class GetKgRelationRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['RelationId'])) {

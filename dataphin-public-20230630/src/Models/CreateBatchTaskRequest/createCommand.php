@@ -29,6 +29,11 @@ class createCommand extends Model
     public $description;
 
     /**
+     * @var string[]
+     */
+    public $developOwnerIdList;
+
+    /**
      * @var string
      */
     public $directory;
@@ -42,6 +47,11 @@ class createCommand extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string[]
+     */
+    public $opsOwnerIdList;
 
     /**
      * @var int
@@ -67,9 +77,11 @@ class createCommand extends Model
         'dataSourceId' => 'DataSourceId',
         'dataSourceSchema' => 'DataSourceSchema',
         'description' => 'Description',
+        'developOwnerIdList' => 'DevelopOwnerIdList',
         'directory' => 'Directory',
         'engine' => 'Engine',
         'name' => 'Name',
+        'opsOwnerIdList' => 'OpsOwnerIdList',
         'projectId' => 'ProjectId',
         'pythonModuleList' => 'PythonModuleList',
         'scheduleType' => 'ScheduleType',
@@ -78,6 +90,12 @@ class createCommand extends Model
 
     public function validate()
     {
+        if (\is_array($this->developOwnerIdList)) {
+            Model::validateArray($this->developOwnerIdList);
+        }
+        if (\is_array($this->opsOwnerIdList)) {
+            Model::validateArray($this->opsOwnerIdList);
+        }
         if (\is_array($this->pythonModuleList)) {
             Model::validateArray($this->pythonModuleList);
         }
@@ -103,6 +121,17 @@ class createCommand extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->developOwnerIdList) {
+            if (\is_array($this->developOwnerIdList)) {
+                $res['DevelopOwnerIdList'] = [];
+                $n1 = 0;
+                foreach ($this->developOwnerIdList as $item1) {
+                    $res['DevelopOwnerIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->directory) {
             $res['Directory'] = $this->directory;
         }
@@ -113,6 +142,17 @@ class createCommand extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->opsOwnerIdList) {
+            if (\is_array($this->opsOwnerIdList)) {
+                $res['OpsOwnerIdList'] = [];
+                $n1 = 0;
+                foreach ($this->opsOwnerIdList as $item1) {
+                    $res['OpsOwnerIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->projectId) {
@@ -165,6 +205,17 @@ class createCommand extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['DevelopOwnerIdList'])) {
+            if (!empty($map['DevelopOwnerIdList'])) {
+                $model->developOwnerIdList = [];
+                $n1 = 0;
+                foreach ($map['DevelopOwnerIdList'] as $item1) {
+                    $model->developOwnerIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Directory'])) {
             $model->directory = $map['Directory'];
         }
@@ -175,6 +226,17 @@ class createCommand extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['OpsOwnerIdList'])) {
+            if (!empty($map['OpsOwnerIdList'])) {
+                $model->opsOwnerIdList = [];
+                $n1 = 0;
+                foreach ($map['OpsOwnerIdList'] as $item1) {
+                    $model->opsOwnerIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ProjectId'])) {

@@ -26,11 +26,17 @@ class DeleteKgEntityRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'entityId' => 'EntityId',
         'entityType' => 'EntityType',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -52,6 +58,10 @@ class DeleteKgEntityRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->workspaceId) {
@@ -79,6 +89,10 @@ class DeleteKgEntityRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['WorkspaceId'])) {

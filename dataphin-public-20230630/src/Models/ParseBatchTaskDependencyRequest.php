@@ -15,11 +15,17 @@ class ParseBatchTaskDependencyRequest extends Model
     public $opTenantId;
 
     /**
+     * @var string
+     */
+    public $opUserId;
+
+    /**
      * @var parseCommand
      */
     public $parseCommand;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'parseCommand' => 'ParseCommand',
     ];
 
@@ -36,6 +42,10 @@ class ParseBatchTaskDependencyRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->parseCommand) {
@@ -55,6 +65,10 @@ class ParseBatchTaskDependencyRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['ParseCommand'])) {

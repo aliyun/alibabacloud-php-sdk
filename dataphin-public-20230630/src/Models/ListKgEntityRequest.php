@@ -27,11 +27,17 @@ class ListKgEntityRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'entityType' => 'EntityType',
         'listQuery' => 'ListQuery',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -56,6 +62,10 @@ class ListKgEntityRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->workspaceId) {
@@ -83,6 +93,10 @@ class ListKgEntityRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['WorkspaceId'])) {

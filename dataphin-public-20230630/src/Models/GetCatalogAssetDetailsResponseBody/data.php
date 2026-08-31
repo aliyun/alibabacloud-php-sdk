@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsRespo
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsResponseBody\data\firstOnShelveUser;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsResponseBody\data\lastOnShelveUser;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsResponseBody\data\owner;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsResponseBody\data\qualityScoreRadar;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsResponseBody\data\simpleNodeInfos;
 
 class data extends Model
@@ -256,6 +257,11 @@ class data extends Model
     public $projectName;
 
     /**
+     * @var qualityScoreRadar
+     */
+    public $qualityScoreRadar;
+
+    /**
      * @var int
      */
     public $readCount;
@@ -353,6 +359,7 @@ class data extends Model
         'profilingReportViewScopeUserIds' => 'ProfilingReportViewScopeUserIds',
         'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
+        'qualityScoreRadar' => 'QualityScoreRadar',
         'readCount' => 'ReadCount',
         'shelveViewScopeType' => 'ShelveViewScopeType',
         'shelveViewScopeUserGroups' => 'ShelveViewScopeUserGroups',
@@ -399,6 +406,9 @@ class data extends Model
         }
         if (\is_array($this->profilingReportViewScopeUserIds)) {
             Model::validateArray($this->profilingReportViewScopeUserIds);
+        }
+        if (null !== $this->qualityScoreRadar) {
+            $this->qualityScoreRadar->validate();
         }
         if (\is_array($this->shelveViewScopeUserGroups)) {
             Model::validateArray($this->shelveViewScopeUserGroups);
@@ -661,6 +671,10 @@ class data extends Model
 
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+
+        if (null !== $this->qualityScoreRadar) {
+            $res['QualityScoreRadar'] = null !== $this->qualityScoreRadar ? $this->qualityScoreRadar->toArray($noStream) : $this->qualityScoreRadar;
         }
 
         if (null !== $this->readCount) {
@@ -981,6 +995,10 @@ class data extends Model
 
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+
+        if (isset($map['QualityScoreRadar'])) {
+            $model->qualityScoreRadar = qualityScoreRadar::fromMap($map['QualityScoreRadar']);
         }
 
         if (isset($map['ReadCount'])) {

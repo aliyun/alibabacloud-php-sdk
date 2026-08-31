@@ -16,9 +16,15 @@ class GetTableColumnLineageByTaskIdShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $tableColumnLineageByTaskIdQueryShrink;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'tableColumnLineageByTaskIdQueryShrink' => 'TableColumnLineageByTaskIdQuery',
     ];
 
@@ -32,6 +38,10 @@ class GetTableColumnLineageByTaskIdShrinkRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->tableColumnLineageByTaskIdQueryShrink) {
@@ -51,6 +61,10 @@ class GetTableColumnLineageByTaskIdShrinkRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['TableColumnLineageByTaskIdQuery'])) {

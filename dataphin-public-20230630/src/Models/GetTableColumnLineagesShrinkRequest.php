@@ -21,10 +21,16 @@ class GetTableColumnLineagesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $tableGuid;
     protected $_name = [
         'filterQueryShrink' => 'FilterQuery',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'tableGuid' => 'TableGuid',
     ];
 
@@ -42,6 +48,10 @@ class GetTableColumnLineagesShrinkRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->tableGuid) {
@@ -65,6 +75,10 @@ class GetTableColumnLineagesShrinkRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['TableGuid'])) {

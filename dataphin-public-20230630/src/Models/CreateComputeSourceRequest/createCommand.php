@@ -10,9 +10,19 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateComputeSourceRequest\
 class createCommand extends Model
 {
     /**
+     * @var int
+     */
+    public $clusterId;
+
+    /**
      * @var configList[]
      */
     public $configList;
+
+    /**
+     * @var string
+     */
+    public $createType;
 
     /**
      * @var string
@@ -28,11 +38,19 @@ class createCommand extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $typeVersion;
     protected $_name = [
+        'clusterId' => 'ClusterId',
         'configList' => 'ConfigList',
+        'createType' => 'CreateType',
         'description' => 'Description',
         'name' => 'Name',
         'type' => 'Type',
+        'typeVersion' => 'TypeVersion',
     ];
 
     public function validate()
@@ -46,6 +64,10 @@ class createCommand extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+
         if (null !== $this->configList) {
             if (\is_array($this->configList)) {
                 $res['ConfigList'] = [];
@@ -55,6 +77,10 @@ class createCommand extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->createType) {
+            $res['CreateType'] = $this->createType;
         }
 
         if (null !== $this->description) {
@@ -69,6 +95,10 @@ class createCommand extends Model
             $res['Type'] = $this->type;
         }
 
+        if (null !== $this->typeVersion) {
+            $res['TypeVersion'] = $this->typeVersion;
+        }
+
         return $res;
     }
 
@@ -80,6 +110,10 @@ class createCommand extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
@@ -89,6 +123,10 @@ class createCommand extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['CreateType'])) {
+            $model->createType = $map['CreateType'];
         }
 
         if (isset($map['Description'])) {
@@ -101,6 +139,10 @@ class createCommand extends Model
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['TypeVersion'])) {
+            $model->typeVersion = $map['TypeVersion'];
         }
 
         return $model;

@@ -16,9 +16,15 @@ class GetLatestSubmitDetailShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
     public $submitDetailQueryShrink;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'submitDetailQueryShrink' => 'SubmitDetailQuery',
     ];
 
@@ -32,6 +38,10 @@ class GetLatestSubmitDetailShrinkRequest extends Model
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->submitDetailQueryShrink) {
@@ -51,6 +61,10 @@ class GetLatestSubmitDetailShrinkRequest extends Model
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['SubmitDetailQuery'])) {

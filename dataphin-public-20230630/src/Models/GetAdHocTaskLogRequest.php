@@ -19,6 +19,11 @@ class GetAdHocTaskLogRequest extends Model
     public $opTenantId;
 
     /**
+     * @var string
+     */
+    public $opUserId;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -35,6 +40,7 @@ class GetAdHocTaskLogRequest extends Model
     protected $_name = [
         'offset' => 'Offset',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'projectId' => 'ProjectId',
         'subTaskId' => 'SubTaskId',
         'taskId' => 'TaskId',
@@ -54,6 +60,10 @@ class GetAdHocTaskLogRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->projectId) {
@@ -85,6 +95,10 @@ class GetAdHocTaskLogRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['ProjectId'])) {

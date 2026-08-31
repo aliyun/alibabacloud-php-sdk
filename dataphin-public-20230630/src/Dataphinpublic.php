@@ -74,6 +74,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizMetricShrinkReques
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizUnitRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizUnitResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizUnitShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateComputeClusterRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateComputeClusterResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateComputeClusterShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateComputeSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateComputeSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateComputeSourceShrinkRequest;
@@ -181,6 +184,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizMetricResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizMetricShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizUnitRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizUnitResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteComputeClusterRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteComputeClusterResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteComputeSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteComputeSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataDomainRequest;
@@ -259,6 +264,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUserGroupResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecKgCypherRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecKgCypherResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecKgCypherShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecKgGremlinRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecKgGremlinResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecKgGremlinShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskShrinkRequest;
@@ -286,9 +294,14 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskResultRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskResultResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetAttributesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetAttributesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetAttributesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetMappingRelationsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetMappingRelationsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetMappingRelationsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetTypeAttributeCodesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetTypeAttributeCodesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoRequest;
@@ -318,8 +331,13 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCheckConnectivityJobsReq
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCheckConnectivityJobsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetClusterQueueInfoByEnvRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetClusterQueueInfoByEnvResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetComputeClusterRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetComputeClusterResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetComputeSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetComputeSourceResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataAssetsGovernObjectRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataAssetsGovernObjectResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataAssetsGovernObjectShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataDomainInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataDomainInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceApiCallSummaryRequest;
@@ -366,6 +384,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamShrink
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgAuthorizedWorkspacesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgAuthorizedWorkspacesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgEntityRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgEntityResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgNeighborRequest;
@@ -378,6 +398,10 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgSchemaPublishResultRes
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLatestSubmitDetailRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLatestSubmitDetailResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLatestSubmitDetailShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLlmModelProviderByNameRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLlmModelProviderByNameResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLlmModelProvidersRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLlmModelProvidersResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetMyRolesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetMyRolesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetMyTenantsRequest;
@@ -425,6 +449,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectWhiteListsRequest
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectWhiteListsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityAlertOfAllRuleScopeByWatchIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityAlertOfAllRuleScopeByWatchIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityArchiveTableProgressRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityArchiveTableProgressResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityRuleRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityRuleResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityRuleTaskLogRequest;
@@ -505,6 +531,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUdfByVersionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUdfByVersionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUdfRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUdfResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserByAccessKeyRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserByAccessKeyResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserBySourceIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserBySourceIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserGroupRequest;
@@ -535,6 +563,15 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsShrin
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApiByAppRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApiByAppResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApiByAppShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApprovalTasksByUserRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApprovalTasksByUserResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApprovalTasksByUserShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAssetDirectoriesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAssetDirectoriesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAssetDirectoriesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAssetTopicsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAssetTopicsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAssetTopicsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsShrinkRequest;
@@ -549,6 +586,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizUnitsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListCatalogAssetsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListCatalogAssetsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListCatalogAssetsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListComputeClustersRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListComputeClustersResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListComputeClustersShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListComputeSourcesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListComputeSourcesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListComputeSourcesShrinkRequest;
@@ -588,6 +628,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataSourceWithConfigShr
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListFilesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListFilesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListFilesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListGovernObjectsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListGovernObjectsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListGovernObjectsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesShrinkRequest;
@@ -618,6 +661,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityArchiveTablesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityArchiveTablesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityArchiveTablesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityRulesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityRulesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityRulesShrinkRequest;
@@ -747,6 +793,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SearchKgBySemanticResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SearchKgBySemanticShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitAssetsOffShelveRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitAssetsOffShelveResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitAssetsOffShelveShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitAssetsOnShelveRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitAssetsOnShelveResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitAssetsOnShelveShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskShrinkRequest;
@@ -771,6 +823,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\TransferOwnershipForAllObje
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAssetAttributesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAssetAttributesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAssetAttributesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBasicProjectRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBasicProjectResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBasicProjectShrinkRequest;
@@ -789,9 +844,15 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizMetricShrinkReques
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizUnitRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizUnitResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizUnitShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateComputeClusterRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateComputeClusterResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateComputeClusterShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateComputeSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateComputeSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateComputeSourceShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataAssetsGovernObjectStatusRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataAssetsGovernObjectStatusResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataAssetsGovernObjectStatusShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataDomainRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataDomainResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataDomainShrinkRequest;
@@ -826,6 +887,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateKgEntityShrinkRequest
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateKgRelationRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateKgRelationResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateKgRelationShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateNodeOpsOwnerRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateNodeOpsOwnerResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateNodeOpsOwnerShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineByAsyncRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineByAsyncResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineByAsyncShrinkRequest;
@@ -891,6 +955,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupSwitchRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupSwitchResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UploadDataSourceFileRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UploadDataSourceFileResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UploadDataSourceFileShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityArchiveTableRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityArchiveTableResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityArchiveTableShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityRuleRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityRuleResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityRuleShrinkRequest;
@@ -954,7 +1024,7 @@ class Dataphinpublic extends OpenApiClient
 
     /**
      * Adds a regular member to a data service application. Only the application owner can perform this operation.
-     * Online version: v6.0.0.
+     * Release version: v6.0.0.
      *
      * @param tmpReq - AddDataServiceAppMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -978,6 +1048,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -1006,7 +1080,7 @@ class Dataphinpublic extends OpenApiClient
 
     /**
      * Adds a regular member to a data service application. Only the application owner can perform this operation.
-     * Online version: v6.0.0.
+     * Release version: v6.0.0.
      *
      * @param request - AddDataServiceAppMemberRequest
      *
@@ -1048,6 +1122,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -1127,6 +1205,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->addCommandShrink) {
             @$body['AddCommand'] = $request->addCommandShrink;
@@ -1196,6 +1278,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->addRegisterLineageCommandShrink) {
             @$body['AddRegisterLineageCommand'] = $request->addRegisterLineageCommandShrink;
@@ -1263,6 +1349,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -1403,6 +1493,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->addCommandShrink) {
             @$body['AddCommand'] = $request->addCommandShrink;
@@ -1470,6 +1564,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -1543,6 +1641,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -1619,6 +1721,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->assignCommandShrink) {
             @$body['AssignCommand'] = $request->assignCommandShrink;
@@ -1663,7 +1769,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates knowledge graph entity records in batches. Online version: v6.1.1.
+     * Creates knowledge graph entity records in batches. Available since version v6.1.1.
      *
      * @param tmpReq - BatchCreateKgEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1687,6 +1793,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->workspaceId) {
@@ -1718,7 +1828,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates knowledge graph entity records in batches. Online version: v6.1.1.
+     * Creates knowledge graph entity records in batches. Available since version v6.1.1.
      *
      * @param request - BatchCreateKgEntityRequest
      *
@@ -1760,6 +1870,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->workspaceId) {
@@ -1835,6 +1949,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->checkCommandShrink) {
             @$body['CheckCommand'] = $request->checkCommandShrink;
@@ -1902,6 +2020,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1963,6 +2085,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -2032,6 +2158,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2091,6 +2221,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $req = new OpenApiRequest([
@@ -2154,6 +2288,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -2225,6 +2363,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -2292,6 +2434,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -2363,6 +2509,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -2430,6 +2580,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -2502,6 +2656,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createBizMetricCommandShrink) {
             @$body['CreateBizMetricCommand'] = $request->createBizMetricCommandShrink;
@@ -2572,6 +2730,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -2615,6 +2777,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Creates a cluster. Online since version v6.3.0.
+     *
+     * @param tmpReq - CreateComputeClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateComputeClusterResponse
+     *
+     * @param CreateComputeClusterRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateComputeClusterResponse
+     */
+    public function createComputeClusterWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateComputeClusterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->clusterConfig) {
+            $request->clusterConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clusterConfig, 'ClusterConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->clusterConfigShrink) {
+            @$body['ClusterConfig'] = $request->clusterConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateComputeCluster',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateComputeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a cluster. Online since version v6.3.0.
+     *
+     * @param request - CreateComputeClusterRequest
+     *
+     * @returns CreateComputeClusterResponse
+     *
+     * @param CreateComputeClusterRequest $request
+     *
+     * @return CreateComputeClusterResponse
+     */
+    public function createComputeCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createComputeClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
      *
      * @param tmpReq - CreateComputeSourceRequest
@@ -2639,6 +2874,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -2710,6 +2949,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -2779,6 +3022,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -2822,7 +3069,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a data service application. Only super administrators or system administrators can perform this operation.
+     * Creates a data service application. Only super administrators or system administration administrators can perform this operation.
      * Online version: v6.0.0.
      *
      * @param tmpReq - CreateDataServiceAppRequest
@@ -2847,6 +3094,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -2874,7 +3125,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a data service application. Only super administrators or system administrators can perform this operation.
+     * Creates a data service application. Only super administrators or system administration administrators can perform this operation.
      * Online version: v6.0.0.
      *
      * @param request - CreateDataServiceAppRequest
@@ -2893,7 +3144,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a data service application group. Only superusers and system administrators can perform this operation.
+     * Creates a data service application group. Only super administrators and system administrators can perform this operation.
      * Online version: v6.0.0.
      *
      * @param request - CreateDataServiceAppGroupRequest
@@ -2918,6 +3169,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2937,7 +3192,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a data service application group. Only superusers and system administrators can perform this operation.
+     * Creates a data service application group. Only super administrators and system administrators can perform this operation.
      * Online version: v6.0.0.
      *
      * @param request - CreateDataServiceAppGroupRequest
@@ -2980,6 +3235,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -3059,6 +3318,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -3144,6 +3407,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -3213,6 +3480,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -3280,6 +3551,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->workspaceId) {
@@ -3355,6 +3630,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['WorkspaceId'] = $request->workspaceId;
         }
@@ -3402,9 +3681,9 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * General-purpose backfill API that supports both list-mode and bulk-mode backfill:
-     * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
-     * 2. Task execution will incur computing costs and storage costs.
+     * General-purpose data backfill operation that supports both list mode and batch mode data backfill:
+     * 1. Generates data backfill instances that run and affect data output of related tables.
+     * 2. Triggers node execution, which incurs compute and storage costs.
      *
      * @param tmpReq - CreateNodeSupplementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3434,6 +3713,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -3459,9 +3742,9 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * General-purpose backfill API that supports both list-mode and bulk-mode backfill:
-     * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
-     * 2. Task execution will incur computing costs and storage costs.
+     * General-purpose data backfill operation that supports both list mode and batch mode data backfill:
+     * 1. Generates data backfill instances that run and affect data output of related tables.
+     * 2. Triggers node execution, which incurs compute and storage costs.
      *
      * @param request - CreateNodeSupplementRequest
      *
@@ -3479,7 +3762,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Create an integration pipeline/unstructured workflow task.
+     * Creates an integration pipeline or unstructured workflow node.
      *
      * @param tmpReq - CreatePipelineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3507,6 +3790,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -3538,7 +3825,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Create an integration pipeline/unstructured workflow task.
+     * Creates an integration pipeline or unstructured workflow node.
      *
      * @param request - CreatePipelineRequest
      *
@@ -3584,6 +3871,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -3659,6 +3950,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createPipelineNodeCommandShrink) {
             @$body['CreatePipelineNodeCommand'] = $request->createPipelineNodeCommandShrink;
@@ -3726,6 +4021,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -3800,6 +4099,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createRowPermissionCommandShrink) {
             @$body['CreateRowPermissionCommand'] = $request->createRowPermissionCommandShrink;
@@ -3846,7 +4149,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a data classification. Available since v5.4.2.
+     * Creates a data category. Available since v5.4.2.
      *
      * @param tmpReq - CreateSecurityClassifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3870,6 +4173,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -3897,7 +4204,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a data classification. Available since v5.4.2.
+     * Creates a data category. Available since v5.4.2.
      *
      * @param request - CreateSecurityClassifyRequest
      *
@@ -3939,6 +4246,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -4011,6 +4322,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -4081,6 +4396,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -4149,6 +4468,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -4222,6 +4545,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -4293,6 +4620,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -4337,7 +4668,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a standard association. Release version: v5.4.2.
+     * Creates a standard association relationship.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - CreateStandardRelationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4361,6 +4693,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -4388,7 +4724,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a standard association. Release version: v5.4.2.
+     * Creates a standard association relationship.
+     * Online version: v5.4.2.
      *
      * @param request - CreateStandardRelationsRequest
      *
@@ -4431,6 +4768,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -4504,6 +4845,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -4573,6 +4918,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -4645,6 +4994,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->streamBatchJobMappingCreateCommandShrink) {
             @$body['StreamBatchJobMappingCreateCommand'] = $request->streamBatchJobMappingCreateCommandShrink;
@@ -4712,6 +5065,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -4783,6 +5140,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->createCommandShrink) {
             @$body['CreateCommand'] = $request->createCommandShrink;
@@ -4826,7 +5187,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+     * Creates an unstructured workflow node using JSON script mode. Online since v6.2.0.
      *
      * @param tmpReq - CreateWorkFlowByJsonRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4854,6 +5215,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -4885,7 +5250,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+     * Creates an unstructured workflow node using JSON script mode. Online since v6.2.0.
      *
      * @param request - CreateWorkFlowByJsonRequest
      *
@@ -4925,6 +5290,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -4992,6 +5361,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -5065,6 +5438,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->type) {
             @$query['Type'] = $request->type;
         }
@@ -5131,6 +5508,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -5201,6 +5582,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5238,6 +5623,71 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 删除集群。
+     *
+     * @param request - DeleteComputeClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteComputeClusterResponse
+     *
+     * @param DeleteComputeClusterRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteComputeClusterResponse
+     */
+    public function deleteComputeClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteComputeCluster',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteComputeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除集群。
+     *
+     * @param request - DeleteComputeClusterRequest
+     *
+     * @returns DeleteComputeClusterResponse
+     *
+     * @param DeleteComputeClusterRequest $request
+     *
+     * @return DeleteComputeClusterResponse
+     */
+    public function deleteComputeCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteComputeClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a compute source.
      *
      * @param request - DeleteComputeSourceRequest
@@ -5260,6 +5710,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $req = new OpenApiRequest([
@@ -5327,6 +5781,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5387,6 +5845,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $req = new OpenApiRequest([
@@ -5452,6 +5914,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5514,6 +5980,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -5583,6 +6053,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -5646,6 +6120,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -5717,6 +6195,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['WorkspaceId'] = $request->workspaceId;
         }
@@ -5776,6 +6258,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->relationId) {
@@ -5851,6 +6337,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5913,6 +6403,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -5986,6 +6480,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->deleteCommandShrink) {
             @$body['DeleteCommand'] = $request->deleteCommandShrink;
@@ -6055,6 +6553,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -6128,6 +6630,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->deleteCommandShrink) {
             @$body['DeleteCommand'] = $request->deleteCommandShrink;
@@ -6172,7 +6678,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes registered lineage. Available since version v5.4.0.
+     * Deletes registered data lineage. Available since v5.4.0.
      *
      * @param tmpReq - DeleteRegisterLineageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6196,6 +6702,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -6223,7 +6733,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes registered lineage. Available since version v5.4.0.
+     * Deletes registered data lineage. Available since v5.4.0.
      *
      * @param request - DeleteRegisterLineageRequest
      *
@@ -6267,6 +6777,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -6334,6 +6848,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -6405,6 +6923,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->deleteCommandShrink) {
             @$body['DeleteCommand'] = $request->deleteCommandShrink;
@@ -6448,7 +6970,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a data classification catalog. Release version: v5.4.2.
+     * Deletes a data classification catalog. Available since v5.4.2.
      *
      * @param tmpReq - DeleteSecurityClassifyCatalogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6472,6 +6994,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -6499,7 +7025,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a data classification catalog. Release version: v5.4.2.
+     * Deletes a data classification catalog. Available since v5.4.2.
      *
      * @param request - DeleteSecurityClassifyCatalogRequest
      *
@@ -6541,6 +7067,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -6612,6 +7142,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->deleteCommandShrink) {
             @$body['DeleteCommand'] = $request->deleteCommandShrink;
@@ -6680,6 +7214,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -6753,6 +7291,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->deleteCommandShrink) {
             @$body['DeleteCommand'] = $request->deleteCommandShrink;
@@ -6821,6 +7363,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -6883,6 +7429,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -6954,6 +7504,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -7017,6 +7571,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -7088,6 +7646,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -7154,6 +7716,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -7213,6 +7779,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->userGroupId) {
@@ -7282,6 +7852,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['WorkspaceId'] = $request->workspaceId;
         }
@@ -7329,6 +7903,83 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Executes a custom Cypher query. Available since v6.3.0.
+     *
+     * @param tmpReq - ExecKgGremlinRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecKgGremlinResponse
+     *
+     * @param ExecKgGremlinRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ExecKgGremlinResponse
+     */
+    public function execKgGremlinWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ExecKgGremlinShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->execCommand) {
+            $request->execCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->execCommand, 'ExecCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->execCommandShrink) {
+            @$body['ExecCommand'] = $request->execCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecKgGremlin',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecKgGremlinResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes a custom Cypher query. Available since v6.3.0.
+     *
+     * @param request - ExecKgGremlinRequest
+     *
+     * @returns ExecKgGremlinResponse
+     *
+     * @param ExecKgGremlinRequest $request
+     *
+     * @return ExecKgGremlinResponse
+     */
+    public function execKgGremlin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->execKgGremlinWithOptions($request, $runtime);
+    }
+
+    /**
      * Executes an ad hoc query task.
      *
      * @param tmpReq - ExecuteAdHocTaskRequest
@@ -7353,6 +8004,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -7505,6 +8160,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->executeCommandShrink) {
             @$body['ExecuteCommand'] = $request->executeCommandShrink;
@@ -7584,6 +8243,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -7643,6 +8306,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->outputFormat) {
@@ -7724,6 +8391,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->fixDataCommandShrink) {
             @$body['FixDataCommand'] = $request->fixDataCommandShrink;
@@ -7793,6 +8464,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->getAccountByRowPermissionIdQueryShrink) {
             @$body['GetAccountByRowPermissionIdQuery'] = $request->getAccountByRowPermissionIdQueryShrink;
@@ -7860,6 +8535,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -7923,6 +8602,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -7992,6 +8675,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -8067,6 +8754,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -8104,6 +8795,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries asset property values. Online version: v6.3.0.
+     *
+     * @param tmpReq - GetAssetAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAssetAttributesResponse
+     *
+     * @param GetAssetAttributesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAssetAttributesResponse
+     */
+    public function getAssetAttributesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetAssetAttributesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryCommand) {
+            $request->queryCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryCommand, 'QueryCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->queryCommandShrink) {
+            @$body['QueryCommand'] = $request->queryCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAssetAttributes',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAssetAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries asset property values. Online version: v6.3.0.
+     *
+     * @param request - GetAssetAttributesRequest
+     *
+     * @returns GetAssetAttributesResponse
+     *
+     * @param GetAssetAttributesRequest $request
+     *
+     * @return GetAssetAttributesResponse
+     */
+    public function getAssetAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAssetAttributesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries mapping relationships by asset object GUID.
      * Available since: v5.4.2.
      *
@@ -8129,6 +8893,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -8175,6 +8943,71 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries asset property definitions. Online version: v6.3.0.
+     *
+     * @param request - GetAssetTypeAttributeCodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAssetTypeAttributeCodesResponse
+     *
+     * @param GetAssetTypeAttributeCodesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetAssetTypeAttributeCodesResponse
+     */
+    public function getAssetTypeAttributeCodesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetType) {
+            @$query['AssetType'] = $request->assetType;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAssetTypeAttributeCodes',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAssetTypeAttributeCodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries asset property definitions. Online version: v6.3.0.
+     *
+     * @param request - GetAssetTypeAttributeCodesRequest
+     *
+     * @returns GetAssetTypeAttributeCodesResponse
+     *
+     * @param GetAssetTypeAttributeCodesRequest $request
+     *
+     * @return GetAssetTypeAttributeCodesResponse
+     */
+    public function getAssetTypeAttributeCodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAssetTypeAttributeCodesWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of an offline compute node.
      *
      * @param request - GetBatchTaskInfoRequest
@@ -8205,6 +9038,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -8248,7 +9085,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified version of a batch task.
+     * Retrieves the details of a specific version of a batch task.
      *
      * @param request - GetBatchTaskInfoByVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8270,6 +9107,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -8299,7 +9140,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified version of a batch task.
+     * Retrieves the details of a specific version of a batch task.
      *
      * @param request - GetBatchTaskInfoByVersionRequest
      *
@@ -8339,6 +9180,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -8406,6 +9251,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -8469,6 +9318,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -8543,6 +9396,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->assetMappingQueryShrink) {
             @$body['AssetMappingQuery'] = $request->assetMappingQueryShrink;
@@ -8611,6 +9468,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->type) {
             @$query['Type'] = $request->type;
         }
@@ -8674,6 +9535,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->type) {
@@ -8748,6 +9613,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->bizMetricByNameQueryShrink) {
             @$body['BizMetricByNameQuery'] = $request->bizMetricByNameQueryShrink;
@@ -8816,6 +9685,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -8853,7 +9726,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries asset details. Release version: v6.1.0.
+     * Queries asset details. Online version: v6.1.0.
      *
      * @param tmpReq - GetCatalogAssetDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8877,6 +9750,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -8904,7 +9781,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries asset details. Release version: v6.1.0.
+     * Queries asset details. Online version: v6.1.0.
      *
      * @param request - GetCatalogAssetDetailsRequest
      *
@@ -8948,6 +9825,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $req = new OpenApiRequest([
@@ -9015,6 +9896,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -9060,6 +9945,77 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries cluster details. Available since v6.3.0.
+     *
+     * @remarks
+     * Queries the details of a tested connectivity task based on the datasource ID.
+     *
+     * @param request - GetComputeClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetComputeClusterResponse
+     *
+     * @param GetComputeClusterRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetComputeClusterResponse
+     */
+    public function getComputeClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetComputeCluster',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetComputeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries cluster details. Available since v6.3.0.
+     *
+     * @remarks
+     * Queries the details of a tested connectivity task based on the datasource ID.
+     *
+     * @param request - GetComputeClusterRequest
+     *
+     * @returns GetComputeClusterResponse
+     *
+     * @param GetComputeClusterRequest $request
+     *
+     * @return GetComputeClusterResponse
+     */
+    public function getComputeCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getComputeClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of a compute source by compute source ID.
      *
      * @param request - GetComputeSourceRequest
@@ -9082,6 +10038,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $req = new OpenApiRequest([
@@ -9121,6 +10081,85 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of a specified quality watchtask by governance item ID. Online version: v6.3.0.
+     *
+     * @remarks
+     * Retrieves the details of a Query Governance object by governance item ID.
+     *
+     * @param tmpReq - GetDataAssetsGovernObjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataAssetsGovernObjectResponse
+     *
+     * @param GetDataAssetsGovernObjectRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetDataAssetsGovernObjectResponse
+     */
+    public function getDataAssetsGovernObjectWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetDataAssetsGovernObjectShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->command) {
+            $request->commandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->command, 'Command', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->commandShrink) {
+            @$body['Command'] = $request->commandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataAssetsGovernObject',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataAssetsGovernObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a specified quality watchtask by governance item ID. Online version: v6.3.0.
+     *
+     * @remarks
+     * Retrieves the details of a Query Governance object by governance item ID.
+     *
+     * @param request - GetDataAssetsGovernObjectRequest
+     *
+     * @returns GetDataAssetsGovernObjectResponse
+     *
+     * @param GetDataAssetsGovernObjectRequest $request
+     *
+     * @return GetDataAssetsGovernObjectResponse
+     */
+    public function getDataAssetsGovernObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataAssetsGovernObjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of a data domain.
      *
      * @param request - GetDataDomainInfoRequest
@@ -9143,6 +10182,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $req = new OpenApiRequest([
@@ -9204,6 +10247,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -9275,6 +10322,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -9344,6 +10395,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->versionId) {
             @$query['VersionId'] = $request->versionId;
         }
@@ -9409,6 +10464,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -9472,6 +10531,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -9540,6 +10603,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -9602,6 +10669,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -9661,6 +10732,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -9729,6 +10804,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -9789,6 +10868,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -9856,6 +10939,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -9917,6 +11004,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -9974,6 +11065,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -10029,6 +11124,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -10096,6 +11195,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -10158,6 +11261,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -10236,6 +11343,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -10301,6 +11412,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -10360,6 +11475,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -10445,6 +11564,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->runStatus) {
             @$query['RunStatus'] = $request->runStatus;
         }
@@ -10526,6 +11649,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -10577,6 +11704,67 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+     *
+     * @param request - GetKgAuthorizedWorkspacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKgAuthorizedWorkspacesResponse
+     *
+     * @param GetKgAuthorizedWorkspacesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetKgAuthorizedWorkspacesResponse
+     */
+    public function getKgAuthorizedWorkspacesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetKgAuthorizedWorkspaces',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKgAuthorizedWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+     *
+     * @param request - GetKgAuthorizedWorkspacesRequest
+     *
+     * @returns GetKgAuthorizedWorkspacesResponse
+     *
+     * @param GetKgAuthorizedWorkspacesRequest $request
+     *
+     * @return GetKgAuthorizedWorkspacesResponse
+     */
+    public function getKgAuthorizedWorkspaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKgAuthorizedWorkspacesWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of a knowledge graph entity record. Online version: v6.1.1.
      *
      * @param request - GetKgEntityRequest
@@ -10603,6 +11791,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->workspaceId) {
@@ -10680,6 +11872,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['WorkspaceId'] = $request->workspaceId;
         }
@@ -10745,6 +11941,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->relationId) {
@@ -10814,6 +12014,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->versionId) {
@@ -10887,6 +12091,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->submitDetailQueryShrink) {
             @$body['SubmitDetailQuery'] = $request->submitDetailQueryShrink;
@@ -10930,6 +12138,132 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries a specific large language model service provider and available models by name. Online version: v6.3.0.
+     *
+     * @param request - GetLlmModelProviderByNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLlmModelProviderByNameResponse
+     *
+     * @param GetLlmModelProviderByNameRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetLlmModelProviderByNameResponse
+     */
+    public function getLlmModelProviderByNameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLlmModelProviderByName',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLlmModelProviderByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a specific large language model service provider and available models by name. Online version: v6.3.0.
+     *
+     * @param request - GetLlmModelProviderByNameRequest
+     *
+     * @returns GetLlmModelProviderByNameResponse
+     *
+     * @param GetLlmModelProviderByNameRequest $request
+     *
+     * @return GetLlmModelProviderByNameResponse
+     */
+    public function getLlmModelProviderByName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLlmModelProviderByNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询所有大模型服务供应商和可用模型列表.
+     *
+     * @param request - GetLlmModelProvidersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLlmModelProvidersResponse
+     *
+     * @param GetLlmModelProvidersRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetLlmModelProvidersResponse
+     */
+    public function getLlmModelProvidersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLlmModelProviders',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLlmModelProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询所有大模型服务供应商和可用模型列表.
+     *
+     * @param request - GetLlmModelProvidersRequest
+     *
+     * @returns GetLlmModelProvidersResponse
+     *
+     * @param GetLlmModelProvidersRequest $request
+     *
+     * @return GetLlmModelProvidersResponse
+     */
+    public function getLlmModelProviders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLlmModelProvidersWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the list of roles for the current user.
      *
      * @param request - GetMyRolesRequest
@@ -10948,6 +12282,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $req = new OpenApiRequest([
@@ -11011,6 +12349,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -11090,6 +12432,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -11167,6 +12513,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->detailCommandShrink) {
             @$body['DetailCommand'] = $request->detailCommandShrink;
@@ -11236,6 +12586,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->recordDetailCommandShrink) {
             @$body['RecordDetailCommand'] = $request->recordDetailCommandShrink;
@@ -11303,6 +12657,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -11376,6 +12734,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -11439,6 +12801,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -11510,6 +12876,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -11579,6 +12949,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -11638,6 +13012,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->outputName) {
@@ -11709,6 +13087,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -11772,6 +13154,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $req = new OpenApiRequest([
@@ -11839,6 +13225,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -11912,6 +13302,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -11989,6 +13383,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -12050,6 +13448,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -12105,6 +13507,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -12172,6 +13578,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -12229,6 +13639,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->watchId) {
             @$query['WatchId'] = $request->watchId;
         }
@@ -12270,6 +13684,71 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries the execution progress and result of an asynchronous task for creating or updating an archived table by progress ID. Available since v6.3.0.
+     *
+     * @param request - GetQualityArchiveTableProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityArchiveTableProgressResponse
+     *
+     * @param GetQualityArchiveTableProgressRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetQualityArchiveTableProgressResponse
+     */
+    public function getQualityArchiveTableProgressWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->progressId) {
+            @$query['ProgressId'] = $request->progressId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualityArchiveTableProgress',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualityArchiveTableProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the execution progress and result of an asynchronous task for creating or updating an archived table by progress ID. Available since v6.3.0.
+     *
+     * @param request - GetQualityArchiveTableProgressRequest
+     *
+     * @returns GetQualityArchiveTableProgressResponse
+     *
+     * @param GetQualityArchiveTableProgressRequest $request
+     *
+     * @return GetQualityArchiveTableProgressResponse
+     */
+    public function getQualityArchiveTableProgress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityArchiveTableProgressWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves a quality rule object.
      * Release version: v5.4.2.
      *
@@ -12293,6 +13772,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $req = new OpenApiRequest([
@@ -12351,6 +13834,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->ruleTaskId) {
@@ -12413,6 +13900,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->ruleTaskId) {
@@ -12482,6 +13973,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -12539,6 +14034,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->watchId) {
@@ -12608,6 +14107,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -12646,8 +14149,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a quality monitored object.
-     * Release version: v5.4.2.
+     * Retrieves a quality monitoring object.
+     * Online version: v5.4.2.
      *
      * @param request - GetQualityWatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12671,6 +14174,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -12690,8 +14197,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a quality monitored object.
-     * Release version: v5.4.2.
+     * Retrieves a quality monitoring object.
+     * Online version: v5.4.2.
      *
      * @param request - GetQualityWatchRequest
      *
@@ -12728,6 +14235,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->watchObjectId) {
@@ -12797,6 +14308,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->watchTaskId) {
             @$query['WatchTaskId'] = $request->watchTaskId;
         }
@@ -12858,6 +14373,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->watchTaskId) {
@@ -12928,6 +14447,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -13003,6 +14526,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -13044,7 +14571,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified version of a resource file.
+     * Retrieves the details of a specified version of a resource file.
      *
      * @param request - GetResourceByVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13066,6 +14593,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -13095,7 +14626,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified version of a resource file.
+     * Retrieves the details of a specified version of a resource file.
      *
      * @param request - GetResourceByVersionRequest
      *
@@ -13137,6 +14668,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -13206,6 +14741,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -13266,6 +14805,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $req = new OpenApiRequest([
@@ -13330,6 +14873,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -13391,6 +14938,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -13450,6 +15001,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -13518,6 +15073,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -13593,6 +15152,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -13660,6 +15223,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -13723,6 +15290,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -13804,6 +15375,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->filterQueryShrink) {
             @$body['FilterQuery'] = $request->filterQueryShrink;
@@ -13877,6 +15452,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -13937,6 +15516,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -14002,6 +15585,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->supplementId) {
@@ -14073,6 +15660,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -14134,6 +15725,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -14206,6 +15801,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->tableGuid) {
             @$query['TableGuid'] = $request->tableGuid;
         }
@@ -14254,8 +15853,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
-     * Release version: v5.4.2.
+     * Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
      *
      * @param request - GetTableColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14277,6 +15875,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->tableName) {
@@ -14302,8 +15904,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
-     * Release version: v5.4.2.
+     * Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
      *
      * @param request - GetTableColumnsRequest
      *
@@ -14345,6 +15946,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -14417,6 +16022,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->tableGuid) {
             @$query['TableGuid'] = $request->tableGuid;
         }
@@ -14485,6 +16094,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->proposalId) {
             @$query['ProposalId'] = $request->proposalId;
         }
@@ -14548,6 +16161,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -14615,6 +16232,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -14660,7 +16281,68 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves user details by original user ID.
+     * Retrieves the current user information based on the AK/SK used for request signing. Available since version v6.3.0.
+     *
+     * @param request - GetUserByAccessKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserByAccessKeyResponse
+     *
+     * @param GetUserByAccessKeyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetUserByAccessKeyResponse
+     */
+    public function getUserByAccessKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserByAccessKey',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserByAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the current user information based on the AK/SK used for request signing. Available since version v6.3.0.
+     *
+     * @param request - GetUserByAccessKeyRequest
+     *
+     * @returns GetUserByAccessKeyResponse
+     *
+     * @param GetUserByAccessKeyRequest $request
+     *
+     * @return GetUserByAccessKeyResponse
+     */
+    public function getUserByAccessKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserByAccessKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves user details by the original user ID.
      *
      * @param request - GetUserBySourceIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14680,8 +16362,16 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->sourceId) {
             @$query['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
 
         $req = new OpenApiRequest([
@@ -14703,7 +16393,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves user details by original user ID.
+     * Retrieves user details by the original user ID.
      *
      * @param request - GetUserBySourceIdRequest
      *
@@ -14739,6 +16429,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->userGroupId) {
@@ -14808,6 +16502,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->userIdListShrink) {
             @$body['UserIdList'] = $request->userIdListShrink;
@@ -14875,6 +16573,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -14950,6 +16652,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->grantCommandShrink) {
             @$body['GrantCommand'] = $request->grantCommandShrink;
@@ -15019,6 +16725,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['WorkspaceId'] = $request->workspaceId;
         }
@@ -15086,6 +16796,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -15147,6 +16861,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -15218,6 +16936,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -15285,6 +17007,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -15359,6 +17085,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->pageQueryShrink) {
             @$body['PageQuery'] = $request->pageQueryShrink;
@@ -15405,6 +17135,225 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries a paging list of approval nodes based on the relationship between the current user and the approval nodes. Online version number: v6.3.0.
+     *
+     * @param tmpReq - ListApprovalTasksByUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApprovalTasksByUserResponse
+     *
+     * @param ListApprovalTasksByUserRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListApprovalTasksByUserResponse
+     */
+    public function listApprovalTasksByUserWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListApprovalTasksByUserShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListApprovalTasksByUser',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApprovalTasksByUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a paging list of approval nodes based on the relationship between the current user and the approval nodes. Online version number: v6.3.0.
+     *
+     * @param request - ListApprovalTasksByUserRequest
+     *
+     * @returns ListApprovalTasksByUserResponse
+     *
+     * @param ListApprovalTasksByUserRequest $request
+     *
+     * @return ListApprovalTasksByUserResponse
+     */
+    public function listApprovalTasksByUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApprovalTasksByUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the published folder list under a specified asset topic. Online version: v6.3.0.
+     *
+     * @param tmpReq - ListAssetDirectoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAssetDirectoriesResponse
+     *
+     * @param ListAssetDirectoriesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListAssetDirectoriesResponse
+     */
+    public function listAssetDirectoriesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAssetDirectoriesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAssetDirectories',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAssetDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the published folder list under a specified asset topic. Online version: v6.3.0.
+     *
+     * @param request - ListAssetDirectoriesRequest
+     *
+     * @returns ListAssetDirectoriesResponse
+     *
+     * @param ListAssetDirectoriesRequest $request
+     *
+     * @return ListAssetDirectoriesResponse
+     */
+    public function listAssetDirectories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAssetDirectoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of published asset listing topics. Online version: v6.3.0.
+     *
+     * @param tmpReq - ListAssetTopicsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAssetTopicsResponse
+     *
+     * @param ListAssetTopicsRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAssetTopicsResponse
+     */
+    public function listAssetTopicsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAssetTopicsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAssetTopics',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAssetTopicsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of published asset listing topics. Online version: v6.3.0.
+     *
+     * @param request - ListAssetTopicsRequest
+     *
+     * @returns ListAssetTopicsResponse
+     *
+     * @param ListAssetTopicsRequest $request
+     *
+     * @return ListAssetTopicsResponse
+     */
+    public function listAssetTopics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAssetTopicsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the specific field list of APIs that an application has requested.
      *
      * @remarks
@@ -15432,6 +17381,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -15510,6 +17463,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -15583,6 +17540,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -15644,6 +17605,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $req = new OpenApiRequest([
@@ -15709,6 +17674,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listCatalogAssetsQueryShrink) {
             @$body['ListCatalogAssetsQuery'] = $request->listCatalogAssetsQueryShrink;
@@ -15752,6 +17721,93 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries the list of clusters. Release version: v6.3.0.
+     *
+     * @remarks
+     * Retrieves the list of clusters.
+     *
+     * @param tmpReq - ListComputeClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListComputeClustersResponse
+     *
+     * @param ListComputeClustersRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListComputeClustersResponse
+     */
+    public function listComputeClustersWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListComputeClustersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListComputeClusters',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListComputeClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of clusters. Release version: v6.3.0.
+     *
+     * @remarks
+     * Retrieves the list of clusters.
+     *
+     * @param request - ListComputeClustersRequest
+     *
+     * @returns ListComputeClustersResponse
+     *
+     * @param ListComputeClustersRequest $request
+     *
+     * @return ListComputeClustersResponse
+     */
+    public function listComputeClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listComputeClustersWithOptions($request, $runtime);
+    }
+
+    /**
      * Query the list of compute sources.
      *
      * @param tmpReq - ListComputeSourcesRequest
@@ -15776,6 +17832,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -15847,6 +17907,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -15914,6 +17978,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -15989,6 +18057,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -16060,6 +18132,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -16136,6 +18212,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -16204,6 +18284,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -16279,6 +18363,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -16350,6 +18438,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -16425,6 +18517,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -16496,6 +18592,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -16571,6 +18671,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->datasetQueryShrink) {
             @$body['DatasetQuery'] = $request->datasetQueryShrink;
@@ -16644,6 +18748,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -16687,7 +18795,88 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Paginate and query instances.
+     * Queries the list of governance objects based on governance type and filter conditions. Released in v6.3.0.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation allows you to retrieve dataset information under a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. Note that `ProjectId` is required, while other parameters are options that can be configured as needed to filter results.
+     *
+     * @param tmpReq - ListGovernObjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGovernObjectsResponse
+     *
+     * @param ListGovernObjectsRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListGovernObjectsResponse
+     */
+    public function listGovernObjectsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListGovernObjectsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListGovernObjects',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGovernObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of governance objects based on governance type and filter conditions. Released in v6.3.0.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation allows you to retrieve dataset information under a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. Note that `ProjectId` is required, while other parameters are options that can be configured as needed to filter results.
+     *
+     * @param request - ListGovernObjectsRequest
+     *
+     * @returns ListGovernObjectsResponse
+     *
+     * @param ListGovernObjectsRequest $request
+     *
+     * @return ListGovernObjectsResponse
+     */
+    public function listGovernObjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGovernObjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries instances by paging.
      *
      * @param tmpReq - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16717,6 +18906,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -16742,7 +18935,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Paginate and query instances.
+     * Queries instances by paging.
      *
      * @param request - ListInstancesRequest
      *
@@ -16788,6 +18981,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->workspaceId) {
@@ -16863,6 +19060,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->relationType) {
             @$query['RelationType'] = $request->relationType;
         }
@@ -16914,7 +19115,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
+     * Queries the downstream of a node. The query results can be used as a data reference when you create a data backfill workflow.
      *
      * @param tmpReq - ListNodeDownStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16944,6 +19145,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -16969,7 +19174,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
+     * Queries the downstream of a node. The query results can be used as a data reference when you create a data backfill workflow.
      *
      * @param request - ListNodeDownStreamRequest
      *
@@ -16987,7 +19192,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of scheduling nodes.
+     * Retrieves a list of scheduled nodes.
      *
      * @param tmpReq - ListNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17017,6 +19222,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -17042,7 +19251,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of scheduling nodes.
+     * Retrieves a list of scheduled nodes.
      *
      * @param request - ListNodesRequest
      *
@@ -17084,6 +19293,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -17129,7 +19342,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+     * Queries a list of nodes. Supports querying batch integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, creator, and more. Results are returned with pagination.
      *
      * @param tmpReq - ListPipelinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17157,6 +19370,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -17188,7 +19405,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+     * Queries a list of nodes. Supports querying batch integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, creator, and more. Results are returned with pagination.
      *
      * @param request - ListPipelinesRequest
      *
@@ -17234,6 +19451,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -17305,6 +19526,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -17374,6 +19599,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -17417,6 +19646,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
+     *
+     * @param tmpReq - ListQualityArchiveTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQualityArchiveTablesResponse
+     *
+     * @param ListQualityArchiveTablesRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListQualityArchiveTablesResponse
+     */
+    public function listQualityArchiveTablesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListQualityArchiveTablesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListQualityArchiveTables',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListQualityArchiveTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
+     *
+     * @param request - ListQualityArchiveTablesRequest
+     *
+     * @returns ListQualityArchiveTablesResponse
+     *
+     * @param ListQualityArchiveTablesRequest $request
+     *
+     * @return ListQualityArchiveTablesResponse
+     */
+    public function listQualityArchiveTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQualityArchiveTablesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries quality rule tasks by paging.
      * Online version: v5.4.2.
      *
@@ -17442,6 +19744,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -17515,6 +19821,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -17586,6 +19896,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -17630,7 +19944,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries quality monitoring nodes by paged query.
+     * Queries quality monitoring nodes by paging.
      * Online version: v5.4.2.
      *
      * @param tmpReq - ListQualityWatchTasksRequest
@@ -17655,6 +19969,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -17682,7 +20000,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries quality monitoring nodes by paged query.
+     * Queries quality monitoring nodes by paging.
      * Online version: v5.4.2.
      *
      * @param request - ListQualityWatchTasksRequest
@@ -17726,6 +20044,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -17936,6 +20258,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->pageRowPermissionQueryShrink) {
             @$body['PageRowPermissionQuery'] = $request->pageRowPermissionQueryShrink;
@@ -18003,6 +20329,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -18117,7 +20447,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries identification records of security identification results by paging.
+     * Queries identification records of security identification results by using paging.
      * Online version: v5.4.2.
      *
      * @param tmpReq - ListSecurityIdentifyRecordsRequest
@@ -18142,6 +20472,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -18169,7 +20503,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries identification records of security identification results by paging.
+     * Queries identification records of security identification results by using paging.
      * Online version: v5.4.2.
      *
      * @param request - ListSecurityIdentifyRecordsRequest
@@ -18213,6 +20547,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -18286,6 +20624,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -18354,6 +20696,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -18426,6 +20772,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -18494,6 +20844,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -18565,6 +20919,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->listQueryShrink) {
             @$body['ListQuery'] = $request->listQueryShrink;
@@ -18632,6 +20990,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -18705,6 +21067,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -18770,6 +21136,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -18843,6 +21213,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -18922,6 +21296,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->contextShrink) {
             @$body['Context'] = $request->contextShrink;
@@ -18996,6 +21374,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->offlineCommandShrink) {
             @$body['OfflineCommand'] = $request->offlineCommandShrink;
@@ -19064,6 +21446,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -19139,6 +21525,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->operateCommandShrink) {
             @$body['OperateCommand'] = $request->operateCommandShrink;
@@ -19206,6 +21596,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -19281,6 +21675,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->pauseCommandShrink) {
             @$body['PauseCommand'] = $request->pauseCommandShrink;
@@ -19346,6 +21744,10 @@ class Dataphinpublic extends OpenApiClient
 
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -19417,6 +21819,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->workspaceId) {
@@ -19492,6 +21898,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->publishCommandShrink) {
             @$body['PublishCommand'] = $request->publishCommandShrink;
@@ -19560,6 +21970,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -19631,6 +22045,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -19707,6 +22125,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->removeCommandShrink) {
             @$body['RemoveCommand'] = $request->removeCommandShrink;
@@ -19775,6 +22197,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -19847,6 +22273,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->removeCommandShrink) {
             @$body['RemoveCommand'] = $request->removeCommandShrink;
@@ -19914,6 +22344,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -19989,6 +22423,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->replaceCommandShrink) {
             @$body['ReplaceCommand'] = $request->replaceCommandShrink;
@@ -20057,6 +22495,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -20133,6 +22575,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->resumeCommandShrink) {
             @$body['ResumeCommand'] = $request->resumeCommandShrink;
@@ -20202,6 +22648,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->privilegeTransferRecordShrink) {
             @$body['PrivilegeTransferRecord'] = $request->privilegeTransferRecordShrink;
@@ -20269,6 +22719,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -20342,6 +22796,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -20480,6 +22938,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -20525,6 +22987,152 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Submits asset delisting. Online version: v6.3.0.
+     *
+     * @param tmpReq - SubmitAssetsOffShelveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAssetsOffShelveResponse
+     *
+     * @param SubmitAssetsOffShelveRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitAssetsOffShelveResponse
+     */
+    public function submitAssetsOffShelveWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitAssetsOffShelveShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->submitCommand) {
+            $request->submitCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->submitCommand, 'SubmitCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->submitCommandShrink) {
+            @$body['SubmitCommand'] = $request->submitCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAssetsOffShelve',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAssetsOffShelveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits asset delisting. Online version: v6.3.0.
+     *
+     * @param request - SubmitAssetsOffShelveRequest
+     *
+     * @returns SubmitAssetsOffShelveResponse
+     *
+     * @param SubmitAssetsOffShelveRequest $request
+     *
+     * @return SubmitAssetsOffShelveResponse
+     */
+    public function submitAssetsOffShelve($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAssetsOffShelveWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits assets for listing. Online version: v6.3.0.
+     *
+     * @param tmpReq - SubmitAssetsOnShelveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAssetsOnShelveResponse
+     *
+     * @param SubmitAssetsOnShelveRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitAssetsOnShelveResponse
+     */
+    public function submitAssetsOnShelveWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitAssetsOnShelveShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->submitCommand) {
+            $request->submitCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->submitCommand, 'SubmitCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->submitCommandShrink) {
+            @$body['SubmitCommand'] = $request->submitCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAssetsOnShelve',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAssetsOnShelveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits assets for listing. Online version: v6.3.0.
+     *
+     * @param request - SubmitAssetsOnShelveRequest
+     *
+     * @returns SubmitAssetsOnShelveResponse
+     *
+     * @param SubmitAssetsOnShelveRequest $request
+     *
+     * @return SubmitAssetsOnShelveResponse
+     */
+    public function submitAssetsOnShelve($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAssetsOnShelveWithOptions($request, $runtime);
+    }
+
+    /**
      * Submits a batch task.
      *
      * @param tmpReq - SubmitBatchTaskRequest
@@ -20549,6 +23157,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -20698,6 +23310,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->submitCommandShrink) {
             @$body['SubmitCommand'] = $request->submitCommandShrink;
@@ -20767,6 +23383,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -20842,6 +23462,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->syncDepartmentCommandShrink) {
             @$body['SyncDepartmentCommand'] = $request->syncDepartmentCommandShrink;
@@ -20914,6 +23538,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->syncDepartmentUserCommandShrink) {
             @$body['SyncDepartmentUserCommand'] = $request->syncDepartmentUserCommandShrink;
@@ -20981,6 +23609,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -21052,6 +23684,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -21095,6 +23731,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Updates asset property values. Online version: v6.3.0.
+     *
+     * @param tmpReq - UpdateAssetAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAssetAttributesResponse
+     *
+     * @param UpdateAssetAttributesRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateAssetAttributesResponse
+     */
+    public function updateAssetAttributesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAssetAttributesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAssetAttributes',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAssetAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates asset property values. Online version: v6.3.0.
+     *
+     * @param request - UpdateAssetAttributesRequest
+     *
+     * @returns UpdateAssetAttributesResponse
+     *
+     * @param UpdateAssetAttributesRequest $request
+     *
+     * @return UpdateAssetAttributesResponse
+     */
+    public function updateAssetAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAssetAttributesWithOptions($request, $runtime);
+    }
+
+    /**
      * Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
      *
      * @param tmpReq - UpdateBasicProjectRequest
@@ -21119,6 +23828,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -21190,6 +23903,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -21259,6 +23976,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -21326,6 +24047,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -21398,6 +24123,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateBizMetricCommandShrink) {
             @$body['UpdateBizMetricCommand'] = $request->updateBizMetricCommandShrink;
@@ -21468,6 +24197,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -21511,6 +24244,83 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 修改集群。
+     *
+     * @param tmpReq - UpdateComputeClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateComputeClusterResponse
+     *
+     * @param UpdateComputeClusterRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateComputeClusterResponse
+     */
+    public function updateComputeClusterWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateComputeClusterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->clusterConfig) {
+            $request->clusterConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clusterConfig, 'ClusterConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->clusterConfigShrink) {
+            @$body['ClusterConfig'] = $request->clusterConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateComputeCluster',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateComputeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改集群。
+     *
+     * @param request - UpdateComputeClusterRequest
+     *
+     * @returns UpdateComputeClusterResponse
+     *
+     * @param UpdateComputeClusterRequest $request
+     *
+     * @return UpdateComputeClusterResponse
+     */
+    public function updateComputeCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateComputeClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
      *
      * @param tmpReq - UpdateComputeSourceRequest
@@ -21535,6 +24345,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -21580,6 +24394,87 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 根据治理项id，批量修改问题清单对象的状态。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+     *
+     * @param tmpReq - UpdateDataAssetsGovernObjectStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataAssetsGovernObjectStatusResponse
+     *
+     * @param UpdateDataAssetsGovernObjectStatusRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateDataAssetsGovernObjectStatusResponse
+     */
+    public function updateDataAssetsGovernObjectStatusWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateDataAssetsGovernObjectStatusShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataAssetsGovernObjectStatus',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataAssetsGovernObjectStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据治理项id，批量修改问题清单对象的状态。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+     *
+     * @param request - UpdateDataAssetsGovernObjectStatusRequest
+     *
+     * @returns UpdateDataAssetsGovernObjectStatusResponse
+     *
+     * @param UpdateDataAssetsGovernObjectStatusRequest $request
+     *
+     * @return UpdateDataAssetsGovernObjectStatusResponse
+     */
+    public function updateDataAssetsGovernObjectStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataAssetsGovernObjectStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates a data domain.
      *
      * @param tmpReq - UpdateDataDomainRequest
@@ -21604,6 +24499,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -21674,6 +24573,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -21747,6 +24650,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -21816,6 +24723,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -21888,6 +24799,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -21955,6 +24870,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -22027,6 +24946,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->projectId) {
@@ -22105,6 +25028,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -22176,6 +25103,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -22245,6 +25176,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -22310,6 +25245,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         if (null !== $request->workspaceId) {
@@ -22385,6 +25324,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['WorkspaceId'] = $request->workspaceId;
         }
@@ -22432,6 +25375,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Updates O&M owners in batches. This is an OpenAPI wrapper for the "Change Owner" page feature and only supports offline nodes: compute nodes, integration nodes, and logical tables. Real-time nodes are not supported. Available since v6.3.0.
+     *
+     * @param tmpReq - UpdateNodeOpsOwnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNodeOpsOwnerResponse
+     *
+     * @param UpdateNodeOpsOwnerRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateNodeOpsOwnerResponse
+     */
+    public function updateNodeOpsOwnerWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateNodeOpsOwnerShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->command) {
+            $request->commandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->command, 'Command', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->commandShrink) {
+            @$body['Command'] = $request->commandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNodeOpsOwner',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNodeOpsOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates O&M owners in batches. This is an OpenAPI wrapper for the "Change Owner" page feature and only supports offline nodes: compute nodes, integration nodes, and logical tables. Real-time nodes are not supported. Available since v6.3.0.
+     *
+     * @param request - UpdateNodeOpsOwnerRequest
+     *
+     * @returns UpdateNodeOpsOwnerResponse
+     *
+     * @param UpdateNodeOpsOwnerRequest $request
+     *
+     * @return UpdateNodeOpsOwnerResponse
+     */
+    public function updateNodeOpsOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNodeOpsOwnerWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates an integration pipeline or unstructured workflow node.
      *
      * @param tmpReq - UpdatePipelineRequest
@@ -22460,6 +25476,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -22539,6 +25559,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->contextShrink) {
             @$body['Context'] = $request->contextShrink;
@@ -22616,6 +25640,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -22684,6 +25712,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -22757,6 +25789,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -22827,6 +25863,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -22894,6 +25934,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -22966,6 +26010,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -23036,6 +26084,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -23104,6 +26156,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -23177,6 +26233,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -23246,6 +26306,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -23319,6 +26383,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -23388,6 +26456,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -23461,6 +26533,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -23530,6 +26606,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -23603,6 +26683,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -23671,6 +26755,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -23742,6 +26830,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -23809,6 +26901,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -23880,6 +26976,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->updateCommandShrink) {
             @$body['UpdateCommand'] = $request->updateCommandShrink;
@@ -23947,6 +27047,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         if (null !== $request->userGroupId) {
             @$query['UserGroupId'] = $request->userGroupId;
         }
@@ -23988,7 +27092,153 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Create or modify a quality rule.
+     * Uploads a datasource authentication file. Available since v6.3.0.
+     *
+     * @param tmpReq - UploadDataSourceFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadDataSourceFileResponse
+     *
+     * @param UploadDataSourceFileRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UploadDataSourceFileResponse
+     */
+    public function uploadDataSourceFileWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UploadDataSourceFileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->uploadCommand) {
+            $request->uploadCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->uploadCommand, 'UploadCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->uploadCommandShrink) {
+            @$body['UploadCommand'] = $request->uploadCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UploadDataSourceFile',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadDataSourceFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Uploads a datasource authentication file. Available since v6.3.0.
+     *
+     * @param request - UploadDataSourceFileRequest
+     *
+     * @returns UploadDataSourceFileResponse
+     *
+     * @param UploadDataSourceFileRequest $request
+     *
+     * @return UploadDataSourceFileResponse
+     */
+    public function uploadDataSourceFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadDataSourceFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates or updates an exception archived table for a monitored object. Online version: v6.3.0.
+     *
+     * @param tmpReq - UpsertQualityArchiveTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpsertQualityArchiveTableResponse
+     *
+     * @param UpsertQualityArchiveTableRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpsertQualityArchiveTableResponse
+     */
+    public function upsertQualityArchiveTableWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpsertQualityArchiveTableShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->upsertCommand) {
+            $request->upsertCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->upsertCommand, 'UpsertCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->upsertCommandShrink) {
+            @$body['UpsertCommand'] = $request->upsertCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpsertQualityArchiveTable',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpsertQualityArchiveTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates or updates an exception archived table for a monitored object. Online version: v6.3.0.
+     *
+     * @param request - UpsertQualityArchiveTableRequest
+     *
+     * @returns UpsertQualityArchiveTableResponse
+     *
+     * @param UpsertQualityArchiveTableRequest $request
+     *
+     * @return UpsertQualityArchiveTableResponse
+     */
+    public function upsertQualityArchiveTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upsertQualityArchiveTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates or updates a quality rule.
      * Release version: v5.4.2.
      *
      * @param tmpReq - UpsertQualityRuleRequest
@@ -24013,6 +27263,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -24040,7 +27294,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Create or modify a quality rule.
+     * Creates or updates a quality rule.
      * Release version: v5.4.2.
      *
      * @param request - UpsertQualityRuleRequest
@@ -24059,7 +27313,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates or updates scheduling settings.
+     * Creates or updates a schedule setting.
      * Release version: v5.4.2.
      *
      * @param tmpReq - UpsertQualityScheduleRequest
@@ -24084,6 +27338,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -24111,7 +27369,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates or updates scheduling settings.
+     * Creates or updates a schedule setting.
      * Release version: v5.4.2.
      *
      * @param request - UpsertQualityScheduleRequest
@@ -24155,6 +27413,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];
@@ -24228,6 +27490,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpTenantId'] = $request->opTenantId;
         }
 
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
         $body = [];
         if (null !== $request->upsertCommandShrink) {
             @$body['UpsertCommand'] = $request->upsertCommandShrink;
@@ -24297,6 +27563,10 @@ class Dataphinpublic extends OpenApiClient
         $query = [];
         if (null !== $request->opTenantId) {
             @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
         }
 
         $body = [];

@@ -20,12 +20,18 @@ class RemoveProjectMemberRequest extends Model
     public $opTenantId;
 
     /**
+     * @var string
+     */
+    public $opUserId;
+
+    /**
      * @var removeCommand
      */
     public $removeCommand;
     protected $_name = [
         'id' => 'Id',
         'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
         'removeCommand' => 'RemoveCommand',
     ];
 
@@ -46,6 +52,10 @@ class RemoveProjectMemberRequest extends Model
 
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
         }
 
         if (null !== $this->removeCommand) {
@@ -69,6 +79,10 @@ class RemoveProjectMemberRequest extends Model
 
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
         }
 
         if (isset($map['RemoveCommand'])) {

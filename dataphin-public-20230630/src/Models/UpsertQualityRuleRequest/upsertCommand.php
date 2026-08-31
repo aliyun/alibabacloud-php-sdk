@@ -12,6 +12,16 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityRuleRequest\up
 class upsertCommand extends Model
 {
     /**
+     * @var string
+     */
+    public $archiveMode;
+
+    /**
+     * @var string
+     */
+    public $archiveStoreType;
+
+    /**
      * @var attributeWithValueList[]
      */
     public $attributeWithValueList;
@@ -71,6 +81,8 @@ class upsertCommand extends Model
      */
     public $watchId;
     protected $_name = [
+        'archiveMode' => 'ArchiveMode',
+        'archiveStoreType' => 'ArchiveStoreType',
         'attributeWithValueList' => 'AttributeWithValueList',
         'catalogList' => 'CatalogList',
         'description' => 'Description',
@@ -105,6 +117,14 @@ class upsertCommand extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->archiveMode) {
+            $res['ArchiveMode'] = $this->archiveMode;
+        }
+
+        if (null !== $this->archiveStoreType) {
+            $res['ArchiveStoreType'] = $this->archiveStoreType;
+        }
+
         if (null !== $this->attributeWithValueList) {
             if (\is_array($this->attributeWithValueList)) {
                 $res['AttributeWithValueList'] = [];
@@ -192,6 +212,14 @@ class upsertCommand extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchiveMode'])) {
+            $model->archiveMode = $map['ArchiveMode'];
+        }
+
+        if (isset($map['ArchiveStoreType'])) {
+            $model->archiveStoreType = $map['ArchiveStoreType'];
+        }
+
         if (isset($map['AttributeWithValueList'])) {
             if (!empty($map['AttributeWithValueList'])) {
                 $model->attributeWithValueList = [];

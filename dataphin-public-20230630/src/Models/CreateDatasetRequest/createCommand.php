@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDatasetRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDatasetRequest\createCommand\apiInfo;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDatasetRequest\createCommand\versionConfig;
 
 class createCommand extends Model
 {
+    /**
+     * @var apiInfo
+     */
+    public $apiInfo;
+
     /**
      * @var string
      */
@@ -74,6 +80,7 @@ class createCommand extends Model
      */
     public $versionConfig;
     protected $_name = [
+        'apiInfo' => 'ApiInfo',
         'contentType' => 'ContentType',
         'dataCellId' => 'DataCellId',
         'description' => 'Description',
@@ -91,6 +98,9 @@ class createCommand extends Model
 
     public function validate()
     {
+        if (null !== $this->apiInfo) {
+            $this->apiInfo->validate();
+        }
         if (null !== $this->versionConfig) {
             $this->versionConfig->validate();
         }
@@ -100,6 +110,10 @@ class createCommand extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiInfo) {
+            $res['ApiInfo'] = null !== $this->apiInfo ? $this->apiInfo->toArray($noStream) : $this->apiInfo;
+        }
+
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
@@ -163,6 +177,10 @@ class createCommand extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiInfo'])) {
+            $model->apiInfo = apiInfo::fromMap($map['ApiInfo']);
+        }
+
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
