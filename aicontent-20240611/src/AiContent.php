@@ -159,6 +159,10 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListMemberSubscriptio
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListMemberSubscriptionsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListSubscriptionsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListSubscriptionsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterMiguDownloadSourceRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterMiguDownloadSourceResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterMiguUploadSourceRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterMiguUploadSourceResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyResponse;
@@ -6414,6 +6418,144 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterListSubscriptionsWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves a pre-signed URL for downloading a Migu source file.
+     *
+     * @remarks
+     * Creates a user.
+     *
+     * @param request - ModelRouterMiguDownloadSourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterMiguDownloadSourceResponse
+     *
+     * @param ModelRouterMiguDownloadSourceRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModelRouterMiguDownloadSourceResponse
+     */
+    public function modelRouterMiguDownloadSourceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sourceId) {
+            @$query['sourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterMiguDownloadSource',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/pipeline/api/aigc/source/download',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterMiguDownloadSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a pre-signed URL for downloading a Migu source file.
+     *
+     * @remarks
+     * Creates a user.
+     *
+     * @param request - ModelRouterMiguDownloadSourceRequest
+     *
+     * @returns ModelRouterMiguDownloadSourceResponse
+     *
+     * @param ModelRouterMiguDownloadSourceRequest $request
+     *
+     * @return ModelRouterMiguDownloadSourceResponse
+     */
+    public function modelRouterMiguDownloadSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterMiguDownloadSourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Manages Migu source files and retrieves a pre-signed URL for source file upload.
+     *
+     * @remarks
+     * Updates a user.
+     *
+     * @param request - ModelRouterMiguUploadSourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterMiguUploadSourceResponse
+     *
+     * @param ModelRouterMiguUploadSourceRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModelRouterMiguUploadSourceResponse
+     */
+    public function modelRouterMiguUploadSourceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fileType) {
+            @$body['fileType'] = $request->fileType;
+        }
+
+        if (null !== $request->serviceName) {
+            @$body['serviceName'] = $request->serviceName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterMiguUploadSource',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/pipeline/api/aigc/source/upload',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterMiguUploadSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Manages Migu source files and retrieves a pre-signed URL for source file upload.
+     *
+     * @remarks
+     * Updates a user.
+     *
+     * @param request - ModelRouterMiguUploadSourceRequest
+     *
+     * @returns ModelRouterMiguUploadSourceResponse
+     *
+     * @param ModelRouterMiguUploadSourceRequest $request
+     *
+     * @return ModelRouterMiguUploadSourceResponse
+     */
+    public function modelRouterMiguUploadSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterMiguUploadSourceWithOptions($request, $headers, $runtime);
     }
 
     /**
