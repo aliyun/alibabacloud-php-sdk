@@ -11,6 +11,11 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $disposeStrategyIds;
 
     /**
@@ -68,6 +73,7 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
      */
     public $threatLevel;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'disposeStrategyIds' => 'DisposeStrategyIds',
         'eventDispose' => 'EventDispose',
         'incidentUuid' => 'IncidentUuid',
@@ -90,6 +96,10 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->disposeStrategyIds) {
             $res['DisposeStrategyIds'] = $this->disposeStrategyIds;
         }
@@ -149,6 +159,10 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['DisposeStrategyIds'])) {
             $model->disposeStrategyIds = $map['DisposeStrategyIds'];
         }

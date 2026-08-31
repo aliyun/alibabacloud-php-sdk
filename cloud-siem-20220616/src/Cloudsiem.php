@@ -3980,7 +3980,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
+     * Authorizes the user and creates the threat detection and response service-linked role AliyunServiceRoleForSasCloudSiem.
      *
      * @param request - EnableAccessForCloudSiemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3998,6 +3998,10 @@ class Cloudsiem extends OpenApiClient
         $body = [];
         if (null !== $request->autoSubmit) {
             @$body['AutoSubmit'] = $request->autoSubmit;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->regionId) {
@@ -4031,7 +4035,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
+     * Authorizes the user and creates the threat detection and response service-linked role AliyunServiceRoleForSasCloudSiem.
      *
      * @param request - EnableAccessForCloudSiemRequest
      *
@@ -6518,6 +6522,10 @@ class Cloudsiem extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->disposeStrategyIds) {
             @$body['DisposeStrategyIds'] = $request->disposeStrategyIds;
         }

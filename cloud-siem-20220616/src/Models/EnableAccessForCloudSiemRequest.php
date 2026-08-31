@@ -16,6 +16,11 @@ class EnableAccessForCloudSiemRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -29,6 +34,7 @@ class EnableAccessForCloudSiemRequest extends Model
     public $roleType;
     protected $_name = [
         'autoSubmit' => 'AutoSubmit',
+        'clientToken' => 'ClientToken',
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
         'roleType' => 'RoleType',
@@ -44,6 +50,10 @@ class EnableAccessForCloudSiemRequest extends Model
         $res = [];
         if (null !== $this->autoSubmit) {
             $res['AutoSubmit'] = $this->autoSubmit;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->regionId) {
@@ -71,6 +81,10 @@ class EnableAccessForCloudSiemRequest extends Model
         $model = new self();
         if (isset($map['AutoSubmit'])) {
             $model->autoSubmit = $map['AutoSubmit'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['RegionId'])) {
