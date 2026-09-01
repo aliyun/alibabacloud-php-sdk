@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationWorkspaceListResponseBody\result;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationWorkspaceListResponseBody\result\data\workspaceExportConfig;
 
 class data extends Model
 {
@@ -74,6 +75,11 @@ class data extends Model
     public $workspaceDescription;
 
     /**
+     * @var workspaceExportConfig
+     */
+    public $workspaceExportConfig;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -96,12 +102,16 @@ class data extends Model
         'ownerAccountName' => 'OwnerAccountName',
         'realOwnerAccountName' => 'RealOwnerAccountName',
         'workspaceDescription' => 'WorkspaceDescription',
+        'workspaceExportConfig' => 'WorkspaceExportConfig',
         'workspaceId' => 'WorkspaceId',
         'workspaceName' => 'WorkspaceName',
     ];
 
     public function validate()
     {
+        if (null !== $this->workspaceExportConfig) {
+            $this->workspaceExportConfig->validate();
+        }
         parent::validate();
     }
 
@@ -158,6 +168,10 @@ class data extends Model
 
         if (null !== $this->workspaceDescription) {
             $res['WorkspaceDescription'] = $this->workspaceDescription;
+        }
+
+        if (null !== $this->workspaceExportConfig) {
+            $res['WorkspaceExportConfig'] = null !== $this->workspaceExportConfig ? $this->workspaceExportConfig->toArray($noStream) : $this->workspaceExportConfig;
         }
 
         if (null !== $this->workspaceId) {
@@ -229,6 +243,10 @@ class data extends Model
 
         if (isset($map['WorkspaceDescription'])) {
             $model->workspaceDescription = $map['WorkspaceDescription'];
+        }
+
+        if (isset($map['WorkspaceExportConfig'])) {
+            $model->workspaceExportConfig = workspaceExportConfig::fromMap($map['WorkspaceExportConfig']);
         }
 
         if (isset($map['WorkspaceId'])) {

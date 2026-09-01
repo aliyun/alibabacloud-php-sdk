@@ -39,6 +39,11 @@ class result extends Model
     public $email;
 
     /**
+     * @var bool
+     */
+    public $isDeleted;
+
+    /**
      * @var string
      */
     public $nickName;
@@ -69,6 +74,7 @@ class result extends Model
         'authAdminUser' => 'AuthAdminUser',
         'copilotModules' => 'CopilotModules',
         'email' => 'Email',
+        'isDeleted' => 'IsDeleted',
         'nickName' => 'NickName',
         'phone' => 'Phone',
         'roleIdList' => 'RoleIdList',
@@ -119,6 +125,10 @@ class result extends Model
 
         if (null !== $this->email) {
             $res['Email'] = $this->email;
+        }
+
+        if (null !== $this->isDeleted) {
+            $res['IsDeleted'] = $this->isDeleted;
         }
 
         if (null !== $this->nickName) {
@@ -188,6 +198,10 @@ class result extends Model
 
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
+        }
+
+        if (isset($map['IsDeleted'])) {
+            $model->isDeleted = $map['IsDeleted'];
         }
 
         if (isset($map['NickName'])) {

@@ -290,16 +290,16 @@ class Quickbipublic extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'us-east-1' => 'quickbi-public.us-east-1.aliyuncs.com',
-            'me-central-1' => 'quickbi-public.me-central-1.aliyuncs.com',
-            'eu-central-1' => 'quickbi-public.eu-central-1.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'quickbi-public.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-hongkong' => 'quickbi-public.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'quickbi-public.cn-hangzhou.aliyuncs.com',
-            'ap-southeast-5' => 'quickbi-public.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'quickbi-public.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'quickbi-public.ap-southeast-1.aliyuncs.com',
             'ap-northeast-1' => 'quickbi-public.ap-northeast-1.aliyuncs.com',
+            'ap-southeast-1' => 'quickbi-public.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'quickbi-public.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'quickbi-public.ap-southeast-5.aliyuncs.com',
+            'cn-hangzhou' => 'quickbi-public.cn-hangzhou.aliyuncs.com',
+            'cn-hongkong' => 'quickbi-public.cn-hongkong.aliyuncs.com',
+            'us-east-1' => 'quickbi-public.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'quickbi-public.eu-central-1.aliyuncs.com',
+            'me-central-1' => 'quickbi-public.me-central-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'quickbi-public.cn-shanghai-finance-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('quickbi-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1722,7 +1722,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 删除单条配置的标签值缓存.
+     * Deletes the cached tag value for a single configuration.
      *
      * @param request - ClearDynamicTagCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1761,7 +1761,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 删除单条配置的标签值缓存.
+     * Deletes the cached tag value for a single configuration.
      *
      * @param request - ClearDynamicTagCacheRequest
      *
@@ -3964,7 +3964,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取当前组织的动态标签列表.
+     * Retrieves the list of dynamic labels for the current organization.
      *
      * @param request - ListDynamicTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3996,7 +3996,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取当前组织的动态标签列表.
+     * Retrieves the list of dynamic labels for the current organization.
      *
      * @param request - ListDynamicTagRequest
      *
@@ -7281,7 +7281,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Lists organization members.
+     * Queries the list of organization members.
      *
      * @param request - QueryUserListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7316,7 +7316,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Lists organization members.
+     * Queries the list of organization members.
      *
      * @param request - QueryUserListRequest
      *
@@ -8811,7 +8811,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Update the information of a specific member in an organization.
+     * Updates the information of a specified member in an organization.
      *
      * @param request - UpdateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8878,7 +8878,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Update the information of a specific member in an organization.
+     * Updates the information of a specified member in an organization.
      *
      * @param request - UpdateUserRequest
      *

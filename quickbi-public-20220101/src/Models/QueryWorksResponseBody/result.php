@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorksResponseBody
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorksResponseBody\result\directory;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorksResponseBody\result\globalParamVoList;
 
 class result extends Model
 {
@@ -23,6 +24,11 @@ class result extends Model
      * @var directory
      */
     public $directory;
+
+    /**
+     * @var globalParamVoList[]
+     */
+    public $globalParamVoList;
 
     /**
      * @var string
@@ -97,6 +103,7 @@ class result extends Model
         'auth3rdFlag' => 'Auth3rdFlag',
         'description' => 'Description',
         'directory' => 'Directory',
+        'globalParamVoList' => 'GlobalParamVoList',
         'gmtCreate' => 'GmtCreate',
         'gmtModify' => 'GmtModify',
         'modifyName' => 'ModifyName',
@@ -118,6 +125,9 @@ class result extends Model
         if (null !== $this->directory) {
             $this->directory->validate();
         }
+        if (\is_array($this->globalParamVoList)) {
+            Model::validateArray($this->globalParamVoList);
+        }
         parent::validate();
     }
 
@@ -134,6 +144,17 @@ class result extends Model
 
         if (null !== $this->directory) {
             $res['Directory'] = null !== $this->directory ? $this->directory->toArray($noStream) : $this->directory;
+        }
+
+        if (null !== $this->globalParamVoList) {
+            if (\is_array($this->globalParamVoList)) {
+                $res['GlobalParamVoList'] = [];
+                $n1 = 0;
+                foreach ($this->globalParamVoList as $item1) {
+                    $res['GlobalParamVoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->gmtCreate) {
@@ -213,6 +234,17 @@ class result extends Model
 
         if (isset($map['Directory'])) {
             $model->directory = directory::fromMap($map['Directory']);
+        }
+
+        if (isset($map['GlobalParamVoList'])) {
+            if (!empty($map['GlobalParamVoList'])) {
+                $model->globalParamVoList = [];
+                $n1 = 0;
+                foreach ($map['GlobalParamVoList'] as $item1) {
+                    $model->globalParamVoList[$n1] = globalParamVoList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['GmtCreate'])) {
