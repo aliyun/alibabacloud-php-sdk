@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateApiKeyRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateApiKeyResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTeamRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTeamResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTemplateRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateVolumeRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateVolumeResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteApiKeyRequest;
@@ -18,6 +20,8 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteQuotaResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTeamRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTeamResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTemplateRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteVolumeRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteVolumeResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeApiKeyRequest;
@@ -26,6 +30,8 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeQuotaResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetTeamRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetTeamResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetTemplateRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetVolumeRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetVolumeResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListApiKeysRequest;
@@ -34,6 +40,8 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListQuotaResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTeamsRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTeamsResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTemplatesRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTemplatesResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListVolumesRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListVolumesResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ResetApiKeyRequest;
@@ -64,6 +72,8 @@ class FCSandbox extends OpenApiClient
             'cn-hongkong' => 'fcsandbox.cn-hongkong.aliyuncs.com',
             'ap-southeast-1' => 'fcsandbox.ap-southeast-1.aliyuncs.com',
             'cn-hangzhou' => 'fcsandbox.cn-hangzhou.aliyuncs.com',
+            'us-west-1' => 'fcsandbox.us-west-1.aliyuncs.com',
+            'us-east-1' => 'fcsandbox.us-east-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('fcsandbox', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -203,6 +213,62 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->createTeamWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a template.
+     *
+     * @param request - CreateTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTemplate',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/templates',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a template.
+     *
+     * @param request - CreateTemplateRequest
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -434,6 +500,69 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->deleteTeamWithOptions($teamID, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a template.
+     *
+     * @param request - DeleteTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTemplateResponse
+     *
+     * @param string                $templateID
+     * @param DeleteTemplateRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteTemplateResponse
+     */
+    public function deleteTemplateWithOptions($templateID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTemplate',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/templates/' . Url::percentEncode($templateID) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a template.
+     *
+     * @param request - DeleteTemplateRequest
+     *
+     * @returns DeleteTemplateResponse
+     *
+     * @param string                $templateID
+     * @param DeleteTemplateRequest $request
+     *
+     * @return DeleteTemplateResponse
+     */
+    public function deleteTemplate($templateID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTemplateWithOptions($templateID, $request, $headers, $runtime);
     }
 
     /**
@@ -672,6 +801,69 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->getTeamWithOptions($teamID, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a template.
+     *
+     * @param request - GetTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTemplateResponse
+     *
+     * @param string             $templateID
+     * @param GetTemplateRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetTemplateResponse
+     */
+    public function getTemplateWithOptions($templateID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTemplate',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/templates/' . Url::percentEncode($templateID) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a template.
+     *
+     * @param request - GetTemplateRequest
+     *
+     * @returns GetTemplateResponse
+     *
+     * @param string             $templateID
+     * @param GetTemplateRequest $request
+     *
+     * @return GetTemplateResponse
+     */
+    public function getTemplate($templateID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTemplateWithOptions($templateID, $request, $headers, $runtime);
     }
 
     /**
@@ -962,6 +1154,75 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->listTeamsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a list of templates.
+     *
+     * @param request - ListTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTemplatesResponse
+     *
+     * @param ListTemplatesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTemplatesResponse
+     */
+    public function listTemplatesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTemplates',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/templates',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of templates.
+     *
+     * @param request - ListTemplatesRequest
+     *
+     * @returns ListTemplatesResponse
+     *
+     * @param ListTemplatesRequest $request
+     *
+     * @return ListTemplatesResponse
+     */
+    public function listTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTemplatesWithOptions($request, $headers, $runtime);
     }
 
     /**
