@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarOSSAuthorizedAccountReques
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarOSSAuthorizedAccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddSQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddSQLRateLimitingRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AnswerKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AnswerKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsShrinkRequest;
@@ -143,6 +145,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGwConsumerOrderRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGwConsumerOrderResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKBSyncLinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKBSyncLinkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKnowledgeSpaceRequest;
@@ -247,6 +251,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDataNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDataNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKBSyncLinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKBSyncLinkResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKnowledgeBaseFileRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKnowledgeBaseFileResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteLakebaseS3AccountRequest;
@@ -506,10 +514,20 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksStatRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksStatResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKBSyncLinksRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKBSyncLinksResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseAnswerRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseAnswerResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseFileShardsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseFileShardsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseFilesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseFilesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBasesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBasesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeSpaceAttributeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeSpaceAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseS3AccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseS3AccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLicenseOrderDetailsRequest;
@@ -881,6 +899,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartPolarClawGatewayRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartPolarClawGatewayResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestoreTableRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestoreTableResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RetrievalKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RetrievalKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RetryKnowledgeBaseFilesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RetryKnowledgeBaseFilesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeZonalRequest;
@@ -901,6 +923,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\TempModifyDBNodeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TempModifyDBNodeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TransformDBClusterPayTypeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TransformDBClusterPayTypeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\TriggerKnowledgeBaseSyncRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\TriggerKnowledgeBaseSyncResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UnbindPolarClawAgentRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UnbindPolarClawAgentResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UnbindResourceControlRequest;
@@ -914,6 +938,16 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateApplicationEnvironmentVariab
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateApplicationEnvironmentVariablesShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateExtensionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateExtensionsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateKBSyncLinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateKBSyncLinkResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateKnowledgeBaseFileShardingStrategyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateKnowledgeBaseFileShardingStrategyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateKnowledgeBaseFileShardingStrategyShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateKnowledgeSpaceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateKnowledgeSpaceResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateKnowledgeSpaceShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentShrinkRequest;
@@ -1684,6 +1718,103 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addSQLRateLimitingRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 知识库单轮问答.
+     *
+     * @param request - AnswerKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AnswerKnowledgeBaseResponse
+     *
+     * @param AnswerKnowledgeBaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AnswerKnowledgeBaseResponse
+     */
+    public function answerKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->maxContextChars) {
+            @$query['MaxContextChars'] = $request->maxContextChars;
+        }
+
+        if (null !== $request->queryText) {
+            @$query['QueryText'] = $request->queryText;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->rerankEnabled) {
+            @$query['RerankEnabled'] = $request->rerankEnabled;
+        }
+
+        if (null !== $request->returnSources) {
+            @$query['ReturnSources'] = $request->returnSources;
+        }
+
+        if (null !== $request->scoreThreshold) {
+            @$query['ScoreThreshold'] = $request->scoreThreshold;
+        }
+
+        if (null !== $request->searchMode) {
+            @$query['SearchMode'] = $request->searchMode;
+        }
+
+        if (null !== $request->systemPrompt) {
+            @$query['SystemPrompt'] = $request->systemPrompt;
+        }
+
+        if (null !== $request->topK) {
+            @$query['TopK'] = $request->topK;
+        }
+
+        if (null !== $request->userInstructions) {
+            @$query['UserInstructions'] = $request->userInstructions;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AnswerKnowledgeBase',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AnswerKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 知识库单轮问答.
+     *
+     * @param request - AnswerKnowledgeBaseRequest
+     *
+     * @returns AnswerKnowledgeBaseResponse
+     *
+     * @param AnswerKnowledgeBaseRequest $request
+     *
+     * @return AnswerKnowledgeBaseResponse
+     */
+    public function answerKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->answerKnowledgeBaseWithOptions($request, $runtime);
     }
 
     /**
@@ -7364,6 +7495,99 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 创建知识库同步链路.
+     *
+     * @param request - CreateKBSyncLinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKBSyncLinkResponse
+     *
+     * @param CreateKBSyncLinkRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateKBSyncLinkResponse
+     */
+    public function createKBSyncLinkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientSecret) {
+            @$query['ClientSecret'] = $request->clientSecret;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->linkName) {
+            @$query['LinkName'] = $request->linkName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sourceDir) {
+            @$query['SourceDir'] = $request->sourceDir;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->syncIntervalMinutes) {
+            @$query['SyncIntervalMinutes'] = $request->syncIntervalMinutes;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKBSyncLink',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKBSyncLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建知识库同步链路.
+     *
+     * @param request - CreateKBSyncLinkRequest
+     *
+     * @returns CreateKBSyncLinkResponse
+     *
+     * @param CreateKBSyncLinkRequest $request
+     *
+     * @return CreateKBSyncLinkResponse
+     */
+    public function createKBSyncLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKBSyncLinkWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a knowledge base.
      *
      * @param request - CreateKnowledgeBaseRequest
@@ -11545,6 +11769,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 删除知识库同步链路.
+     *
+     * @param request - DeleteKBSyncLinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKBSyncLinkResponse
+     *
+     * @param DeleteKBSyncLinkRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteKBSyncLinkResponse
+     */
+    public function deleteKBSyncLinkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->linkId) {
+            @$query['LinkId'] = $request->linkId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKBSyncLink',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKBSyncLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除知识库同步链路.
+     *
+     * @param request - DeleteKBSyncLinkRequest
+     *
+     * @returns DeleteKBSyncLinkResponse
+     *
+     * @param DeleteKBSyncLinkRequest $request
+     *
+     * @return DeleteKBSyncLinkResponse
+     */
+    public function deleteKBSyncLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKBSyncLinkWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a knowledge base.
      *
      * @param request - DeleteKnowledgeBaseRequest
@@ -11603,6 +11892,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除知识库文件.
+     *
+     * @param request - DeleteKnowledgeBaseFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKnowledgeBaseFileResponse
+     *
+     * @param DeleteKnowledgeBaseFileRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteKnowledgeBaseFileResponse
+     */
+    public function deleteKnowledgeBaseFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKnowledgeBaseFile',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKnowledgeBaseFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除知识库文件.
+     *
+     * @param request - DeleteKnowledgeBaseFileRequest
+     *
+     * @returns DeleteKnowledgeBaseFileResponse
+     *
+     * @param DeleteKnowledgeBaseFileRequest $request
+     *
+     * @return DeleteKnowledgeBaseFileResponse
+     */
+    public function deleteKnowledgeBaseFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKnowledgeBaseFileWithOptions($request, $runtime);
     }
 
     /**
@@ -22008,6 +22362,136 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询知识库同步列表.
+     *
+     * @param request - DescribeKBSyncLinksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKBSyncLinksResponse
+     *
+     * @param DescribeKBSyncLinksRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeKBSyncLinksResponse
+     */
+    public function describeKBSyncLinksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->imPlatform) {
+            @$query['ImPlatform'] = $request->imPlatform;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKBSyncLinks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKBSyncLinksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询知识库同步列表.
+     *
+     * @param request - DescribeKBSyncLinksRequest
+     *
+     * @returns DescribeKBSyncLinksResponse
+     *
+     * @param DescribeKBSyncLinksRequest $request
+     *
+     * @return DescribeKBSyncLinksResponse
+     */
+    public function describeKBSyncLinks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKBSyncLinksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询知识库单轮问答结果.
+     *
+     * @param request - DescribeKnowledgeBaseAnswerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKnowledgeBaseAnswerResponse
+     *
+     * @param DescribeKnowledgeBaseAnswerRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeKnowledgeBaseAnswerResponse
+     */
+    public function describeKnowledgeBaseAnswerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->queryId) {
+            @$query['QueryId'] = $request->queryId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKnowledgeBaseAnswer',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKnowledgeBaseAnswerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询知识库单轮问答结果.
+     *
+     * @param request - DescribeKnowledgeBaseAnswerRequest
+     *
+     * @returns DescribeKnowledgeBaseAnswerResponse
+     *
+     * @param DescribeKnowledgeBaseAnswerRequest $request
+     *
+     * @return DescribeKnowledgeBaseAnswerResponse
+     */
+    public function describeKnowledgeBaseAnswer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKnowledgeBaseAnswerWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a knowledge base.
      *
      * @param request - DescribeKnowledgeBaseAttributeRequest
@@ -22066,6 +22550,164 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeKnowledgeBaseAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询知识库文件分片列表.
+     *
+     * @param request - DescribeKnowledgeBaseFileShardsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKnowledgeBaseFileShardsResponse
+     *
+     * @param DescribeKnowledgeBaseFileShardsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeKnowledgeBaseFileShardsResponse
+     */
+    public function describeKnowledgeBaseFileShardsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKnowledgeBaseFileShards',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKnowledgeBaseFileShardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询知识库文件分片列表.
+     *
+     * @param request - DescribeKnowledgeBaseFileShardsRequest
+     *
+     * @returns DescribeKnowledgeBaseFileShardsResponse
+     *
+     * @param DescribeKnowledgeBaseFileShardsRequest $request
+     *
+     * @return DescribeKnowledgeBaseFileShardsResponse
+     */
+    public function describeKnowledgeBaseFileShards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKnowledgeBaseFileShardsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询知识库文件列表.
+     *
+     * @param request - DescribeKnowledgeBaseFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKnowledgeBaseFilesResponse
+     *
+     * @param DescribeKnowledgeBaseFilesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeKnowledgeBaseFilesResponse
+     */
+    public function describeKnowledgeBaseFilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileIds) {
+            @$query['FileIds'] = $request->fileIds;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->linkId) {
+            @$query['LinkId'] = $request->linkId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKnowledgeBaseFiles',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKnowledgeBaseFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询知识库文件列表.
+     *
+     * @param request - DescribeKnowledgeBaseFilesRequest
+     *
+     * @returns DescribeKnowledgeBaseFilesResponse
+     *
+     * @param DescribeKnowledgeBaseFilesRequest $request
+     *
+     * @return DescribeKnowledgeBaseFilesResponse
+     */
+    public function describeKnowledgeBaseFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKnowledgeBaseFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -22143,6 +22785,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeKnowledgeBasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询知识空间详情.
+     *
+     * @param request - DescribeKnowledgeSpaceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKnowledgeSpaceAttributeResponse
+     *
+     * @param DescribeKnowledgeSpaceAttributeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeKnowledgeSpaceAttributeResponse
+     */
+    public function describeKnowledgeSpaceAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeSpaceId) {
+            @$query['KnowledgeSpaceId'] = $request->knowledgeSpaceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKnowledgeSpaceAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKnowledgeSpaceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询知识空间详情.
+     *
+     * @param request - DescribeKnowledgeSpaceAttributeRequest
+     *
+     * @returns DescribeKnowledgeSpaceAttributeResponse
+     *
+     * @param DescribeKnowledgeSpaceAttributeRequest $request
+     *
+     * @return DescribeKnowledgeSpaceAttributeResponse
+     */
+    public function describeKnowledgeSpaceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKnowledgeSpaceAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -37231,6 +37934,148 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 检索知识库.
+     *
+     * @param request - RetrievalKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetrievalKnowledgeBaseResponse
+     *
+     * @param RetrievalKnowledgeBaseRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RetrievalKnowledgeBaseResponse
+     */
+    public function retrievalKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->queryText) {
+            @$query['QueryText'] = $request->queryText;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->rerankEnabled) {
+            @$query['RerankEnabled'] = $request->rerankEnabled;
+        }
+
+        if (null !== $request->scoreThreshold) {
+            @$query['ScoreThreshold'] = $request->scoreThreshold;
+        }
+
+        if (null !== $request->topK) {
+            @$query['TopK'] = $request->topK;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RetrievalKnowledgeBase',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RetrievalKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检索知识库.
+     *
+     * @param request - RetrievalKnowledgeBaseRequest
+     *
+     * @returns RetrievalKnowledgeBaseResponse
+     *
+     * @param RetrievalKnowledgeBaseRequest $request
+     *
+     * @return RetrievalKnowledgeBaseResponse
+     */
+    public function retrievalKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retrievalKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量重试知识库失败文件.
+     *
+     * @param request - RetryKnowledgeBaseFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetryKnowledgeBaseFilesResponse
+     *
+     * @param RetryKnowledgeBaseFilesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RetryKnowledgeBaseFilesResponse
+     */
+    public function retryKnowledgeBaseFilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileIds) {
+            @$query['FileIds'] = $request->fileIds;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RetryKnowledgeBaseFiles',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RetryKnowledgeBaseFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量重试知识库失败文件.
+     *
+     * @param request - RetryKnowledgeBaseFilesRequest
+     *
+     * @returns RetryKnowledgeBaseFilesResponse
+     *
+     * @param RetryKnowledgeBaseFilesRequest $request
+     *
+     * @return RetryKnowledgeBaseFilesResponse
+     */
+    public function retryKnowledgeBaseFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryKnowledgeBaseFilesWithOptions($request, $runtime);
+    }
+
+    /**
      * Revokes access permissions on a database from a PolarDB standard account.
      *
      * @param request - RevokeAccountPrivilegeRequest
@@ -38097,6 +38942,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 触发知识库同步.
+     *
+     * @param request - TriggerKnowledgeBaseSyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TriggerKnowledgeBaseSyncResponse
+     *
+     * @param TriggerKnowledgeBaseSyncRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return TriggerKnowledgeBaseSyncResponse
+     */
+    public function triggerKnowledgeBaseSyncWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->linkId) {
+            @$query['LinkId'] = $request->linkId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TriggerKnowledgeBaseSync',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TriggerKnowledgeBaseSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 触发知识库同步.
+     *
+     * @param request - TriggerKnowledgeBaseSyncRequest
+     *
+     * @returns TriggerKnowledgeBaseSyncResponse
+     *
+     * @param TriggerKnowledgeBaseSyncRequest $request
+     *
+     * @return TriggerKnowledgeBaseSyncResponse
+     */
+    public function triggerKnowledgeBaseSync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->triggerKnowledgeBaseSyncWithOptions($request, $runtime);
+    }
+
+    /**
      * Unbinds a PolarClaw Agent.
      *
      * @param request - UnbindPolarClawAgentRequest
@@ -38576,6 +39486,314 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateExtensionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新知识库同步链路.
+     *
+     * @param request - UpdateKBSyncLinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKBSyncLinkResponse
+     *
+     * @param UpdateKBSyncLinkRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateKBSyncLinkResponse
+     */
+    public function updateKBSyncLinkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->linkId) {
+            @$query['LinkId'] = $request->linkId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->syncIntervalMinutes) {
+            @$query['SyncIntervalMinutes'] = $request->syncIntervalMinutes;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKBSyncLink',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKBSyncLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新知识库同步链路.
+     *
+     * @param request - UpdateKBSyncLinkRequest
+     *
+     * @returns UpdateKBSyncLinkResponse
+     *
+     * @param UpdateKBSyncLinkRequest $request
+     *
+     * @return UpdateKBSyncLinkResponse
+     */
+    public function updateKBSyncLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKBSyncLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新知识库.
+     *
+     * @param request - UpdateKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param UpdateKnowledgeBaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchMode) {
+            @$query['SearchMode'] = $request->searchMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeBase',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新知识库.
+     *
+     * @param request - UpdateKnowledgeBaseRequest
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param UpdateKnowledgeBaseRequest $request
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新知识库文件分块策略.
+     *
+     * @param tmpReq - UpdateKnowledgeBaseFileShardingStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeBaseFileShardingStrategyResponse
+     *
+     * @param UpdateKnowledgeBaseFileShardingStrategyRequest $tmpReq
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return UpdateKnowledgeBaseFileShardingStrategyResponse
+     */
+    public function updateKnowledgeBaseFileShardingStrategyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateKnowledgeBaseFileShardingStrategyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->shardingStrategyConfig) {
+            $request->shardingStrategyConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shardingStrategyConfig, 'ShardingStrategyConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->inheritSpaceStrategy) {
+            @$query['InheritSpaceStrategy'] = $request->inheritSpaceStrategy;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->shardingStrategyConfigShrink) {
+            @$query['ShardingStrategyConfig'] = $request->shardingStrategyConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeBaseFileShardingStrategy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeBaseFileShardingStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新知识库文件分块策略.
+     *
+     * @param request - UpdateKnowledgeBaseFileShardingStrategyRequest
+     *
+     * @returns UpdateKnowledgeBaseFileShardingStrategyResponse
+     *
+     * @param UpdateKnowledgeBaseFileShardingStrategyRequest $request
+     *
+     * @return UpdateKnowledgeBaseFileShardingStrategyResponse
+     */
+    public function updateKnowledgeBaseFileShardingStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKnowledgeBaseFileShardingStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新知识空间.
+     *
+     * @param tmpReq - UpdateKnowledgeSpaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeSpaceResponse
+     *
+     * @param UpdateKnowledgeSpaceRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateKnowledgeSpaceResponse
+     */
+    public function updateKnowledgeSpaceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateKnowledgeSpaceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->shardingStrategyConfig) {
+            $request->shardingStrategyConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shardingStrategyConfig, 'ShardingStrategyConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->knowledgeSpaceId) {
+            @$query['KnowledgeSpaceId'] = $request->knowledgeSpaceId;
+        }
+
+        if (null !== $request->LLMModel) {
+            @$query['LLMModel'] = $request->LLMModel;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->rerankModel) {
+            @$query['RerankModel'] = $request->rerankModel;
+        }
+
+        if (null !== $request->shardingStrategyConfigShrink) {
+            @$query['ShardingStrategyConfig'] = $request->shardingStrategyConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeSpace',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新知识空间.
+     *
+     * @param request - UpdateKnowledgeSpaceRequest
+     *
+     * @returns UpdateKnowledgeSpaceResponse
+     *
+     * @param UpdateKnowledgeSpaceRequest $request
+     *
+     * @return UpdateKnowledgeSpaceResponse
+     */
+    public function updateKnowledgeSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKnowledgeSpaceWithOptions($request, $runtime);
     }
 
     /**
