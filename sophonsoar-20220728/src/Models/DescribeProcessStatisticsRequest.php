@@ -14,6 +14,16 @@ class DescribeProcessStatisticsRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $processActionEnd;
+
+    /**
+     * @var int
+     */
+    public $processActionStart;
+
+    /**
      * @var string
      */
     public $roleFor;
@@ -24,6 +34,8 @@ class DescribeProcessStatisticsRequest extends Model
     public $roleType;
     protected $_name = [
         'lang' => 'Lang',
+        'processActionEnd' => 'ProcessActionEnd',
+        'processActionStart' => 'ProcessActionStart',
         'roleFor' => 'RoleFor',
         'roleType' => 'RoleType',
     ];
@@ -38,6 +50,14 @@ class DescribeProcessStatisticsRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->processActionEnd) {
+            $res['ProcessActionEnd'] = $this->processActionEnd;
+        }
+
+        if (null !== $this->processActionStart) {
+            $res['ProcessActionStart'] = $this->processActionStart;
         }
 
         if (null !== $this->roleFor) {
@@ -61,6 +81,14 @@ class DescribeProcessStatisticsRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['ProcessActionEnd'])) {
+            $model->processActionEnd = $map['ProcessActionEnd'];
+        }
+
+        if (isset($map['ProcessActionStart'])) {
+            $model->processActionStart = $map['ProcessActionStart'];
         }
 
         if (isset($map['RoleFor'])) {

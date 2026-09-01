@@ -11,6 +11,11 @@ class DescribeProcessTasksRequest extends Model
     /**
      * @var string
      */
+    public $alertId;
+
+    /**
+     * @var string
+     */
     public $direction;
 
     /**
@@ -32,6 +37,11 @@ class DescribeProcessTasksRequest extends Model
      * @var string
      */
     public $eventUuid;
+
+    /**
+     * @var string
+     */
+    public $executeUuid;
 
     /**
      * @var string
@@ -86,6 +96,11 @@ class DescribeProcessTasksRequest extends Model
     /**
      * @var string
      */
+    public $responseRuleId;
+
+    /**
+     * @var string
+     */
     public $sceneCode;
 
     /**
@@ -118,11 +133,13 @@ class DescribeProcessTasksRequest extends Model
      */
     public $yunCode;
     protected $_name = [
+        'alertId' => 'AlertId',
         'direction' => 'Direction',
         'entityName' => 'EntityName',
         'entityType' => 'EntityType',
         'entityUuid' => 'EntityUuid',
         'eventUuid' => 'EventUuid',
+        'executeUuid' => 'ExecuteUuid',
         'orderField' => 'OrderField',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -133,6 +150,7 @@ class DescribeProcessTasksRequest extends Model
         'processRemoveStart' => 'ProcessRemoveStart',
         'processStrategyUuid' => 'ProcessStrategyUuid',
         'reqUuid' => 'ReqUuid',
+        'responseRuleId' => 'ResponseRuleId',
         'sceneCode' => 'SceneCode',
         'scope' => 'Scope',
         'source' => 'Source',
@@ -150,6 +168,10 @@ class DescribeProcessTasksRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->alertId) {
+            $res['AlertId'] = $this->alertId;
+        }
+
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
@@ -168,6 +190,10 @@ class DescribeProcessTasksRequest extends Model
 
         if (null !== $this->eventUuid) {
             $res['EventUuid'] = $this->eventUuid;
+        }
+
+        if (null !== $this->executeUuid) {
+            $res['ExecuteUuid'] = $this->executeUuid;
         }
 
         if (null !== $this->orderField) {
@@ -210,6 +236,10 @@ class DescribeProcessTasksRequest extends Model
             $res['ReqUuid'] = $this->reqUuid;
         }
 
+        if (null !== $this->responseRuleId) {
+            $res['ResponseRuleId'] = $this->responseRuleId;
+        }
+
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
         }
@@ -249,6 +279,10 @@ class DescribeProcessTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertId'])) {
+            $model->alertId = $map['AlertId'];
+        }
+
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
@@ -267,6 +301,10 @@ class DescribeProcessTasksRequest extends Model
 
         if (isset($map['EventUuid'])) {
             $model->eventUuid = $map['EventUuid'];
+        }
+
+        if (isset($map['ExecuteUuid'])) {
+            $model->executeUuid = $map['ExecuteUuid'];
         }
 
         if (isset($map['OrderField'])) {
@@ -307,6 +345,10 @@ class DescribeProcessTasksRequest extends Model
 
         if (isset($map['ReqUuid'])) {
             $model->reqUuid = $map['ReqUuid'];
+        }
+
+        if (isset($map['ResponseRuleId'])) {
+            $model->responseRuleId = $map['ResponseRuleId'];
         }
 
         if (isset($map['SceneCode'])) {

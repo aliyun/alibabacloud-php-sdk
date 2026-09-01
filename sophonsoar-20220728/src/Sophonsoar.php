@@ -125,7 +125,11 @@ class Sophonsoar extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'ap-southeast-1' => 'sophonsoar.ap-southeast-1.aliyuncs.com',
+            'public' => 'sophonsoar.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('sophonsoar', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -155,7 +159,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Compares configurations between two versions of a published playbook.
+     * Compares the configurations of two published playbook versions.
      *
      * @param request - ComparePlaybooksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -206,7 +210,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Compares configurations between two versions of a published playbook.
+     * Compares the configurations of two published playbook versions.
      *
      * @param request - ComparePlaybooksRequest
      *
@@ -390,10 +394,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * New Playbook.
-     *
-     * @remarks
-     * Create Playbook.
+     * Creates a new playbook.
      *
      * @param request - CreatePlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -452,10 +453,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * New Playbook.
-     *
-     * @remarks
-     * Create Playbook.
+     * Creates a new playbook.
      *
      * @param request - CreatePlaybookRequest
      *
@@ -542,7 +540,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Deletes the assets in a component.
+     * Deletes a component asset.
      *
      * @param request - DeleteComponentAssetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -585,7 +583,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Deletes the assets in a component.
+     * Deletes a component asset.
      *
      * @param request - DeleteComponentAssetRequest
      *
@@ -603,7 +601,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Deletes a custom playbook.
+     * Deletes a specified custom playbook.
      *
      * @param request - DeletePlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -646,7 +644,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Deletes a custom playbook.
+     * Deletes a specified custom playbook.
      *
      * @param request - DeletePlaybookRequest
      *
@@ -664,7 +662,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
+     * Obtains the metadata for a component asset, which defines the fields that constitute the asset.
      *
      * @param request - DescribeComponentAssetFormRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -699,7 +697,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
+     * Obtains the metadata for a component asset, which defines the fields that constitute the asset.
      *
      * @param request - DescribeComponentAssetFormRequest
      *
@@ -717,7 +715,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries a list of assets in a component.
+     * Retrieves the asset list for a component.
      *
      * @param request - DescribeComponentAssetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -752,7 +750,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries a list of assets in a component.
+     * Retrieves the asset list for a component.
      *
      * @param request - DescribeComponentAssetsRequest
      *
@@ -770,7 +768,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries a list of common components that are available.
+     * Retrieves a list of standard components that you can use.
      *
      * @param request - DescribeComponentListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -805,7 +803,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries a list of common components that are available.
+     * Retrieves a list of standard components that you can use.
      *
      * @param request - DescribeComponentListRequest
      *
@@ -823,7 +821,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries a list of predefined components that are available.
+     * Retrieves a list of predefined components.
      *
      * @param request - DescribeComponentPlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -858,7 +856,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries a list of predefined components that are available.
+     * Retrieves a list of predefined components.
      *
      * @param request - DescribeComponentPlaybookRequest
      *
@@ -876,7 +874,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
+     * Obtains the JavaScript (JS) file that a component uses to render the page.
      *
      * @param request - DescribeComponentsJsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -911,7 +909,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
+     * Obtains the JavaScript (JS) file that a component uses to render the page.
      *
      * @param request - DescribeComponentsJsRequest
      *
@@ -929,7 +927,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the information about the published versions of a playbook after deduplication.
+     * Retrieves a list of distinct playbook releases.
      *
      * @param request - DescribeDistinctReleasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -964,7 +962,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the information about the published versions of a playbook after deduplication.
+     * Retrieves a list of distinct playbook releases.
      *
      * @param request - DescribeDistinctReleasesRequest
      *
@@ -982,7 +980,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries enumeration items that are required by a cloud service.
+     * Queries the enumeration information for a product.
      *
      * @param request - DescribeEnumItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1017,7 +1015,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries enumeration items that are required by a cloud service.
+     * Queries the enumeration information for a product.
      *
      * @param request - DescribeEnumItemsRequest
      *
@@ -1035,7 +1033,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the playbooks that are available for an automatic response plan.
+     * Queries a list of executable playbooks that are used to configure automated response plans.
      *
      * @param request - DescribeExecutePlaybooksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1070,7 +1068,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the playbooks that are available for an automatic response plan.
+     * Queries a list of executable playbooks that are used to configure automated response plans.
      *
      * @param request - DescribeExecutePlaybooksRequest
      *
@@ -1088,7 +1086,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the global configuration information about a cloud service.
+     * Retrieves global configuration information for the product.
      *
      * @param request - DescribeFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1123,7 +1121,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the global configuration information about a cloud service.
+     * Retrieves global configuration information for the product.
      *
      * @param request - DescribeFieldRequest
      *
@@ -1200,7 +1198,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
+     * Describes the output structure of each node in a playbook based on the latest execution record.
      *
      * @param request - DescribeLatestRecordSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1235,7 +1233,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
+     * Describes the output structure of each node in a playbook based on the latest execution record.
      *
      * @param request - DescribeLatestRecordSchemaRequest
      *
@@ -1253,7 +1251,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries recommended dynamic input parameters of a component for playbook orchestration.
+     * Returns the reference paths for component inputs in a playbook orchestration.
      *
      * @param request - DescribeNodeParamTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1288,7 +1286,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries recommended dynamic input parameters of a component for playbook orchestration.
+     * Returns the reference paths for component inputs in a playbook orchestration.
      *
      * @param request - DescribeNodeParamTagsRequest
      *
@@ -1424,10 +1422,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the API operations of an Alibaba Cloud service.
+     * Retrieve the API list for a product.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or the pricing for log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * Before you use this API, review the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for the orchestration product, which supports threat analysis, response, log access, and traffic monitoring.
      *
      * @param request - DescribeOpenApiListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1462,10 +1460,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the API operations of an Alibaba Cloud service.
+     * Retrieve the API list for a product.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or the pricing for log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * Before you use this API, review the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for the orchestration product, which supports threat analysis, response, log access, and traffic monitoring.
      *
      * @param request - DescribeOpenApiListRequest
      *
@@ -1483,7 +1481,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the XML configuration of a playbook.
+     * Retrieves the XML configuration of a playbook.
      *
      * @param request - DescribePlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1518,7 +1516,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the XML configuration of a playbook.
+     * Retrieves the XML configuration of a playbook.
      *
      * @param request - DescribePlaybookRequest
      *
@@ -1536,7 +1534,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the input and output parameter configurations of a playbook.
+     * Retrieves the input and output parameter configurations for a playbook.
      *
      * @param request - DescribePlaybookInputOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1571,7 +1569,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the input and output parameter configurations of a playbook.
+     * Retrieves the input and output parameter configurations for a playbook.
      *
      * @param request - DescribePlaybookInputOutputRequest
      *
@@ -1589,7 +1587,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
+     * Queries playbook metadata, including its name, description, number of runs, and failure rate.
      *
      * @param request - DescribePlaybookMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1624,7 +1622,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
+     * Queries playbook metadata, including its name, description, number of runs, and failure rate.
      *
      * @param request - DescribePlaybookMetricsRequest
      *
@@ -1642,7 +1640,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the historical output data of a component node.
+     * Retrieves the historical output data of a component.
      *
      * @param request - DescribePlaybookNodesOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1677,7 +1675,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the historical output data of a component node.
+     * Retrieves the historical output data of a component.
      *
      * @param request - DescribePlaybookNodesOutputRequest
      *
@@ -1695,7 +1693,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
+     * Retrieves metrics for the response orchestration product, including the total number of playbooks and the number of enabled playbooks.
      *
      * @param request - DescribePlaybookNumberMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1730,7 +1728,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
+     * Retrieves metrics for the response orchestration product, including the total number of playbooks and the number of enabled playbooks.
      *
      * @param request - DescribePlaybookNumberMetricsRequest
      *
@@ -1748,7 +1746,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the information about the published versions of a playbook.
+     * Queries a list of published versions of a playbook.
      *
      * @param request - DescribePlaybookReleasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1783,7 +1781,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the information about the published versions of a playbook.
+     * Queries a list of published versions of a playbook.
      *
      * @param request - DescribePlaybookReleasesRequest
      *
@@ -1801,7 +1799,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of playbooks.
+     * Queries a list of playbooks.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration, Automation, and Response (SOAR).
      *
      * @param request - DescribePlaybooksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1836,7 +1837,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of playbooks.
+     * Queries a list of playbooks.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration, Automation, and Response (SOAR).
      *
      * @param request - DescribePlaybooksRequest
      *
@@ -1854,7 +1858,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the details of an API operation.
+     * Retrieves the details of an OpenAPI.
      *
      * @param request - DescribePopApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1901,7 +1905,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the details of an API operation.
+     * Retrieves the details of an OpenAPI.
      *
      * @param request - DescribePopApiRequest
      *
@@ -1919,10 +1923,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries statistics.
+     * Retrieves statistics information.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * Make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (Cloud Threat Detection and Response (CTDR) log traffic) before you call this operation.
      *
      * @param request - DescribeProcessStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1957,10 +1961,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries statistics.
+     * Retrieves statistics information.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * Make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (Cloud Threat Detection and Response (CTDR) log traffic) before you call this operation.
      *
      * @param request - DescribeProcessStatisticsRequest
      *
@@ -1978,7 +1982,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Query the number of associated disposal tasks based on the entity UUID.
+     * Queries the count of response tasks associated with an entity UUID.
      *
      * @param request - DescribeProcessTaskCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2013,7 +2017,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Query the number of associated disposal tasks based on the entity UUID.
+     * Queries the count of response tasks associated with an entity UUID.
      *
      * @param request - DescribeProcessTaskCountRequest
      *
@@ -2031,10 +2035,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
+     * Retrieves a list of disposal tasks.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration feature (the log traffic of Cloud Threat Detection and Response (CTDR)) before you call this operation.
      *
      * @param request - DescribeProcessTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2050,6 +2054,10 @@ class Sophonsoar extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->alertId) {
+            @$query['AlertId'] = $request->alertId;
+        }
+
         if (null !== $request->direction) {
             @$query['Direction'] = $request->direction;
         }
@@ -2068,6 +2076,10 @@ class Sophonsoar extends OpenApiClient
 
         if (null !== $request->eventUuid) {
             @$query['EventUuid'] = $request->eventUuid;
+        }
+
+        if (null !== $request->executeUuid) {
+            @$query['ExecuteUuid'] = $request->executeUuid;
         }
 
         if (null !== $request->orderField) {
@@ -2108,6 +2120,10 @@ class Sophonsoar extends OpenApiClient
 
         if (null !== $request->reqUuid) {
             @$query['ReqUuid'] = $request->reqUuid;
+        }
+
+        if (null !== $request->responseRuleId) {
+            @$query['ResponseRuleId'] = $request->responseRuleId;
         }
 
         if (null !== $request->sceneCode) {
@@ -2157,10 +2173,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
+     * Retrieves a list of disposal tasks.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration feature (the log traffic of Cloud Threat Detection and Response (CTDR)) before you call this operation.
      *
      * @param request - DescribeProcessTasksRequest
      *
@@ -2178,7 +2194,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the data that is returned when a component initiates an action in a playbook task.
+     * Retrieves the output data generated by a component for an action in a playbook task.
      *
      * @param request - DescribeSoarRecordActionOutputListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2213,7 +2229,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the data that is returned when a component initiates an action in a playbook task.
+     * Retrieves the output data generated by a component for an action in a playbook task.
      *
      * @param request - DescribeSoarRecordActionOutputListRequest
      *
@@ -2231,7 +2247,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the input and output data of a component action. You can call this operation after a playbook is run.
+     * Retrieves the input and output data of a component action after a playbook task is executed.
      *
      * @param request - DescribeSoarRecordInOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2266,7 +2282,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the input and output data of a component action. You can call this operation after a playbook is run.
+     * Retrieves the input and output data of a component action after a playbook task is executed.
      *
      * @param request - DescribeSoarRecordInOutputRequest
      *
@@ -2284,7 +2300,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Get the execution records of a playbook.
+     * Queries the execution records for a playbook.
      *
      * @param request - DescribeSoarRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2319,7 +2335,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Get the execution records of a playbook.
+     * Queries the execution records for a playbook.
      *
      * @param request - DescribeSoarRecordsRequest
      *
@@ -2337,7 +2353,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the execution records of a component during the running of a playbook.
+     * Retrieves the component execution records for a single playbook run.
      *
      * @param request - DescribeSoarTaskAndActionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2372,7 +2388,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the execution records of a component during the running of a playbook.
+     * Retrieves the component execution records for a single playbook run.
      *
      * @param request - DescribeSoarTaskAndActionsRequest
      *
@@ -2390,7 +2406,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the commands that can be run to obtain objects.
+     * Queries the commands that are used to manage entities.
      *
      * @param request - DescribeSophonCommandsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2429,7 +2445,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the commands that can be run to obtain objects.
+     * Queries the commands that are used to manage entities.
      *
      * @param request - DescribeSophonCommandsRequest
      *
@@ -2530,7 +2546,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
+     * After you submit a task for a Python 3 script, use the returned requestUuid to retrieve the operational logs.
      *
      * @param request - DescriberPython3ScriptLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2565,7 +2581,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
+     * After you submit a task for a Python 3 script, use the returned requestUuid to retrieve the operational logs.
      *
      * @param request - DescriberPython3ScriptLogsRequest
      *
@@ -2583,7 +2599,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Modifies the information about the asset that is configured for a component.
+     * You can call this operation to modify the asset information for a component.
      *
      * @param request - ModifyComponentAssetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2626,7 +2642,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Modifies the information about the asset that is configured for a component.
+     * You can call this operation to modify the asset information for a component.
      *
      * @param request - ModifyComponentAssetRequest
      *
@@ -2794,7 +2810,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
+     * Publishes a playbook. Once published, the playbook runs with the new logic.
      *
      * @param request - PublishPlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2837,7 +2853,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
+     * Publishes a playbook. Once published, the playbook runs with the new logic.
      *
      * @param request - PublishPlaybookRequest
      *
@@ -2855,7 +2871,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries all playbooks at a time.
+     * Retrieves a list of all playbooks.
      *
      * @param request - QueryTreeDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2890,7 +2906,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Queries all playbooks at a time.
+     * Retrieves a list of all playbooks.
      *
      * @param request - QueryTreeDataRequest
      *
@@ -2908,7 +2924,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
+     * Rolls back a playbook to a specified version. You can also specify whether to publish that version after the rollback.
      *
      * @param request - RevertPlaybookReleaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2955,7 +2971,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
+     * Rolls back a playbook to a specified version. You can also specify whether to publish that version after the rollback.
      *
      * @param request - RevertPlaybookReleaseRequest
      *
@@ -2973,10 +2989,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Runs the email notification component to send messages.
+     * Runs the notification component to send an email message.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * Before calling this operation, understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration Application Response (SOAR). SOAR is billed based on the log traffic added to the service.
      *
      * @param request - RunNotifyComponentWithEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3055,10 +3071,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Runs the email notification component to send messages.
+     * Runs the notification component to send an email message.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * Before calling this operation, understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) for Security Orchestration Application Response (SOAR). SOAR is billed based on the log traffic added to the service.
      *
      * @param request - RunNotifyComponentWithEmailRequest
      *
@@ -3076,10 +3092,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Execute Notification Component - Send Message via Message Center.
+     * Sends a message using the notification component in Message Center.
      *
      * @remarks
-     * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., Threat Analysis and Response Log Access Traffic) before using this interface.
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR). The service is billed based on the log traffic for threat analysis and response.
      *
      * @param request - RunNotifyComponentWithMessageCenterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3162,10 +3178,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Execute Notification Component - Send Message via Message Center.
+     * Sends a message using the notification component in Message Center.
      *
      * @remarks
-     * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., Threat Analysis and Response Log Access Traffic) before using this interface.
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR). The service is billed based on the log traffic for threat analysis and response.
      *
      * @param request - RunNotifyComponentWithMessageCenterRequest
      *
@@ -3183,10 +3199,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Runs the webhook notification component to send messages.
+     * Sends a message from a notification component using a webhook.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of response orchestration. This feature is billed based on the log traffic for threat analysis and response.
      *
      * @param request - RunNotifyComponentWithWebhookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3269,10 +3285,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Runs the webhook notification component to send messages.
+     * Sends a message from a notification component using a webhook.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of response orchestration. This feature is billed based on the log traffic for threat analysis and response.
      *
      * @param request - RunNotifyComponentWithWebhookRequest
      *
@@ -3290,10 +3306,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Submits and runs a Python3 script. You can call this operation only for data processing.
+     * Executes a Python 3 code snippet for data processing.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product.
      *
      * @param request - RunPython3ScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3350,10 +3366,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Submits and runs a Python3 script. You can call this operation only for data processing.
+     * Executes a Python 3 code snippet for data processing.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product.
      *
      * @param request - RunPython3ScriptRequest
      *
@@ -3371,10 +3387,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Triggers an enabled custom playbook or a predefined playbook.
+     * Triggers an enabled custom or predefined playbook.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Response Orchestration.
      *
      * @param request - TriggerPlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3417,10 +3433,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Triggers an enabled custom playbook or a predefined playbook.
+     * Triggers an enabled custom or predefined playbook.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Response Orchestration.
      *
      * @param request - TriggerPlaybookRequest
      *
@@ -3438,7 +3454,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
+     * When an event is handled using response orchestration, the response center creates a task. Perform follow-up actions on the task, such as unblocking, retrying a block, and removing from isolation.
      *
      * @param request - TriggerProcessTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3483,7 +3499,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
+     * When an event is handled using response orchestration, the response center creates a task. Perform follow-up actions on the task, such as unblocking, retrying a block, and removing from isolation.
      *
      * @param request - TriggerProcessTaskRequest
      *
@@ -3501,10 +3517,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Triggers a playbook or a command.
+     * Triggers a playbook or a response command.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+     * Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR) before you call this operation.
      *
      * @param request - TriggerSophonPlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3520,6 +3536,10 @@ class Sophonsoar extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->commandName) {
             @$query['CommandName'] = $request->commandName;
         }
@@ -3559,10 +3579,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Triggers a playbook or a command.
+     * Triggers a playbook or a response command.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+     * Make sure that you are familiar with the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of Security Orchestration Automation Response (SOAR) before you call this operation.
      *
      * @param request - TriggerSophonPlaybookRequest
      *
@@ -3580,7 +3600,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
+     * Verifies that a playbook configuration is correct and its orchestration logic is valid.
      *
      * @param request - VerifyPlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3623,7 +3643,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
+     * Verifies that a playbook configuration is correct and its orchestration logic is valid.
      *
      * @param request - VerifyPlaybookRequest
      *
@@ -3641,7 +3661,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Checks whether the syntax of a Python code snippet is correct.
+     * Verifies the syntax of a Python code snippet.
      *
      * @param request - VerifyPythonFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3680,7 +3700,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Checks whether the syntax of a Python code snippet is correct.
+     * Verifies the syntax of a Python code snippet.
      *
      * @param request - VerifyPythonFileRequest
      *
