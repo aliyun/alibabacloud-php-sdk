@@ -36,7 +36,17 @@ class CreateKBSyncLinkRequest extends Model
     /**
      * @var string
      */
+    public $mcpEndpoint;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $sheetMcpEndpoint;
 
     /**
      * @var string
@@ -57,17 +67,25 @@ class CreateKBSyncLinkRequest extends Model
      * @var string
      */
     public $tenantId;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'clientId' => 'ClientId',
         'clientSecret' => 'ClientSecret',
         'description' => 'Description',
         'knowledgeBaseId' => 'KnowledgeBaseId',
         'linkName' => 'LinkName',
+        'mcpEndpoint' => 'McpEndpoint',
         'regionId' => 'RegionId',
+        'sheetMcpEndpoint' => 'SheetMcpEndpoint',
         'sourceDir' => 'SourceDir',
         'sourceType' => 'SourceType',
         'syncIntervalMinutes' => 'SyncIntervalMinutes',
         'tenantId' => 'TenantId',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -98,8 +116,16 @@ class CreateKBSyncLinkRequest extends Model
             $res['LinkName'] = $this->linkName;
         }
 
+        if (null !== $this->mcpEndpoint) {
+            $res['McpEndpoint'] = $this->mcpEndpoint;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->sheetMcpEndpoint) {
+            $res['SheetMcpEndpoint'] = $this->sheetMcpEndpoint;
         }
 
         if (null !== $this->sourceDir) {
@@ -116,6 +142,10 @@ class CreateKBSyncLinkRequest extends Model
 
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -149,8 +179,16 @@ class CreateKBSyncLinkRequest extends Model
             $model->linkName = $map['LinkName'];
         }
 
+        if (isset($map['McpEndpoint'])) {
+            $model->mcpEndpoint = $map['McpEndpoint'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SheetMcpEndpoint'])) {
+            $model->sheetMcpEndpoint = $map['SheetMcpEndpoint'];
         }
 
         if (isset($map['SourceDir'])) {
@@ -167,6 +205,10 @@ class CreateKBSyncLinkRequest extends Model
 
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;
