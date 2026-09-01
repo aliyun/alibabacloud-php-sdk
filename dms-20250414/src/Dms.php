@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentAccuracyTestRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentAccuracyTestResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentFeedbackRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentFeedbackResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionRequest;
@@ -1419,6 +1421,91 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataAgentAccuracyTestWithOptions($request, $runtime);
+    }
+
+    /**
+     * Data Agent点赞点踩功能.
+     *
+     * @param request - CreateDataAgentFeedbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataAgentFeedbackResponse
+     *
+     * @param CreateDataAgentFeedbackRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateDataAgentFeedbackResponse
+     */
+    public function createDataAgentFeedbackWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->feedbackContent) {
+            @$query['FeedbackContent'] = $request->feedbackContent;
+        }
+
+        if (null !== $request->feedbackType) {
+            @$query['FeedbackType'] = $request->feedbackType;
+        }
+
+        if (null !== $request->likeValue) {
+            @$query['LikeValue'] = $request->likeValue;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->targetId) {
+            @$query['TargetId'] = $request->targetId;
+        }
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataAgentFeedback',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataAgentFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Data Agent点赞点踩功能.
+     *
+     * @param request - CreateDataAgentFeedbackRequest
+     *
+     * @returns CreateDataAgentFeedbackResponse
+     *
+     * @param CreateDataAgentFeedbackRequest $request
+     *
+     * @return CreateDataAgentFeedbackResponse
+     */
+    public function createDataAgentFeedback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataAgentFeedbackWithOptions($request, $runtime);
     }
 
     /**
@@ -9308,7 +9395,7 @@ class Dms extends OpenApiClient
      * @remarks
      * ## Request description
      * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-     * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+     * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
      * - When `message_type` is `additional`, the `question` field is required.
      * - `quoted_message` can be used to quote the content of a previous user message.
      *
@@ -9428,7 +9515,7 @@ class Dms extends OpenApiClient
      * @remarks
      * ## Request description
      * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-     * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+     * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
      * - When `message_type` is `additional`, the `question` field is required.
      * - `quoted_message` can be used to quote the content of a previous user message.
      *
