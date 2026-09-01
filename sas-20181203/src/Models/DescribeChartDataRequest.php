@@ -31,6 +31,11 @@ class DescribeChartDataRequest extends Model
     /**
      * @var int
      */
+    public $resourceDirectoryAccountId;
+
+    /**
+     * @var int
+     */
     public $timeEnd;
 
     /**
@@ -42,6 +47,7 @@ class DescribeChartDataRequest extends Model
         'chartId' => 'ChartId',
         'lang' => 'Lang',
         'reportId' => 'ReportId',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'timeEnd' => 'TimeEnd',
         'timeStart' => 'TimeStart',
     ];
@@ -68,6 +74,10 @@ class DescribeChartDataRequest extends Model
 
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->timeEnd) {
@@ -103,6 +113,10 @@ class DescribeChartDataRequest extends Model
 
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['TimeEnd'])) {

@@ -19,6 +19,11 @@ class QueryAttackCountRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $sourceIp;
@@ -30,6 +35,7 @@ class QueryAttackCountRequest extends Model
     protected $_name = [
         'from' => 'From',
         'lang' => 'Lang',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'sourceIp' => 'SourceIp',
         'uuids' => 'Uuids',
     ];
@@ -48,6 +54,10 @@ class QueryAttackCountRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->sourceIp) {
@@ -75,6 +85,10 @@ class QueryAttackCountRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SourceIp'])) {

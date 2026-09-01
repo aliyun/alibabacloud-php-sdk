@@ -14,11 +14,17 @@ class GetSuspiciousStatisticsRequest extends Model
     public $groupIdList;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $sourceIp;
     protected $_name = [
         'groupIdList' => 'GroupIdList',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'sourceIp' => 'SourceIp',
     ];
 
@@ -32,6 +38,10 @@ class GetSuspiciousStatisticsRequest extends Model
         $res = [];
         if (null !== $this->groupIdList) {
             $res['GroupIdList'] = $this->groupIdList;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->sourceIp) {
@@ -51,6 +61,10 @@ class GetSuspiciousStatisticsRequest extends Model
         $model = new self();
         if (isset($map['GroupIdList'])) {
             $model->groupIdList = $map['GroupIdList'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SourceIp'])) {

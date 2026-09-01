@@ -31,6 +31,11 @@ class HandleSimilarSecurityEventsRequest extends Model
     /**
      * @var int
      */
+    public $resourceDirectoryAccountId;
+
+    /**
+     * @var int
+     */
     public $resourceOwnerId;
 
     /**
@@ -47,6 +52,7 @@ class HandleSimilarSecurityEventsRequest extends Model
         'operationCode' => 'OperationCode',
         'operationParams' => 'OperationParams',
         'remark' => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'resourceOwnerId' => 'ResourceOwnerId',
         'sourceIp' => 'SourceIp',
         'taskId' => 'TaskId',
@@ -74,6 +80,10 @@ class HandleSimilarSecurityEventsRequest extends Model
 
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->resourceOwnerId) {
@@ -113,6 +123,10 @@ class HandleSimilarSecurityEventsRequest extends Model
 
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['ResourceOwnerId'])) {

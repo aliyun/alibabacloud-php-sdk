@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class ModifyPostPayModuleSwitchShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $edrModuleSwitchShrink;
+
+    /**
      * @var int
      */
     public $postPaidHostAutoBind;
@@ -33,6 +43,8 @@ class ModifyPostPayModuleSwitchShrinkRequest extends Model
      */
     public $postPayModuleSwitchObjShrink;
     protected $_name = [
+        'clientToken' => 'ClientToken',
+        'edrModuleSwitchShrink' => 'EdrModuleSwitch',
         'postPaidHostAutoBind' => 'PostPaidHostAutoBind',
         'postPaidHostAutoBindVersion' => 'PostPaidHostAutoBindVersion',
         'postPayInstanceId' => 'PostPayInstanceId',
@@ -48,6 +60,14 @@ class ModifyPostPayModuleSwitchShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->edrModuleSwitchShrink) {
+            $res['EdrModuleSwitch'] = $this->edrModuleSwitchShrink;
+        }
+
         if (null !== $this->postPaidHostAutoBind) {
             $res['PostPaidHostAutoBind'] = $this->postPaidHostAutoBind;
         }
@@ -79,6 +99,14 @@ class ModifyPostPayModuleSwitchShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['EdrModuleSwitch'])) {
+            $model->edrModuleSwitchShrink = $map['EdrModuleSwitch'];
+        }
+
         if (isset($map['PostPaidHostAutoBind'])) {
             $model->postPaidHostAutoBind = $map['PostPaidHostAutoBind'];
         }

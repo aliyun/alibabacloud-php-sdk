@@ -5,10 +5,21 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPostPayModuleSwitchRequest\edrModuleSwitch;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPostPayModuleSwitchRequest\postPayModuleSwitchObj;
 
 class ModifyPostPayModuleSwitchRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var edrModuleSwitch
+     */
+    public $edrModuleSwitch;
+
     /**
      * @var int
      */
@@ -34,6 +45,8 @@ class ModifyPostPayModuleSwitchRequest extends Model
      */
     public $postPayModuleSwitchObj;
     protected $_name = [
+        'clientToken' => 'ClientToken',
+        'edrModuleSwitch' => 'EdrModuleSwitch',
         'postPaidHostAutoBind' => 'PostPaidHostAutoBind',
         'postPaidHostAutoBindVersion' => 'PostPaidHostAutoBindVersion',
         'postPayInstanceId' => 'PostPayInstanceId',
@@ -43,6 +56,9 @@ class ModifyPostPayModuleSwitchRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->edrModuleSwitch) {
+            $this->edrModuleSwitch->validate();
+        }
         if (null !== $this->postPayModuleSwitchObj) {
             $this->postPayModuleSwitchObj->validate();
         }
@@ -52,6 +68,14 @@ class ModifyPostPayModuleSwitchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->edrModuleSwitch) {
+            $res['EdrModuleSwitch'] = null !== $this->edrModuleSwitch ? $this->edrModuleSwitch->toArray($noStream) : $this->edrModuleSwitch;
+        }
+
         if (null !== $this->postPaidHostAutoBind) {
             $res['PostPaidHostAutoBind'] = $this->postPaidHostAutoBind;
         }
@@ -83,6 +107,14 @@ class ModifyPostPayModuleSwitchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['EdrModuleSwitch'])) {
+            $model->edrModuleSwitch = edrModuleSwitch::fromMap($map['EdrModuleSwitch']);
+        }
+
         if (isset($map['PostPaidHostAutoBind'])) {
             $model->postPaidHostAutoBind = $map['PostPaidHostAutoBind'];
         }

@@ -14,11 +14,17 @@ class DescribeDomainSecureScoreRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $sourceIp;
     protected $_name = [
         'lang' => 'Lang',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'sourceIp' => 'SourceIp',
     ];
 
@@ -32,6 +38,10 @@ class DescribeDomainSecureScoreRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->sourceIp) {
@@ -51,6 +61,10 @@ class DescribeDomainSecureScoreRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SourceIp'])) {

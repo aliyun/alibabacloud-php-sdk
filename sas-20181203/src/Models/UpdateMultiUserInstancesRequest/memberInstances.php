@@ -32,6 +32,11 @@ class memberInstances extends Model
     /**
      * @var int
      */
+    public $cspmInstanceCapacity;
+
+    /**
+     * @var int
+     */
     public $honeypotCapacity;
 
     /**
@@ -98,6 +103,7 @@ class memberInstances extends Model
         'antiRansomwareCapacity' => 'AntiRansomwareCapacity',
         'chargeType' => 'ChargeType',
         'cspmCapacity' => 'CspmCapacity',
+        'cspmInstanceCapacity' => 'CspmInstanceCapacity',
         'honeypotCapacity' => 'HoneypotCapacity',
         'imageScanCapacity' => 'ImageScanCapacity',
         'instanceId' => 'InstanceId',
@@ -138,6 +144,10 @@ class memberInstances extends Model
 
         if (null !== $this->cspmCapacity) {
             $res['CspmCapacity'] = $this->cspmCapacity;
+        }
+
+        if (null !== $this->cspmInstanceCapacity) {
+            $res['CspmInstanceCapacity'] = $this->cspmInstanceCapacity;
         }
 
         if (null !== $this->honeypotCapacity) {
@@ -224,6 +234,10 @@ class memberInstances extends Model
 
         if (isset($map['CspmCapacity'])) {
             $model->cspmCapacity = $map['CspmCapacity'];
+        }
+
+        if (isset($map['CspmInstanceCapacity'])) {
+            $model->cspmInstanceCapacity = $map['CspmInstanceCapacity'];
         }
 
         if (isset($map['HoneypotCapacity'])) {

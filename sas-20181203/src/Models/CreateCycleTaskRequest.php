@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateCycleTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var int
      */
     public $enable;
@@ -58,6 +63,7 @@ class CreateCycleTaskRequest extends Model
      */
     public $taskType;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'enable' => 'Enable',
         'firstDateStr' => 'FirstDateStr',
         'intervalPeriod' => 'IntervalPeriod',
@@ -78,6 +84,10 @@ class CreateCycleTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
@@ -129,6 +139,10 @@ class CreateCycleTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }

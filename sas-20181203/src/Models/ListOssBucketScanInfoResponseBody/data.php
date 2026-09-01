@@ -24,6 +24,11 @@ class data extends Model
     public $decompressStatus;
 
     /**
+     * @var string
+     */
+    public $fileSystemName;
+
+    /**
      * @var int
      */
     public $highRisk;
@@ -91,6 +96,7 @@ class data extends Model
         'bucketName' => 'BucketName',
         'configStatus' => 'ConfigStatus',
         'decompressStatus' => 'DecompressStatus',
+        'fileSystemName' => 'FileSystemName',
         'highRisk' => 'HighRisk',
         'lastScanEndTime' => 'LastScanEndTime',
         'lastScanTime' => 'LastScanTime',
@@ -124,6 +130,10 @@ class data extends Model
 
         if (null !== $this->decompressStatus) {
             $res['DecompressStatus'] = $this->decompressStatus;
+        }
+
+        if (null !== $this->fileSystemName) {
+            $res['FileSystemName'] = $this->fileSystemName;
         }
 
         if (null !== $this->highRisk) {
@@ -199,6 +209,10 @@ class data extends Model
 
         if (isset($map['DecompressStatus'])) {
             $model->decompressStatus = $map['DecompressStatus'];
+        }
+
+        if (isset($map['FileSystemName'])) {
+            $model->fileSystemName = $map['FileSystemName'];
         }
 
         if (isset($map['HighRisk'])) {

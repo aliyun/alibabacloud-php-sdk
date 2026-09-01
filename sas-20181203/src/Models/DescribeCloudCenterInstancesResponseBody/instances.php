@@ -94,6 +94,11 @@ class instances extends Model
     public $createdTime;
 
     /**
+     * @var string
+     */
+    public $edrAuthVersion;
+
+    /**
      * @var int
      */
     public $exposedStatus;
@@ -107,6 +112,11 @@ class instances extends Model
      * @var string
      */
     public $flagName;
+
+    /**
+     * @var string
+     */
+    public $freeType;
 
     /**
      * @var int
@@ -325,9 +335,11 @@ class instances extends Model
         'cores' => 'Cores',
         'cpuInfo' => 'CpuInfo',
         'createdTime' => 'CreatedTime',
+        'edrAuthVersion' => 'EdrAuthVersion',
         'exposedStatus' => 'ExposedStatus',
         'flag' => 'Flag',
         'flagName' => 'FlagName',
+        'freeType' => 'FreeType',
         'groupId' => 'GroupId',
         'groupTrace' => 'GroupTrace',
         'hasContainer' => 'HasContainer',
@@ -446,6 +458,10 @@ class instances extends Model
             $res['CreatedTime'] = $this->createdTime;
         }
 
+        if (null !== $this->edrAuthVersion) {
+            $res['EdrAuthVersion'] = $this->edrAuthVersion;
+        }
+
         if (null !== $this->exposedStatus) {
             $res['ExposedStatus'] = $this->exposedStatus;
         }
@@ -456,6 +472,10 @@ class instances extends Model
 
         if (null !== $this->flagName) {
             $res['FlagName'] = $this->flagName;
+        }
+
+        if (null !== $this->freeType) {
+            $res['FreeType'] = $this->freeType;
         }
 
         if (null !== $this->groupId) {
@@ -697,6 +717,10 @@ class instances extends Model
             $model->createdTime = $map['CreatedTime'];
         }
 
+        if (isset($map['EdrAuthVersion'])) {
+            $model->edrAuthVersion = $map['EdrAuthVersion'];
+        }
+
         if (isset($map['ExposedStatus'])) {
             $model->exposedStatus = $map['ExposedStatus'];
         }
@@ -707,6 +731,10 @@ class instances extends Model
 
         if (isset($map['FlagName'])) {
             $model->flagName = $map['FlagName'];
+        }
+
+        if (isset($map['FreeType'])) {
+            $model->freeType = $map['FreeType'];
         }
 
         if (isset($map['GroupId'])) {

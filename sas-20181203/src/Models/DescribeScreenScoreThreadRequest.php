@@ -16,6 +16,11 @@ class DescribeScreenScoreThreadRequest extends Model
     /**
      * @var int
      */
+    public $resourceDirectoryAccountId;
+
+    /**
+     * @var int
+     */
     public $source;
 
     /**
@@ -24,6 +29,7 @@ class DescribeScreenScoreThreadRequest extends Model
     public $startTime;
     protected $_name = [
         'endTime' => 'EndTime',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'source' => 'Source',
         'startTime' => 'StartTime',
     ];
@@ -38,6 +44,10 @@ class DescribeScreenScoreThreadRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->source) {
@@ -61,6 +71,10 @@ class DescribeScreenScoreThreadRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['Source'])) {

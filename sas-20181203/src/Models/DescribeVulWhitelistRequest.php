@@ -22,10 +22,16 @@ class DescribeVulWhitelistRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'lang' => 'Lang',
         'pageSize' => 'PageSize',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class DescribeVulWhitelistRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class DescribeVulWhitelistRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         return $model;

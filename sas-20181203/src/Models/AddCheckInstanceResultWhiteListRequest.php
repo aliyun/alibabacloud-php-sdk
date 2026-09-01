@@ -20,6 +20,11 @@ class AddCheckInstanceResultWhiteListRequest extends Model
     public $checkId;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -41,6 +46,7 @@ class AddCheckInstanceResultWhiteListRequest extends Model
     protected $_name = [
         'checkGroupId' => 'CheckGroupId',
         'checkId' => 'CheckId',
+        'clientToken' => 'ClientToken',
         'instanceIds' => 'InstanceIds',
         'instanceList' => 'InstanceList',
         'remark' => 'Remark',
@@ -67,6 +73,10 @@ class AddCheckInstanceResultWhiteListRequest extends Model
 
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->instanceIds) {
@@ -116,6 +126,10 @@ class AddCheckInstanceResultWhiteListRequest extends Model
 
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['InstanceIds'])) {

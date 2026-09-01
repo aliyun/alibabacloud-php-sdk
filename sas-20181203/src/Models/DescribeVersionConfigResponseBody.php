@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigResponseBody\trialModuleList;
 
 class DescribeVersionConfigResponseBody extends Model
 {
@@ -44,6 +45,11 @@ class DescribeVersionConfigResponseBody extends Model
     public $assetLevel;
 
     /**
+     * @var string
+     */
+    public $buySasEdr;
+
+    /**
      * @var int
      */
     public $canTryPostPaidPackage;
@@ -67,6 +73,11 @@ class DescribeVersionConfigResponseBody extends Model
      * @var int
      */
     public $honeypotCapacity;
+
+    /**
+     * @var string
+     */
+    public $hybridPaidGrayStatus;
 
     /**
      * @var int
@@ -214,6 +225,31 @@ class DescribeVersionConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $sasEdrClientAuthCount;
+
+    /**
+     * @var string
+     */
+    public $sasEdrPostPaidInstanceId;
+
+    /**
+     * @var string
+     */
+    public $sasEdrPrePaidInstanceId;
+
+    /**
+     * @var string
+     */
+    public $sasEdrPrePaidInstanceStatus;
+
+    /**
+     * @var string
+     */
+    public $sasEdrVersion;
+
+    /**
      * @var int
      */
     public $sasLog;
@@ -242,6 +278,16 @@ class DescribeVersionConfigResponseBody extends Model
      * @var int
      */
     public $threatAnalysisFlow;
+
+    /**
+     * @var trialModuleList[]
+     */
+    public $trialModuleList;
+
+    /**
+     * @var int
+     */
+    public $trialVersion;
 
     /**
      * @var int
@@ -280,11 +326,13 @@ class DescribeVersionConfigResponseBody extends Model
         'appWhiteList' => 'AppWhiteList',
         'appWhiteListAuthCount' => 'AppWhiteListAuthCount',
         'assetLevel' => 'AssetLevel',
+        'buySasEdr' => 'BuySasEdr',
         'canTryPostPaidPackage' => 'CanTryPostPaidPackage',
         'cspmCapacity' => 'CspmCapacity',
         'cspmInstanceCapacity' => 'CspmInstanceCapacity',
         'highestVersion' => 'HighestVersion',
         'honeypotCapacity' => 'HoneypotCapacity',
+        'hybridPaidGrayStatus' => 'HybridPaidGrayStatus',
         'hybridPaidModuleSwitchMap' => 'HybridPaidModuleSwitchMap',
         'hybridPaidStatus' => 'HybridPaidStatus',
         'hybridSwitch' => 'HybridSwitch',
@@ -314,12 +362,19 @@ class DescribeVersionConfigResponseBody extends Model
         'raspCapacity' => 'RaspCapacity',
         'releaseTime' => 'ReleaseTime',
         'requestId' => 'RequestId',
+        'sasEdrClientAuthCount' => 'SasEdrClientAuthCount',
+        'sasEdrPostPaidInstanceId' => 'SasEdrPostPaidInstanceId',
+        'sasEdrPrePaidInstanceId' => 'SasEdrPrePaidInstanceId',
+        'sasEdrPrePaidInstanceStatus' => 'SasEdrPrePaidInstanceStatus',
+        'sasEdrVersion' => 'SasEdrVersion',
         'sasLog' => 'SasLog',
         'sasScreen' => 'SasScreen',
         'sdkCapacity' => 'SdkCapacity',
         'slsCapacity' => 'SlsCapacity',
         'threatAnalysisCapacity' => 'ThreatAnalysisCapacity',
         'threatAnalysisFlow' => 'ThreatAnalysisFlow',
+        'trialModuleList' => 'TrialModuleList',
+        'trialVersion' => 'TrialVersion',
         'userDefinedAlarms' => 'UserDefinedAlarms',
         'version' => 'Version',
         'vmCores' => 'VmCores',
@@ -330,6 +385,9 @@ class DescribeVersionConfigResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->trialModuleList)) {
+            Model::validateArray($this->trialModuleList);
+        }
         parent::validate();
     }
 
@@ -364,6 +422,10 @@ class DescribeVersionConfigResponseBody extends Model
             $res['AssetLevel'] = $this->assetLevel;
         }
 
+        if (null !== $this->buySasEdr) {
+            $res['BuySasEdr'] = $this->buySasEdr;
+        }
+
         if (null !== $this->canTryPostPaidPackage) {
             $res['CanTryPostPaidPackage'] = $this->canTryPostPaidPackage;
         }
@@ -382,6 +444,10 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (null !== $this->honeypotCapacity) {
             $res['HoneypotCapacity'] = $this->honeypotCapacity;
+        }
+
+        if (null !== $this->hybridPaidGrayStatus) {
+            $res['HybridPaidGrayStatus'] = $this->hybridPaidGrayStatus;
         }
 
         if (null !== $this->hybridPaidModuleSwitchMap) {
@@ -500,6 +566,26 @@ class DescribeVersionConfigResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->sasEdrClientAuthCount) {
+            $res['SasEdrClientAuthCount'] = $this->sasEdrClientAuthCount;
+        }
+
+        if (null !== $this->sasEdrPostPaidInstanceId) {
+            $res['SasEdrPostPaidInstanceId'] = $this->sasEdrPostPaidInstanceId;
+        }
+
+        if (null !== $this->sasEdrPrePaidInstanceId) {
+            $res['SasEdrPrePaidInstanceId'] = $this->sasEdrPrePaidInstanceId;
+        }
+
+        if (null !== $this->sasEdrPrePaidInstanceStatus) {
+            $res['SasEdrPrePaidInstanceStatus'] = $this->sasEdrPrePaidInstanceStatus;
+        }
+
+        if (null !== $this->sasEdrVersion) {
+            $res['SasEdrVersion'] = $this->sasEdrVersion;
+        }
+
         if (null !== $this->sasLog) {
             $res['SasLog'] = $this->sasLog;
         }
@@ -522,6 +608,21 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (null !== $this->threatAnalysisFlow) {
             $res['ThreatAnalysisFlow'] = $this->threatAnalysisFlow;
+        }
+
+        if (null !== $this->trialModuleList) {
+            if (\is_array($this->trialModuleList)) {
+                $res['TrialModuleList'] = [];
+                $n1 = 0;
+                foreach ($this->trialModuleList as $item1) {
+                    $res['TrialModuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->trialVersion) {
+            $res['TrialVersion'] = $this->trialVersion;
         }
 
         if (null !== $this->userDefinedAlarms) {
@@ -587,6 +688,10 @@ class DescribeVersionConfigResponseBody extends Model
             $model->assetLevel = $map['AssetLevel'];
         }
 
+        if (isset($map['BuySasEdr'])) {
+            $model->buySasEdr = $map['BuySasEdr'];
+        }
+
         if (isset($map['CanTryPostPaidPackage'])) {
             $model->canTryPostPaidPackage = $map['CanTryPostPaidPackage'];
         }
@@ -605,6 +710,10 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (isset($map['HoneypotCapacity'])) {
             $model->honeypotCapacity = $map['HoneypotCapacity'];
+        }
+
+        if (isset($map['HybridPaidGrayStatus'])) {
+            $model->hybridPaidGrayStatus = $map['HybridPaidGrayStatus'];
         }
 
         if (isset($map['HybridPaidModuleSwitchMap'])) {
@@ -723,6 +832,26 @@ class DescribeVersionConfigResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
 
+        if (isset($map['SasEdrClientAuthCount'])) {
+            $model->sasEdrClientAuthCount = $map['SasEdrClientAuthCount'];
+        }
+
+        if (isset($map['SasEdrPostPaidInstanceId'])) {
+            $model->sasEdrPostPaidInstanceId = $map['SasEdrPostPaidInstanceId'];
+        }
+
+        if (isset($map['SasEdrPrePaidInstanceId'])) {
+            $model->sasEdrPrePaidInstanceId = $map['SasEdrPrePaidInstanceId'];
+        }
+
+        if (isset($map['SasEdrPrePaidInstanceStatus'])) {
+            $model->sasEdrPrePaidInstanceStatus = $map['SasEdrPrePaidInstanceStatus'];
+        }
+
+        if (isset($map['SasEdrVersion'])) {
+            $model->sasEdrVersion = $map['SasEdrVersion'];
+        }
+
         if (isset($map['SasLog'])) {
             $model->sasLog = $map['SasLog'];
         }
@@ -745,6 +874,21 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (isset($map['ThreatAnalysisFlow'])) {
             $model->threatAnalysisFlow = $map['ThreatAnalysisFlow'];
+        }
+
+        if (isset($map['TrialModuleList'])) {
+            if (!empty($map['TrialModuleList'])) {
+                $model->trialModuleList = [];
+                $n1 = 0;
+                foreach ($map['TrialModuleList'] as $item1) {
+                    $model->trialModuleList[$n1] = trialModuleList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['TrialVersion'])) {
+            $model->trialVersion = $map['TrialVersion'];
         }
 
         if (isset($map['UserDefinedAlarms'])) {

@@ -14,6 +14,11 @@ class VerifyCheckResultRequest extends Model
     public $checkIds;
 
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -24,6 +29,7 @@ class VerifyCheckResultRequest extends Model
     public $taskSource;
     protected $_name = [
         'checkIds' => 'CheckIds',
+        'force' => 'Force',
         'instanceIds' => 'InstanceIds',
         'taskSource' => 'TaskSource',
     ];
@@ -51,6 +57,10 @@ class VerifyCheckResultRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
         }
 
         if (null !== $this->instanceIds) {
@@ -88,6 +98,10 @@ class VerifyCheckResultRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
         }
 
         if (isset($map['InstanceIds'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateSasTrialShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $fromEcs;
@@ -33,6 +38,7 @@ class CreateSasTrialShrinkRequest extends Model
      */
     public $tryVersion;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'fromEcs' => 'FromEcs',
         'lang' => 'Lang',
         'requestFormShrink' => 'RequestForm',
@@ -48,6 +54,10 @@ class CreateSasTrialShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->fromEcs) {
             $res['FromEcs'] = $this->fromEcs;
         }
@@ -79,6 +89,10 @@ class CreateSasTrialShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['FromEcs'])) {
             $model->fromEcs = $map['FromEcs'];
         }

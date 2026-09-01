@@ -18,6 +18,11 @@ class ChangeCheckConfigRequest extends Model
     public $addedCheck;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var configRequirementIds
      */
     public $configRequirementIds;
@@ -88,6 +93,7 @@ class ChangeCheckConfigRequest extends Model
     public $vendors;
     protected $_name = [
         'addedCheck' => 'AddedCheck',
+        'clientToken' => 'ClientToken',
         'configRequirementIds' => 'ConfigRequirementIds',
         'configStandardIds' => 'ConfigStandardIds',
         'configure' => 'Configure',
@@ -142,6 +148,10 @@ class ChangeCheckConfigRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->configRequirementIds) {
@@ -248,6 +258,10 @@ class ChangeCheckConfigRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['ConfigRequirementIds'])) {

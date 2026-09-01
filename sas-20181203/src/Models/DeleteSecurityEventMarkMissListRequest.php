@@ -16,9 +16,15 @@ class DeleteSecurityEventMarkMissListRequest extends Model
     /**
      * @var int
      */
+    public $resourceDirectoryAccountId;
+
+    /**
+     * @var int
+     */
     public $resourceOwnerId;
     protected $_name = [
         'ids' => 'Ids',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
@@ -42,6 +48,10 @@ class DeleteSecurityEventMarkMissListRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->resourceOwnerId) {
@@ -68,6 +78,10 @@ class DeleteSecurityEventMarkMissListRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['ResourceOwnerId'])) {

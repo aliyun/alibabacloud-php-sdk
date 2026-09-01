@@ -12,6 +12,11 @@ class AddAssetSelectionCriteriaRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $criteria;
 
     /**
@@ -29,6 +34,7 @@ class AddAssetSelectionCriteriaRequest extends Model
      */
     public $targetOperationList;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'criteria' => 'Criteria',
         'criteriaOperation' => 'CriteriaOperation',
         'selectionKey' => 'SelectionKey',
@@ -46,6 +52,10 @@ class AddAssetSelectionCriteriaRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
         }
@@ -80,6 +90,10 @@ class AddAssetSelectionCriteriaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
         }

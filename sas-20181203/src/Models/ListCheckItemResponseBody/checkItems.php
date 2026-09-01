@@ -41,6 +41,11 @@ class checkItems extends Model
     public $estimatedCount;
 
     /**
+     * @var int
+     */
+    public $instanceEstimatedCount;
+
+    /**
      * @var string
      */
     public $instanceSubType;
@@ -71,6 +76,7 @@ class checkItems extends Model
         'customConfigs' => 'CustomConfigs',
         'description' => 'Description',
         'estimatedCount' => 'EstimatedCount',
+        'instanceEstimatedCount' => 'InstanceEstimatedCount',
         'instanceSubType' => 'InstanceSubType',
         'instanceType' => 'InstanceType',
         'riskLevel' => 'RiskLevel',
@@ -124,6 +130,10 @@ class checkItems extends Model
 
         if (null !== $this->estimatedCount) {
             $res['EstimatedCount'] = $this->estimatedCount;
+        }
+
+        if (null !== $this->instanceEstimatedCount) {
+            $res['InstanceEstimatedCount'] = $this->instanceEstimatedCount;
         }
 
         if (null !== $this->instanceSubType) {
@@ -193,6 +203,10 @@ class checkItems extends Model
 
         if (isset($map['EstimatedCount'])) {
             $model->estimatedCount = $map['EstimatedCount'];
+        }
+
+        if (isset($map['InstanceEstimatedCount'])) {
+            $model->instanceEstimatedCount = $map['InstanceEstimatedCount'];
         }
 
         if (isset($map['InstanceSubType'])) {

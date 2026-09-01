@@ -16,6 +16,21 @@ class postPaidVersionSummary extends Model
     /**
      * @var int
      */
+    public $freeCoreCount;
+
+    /**
+     * @var int
+     */
+    public $freeEcsCount;
+
+    /**
+     * @var string
+     */
+    public $freeType;
+
+    /**
+     * @var int
+     */
     public $index;
 
     /**
@@ -34,6 +49,9 @@ class postPaidVersionSummary extends Model
     public $version;
     protected $_name = [
         'authBindType' => 'AuthBindType',
+        'freeCoreCount' => 'FreeCoreCount',
+        'freeEcsCount' => 'FreeEcsCount',
+        'freeType' => 'FreeType',
         'index' => 'Index',
         'usedCoreCount' => 'UsedCoreCount',
         'usedEcsCount' => 'UsedEcsCount',
@@ -50,6 +68,18 @@ class postPaidVersionSummary extends Model
         $res = [];
         if (null !== $this->authBindType) {
             $res['AuthBindType'] = $this->authBindType;
+        }
+
+        if (null !== $this->freeCoreCount) {
+            $res['FreeCoreCount'] = $this->freeCoreCount;
+        }
+
+        if (null !== $this->freeEcsCount) {
+            $res['FreeEcsCount'] = $this->freeEcsCount;
+        }
+
+        if (null !== $this->freeType) {
+            $res['FreeType'] = $this->freeType;
         }
 
         if (null !== $this->index) {
@@ -81,6 +111,18 @@ class postPaidVersionSummary extends Model
         $model = new self();
         if (isset($map['AuthBindType'])) {
             $model->authBindType = $map['AuthBindType'];
+        }
+
+        if (isset($map['FreeCoreCount'])) {
+            $model->freeCoreCount = $map['FreeCoreCount'];
+        }
+
+        if (isset($map['FreeEcsCount'])) {
+            $model->freeEcsCount = $map['FreeEcsCount'];
+        }
+
+        if (isset($map['FreeType'])) {
+            $model->freeType = $map['FreeType'];
         }
 
         if (isset($map['Index'])) {

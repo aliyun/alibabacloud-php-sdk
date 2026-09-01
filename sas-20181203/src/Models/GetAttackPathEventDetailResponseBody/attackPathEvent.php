@@ -45,6 +45,16 @@ class attackPathEvent extends Model
     /**
      * @var string
      */
+    public $pathInterpretationStatus;
+
+    /**
+     * @var string
+     */
+    public $pathInterpretationUrl;
+
+    /**
+     * @var string
+     */
     public $pathName;
 
     /**
@@ -78,6 +88,8 @@ class attackPathEvent extends Model
         'pathDetailDesc' => 'PathDetailDesc',
         'pathEventEdgeList' => 'PathEventEdgeList',
         'pathEventNodeList' => 'PathEventNodeList',
+        'pathInterpretationStatus' => 'PathInterpretationStatus',
+        'pathInterpretationUrl' => 'PathInterpretationUrl',
         'pathName' => 'PathName',
         'pathNameDesc' => 'PathNameDesc',
         'pathType' => 'PathType',
@@ -142,6 +154,14 @@ class attackPathEvent extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->pathInterpretationStatus) {
+            $res['PathInterpretationStatus'] = $this->pathInterpretationStatus;
+        }
+
+        if (null !== $this->pathInterpretationUrl) {
+            $res['PathInterpretationUrl'] = $this->pathInterpretationUrl;
         }
 
         if (null !== $this->pathName) {
@@ -215,6 +235,14 @@ class attackPathEvent extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PathInterpretationStatus'])) {
+            $model->pathInterpretationStatus = $map['PathInterpretationStatus'];
+        }
+
+        if (isset($map['PathInterpretationUrl'])) {
+            $model->pathInterpretationUrl = $map['PathInterpretationUrl'];
         }
 
         if (isset($map['PathName'])) {

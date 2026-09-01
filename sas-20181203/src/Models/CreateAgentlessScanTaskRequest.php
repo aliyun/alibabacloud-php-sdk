@@ -19,6 +19,16 @@ class CreateAgentlessScanTaskRequest extends Model
     public $autoDeleteDays;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var bool
      */
     public $releaseAfterScan;
@@ -40,6 +50,8 @@ class CreateAgentlessScanTaskRequest extends Model
     protected $_name = [
         'assetSelectionType' => 'AssetSelectionType',
         'autoDeleteDays' => 'AutoDeleteDays',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
         'releaseAfterScan' => 'ReleaseAfterScan',
         'scanDataDisk' => 'ScanDataDisk',
         'targetType' => 'TargetType',
@@ -63,6 +75,14 @@ class CreateAgentlessScanTaskRequest extends Model
 
         if (null !== $this->autoDeleteDays) {
             $res['AutoDeleteDays'] = $this->autoDeleteDays;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->releaseAfterScan) {
@@ -105,6 +125,14 @@ class CreateAgentlessScanTaskRequest extends Model
 
         if (isset($map['AutoDeleteDays'])) {
             $model->autoDeleteDays = $map['AutoDeleteDays'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['ReleaseAfterScan'])) {

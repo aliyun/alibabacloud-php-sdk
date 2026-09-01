@@ -21,6 +21,11 @@ class AdvanceSecurityEventOperationsRequest extends Model
     /**
      * @var int
      */
+    public $resourceDirectoryAccountId;
+
+    /**
+     * @var int
+     */
     public $resourceOwnerId;
 
     /**
@@ -30,6 +35,7 @@ class AdvanceSecurityEventOperationsRequest extends Model
     protected $_name = [
         'eventName' => 'EventName',
         'eventType' => 'EventType',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'resourceOwnerId' => 'ResourceOwnerId',
         'ruleId' => 'RuleId',
     ];
@@ -48,6 +54,10 @@ class AdvanceSecurityEventOperationsRequest extends Model
 
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->resourceOwnerId) {
@@ -75,6 +85,10 @@ class AdvanceSecurityEventOperationsRequest extends Model
 
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['ResourceOwnerId'])) {

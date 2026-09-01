@@ -26,11 +26,17 @@ class GetDataTrendRequest extends Model
     /**
      * @var int
      */
+    public $resourceDirectoryAccountId;
+
+    /**
+     * @var int
+     */
     public $startTimestamp;
     protected $_name = [
         'bizTypes' => 'BizTypes',
         'endTimestamp' => 'EndTimestamp',
         'interval' => 'Interval',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'startTimestamp' => 'StartTimestamp',
     ];
 
@@ -52,6 +58,10 @@ class GetDataTrendRequest extends Model
 
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->startTimestamp) {
@@ -79,6 +89,10 @@ class GetDataTrendRequest extends Model
 
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['StartTimestamp'])) {

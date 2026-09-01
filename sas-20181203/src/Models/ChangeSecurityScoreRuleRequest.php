@@ -21,6 +21,11 @@ class ChangeSecurityScoreRuleRequest extends Model
     public $resetSecurityScoreRule;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var securityScoreCategoryList[]
      */
     public $securityScoreCategoryList;
@@ -32,6 +37,7 @@ class ChangeSecurityScoreRuleRequest extends Model
     protected $_name = [
         'calType' => 'CalType',
         'resetSecurityScoreRule' => 'ResetSecurityScoreRule',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'securityScoreCategoryList' => 'SecurityScoreCategoryList',
         'securityScoreRuleList' => 'SecurityScoreRuleList',
     ];
@@ -56,6 +62,10 @@ class ChangeSecurityScoreRuleRequest extends Model
 
         if (null !== $this->resetSecurityScoreRule) {
             $res['ResetSecurityScoreRule'] = $this->resetSecurityScoreRule;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->securityScoreCategoryList) {
@@ -97,6 +107,10 @@ class ChangeSecurityScoreRuleRequest extends Model
 
         if (isset($map['ResetSecurityScoreRule'])) {
             $model->resetSecurityScoreRule = $map['ResetSecurityScoreRule'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SecurityScoreCategoryList'])) {

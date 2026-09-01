@@ -31,6 +31,11 @@ class BindAuthToMachineRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $criteria;
 
     /**
@@ -54,6 +59,11 @@ class BindAuthToMachineRequest extends Model
     public $preBindOrderId;
 
     /**
+     * @var string
+     */
+    public $productCode;
+
+    /**
      * @var int
      */
     public $resourceDirectoryAccountId;
@@ -67,11 +77,13 @@ class BindAuthToMachineRequest extends Model
         'autoBind' => 'AutoBind',
         'bind' => 'Bind',
         'bindAll' => 'BindAll',
+        'clientToken' => 'ClientToken',
         'criteria' => 'Criteria',
         'isPreBind' => 'IsPreBind',
         'logicalExp' => 'LogicalExp',
         'ntmVersion' => 'NtmVersion',
         'preBindOrderId' => 'PreBindOrderId',
+        'productCode' => 'ProductCode',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'unBind' => 'UnBind',
     ];
@@ -113,6 +125,10 @@ class BindAuthToMachineRequest extends Model
             $res['BindAll'] = $this->bindAll;
         }
 
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
         }
@@ -131,6 +147,10 @@ class BindAuthToMachineRequest extends Model
 
         if (null !== $this->preBindOrderId) {
             $res['PreBindOrderId'] = $this->preBindOrderId;
+        }
+
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
 
         if (null !== $this->resourceDirectoryAccountId) {
@@ -182,6 +202,10 @@ class BindAuthToMachineRequest extends Model
             $model->bindAll = $map['BindAll'];
         }
 
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
         }
@@ -200,6 +224,10 @@ class BindAuthToMachineRequest extends Model
 
         if (isset($map['PreBindOrderId'])) {
             $model->preBindOrderId = $map['PreBindOrderId'];
+        }
+
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
 
         if (isset($map['ResourceDirectoryAccountId'])) {

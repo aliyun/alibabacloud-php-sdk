@@ -11,6 +11,11 @@ class ModifyOperateVulRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $from;
 
     /**
@@ -29,14 +34,21 @@ class ModifyOperateVulRequest extends Model
     public $reason;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $type;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'from' => 'From',
         'info' => 'Info',
         'operateType' => 'OperateType',
         'reason' => 'Reason',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'type' => 'Type',
     ];
 
@@ -48,6 +60,10 @@ class ModifyOperateVulRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
@@ -62,6 +78,10 @@ class ModifyOperateVulRequest extends Model
 
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->type) {
@@ -79,6 +99,10 @@ class ModifyOperateVulRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
@@ -93,6 +117,10 @@ class ModifyOperateVulRequest extends Model
 
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['Type'])) {

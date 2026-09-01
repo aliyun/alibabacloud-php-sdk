@@ -24,6 +24,11 @@ class ListOssBucketScanInfoRequest extends Model
     public $fuzzBucketName;
 
     /**
+     * @var string
+     */
+    public $fuzzFileSystemName;
+
+    /**
      * @var int
      */
     public $hasRisk;
@@ -39,6 +44,11 @@ class ListOssBucketScanInfoRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @var int
      */
     public $status;
@@ -46,9 +56,11 @@ class ListOssBucketScanInfoRequest extends Model
         'bucketName' => 'BucketName',
         'currentPage' => 'CurrentPage',
         'fuzzBucketName' => 'FuzzBucketName',
+        'fuzzFileSystemName' => 'FuzzFileSystemName',
         'hasRisk' => 'HasRisk',
         'lang' => 'Lang',
         'pageSize' => 'PageSize',
+        'source' => 'Source',
         'status' => 'Status',
     ];
 
@@ -72,6 +84,10 @@ class ListOssBucketScanInfoRequest extends Model
             $res['FuzzBucketName'] = $this->fuzzBucketName;
         }
 
+        if (null !== $this->fuzzFileSystemName) {
+            $res['FuzzFileSystemName'] = $this->fuzzFileSystemName;
+        }
+
         if (null !== $this->hasRisk) {
             $res['HasRisk'] = $this->hasRisk;
         }
@@ -82,6 +98,10 @@ class ListOssBucketScanInfoRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         if (null !== $this->status) {
@@ -111,6 +131,10 @@ class ListOssBucketScanInfoRequest extends Model
             $model->fuzzBucketName = $map['FuzzBucketName'];
         }
 
+        if (isset($map['FuzzFileSystemName'])) {
+            $model->fuzzFileSystemName = $map['FuzzFileSystemName'];
+        }
+
         if (isset($map['HasRisk'])) {
             $model->hasRisk = $map['HasRisk'];
         }
@@ -121,6 +145,10 @@ class ListOssBucketScanInfoRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['Status'])) {

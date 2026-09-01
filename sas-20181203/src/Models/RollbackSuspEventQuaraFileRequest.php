@@ -19,12 +19,18 @@ class RollbackSuspEventQuaraFileRequest extends Model
     public $quaraFileId;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $sourceIp;
     protected $_name = [
         'from' => 'From',
         'quaraFileId' => 'QuaraFileId',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'sourceIp' => 'SourceIp',
     ];
 
@@ -42,6 +48,10 @@ class RollbackSuspEventQuaraFileRequest extends Model
 
         if (null !== $this->quaraFileId) {
             $res['QuaraFileId'] = $this->quaraFileId;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->sourceIp) {
@@ -65,6 +75,10 @@ class RollbackSuspEventQuaraFileRequest extends Model
 
         if (isset($map['QuaraFileId'])) {
             $model->quaraFileId = $map['QuaraFileId'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SourceIp'])) {

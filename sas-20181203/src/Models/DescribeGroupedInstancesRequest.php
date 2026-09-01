@@ -44,6 +44,11 @@ class DescribeGroupedInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $saleVersionCheckCode;
@@ -65,6 +70,7 @@ class DescribeGroupedInstancesRequest extends Model
         'machineTypes' => 'MachineTypes',
         'noPage' => 'NoPage',
         'pageSize' => 'PageSize',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'saleVersionCheckCode' => 'SaleVersionCheckCode',
         'vendor' => 'Vendor',
         'vendors' => 'Vendors',
@@ -104,6 +110,10 @@ class DescribeGroupedInstancesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->saleVersionCheckCode) {
@@ -155,6 +165,10 @@ class DescribeGroupedInstancesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SaleVersionCheckCode'])) {

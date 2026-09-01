@@ -16,6 +16,16 @@ class data extends Model
     /**
      * @var int
      */
+    public $autoAdd;
+
+    /**
+     * @var string
+     */
+    public $autoAddConfigName;
+
+    /**
+     * @var int
+     */
     public $bucketCount;
 
     /**
@@ -96,9 +106,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $source;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
         'allKeyPrefix' => 'AllKeyPrefix',
+        'autoAdd' => 'AutoAdd',
+        'autoAddConfigName' => 'AutoAddConfigName',
         'bucketCount' => 'BucketCount',
         'bucketName' => 'BucketName',
         'bucketNameList' => 'BucketNameList',
@@ -115,6 +132,7 @@ class data extends Model
         'name' => 'Name',
         'realTimeIncr' => 'RealTimeIncr',
         'scanDayList' => 'ScanDayList',
+        'source' => 'Source',
         'startTime' => 'StartTime',
     ];
 
@@ -143,6 +161,14 @@ class data extends Model
         $res = [];
         if (null !== $this->allKeyPrefix) {
             $res['AllKeyPrefix'] = $this->allKeyPrefix;
+        }
+
+        if (null !== $this->autoAdd) {
+            $res['AutoAdd'] = $this->autoAdd;
+        }
+
+        if (null !== $this->autoAddConfigName) {
+            $res['AutoAddConfigName'] = $this->autoAddConfigName;
         }
 
         if (null !== $this->bucketCount) {
@@ -244,6 +270,10 @@ class data extends Model
             }
         }
 
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -261,6 +291,14 @@ class data extends Model
         $model = new self();
         if (isset($map['AllKeyPrefix'])) {
             $model->allKeyPrefix = $map['AllKeyPrefix'];
+        }
+
+        if (isset($map['AutoAdd'])) {
+            $model->autoAdd = $map['AutoAdd'];
+        }
+
+        if (isset($map['AutoAddConfigName'])) {
+            $model->autoAddConfigName = $map['AutoAddConfigName'];
         }
 
         if (isset($map['BucketCount'])) {
@@ -360,6 +398,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['StartTime'])) {

@@ -18,6 +18,11 @@ class ChangeCheckConfigShrinkRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $configRequirementIdsShrink;
 
     /**
@@ -86,6 +91,7 @@ class ChangeCheckConfigShrinkRequest extends Model
     public $vendors;
     protected $_name = [
         'addedCheck' => 'AddedCheck',
+        'clientToken' => 'ClientToken',
         'configRequirementIdsShrink' => 'ConfigRequirementIds',
         'configStandardIdsShrink' => 'ConfigStandardIds',
         'configure' => 'Configure',
@@ -134,6 +140,10 @@ class ChangeCheckConfigShrinkRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->configRequirementIdsShrink) {
@@ -240,6 +250,10 @@ class ChangeCheckConfigShrinkRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['ConfigRequirementIds'])) {

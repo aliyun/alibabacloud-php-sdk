@@ -14,11 +14,17 @@ class GetInstanceAlarmStatisticsRequest extends Model
     public $from;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $uuid;
     protected $_name = [
         'from' => 'From',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'uuid' => 'Uuid',
     ];
 
@@ -32,6 +38,10 @@ class GetInstanceAlarmStatisticsRequest extends Model
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->uuid) {
@@ -51,6 +61,10 @@ class GetInstanceAlarmStatisticsRequest extends Model
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['Uuid'])) {

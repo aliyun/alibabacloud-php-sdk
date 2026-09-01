@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class CreateSimilarSecurityEventsQueryTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -28,6 +38,8 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
+        'clientToken' => 'ClientToken',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityEventId' => 'SecurityEventId',
         'similarEventScenarioCode' => 'SimilarEventScenarioCode',
@@ -42,6 +54,14 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
+        }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -69,6 +89,14 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
+        }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

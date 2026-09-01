@@ -16,9 +16,15 @@ class UpdateSelectionKeyByTypeRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $selectionKey;
     protected $_name = [
         'businessType' => 'BusinessType',
+        'clientToken' => 'ClientToken',
         'selectionKey' => 'SelectionKey',
     ];
 
@@ -32,6 +38,10 @@ class UpdateSelectionKeyByTypeRequest extends Model
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->selectionKey) {
@@ -51,6 +61,10 @@ class UpdateSelectionKeyByTypeRequest extends Model
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['SelectionKey'])) {

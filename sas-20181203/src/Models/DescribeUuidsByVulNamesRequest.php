@@ -49,6 +49,11 @@ class DescribeUuidsByVulNamesRequest extends Model
     public $remark;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $searchTags;
@@ -91,6 +96,7 @@ class DescribeUuidsByVulNamesRequest extends Model
         'level' => 'Level',
         'necessity' => 'Necessity',
         'remark' => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'searchTags' => 'SearchTags',
         'statusList' => 'StatusList',
         'tag' => 'Tag',
@@ -141,6 +147,10 @@ class DescribeUuidsByVulNamesRequest extends Model
 
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->searchTags) {
@@ -219,6 +229,10 @@ class DescribeUuidsByVulNamesRequest extends Model
 
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SearchTags'])) {

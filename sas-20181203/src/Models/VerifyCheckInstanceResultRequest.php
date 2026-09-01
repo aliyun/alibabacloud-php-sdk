@@ -19,6 +19,11 @@ class VerifyCheckInstanceResultRequest extends Model
     public $checkIds;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -30,6 +35,7 @@ class VerifyCheckInstanceResultRequest extends Model
     protected $_name = [
         'checkId' => 'CheckId',
         'checkIds' => 'CheckIds',
+        'clientToken' => 'ClientToken',
         'instanceIds' => 'InstanceIds',
         'taskSource' => 'TaskSource',
     ];
@@ -61,6 +67,10 @@ class VerifyCheckInstanceResultRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->instanceIds) {
@@ -102,6 +112,10 @@ class VerifyCheckInstanceResultRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['InstanceIds'])) {

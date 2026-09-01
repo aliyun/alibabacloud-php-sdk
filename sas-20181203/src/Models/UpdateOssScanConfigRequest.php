@@ -14,6 +14,11 @@ class UpdateOssScanConfigRequest extends Model
     public $allKeyPrefix;
 
     /**
+     * @var int
+     */
+    public $autoAdd;
+
+    /**
      * @var string[]
      */
     public $bucketNameList;
@@ -81,9 +86,15 @@ class UpdateOssScanConfigRequest extends Model
     /**
      * @var string
      */
+    public $source;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
         'allKeyPrefix' => 'AllKeyPrefix',
+        'autoAdd' => 'AutoAdd',
         'bucketNameList' => 'BucketNameList',
         'decompressMaxFileCount' => 'DecompressMaxFileCount',
         'decompressMaxLayer' => 'DecompressMaxLayer',
@@ -97,6 +108,7 @@ class UpdateOssScanConfigRequest extends Model
         'name' => 'Name',
         'realTimeIncr' => 'RealTimeIncr',
         'scanDayList' => 'ScanDayList',
+        'source' => 'Source',
         'startTime' => 'StartTime',
     ];
 
@@ -125,6 +137,10 @@ class UpdateOssScanConfigRequest extends Model
         $res = [];
         if (null !== $this->allKeyPrefix) {
             $res['AllKeyPrefix'] = $this->allKeyPrefix;
+        }
+
+        if (null !== $this->autoAdd) {
+            $res['AutoAdd'] = $this->autoAdd;
         }
 
         if (null !== $this->bucketNameList) {
@@ -214,6 +230,10 @@ class UpdateOssScanConfigRequest extends Model
             }
         }
 
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -231,6 +251,10 @@ class UpdateOssScanConfigRequest extends Model
         $model = new self();
         if (isset($map['AllKeyPrefix'])) {
             $model->allKeyPrefix = $map['AllKeyPrefix'];
+        }
+
+        if (isset($map['AutoAdd'])) {
+            $model->autoAdd = $map['AutoAdd'];
         }
 
         if (isset($map['BucketNameList'])) {
@@ -318,6 +342,10 @@ class UpdateOssScanConfigRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['StartTime'])) {

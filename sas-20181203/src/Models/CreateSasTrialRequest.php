@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSasTrialRequest\requestForm;
 class CreateSasTrialRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $fromEcs;
@@ -34,6 +39,7 @@ class CreateSasTrialRequest extends Model
      */
     public $tryVersion;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'fromEcs' => 'FromEcs',
         'lang' => 'Lang',
         'requestForm' => 'RequestForm',
@@ -52,6 +58,10 @@ class CreateSasTrialRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->fromEcs) {
             $res['FromEcs'] = $this->fromEcs;
         }
@@ -83,6 +93,10 @@ class CreateSasTrialRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['FromEcs'])) {
             $model->fromEcs = $map['FromEcs'];
         }

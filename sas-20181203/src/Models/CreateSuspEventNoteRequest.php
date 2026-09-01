@@ -17,9 +17,15 @@ class CreateSuspEventNoteRequest extends Model
      * @var string
      */
     public $note;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
     protected $_name = [
         'eventId' => 'EventId',
         'note' => 'Note',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class CreateSuspEventNoteRequest extends Model
 
         if (null !== $this->note) {
             $res['Note'] = $this->note;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class CreateSuspEventNoteRequest extends Model
 
         if (isset($map['Note'])) {
             $model->note = $map['Note'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         return $model;

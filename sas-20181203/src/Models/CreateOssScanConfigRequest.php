@@ -14,9 +14,19 @@ class CreateOssScanConfigRequest extends Model
     public $allKeyPrefix;
 
     /**
+     * @var int
+     */
+    public $autoAdd;
+
+    /**
      * @var string[]
      */
     public $bucketNameList;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
 
     /**
      * @var int
@@ -76,10 +86,17 @@ class CreateOssScanConfigRequest extends Model
     /**
      * @var string
      */
+    public $source;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
         'allKeyPrefix' => 'AllKeyPrefix',
+        'autoAdd' => 'AutoAdd',
         'bucketNameList' => 'BucketNameList',
+        'clientToken' => 'ClientToken',
         'decompressMaxFileCount' => 'DecompressMaxFileCount',
         'decompressMaxLayer' => 'DecompressMaxLayer',
         'decryptionList' => 'DecryptionList',
@@ -91,6 +108,7 @@ class CreateOssScanConfigRequest extends Model
         'name' => 'Name',
         'realTimeIncr' => 'RealTimeIncr',
         'scanDayList' => 'ScanDayList',
+        'source' => 'Source',
         'startTime' => 'StartTime',
     ];
 
@@ -121,6 +139,10 @@ class CreateOssScanConfigRequest extends Model
             $res['AllKeyPrefix'] = $this->allKeyPrefix;
         }
 
+        if (null !== $this->autoAdd) {
+            $res['AutoAdd'] = $this->autoAdd;
+        }
+
         if (null !== $this->bucketNameList) {
             if (\is_array($this->bucketNameList)) {
                 $res['BucketNameList'] = [];
@@ -130,6 +152,10 @@ class CreateOssScanConfigRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->decompressMaxFileCount) {
@@ -204,6 +230,10 @@ class CreateOssScanConfigRequest extends Model
             }
         }
 
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -223,6 +253,10 @@ class CreateOssScanConfigRequest extends Model
             $model->allKeyPrefix = $map['AllKeyPrefix'];
         }
 
+        if (isset($map['AutoAdd'])) {
+            $model->autoAdd = $map['AutoAdd'];
+        }
+
         if (isset($map['BucketNameList'])) {
             if (!empty($map['BucketNameList'])) {
                 $model->bucketNameList = [];
@@ -232,6 +266,10 @@ class CreateOssScanConfigRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['DecompressMaxFileCount'])) {
@@ -304,6 +342,10 @@ class CreateOssScanConfigRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['StartTime'])) {

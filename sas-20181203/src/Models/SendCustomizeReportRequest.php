@@ -12,8 +12,14 @@ class SendCustomizeReportRequest extends Model
      * @var int
      */
     public $reportId;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
     protected $_name = [
         'reportId' => 'ReportId',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class SendCustomizeReportRequest extends Model
         $res = [];
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class SendCustomizeReportRequest extends Model
         $model = new self();
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         return $model;

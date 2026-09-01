@@ -19,6 +19,11 @@ class OperationSuspEventsRequest extends Model
     public $operation;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $sourceIp;
@@ -40,6 +45,7 @@ class OperationSuspEventsRequest extends Model
     protected $_name = [
         'from' => 'From',
         'operation' => 'Operation',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'sourceIp' => 'SourceIp',
         'subOperation' => 'SubOperation',
         'suspiciousEventIds' => 'SuspiciousEventIds',
@@ -60,6 +66,10 @@ class OperationSuspEventsRequest extends Model
 
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->sourceIp) {
@@ -95,6 +105,10 @@ class OperationSuspEventsRequest extends Model
 
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SourceIp'])) {

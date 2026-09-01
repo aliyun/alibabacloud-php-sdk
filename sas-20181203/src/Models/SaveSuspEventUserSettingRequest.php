@@ -17,9 +17,15 @@ class SaveSuspEventUserSettingRequest extends Model
      * @var string
      */
     public $levelsOn;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
     protected $_name = [
         'from' => 'From',
         'levelsOn' => 'LevelsOn',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class SaveSuspEventUserSettingRequest extends Model
 
         if (null !== $this->levelsOn) {
             $res['LevelsOn'] = $this->levelsOn;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class SaveSuspEventUserSettingRequest extends Model
 
         if (isset($map['LevelsOn'])) {
             $model->levelsOn = $map['LevelsOn'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         return $model;

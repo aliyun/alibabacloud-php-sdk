@@ -14,6 +14,11 @@ class bindAction extends Model
     public $bindAll;
 
     /**
+     * @var string
+     */
+    public $freeType;
+
+    /**
      * @var string[]
      */
     public $uuidList;
@@ -24,6 +29,7 @@ class bindAction extends Model
     public $version;
     protected $_name = [
         'bindAll' => 'BindAll',
+        'freeType' => 'FreeType',
         'uuidList' => 'UuidList',
         'version' => 'Version',
     ];
@@ -41,6 +47,10 @@ class bindAction extends Model
         $res = [];
         if (null !== $this->bindAll) {
             $res['BindAll'] = $this->bindAll;
+        }
+
+        if (null !== $this->freeType) {
+            $res['FreeType'] = $this->freeType;
         }
 
         if (null !== $this->uuidList) {
@@ -71,6 +81,10 @@ class bindAction extends Model
         $model = new self();
         if (isset($map['BindAll'])) {
             $model->bindAll = $map['BindAll'];
+        }
+
+        if (isset($map['FreeType'])) {
+            $model->freeType = $map['FreeType'];
         }
 
         if (isset($map['UuidList'])) {

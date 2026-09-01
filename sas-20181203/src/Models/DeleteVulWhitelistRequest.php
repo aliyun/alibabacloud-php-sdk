@@ -14,11 +14,17 @@ class DeleteVulWhitelistRequest extends Model
     public $id;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $whitelist;
     protected $_name = [
         'id' => 'Id',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'whitelist' => 'Whitelist',
     ];
 
@@ -32,6 +38,10 @@ class DeleteVulWhitelistRequest extends Model
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->whitelist) {
@@ -51,6 +61,10 @@ class DeleteVulWhitelistRequest extends Model
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['Whitelist'])) {

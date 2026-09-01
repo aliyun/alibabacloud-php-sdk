@@ -18,9 +18,15 @@ class data extends Model
      * @var deductPackageList[]
      */
     public $deductPackageList;
+
+    /**
+     * @var int
+     */
+    public $trialVersion;
     protected $_name = [
         'canTry' => 'CanTry',
         'deductPackageList' => 'DeductPackageList',
+        'trialVersion' => 'TrialVersion',
     ];
 
     public function validate()
@@ -49,6 +55,10 @@ class data extends Model
             }
         }
 
+        if (null !== $this->trialVersion) {
+            $res['TrialVersion'] = $this->trialVersion;
+        }
+
         return $res;
     }
 
@@ -73,6 +83,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TrialVersion'])) {
+            $model->trialVersion = $map['TrialVersion'];
         }
 
         return $model;

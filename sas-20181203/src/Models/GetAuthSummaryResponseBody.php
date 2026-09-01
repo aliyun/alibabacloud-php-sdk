@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthSummaryResponseBody\edrSummary;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthSummaryResponseBody\machine;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthSummaryResponseBody\postPaidVersionSummary;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthSummaryResponseBody\versionSummary;
@@ -40,6 +41,11 @@ class GetAuthSummaryResponseBody extends Model
      * @var int
      */
     public $defaultAuthToAll;
+
+    /**
+     * @var edrSummary
+     */
+    public $edrSummary;
 
     /**
      * @var bool
@@ -102,6 +108,7 @@ class GetAuthSummaryResponseBody extends Model
         'autoBind' => 'AutoBind',
         'clusterNodeCheck' => 'ClusterNodeCheck',
         'defaultAuthToAll' => 'DefaultAuthToAll',
+        'edrSummary' => 'EdrSummary',
         'hasPreBindSetting' => 'HasPreBindSetting',
         'highestVersion' => 'HighestVersion',
         'invalidBindStatus' => 'InvalidBindStatus',
@@ -117,6 +124,9 @@ class GetAuthSummaryResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->edrSummary) {
+            $this->edrSummary->validate();
+        }
         if (null !== $this->machine) {
             $this->machine->validate();
         }
@@ -154,6 +164,10 @@ class GetAuthSummaryResponseBody extends Model
 
         if (null !== $this->defaultAuthToAll) {
             $res['DefaultAuthToAll'] = $this->defaultAuthToAll;
+        }
+
+        if (null !== $this->edrSummary) {
+            $res['EdrSummary'] = null !== $this->edrSummary ? $this->edrSummary->toArray($noStream) : $this->edrSummary;
         }
 
         if (null !== $this->hasPreBindSetting) {
@@ -247,6 +261,10 @@ class GetAuthSummaryResponseBody extends Model
 
         if (isset($map['DefaultAuthToAll'])) {
             $model->defaultAuthToAll = $map['DefaultAuthToAll'];
+        }
+
+        if (isset($map['EdrSummary'])) {
+            $model->edrSummary = edrSummary::fromMap($map['EdrSummary']);
         }
 
         if (isset($map['HasPreBindSetting'])) {

@@ -26,11 +26,17 @@ class RefreshAssetsRequest extends Model
     /**
      * @var int
      */
+    public $resourceDirectoryAccountId;
+
+    /**
+     * @var int
+     */
     public $vendor;
     protected $_name = [
         'assetType' => 'AssetType',
         'cloudAssetSubType' => 'CloudAssetSubType',
         'cloudAssetType' => 'CloudAssetType',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'vendor' => 'Vendor',
     ];
 
@@ -52,6 +58,10 @@ class RefreshAssetsRequest extends Model
 
         if (null !== $this->cloudAssetType) {
             $res['CloudAssetType'] = $this->cloudAssetType;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->vendor) {
@@ -79,6 +89,10 @@ class RefreshAssetsRequest extends Model
 
         if (isset($map['CloudAssetType'])) {
             $model->cloudAssetType = $map['CloudAssetType'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['Vendor'])) {

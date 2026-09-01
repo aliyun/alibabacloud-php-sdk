@@ -104,6 +104,11 @@ class DescribeImageGroupedVulListRequest extends Model
     public $repoRegionId;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $ruleTag;
@@ -142,6 +147,7 @@ class DescribeImageGroupedVulListRequest extends Model
         'repoName' => 'RepoName',
         'repoNamespace' => 'RepoNamespace',
         'repoRegionId' => 'RepoRegionId',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'ruleTag' => 'RuleTag',
         'scanRange' => 'ScanRange',
         'type' => 'Type',
@@ -233,6 +239,10 @@ class DescribeImageGroupedVulListRequest extends Model
 
         if (null !== $this->repoRegionId) {
             $res['RepoRegionId'] = $this->repoRegionId;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->ruleTag) {
@@ -343,6 +353,10 @@ class DescribeImageGroupedVulListRequest extends Model
 
         if (isset($map['RepoRegionId'])) {
             $model->repoRegionId = $map['RepoRegionId'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['RuleTag'])) {

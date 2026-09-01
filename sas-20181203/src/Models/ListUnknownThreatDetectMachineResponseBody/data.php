@@ -29,6 +29,16 @@ class data extends Model
     public $intranetIp;
 
     /**
+     * @var int
+     */
+    public $maliciousProcessCount;
+
+    /**
+     * @var int
+     */
+    public $normalEventCount;
+
+    /**
      * @var string
      */
     public $pluginStatus;
@@ -37,6 +47,11 @@ class data extends Model
      * @var int
      */
     public $processCount;
+
+    /**
+     * @var int
+     */
+    public $recentDeviationBehaviorCount;
 
     /**
      * @var string
@@ -67,8 +82,11 @@ class data extends Model
         'instanceName' => 'InstanceName',
         'internetIp' => 'InternetIp',
         'intranetIp' => 'IntranetIp',
+        'maliciousProcessCount' => 'MaliciousProcessCount',
+        'normalEventCount' => 'NormalEventCount',
         'pluginStatus' => 'PluginStatus',
         'processCount' => 'ProcessCount',
+        'recentDeviationBehaviorCount' => 'RecentDeviationBehaviorCount',
         'status' => 'Status',
         'studyMode' => 'StudyMode',
         'studyRemainDays' => 'StudyRemainDays',
@@ -100,12 +118,24 @@ class data extends Model
             $res['IntranetIp'] = $this->intranetIp;
         }
 
+        if (null !== $this->maliciousProcessCount) {
+            $res['MaliciousProcessCount'] = $this->maliciousProcessCount;
+        }
+
+        if (null !== $this->normalEventCount) {
+            $res['NormalEventCount'] = $this->normalEventCount;
+        }
+
         if (null !== $this->pluginStatus) {
             $res['PluginStatus'] = $this->pluginStatus;
         }
 
         if (null !== $this->processCount) {
             $res['ProcessCount'] = $this->processCount;
+        }
+
+        if (null !== $this->recentDeviationBehaviorCount) {
+            $res['RecentDeviationBehaviorCount'] = $this->recentDeviationBehaviorCount;
         }
 
         if (null !== $this->status) {
@@ -155,12 +185,24 @@ class data extends Model
             $model->intranetIp = $map['IntranetIp'];
         }
 
+        if (isset($map['MaliciousProcessCount'])) {
+            $model->maliciousProcessCount = $map['MaliciousProcessCount'];
+        }
+
+        if (isset($map['NormalEventCount'])) {
+            $model->normalEventCount = $map['NormalEventCount'];
+        }
+
         if (isset($map['PluginStatus'])) {
             $model->pluginStatus = $map['PluginStatus'];
         }
 
         if (isset($map['ProcessCount'])) {
             $model->processCount = $map['ProcessCount'];
+        }
+
+        if (isset($map['RecentDeviationBehaviorCount'])) {
+            $model->recentDeviationBehaviorCount = $map['RecentDeviationBehaviorCount'];
         }
 
         if (isset($map['Status'])) {

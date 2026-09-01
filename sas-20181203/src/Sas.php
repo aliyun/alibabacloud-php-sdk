@@ -75,6 +75,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckScopeConfigInstanceRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckScopeConfigInstanceResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeSecurityScoreRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeSecurityScoreRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeUserLangRequest;
@@ -1003,6 +1005,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetBuildRiskDefineRuleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetBuildRiskDefineRuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCanTrySasRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCanTrySasResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckCountStatisticRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckCountStatisticResponse;
@@ -1014,6 +1017,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSaleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSaleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckScopeConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckScopeConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckStructureRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckStructureResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryRequest;
@@ -1692,6 +1697,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshOssBucketScanInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshOssBucketScanInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshRegistryTokenRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshRegistryTokenResponse;
@@ -1781,6 +1787,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckItemResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckItemShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckPolicyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckScopeConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckScopeConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateClientAlertModeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateClientAlertModeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCommonSwitchConfigRequest;
@@ -1952,7 +1960,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Select an operation for assets.
+     * Adds assets to an asset selection operation.
      *
      * @param request - AddAssetSelectionCriteriaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1968,6 +1976,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->criteria) {
             @$query['Criteria'] = $request->criteria;
         }
@@ -2003,7 +2015,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Select an operation for assets.
+     * Adds assets to an asset selection operation.
      *
      * @param request - AddAssetSelectionCriteriaRequest
      *
@@ -2094,7 +2106,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds instances on which risks are detected based on check items of the configuration assessment feature to a whitelist.
+     * Adds instances to the whitelist at the check item level for cloud platform configuration checks.
      *
      * @param request - AddCheckInstanceResultWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2116,6 +2128,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->checkId) {
             @$query['CheckId'] = $request->checkId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->instanceIds) {
@@ -2153,7 +2169,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds instances on which risks are detected based on check items of the configuration assessment feature to a whitelist.
+     * Adds instances to the whitelist at the check item level for cloud platform configuration checks.
      *
      * @param request - AddCheckInstanceResultWhiteListRequest
      *
@@ -2171,7 +2187,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds the check items of the configuration assessment feature to the whitelist.
+     * Adds check items to the whitelist for cloud platform configuration checks.
      *
      * @param request - AddCheckResultWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2189,6 +2205,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->checkIds) {
             @$query['CheckIds'] = $request->checkIds;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->instanceIds) {
@@ -2222,7 +2242,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds the check items of the configuration assessment feature to the whitelist.
+     * Adds check items to the whitelist for cloud platform configuration checks.
      *
      * @param request - AddCheckResultWhiteListRequest
      *
@@ -2240,7 +2260,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Create a custom defense rule.
+     * Creates a user-defined defense rule.
      *
      * @param request - AddClientUserDefineRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2347,7 +2367,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Create a custom defense rule.
+     * Creates a user-defined defense rule.
      *
      * @param request - AddClientUserDefineRuleRequest
      *
@@ -3603,7 +3623,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds one or more processes for intelligent behavior analysis.
+     * Adds processes for intelligent behavior analytics.
      *
      * @param request - AddUnknownThreatDetectProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3621,6 +3641,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->eventIdList) {
             @$query['EventIdList'] = $request->eventIdList;
+        }
+
+        if (null !== $request->handleRemark) {
+            @$query['HandleRemark'] = $request->handleRemark;
         }
 
         if (null !== $request->processList) {
@@ -3650,7 +3674,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds one or more processes for intelligent behavior analysis.
+     * Adds processes for intelligent behavior analytics.
      *
      * @param request - AddUnknownThreatDetectProcessRequest
      *
@@ -3747,6 +3771,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->eventType) {
             @$query['EventType'] = $request->eventType;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->resourceOwnerId) {
@@ -4058,6 +4086,10 @@ class Sas extends OpenApiClient
             @$query['BindAll'] = $request->bindAll;
         }
 
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->criteria) {
             @$query['Criteria'] = $request->criteria;
         }
@@ -4076,6 +4108,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->preBindOrderId) {
             @$query['PreBindOrderId'] = $request->preBindOrderId;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
 
         if (null !== $request->resourceDirectoryAccountId) {
@@ -4302,7 +4338,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration items of the configuration assessment feature.
+     * Modifies the configuration of a cloud platform configuration check.
      *
      * @param tmpReq - ChangeCheckConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4330,6 +4366,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->addedCheck) {
             @$query['AddedCheck'] = $request->addedCheck;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->configRequirementIdsShrink) {
@@ -4407,7 +4447,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration items of the configuration assessment feature.
+     * Modifies the configuration of a cloud platform configuration check.
      *
      * @param request - ChangeCheckConfigRequest
      *
@@ -4494,6 +4534,71 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * Modifies the configuration instance of a check scope.
+     *
+     * @param request - ChangeCheckScopeConfigInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeCheckScopeConfigInstanceResponse
+     *
+     * @param ChangeCheckScopeConfigInstanceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ChangeCheckScopeConfigInstanceResponse
+     */
+    public function changeCheckScopeConfigInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addAssetUuids) {
+            @$query['AddAssetUuids'] = $request->addAssetUuids;
+        }
+
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->deleteAssetUuids) {
+            @$query['DeleteAssetUuids'] = $request->deleteAssetUuids;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeCheckScopeConfigInstance',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeCheckScopeConfigInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the configuration instance of a check scope.
+     *
+     * @param request - ChangeCheckScopeConfigInstanceRequest
+     *
+     * @returns ChangeCheckScopeConfigInstanceResponse
+     *
+     * @param ChangeCheckScopeConfigInstanceRequest $request
+     *
+     * @return ChangeCheckScopeConfigInstanceResponse
+     */
+    public function changeCheckScopeConfigInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeCheckScopeConfigInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the details of the deduction modules of the security score feature, including custom settings.
      *
      * @param request - ChangeSecurityScoreRuleRequest
@@ -4516,6 +4621,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->resetSecurityScoreRule) {
             @$query['ResetSecurityScoreRule'] = $request->resetSecurityScoreRule;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->securityScoreCategoryList) {
@@ -5010,6 +5119,14 @@ class Sas extends OpenApiClient
             @$query['AutoDeleteDays'] = $request->autoDeleteDays;
         }
 
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
         if (null !== $request->releaseAfterScan) {
             @$query['ReleaseAfterScan'] = $request->releaseAfterScan;
         }
@@ -5158,7 +5275,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Create asset selection configurations.
+     * Creates an asset selection configuration.
      *
      * @param request - CreateAssetSelectionConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5176,6 +5293,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->businessType) {
             @$query['BusinessType'] = $request->businessType;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->platform) {
@@ -5205,7 +5326,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Create asset selection configurations.
+     * Creates an asset selection configuration.
      *
      * @param request - CreateAssetSelectionConfigRequest
      *
@@ -6115,7 +6236,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+     * Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
      *
      * @param request - CreateCycleTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6131,6 +6252,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->enable) {
             @$query['Enable'] = $request->enable;
         }
@@ -6190,7 +6315,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+     * Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
      *
      * @param request - CreateCycleTaskRequest
      *
@@ -6274,23 +6399,21 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Submits a file to the cloud for detection.
+     * Pushes a file to the cloud for detection.
      *
      * @remarks
-     * Use this operation to submit a file to the cloud for detection. It supports two scenarios: malicious file detection and Skill archive detection.
-     * ### File submission methods
-     * Submit a file by either pre-uploading it or providing a download link.
-     * If you use the pre-upload method, ensure the file is uploaded successfully before you call this operation. For details on how to upload a file, see the CreateFileDetectUploadUrl operation.
-     * If you use a download link, specify a publicly accessible URL in the `DownloadUrl` parameter.
-     * The malicious file detection scenario supports both methods. For the Skill archive detection scenario (when `Type` is `6`), the pre-upload method is not supported, and you must provide a download link.
-     * ### Unique identifier
-     * All API operations related to file detection include the `HashKey` parameter. This parameter specifies the file\\"s unique identifier for a detection task, which you use to query the results.
-     * For Skill archive detection (when `Type` is `6`), you do not need to calculate the `HashKey` in advance. This operation returns a globally unique UUID as the file\\"s identifier, which you can use to query the results.
-     * For malicious file detection (when `Type` is `0`), you must calculate the `HashKey` before you call this operation. The `HashKey` value must be the MD5 or SHA-256 hash of the entire file.
-     * To calculate the MD5 or SHA-256 hash of a file, follow these steps:
-     * 1. Use the MD5 or SHA-256 algorithm to generate a 128-bit or 256-bit hash value. You can use common libraries such as `MessageDigest` in Java or the `hashlib` library in Python.
-     * 2. Encode the hash value into a hexadecimal string. You can use tools such as the `Codec` utility in Java or the `hex()` function in Python. Ensure that the final string consists of only digits and lowercase letters. An MD5 hash is 32 characters long, and a SHA-256 hash is 64 characters long.
-     * Note: You must use the same `HashKey` value when you submit a file for detection and when you query the results. Otherwise, both the submission and the query will fail.
+     * Pushes a file to the cloud for detection.
+     * ### File upload methods
+     * Two file upload methods are supported: pre-upload and download URL.
+     * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+     * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
+     * ### File unique identifier
+     * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
+     * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
+     * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+     * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
+     * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
+     * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
      *
      * @param request - CreateFileDetectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6357,23 +6480,21 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Submits a file to the cloud for detection.
+     * Pushes a file to the cloud for detection.
      *
      * @remarks
-     * Use this operation to submit a file to the cloud for detection. It supports two scenarios: malicious file detection and Skill archive detection.
-     * ### File submission methods
-     * Submit a file by either pre-uploading it or providing a download link.
-     * If you use the pre-upload method, ensure the file is uploaded successfully before you call this operation. For details on how to upload a file, see the CreateFileDetectUploadUrl operation.
-     * If you use a download link, specify a publicly accessible URL in the `DownloadUrl` parameter.
-     * The malicious file detection scenario supports both methods. For the Skill archive detection scenario (when `Type` is `6`), the pre-upload method is not supported, and you must provide a download link.
-     * ### Unique identifier
-     * All API operations related to file detection include the `HashKey` parameter. This parameter specifies the file\\"s unique identifier for a detection task, which you use to query the results.
-     * For Skill archive detection (when `Type` is `6`), you do not need to calculate the `HashKey` in advance. This operation returns a globally unique UUID as the file\\"s identifier, which you can use to query the results.
-     * For malicious file detection (when `Type` is `0`), you must calculate the `HashKey` before you call this operation. The `HashKey` value must be the MD5 or SHA-256 hash of the entire file.
-     * To calculate the MD5 or SHA-256 hash of a file, follow these steps:
-     * 1. Use the MD5 or SHA-256 algorithm to generate a 128-bit or 256-bit hash value. You can use common libraries such as `MessageDigest` in Java or the `hashlib` library in Python.
-     * 2. Encode the hash value into a hexadecimal string. You can use tools such as the `Codec` utility in Java or the `hex()` function in Python. Ensure that the final string consists of only digits and lowercase letters. An MD5 hash is 32 characters long, and a SHA-256 hash is 64 characters long.
-     * Note: You must use the same `HashKey` value when you submit a file for detection and when you query the results. Otherwise, both the submission and the query will fail.
+     * Pushes a file to the cloud for detection.
+     * ### File upload methods
+     * Two file upload methods are supported: pre-upload and download URL.
+     * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+     * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
+     * ### File unique identifier
+     * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
+     * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
+     * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+     * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
+     * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
+     * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
      *
      * @param request - CreateFileDetectRequest
      *
@@ -8185,7 +8306,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a bucket check task.
+     * Creates a bucket detection task.
      *
      * @param request - CreateOssBucketScanTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8241,6 +8362,10 @@ class Sas extends OpenApiClient
             @$query['ScanMode'] = $request->scanMode;
         }
 
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -8260,7 +8385,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a bucket check task.
+     * Creates a bucket detection task.
      *
      * @param request - CreateOssBucketScanTaskRequest
      *
@@ -8278,7 +8403,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a policy for detecting malicious Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
+     * Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+     *
+     * @remarks
+     * Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
      *
      * @param request - CreateOssScanConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8298,8 +8426,16 @@ class Sas extends OpenApiClient
             @$query['AllKeyPrefix'] = $request->allKeyPrefix;
         }
 
+        if (null !== $request->autoAdd) {
+            @$query['AutoAdd'] = $request->autoAdd;
+        }
+
         if (null !== $request->bucketNameList) {
             @$query['BucketNameList'] = $request->bucketNameList;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->decompressMaxFileCount) {
@@ -8346,6 +8482,10 @@ class Sas extends OpenApiClient
             @$query['ScanDayList'] = $request->scanDayList;
         }
 
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
         }
@@ -8369,7 +8509,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a policy for detecting malicious Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
+     * Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+     *
+     * @remarks
+     * Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
      *
      * @param request - CreateOssScanConfigRequest
      *
@@ -8535,7 +8678,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Applies for a trial of Security Center.
+     * Starts a trial of Security Center.
      *
      * @param tmpReq - CreateSasTrialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8554,6 +8697,11 @@ class Sas extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->requestForm) {
             $request->requestFormShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->requestForm, 'RequestForm', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         $body = [];
@@ -8578,6 +8726,7 @@ class Sas extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -8596,7 +8745,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Applies for a trial of Security Center.
+     * Starts a trial of Security Center.
      *
      * @param request - CreateSasTrialRequest
      *
@@ -8633,6 +8782,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->serviceLinkedRole) {
             @$query['ServiceLinkedRole'] = $request->serviceLinkedRole;
         }
@@ -8746,7 +8899,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a node to query alert events triggered by the same rule or Alarm Metric through alerting.
+     * Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
      *
      * @param request - CreateSimilarSecurityEventsQueryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8762,6 +8915,14 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
@@ -8797,7 +8958,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a node to query alert events triggered by the same rule or Alarm Metric through alerting.
+     * Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
      *
      * @param request - CreateSimilarSecurityEventsQueryTaskRequest
      *
@@ -8916,6 +9077,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->note) {
             @$query['Note'] = $request->note;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         $req = new OpenApiRequest([
@@ -9147,7 +9312,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an intelligent behavior analysis strategy.
+     * Creates an intelligent behavior analytics policy.
      *
      * @param request - CreateUnknownThreatDetectStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9202,7 +9367,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an intelligent behavior analysis strategy.
+     * Creates an intelligent behavior analytics policy.
      *
      * @param request - CreateUnknownThreatDetectStrategyRequest
      *
@@ -9285,7 +9450,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a one-time virus scan task that is immediately executed.
+     * Creates a one-time virus scan task.
      *
      * @param request - CreateVirusScanOnceTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9301,6 +9466,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->param) {
             @$query['Param'] = $request->param;
         }
@@ -9336,7 +9505,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a one-time virus scan task that is immediately executed.
+     * Creates a one-time virus scan task.
      *
      * @param request - CreateVirusScanOnceTaskRequest
      *
@@ -12292,6 +12461,10 @@ class Sas extends OpenApiClient
             @$query['Ids'] = $request->ids;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
@@ -12539,6 +12712,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->noteId) {
             @$query['NoteId'] = $request->noteId;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         $req = new OpenApiRequest([
@@ -12960,6 +13137,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->id) {
             @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->whitelist) {
@@ -13544,6 +13725,10 @@ class Sas extends OpenApiClient
             @$query['Lang'] = $request->lang;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->sourceIp) {
             @$query['SourceIp'] = $request->sourceIp;
         }
@@ -13850,6 +14035,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->remark) {
             @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->sourceIp) {
@@ -15352,6 +15541,10 @@ class Sas extends OpenApiClient
             @$query['RepoRegionId'] = $request->repoRegionId;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->scanRange) {
             @$query['ScanRange'] = $request->scanRange;
         }
@@ -15482,6 +15675,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->reportId) {
             @$query['ReportId'] = $request->reportId;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->timeEnd) {
@@ -16391,10 +16588,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries asset information that meets specified search conditions. For example, you can search for assets by instance name or region. Two pagination methods are supported: page-based pagination and NextToken-based pagination. We recommend that you use NextToken-based pagination.
+     * Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
      *
      * @remarks
-     * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set the logical relationship between multiple search conditions to search for assets that meet multiple conditions.
+     * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
      *
      * @param request - DescribeCloudCenterInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16481,10 +16678,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries asset information that meets specified search conditions. For example, you can search for assets by instance name or region. Two pagination methods are supported: page-based pagination and NextToken-based pagination. We recommend that you use NextToken-based pagination.
+     * Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
      *
      * @remarks
-     * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set the logical relationship between multiple search conditions to search for assets that meet multiple conditions.
+     * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
      *
      * @param request - DescribeCloudCenterInstancesRequest
      *
@@ -17046,7 +17243,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves information about the network topology edge by cluster.
+     * Queries the network topology edge information at the cluster level.
      *
      * @param request - DescribeClusterNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17089,7 +17286,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves information about the network topology edge by cluster.
+     * Queries the network topology edge information at the cluster level.
      *
      * @param request - DescribeClusterNetworkRequest
      *
@@ -17107,7 +17304,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the status of cluster scanning components.
+     * Queries the scanner status information for a Kubernetes cluster.
      *
      * @param request - DescribeClusterScannerListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17154,7 +17351,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the status of cluster scanning components.
+     * Queries the scanner status information for a Kubernetes cluster.
      *
      * @param request - DescribeClusterScannerListRequest
      *
@@ -18331,6 +18528,10 @@ class Sas extends OpenApiClient
             @$query['MachineTypes'] = $request->machineTypes;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->supportAutoTag) {
             @$query['SupportAutoTag'] = $request->supportAutoTag;
         }
@@ -18550,6 +18751,10 @@ class Sas extends OpenApiClient
             @$query['ReportId'] = $request->reportId;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->sourceIp) {
             @$query['SourceIp'] = $request->sourceIp;
         }
@@ -18625,6 +18830,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->reportVersion) {
             @$query['ReportVersion'] = $request->reportVersion;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->title) {
@@ -19487,6 +19696,10 @@ class Sas extends OpenApiClient
             @$query['Lang'] = $request->lang;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->sourceIp) {
             @$query['SourceIp'] = $request->sourceIp;
         }
@@ -20011,6 +20224,10 @@ class Sas extends OpenApiClient
             @$query['MultiAccountActionType'] = $request->multiAccountActionType;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->targetType) {
             @$query['TargetType'] = $request->targetType;
         }
@@ -20070,6 +20287,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         $req = new OpenApiRequest([
@@ -21093,6 +21314,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->saleVersionCheckCode) {
@@ -23128,6 +23353,10 @@ class Sas extends OpenApiClient
             @$query['RepoRegionId'] = $request->repoRegionId;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->ruleTag) {
             @$query['RuleTag'] = $request->ruleTag;
         }
@@ -24413,6 +24642,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->repoRegionId) {
             @$query['RepoRegionId'] = $request->repoRegionId;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->ruleTag) {
@@ -25819,7 +26052,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of client tasks.
+     * Queries a list of client tasks.
      *
      * @param request - DescribeOnceTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25886,7 +26119,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of client tasks.
+     * Queries a list of client tasks.
      *
      * @param request - DescribeOnceTaskRequest
      *
@@ -26149,6 +26382,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->remark) {
             @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->source) {
@@ -26613,7 +26850,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about the middleware list on the Asset Fingerprints investigation page.
+     * Queries the details of the middleware list on the Asset Fingerprints investigation page.
      *
      * @param request - DescribePropertyScaDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26675,6 +26912,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->remark) {
             @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->scaName) {
@@ -26740,7 +26981,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about the middleware list on the Asset Fingerprints investigation page.
+     * Queries the details of the middleware list on the Asset Fingerprints investigation page.
      *
      * @param request - DescribePropertyScaDetailRequest
      *
@@ -27323,6 +27564,10 @@ class Sas extends OpenApiClient
             @$query['Remark'] = $request->remark;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->useNextToken) {
             @$query['UseNextToken'] = $request->useNextToken;
         }
@@ -27524,6 +27769,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         $req = new OpenApiRequest([
@@ -28551,6 +28800,10 @@ class Sas extends OpenApiClient
             @$query['EndTime'] = $request->endTime;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->source) {
             @$query['Source'] = $request->source;
         }
@@ -28734,10 +28987,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+     * Queries the custom check cycle and time period configured by the user.
      *
      * @remarks
-     * This operation is phased out. You can use the GetCheckConfig operation.
+     * This operation is deprecated. Use the GetCheckConfig operation instead.
      *
      * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
      *
@@ -28787,10 +29040,10 @@ class Sas extends OpenApiClient
 
     // Deprecated
     /**
-     * Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+     * Queries the custom check cycle and time period configured by the user.
      *
      * @remarks
-     * This operation is phased out. You can use the GetCheckConfig operation.
+     * This operation is deprecated. Use the GetCheckConfig operation instead.
      *
      * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
      *
@@ -30646,7 +30899,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries a list of alert events that are generated without aggregation.
+     * Queries the list of security alert events that have not been aggregated.
      *
      * @param tmpReq - DescribeSuspEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30837,7 +31090,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries a list of alert events that are generated without aggregation.
+     * Queries the list of security alert events that have not been aggregated.
      *
      * @param request - DescribeSuspEventsRequest
      *
@@ -32082,6 +32335,10 @@ class Sas extends OpenApiClient
             @$query['Remark'] = $request->remark;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->searchTags) {
             @$query['SearchTags'] = $request->searchTags;
         }
@@ -32511,6 +32768,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->taskIds) {
             @$query['TaskIds'] = $request->taskIds;
         }
@@ -33323,6 +33584,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         $req = new OpenApiRequest([
@@ -35357,6 +35622,10 @@ class Sas extends OpenApiClient
             @$query['ReportId'] = $request->reportId;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -35553,6 +35822,10 @@ class Sas extends OpenApiClient
             @$query['Remark'] = $request->remark;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->sourceIp) {
             @$query['SourceIp'] = $request->sourceIp;
         }
@@ -35618,13 +35891,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Export vulnerability list.
+     * Exports a vulnerability list.
      *
      * @remarks
-     * This API exports vulnerabilities, including Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
-     * Use this API to create a `vulnerability export task`. Then, call `DescribeVulExportInfo` with the task\\"s ID to check its progress.
+     * Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+     * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
      * ### QPS limit
-     * The QPS limit for a single user is 10. If you exceed this limit, API calls are throttled. This can affect your service. Plan your API calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
      *
      * @param request - ExportVulRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -35642,6 +35915,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->aliasName) {
             @$query['AliasName'] = $request->aliasName;
+        }
+
+        if (null !== $request->assetType) {
+            @$query['AssetType'] = $request->assetType;
         }
 
         if (null !== $request->attachTypes) {
@@ -35735,13 +36012,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Export vulnerability list.
+     * Exports a vulnerability list.
      *
      * @remarks
-     * This API exports vulnerabilities, including Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
-     * Use this API to create a `vulnerability export task`. Then, call `DescribeVulExportInfo` with the task\\"s ID to check its progress.
+     * Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+     * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
      * ### QPS limit
-     * The QPS limit for a single user is 10. If you exceed this limit, API calls are throttled. This can affect your service. Plan your API calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
      *
      * @param request - ExportVulRequest
      *
@@ -36406,7 +36683,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Obtains account tags.
+     * Retrieves account labels.
      *
      * @param request - GetAccountLabelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36449,7 +36726,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Obtains account tags.
+     * Retrieves account labels.
      *
      * @param request - GetAccountLabelRequest
      *
@@ -36660,7 +36937,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the estimated volume for agentless detection.
+     * Retrieves the estimated scan volume for agentless detection.
      *
      * @param request - GetAgentlessTaskUsedSizeEstimateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36699,7 +36976,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the estimated volume for agentless detection.
+     * Retrieves the estimated scan volume for agentless detection.
      *
      * @param request - GetAgentlessTaskUsedSizeEstimateRequest
      *
@@ -36735,6 +37012,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->from) {
             @$query['From'] = $request->from;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         $req = new OpenApiRequest([
@@ -37810,17 +38091,27 @@ class Sas extends OpenApiClient
     /**
      * Retrieves the check item configurations for cloud platform configuration checks.
      *
+     * @param request - GetCheckConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCheckConfigResponse
      *
-     * @param RuntimeOptions $runtime
+     * @param GetCheckConfigRequest $request
+     * @param RuntimeOptions        $runtime
      *
      * @return GetCheckConfigResponse
      */
-    public function getCheckConfigWithOptions($runtime)
+    public function getCheckConfigWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
         $params = new Params([
             'action' => 'GetCheckConfig',
             'version' => '2018-12-03',
@@ -37839,15 +38130,19 @@ class Sas extends OpenApiClient
     /**
      * Retrieves the check item configurations for cloud platform configuration checks.
      *
+     * @param request - GetCheckConfigRequest
+     *
      * @returns GetCheckConfigResponse
+     *
+     * @param GetCheckConfigRequest $request
      *
      * @return GetCheckConfigResponse
      */
-    public function getCheckConfig()
+    public function getCheckConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getCheckConfigWithOptions($runtime);
+        return $this->getCheckConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -38001,6 +38296,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->taskId) {
             @$query['TaskId'] = $request->taskId;
         }
@@ -38161,6 +38460,67 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCheckSaleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the check scope configuration.
+     *
+     * @param request - GetCheckScopeConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCheckScopeConfigResponse
+     *
+     * @param GetCheckScopeConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetCheckScopeConfigResponse
+     */
+    public function getCheckScopeConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCheckScopeConfig',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCheckScopeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the check scope configuration.
+     *
+     * @param request - GetCheckScopeConfigRequest
+     *
+     * @returns GetCheckScopeConfigResponse
+     *
+     * @param GetCheckScopeConfigRequest $request
+     *
+     * @return GetCheckScopeConfigResponse
+     */
+    public function getCheckScopeConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCheckScopeConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -38334,6 +38694,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->endTimeStamp) {
             @$query['EndTimeStamp'] = $request->endTimeStamp;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->startTimeStamp) {
@@ -38641,7 +39005,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the summary of cloud assets.
+     * Retrieves the summary of cloud assets.
      *
      * @param request - GetCloudAssetSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -38663,6 +39027,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->isSaleData) {
             @$query['IsSaleData'] = $request->isSaleData;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->vendors) {
@@ -38688,7 +39056,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the summary of cloud assets.
+     * Retrieves the summary of cloud assets.
      *
      * @param request - GetCloudAssetSummaryRequest
      *
@@ -39221,7 +39589,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the publish details of the Security Center agent.
+     * Retrieves the release information of the current client version.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -39250,7 +39618,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the publish details of the Security Center agent.
+     * Retrieves the release information of the current client version.
      *
      * @returns GetCurrentVersionPublishResponse
      *
@@ -39290,6 +39658,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->interval) {
             @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->startTimestamp) {
@@ -39606,17 +39978,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves file detection results in batches using `HashKey` values.
+     * Retrieves file detection results in batches by HashKey.
      *
      * @remarks
-     * You can retrieve detection results only for submitted files. Results are retained for 5 hours and can be queried multiple times during this period. To submit a file for detection, call the [CreateFileDetect](~~CreateFileDetect~~) operation.
-     * ### Unique file identifier
-     * All file detection operations use the `HashKey` parameter. `HashKey` is a unique file identifier used to query the corresponding file detection result.
-     * For Skill compressed package detection (when Type is 6), obtain the `HashKey` from the response of the [CreateFileDetect](~~CreateFileDetect~~) operation.
-     * For malicious file detection (when Type is 0), the `HashKey` must be the MD5 or SHA-256 hash of the entire file.
+     * You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+     * ### File unique identifier
+     * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
      * ### Query detection results
-     * In a malicious file detection scenario (when `Type` is `0`), you can filter files by their attributes using the `FileLabel` field in the `Ext` field. For example, you can combine the `encrypted` and `Zip` attributes to filter for encrypted compressed packages. Supported file tags for compressed packages include: `Zip`, `RAR`, `7-Zip`, `XAR`, `ZLib`, `GZip`, and `tar`. You can also use the `Highlight` field in the `Ext` field to locate malicious code segments in `WebShell` files. The `Highlight` field is a list in which each element represents a code range. The numbers indicate the character offset from the beginning of the file.
-     * In a Skill compressed package detection scenario (when `Type` is `6`), you can retrieve the detection report from the `Ext` field. This report includes results from deep intent analysis, prompt injection detection, sensitive information recognition, and malicious script detection. To query the details of an individual file within the compressed package, call the [ListCompressFileDetectResult](~~ListCompressFileDetectResult~~) operation.
+     * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
      *
      * @param request - GetFileDetectResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39663,17 +40032,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves file detection results in batches using `HashKey` values.
+     * Retrieves file detection results in batches by HashKey.
      *
      * @remarks
-     * You can retrieve detection results only for submitted files. Results are retained for 5 hours and can be queried multiple times during this period. To submit a file for detection, call the [CreateFileDetect](~~CreateFileDetect~~) operation.
-     * ### Unique file identifier
-     * All file detection operations use the `HashKey` parameter. `HashKey` is a unique file identifier used to query the corresponding file detection result.
-     * For Skill compressed package detection (when Type is 6), obtain the `HashKey` from the response of the [CreateFileDetect](~~CreateFileDetect~~) operation.
-     * For malicious file detection (when Type is 0), the `HashKey` must be the MD5 or SHA-256 hash of the entire file.
+     * You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+     * ### File unique identifier
+     * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
      * ### Query detection results
-     * In a malicious file detection scenario (when `Type` is `0`), you can filter files by their attributes using the `FileLabel` field in the `Ext` field. For example, you can combine the `encrypted` and `Zip` attributes to filter for encrypted compressed packages. Supported file tags for compressed packages include: `Zip`, `RAR`, `7-Zip`, `XAR`, `ZLib`, `GZip`, and `tar`. You can also use the `Highlight` field in the `Ext` field to locate malicious code segments in `WebShell` files. The `Highlight` field is a list in which each element represents a code range. The numbers indicate the character offset from the beginning of the file.
-     * In a Skill compressed package detection scenario (when `Type` is `6`), you can retrieve the detection report from the `Ext` field. This report includes results from deep intent analysis, prompt injection detection, sensitive information recognition, and malicious script detection. To query the details of an individual file within the compressed package, call the [ListCompressFileDetectResult](~~ListCompressFileDetectResult~~) operation.
+     * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
      *
      * @param request - GetFileDetectResultRequest
      *
@@ -40969,6 +41335,10 @@ class Sas extends OpenApiClient
             @$query['From'] = $request->from;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->uuid) {
             @$query['Uuid'] = $request->uuid;
         }
@@ -41010,7 +41380,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Get Instance Authorization Value Range.
+     * Retrieves the valid value ranges for instance authorization.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -41039,7 +41409,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Get Instance Authorization Value Range.
+     * Retrieves the valid value ranges for instance authorization.
      *
      * @returns GetInstanceAuthRangeResponse
      *
@@ -41114,7 +41484,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of the container firewall feature.
+     * Queries the micro-segmentation defense overview.
      *
      * @param request - GetInterceptionSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -41132,6 +41502,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->clusterId) {
             @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->excludeClusterTypes) {
+            @$query['ExcludeClusterTypes'] = $request->excludeClusterTypes;
         }
 
         $req = new OpenApiRequest([
@@ -41153,7 +41527,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of the container firewall feature.
+     * Queries the micro-segmentation defense overview.
      *
      * @param request - GetInterceptionSummaryRequest
      *
@@ -42742,6 +43116,10 @@ class Sas extends OpenApiClient
             @$query['Lang'] = $request->lang;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -43165,6 +43543,10 @@ class Sas extends OpenApiClient
             @$query['GroupIdList'] = $request->groupIdList;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->sourceIp) {
             @$query['SourceIp'] = $request->sourceIp;
         }
@@ -43403,7 +43785,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Get Valid Resource Package Instances.
+     * Retrieves active resource plan instances.
      *
      * @param request - GetValidDeductInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -43450,7 +43832,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Get Valid Resource Package Instances.
+     * Retrieves active resource plan instances.
      *
      * @param request - GetValidDeductInstancesRequest
      *
@@ -44105,6 +44487,10 @@ class Sas extends OpenApiClient
             @$query['Remark'] = $request->remark;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
@@ -44172,6 +44558,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->eventIdList) {
             @$query['EventIdList'] = $request->eventIdList;
+        }
+
+        if (null !== $request->handleRemark) {
+            @$query['HandleRemark'] = $request->handleRemark;
         }
 
         if (null !== $request->status) {
@@ -44906,10 +45296,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of managed accounts for multi-account governance.
+     * Obtient la liste des comptes gérés pour la gouvernance multi-comptes.
      *
      * @remarks
-     * Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+     * Appelez cette opération à l\\"aide du compte de gestion du répertoire de ressources ou du compte administrateur délégué de Security Center.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -44938,10 +45328,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of managed accounts for multi-account governance.
+     * Obtient la liste des comptes gérés pour la gouvernance multi-comptes.
      *
      * @remarks
-     * Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+     * Appelez cette opération à l\\"aide du compte de gestion du répertoire de ressources ou du compte administrateur délégué de Security Center.
      *
      * @returns ListAccountsInResourceDirectoryResponse
      *
@@ -45898,7 +46288,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Get Attack Analysis Event List.
+     * Retrieves the list of attack analysis events.
      *
      * @param request - ListAttackEventInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -45969,7 +46359,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Get Attack Analysis Event List.
+     * Retrieves the list of attack analysis events.
      *
      * @param request - ListAttackEventInfoRequest
      *
@@ -46593,7 +46983,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the check items that can be customized.
+     * Retrieves the list of check items that can be configured with custom settings.
      *
      * @param request - ListCheckItemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -46644,7 +47034,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the check items that can be customized.
+     * Retrieves the list of check items that can be configured with custom settings.
      *
      * @param request - ListCheckItemRequest
      *
@@ -47600,6 +47990,10 @@ class Sas extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -48010,6 +48404,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->excludeClusterTypes) {
+            @$query['ExcludeClusterTypes'] = $request->excludeClusterTypes;
         }
 
         if (null !== $request->pageSize) {
@@ -50757,10 +51155,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Multi-Account Authorization Allocation List.
+     * Queries the multi-account authorization assignment list under multi-account authorization management.
      *
      * @remarks
-     * You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
+     * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
      *
      * @param request - ListMultiUserInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -50803,10 +51201,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Multi-Account Authorization Allocation List.
+     * Queries the multi-account authorization assignment list under multi-account authorization management.
      *
      * @remarks
-     * You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
+     * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
      *
      * @param request - ListMultiUserInstancesRequest
      *
@@ -51324,6 +51722,10 @@ class Sas extends OpenApiClient
             @$query['Lang'] = $request->lang;
         }
 
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -51389,6 +51791,10 @@ class Sas extends OpenApiClient
             @$query['FuzzBucketName'] = $request->fuzzBucketName;
         }
 
+        if (null !== $request->fuzzFileSystemName) {
+            @$query['FuzzFileSystemName'] = $request->fuzzFileSystemName;
+        }
+
         if (null !== $request->hasRisk) {
             @$query['HasRisk'] = $request->hasRisk;
         }
@@ -51399,6 +51805,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
 
         if (null !== $request->status) {
@@ -51442,7 +51852,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of an Object Storage Service (OSS) file detection policy.
+     * Queries the list of OSS file scan policy configurations.
      *
      * @param request - ListOssScanConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -51477,7 +51887,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of an Object Storage Service (OSS) file detection policy.
+     * Queries the list of OSS file scan policy configurations.
      *
      * @param request - ListOssScanConfigRequest
      *
@@ -52767,7 +53177,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * View instances identified by intelligent behavior analytics.
+     * Queries the list of machines for intelligent behavior analytics.
      *
      * @param request - ListUnknownThreatDetectMachineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -52785,6 +53195,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->eventStatus) {
+            @$query['EventStatus'] = $request->eventStatus;
         }
 
         if (null !== $request->pageSize) {
@@ -52834,7 +53248,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * View instances identified by intelligent behavior analytics.
+     * Queries the list of machines for intelligent behavior analytics.
      *
      * @param request - ListUnknownThreatDetectMachineRequest
      *
@@ -52949,7 +53363,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Lists the strategies for intelligent behavior analytics.
+     * Queries the list of intelligent behavior analysis policies.
      *
      * @param request - ListUnknownThreatDetectStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -53004,7 +53418,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Lists the strategies for intelligent behavior analytics.
+     * Queries the list of intelligent behavior analysis policies.
      *
      * @param request - ListUnknownThreatDetectStrategyRequest
      *
@@ -53294,7 +53708,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries virus alerts detected by virus scanning on a specific server.
+     * Queries virus alerts detected by a virus scan on a specific server.
      *
      * @param request - ListVirusScanMachineEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -53349,7 +53763,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries virus alerts detected by virus scanning on a specific server.
+     * Queries virus alerts detected by a virus scan on a specific server.
      *
      * @param request - ListVirusScanMachineEventRequest
      *
@@ -55453,7 +55867,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+     * Adds a vulnerability whitelist. Vulnerabilities added to the whitelist are no longer displayed in the alert list.
      *
      * @param request - ModifyCreateVulWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -55469,8 +55883,16 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->reason) {
             @$query['Reason'] = $request->reason;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->targetInfo) {
@@ -55500,7 +55922,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+     * Adds a vulnerability whitelist. Vulnerabilities added to the whitelist are no longer displayed in the alert list.
      *
      * @param request - ModifyCreateVulWhitelistRequest
      *
@@ -55767,6 +56189,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
         }
@@ -56769,6 +57195,10 @@ class Sas extends OpenApiClient
             @$query['BizType'] = $request->bizType;
         }
 
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->focusLevel) {
             @$query['FocusLevel'] = $request->focusLevel;
         }
@@ -56903,7 +57333,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+     * Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
      *
      * @param request - ModifyOperateVulRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -56919,6 +57349,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->from) {
             @$query['From'] = $request->from;
         }
@@ -56933,6 +57367,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->reason) {
             @$query['Reason'] = $request->reason;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->type) {
@@ -56958,7 +57396,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+     * Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
      *
      * @param request - ModifyOperateVulRequest
      *
@@ -56993,11 +57431,23 @@ class Sas extends OpenApiClient
         $tmpReq->validate();
         $request = new ModifyPostPayModuleSwitchShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->edrModuleSwitch) {
+            $request->edrModuleSwitchShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->edrModuleSwitch, 'EdrModuleSwitch', 'json');
+        }
+
         if (null !== $tmpReq->postPayModuleSwitchObj) {
             $request->postPayModuleSwitchObjShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->postPayModuleSwitchObj, 'PostPayModuleSwitchObj', 'json');
         }
 
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->edrModuleSwitchShrink) {
+            @$query['EdrModuleSwitch'] = $request->edrModuleSwitchShrink;
+        }
+
         if (null !== $request->postPaidHostAutoBind) {
             @$query['PostPaidHostAutoBind'] = $request->postPaidHostAutoBind;
         }
@@ -57451,10 +57901,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Specifies the time when an automatic configuration check on cloud services runs.
+     * Sets the automatic detection time for cloud platform configuration check items.
      *
      * @remarks
-     * This operation is phased out. You can use the ChangeCheckConfig operation.
+     * This operation is deprecated. Use the ChangeCheckConfig operation instead.
      *
      * @deprecated openAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead
      *
@@ -57516,10 +57966,10 @@ class Sas extends OpenApiClient
 
     // Deprecated
     /**
-     * Specifies the time when an automatic configuration check on cloud services runs.
+     * Sets the automatic detection time for cloud platform configuration check items.
      *
      * @remarks
-     * This operation is phased out. You can use the ChangeCheckConfig operation.
+     * This operation is deprecated. Use the ChangeCheckConfig operation instead.
      *
      * @deprecated openAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead
      *
@@ -57555,6 +58005,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->sourceIp) {
             @$query['SourceIp'] = $request->sourceIp;
         }
@@ -57656,6 +58110,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->bindUuidList) {
             @$query['BindUuidList'] = $request->bindUuidList;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->criteria) {
@@ -57794,7 +58252,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Enables the one-click scan feature on the vulnerability management page of the console.
+     * Starts the one-click scan feature on the vulnerability management page of the console.
      *
      * @param request - ModifyStartVulScanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -57810,6 +58268,14 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->types) {
             @$query['Types'] = $request->types;
         }
@@ -57837,7 +58303,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Enables the one-click scan feature on the vulnerability management page of the console.
+     * Starts the one-click scan feature on the vulnerability management page of the console.
      *
      * @param request - ModifyStartVulScanRequest
      *
@@ -58275,6 +58741,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->config) {
             @$query['Config'] = $request->config;
         }
@@ -59521,7 +59991,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Manages an Object Storage Service (OSS) bucket check task.
+     * Operates on a bucket detection task.
      *
      * @param request - OperateBucketScanTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -59545,6 +60015,10 @@ class Sas extends OpenApiClient
             @$query['OperateCode'] = $request->operateCode;
         }
 
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -59564,7 +60038,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Manages an Object Storage Service (OSS) bucket check task.
+     * Operates on a bucket detection task.
      *
      * @param request - OperateBucketScanTaskRequest
      *
@@ -59582,7 +60056,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Enables or disables a feature by type.
+     * Sets a global switch by type.
      *
      * @param request - OperateCommonOverallConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -59598,6 +60072,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->config) {
             @$query['Config'] = $request->config;
         }
@@ -59633,7 +60111,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Enables or disables a feature by type.
+     * Sets a global switch by type.
      *
      * @param request - OperateCommonOverallConfigRequest
      *
@@ -60223,6 +60701,10 @@ class Sas extends OpenApiClient
             @$query['OperateType'] = $request->operateType;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->type) {
             @$query['Type'] = $request->type;
         }
@@ -60357,6 +60839,10 @@ class Sas extends OpenApiClient
             @$query['Remark'] = $request->remark;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->securityEventIds) {
             @$query['SecurityEventIds'] = $request->securityEventIds;
         }
@@ -60481,6 +60967,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->operation) {
             @$query['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->sourceIp) {
@@ -61012,6 +61502,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->sourceIp) {
             @$query['SourceIp'] = $request->sourceIp;
         }
@@ -61593,6 +62087,10 @@ class Sas extends OpenApiClient
             @$query['CloudAssetType'] = $request->cloudAssetType;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->vendor) {
             @$query['Vendor'] = $request->vendor;
         }
@@ -61693,17 +62191,27 @@ class Sas extends OpenApiClient
     /**
      * Refreshes the bucket list.
      *
+     * @param request - RefreshOssBucketScanInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RefreshOssBucketScanInfoResponse
      *
-     * @param RuntimeOptions $runtime
+     * @param RefreshOssBucketScanInfoRequest $request
+     * @param RuntimeOptions                  $runtime
      *
      * @return RefreshOssBucketScanInfoResponse
      */
-    public function refreshOssBucketScanInfoWithOptions($runtime)
+    public function refreshOssBucketScanInfoWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
         $params = new Params([
             'action' => 'RefreshOssBucketScanInfo',
             'version' => '2018-12-03',
@@ -61722,15 +62230,19 @@ class Sas extends OpenApiClient
     /**
      * Refreshes the bucket list.
      *
+     * @param request - RefreshOssBucketScanInfoRequest
+     *
      * @returns RefreshOssBucketScanInfoResponse
+     *
+     * @param RefreshOssBucketScanInfoRequest $request
      *
      * @return RefreshOssBucketScanInfoResponse
      */
-    public function refreshOssBucketScanInfo()
+    public function refreshOssBucketScanInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->refreshOssBucketScanInfoWithOptions($runtime);
+        return $this->refreshOssBucketScanInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -62250,6 +62762,10 @@ class Sas extends OpenApiClient
             @$query['QuaraFileId'] = $request->quaraFileId;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->sourceIp) {
             @$query['SourceIp'] = $request->sourceIp;
         }
@@ -62416,6 +62932,10 @@ class Sas extends OpenApiClient
             @$query['ReportVersion'] = $request->reportVersion;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->sendEndTime) {
             @$query['SendEndTime'] = $request->sendEndTime;
         }
@@ -62580,6 +63100,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->levelsOn) {
             @$query['LevelsOn'] = $request->levelsOn;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         $req = new OpenApiRequest([
@@ -62789,6 +63313,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->reportId) {
             @$query['ReportId'] = $request->reportId;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         $req = new OpenApiRequest([
@@ -63695,7 +64223,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Submits a configuration assessment task.
+     * Submits a cloud service configuration check.
      *
      * @param request - SubmitCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -63711,6 +64239,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->scanRange) {
             @$query['ScanRange'] = $request->scanRange;
         }
@@ -63738,7 +64270,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Submits a configuration assessment task.
+     * Submits a cloud service configuration check.
      *
      * @param request - SubmitCheckRequest
      *
@@ -64245,6 +64777,11 @@ class Sas extends OpenApiClient
     public function updateAlarmEventWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         $body = [];
         if (null !== $request->alarmEventIdList) {
             @$body['AlarmEventIdList'] = $request->alarmEventIdList;
@@ -64259,6 +64796,7 @@ class Sas extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -64707,6 +65245,79 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCheckPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the check scope configuration.
+     *
+     * @param request - UpdateCheckScopeConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCheckScopeConfigResponse
+     *
+     * @param UpdateCheckScopeConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateCheckScopeConfigResponse
+     */
+    public function updateCheckScopeConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoConfig) {
+            @$query['AutoConfig'] = $request->autoConfig;
+        }
+
+        if (null !== $request->autoType) {
+            @$query['AutoType'] = $request->autoType;
+        }
+
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCheckScopeConfig',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCheckScopeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the check scope configuration.
+     *
+     * @param request - UpdateCheckScopeConfigRequest
+     *
+     * @returns UpdateCheckScopeConfigResponse
+     *
+     * @param UpdateCheckScopeConfigRequest $request
+     *
+     * @return UpdateCheckScopeConfigResponse
+     */
+    public function updateCheckScopeConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCheckScopeConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -66371,7 +66982,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modify Multi-Account Instance Configuration.
+     * Manages authorization assignments for member accounts in multi-account authorization management.
      *
      * @param request - UpdateMultiUserInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -66410,7 +67021,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modify Multi-Account Instance Configuration.
+     * Manages authorization assignments for member accounts in multi-account authorization management.
      *
      * @param request - UpdateMultiUserInstancesRequest
      *
@@ -66543,7 +67154,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Updates the scan policy configuration for OSS file detection under the malicious file detection feature.
+     * Updates the OSS file scan policy configuration for the malicious file detection feature.
      *
      * @param request - UpdateOssScanConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -66561,6 +67172,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->allKeyPrefix) {
             @$query['AllKeyPrefix'] = $request->allKeyPrefix;
+        }
+
+        if (null !== $request->autoAdd) {
+            @$query['AutoAdd'] = $request->autoAdd;
         }
 
         if (null !== $request->bucketNameList) {
@@ -66615,6 +67230,10 @@ class Sas extends OpenApiClient
             @$query['ScanDayList'] = $request->scanDayList;
         }
 
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
         }
@@ -66638,7 +67257,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Updates the scan policy configuration for OSS file detection under the malicious file detection feature.
+     * Updates the OSS file scan policy configuration for the malicious file detection feature.
      *
      * @param request - UpdateOssScanConfigRequest
      *
@@ -66656,7 +67275,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Change Postpaid Asset Authorization Version.
+     * Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
      *
      * @param request - UpdatePostPaidBindRelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -66684,6 +67303,14 @@ class Sas extends OpenApiClient
             @$query['BindAction'] = $request->bindAction;
         }
 
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
         if (null !== $request->updateIfNecessary) {
             @$query['UpdateIfNecessary'] = $request->updateIfNecessary;
         }
@@ -66707,7 +67334,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Change Postpaid Asset Authorization Version.
+     * Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
      *
      * @param request - UpdatePostPaidBindRelRequest
      *
@@ -66983,7 +67610,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the key that corresponds to a specified type.
+     * Modifies the key corresponding to a specified type.
      *
      * @param request - UpdateSelectionKeyByTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -67001,6 +67628,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->businessType) {
             @$query['BusinessType'] = $request->businessType;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->selectionKey) {
@@ -67026,7 +67657,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the key that corresponds to a specified type.
+     * Modifies the key corresponding to a specified type.
      *
      * @param request - UpdateSelectionKeyByTypeRequest
      *
@@ -67231,7 +67862,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Updates the unknown threat detection strategy.
+     * Updates an intelligent behavior analytics policy.
      *
      * @param request - UpdateUnknownThreatDetectStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -67286,7 +67917,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Updates the unknown threat detection strategy.
+     * Updates an intelligent behavior analytics policy.
      *
      * @param request - UpdateUnknownThreatDetectStrategyRequest
      *
@@ -67852,7 +68483,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Verifies the instance dimensions under a check item.
+     * Verifies instances under a check item.
      *
      * @param request - VerifyCheckInstanceResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -67874,6 +68505,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->checkIds) {
             @$query['CheckIds'] = $request->checkIds;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->instanceIds) {
@@ -67903,7 +68538,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Verifies the instance dimensions under a check item.
+     * Verifies instances under a check item.
      *
      * @param request - VerifyCheckInstanceResultRequest
      *
@@ -67921,7 +68556,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Performs check item-level validation.
+     * Validates check items.
      *
      * @param request - VerifyCheckResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -67939,6 +68574,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->checkIds) {
             @$query['CheckIds'] = $request->checkIds;
+        }
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
 
         if (null !== $request->instanceIds) {
@@ -67968,7 +68607,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Performs check item-level validation.
+     * Validates check items.
      *
      * @param request - VerifyCheckResultRequest
      *

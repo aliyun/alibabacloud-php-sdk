@@ -16,6 +16,11 @@ class CreateAssetSelectionConfigRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $platform;
 
     /**
@@ -24,6 +29,7 @@ class CreateAssetSelectionConfigRequest extends Model
     public $targetType;
     protected $_name = [
         'businessType' => 'BusinessType',
+        'clientToken' => 'ClientToken',
         'platform' => 'Platform',
         'targetType' => 'TargetType',
     ];
@@ -38,6 +44,10 @@ class CreateAssetSelectionConfigRequest extends Model
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->platform) {
@@ -61,6 +71,10 @@ class CreateAssetSelectionConfigRequest extends Model
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['Platform'])) {

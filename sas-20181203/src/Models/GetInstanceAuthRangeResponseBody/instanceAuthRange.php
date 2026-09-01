@@ -46,6 +46,11 @@ class instanceAuthRange extends Model
     /**
      * @var string
      */
+    public $cspmInstanceCapacity;
+
+    /**
+     * @var string
+     */
     public $enterpriseCount;
 
     /**
@@ -95,6 +100,7 @@ class instanceAuthRange extends Model
         'containerCore' => 'ContainerCore',
         'containerCount' => 'ContainerCount',
         'cspmCapacity' => 'CspmCapacity',
+        'cspmInstanceCapacity' => 'CspmInstanceCapacity',
         'enterpriseCount' => 'EnterpriseCount',
         'honeypotCapacity' => 'HoneypotCapacity',
         'imageScanCapacity' => 'ImageScanCapacity',
@@ -140,6 +146,10 @@ class instanceAuthRange extends Model
 
         if (null !== $this->cspmCapacity) {
             $res['CspmCapacity'] = $this->cspmCapacity;
+        }
+
+        if (null !== $this->cspmInstanceCapacity) {
+            $res['CspmInstanceCapacity'] = $this->cspmInstanceCapacity;
         }
 
         if (null !== $this->enterpriseCount) {
@@ -215,6 +225,10 @@ class instanceAuthRange extends Model
 
         if (isset($map['CspmCapacity'])) {
             $model->cspmCapacity = $map['CspmCapacity'];
+        }
+
+        if (isset($map['CspmInstanceCapacity'])) {
+            $model->cspmInstanceCapacity = $map['CspmInstanceCapacity'];
         }
 
         if (isset($map['EnterpriseCount'])) {

@@ -16,6 +16,11 @@ class GetCheckTimeDimensionStatisticRequest extends Model
     /**
      * @var int
      */
+    public $resourceDirectoryAccountId;
+
+    /**
+     * @var int
+     */
     public $startTimeStamp;
 
     /**
@@ -29,6 +34,7 @@ class GetCheckTimeDimensionStatisticRequest extends Model
     public $vendors;
     protected $_name = [
         'endTimeStamp' => 'EndTimeStamp',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'startTimeStamp' => 'StartTimeStamp',
         'statisticType' => 'StatisticType',
         'vendors' => 'Vendors',
@@ -47,6 +53,10 @@ class GetCheckTimeDimensionStatisticRequest extends Model
         $res = [];
         if (null !== $this->endTimeStamp) {
             $res['EndTimeStamp'] = $this->endTimeStamp;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->startTimeStamp) {
@@ -81,6 +91,10 @@ class GetCheckTimeDimensionStatisticRequest extends Model
         $model = new self();
         if (isset($map['EndTimeStamp'])) {
             $model->endTimeStamp = $map['EndTimeStamp'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['StartTimeStamp'])) {

@@ -17,6 +17,11 @@ class ExportVulRequest extends Model
     /**
      * @var string
      */
+    public $assetType;
+
+    /**
+     * @var string
+     */
     public $attachTypes;
 
     /**
@@ -105,6 +110,7 @@ class ExportVulRequest extends Model
     public $vulEntityList;
     protected $_name = [
         'aliasName' => 'AliasName',
+        'assetType' => 'AssetType',
         'attachTypes' => 'AttachTypes',
         'containerName' => 'ContainerName',
         'createTsEnd' => 'CreateTsEnd',
@@ -138,6 +144,10 @@ class ExportVulRequest extends Model
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
+        }
+
+        if (null !== $this->assetType) {
+            $res['AssetType'] = $this->assetType;
         }
 
         if (null !== $this->attachTypes) {
@@ -232,6 +242,10 @@ class ExportVulRequest extends Model
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
+        }
+
+        if (isset($map['AssetType'])) {
+            $model->assetType = $map['AssetType'];
         }
 
         if (isset($map['AttachTypes'])) {

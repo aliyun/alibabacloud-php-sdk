@@ -70,6 +70,11 @@ class DescribePropertyScaDetailRequest extends Model
     public $remark;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $scaName;
@@ -136,6 +141,7 @@ class DescribePropertyScaDetailRequest extends Model
         'processStartedEnd' => 'ProcessStartedEnd',
         'processStartedStart' => 'ProcessStartedStart',
         'remark' => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'scaName' => 'ScaName',
         'scaNamePattern' => 'ScaNamePattern',
         'scaVersion' => 'ScaVersion',
@@ -206,6 +212,10 @@ class DescribePropertyScaDetailRequest extends Model
 
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->scaName) {
@@ -316,6 +326,10 @@ class DescribePropertyScaDetailRequest extends Model
 
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['ScaName'])) {

@@ -34,6 +34,11 @@ class DescribePropertyCronDetailRequest extends Model
     public $remark;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $source;
@@ -58,6 +63,7 @@ class DescribePropertyCronDetailRequest extends Model
         'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
         'remark' => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'source' => 'Source',
         'useNextToken' => 'UseNextToken',
         'user' => 'User',
@@ -90,6 +96,10 @@ class DescribePropertyCronDetailRequest extends Model
 
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->source) {
@@ -137,6 +147,10 @@ class DescribePropertyCronDetailRequest extends Model
 
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['Source'])) {

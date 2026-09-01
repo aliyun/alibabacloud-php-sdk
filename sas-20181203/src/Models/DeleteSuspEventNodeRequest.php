@@ -12,8 +12,14 @@ class DeleteSuspEventNodeRequest extends Model
      * @var int
      */
     public $noteId;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
     protected $_name = [
         'noteId' => 'NoteId',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DeleteSuspEventNodeRequest extends Model
         $res = [];
         if (null !== $this->noteId) {
             $res['NoteId'] = $this->noteId;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DeleteSuspEventNodeRequest extends Model
         $model = new self();
         if (isset($map['NoteId'])) {
             $model->noteId = $map['NoteId'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         return $model;

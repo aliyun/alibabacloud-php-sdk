@@ -89,6 +89,11 @@ class suspEvents extends Model
     /**
      * @var string
      */
+    public $deepAnalyzeReportUrl;
+
+    /**
+     * @var string
+     */
     public $desc;
 
     /**
@@ -311,6 +316,7 @@ class suspEvents extends Model
         'containerImageId' => 'ContainerImageId',
         'containerImageName' => 'ContainerImageName',
         'dataSource' => 'DataSource',
+        'deepAnalyzeReportUrl' => 'DeepAnalyzeReportUrl',
         'desc' => 'Desc',
         'details' => 'Details',
         'detectSource' => 'DetectSource',
@@ -433,6 +439,10 @@ class suspEvents extends Model
 
         if (null !== $this->dataSource) {
             $res['DataSource'] = $this->dataSource;
+        }
+
+        if (null !== $this->deepAnalyzeReportUrl) {
+            $res['DeepAnalyzeReportUrl'] = $this->deepAnalyzeReportUrl;
         }
 
         if (null !== $this->desc) {
@@ -700,6 +710,10 @@ class suspEvents extends Model
 
         if (isset($map['DataSource'])) {
             $model->dataSource = $map['DataSource'];
+        }
+
+        if (isset($map['DeepAnalyzeReportUrl'])) {
+            $model->deepAnalyzeReportUrl = $map['DeepAnalyzeReportUrl'];
         }
 
         if (isset($map['Desc'])) {

@@ -11,8 +11,14 @@ class CreateServiceLinkedRoleRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $serviceLinkedRole;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'serviceLinkedRole' => 'ServiceLinkedRole',
     ];
 
@@ -24,6 +30,10 @@ class CreateServiceLinkedRoleRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->serviceLinkedRole) {
             $res['ServiceLinkedRole'] = $this->serviceLinkedRole;
         }
@@ -39,6 +49,10 @@ class CreateServiceLinkedRoleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['ServiceLinkedRole'])) {
             $model->serviceLinkedRole = $map['ServiceLinkedRole'];
         }

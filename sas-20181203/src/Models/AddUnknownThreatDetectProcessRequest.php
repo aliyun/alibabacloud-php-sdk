@@ -15,6 +15,11 @@ class AddUnknownThreatDetectProcessRequest extends Model
     public $eventIdList;
 
     /**
+     * @var string
+     */
+    public $handleRemark;
+
+    /**
      * @var processList[]
      */
     public $processList;
@@ -25,6 +30,7 @@ class AddUnknownThreatDetectProcessRequest extends Model
     public $uuidList;
     protected $_name = [
         'eventIdList' => 'EventIdList',
+        'handleRemark' => 'HandleRemark',
         'processList' => 'ProcessList',
         'uuidList' => 'UuidList',
     ];
@@ -55,6 +61,10 @@ class AddUnknownThreatDetectProcessRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->handleRemark) {
+            $res['HandleRemark'] = $this->handleRemark;
         }
 
         if (null !== $this->processList) {
@@ -99,6 +109,10 @@ class AddUnknownThreatDetectProcessRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['HandleRemark'])) {
+            $model->handleRemark = $map['HandleRemark'];
         }
 
         if (isset($map['ProcessList'])) {

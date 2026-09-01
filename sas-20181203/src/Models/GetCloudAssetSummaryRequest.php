@@ -20,12 +20,18 @@ class GetCloudAssetSummaryRequest extends Model
     public $isSaleData;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var int[]
      */
     public $vendors;
     protected $_name = [
         'cloudAssetTypes' => 'CloudAssetTypes',
         'isSaleData' => 'IsSaleData',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'vendors' => 'Vendors',
     ];
 
@@ -56,6 +62,10 @@ class GetCloudAssetSummaryRequest extends Model
 
         if (null !== $this->isSaleData) {
             $res['IsSaleData'] = $this->isSaleData;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->vendors) {
@@ -93,6 +103,10 @@ class GetCloudAssetSummaryRequest extends Model
 
         if (isset($map['IsSaleData'])) {
             $model->isSaleData = $map['IsSaleData'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['Vendors'])) {

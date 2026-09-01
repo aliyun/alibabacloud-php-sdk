@@ -25,6 +25,16 @@ class UpdatePostPaidBindRelRequest extends Model
     public $bindAction;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $productCode;
+
+    /**
      * @var bool
      */
     public $updateIfNecessary;
@@ -32,6 +42,8 @@ class UpdatePostPaidBindRelRequest extends Model
         'autoBind' => 'AutoBind',
         'autoBindVersion' => 'AutoBindVersion',
         'bindAction' => 'BindAction',
+        'clientToken' => 'ClientToken',
+        'productCode' => 'ProductCode',
         'updateIfNecessary' => 'UpdateIfNecessary',
     ];
 
@@ -63,6 +75,14 @@ class UpdatePostPaidBindRelRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
 
         if (null !== $this->updateIfNecessary) {
@@ -97,6 +117,14 @@ class UpdatePostPaidBindRelRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
 
         if (isset($map['UpdateIfNecessary'])) {

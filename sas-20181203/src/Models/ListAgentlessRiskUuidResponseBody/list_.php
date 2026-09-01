@@ -39,6 +39,11 @@ class list_ extends Model
     public $maliciousCount;
 
     /**
+     * @var string
+     */
+    public $reportUrlHtml;
+
+    /**
      * @var int
      */
     public $scanTime;
@@ -69,6 +74,7 @@ class list_ extends Model
         'internetIp' => 'InternetIp',
         'intranetIp' => 'IntranetIp',
         'maliciousCount' => 'MaliciousCount',
+        'reportUrlHtml' => 'ReportUrlHtml',
         'scanTime' => 'ScanTime',
         'targetId' => 'TargetId',
         'targetName' => 'TargetName',
@@ -106,6 +112,10 @@ class list_ extends Model
 
         if (null !== $this->maliciousCount) {
             $res['MaliciousCount'] = $this->maliciousCount;
+        }
+
+        if (null !== $this->reportUrlHtml) {
+            $res['ReportUrlHtml'] = $this->reportUrlHtml;
         }
 
         if (null !== $this->scanTime) {
@@ -161,6 +171,10 @@ class list_ extends Model
 
         if (isset($map['MaliciousCount'])) {
             $model->maliciousCount = $map['MaliciousCount'];
+        }
+
+        if (isset($map['ReportUrlHtml'])) {
+            $model->reportUrlHtml = $map['ReportUrlHtml'];
         }
 
         if (isset($map['ScanTime'])) {

@@ -22,10 +22,16 @@ class UpdateAlarmEventRequest extends Model
      * @var string
      */
     public $operationCode;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
     protected $_name = [
         'alarmEventIdList' => 'AlarmEventIdList',
         'lang' => 'Lang',
         'operationCode' => 'OperationCode',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
     public function validate()
@@ -58,6 +64,10 @@ class UpdateAlarmEventRequest extends Model
             $res['OperationCode'] = $this->operationCode;
         }
 
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
+        }
+
         return $res;
     }
 
@@ -86,6 +96,10 @@ class UpdateAlarmEventRequest extends Model
 
         if (isset($map['OperationCode'])) {
             $model->operationCode = $map['OperationCode'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         return $model;

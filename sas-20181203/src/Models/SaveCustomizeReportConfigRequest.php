@@ -74,6 +74,11 @@ class SaveCustomizeReportConfigRequest extends Model
     public $reportVersion;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $sendEndTime;
@@ -121,6 +126,7 @@ class SaveCustomizeReportConfigRequest extends Model
         'reportStatus' => 'ReportStatus',
         'reportType' => 'ReportType',
         'reportVersion' => 'ReportVersion',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'sendEndTime' => 'SendEndTime',
         'sendPeriodDays' => 'SendPeriodDays',
         'sendPeriodType' => 'SendPeriodType',
@@ -188,6 +194,10 @@ class SaveCustomizeReportConfigRequest extends Model
 
         if (null !== $this->reportVersion) {
             $res['ReportVersion'] = $this->reportVersion;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->sendEndTime) {
@@ -279,6 +289,10 @@ class SaveCustomizeReportConfigRequest extends Model
 
         if (isset($map['ReportVersion'])) {
             $model->reportVersion = $map['ReportVersion'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SendEndTime'])) {

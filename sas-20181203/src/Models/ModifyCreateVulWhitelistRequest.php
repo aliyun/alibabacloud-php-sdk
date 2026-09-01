@@ -11,7 +11,17 @@ class ModifyCreateVulWhitelistRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $reason;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
 
     /**
      * @var string
@@ -23,7 +33,9 @@ class ModifyCreateVulWhitelistRequest extends Model
      */
     public $whitelist;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'reason' => 'Reason',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'targetInfo' => 'TargetInfo',
         'whitelist' => 'Whitelist',
     ];
@@ -36,8 +48,16 @@ class ModifyCreateVulWhitelistRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->targetInfo) {
@@ -59,8 +79,16 @@ class ModifyCreateVulWhitelistRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['TargetInfo'])) {

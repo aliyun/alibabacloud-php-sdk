@@ -17,9 +17,15 @@ class ExportCustomizeReportRequest extends Model
      * @var int
      */
     public $reportId;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
     protected $_name = [
         'exportType' => 'ExportType',
         'reportId' => 'ReportId',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class ExportCustomizeReportRequest extends Model
 
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class ExportCustomizeReportRequest extends Model
 
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         return $model;

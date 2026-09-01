@@ -34,6 +34,11 @@ class DescribeCustomizeReportListRequest extends Model
     public $reportVersion;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $title;
@@ -43,6 +48,7 @@ class DescribeCustomizeReportListRequest extends Model
         'reportStatus' => 'ReportStatus',
         'reportType' => 'ReportType',
         'reportVersion' => 'ReportVersion',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'title' => 'Title',
     ];
 
@@ -72,6 +78,10 @@ class DescribeCustomizeReportListRequest extends Model
 
         if (null !== $this->reportVersion) {
             $res['ReportVersion'] = $this->reportVersion;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->title) {
@@ -107,6 +117,10 @@ class DescribeCustomizeReportListRequest extends Model
 
         if (isset($map['ReportVersion'])) {
             $model->reportVersion = $map['ReportVersion'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['Title'])) {

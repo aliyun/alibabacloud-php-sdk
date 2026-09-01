@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListMultiUserInstancesResponseBo
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMultiUserInstancesResponseBody\saleInstanceList\antiRansomwareCapacity;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMultiUserInstancesResponseBody\saleInstanceList\cspmCapacity;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListMultiUserInstancesResponseBody\saleInstanceList\cspmInstanceCapacity;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMultiUserInstancesResponseBody\saleInstanceList\honeypotCapacity;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMultiUserInstancesResponseBody\saleInstanceList\imageScanCapacity;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMultiUserInstancesResponseBody\saleInstanceList\raspCapacity;
@@ -33,6 +34,11 @@ class saleInstanceList extends Model
      * @var cspmCapacity
      */
     public $cspmCapacity;
+
+    /**
+     * @var cspmInstanceCapacity
+     */
+    public $cspmInstanceCapacity;
 
     /**
      * @var honeypotCapacity
@@ -107,6 +113,7 @@ class saleInstanceList extends Model
         'aliUid' => 'AliUid',
         'antiRansomwareCapacity' => 'AntiRansomwareCapacity',
         'cspmCapacity' => 'CspmCapacity',
+        'cspmInstanceCapacity' => 'CspmInstanceCapacity',
         'honeypotCapacity' => 'HoneypotCapacity',
         'imageScanCapacity' => 'ImageScanCapacity',
         'instanceId' => 'InstanceId',
@@ -130,6 +137,9 @@ class saleInstanceList extends Model
         }
         if (null !== $this->cspmCapacity) {
             $this->cspmCapacity->validate();
+        }
+        if (null !== $this->cspmInstanceCapacity) {
+            $this->cspmInstanceCapacity->validate();
         }
         if (null !== $this->honeypotCapacity) {
             $this->honeypotCapacity->validate();
@@ -174,6 +184,10 @@ class saleInstanceList extends Model
 
         if (null !== $this->cspmCapacity) {
             $res['CspmCapacity'] = null !== $this->cspmCapacity ? $this->cspmCapacity->toArray($noStream) : $this->cspmCapacity;
+        }
+
+        if (null !== $this->cspmInstanceCapacity) {
+            $res['CspmInstanceCapacity'] = null !== $this->cspmInstanceCapacity ? $this->cspmInstanceCapacity->toArray($noStream) : $this->cspmInstanceCapacity;
         }
 
         if (null !== $this->honeypotCapacity) {
@@ -260,6 +274,10 @@ class saleInstanceList extends Model
 
         if (isset($map['CspmCapacity'])) {
             $model->cspmCapacity = cspmCapacity::fromMap($map['CspmCapacity']);
+        }
+
+        if (isset($map['CspmInstanceCapacity'])) {
+            $model->cspmInstanceCapacity = cspmInstanceCapacity::fromMap($map['CspmInstanceCapacity']);
         }
 
         if (isset($map['HoneypotCapacity'])) {

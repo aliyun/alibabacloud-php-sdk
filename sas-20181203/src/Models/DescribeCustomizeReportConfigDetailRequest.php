@@ -19,12 +19,18 @@ class DescribeCustomizeReportConfigDetailRequest extends Model
     public $reportId;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $sourceIp;
     protected $_name = [
         'lang' => 'Lang',
         'reportId' => 'ReportId',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'sourceIp' => 'SourceIp',
     ];
 
@@ -42,6 +48,10 @@ class DescribeCustomizeReportConfigDetailRequest extends Model
 
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->sourceIp) {
@@ -65,6 +75,10 @@ class DescribeCustomizeReportConfigDetailRequest extends Model
 
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SourceIp'])) {

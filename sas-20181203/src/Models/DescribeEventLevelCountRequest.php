@@ -39,6 +39,11 @@ class DescribeEventLevelCountRequest extends Model
     public $multiAccountActionType;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $targetType;
@@ -49,6 +54,7 @@ class DescribeEventLevelCountRequest extends Model
         'containerIds' => 'ContainerIds',
         'from' => 'From',
         'multiAccountActionType' => 'MultiAccountActionType',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'targetType' => 'TargetType',
     ];
 
@@ -82,6 +88,10 @@ class DescribeEventLevelCountRequest extends Model
 
         if (null !== $this->multiAccountActionType) {
             $res['MultiAccountActionType'] = $this->multiAccountActionType;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->targetType) {
@@ -121,6 +131,10 @@ class DescribeEventLevelCountRequest extends Model
 
         if (isset($map['MultiAccountActionType'])) {
             $model->multiAccountActionType = $map['MultiAccountActionType'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['TargetType'])) {

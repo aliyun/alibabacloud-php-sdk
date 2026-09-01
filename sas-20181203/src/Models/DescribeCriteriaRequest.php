@@ -14,6 +14,11 @@ class DescribeCriteriaRequest extends Model
     public $machineTypes;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var bool
      */
     public $supportAutoTag;
@@ -24,6 +29,7 @@ class DescribeCriteriaRequest extends Model
     public $value;
     protected $_name = [
         'machineTypes' => 'MachineTypes',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'supportAutoTag' => 'SupportAutoTag',
         'value' => 'Value',
     ];
@@ -38,6 +44,10 @@ class DescribeCriteriaRequest extends Model
         $res = [];
         if (null !== $this->machineTypes) {
             $res['MachineTypes'] = $this->machineTypes;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->supportAutoTag) {
@@ -61,6 +71,10 @@ class DescribeCriteriaRequest extends Model
         $model = new self();
         if (isset($map['MachineTypes'])) {
             $model->machineTypes = $map['MachineTypes'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SupportAutoTag'])) {

@@ -29,6 +29,11 @@ class ListClusterInterceptionConfigRequest extends Model
     public $currentPage;
 
     /**
+     * @var string[]
+     */
+    public $excludeClusterTypes;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -37,11 +42,15 @@ class ListClusterInterceptionConfigRequest extends Model
         'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
         'currentPage' => 'CurrentPage',
+        'excludeClusterTypes' => 'ExcludeClusterTypes',
         'pageSize' => 'PageSize',
     ];
 
     public function validate()
     {
+        if (\is_array($this->excludeClusterTypes)) {
+            Model::validateArray($this->excludeClusterTypes);
+        }
         parent::validate();
     }
 
@@ -62,6 +71,17 @@ class ListClusterInterceptionConfigRequest extends Model
 
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->excludeClusterTypes) {
+            if (\is_array($this->excludeClusterTypes)) {
+                $res['ExcludeClusterTypes'] = [];
+                $n1 = 0;
+                foreach ($this->excludeClusterTypes as $item1) {
+                    $res['ExcludeClusterTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->pageSize) {
@@ -93,6 +113,17 @@ class ListClusterInterceptionConfigRequest extends Model
 
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['ExcludeClusterTypes'])) {
+            if (!empty($map['ExcludeClusterTypes'])) {
+                $model->excludeClusterTypes = [];
+                $n1 = 0;
+                foreach ($map['ExcludeClusterTypes'] as $item1) {
+                    $model->excludeClusterTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['PageSize'])) {

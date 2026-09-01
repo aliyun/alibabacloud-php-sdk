@@ -109,6 +109,11 @@ class DescribeCanFixVulListRequest extends Model
     public $repoRegionId;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string[]
      */
     public $scanRange;
@@ -153,6 +158,7 @@ class DescribeCanFixVulListRequest extends Model
         'repoName' => 'RepoName',
         'repoNamespace' => 'RepoNamespace',
         'repoRegionId' => 'RepoRegionId',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'scanRange' => 'ScanRange',
         'statusList' => 'StatusList',
         'tag' => 'Tag',
@@ -249,6 +255,10 @@ class DescribeCanFixVulListRequest extends Model
 
         if (null !== $this->repoRegionId) {
             $res['RepoRegionId'] = $this->repoRegionId;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->scanRange) {
@@ -367,6 +377,10 @@ class DescribeCanFixVulListRequest extends Model
 
         if (isset($map['RepoRegionId'])) {
             $model->repoRegionId = $map['RepoRegionId'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['ScanRange'])) {

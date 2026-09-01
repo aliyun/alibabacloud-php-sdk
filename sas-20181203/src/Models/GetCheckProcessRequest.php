@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class GetCheckProcessRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $taskId;
     protected $_name = [
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'taskId' => 'TaskId',
     ];
 
@@ -24,6 +30,10 @@ class GetCheckProcessRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -39,6 +49,10 @@ class GetCheckProcessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
+        }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

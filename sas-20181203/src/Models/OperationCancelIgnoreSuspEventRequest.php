@@ -14,11 +14,17 @@ class OperationCancelIgnoreSuspEventRequest extends Model
     public $remark;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var int[]
      */
     public $securityEventIds;
     protected $_name = [
         'remark' => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'securityEventIds' => 'SecurityEventIds',
     ];
 
@@ -35,6 +41,10 @@ class OperationCancelIgnoreSuspEventRequest extends Model
         $res = [];
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->securityEventIds) {
@@ -61,6 +71,10 @@ class OperationCancelIgnoreSuspEventRequest extends Model
         $model = new self();
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SecurityEventIds'])) {

@@ -16,6 +16,11 @@ class ModifyNoticeConfigRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $focusLevel;
 
     /**
@@ -39,6 +44,7 @@ class ModifyNoticeConfigRequest extends Model
     public $timeLimit;
     protected $_name = [
         'bizType' => 'BizType',
+        'clientToken' => 'ClientToken',
         'focusLevel' => 'FocusLevel',
         'project' => 'Project',
         'route' => 'Route',
@@ -56,6 +62,10 @@ class ModifyNoticeConfigRequest extends Model
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->focusLevel) {
@@ -91,6 +101,10 @@ class ModifyNoticeConfigRequest extends Model
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['FocusLevel'])) {

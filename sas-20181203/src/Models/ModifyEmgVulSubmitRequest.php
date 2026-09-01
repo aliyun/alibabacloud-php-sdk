@@ -11,6 +11,11 @@ class ModifyEmgVulSubmitRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -28,6 +33,7 @@ class ModifyEmgVulSubmitRequest extends Model
      */
     public $userAgreement;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'lang' => 'Lang',
         'name' => 'Name',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
@@ -42,6 +48,10 @@ class ModifyEmgVulSubmitRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -69,6 +79,10 @@ class ModifyEmgVulSubmitRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

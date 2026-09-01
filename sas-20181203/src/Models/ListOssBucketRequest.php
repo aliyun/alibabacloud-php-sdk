@@ -17,9 +17,15 @@ class ListOssBucketRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'bucketName' => 'BucketName',
         'lang' => 'Lang',
+        'source' => 'Source',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class ListOssBucketRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class ListOssBucketRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

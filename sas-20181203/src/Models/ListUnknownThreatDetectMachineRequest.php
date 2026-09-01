@@ -16,6 +16,11 @@ class ListUnknownThreatDetectMachineRequest extends Model
     /**
      * @var int
      */
+    public $eventStatus;
+
+    /**
+     * @var int
+     */
     public $pageSize;
 
     /**
@@ -49,6 +54,7 @@ class ListUnknownThreatDetectMachineRequest extends Model
     public $uuid;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'eventStatus' => 'EventStatus',
         'pageSize' => 'PageSize',
         'remark' => 'Remark',
         'status' => 'Status',
@@ -68,6 +74,10 @@ class ListUnknownThreatDetectMachineRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->eventStatus) {
+            $res['EventStatus'] = $this->eventStatus;
         }
 
         if (null !== $this->pageSize) {
@@ -111,6 +121,10 @@ class ListUnknownThreatDetectMachineRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['EventStatus'])) {
+            $model->eventStatus = $map['EventStatus'];
         }
 
         if (isset($map['PageSize'])) {

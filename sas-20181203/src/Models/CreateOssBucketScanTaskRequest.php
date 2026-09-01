@@ -57,6 +57,11 @@ class CreateOssBucketScanTaskRequest extends Model
      * @var int
      */
     public $scanMode;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'allKeyPrefix' => 'AllKeyPrefix',
         'bucketNameList' => 'BucketNameList',
@@ -68,6 +73,7 @@ class CreateOssBucketScanTaskRequest extends Model
         'keySuffixList' => 'KeySuffixList',
         'lastModifiedStartTime' => 'LastModifiedStartTime',
         'scanMode' => 'ScanMode',
+        'source' => 'Source',
     ];
 
     public function validate()
@@ -168,6 +174,10 @@ class CreateOssBucketScanTaskRequest extends Model
             $res['ScanMode'] = $this->scanMode;
         }
 
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+
         return $res;
     }
 
@@ -252,6 +262,10 @@ class CreateOssBucketScanTaskRequest extends Model
 
         if (isset($map['ScanMode'])) {
             $model->scanMode = $map['ScanMode'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

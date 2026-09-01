@@ -14,6 +14,11 @@ class OperateVulsRequest extends Model
     public $operateType;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $type;
@@ -29,6 +34,7 @@ class OperateVulsRequest extends Model
     public $vulNames;
     protected $_name = [
         'operateType' => 'OperateType',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'type' => 'Type',
         'uuids' => 'Uuids',
         'vulNames' => 'VulNames',
@@ -50,6 +56,10 @@ class OperateVulsRequest extends Model
         $res = [];
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->type) {
@@ -91,6 +101,10 @@ class OperateVulsRequest extends Model
         $model = new self();
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['Type'])) {

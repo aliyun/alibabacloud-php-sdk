@@ -46,6 +46,11 @@ class ModifyServerlessAuthToMachineRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $criteria;
 
     /**
@@ -90,6 +95,7 @@ class ModifyServerlessAuthToMachineRequest extends Model
         'bindAppList' => 'BindAppList',
         'bindAssetType' => 'BindAssetType',
         'bindUuidList' => 'BindUuidList',
+        'clientToken' => 'ClientToken',
         'criteria' => 'Criteria',
         'logicalExp' => 'LogicalExp',
         'ntmVersion' => 'NtmVersion',
@@ -160,6 +166,10 @@ class ModifyServerlessAuthToMachineRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->criteria) {
@@ -259,6 +269,10 @@ class ModifyServerlessAuthToMachineRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['Criteria'])) {

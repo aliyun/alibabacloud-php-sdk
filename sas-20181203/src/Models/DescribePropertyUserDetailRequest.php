@@ -49,6 +49,11 @@ class DescribePropertyUserDetailRequest extends Model
     public $remark;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var bool
      */
     public $useNextToken;
@@ -71,6 +76,7 @@ class DescribePropertyUserDetailRequest extends Model
         'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
         'remark' => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'useNextToken' => 'UseNextToken',
         'user' => 'User',
         'uuid' => 'Uuid',
@@ -114,6 +120,10 @@ class DescribePropertyUserDetailRequest extends Model
 
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->useNextToken) {
@@ -169,6 +179,10 @@ class DescribePropertyUserDetailRequest extends Model
 
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['UseNextToken'])) {

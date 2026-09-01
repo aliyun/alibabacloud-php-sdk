@@ -14,6 +14,11 @@ class AddCheckResultWhiteListRequest extends Model
     public $checkIds;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -29,6 +34,7 @@ class AddCheckResultWhiteListRequest extends Model
     public $ruleType;
     protected $_name = [
         'checkIds' => 'CheckIds',
+        'clientToken' => 'ClientToken',
         'instanceIds' => 'InstanceIds',
         'remark' => 'Remark',
         'ruleType' => 'RuleType',
@@ -57,6 +63,10 @@ class AddCheckResultWhiteListRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->instanceIds) {
@@ -98,6 +108,10 @@ class AddCheckResultWhiteListRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['InstanceIds'])) {

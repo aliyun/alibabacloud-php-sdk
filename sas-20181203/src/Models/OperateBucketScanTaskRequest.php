@@ -17,9 +17,15 @@ class OperateBucketScanTaskRequest extends Model
      * @var int
      */
     public $operateCode;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'bucketName' => 'BucketName',
         'operateCode' => 'OperateCode',
+        'source' => 'Source',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class OperateBucketScanTaskRequest extends Model
 
         if (null !== $this->operateCode) {
             $res['OperateCode'] = $this->operateCode;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class OperateBucketScanTaskRequest extends Model
 
         if (isset($map['OperateCode'])) {
             $model->operateCode = $map['OperateCode'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

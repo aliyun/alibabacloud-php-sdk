@@ -14,11 +14,17 @@ class HandleUnknownThreatDetectEventRequest extends Model
     public $eventIdList;
 
     /**
+     * @var string
+     */
+    public $handleRemark;
+
+    /**
      * @var int
      */
     public $status;
     protected $_name = [
         'eventIdList' => 'EventIdList',
+        'handleRemark' => 'HandleRemark',
         'status' => 'Status',
     ];
 
@@ -42,6 +48,10 @@ class HandleUnknownThreatDetectEventRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->handleRemark) {
+            $res['HandleRemark'] = $this->handleRemark;
         }
 
         if (null !== $this->status) {
@@ -68,6 +78,10 @@ class HandleUnknownThreatDetectEventRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['HandleRemark'])) {
+            $model->handleRemark = $map['HandleRemark'];
         }
 
         if (isset($map['Status'])) {
