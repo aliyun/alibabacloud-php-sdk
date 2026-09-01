@@ -184,6 +184,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesRequest
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupConsumersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupConsumersResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupQuotaRulesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupQuotaRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerQuotaRulesRequest;
@@ -412,15 +414,15 @@ class APIG extends OpenApiClient
      * Creates a gateway quota throttling rule.
      *
      * @remarks
-     * Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
+     * Creates a consumer-based or consumer group-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.21 or later.
      * >
-     * >  Recommended call logic:
-     * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun=true.
-     * > - - The response contains a conflict preview with conflictHash.
-     * > - 2. Submit the request after confirmation.
-     * > - - No conflicts: dryRun=false, overwrite=false.
-     * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+     * >  Recommended call sequence:
+     * > - Step 1: Perform a dry run to check for rule conflicts.
+     * > - - Set dryRun to true.
+     * > - - The response returns a conflict preview that contains the conflictHash value.
+     * > - Step 2: Submit the request after confirmation.
+     * > - - No conflicts: Set dryRun to false and overwrite to false.
+     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - AddGatewayQuotaRuleRequest
      * @param headers - map
@@ -514,15 +516,15 @@ class APIG extends OpenApiClient
      * Creates a gateway quota throttling rule.
      *
      * @remarks
-     * Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
+     * Creates a consumer-based or consumer group-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.21 or later.
      * >
-     * >  Recommended call logic:
-     * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun=true.
-     * > - - The response contains a conflict preview with conflictHash.
-     * > - 2. Submit the request after confirmation.
-     * > - - No conflicts: dryRun=false, overwrite=false.
-     * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+     * >  Recommended call sequence:
+     * > - Step 1: Perform a dry run to check for rule conflicts.
+     * > - - Set dryRun to true.
+     * > - - The response returns a conflict preview that contains the conflictHash value.
+     * > - Step 2: Submit the request after confirmation.
+     * > - - No conflicts: Set dryRun to false and overwrite to false.
+     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - AddGatewayQuotaRuleRequest
      *
@@ -3773,7 +3775,7 @@ class APIG extends OpenApiClient
      * Deletes a quota throttling rule from a gateway.
      *
      * @remarks
-     * Deletes a consumer-based quota rule from an AI gateway. This operation takes effect only for AI gateways of version 2.1.19 or later.
+     * This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      * @param headers - map
@@ -3814,7 +3816,7 @@ class APIG extends OpenApiClient
      * Deletes a quota throttling rule from a gateway.
      *
      * @remarks
-     * Deletes a consumer-based quota rule from an AI gateway. This operation takes effect only for AI gateways of version 2.1.19 or later.
+     * This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      *
@@ -5655,10 +5657,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a gateway quota rate limiting rule.
+     * Queries the details of a gateway quota throttling rule.
      *
      * @remarks
-     * Queries the details of a consumer quota rule on an AI gateway.
+     * Queries a specific API consumer quota rule on an AI gateway.
      *
      * @param request - GetGatewayQuotaRuleRequest
      * @param headers - map
@@ -5714,10 +5716,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a gateway quota rate limiting rule.
+     * Queries the details of a gateway quota throttling rule.
      *
      * @remarks
-     * Queries the details of a consumer quota rule on an AI gateway.
+     * Queries a specific API consumer quota rule on an AI gateway.
      *
      * @param request - GetGatewayQuotaRuleRequest
      *
@@ -5741,7 +5743,7 @@ class APIG extends OpenApiClient
      * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
-     * Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+     * Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      * @param headers - map
@@ -5797,7 +5799,7 @@ class APIG extends OpenApiClient
      * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
-     * Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+     * Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      *
@@ -7532,6 +7534,87 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 查询消费者组配额限流规则列表.
+     *
+     * @remarks
+     * 查询指定消费者组直接绑定的配额规则，不展开组内消费者个人绑定的规则；无直接绑定关系时返回空列表。
+     *
+     * @param request - ListConsumerGroupQuotaRulesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConsumerGroupQuotaRulesResponse
+     *
+     * @param string                             $consumerGroupId
+     * @param ListConsumerGroupQuotaRulesRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListConsumerGroupQuotaRulesResponse
+     */
+    public function listConsumerGroupQuotaRulesWithOptions($consumerGroupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConsumerGroupQuotaRules',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumer-groups/' . Url::percentEncode($consumerGroupId) . '/quota-rules',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConsumerGroupQuotaRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询消费者组配额限流规则列表.
+     *
+     * @remarks
+     * 查询指定消费者组直接绑定的配额规则，不展开组内消费者个人绑定的规则；无直接绑定关系时返回空列表。
+     *
+     * @param request - ListConsumerGroupQuotaRulesRequest
+     *
+     * @returns ListConsumerGroupQuotaRulesResponse
+     *
+     * @param string                             $consumerGroupId
+     * @param ListConsumerGroupQuotaRulesRequest $request
+     *
+     * @return ListConsumerGroupQuotaRulesResponse
+     */
+    public function listConsumerGroupQuotaRules($consumerGroupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConsumerGroupQuotaRulesWithOptions($consumerGroupId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the list of consumer groups.
      *
      * @param request - ListConsumerGroupsRequest
@@ -8358,10 +8441,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of consumer quota rules bound to a gateway.
+     * Queries the list of FinOps quota rules bound to a gateway.
      *
      * @remarks
-     * Queries the list of consumer quota rules bound to a gateway.
+     * Queries the list of FinOps quota rules bound to a gateway.
      *
      * @param request - ListGatewayQuotaRulesRequest
      * @param headers - map
@@ -8420,10 +8503,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of consumer quota rules bound to a gateway.
+     * Queries the list of FinOps quota rules bound to a gateway.
      *
      * @remarks
-     * Queries the list of consumer quota rules bound to a gateway.
+     * Queries the list of FinOps quota rules bound to a gateway.
      *
      * @param request - ListGatewayQuotaRulesRequest
      *
@@ -10835,15 +10918,15 @@ class APIG extends OpenApiClient
      * Resets a quota throttling rule on a gateway.
      *
      * @remarks
-     * Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
+     * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways of version 2.1.21 or later. Resetting clears the historical usage of consumption subjects on the rule.
      * >
      * >  Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun=true.
-     * > - - The response contains a conflict preview with conflictHash.
-     * > - 2. Submit the request after confirmation.
-     * > - - No conflict: dryRun=false, overwrite=false.
-     * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+     * > - - Set dryRun to true.
+     * > - - The response contains a conflict preview with a conflictHash value.
+     * > - 2. Confirm and submit the request.
+     * > - - No conflicts: Set dryRun to false and overwrite to false.
+     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - ResetGatewayQuotaRuleRequest
      * @param headers - map
@@ -10918,15 +11001,15 @@ class APIG extends OpenApiClient
      * Resets a quota throttling rule on a gateway.
      *
      * @remarks
-     * Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
+     * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways of version 2.1.21 or later. Resetting clears the historical usage of consumption subjects on the rule.
      * >
      * >  Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun=true.
-     * > - - The response contains a conflict preview with conflictHash.
-     * > - 2. Submit the request after confirmation.
-     * > - - No conflict: dryRun=false, overwrite=false.
-     * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+     * > - - Set dryRun to true.
+     * > - - The response contains a conflict preview with a conflictHash value.
+     * > - 2. Confirm and submit the request.
+     * > - - No conflicts: Set dryRun to false and overwrite to false.
+     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - ResetGatewayQuotaRuleRequest
      *
@@ -12497,17 +12580,17 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Edits a quota rate-limiting rule on a gateway.
+     * Edits a quota throttling rule on a gateway.
      *
      * @remarks
-     * Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
-     * >  Recommended call logic:
-     * > - 1. Perform a dry run to check for rule conflicts.
+     * Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21. Editing a rule preserves the historical usage of consumer principals bound to the rule.
+     * >  Recommended call sequence:
+     * > - Step 1: Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
-     * > - - The response contains a conflict preview with conflictHash.
-     * > - 2. Submit the request after confirmation.
-     * > - - No conflict: Set dryRun to false and overwrite to false.
-     * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * > - - The response returns a conflict preview that contains conflictHash.
+     * > - Step 2: Confirm and submit the request.
+     * > - - No conflicts: Set dryRun to false and overwrite to false.
+     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - UpdateGatewayQuotaRuleRequest
      * @param headers - map
@@ -12579,17 +12662,17 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Edits a quota rate-limiting rule on a gateway.
+     * Edits a quota throttling rule on a gateway.
      *
      * @remarks
-     * Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
-     * >  Recommended call logic:
-     * > - 1. Perform a dry run to check for rule conflicts.
+     * Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21. Editing a rule preserves the historical usage of consumer principals bound to the rule.
+     * >  Recommended call sequence:
+     * > - Step 1: Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
-     * > - - The response contains a conflict preview with conflictHash.
-     * > - 2. Submit the request after confirmation.
-     * > - - No conflict: Set dryRun to false and overwrite to false.
-     * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * > - - The response returns a conflict preview that contains conflictHash.
+     * > - Step 2: Confirm and submit the request.
+     * > - - No conflicts: Set dryRun to false and overwrite to false.
+     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - UpdateGatewayQuotaRuleRequest
      *
@@ -12613,7 +12696,7 @@ class APIG extends OpenApiClient
      * Enables or disables a quota throttling rule for a gateway.
      *
      * @remarks
-     * Enables or disables a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19.
+     * Enables or disables a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21.
      *
      * @param request - UpdateGatewayQuotaRuleStatusRequest
      * @param headers - map
@@ -12664,7 +12747,7 @@ class APIG extends OpenApiClient
      * Enables or disables a quota throttling rule for a gateway.
      *
      * @remarks
-     * Enables or disables a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19.
+     * Enables or disables a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21.
      *
      * @param request - UpdateGatewayQuotaRuleStatusRequest
      *
