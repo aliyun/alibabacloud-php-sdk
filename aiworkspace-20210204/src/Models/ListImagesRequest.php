@@ -31,6 +31,11 @@ class ListImagesRequest extends Model
     /**
      * @var string
      */
+    public $options;
+
+    /**
+     * @var string
+     */
     public $order;
 
     /**
@@ -67,6 +72,7 @@ class ListImagesRequest extends Model
         'imageUri' => 'ImageUri',
         'labels' => 'Labels',
         'name' => 'Name',
+        'options' => 'Options',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -98,6 +104,10 @@ class ListImagesRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
         }
 
         if (null !== $this->order) {
@@ -153,6 +163,10 @@ class ListImagesRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Options'])) {
+            $model->options = $map['Options'];
         }
 
         if (isset($map['Order'])) {

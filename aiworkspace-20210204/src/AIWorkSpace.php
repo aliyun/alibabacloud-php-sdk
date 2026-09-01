@@ -6671,6 +6671,10 @@ class AIWorkSpace extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->options) {
+            @$query['Options'] = $request->options;
+        }
+
         if (null !== $request->order) {
             @$query['Order'] = $request->order;
         }
