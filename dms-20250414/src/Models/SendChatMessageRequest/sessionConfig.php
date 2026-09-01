@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest\sessionConfig\permissionConfig;
 
 class sessionConfig extends Model
 {
@@ -42,6 +43,11 @@ class sessionConfig extends Model
      * @var string
      */
     public $mode;
+
+    /**
+     * @var permissionConfig
+     */
+    public $permissionConfig;
 
     /**
      * @var string
@@ -85,6 +91,7 @@ class sessionConfig extends Model
         'language' => 'Language',
         'mcpServerIds' => 'McpServerIds',
         'mode' => 'Mode',
+        'permissionConfig' => 'PermissionConfig',
         'planMode' => 'PlanMode',
         'reportWaterMark' => 'ReportWaterMark',
         'skipAskHuman' => 'SkipAskHuman',
@@ -96,6 +103,9 @@ class sessionConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->permissionConfig) {
+            $this->permissionConfig->validate();
+        }
         if (\is_array($this->userSpecifiedSkillList)) {
             Model::validateArray($this->userSpecifiedSkillList);
         }
@@ -131,6 +141,10 @@ class sessionConfig extends Model
 
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+
+        if (null !== $this->permissionConfig) {
+            $res['PermissionConfig'] = null !== $this->permissionConfig ? $this->permissionConfig->toArray($noStream) : $this->permissionConfig;
         }
 
         if (null !== $this->planMode) {
@@ -205,6 +219,10 @@ class sessionConfig extends Model
 
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+
+        if (isset($map['PermissionConfig'])) {
+            $model->permissionConfig = permissionConfig::fromMap($map['PermissionConfig']);
         }
 
         if (isset($map['PlanMode'])) {

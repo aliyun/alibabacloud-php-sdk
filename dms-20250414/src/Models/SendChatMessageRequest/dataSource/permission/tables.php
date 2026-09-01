@@ -14,6 +14,11 @@ class tables extends Model
     public $allowedColumns;
 
     /**
+     * @var string[]
+     */
+    public $disallowedColumns;
+
+    /**
      * @var string
      */
     public $requiredRowFilter;
@@ -24,6 +29,7 @@ class tables extends Model
     public $tableName;
     protected $_name = [
         'allowedColumns' => 'AllowedColumns',
+        'disallowedColumns' => 'DisallowedColumns',
         'requiredRowFilter' => 'RequiredRowFilter',
         'tableName' => 'TableName',
     ];
@@ -32,6 +38,9 @@ class tables extends Model
     {
         if (\is_array($this->allowedColumns)) {
             Model::validateArray($this->allowedColumns);
+        }
+        if (\is_array($this->disallowedColumns)) {
+            Model::validateArray($this->disallowedColumns);
         }
         parent::validate();
     }
@@ -45,6 +54,17 @@ class tables extends Model
                 $n1 = 0;
                 foreach ($this->allowedColumns as $item1) {
                     $res['AllowedColumns'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->disallowedColumns) {
+            if (\is_array($this->disallowedColumns)) {
+                $res['DisallowedColumns'] = [];
+                $n1 = 0;
+                foreach ($this->disallowedColumns as $item1) {
+                    $res['DisallowedColumns'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -75,6 +95,17 @@ class tables extends Model
                 $n1 = 0;
                 foreach ($map['AllowedColumns'] as $item1) {
                     $model->allowedColumns[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['DisallowedColumns'])) {
+            if (!empty($map['DisallowedColumns'])) {
+                $model->disallowedColumns = [];
+                $n1 = 0;
+                foreach ($map['DisallowedColumns'] as $item1) {
+                    $model->disallowedColumns[$n1] = $item1;
                     ++$n1;
                 }
             }
