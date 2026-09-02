@@ -11,6 +11,11 @@ class ApplyCertificateRequest extends Model
     /**
      * @var string
      */
+    public $algType;
+
+    /**
+     * @var string
+     */
     public $domains;
 
     /**
@@ -23,6 +28,7 @@ class ApplyCertificateRequest extends Model
      */
     public $type;
     protected $_name = [
+        'algType' => 'AlgType',
         'domains' => 'Domains',
         'siteId' => 'SiteId',
         'type' => 'Type',
@@ -36,6 +42,10 @@ class ApplyCertificateRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->algType) {
+            $res['AlgType'] = $this->algType;
+        }
+
         if (null !== $this->domains) {
             $res['Domains'] = $this->domains;
         }
@@ -59,6 +69,10 @@ class ApplyCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlgType'])) {
+            $model->algType = $map['AlgType'];
+        }
+
         if (isset($map['Domains'])) {
             $model->domains = $map['Domains'];
         }

@@ -29,6 +29,11 @@ class ListCertificatesRequest extends Model
     public $siteId;
 
     /**
+     * @var string
+     */
+    public $type;
+
+    /**
      * @var bool
      */
     public $validOnly;
@@ -37,6 +42,7 @@ class ListCertificatesRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'siteId' => 'SiteId',
+        'type' => 'Type',
         'validOnly' => 'ValidOnly',
     ];
 
@@ -62,6 +68,10 @@ class ListCertificatesRequest extends Model
 
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         if (null !== $this->validOnly) {
@@ -93,6 +103,10 @@ class ListCertificatesRequest extends Model
 
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         if (isset($map['ValidOnly'])) {

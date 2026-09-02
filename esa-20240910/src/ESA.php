@@ -1048,10 +1048,6 @@ class ESA extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'ap-southeast-1' => 'esa.ap-southeast-1.aliyuncs.com',
-            'cn-hangzhou' => 'esa.cn-hangzhou.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('esa', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -1393,6 +1389,10 @@ class ESA extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->algType) {
+            @$query['AlgType'] = $request->algType;
+        }
+
         if (null !== $request->domains) {
             @$query['Domains'] = $request->domains;
         }
@@ -13175,7 +13175,7 @@ class ESA extends OpenApiClient
      *
      * @remarks
      * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-     * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+     * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
      *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
      *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
      *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
@@ -13246,7 +13246,7 @@ class ESA extends OpenApiClient
      *
      * @remarks
      * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-     * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+     * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
      *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
      *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
      *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
@@ -13274,7 +13274,7 @@ class ESA extends OpenApiClient
      *
      * @remarks
      * - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-     * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+     * - Because of the high number of access requests during the query time range, data analytics may involve sampling.
      *
      * @param tmpReq - DescribeSiteWafTopDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13343,7 +13343,7 @@ class ESA extends OpenApiClient
      *
      * @remarks
      * - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-     * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+     * - Because of the high number of access requests during the query time range, data analytics may involve sampling.
      *
      * @param Request - DescribeSiteWafTopDataRequest
      *
@@ -14526,7 +14526,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of hostnames bound to a specified client CA certificate. If no certificate is specified, this operation returns the list of hostnames bound to the ESA CA certificate.
+     * Retrieves the domain name bindinglist for a specified client CA certificate. If no certificate is specified, the domain name binding list for the ESA CA certificate is returned.
      *
      * @param Request - GetClientCaCertificateHostnamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14569,7 +14569,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of hostnames bound to a specified client CA certificate. If no certificate is specified, this operation returns the list of hostnames bound to the ESA CA certificate.
+     * Retrieves the domain name bindinglist for a specified client CA certificate. If no certificate is specified, the domain name binding list for the ESA CA certificate is returned.
      *
      * @param Request - GetClientCaCertificateHostnamesRequest
      *
@@ -14640,7 +14640,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of hostnames bound to a specified client CA certificate. If you do not specify a certificate, the operation returns the list of hostnames for the ESA CA certificate.
+     * Retrieves the domain name bindings for a specified client CA certificate. If no certificate is specified, returns the domain name bindings for the ESA CA certificate.
      *
      * @param Request - GetClientCertificateHostnamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14675,7 +14675,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of hostnames bound to a specified client CA certificate. If you do not specify a certificate, the operation returns the list of hostnames for the ESA CA certificate.
+     * Retrieves the domain name bindings for a specified client CA certificate. If no certificate is specified, returns the domain name bindings for the ESA CA certificate.
      *
      * @param Request - GetClientCertificateHostnamesRequest
      *
@@ -20170,6 +20170,10 @@ class ESA extends OpenApiClient
             @$query['SiteId'] = $request->siteId;
         }
 
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
         if (null !== $request->validOnly) {
             @$query['ValidOnly'] = $request->validOnly;
         }
@@ -20654,7 +20658,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of purchased DDoS protection instances.
+     * Queries the list of additionally purchased DDoS security instances.
      *
      * @param Request - ListDDoSInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20717,7 +20721,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of purchased DDoS protection instances.
+     * Queries the list of additionally purchased DDoS security instances.
      *
      * @param Request - ListDDoSInstancesRequest
      *
@@ -27461,7 +27465,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates or updates a keyless server configuration.
+     * Creates or updates a Keyless server configuration.
      *
      * @param Request - SetKeylessServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27534,7 +27538,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates or updates a keyless server configuration.
+     * Creates or updates a Keyless server configuration.
      *
      * @param Request - SetKeylessServerRequest
      *
@@ -29224,7 +29228,14 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Modifies the specifications of a DDoS instance.
+     *
+     * @remarks
+     * - Use `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
+     * - Use `ListDDoSInstances` to query the list of DDoS instances.
+     * - Specification changes are not allowed within 31 days of purchase.
+     * - You can change specifications once per calendar month (from the 1st to the 31st of each month).
+     * - After a successful specification change, billing is based on the new specifications starting from the same day.
      *
      * @param Request - UpdateDDoSSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29275,7 +29286,14 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Modifies the specifications of a DDoS instance.
+     *
+     * @remarks
+     * - Use `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
+     * - Use `ListDDoSInstances` to query the list of DDoS instances.
+     * - Specification changes are not allowed within 31 days of purchase.
+     * - You can change specifications once per calendar month (from the 1st to the 31st of each month).
+     * - After a successful specification change, billing is based on the new specifications starting from the same day.
      *
      * @param Request - UpdateDDoSSpecRequest
      *
@@ -34102,10 +34120,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Uploads an origin server CA certificate.
+     * Uploads a CA certificate for the origin server.
      *
      * @remarks
-     * You can add multiple origins to a site. Edge Security Acceleration (ESA) supports various origin types, including domain names, IP addresses, OSS, and S3. Origin authentication is supported for OSS or S3 origins.
+     * You can add multiple origin servers under a source address. Origin servers of the domain name, IP address, OSS, and S3 types are supported. Back-to-origin authentication is supported for OSS and S3 origin servers.
      *
      * @param Request - UploadOriginCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -34152,10 +34170,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Uploads an origin server CA certificate.
+     * Uploads a CA certificate for the origin server.
      *
      * @remarks
-     * You can add multiple origins to a site. Edge Security Acceleration (ESA) supports various origin types, including domain names, IP addresses, OSS, and S3. Origin authentication is supported for OSS or S3 origins.
+     * You can add multiple origin servers under a source address. Origin servers of the domain name, IP address, OSS, and S3 types are supported. Back-to-origin authentication is supported for OSS and S3 origin servers.
      *
      * @param Request - UploadOriginCaCertificateRequest
      *
@@ -34173,7 +34191,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Uploads an origin client certificate for a site.
+     * Uploads a domain-level back-to-origin client certificate.
      *
      * @param Request - UploadOriginClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -34226,7 +34244,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Uploads an origin client certificate for a site.
+     * Uploads a domain-level back-to-origin client certificate.
      *
      * @param Request - UploadOriginClientCertificateRequest
      *
@@ -34244,7 +34262,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Upload site origin client certificate.
+     * Uploads a site-level back-to-origin client certificate.
      *
      * @param Request - UploadSiteOriginClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -34297,7 +34315,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Upload site origin client certificate.
+     * Uploads a site-level back-to-origin client certificate.
      *
      * @param Request - UploadSiteOriginClientCertificateRequest
      *
