@@ -2,16 +2,26 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelBatchGetHotelDetailResponseBody\data\hotels\roomTypes;
+namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelBatchGetHotelDetailResponseBody\data\hotels\roomTypes\bedGroups;
 
 use AlibabaCloud\Dara\Model;
 
-class bedType extends Model
+class bedInfos extends Model
 {
     /**
      * @var int
      */
     public $bedCount;
+
+    /**
+     * @var string
+     */
+    public $bedNameCn;
+
+    /**
+     * @var string
+     */
+    public $bedNameEn;
 
     /**
      * @var string
@@ -24,6 +34,8 @@ class bedType extends Model
     public $bedType;
     protected $_name = [
         'bedCount' => 'BedCount',
+        'bedNameCn' => 'BedNameCn',
+        'bedNameEn' => 'BedNameEn',
         'bedSize' => 'BedSize',
         'bedType' => 'BedType',
     ];
@@ -38,6 +50,14 @@ class bedType extends Model
         $res = [];
         if (null !== $this->bedCount) {
             $res['BedCount'] = $this->bedCount;
+        }
+
+        if (null !== $this->bedNameCn) {
+            $res['BedNameCn'] = $this->bedNameCn;
+        }
+
+        if (null !== $this->bedNameEn) {
+            $res['BedNameEn'] = $this->bedNameEn;
         }
 
         if (null !== $this->bedSize) {
@@ -61,6 +81,14 @@ class bedType extends Model
         $model = new self();
         if (isset($map['BedCount'])) {
             $model->bedCount = $map['BedCount'];
+        }
+
+        if (isset($map['BedNameCn'])) {
+            $model->bedNameCn = $map['BedNameCn'];
+        }
+
+        if (isset($map['BedNameEn'])) {
+            $model->bedNameEn = $map['BedNameEn'];
         }
 
         if (isset($map['BedSize'])) {

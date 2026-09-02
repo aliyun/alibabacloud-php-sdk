@@ -5,15 +5,21 @@
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelBatchGetHotelDetailResponseBody\data\hotels;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelBatchGetHotelDetailResponseBody\data\hotels\roomTypes\bedType;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelBatchGetHotelDetailResponseBody\data\hotels\roomTypes\bedGroups;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelBatchGetHotelDetailResponseBody\data\hotels\roomTypes\facilities;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\GlobalHotelBatchGetHotelDetailResponseBody\data\hotels\roomTypes\pictures;
 
 class roomTypes extends Model
 {
     /**
-     * @var bedType[]
+     * @var bedGroups[]
      */
-    public $bedType;
+    public $bedGroups;
+
+    /**
+     * @var facilities[]
+     */
+    public $facilities;
 
     /**
      * @var pictures[]
@@ -55,7 +61,8 @@ class roomTypes extends Model
      */
     public $windowTypeDefect;
     protected $_name = [
-        'bedType' => 'BedType',
+        'bedGroups' => 'BedGroups',
+        'facilities' => 'Facilities',
         'pictures' => 'Pictures',
         'roomName' => 'RoomName',
         'roomNameCn' => 'RoomNameCn',
@@ -68,8 +75,11 @@ class roomTypes extends Model
 
     public function validate()
     {
-        if (\is_array($this->bedType)) {
-            Model::validateArray($this->bedType);
+        if (\is_array($this->bedGroups)) {
+            Model::validateArray($this->bedGroups);
+        }
+        if (\is_array($this->facilities)) {
+            Model::validateArray($this->facilities);
         }
         if (\is_array($this->pictures)) {
             Model::validateArray($this->pictures);
@@ -80,12 +90,23 @@ class roomTypes extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->bedType) {
-            if (\is_array($this->bedType)) {
-                $res['BedType'] = [];
+        if (null !== $this->bedGroups) {
+            if (\is_array($this->bedGroups)) {
+                $res['BedGroups'] = [];
                 $n1 = 0;
-                foreach ($this->bedType as $item1) {
-                    $res['BedType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->bedGroups as $item1) {
+                    $res['BedGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->facilities) {
+            if (\is_array($this->facilities)) {
+                $res['Facilities'] = [];
+                $n1 = 0;
+                foreach ($this->facilities as $item1) {
+                    $res['Facilities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -141,12 +162,23 @@ class roomTypes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BedType'])) {
-            if (!empty($map['BedType'])) {
-                $model->bedType = [];
+        if (isset($map['BedGroups'])) {
+            if (!empty($map['BedGroups'])) {
+                $model->bedGroups = [];
                 $n1 = 0;
-                foreach ($map['BedType'] as $item1) {
-                    $model->bedType[$n1] = bedType::fromMap($item1);
+                foreach ($map['BedGroups'] as $item1) {
+                    $model->bedGroups[$n1] = bedGroups::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Facilities'])) {
+            if (!empty($map['Facilities'])) {
+                $model->facilities = [];
+                $n1 = 0;
+                foreach ($map['Facilities'] as $item1) {
+                    $model->facilities[$n1] = facilities::fromMap($item1);
                     ++$n1;
                 }
             }

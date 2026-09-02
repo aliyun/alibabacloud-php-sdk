@@ -4737,7 +4737,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Queries city administrative divisions (in Chinese and English) by paging.
+     * Queries city administrative divisions by paging (in Chinese and English).
      *
      * @param request - GlobalHotelSearchCityPageRequest
      * @param headers - map
@@ -4795,7 +4795,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Queries city administrative divisions (in Chinese and English) by paging.
+     * Queries city administrative divisions by paging (in Chinese and English).
      *
      * @param request - GlobalHotelSearchCityPageRequest
      *
@@ -4814,7 +4814,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of the hotel list by city with paging support.
+     * Performs a paged query to retrieve the list of hotels by city with paging support.
      *
      * @param request - GlobalHotelSearchHotelListRequest
      * @param headers - map
@@ -4872,7 +4872,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of the hotel list by city with paging support.
+     * Performs a paged query to retrieve the list of hotels by city with paging support.
      *
      * @param request - GlobalHotelSearchHotelListRequest
      *
