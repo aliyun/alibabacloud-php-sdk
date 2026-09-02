@@ -230,10 +230,6 @@ class Cloudsiem extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shanghai' => 'cloud-siem.cn-shanghai.aliyuncs.com',
-            'ap-southeast-1' => 'cloud-siem.ap-southeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloud-siem', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -3925,10 +3921,10 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * 获取告警分组列表.
+     * Retrieves the list of alert groups.
      *
      * @remarks
-     * 入参JsonConfig是一个非常复杂的JSON配置，为此我们提供了辅助工具类帮助具体配置示例，请参考[Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java)。
+     * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class and configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
      *
      * @param request - ListAlertAggregationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4015,10 +4011,10 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * 获取告警分组列表.
+     * Retrieves the list of alert groups.
      *
      * @remarks
-     * 入参JsonConfig是一个非常复杂的JSON配置，为此我们提供了辅助工具类帮助具体配置示例，请参考[Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java)。
+     * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class and configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
      *
      * @param request - ListAlertAggregationsRequest
      *
@@ -5186,7 +5182,7 @@ class Cloudsiem extends OpenApiClient
      *
      * @remarks
      * Notifications are subject to frequency and time restrictions.
-     * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+     * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
      *
      * @param tmpReq - ListIncidentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5325,7 +5321,7 @@ class Cloudsiem extends OpenApiClient
      *
      * @remarks
      * Notifications are subject to frequency and time restrictions.
-     * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+     * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
      *
      * @param request - ListIncidentsRequest
      *

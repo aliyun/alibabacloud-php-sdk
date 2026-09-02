@@ -14,6 +14,11 @@ class incidents extends Model
     public $alertInfos;
 
     /**
+     * @var string[]
+     */
+    public $alertSources;
+
+    /**
      * @var string
      */
     public $attckTactics;
@@ -74,6 +79,11 @@ class incidents extends Model
     public $owner;
 
     /**
+     * @var string
+     */
+    public $ownerName;
+
+    /**
      * @var int
      */
     public $relateAlertCount;
@@ -89,6 +99,11 @@ class incidents extends Model
     public $responseTime;
 
     /**
+     * @var string[]
+     */
+    public $responseTypes;
+
+    /**
      * @var string
      */
     public $threatLevel;
@@ -99,6 +114,7 @@ class incidents extends Model
     public $updateTime;
     protected $_name = [
         'alertInfos' => 'AlertInfos',
+        'alertSources' => 'AlertSources',
         'attckTactics' => 'AttckTactics',
         'createTime' => 'CreateTime',
         'detectionRuleId' => 'DetectionRuleId',
@@ -111,15 +127,23 @@ class incidents extends Model
         'incidentTags' => 'IncidentTags',
         'incidentUuid' => 'IncidentUuid',
         'owner' => 'Owner',
+        'ownerName' => 'OwnerName',
         'relateAlertCount' => 'RelateAlertCount',
         'relateAssetCount' => 'RelateAssetCount',
         'responseTime' => 'ResponseTime',
+        'responseTypes' => 'ResponseTypes',
         'threatLevel' => 'ThreatLevel',
         'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->alertSources)) {
+            Model::validateArray($this->alertSources);
+        }
+        if (\is_array($this->responseTypes)) {
+            Model::validateArray($this->responseTypes);
+        }
         parent::validate();
     }
 
@@ -128,6 +152,17 @@ class incidents extends Model
         $res = [];
         if (null !== $this->alertInfos) {
             $res['AlertInfos'] = $this->alertInfos;
+        }
+
+        if (null !== $this->alertSources) {
+            if (\is_array($this->alertSources)) {
+                $res['AlertSources'] = [];
+                $n1 = 0;
+                foreach ($this->alertSources as $item1) {
+                    $res['AlertSources'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->attckTactics) {
@@ -178,6 +213,10 @@ class incidents extends Model
             $res['Owner'] = $this->owner;
         }
 
+        if (null !== $this->ownerName) {
+            $res['OwnerName'] = $this->ownerName;
+        }
+
         if (null !== $this->relateAlertCount) {
             $res['RelateAlertCount'] = $this->relateAlertCount;
         }
@@ -188,6 +227,17 @@ class incidents extends Model
 
         if (null !== $this->responseTime) {
             $res['ResponseTime'] = $this->responseTime;
+        }
+
+        if (null !== $this->responseTypes) {
+            if (\is_array($this->responseTypes)) {
+                $res['ResponseTypes'] = [];
+                $n1 = 0;
+                foreach ($this->responseTypes as $item1) {
+                    $res['ResponseTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->threatLevel) {
@@ -211,6 +261,17 @@ class incidents extends Model
         $model = new self();
         if (isset($map['AlertInfos'])) {
             $model->alertInfos = $map['AlertInfos'];
+        }
+
+        if (isset($map['AlertSources'])) {
+            if (!empty($map['AlertSources'])) {
+                $model->alertSources = [];
+                $n1 = 0;
+                foreach ($map['AlertSources'] as $item1) {
+                    $model->alertSources[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['AttckTactics'])) {
@@ -261,6 +322,10 @@ class incidents extends Model
             $model->owner = $map['Owner'];
         }
 
+        if (isset($map['OwnerName'])) {
+            $model->ownerName = $map['OwnerName'];
+        }
+
         if (isset($map['RelateAlertCount'])) {
             $model->relateAlertCount = $map['RelateAlertCount'];
         }
@@ -271,6 +336,17 @@ class incidents extends Model
 
         if (isset($map['ResponseTime'])) {
             $model->responseTime = $map['ResponseTime'];
+        }
+
+        if (isset($map['ResponseTypes'])) {
+            if (!empty($map['ResponseTypes'])) {
+                $model->responseTypes = [];
+                $n1 = 0;
+                foreach ($map['ResponseTypes'] as $item1) {
+                    $model->responseTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ThreatLevel'])) {
