@@ -1,3 +1,8 @@
+2026-09-02 Version: 8.4.0
+- Support API GetBatchChangeTableOwnerStatus.
+- Support API SubmitBatchChangeTableOwner.
+
+
 2026-08-26 Version: 8.3.0
 - Support API DeleteImage.
 

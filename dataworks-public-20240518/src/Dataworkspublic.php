@@ -319,6 +319,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetApplicationContentsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetApplicationContentsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBatchChangeTableOwnerStatusRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBatchChangeTableOwnerStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCatalogRequest;
@@ -760,6 +762,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesShrinkReq
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopWorkflowInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopWorkflowInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopWorkflowInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SubmitBatchChangeTableOwnerRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SubmitBatchChangeTableOwnerResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SubmitBatchChangeTableOwnerShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SubmitFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SubmitFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesRequest;
@@ -11562,6 +11567,63 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getApplicationContentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询批量转交表Owner状态
+     *
+     * @param Request - GetBatchChangeTableOwnerStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchChangeTableOwnerStatusResponse
+     *
+     * @param GetBatchChangeTableOwnerStatusRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetBatchChangeTableOwnerStatusResponse
+     */
+    public function getBatchChangeTableOwnerStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->batchId) {
+            @$query['BatchId'] = $request->batchId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBatchChangeTableOwnerStatus',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBatchChangeTableOwnerStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询批量转交表Owner状态
+     *
+     * @param Request - GetBatchChangeTableOwnerStatusRequest
+     *
+     * @returns GetBatchChangeTableOwnerStatusResponse
+     *
+     * @param GetBatchChangeTableOwnerStatusRequest $request
+     *
+     * @return GetBatchChangeTableOwnerStatusResponse
+     */
+    public function getBatchChangeTableOwnerStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBatchChangeTableOwnerStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -26075,6 +26137,77 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopWorkflowInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交批量转交表Owner.
+     *
+     * @param tmpReq - SubmitBatchChangeTableOwnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitBatchChangeTableOwnerResponse
+     *
+     * @param SubmitBatchChangeTableOwnerRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SubmitBatchChangeTableOwnerResponse
+     */
+    public function submitBatchChangeTableOwnerWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitBatchChangeTableOwnerShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tableMetaEntityIds) {
+            $request->tableMetaEntityIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableMetaEntityIds, 'TableMetaEntityIds', 'simple');
+        }
+
+        $body = [];
+        if (null !== $request->enableCrossTenant) {
+            @$body['EnableCrossTenant'] = $request->enableCrossTenant;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->tableMetaEntityIdsShrink) {
+            @$body['TableMetaEntityIds'] = $request->tableMetaEntityIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitBatchChangeTableOwner',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitBatchChangeTableOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交批量转交表Owner.
+     *
+     * @param Request - SubmitBatchChangeTableOwnerRequest
+     *
+     * @returns SubmitBatchChangeTableOwnerResponse
+     *
+     * @param SubmitBatchChangeTableOwnerRequest $request
+     *
+     * @return SubmitBatchChangeTableOwnerResponse
+     */
+    public function submitBatchChangeTableOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitBatchChangeTableOwnerWithOptions($request, $runtime);
     }
 
     /**
