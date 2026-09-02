@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ExecuteQueryRequest\annotationFilter;
 
 class ExecuteQueryRequest extends Model
 {
+    /**
+     * @var annotationFilter
+     */
+    public $annotationFilter;
+
     /**
      * @var int
      */
@@ -48,6 +54,7 @@ class ExecuteQueryRequest extends Model
      */
     public $version;
     protected $_name = [
+        'annotationFilter' => 'annotationFilter',
         'from' => 'from',
         'length' => 'length',
         'maxOutputLength' => 'maxOutputLength',
@@ -60,12 +67,19 @@ class ExecuteQueryRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->annotationFilter) {
+            $this->annotationFilter->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->annotationFilter) {
+            $res['annotationFilter'] = null !== $this->annotationFilter ? $this->annotationFilter->toArray($noStream) : $this->annotationFilter;
+        }
+
         if (null !== $this->from) {
             $res['from'] = $this->from;
         }
@@ -109,6 +123,10 @@ class ExecuteQueryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['annotationFilter'])) {
+            $model->annotationFilter = annotationFilter::fromMap($map['annotationFilter']);
+        }
+
         if (isset($map['from'])) {
             $model->from = $map['from'];
         }

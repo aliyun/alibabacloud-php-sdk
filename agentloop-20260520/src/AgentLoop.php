@@ -150,17 +150,6 @@ class AgentLoop extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shenzhen' => 'agentloop.cn-shenzhen.aliyuncs.com',
-            'cn-beijing' => 'agentloop.cn-beijing.aliyuncs.com',
-            'cn-shanghai' => 'agentloop.cn-shanghai.aliyuncs.com',
-            'cn-guangzhou' => 'agentloop.cn-guangzhou.aliyuncs.com',
-            'cn-hongkong' => 'agentloop.cn-hongkong.aliyuncs.com',
-            'ap-southeast-1' => 'agentloop.ap-southeast-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'agentloop.cn-zhangjiakou.aliyuncs.com',
-            'cn-hangzhou' => 'agentloop.cn-hangzhou.aliyuncs.com',
-            'cn-chengdu' => 'agentloop.cn-chengdu.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('agentloop', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -2002,6 +1991,10 @@ class AgentLoop extends OpenApiClient
     /**
      * Executes a query statement.
      *
+     * @remarks
+     * Calls CreateEvaluationTask to create an evaluation task in a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+     * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
+     *
      * @param request - ExecuteQueryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2020,6 +2013,10 @@ class AgentLoop extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->annotationFilter) {
+            @$body['annotationFilter'] = $request->annotationFilter;
+        }
+
         if (null !== $request->from) {
             @$body['from'] = $request->from;
         }
@@ -2073,6 +2070,10 @@ class AgentLoop extends OpenApiClient
 
     /**
      * Executes a query statement.
+     *
+     * @remarks
+     * Calls CreateEvaluationTask to create an evaluation task in a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+     * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
      *
      * @param request - ExecuteQueryRequest
      *
@@ -2713,7 +2714,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a CI/CD pipeline.
+     * Queries a pipeline.
      *
      * @param request - GetPipelineRequest
      * @param headers - map
@@ -2751,7 +2752,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a CI/CD pipeline.
+     * Queries a pipeline.
      *
      * @param request - GetPipelineRequest
      *

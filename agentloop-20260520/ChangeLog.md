@@ -1,3 +1,7 @@
+2026-09-02 Version: 2.0.5
+- Update API ExecuteQuery: add request parameters body.annotationFilter.
+
+
 2026-08-31 Version: 2.0.4
 - Update API CreatePipeline: add request parameters body.sink.condition.
 - Update API CreatePipeline: add request parameters body.source.dataset.
