@@ -12,8 +12,14 @@ class hostDetailInfo extends Model
      * @var string
      */
     public $serialNumber;
+
+    /**
+     * @var string
+     */
+    public $vgpuVersion;
     protected $_name = [
         'serialNumber' => 'SerialNumber',
+        'vgpuVersion' => 'VgpuVersion',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class hostDetailInfo extends Model
         $res = [];
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
+        }
+
+        if (null !== $this->vgpuVersion) {
+            $res['VgpuVersion'] = $this->vgpuVersion;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class hostDetailInfo extends Model
         $model = new self();
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
+        }
+
+        if (isset($map['VgpuVersion'])) {
+            $model->vgpuVersion = $map['VgpuVersion'];
         }
 
         return $model;
