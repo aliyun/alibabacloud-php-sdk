@@ -14,11 +14,17 @@ class QueryAttachment extends Model
     public $query;
 
     /**
+     * @var string
+     */
+    public $queryId;
+
+    /**
      * @var ExecutionResult
      */
     public $result;
     protected $_name = [
         'query' => 'Query',
+        'queryId' => 'QueryId',
         'result' => 'Result',
     ];
 
@@ -35,6 +41,10 @@ class QueryAttachment extends Model
         $res = [];
         if (null !== $this->query) {
             $res['Query'] = $this->query;
+        }
+
+        if (null !== $this->queryId) {
+            $res['QueryId'] = $this->queryId;
         }
 
         if (null !== $this->result) {
@@ -54,6 +64,10 @@ class QueryAttachment extends Model
         $model = new self();
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
+        }
+
+        if (isset($map['QueryId'])) {
+            $model->queryId = $map['QueryId'];
         }
 
         if (isset($map['Result'])) {

@@ -62,6 +62,11 @@ class AskLumaResult extends Model
      * @var bool
      */
     public $storageTruncated;
+
+    /**
+     * @var string
+     */
+    public $wikiVersion;
     protected $_name = [
         'clarificationNeeded' => 'ClarificationNeeded',
         'clarificationQuestion' => 'ClarificationQuestion',
@@ -74,6 +79,7 @@ class AskLumaResult extends Model
         'messageId' => 'MessageId',
         'status' => 'Status',
         'storageTruncated' => 'StorageTruncated',
+        'wikiVersion' => 'WikiVersion',
     ];
 
     public function validate()
@@ -134,6 +140,10 @@ class AskLumaResult extends Model
             $res['StorageTruncated'] = $this->storageTruncated;
         }
 
+        if (null !== $this->wikiVersion) {
+            $res['WikiVersion'] = $this->wikiVersion;
+        }
+
         return $res;
     }
 
@@ -187,6 +197,10 @@ class AskLumaResult extends Model
 
         if (isset($map['StorageTruncated'])) {
             $model->storageTruncated = $map['StorageTruncated'];
+        }
+
+        if (isset($map['WikiVersion'])) {
+            $model->wikiVersion = $map['WikiVersion'];
         }
 
         return $model;

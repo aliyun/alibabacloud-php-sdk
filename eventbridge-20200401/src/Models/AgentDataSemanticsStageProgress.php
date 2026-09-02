@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteEventStreamingRequest extends Model
+class AgentDataSemanticsStageProgress extends Model
 {
     /**
      * @var string
      */
-    public $eventStreamingName;
+    public $stage;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $force;
+    public $status;
     protected $_name = [
-        'eventStreamingName' => 'EventStreamingName',
-        'force' => 'Force',
+        'stage' => 'Stage',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class DeleteEventStreamingRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->eventStreamingName) {
-            $res['EventStreamingName'] = $this->eventStreamingName;
+        if (null !== $this->stage) {
+            $res['Stage'] = $this->stage;
         }
 
-        if (null !== $this->force) {
-            $res['Force'] = $this->force;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class DeleteEventStreamingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventStreamingName'])) {
-            $model->eventStreamingName = $map['EventStreamingName'];
+        if (isset($map['Stage'])) {
+            $model->stage = $map['Stage'];
         }
 
-        if (isset($map['Force'])) {
-            $model->force = $map['Force'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -72,6 +72,10 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EnableRuleResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsShrinkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GenerateAgentDataSemanticsRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GenerateAgentDataSemanticsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetAgentDataSemanticsRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetAgentDataSemanticsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetAgentRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetAgentResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetApiDestinationRequest;
@@ -86,6 +90,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventHouseRuntimeRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventHouseRuntimeResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetGenerateAgentDataSemanticsProgressRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetGenerateAgentDataSemanticsProgressResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetNamespaceRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetNamespaceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleRequest;
@@ -128,6 +134,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryAskLumaLogRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryAskLumaLogResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventHouseRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventHouseResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventHouseWithTimeRangeRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventHouseWithTimeRangeResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventTracesRequest;
@@ -136,6 +144,9 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventByEventIdReque
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventByEventIdResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SaveAgentDataSemanticsRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SaveAgentDataSemanticsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SaveAgentDataSemanticsShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\StartEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\StartEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventPatternRequest;
@@ -183,32 +194,32 @@ class Eventbridge extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'us-west-1' => 'eventbridge-console.us-west-1.aliyuncs.com',
-            'us-east-1' => 'eventbridge-console.us-east-1.aliyuncs.com',
-            'eu-west-1' => 'eventbridge-console.eu-west-1.aliyuncs.com',
-            'eu-central-1' => 'eventbridge-console.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'eventbridge-console.cn-zhangjiakou.aliyuncs.com',
             'cn-wulanchabu' => 'eventbridge-console.cn-wulanchabu.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'eventbridge-console.cn-shenzhen-finance-1.aliyuncs.com',
-            'cn-shenzhen' => 'eventbridge-console.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'eventbridge-console.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shanghai' => 'eventbridge-console.cn-shanghai.aliyuncs.com',
+            'cn-beijing' => 'eventbridge-console.cn-beijing.aliyuncs.com',
             'cn-qingdao' => 'eventbridge-console.cn-qingdao.aliyuncs.com',
-            'cn-huhehaote' => 'eventbridge-console.cn-huhehaote.aliyuncs.com',
+            'cn-shanghai' => 'eventbridge-console.cn-shanghai.aliyuncs.com',
             'cn-hongkong' => 'eventbridge-console.cn-hongkong.aliyuncs.com',
             'cn-heyuan' => 'eventbridge-console.cn-heyuan.aliyuncs.com',
-            'cn-hangzhou' => 'eventbridge-console.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'eventbridge-console.cn-guangzhou.aliyuncs.com',
-            'cn-chengdu' => 'eventbridge-console.cn-chengdu.aliyuncs.com',
-            'cn-beijing-finance-1' => 'eventbridge-console.cn-beijing-finance-1.aliyuncs.com',
-            'cn-beijing' => 'eventbridge-console.cn-beijing.aliyuncs.com',
-            'ap-southeast-7' => 'eventbridge-console.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-6' => 'eventbridge-console.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-5' => 'eventbridge-console.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'eventbridge-console.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'eventbridge-console.ap-southeast-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'eventbridge-console.cn-zhangjiakou.aliyuncs.com',
+            'cn-shenzhen' => 'eventbridge-console.cn-shenzhen.aliyuncs.com',
             'ap-northeast-2' => 'eventbridge-console.ap-northeast-2.aliyuncs.com',
             'ap-northeast-1' => 'eventbridge-console.ap-northeast-1.aliyuncs.com',
+            'cn-chengdu' => 'eventbridge-console.cn-chengdu.aliyuncs.com',
+            'cn-guangzhou' => 'eventbridge-console.cn-guangzhou.aliyuncs.com',
+            'ap-southeast-1' => 'eventbridge-console.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'eventbridge-console.ap-southeast-3.aliyuncs.com',
+            'cn-huhehaote' => 'eventbridge-console.cn-huhehaote.aliyuncs.com',
+            'ap-southeast-5' => 'eventbridge-console.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-6' => 'eventbridge-console.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-7' => 'eventbridge-console.ap-southeast-7.aliyuncs.com',
+            'cn-hangzhou' => 'eventbridge-console.cn-hangzhou.aliyuncs.com',
+            'us-east-1' => 'eventbridge-console.us-east-1.aliyuncs.com',
+            'eu-west-1' => 'eventbridge-console.eu-west-1.aliyuncs.com',
+            'us-west-1' => 'eventbridge-console.us-west-1.aliyuncs.com',
+            'eu-central-1' => 'eventbridge-console.eu-central-1.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'eventbridge-console.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-beijing-finance-1' => 'eventbridge-console.cn-beijing-finance-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'eventbridge-console.cn-shanghai-finance-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eventbridge', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -239,7 +250,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries data using natural language.
+     * Queries data by using natural language.
      *
      * @param request - AskLumaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -290,7 +301,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries data using natural language.
+     * Queries data by using natural language.
      *
      * @param request - AskLumaRequest
      *
@@ -1733,6 +1744,10 @@ class Eventbridge extends OpenApiClient
             @$body['EventStreamingName'] = $request->eventStreamingName;
         }
 
+        if (null !== $request->force) {
+            @$body['Force'] = $request->force;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -2335,6 +2350,63 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Initiates an agent data semantics generation task.
+     *
+     * @param request - GenerateAgentDataSemanticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateAgentDataSemanticsResponse
+     *
+     * @param GenerateAgentDataSemanticsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GenerateAgentDataSemanticsResponse
+     */
+    public function generateAgentDataSemanticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateAgentDataSemantics',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateAgentDataSemanticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates an agent data semantics generation task.
+     *
+     * @param request - GenerateAgentDataSemanticsRequest
+     *
+     * @returns GenerateAgentDataSemanticsResponse
+     *
+     * @param GenerateAgentDataSemanticsRequest $request
+     *
+     * @return GenerateAgentDataSemanticsResponse
+     */
+    public function generateAgentDataSemantics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateAgentDataSemanticsWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves agent metadata.
      *
      * @param request - GetAgentRequest
@@ -2389,6 +2461,63 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the currently effective data semantics of an agent.
+     *
+     * @param request - GetAgentDataSemanticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentDataSemanticsResponse
+     *
+     * @param GetAgentDataSemanticsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAgentDataSemanticsResponse
+     */
+    public function getAgentDataSemanticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentDataSemantics',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentDataSemanticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the currently effective data semantics of an agent.
+     *
+     * @param request - GetAgentDataSemanticsRequest
+     *
+     * @returns GetAgentDataSemanticsResponse
+     *
+     * @param GetAgentDataSemanticsRequest $request
+     *
+     * @return GetAgentDataSemanticsResponse
+     */
+    public function getAgentDataSemantics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentDataSemanticsWithOptions($request, $runtime);
     }
 
     /**
@@ -2455,7 +2584,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Get data catalog.
+     * Retrieves a data catalog.
      *
      * @param request - GetCatalogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2500,7 +2629,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Get data catalog.
+     * Retrieves a data catalog.
      *
      * @param request - GetCatalogRequest
      *
@@ -2518,10 +2647,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information of a single connection.
+     * Queries the configuration of a single connection.
      *
      * @remarks
-     * Queries the configuration information of a single connection.
+     * Queries the configuration of a single connection.
      *
      * @param request - GetConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2560,10 +2689,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information of a single connection.
+     * Queries the configuration of a single connection.
      *
      * @remarks
-     * Queries the configuration information of a single connection.
+     * Queries the configuration of a single connection.
      *
      * @param request - GetConnectionRequest
      *
@@ -2761,6 +2890,63 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getEventStreamingWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the generation progress of data semantics for an agent.
+     *
+     * @param request - GetGenerateAgentDataSemanticsProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGenerateAgentDataSemanticsProgressResponse
+     *
+     * @param GetGenerateAgentDataSemanticsProgressRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return GetGenerateAgentDataSemanticsProgressResponse
+     */
+    public function getGenerateAgentDataSemanticsProgressWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetGenerateAgentDataSemanticsProgress',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGenerateAgentDataSemanticsProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the generation progress of data semantics for an agent.
+     *
+     * @param request - GetGenerateAgentDataSemanticsProgressRequest
+     *
+     * @returns GetGenerateAgentDataSemanticsProgressResponse
+     *
+     * @param GetGenerateAgentDataSemanticsProgressRequest $request
+     *
+     * @return GetGenerateAgentDataSemanticsProgressResponse
+     */
+    public function getGenerateAgentDataSemanticsProgress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGenerateAgentDataSemanticsProgressWithOptions($request, $runtime);
     }
 
     /**
@@ -3158,7 +3344,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Query data catalog list.
+     * Queries the list of data catalogs.
      *
      * @param request - ListCatalogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3201,7 +3387,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Query data catalog list.
+     * Queries the list of data catalogs.
      *
      * @param request - ListCatalogsRequest
      *
@@ -3219,10 +3405,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the list of connection configurations.
+     * Retrieves a list of connection configurations.
      *
      * @remarks
-     * Queries the list of connection configurations.
+     * Retrieves a list of connection configurations.
      *
      * @param request - ListConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3273,10 +3459,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the list of connection configurations.
+     * Retrieves a list of connection configurations.
      *
      * @remarks
-     * Queries the list of connection configurations.
+     * Retrieves a list of connection configurations.
      *
      * @param request - ListConnectionsRequest
      *
@@ -4264,6 +4450,81 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Executes a read-only SQL statement to query internal EventHouse data within a specified time range. The time range only constrains the internal EventHouse data referenced in the SQL statement and does not affect mounted external data sources. Returns a structured result set.
+     *
+     * @remarks
+     * Executes a single read-only SQL statement and returns a structured result set. BeginTime and EndTime only constrain the internal EventHouse data referenced in the SQL statement and do not affect mounted external data sources.
+     *
+     * @param request - QueryEventHouseWithTimeRangeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryEventHouseWithTimeRangeResponse
+     *
+     * @param QueryEventHouseWithTimeRangeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryEventHouseWithTimeRangeResponse
+     */
+    public function queryEventHouseWithTimeRangeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryEventHouseWithTimeRange',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryEventHouseWithTimeRangeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes a read-only SQL statement to query internal EventHouse data within a specified time range. The time range only constrains the internal EventHouse data referenced in the SQL statement and does not affect mounted external data sources. Returns a structured result set.
+     *
+     * @remarks
+     * Executes a single read-only SQL statement and returns a structured result set. BeginTime and EndTime only constrain the internal EventHouse data referenced in the SQL statement and do not affect mounted external data sources.
+     *
+     * @param request - QueryEventHouseWithTimeRangeRequest
+     *
+     * @returns QueryEventHouseWithTimeRangeResponse
+     *
+     * @param QueryEventHouseWithTimeRangeRequest $request
+     *
+     * @return QueryEventHouseWithTimeRangeResponse
+     */
+    public function queryEventHouseWithTimeRange($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryEventHouseWithTimeRangeWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries event traces.
      *
      * @remarks
@@ -4494,6 +4755,97 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryTracedEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Saves data semantics for an agent.
+     *
+     * @param tmpReq - SaveAgentDataSemanticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveAgentDataSemanticsResponse
+     *
+     * @param SaveAgentDataSemanticsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SaveAgentDataSemanticsResponse
+     */
+    public function saveAgentDataSemanticsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SaveAgentDataSemanticsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->examples) {
+            $request->examplesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->examples, 'Examples', 'json');
+        }
+
+        if (null !== $tmpReq->joins) {
+            $request->joinsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->joins, 'Joins', 'json');
+        }
+
+        if (null !== $tmpReq->metrics) {
+            $request->metricsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metrics, 'Metrics', 'json');
+        }
+
+        if (null !== $tmpReq->text) {
+            $request->textShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->text, 'Text', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->examplesShrink) {
+            @$body['Examples'] = $request->examplesShrink;
+        }
+
+        if (null !== $request->joinsShrink) {
+            @$body['Joins'] = $request->joinsShrink;
+        }
+
+        if (null !== $request->metricsShrink) {
+            @$body['Metrics'] = $request->metricsShrink;
+        }
+
+        if (null !== $request->textShrink) {
+            @$body['Text'] = $request->textShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SaveAgentDataSemantics',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveAgentDataSemanticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Saves data semantics for an agent.
+     *
+     * @param request - SaveAgentDataSemanticsRequest
+     *
+     * @returns SaveAgentDataSemanticsResponse
+     *
+     * @param SaveAgentDataSemanticsRequest $request
+     *
+     * @return SaveAgentDataSemanticsResponse
+     */
+    public function saveAgentDataSemantics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveAgentDataSemanticsWithOptions($request, $runtime);
     }
 
     /**
@@ -4856,10 +5208,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Updates the connection configuration.
+     * Updates connection configuration information.
      *
      * @remarks
-     * Updates the connection configuration.
+     * Updates connection configurations.
      *
      * @param tmpReq - UpdateConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4932,10 +5284,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Updates the connection configuration.
+     * Updates connection configuration information.
      *
      * @remarks
-     * Updates the connection configuration.
+     * Updates connection configurations.
      *
      * @param request - UpdateConnectionRequest
      *
