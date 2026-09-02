@@ -280,6 +280,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpDepartmentsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpDepartmentsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListNacUserCertRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListNacUserCertResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListNetBandwidthRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListNetBandwidthResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListOperationAuditLogsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListOperationAuditLogsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationRequest;
@@ -9396,6 +9398,81 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNacUserCertWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+     *
+     * @remarks
+     * Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+     *
+     * @param request - ListNetBandwidthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNetBandwidthResponse
+     *
+     * @param ListNetBandwidthRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListNetBandwidthResponse
+     */
+    public function listNetBandwidthWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->netType) {
+            @$query['NetType'] = $request->netType;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNetBandwidth',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNetBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+     *
+     * @remarks
+     * Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+     *
+     * @param request - ListNetBandwidthRequest
+     *
+     * @returns ListNetBandwidthResponse
+     *
+     * @param ListNetBandwidthRequest $request
+     *
+     * @return ListNetBandwidthResponse
+     */
+    public function listNetBandwidth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNetBandwidthWithOptions($request, $runtime);
     }
 
     /**
