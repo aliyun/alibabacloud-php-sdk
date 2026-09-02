@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class fingerPrintRuleList extends Model
 {
     /**
+     * @var string
+     */
+    public $comment;
+
+    /**
      * @var int
      */
     public $dstPortEnd;
@@ -41,6 +46,11 @@ class fingerPrintRuleList extends Model
     /**
      * @var int
      */
+    public $mode;
+
+    /**
+     * @var int
+     */
     public $offset;
 
     /**
@@ -59,6 +69,11 @@ class fingerPrintRuleList extends Model
     public $rateValue;
 
     /**
+     * @var string
+     */
+    public $rule;
+
+    /**
      * @var int
      */
     public $seqNo;
@@ -72,20 +87,29 @@ class fingerPrintRuleList extends Model
      * @var int
      */
     public $srcPortStart;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
+        'comment' => 'Comment',
         'dstPortEnd' => 'DstPortEnd',
         'dstPortStart' => 'DstPortStart',
         'id' => 'Id',
         'matchAction' => 'MatchAction',
         'maxPktLen' => 'MaxPktLen',
         'minPktLen' => 'MinPktLen',
+        'mode' => 'Mode',
         'offset' => 'Offset',
         'payloadBytes' => 'PayloadBytes',
         'protocol' => 'Protocol',
         'rateValue' => 'RateValue',
+        'rule' => 'Rule',
         'seqNo' => 'SeqNo',
         'srcPortEnd' => 'SrcPortEnd',
         'srcPortStart' => 'SrcPortStart',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -96,6 +120,10 @@ class fingerPrintRuleList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+
         if (null !== $this->dstPortEnd) {
             $res['DstPortEnd'] = $this->dstPortEnd;
         }
@@ -120,6 +148,10 @@ class fingerPrintRuleList extends Model
             $res['MinPktLen'] = $this->minPktLen;
         }
 
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
         }
@@ -136,6 +168,10 @@ class fingerPrintRuleList extends Model
             $res['RateValue'] = $this->rateValue;
         }
 
+        if (null !== $this->rule) {
+            $res['Rule'] = $this->rule;
+        }
+
         if (null !== $this->seqNo) {
             $res['SeqNo'] = $this->seqNo;
         }
@@ -146,6 +182,10 @@ class fingerPrintRuleList extends Model
 
         if (null !== $this->srcPortStart) {
             $res['SrcPortStart'] = $this->srcPortStart;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -159,6 +199,10 @@ class fingerPrintRuleList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+
         if (isset($map['DstPortEnd'])) {
             $model->dstPortEnd = $map['DstPortEnd'];
         }
@@ -183,6 +227,10 @@ class fingerPrintRuleList extends Model
             $model->minPktLen = $map['MinPktLen'];
         }
 
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
         }
@@ -199,6 +247,10 @@ class fingerPrintRuleList extends Model
             $model->rateValue = $map['RateValue'];
         }
 
+        if (isset($map['Rule'])) {
+            $model->rule = $map['Rule'];
+        }
+
         if (isset($map['SeqNo'])) {
             $model->seqNo = $map['SeqNo'];
         }
@@ -209,6 +261,10 @@ class fingerPrintRuleList extends Model
 
         if (isset($map['SrcPortStart'])) {
             $model->srcPortStart = $map['SrcPortStart'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
