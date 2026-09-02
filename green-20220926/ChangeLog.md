@@ -1,3 +1,7 @@
+2026-09-02 Version: 1.12.1
+- Update API GetGuardLogStats: add request parameters CommodityCode.
+
+
 2026-08-10 Version: 1.12.0
 - Support API AddAppConfig.
 - Support API GetAiAppDetail.

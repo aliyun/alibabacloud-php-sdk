@@ -8,7 +8,12 @@ use AlibabaCloud\Dara\Model;
 
 class GetGuardLogStatsRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $commodityCode;
     protected $_name = [
+        'commodityCode' => 'CommodityCode',
     ];
 
     public function validate()
@@ -18,7 +23,12 @@ class GetGuardLogStatsRequest extends Model
 
     public function toArray($noStream = false)
     {
-        return [];
+        $res = [];
+        if (null !== $this->commodityCode) {
+            $res['CommodityCode'] = $this->commodityCode;
+        }
+
+        return $res;
     }
 
     public function toMap($noStream = false)
@@ -28,6 +38,11 @@ class GetGuardLogStatsRequest extends Model
 
     public static function fromMap($map = [])
     {
-        return new self();
+        $model = new self();
+        if (isset($map['CommodityCode'])) {
+            $model->commodityCode = $map['CommodityCode'];
+        }
+
+        return $model;
     }
 }

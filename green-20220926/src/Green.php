@@ -3230,7 +3230,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics for AI application details.
+     * Retrieves statistics for the details of an AI application.
      *
      * @param request - GetAiAppDetailStatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3281,7 +3281,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics for AI application details.
+     * Retrieves statistics for the details of an AI application.
      *
      * @param request - GetAiAppDetailStatRequest
      *
@@ -3516,7 +3516,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics data for AI applications.
+     * Retrieves statistics for AI application risk reports.
      *
      * @param request - GetAiAppStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3575,7 +3575,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics data for AI applications.
+     * Retrieves statistics for AI application risk reports.
      *
      * @param request - GetAiAppStatsRequest
      *
@@ -4036,7 +4036,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the call volume.
+     * Queries the call volume statistics.
      *
      * @param request - GetCipStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4113,7 +4113,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the call volume.
+     * Queries the call volume statistics.
      *
      * @param request - GetCipStatsRequest
      *
@@ -4278,7 +4278,14 @@ class Green extends OpenApiClient
     public function getGuardLogStatsWithOptions($request, $runtime)
     {
         $request->validate();
-        $req = new OpenApiRequest([]);
+        $query = [];
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
         $params = new Params([
             'action' => 'GetGuardLogStats',
             'version' => '2022-09-26',
@@ -6275,7 +6282,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of risk events for AI applications.
+     * Retrieves the list of risk events for an AI application.
      *
      * @param request - ListAiAppRiskEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6326,7 +6333,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of risk events for AI applications.
+     * Retrieves the list of risk events for an AI application.
      *
      * @param request - ListAiAppRiskEventRequest
      *
@@ -8216,7 +8223,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Message notification.
+     * Queries the list of message notifications by paging.
      *
      * @param request - QueryCallbackByPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8265,7 +8272,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Message notification.
+     * Queries the list of message notifications by paging.
      *
      * @param request - QueryCallbackByPageRequest
      *
