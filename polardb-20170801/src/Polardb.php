@@ -1029,28 +1029,6 @@ class Polardb extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'polardb.aliyuncs.com',
             'eu-west-1-oxs' => 'polardb.aliyuncs.com',
             'rus-west-1-pop' => 'polardb.aliyuncs.com',
-            'cn-hongkong' => 'polardb.cn-hongkong.aliyuncs.com',
-            'cn-zhangjiakou' => 'polardb.cn-zhangjiakou.aliyuncs.com',
-            'cn-shenzhen' => 'polardb.cn-shenzhen.aliyuncs.com',
-            'ap-northeast-2' => 'polardb.ap-northeast-2.aliyuncs.com',
-            'ap-northeast-1' => 'polardb.ap-northeast-1.aliyuncs.com',
-            'cn-chengdu' => 'polardb.cn-chengdu.aliyuncs.com',
-            'cn-guangzhou' => 'polardb.cn-guangzhou.aliyuncs.com',
-            'ap-southeast-1' => 'polardb.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3' => 'polardb.ap-southeast-3.aliyuncs.com',
-            'cn-huhehaote' => 'polardb.cn-huhehaote.aliyuncs.com',
-            'ap-southeast-5' => 'polardb.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-6' => 'polardb.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-7' => 'polardb.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-8' => 'polardb.ap-southeast-8.aliyuncs.com',
-            'na-south-1' => 'polardb.na-south-1.aliyuncs.com',
-            'eu-central-1' => 'polardb.eu-central-1.aliyuncs.com',
-            'us-west-1' => 'polardb.us-west-1.aliyuncs.com',
-            'eu-west-1' => 'polardb.eu-west-1.aliyuncs.com',
-            'us-east-1' => 'polardb.us-east-1.aliyuncs.com',
-            'me-east-1' => 'polardb.me-east-1.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'polardb.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'polardb.cn-shenzhen-finance-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('polardb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -7495,7 +7473,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建知识库同步链路.
+     * Creates a knowledge base synchronization link.
      *
      * @param request - CreateKBSyncLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7582,7 +7560,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建知识库同步链路.
+     * Creates a knowledge base synchronization link.
      *
      * @param request - CreateKBSyncLinkRequest
      *
@@ -11781,7 +11759,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除知识库同步链路.
+     * Deletes a knowledge base synchronization link.
      *
      * @param request - DeleteKBSyncLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11828,7 +11806,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除知识库同步链路.
+     * Deletes a knowledge base synchronization link.
      *
      * @param request - DeleteKBSyncLinkRequest
      *
@@ -22374,7 +22352,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询知识库同步列表.
+     * Queries the synchronization list of a knowledge base.
      *
      * @param request - DescribeKBSyncLinksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22421,7 +22399,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询知识库同步列表.
+     * Queries the synchronization list of a knowledge base.
      *
      * @param request - DescribeKBSyncLinksRequest
      *
@@ -39497,7 +39475,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新知识库同步链路.
+     * Updates a knowledge base synchronization link.
      *
      * @param request - UpdateKBSyncLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39572,7 +39550,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新知识库同步链路.
+     * Updates a knowledge base synchronization link.
      *
      * @param request - UpdateKBSyncLinkRequest
      *
