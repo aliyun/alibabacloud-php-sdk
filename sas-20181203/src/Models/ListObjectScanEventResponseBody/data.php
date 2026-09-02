@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListObjectScanEventResponseBody\data\d
 class data extends Model
 {
     /**
+     * @var bool
+     */
+    public $aiDetect;
+
+    /**
      * @var string
      */
     public $bucketName;
@@ -109,6 +114,7 @@ class data extends Model
      */
     public $status;
     protected $_name = [
+        'aiDetect' => 'AiDetect',
         'bucketName' => 'BucketName',
         'details' => 'Details',
         'displaySandboxResult' => 'DisplaySandboxResult',
@@ -142,6 +148,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiDetect) {
+            $res['AiDetect'] = $this->aiDetect;
+        }
+
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
@@ -240,6 +250,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiDetect'])) {
+            $model->aiDetect = $map['AiDetect'];
+        }
+
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }

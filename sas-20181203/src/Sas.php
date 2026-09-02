@@ -851,6 +851,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserSettingRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserSettingResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidsByVulNamesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidsByVulNamesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidVulNumClassifyStatisticRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidVulNumClassifyStatisticResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVendorListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigResponse;
@@ -32287,6 +32289,67 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * 查询 UUID 维度的漏洞数量统计
+     *
+     * @param request - DescribeUuidVulNumClassifyStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUuidVulNumClassifyStatisticResponse
+     *
+     * @param DescribeUuidVulNumClassifyStatisticRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeUuidVulNumClassifyStatisticResponse
+     */
+    public function describeUuidVulNumClassifyStatisticWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->imageVul) {
+            @$query['ImageVul'] = $request->imageVul;
+        }
+
+        if (null !== $request->uuids) {
+            @$query['Uuids'] = $request->uuids;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeUuidVulNumClassifyStatistic',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeUuidVulNumClassifyStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 UUID 维度的漏洞数量统计
+     *
+     * @param request - DescribeUuidVulNumClassifyStatisticRequest
+     *
+     * @returns DescribeUuidVulNumClassifyStatisticResponse
+     *
+     * @param DescribeUuidVulNumClassifyStatisticRequest $request
+     *
+     * @return DescribeUuidVulNumClassifyStatisticResponse
+     */
+    public function describeUuidVulNumClassifyStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUuidVulNumClassifyStatisticWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
      *
      * @param request - DescribeUuidsByVulNamesRequest
@@ -51238,6 +51301,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->aiDetect) {
+            @$query['AiDetect'] = $request->aiDetect;
+        }
+
         if (null !== $request->batchType) {
             @$query['BatchType'] = $request->batchType;
         }

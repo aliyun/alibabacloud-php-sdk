@@ -262,6 +262,11 @@ class DescribeVersionConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $sdkAiPostPaidGray;
+
+    /**
+     * @var int
+     */
     public $sdkCapacity;
 
     /**
@@ -369,6 +374,7 @@ class DescribeVersionConfigResponseBody extends Model
         'sasEdrVersion' => 'SasEdrVersion',
         'sasLog' => 'SasLog',
         'sasScreen' => 'SasScreen',
+        'sdkAiPostPaidGray' => 'SdkAiPostPaidGray',
         'sdkCapacity' => 'SdkCapacity',
         'slsCapacity' => 'SlsCapacity',
         'threatAnalysisCapacity' => 'ThreatAnalysisCapacity',
@@ -592,6 +598,10 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (null !== $this->sasScreen) {
             $res['SasScreen'] = $this->sasScreen;
+        }
+
+        if (null !== $this->sdkAiPostPaidGray) {
+            $res['SdkAiPostPaidGray'] = $this->sdkAiPostPaidGray;
         }
 
         if (null !== $this->sdkCapacity) {
@@ -858,6 +868,10 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (isset($map['SasScreen'])) {
             $model->sasScreen = $map['SasScreen'];
+        }
+
+        if (isset($map['SdkAiPostPaidGray'])) {
+            $model->sdkAiPostPaidGray = $map['SdkAiPostPaidGray'];
         }
 
         if (isset($map['SdkCapacity'])) {

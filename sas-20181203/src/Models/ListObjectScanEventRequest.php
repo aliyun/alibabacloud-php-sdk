@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListObjectScanEventRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $aiDetect;
+
+    /**
      * @var string
      */
     public $batchType;
@@ -83,6 +88,7 @@ class ListObjectScanEventRequest extends Model
      */
     public $timeStart;
     protected $_name = [
+        'aiDetect' => 'AiDetect',
         'batchType' => 'BatchType',
         'bucketName' => 'BucketName',
         'currentPage' => 'CurrentPage',
@@ -108,6 +114,10 @@ class ListObjectScanEventRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiDetect) {
+            $res['AiDetect'] = $this->aiDetect;
+        }
+
         if (null !== $this->batchType) {
             $res['BatchType'] = $this->batchType;
         }
@@ -179,6 +189,10 @@ class ListObjectScanEventRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiDetect'])) {
+            $model->aiDetect = $map['AiDetect'];
+        }
+
         if (isset($map['BatchType'])) {
             $model->batchType = $map['BatchType'];
         }
