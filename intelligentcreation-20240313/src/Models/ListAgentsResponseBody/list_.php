@@ -36,6 +36,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $characterGender;
+
+    /**
+     * @var string
+     */
     public $characterName;
 
     /**
@@ -88,6 +93,7 @@ class list_ extends Model
         'agentName' => 'agentName',
         'agentScene' => 'agentScene',
         'characterAgeStage' => 'characterAgeStage',
+        'characterGender' => 'characterGender',
         'characterName' => 'characterName',
         'charactersDescription' => 'charactersDescription',
         'enableInteraction' => 'enableInteraction',
@@ -126,6 +132,10 @@ class list_ extends Model
 
         if (null !== $this->characterAgeStage) {
             $res['characterAgeStage'] = $this->characterAgeStage;
+        }
+
+        if (null !== $this->characterGender) {
+            $res['characterGender'] = $this->characterGender;
         }
 
         if (null !== $this->characterName) {
@@ -197,6 +207,10 @@ class list_ extends Model
 
         if (isset($map['characterAgeStage'])) {
             $model->characterAgeStage = $map['characterAgeStage'];
+        }
+
+        if (isset($map['characterGender'])) {
+            $model->characterGender = $map['characterGender'];
         }
 
         if (isset($map['characterName'])) {
