@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\FCSandbox\V20260509\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateVolumeInput\mountConfig;
 
 class CreateVolumeInput extends Model
 {
@@ -12,6 +13,11 @@ class CreateVolumeInput extends Model
      * @var AgenticFSVolumeConfig
      */
     public $agenticFSVolumeConfig;
+
+    /**
+     * @var mountConfig
+     */
+    public $mountConfig;
 
     /**
      * @var OSSVolumeConfig
@@ -29,6 +35,7 @@ class CreateVolumeInput extends Model
     public $volumeName;
     protected $_name = [
         'agenticFSVolumeConfig' => 'agenticFSVolumeConfig',
+        'mountConfig' => 'mountConfig',
         'ossVolumeConfig' => 'ossVolumeConfig',
         'teamID' => 'teamID',
         'volumeName' => 'volumeName',
@@ -38,6 +45,9 @@ class CreateVolumeInput extends Model
     {
         if (null !== $this->agenticFSVolumeConfig) {
             $this->agenticFSVolumeConfig->validate();
+        }
+        if (null !== $this->mountConfig) {
+            $this->mountConfig->validate();
         }
         if (null !== $this->ossVolumeConfig) {
             $this->ossVolumeConfig->validate();
@@ -50,6 +60,10 @@ class CreateVolumeInput extends Model
         $res = [];
         if (null !== $this->agenticFSVolumeConfig) {
             $res['agenticFSVolumeConfig'] = null !== $this->agenticFSVolumeConfig ? $this->agenticFSVolumeConfig->toArray($noStream) : $this->agenticFSVolumeConfig;
+        }
+
+        if (null !== $this->mountConfig) {
+            $res['mountConfig'] = null !== $this->mountConfig ? $this->mountConfig->toArray($noStream) : $this->mountConfig;
         }
 
         if (null !== $this->ossVolumeConfig) {
@@ -77,6 +91,10 @@ class CreateVolumeInput extends Model
         $model = new self();
         if (isset($map['agenticFSVolumeConfig'])) {
             $model->agenticFSVolumeConfig = AgenticFSVolumeConfig::fromMap($map['agenticFSVolumeConfig']);
+        }
+
+        if (isset($map['mountConfig'])) {
+            $model->mountConfig = mountConfig::fromMap($map['mountConfig']);
         }
 
         if (isset($map['ossVolumeConfig'])) {

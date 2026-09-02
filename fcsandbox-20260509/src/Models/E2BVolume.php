@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\FCSandbox\V20260509\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\E2BVolume\mountConfig;
 
 class E2BVolume extends Model
 {
@@ -17,6 +18,11 @@ class E2BVolume extends Model
      * @var string
      */
     public $createdAt;
+
+    /**
+     * @var mountConfig
+     */
+    public $mountConfig;
 
     /**
      * @var OSSVolumeConfig
@@ -70,6 +76,7 @@ class E2BVolume extends Model
     protected $_name = [
         'agenticFSVolumeConfig' => 'agenticFSVolumeConfig',
         'createdAt' => 'createdAt',
+        'mountConfig' => 'mountConfig',
         'ossVolumeConfig' => 'ossVolumeConfig',
         'resourceGroupID' => 'resourceGroupID',
         'status' => 'status',
@@ -87,6 +94,9 @@ class E2BVolume extends Model
         if (null !== $this->agenticFSVolumeConfig) {
             $this->agenticFSVolumeConfig->validate();
         }
+        if (null !== $this->mountConfig) {
+            $this->mountConfig->validate();
+        }
         if (null !== $this->ossVolumeConfig) {
             $this->ossVolumeConfig->validate();
         }
@@ -102,6 +112,10 @@ class E2BVolume extends Model
 
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
+        }
+
+        if (null !== $this->mountConfig) {
+            $res['mountConfig'] = null !== $this->mountConfig ? $this->mountConfig->toArray($noStream) : $this->mountConfig;
         }
 
         if (null !== $this->ossVolumeConfig) {
@@ -161,6 +175,10 @@ class E2BVolume extends Model
 
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
+        }
+
+        if (isset($map['mountConfig'])) {
+            $model->mountConfig = mountConfig::fromMap($map['mountConfig']);
         }
 
         if (isset($map['ossVolumeConfig'])) {
