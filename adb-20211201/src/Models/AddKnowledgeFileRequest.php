@@ -31,6 +31,11 @@ class AddKnowledgeFileRequest extends Model
     /**
      * @var string
      */
+    public $priority;
+
+    /**
+     * @var string
+     */
     public $tags;
 
     /**
@@ -42,6 +47,7 @@ class AddKnowledgeFileRequest extends Model
         'fileLocation' => 'FileLocation',
         'fileType' => 'FileType',
         'isDir' => 'IsDir',
+        'priority' => 'Priority',
         'tags' => 'Tags',
         'uploadUser' => 'UploadUser',
     ];
@@ -68,6 +74,10 @@ class AddKnowledgeFileRequest extends Model
 
         if (null !== $this->isDir) {
             $res['IsDir'] = $this->isDir;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->tags) {
@@ -103,6 +113,10 @@ class AddKnowledgeFileRequest extends Model
 
         if (isset($map['IsDir'])) {
             $model->isDir = $map['IsDir'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['Tags'])) {
