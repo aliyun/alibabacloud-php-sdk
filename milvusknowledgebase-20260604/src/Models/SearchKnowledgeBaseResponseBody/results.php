@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models\SearchKnowledgeB
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models\SearchKnowledgeBaseResponseBody\results\images;
 use AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models\SearchKnowledgeBaseResponseBody\results\locations;
+use AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models\SearchKnowledgeBaseResponseBody\results\mediaTimeline;
 use AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models\SearchKnowledgeBaseResponseBody\results\scoreDetails;
 
 class results extends Model
@@ -52,6 +53,21 @@ class results extends Model
     public $locations;
 
     /**
+     * @var int
+     */
+    public $mediaEndMs;
+
+    /**
+     * @var int
+     */
+    public $mediaStartMs;
+
+    /**
+     * @var mediaTimeline[]
+     */
+    public $mediaTimeline;
+
+    /**
      * @var string
      */
     public $parentChunkId;
@@ -84,6 +100,9 @@ class results extends Model
         'images' => 'images',
         'knowledgeBaseId' => 'knowledgeBaseId',
         'locations' => 'locations',
+        'mediaEndMs' => 'mediaEndMs',
+        'mediaStartMs' => 'mediaStartMs',
+        'mediaTimeline' => 'mediaTimeline',
         'parentChunkId' => 'parentChunkId',
         'scalarFields' => 'scalarFields',
         'score' => 'score',
@@ -98,6 +117,9 @@ class results extends Model
         }
         if (\is_array($this->locations)) {
             Model::validateArray($this->locations);
+        }
+        if (\is_array($this->mediaTimeline)) {
+            Model::validateArray($this->mediaTimeline);
         }
         if (null !== $this->scoreDetails) {
             $this->scoreDetails->validate();
@@ -152,6 +174,25 @@ class results extends Model
                 $n1 = 0;
                 foreach ($this->locations as $item1) {
                     $res['locations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->mediaEndMs) {
+            $res['mediaEndMs'] = $this->mediaEndMs;
+        }
+
+        if (null !== $this->mediaStartMs) {
+            $res['mediaStartMs'] = $this->mediaStartMs;
+        }
+
+        if (null !== $this->mediaTimeline) {
+            if (\is_array($this->mediaTimeline)) {
+                $res['mediaTimeline'] = [];
+                $n1 = 0;
+                foreach ($this->mediaTimeline as $item1) {
+                    $res['mediaTimeline'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -236,6 +277,25 @@ class results extends Model
                 $n1 = 0;
                 foreach ($map['locations'] as $item1) {
                     $model->locations[$n1] = locations::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['mediaEndMs'])) {
+            $model->mediaEndMs = $map['mediaEndMs'];
+        }
+
+        if (isset($map['mediaStartMs'])) {
+            $model->mediaStartMs = $map['mediaStartMs'];
+        }
+
+        if (isset($map['mediaTimeline'])) {
+            if (!empty($map['mediaTimeline'])) {
+                $model->mediaTimeline = [];
+                $n1 = 0;
+                foreach ($map['mediaTimeline'] as $item1) {
+                    $model->mediaTimeline[$n1] = mediaTimeline::fromMap($item1);
                     ++$n1;
                 }
             }
