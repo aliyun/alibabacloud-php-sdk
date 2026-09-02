@@ -34,6 +34,11 @@ class ModifyBackupPolicyRequest extends Model
     public $policyVersion;
 
     /**
+     * @var string
+     */
+    public $selectType;
+
+    /**
      * @var string[]
      */
     public $uuidList;
@@ -43,6 +48,7 @@ class ModifyBackupPolicyRequest extends Model
         'policy' => 'Policy',
         'policyRegionId' => 'PolicyRegionId',
         'policyVersion' => 'PolicyVersion',
+        'selectType' => 'SelectType',
         'uuidList' => 'UuidList',
     ];
 
@@ -83,6 +89,10 @@ class ModifyBackupPolicyRequest extends Model
 
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
+        }
+
+        if (null !== $this->selectType) {
+            $res['SelectType'] = $this->selectType;
         }
 
         if (null !== $this->uuidList) {
@@ -130,6 +140,10 @@ class ModifyBackupPolicyRequest extends Model
 
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
+        }
+
+        if (isset($map['SelectType'])) {
+            $model->selectType = $map['SelectType'];
         }
 
         if (isset($map['UuidList'])) {

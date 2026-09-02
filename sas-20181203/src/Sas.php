@@ -5603,6 +5603,10 @@ class Sas extends OpenApiClient
             @$query['PolicyVersion'] = $request->policyVersion;
         }
 
+        if (null !== $request->selectType) {
+            @$query['SelectType'] = $request->selectType;
+        }
+
         if (null !== $request->uuidList) {
             @$query['UuidList'] = $request->uuidList;
         }
@@ -14998,7 +15002,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query anti-ransomware protection policies.
+     * Queries anti-ransomware mitigation policies.
      *
      * @param request - DescribeBackupPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15053,7 +15057,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query anti-ransomware protection policies.
+     * Queries anti-ransomware mitigation policies.
      *
      * @param request - DescribeBackupPoliciesRequest
      *
@@ -32289,7 +32293,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询 UUID 维度的漏洞数量统计
+     * Queries vulnerability count statistics by UUID.
      *
      * @param request - DescribeUuidVulNumClassifyStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32332,7 +32336,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询 UUID 维度的漏洞数量统计
+     * Queries vulnerability count statistics by UUID.
      *
      * @param request - DescribeUuidVulNumClassifyStatisticRequest
      *
@@ -54700,7 +54704,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies an anti-ransomware mitigation policy.
+     * Modifies an anti-ransomware policy.
      *
      * @param tmpReq - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -54742,6 +54746,10 @@ class Sas extends OpenApiClient
             @$query['PolicyVersion'] = $request->policyVersion;
         }
 
+        if (null !== $request->selectType) {
+            @$query['SelectType'] = $request->selectType;
+        }
+
         if (null !== $request->uuidList) {
             @$query['UuidList'] = $request->uuidList;
         }
@@ -54765,7 +54773,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies an anti-ransomware mitigation policy.
+     * Modifies an anti-ransomware policy.
      *
      * @param request - ModifyBackupPolicyRequest
      *

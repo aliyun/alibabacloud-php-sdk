@@ -76,6 +76,11 @@ class policies extends Model
     /**
      * @var string
      */
+    public $selectType;
+
+    /**
+     * @var string
+     */
     public $serverType;
 
     /**
@@ -116,6 +121,7 @@ class policies extends Model
         'policyVersion' => 'PolicyVersion',
         'preStatus' => 'PreStatus',
         'remarkedUuidList' => 'RemarkedUuidList',
+        'selectType' => 'SelectType',
         'serverType' => 'ServerType',
         'serviceErrorCount' => 'ServiceErrorCount',
         'serviceErrorUuidList' => 'ServiceErrorUuidList',
@@ -218,6 +224,10 @@ class policies extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->selectType) {
+            $res['SelectType'] = $this->selectType;
         }
 
         if (null !== $this->serverType) {
@@ -340,6 +350,10 @@ class policies extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SelectType'])) {
+            $model->selectType = $map['SelectType'];
         }
 
         if (isset($map['ServerType'])) {
