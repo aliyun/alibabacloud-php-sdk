@@ -23,10 +23,6 @@ class CodeSec extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'ap-southeast-1' => 'codesec.ap-southeast-1.aliyuncs.com',
-            'cn-hangzhou' => 'codesec.cn-hangzhou.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('codesec', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -56,7 +52,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
+     * Lists projects under a tenant by page, with support for fuzzy search by name or prompt.
      *
      * @param request - DescribeProjectsRequest
      * @param headers - map
@@ -86,6 +82,14 @@ class CodeSec extends OpenApiClient
             @$query['query'] = $request->query;
         }
 
+        if (null !== $request->sortBy) {
+            @$query['sortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['sortOrder'] = $request->sortOrder;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -106,7 +110,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
+     * Lists projects under a tenant by page, with support for fuzzy search by name or prompt.
      *
      * @param request - DescribeProjectsRequest
      *

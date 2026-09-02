@@ -22,10 +22,22 @@ class DescribeProjectsRequest extends Model
      * @var string
      */
     public $query;
+
+    /**
+     * @var string
+     */
+    public $sortBy;
+
+    /**
+     * @var string
+     */
+    public $sortOrder;
     protected $_name = [
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
         'query' => 'query',
+        'sortBy' => 'sortBy',
+        'sortOrder' => 'sortOrder',
     ];
 
     public function validate()
@@ -46,6 +58,14 @@ class DescribeProjectsRequest extends Model
 
         if (null !== $this->query) {
             $res['query'] = $this->query;
+        }
+
+        if (null !== $this->sortBy) {
+            $res['sortBy'] = $this->sortBy;
+        }
+
+        if (null !== $this->sortOrder) {
+            $res['sortOrder'] = $this->sortOrder;
         }
 
         return $res;
@@ -69,6 +89,14 @@ class DescribeProjectsRequest extends Model
 
         if (isset($map['query'])) {
             $model->query = $map['query'];
+        }
+
+        if (isset($map['sortBy'])) {
+            $model->sortBy = $map['sortBy'];
+        }
+
+        if (isset($map['sortOrder'])) {
+            $model->sortOrder = $map['sortOrder'];
         }
 
         return $model;

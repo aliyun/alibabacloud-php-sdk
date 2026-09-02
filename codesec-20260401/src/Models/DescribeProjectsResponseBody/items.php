@@ -48,6 +48,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $lastScanTime;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -67,6 +72,7 @@ class items extends Model
         'engines' => 'engines',
         'id' => 'id',
         'instructionPrompt' => 'instructionPrompt',
+        'lastScanTime' => 'lastScanTime',
         'name' => 'name',
         'source' => 'source',
         'updatedAt' => 'updatedAt',
@@ -112,6 +118,10 @@ class items extends Model
 
         if (null !== $this->instructionPrompt) {
             $res['instructionPrompt'] = $this->instructionPrompt;
+        }
+
+        if (null !== $this->lastScanTime) {
+            $res['lastScanTime'] = $this->lastScanTime;
         }
 
         if (null !== $this->name) {
@@ -163,6 +173,10 @@ class items extends Model
 
         if (isset($map['instructionPrompt'])) {
             $model->instructionPrompt = $map['instructionPrompt'];
+        }
+
+        if (isset($map['lastScanTime'])) {
+            $model->lastScanTime = $map['lastScanTime'];
         }
 
         if (isset($map['name'])) {
