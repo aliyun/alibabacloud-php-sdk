@@ -19,6 +19,11 @@ class DescribeApiKeyResponseBody extends Model
     public $code;
 
     /**
+     * @var EffectivePermissions
+     */
+    public $effectivePermissions;
+
+    /**
      * @var IPConfig[]
      */
     public $ipBlacklist;
@@ -34,15 +39,22 @@ class DescribeApiKeyResponseBody extends Model
     public $message;
 
     /**
+     * @var PermissionPolicy
+     */
+    public $permissionPolicy;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'apiKey' => 'apiKey',
         'code' => 'code',
+        'effectivePermissions' => 'effectivePermissions',
         'ipBlacklist' => 'ipBlacklist',
         'ipWhitelist' => 'ipWhitelist',
         'message' => 'message',
+        'permissionPolicy' => 'permissionPolicy',
         'requestId' => 'requestId',
     ];
 
@@ -51,11 +63,17 @@ class DescribeApiKeyResponseBody extends Model
         if (null !== $this->apiKey) {
             $this->apiKey->validate();
         }
+        if (null !== $this->effectivePermissions) {
+            $this->effectivePermissions->validate();
+        }
         if (\is_array($this->ipBlacklist)) {
             Model::validateArray($this->ipBlacklist);
         }
         if (\is_array($this->ipWhitelist)) {
             Model::validateArray($this->ipWhitelist);
+        }
+        if (null !== $this->permissionPolicy) {
+            $this->permissionPolicy->validate();
         }
         parent::validate();
     }
@@ -69,6 +87,10 @@ class DescribeApiKeyResponseBody extends Model
 
         if (null !== $this->code) {
             $res['code'] = $this->code;
+        }
+
+        if (null !== $this->effectivePermissions) {
+            $res['effectivePermissions'] = null !== $this->effectivePermissions ? $this->effectivePermissions->toArray($noStream) : $this->effectivePermissions;
         }
 
         if (null !== $this->ipBlacklist) {
@@ -97,6 +119,10 @@ class DescribeApiKeyResponseBody extends Model
             $res['message'] = $this->message;
         }
 
+        if (null !== $this->permissionPolicy) {
+            $res['permissionPolicy'] = null !== $this->permissionPolicy ? $this->permissionPolicy->toArray($noStream) : $this->permissionPolicy;
+        }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -118,6 +144,10 @@ class DescribeApiKeyResponseBody extends Model
 
         if (isset($map['code'])) {
             $model->code = $map['code'];
+        }
+
+        if (isset($map['effectivePermissions'])) {
+            $model->effectivePermissions = EffectivePermissions::fromMap($map['effectivePermissions']);
         }
 
         if (isset($map['ipBlacklist'])) {
@@ -144,6 +174,10 @@ class DescribeApiKeyResponseBody extends Model
 
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+
+        if (isset($map['permissionPolicy'])) {
+            $model->permissionPolicy = PermissionPolicy::fromMap($map['permissionPolicy']);
         }
 
         if (isset($map['requestId'])) {
