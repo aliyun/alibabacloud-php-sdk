@@ -36,6 +36,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $asrOverridesUuid;
+
+    /**
+     * @var string
+     */
     public $asrVocabularyId;
 
     /**
@@ -58,6 +63,7 @@ class data extends Model
         'asrClassVocabularyId' => 'AsrClassVocabularyId',
         'asrCustomizationId' => 'AsrCustomizationId',
         'asrOverrides' => 'AsrOverrides',
+        'asrOverridesUuid' => 'AsrOverridesUuid',
         'asrVocabularyId' => 'AsrVocabularyId',
         'engine' => 'Engine',
         'engineXufei' => 'EngineXufei',
@@ -90,6 +96,10 @@ class data extends Model
 
         if (null !== $this->asrOverrides) {
             $res['AsrOverrides'] = $this->asrOverrides;
+        }
+
+        if (null !== $this->asrOverridesUuid) {
+            $res['AsrOverridesUuid'] = $this->asrOverridesUuid;
         }
 
         if (null !== $this->asrVocabularyId) {
@@ -137,6 +147,10 @@ class data extends Model
 
         if (isset($map['AsrOverrides'])) {
             $model->asrOverrides = $map['AsrOverrides'];
+        }
+
+        if (isset($map['AsrOverridesUuid'])) {
+            $model->asrOverridesUuid = $map['AsrOverridesUuid'];
         }
 
         if (isset($map['AsrVocabularyId'])) {

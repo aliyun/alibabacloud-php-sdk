@@ -96,10 +96,6 @@ class VoiceNavigator extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-hangzhou' => 'voicenavigator.cn-hangzhou.aliyuncs.com',
-            'cn-shanghai' => 'voicenavigator.cn-shanghai.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('voicenavigator', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -206,7 +202,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Previews a TTS voice.
+     * Auditions a TTS voice.
      *
      * @param request - AuditTTSVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -240,6 +236,10 @@ class VoiceNavigator extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->nlsServiceType) {
+            @$query['NlsServiceType'] = $request->nlsServiceType;
         }
 
         if (null !== $request->pitchRate) {
@@ -285,7 +285,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Previews a TTS voice.
+     * Auditions a TTS voice.
      *
      * @param request - AuditTTSVoiceRequest
      *
@@ -303,7 +303,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Starts a conversation.
+     * Starts a session.
      *
      * @param request - BeginDialogueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -362,7 +362,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Starts a conversation.
+     * Starts a session.
      *
      * @param request - BeginDialogueRequest
      *
@@ -660,7 +660,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Debugs the number collection process.
+     * Collects digits in the debug environment.
      *
      * @param request - DebugCollectedNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -707,7 +707,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Debugs the number collection process.
+     * Collects digits in the debug environment.
      *
      * @param request - DebugCollectedNumberRequest
      *
@@ -904,7 +904,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Queries the context of a specified conversation.
+     * Queries the context data of a session.
      *
      * @param request - DescribeConversationContextRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -939,7 +939,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Queries the context of a specified conversation.
+     * Queries the context data of a session.
      *
      * @param request - DescribeConversationContextRequest
      *
@@ -2140,6 +2140,10 @@ class VoiceNavigator extends OpenApiClient
             @$query['AsrOverrides'] = $request->asrOverrides;
         }
 
+        if (null !== $request->asrOverridesUuid) {
+            @$query['AsrOverridesUuid'] = $request->asrOverridesUuid;
+        }
+
         if (null !== $request->asrVocabularyId) {
             @$query['AsrVocabularyId'] = $request->asrVocabularyId;
         }
@@ -2150,6 +2154,10 @@ class VoiceNavigator extends OpenApiClient
 
         if (null !== $request->engine) {
             @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->engineXunfei) {
+            @$query['EngineXunfei'] = $request->engineXunfei;
         }
 
         if (null !== $request->entryId) {
@@ -2484,6 +2492,10 @@ class VoiceNavigator extends OpenApiClient
             @$query['TtsOverrides'] = $request->ttsOverrides;
         }
 
+        if (null !== $request->ttsOverridesUuid) {
+            @$query['TtsOverridesUuid'] = $request->ttsOverridesUuid;
+        }
+
         if (null !== $request->voice) {
             @$query['Voice'] = $request->voice;
         }
@@ -2748,7 +2760,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Handles the silence timeout event in a conversation.
+     * Triggers a silence timeout.
      *
      * @param request - SilenceTimeoutRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2799,7 +2811,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Handles the silence timeout event in a conversation.
+     * Triggers a silence timeout.
      *
      * @param request - SilenceTimeoutRequest
      *

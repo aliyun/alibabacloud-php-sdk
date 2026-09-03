@@ -66,6 +66,11 @@ class DescribeTTSConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $ttsOverridesUuid;
+
+    /**
+     * @var string
+     */
     public $voice;
 
     /**
@@ -84,6 +89,7 @@ class DescribeTTSConfigResponseBody extends Model
         'requestId' => 'RequestId',
         'speechRate' => 'SpeechRate',
         'ttsOverrides' => 'TtsOverrides',
+        'ttsOverridesUuid' => 'TtsOverridesUuid',
         'voice' => 'Voice',
         'volume' => 'Volume',
     ];
@@ -138,6 +144,10 @@ class DescribeTTSConfigResponseBody extends Model
 
         if (null !== $this->ttsOverrides) {
             $res['TtsOverrides'] = $this->ttsOverrides;
+        }
+
+        if (null !== $this->ttsOverridesUuid) {
+            $res['TtsOverridesUuid'] = $this->ttsOverridesUuid;
         }
 
         if (null !== $this->voice) {
@@ -201,6 +211,10 @@ class DescribeTTSConfigResponseBody extends Model
 
         if (isset($map['TtsOverrides'])) {
             $model->ttsOverrides = $map['TtsOverrides'];
+        }
+
+        if (isset($map['TtsOverridesUuid'])) {
+            $model->ttsOverridesUuid = $map['TtsOverridesUuid'];
         }
 
         if (isset($map['Voice'])) {

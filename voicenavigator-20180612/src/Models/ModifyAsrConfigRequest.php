@@ -36,6 +36,11 @@ class ModifyAsrConfigRequest extends Model
     /**
      * @var string
      */
+    public $asrOverridesUuid;
+
+    /**
+     * @var string
+     */
     public $asrVocabularyId;
 
     /**
@@ -47,6 +52,11 @@ class ModifyAsrConfigRequest extends Model
      * @var string
      */
     public $engine;
+
+    /**
+     * @var string
+     */
+    public $engineXunfei;
 
     /**
      * @var string
@@ -63,9 +73,11 @@ class ModifyAsrConfigRequest extends Model
         'asrClassVocabularyId' => 'AsrClassVocabularyId',
         'asrCustomizationId' => 'AsrCustomizationId',
         'asrOverrides' => 'AsrOverrides',
+        'asrOverridesUuid' => 'AsrOverridesUuid',
         'asrVocabularyId' => 'AsrVocabularyId',
         'configLevel' => 'ConfigLevel',
         'engine' => 'Engine',
+        'engineXunfei' => 'EngineXunfei',
         'entryId' => 'EntryId',
         'nlsServiceType' => 'NlsServiceType',
     ];
@@ -98,6 +110,10 @@ class ModifyAsrConfigRequest extends Model
             $res['AsrOverrides'] = $this->asrOverrides;
         }
 
+        if (null !== $this->asrOverridesUuid) {
+            $res['AsrOverridesUuid'] = $this->asrOverridesUuid;
+        }
+
         if (null !== $this->asrVocabularyId) {
             $res['AsrVocabularyId'] = $this->asrVocabularyId;
         }
@@ -108,6 +124,10 @@ class ModifyAsrConfigRequest extends Model
 
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+
+        if (null !== $this->engineXunfei) {
+            $res['EngineXunfei'] = $this->engineXunfei;
         }
 
         if (null !== $this->entryId) {
@@ -149,6 +169,10 @@ class ModifyAsrConfigRequest extends Model
             $model->asrOverrides = $map['AsrOverrides'];
         }
 
+        if (isset($map['AsrOverridesUuid'])) {
+            $model->asrOverridesUuid = $map['AsrOverridesUuid'];
+        }
+
         if (isset($map['AsrVocabularyId'])) {
             $model->asrVocabularyId = $map['AsrVocabularyId'];
         }
@@ -159,6 +183,10 @@ class ModifyAsrConfigRequest extends Model
 
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+
+        if (isset($map['EngineXunfei'])) {
+            $model->engineXunfei = $map['EngineXunfei'];
         }
 
         if (isset($map['EntryId'])) {

@@ -36,6 +36,11 @@ class AuditTTSVoiceRequest extends Model
     /**
      * @var string
      */
+    public $nlsServiceType;
+
+    /**
+     * @var string
+     */
     public $pitchRate;
 
     /**
@@ -68,6 +73,7 @@ class AuditTTSVoiceRequest extends Model
         'engine' => 'Engine',
         'extParams' => 'ExtParams',
         'instanceId' => 'InstanceId',
+        'nlsServiceType' => 'NlsServiceType',
         'pitchRate' => 'PitchRate',
         'secretKey' => 'SecretKey',
         'speechRate' => 'SpeechRate',
@@ -102,6 +108,10 @@ class AuditTTSVoiceRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->nlsServiceType) {
+            $res['NlsServiceType'] = $this->nlsServiceType;
         }
 
         if (null !== $this->pitchRate) {
@@ -157,6 +167,10 @@ class AuditTTSVoiceRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['NlsServiceType'])) {
+            $model->nlsServiceType = $map['NlsServiceType'];
         }
 
         if (isset($map['PitchRate'])) {
