@@ -76,6 +76,11 @@ class desktopTypes extends Model
     /**
      * @var string[]
      */
+    public $saleTypes;
+
+    /**
+     * @var string[]
+     */
     public $scopes;
 
     /**
@@ -101,6 +106,7 @@ class desktopTypes extends Model
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'maxSessionCount' => 'MaxSessionCount',
         'memorySize' => 'MemorySize',
+        'saleTypes' => 'SaleTypes',
         'scopes' => 'Scopes',
         'stockState' => 'StockState',
         'systemDiskSize' => 'SystemDiskSize',
@@ -108,6 +114,9 @@ class desktopTypes extends Model
 
     public function validate()
     {
+        if (\is_array($this->saleTypes)) {
+            Model::validateArray($this->saleTypes);
+        }
         if (\is_array($this->scopes)) {
             Model::validateArray($this->scopes);
         }
@@ -167,6 +176,17 @@ class desktopTypes extends Model
 
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
+        }
+
+        if (null !== $this->saleTypes) {
+            if (\is_array($this->saleTypes)) {
+                $res['SaleTypes'] = [];
+                $n1 = 0;
+                foreach ($this->saleTypes as $item1) {
+                    $res['SaleTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->scopes) {
@@ -249,6 +269,17 @@ class desktopTypes extends Model
 
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
+        }
+
+        if (isset($map['SaleTypes'])) {
+            if (!empty($map['SaleTypes'])) {
+                $model->saleTypes = [];
+                $n1 = 0;
+                foreach ($map['SaleTypes'] as $item1) {
+                    $model->saleTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Scopes'])) {

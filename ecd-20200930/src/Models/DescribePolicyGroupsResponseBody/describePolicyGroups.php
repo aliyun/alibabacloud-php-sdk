@@ -460,6 +460,21 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $printerAlert;
+
+    /**
+     * @var string
+     */
+    public $printerAlertContent;
+
+    /**
+     * @var string
+     */
+    public $printerAlertTitle;
+
+    /**
+     * @var string
+     */
     public $printerRedirection;
 
     /**
@@ -626,6 +641,11 @@ class describePolicyGroups extends Model
      * @var int
      */
     public $targetFps;
+
+    /**
+     * @var string
+     */
+    public $threeScreen;
 
     /**
      * @var string
@@ -845,6 +865,9 @@ class describePolicyGroups extends Model
         'portProxy' => 'PortProxy',
         'preemptLogin' => 'PreemptLogin',
         'preemptLoginUsers' => 'PreemptLoginUsers',
+        'printerAlert' => 'PrinterAlert',
+        'printerAlertContent' => 'PrinterAlertContent',
+        'printerAlertTitle' => 'PrinterAlertTitle',
         'printerRedirection' => 'PrinterRedirection',
         'qualityEnhancement' => 'QualityEnhancement',
         'recordContent' => 'RecordContent',
@@ -879,6 +902,7 @@ class describePolicyGroups extends Model
         'statusMonitor' => 'StatusMonitor',
         'streamingMode' => 'StreamingMode',
         'targetFps' => 'TargetFps',
+        'threeScreen' => 'ThreeScreen',
         'usbRedirect' => 'UsbRedirect',
         'usbSupplyRedirectRule' => 'UsbSupplyRedirectRule',
         'useTime' => 'UseTime',
@@ -1385,6 +1409,18 @@ class describePolicyGroups extends Model
             }
         }
 
+        if (null !== $this->printerAlert) {
+            $res['PrinterAlert'] = $this->printerAlert;
+        }
+
+        if (null !== $this->printerAlertContent) {
+            $res['PrinterAlertContent'] = $this->printerAlertContent;
+        }
+
+        if (null !== $this->printerAlertTitle) {
+            $res['PrinterAlertTitle'] = $this->printerAlertTitle;
+        }
+
         if (null !== $this->printerRedirection) {
             $res['PrinterRedirection'] = $this->printerRedirection;
         }
@@ -1554,6 +1590,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->targetFps) {
             $res['TargetFps'] = $this->targetFps;
+        }
+
+        if (null !== $this->threeScreen) {
+            $res['ThreeScreen'] = $this->threeScreen;
         }
 
         if (null !== $this->usbRedirect) {
@@ -2100,6 +2140,18 @@ class describePolicyGroups extends Model
             }
         }
 
+        if (isset($map['PrinterAlert'])) {
+            $model->printerAlert = $map['PrinterAlert'];
+        }
+
+        if (isset($map['PrinterAlertContent'])) {
+            $model->printerAlertContent = $map['PrinterAlertContent'];
+        }
+
+        if (isset($map['PrinterAlertTitle'])) {
+            $model->printerAlertTitle = $map['PrinterAlertTitle'];
+        }
+
         if (isset($map['PrinterRedirection'])) {
             $model->printerRedirection = $map['PrinterRedirection'];
         }
@@ -2269,6 +2321,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['TargetFps'])) {
             $model->targetFps = $map['TargetFps'];
+        }
+
+        if (isset($map['ThreeScreen'])) {
+            $model->threeScreen = $map['ThreeScreen'];
         }
 
         if (isset($map['UsbRedirect'])) {

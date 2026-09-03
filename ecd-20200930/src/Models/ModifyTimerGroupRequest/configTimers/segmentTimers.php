@@ -14,6 +14,11 @@ class segmentTimers extends Model
     public $appointmentTimer;
 
     /**
+     * @var bool
+     */
+    public $createSnapshot;
+
+    /**
      * @var string
      */
     public $endCronExpression;
@@ -94,6 +99,7 @@ class segmentTimers extends Model
     public $verificationTime;
     protected $_name = [
         'appointmentTimer' => 'AppointmentTimer',
+        'createSnapshot' => 'CreateSnapshot',
         'endCronExpression' => 'EndCronExpression',
         'enforce' => 'Enforce',
         'imageId' => 'ImageId',
@@ -128,6 +134,10 @@ class segmentTimers extends Model
         $res = [];
         if (null !== $this->appointmentTimer) {
             $res['AppointmentTimer'] = $this->appointmentTimer;
+        }
+
+        if (null !== $this->createSnapshot) {
+            $res['CreateSnapshot'] = $this->createSnapshot;
         }
 
         if (null !== $this->endCronExpression) {
@@ -221,6 +231,10 @@ class segmentTimers extends Model
         $model = new self();
         if (isset($map['AppointmentTimer'])) {
             $model->appointmentTimer = $map['AppointmentTimer'];
+        }
+
+        if (isset($map['CreateSnapshot'])) {
+            $model->createSnapshot = $map['CreateSnapshot'];
         }
 
         if (isset($map['EndCronExpression'])) {

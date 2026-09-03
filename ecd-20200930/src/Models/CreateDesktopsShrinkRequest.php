@@ -69,6 +69,11 @@ class CreateDesktopsShrinkRequest extends Model
     public $desktopName;
 
     /**
+     * @var string
+     */
+    public $desktopNameModelShrink;
+
+    /**
      * @var bool
      */
     public $desktopNameSuffix;
@@ -234,6 +239,7 @@ class CreateDesktopsShrinkRequest extends Model
         'desktopAttachmentShrink' => 'DesktopAttachment',
         'desktopMemberIp' => 'DesktopMemberIp',
         'desktopName' => 'DesktopName',
+        'desktopNameModelShrink' => 'DesktopNameModel',
         'desktopNameSuffix' => 'DesktopNameSuffix',
         'desktopTimers' => 'DesktopTimers',
         'directoryId' => 'DirectoryId',
@@ -342,6 +348,10 @@ class CreateDesktopsShrinkRequest extends Model
 
         if (null !== $this->desktopName) {
             $res['DesktopName'] = $this->desktopName;
+        }
+
+        if (null !== $this->desktopNameModelShrink) {
+            $res['DesktopNameModel'] = $this->desktopNameModelShrink;
         }
 
         if (null !== $this->desktopNameSuffix) {
@@ -556,6 +566,10 @@ class CreateDesktopsShrinkRequest extends Model
 
         if (isset($map['DesktopName'])) {
             $model->desktopName = $map['DesktopName'];
+        }
+
+        if (isset($map['DesktopNameModel'])) {
+            $model->desktopNameModelShrink = $map['DesktopNameModel'];
         }
 
         if (isset($map['DesktopNameSuffix'])) {

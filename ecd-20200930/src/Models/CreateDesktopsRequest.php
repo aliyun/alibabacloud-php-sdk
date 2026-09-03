@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\bundleModels;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\desktopAttachment;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\desktopNameModel;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\desktopTimers;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\monthDesktopSetting;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\purchaseOptions;
@@ -69,6 +70,11 @@ class CreateDesktopsRequest extends Model
      * @var string
      */
     public $desktopName;
+
+    /**
+     * @var desktopNameModel
+     */
+    public $desktopNameModel;
 
     /**
      * @var bool
@@ -236,6 +242,7 @@ class CreateDesktopsRequest extends Model
         'desktopAttachment' => 'DesktopAttachment',
         'desktopMemberIp' => 'DesktopMemberIp',
         'desktopName' => 'DesktopName',
+        'desktopNameModel' => 'DesktopNameModel',
         'desktopNameSuffix' => 'DesktopNameSuffix',
         'desktopTimers' => 'DesktopTimers',
         'directoryId' => 'DirectoryId',
@@ -276,6 +283,9 @@ class CreateDesktopsRequest extends Model
         }
         if (null !== $this->desktopAttachment) {
             $this->desktopAttachment->validate();
+        }
+        if (null !== $this->desktopNameModel) {
+            $this->desktopNameModel->validate();
         }
         if (\is_array($this->desktopTimers)) {
             Model::validateArray($this->desktopTimers);
@@ -350,6 +360,10 @@ class CreateDesktopsRequest extends Model
 
         if (null !== $this->desktopName) {
             $res['DesktopName'] = $this->desktopName;
+        }
+
+        if (null !== $this->desktopNameModel) {
+            $res['DesktopNameModel'] = null !== $this->desktopNameModel ? $this->desktopNameModel->toArray($noStream) : $this->desktopNameModel;
         }
 
         if (null !== $this->desktopNameSuffix) {
@@ -564,6 +578,10 @@ class CreateDesktopsRequest extends Model
 
         if (isset($map['DesktopName'])) {
             $model->desktopName = $map['DesktopName'];
+        }
+
+        if (isset($map['DesktopNameModel'])) {
+            $model->desktopNameModel = desktopNameModel::fromMap($map['DesktopNameModel']);
         }
 
         if (isset($map['DesktopNameSuffix'])) {

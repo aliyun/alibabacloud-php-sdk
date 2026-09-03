@@ -469,6 +469,21 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $printerAlert;
+
+    /**
+     * @var string
+     */
+    public $printerAlertContent;
+
+    /**
+     * @var string
+     */
+    public $printerAlertTitle;
+
+    /**
+     * @var string
+     */
     public $printerRedirection;
 
     /**
@@ -625,6 +640,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $taskbar;
+
+    /**
+     * @var string
+     */
+    public $threeScreen;
 
     /**
      * @var string
@@ -841,6 +861,9 @@ class describePolicyGroups extends Model
         'policyGroupType' => 'PolicyGroupType',
         'policyStatus' => 'PolicyStatus',
         'portProxy' => 'PortProxy',
+        'printerAlert' => 'PrinterAlert',
+        'printerAlertContent' => 'PrinterAlertContent',
+        'printerAlertTitle' => 'PrinterAlertTitle',
         'printerRedirection' => 'PrinterRedirection',
         'qualityEnhancement' => 'QualityEnhancement',
         'recordContent' => 'RecordContent',
@@ -873,6 +896,7 @@ class describePolicyGroups extends Model
         'streamingMode' => 'StreamingMode',
         'targetFps' => 'TargetFps',
         'taskbar' => 'Taskbar',
+        'threeScreen' => 'ThreeScreen',
         'usbRedirect' => 'UsbRedirect',
         'usbSupplyRedirectRule' => 'UsbSupplyRedirectRule',
         'useTime' => 'UseTime',
@@ -1370,6 +1394,18 @@ class describePolicyGroups extends Model
             $res['PortProxy'] = $this->portProxy;
         }
 
+        if (null !== $this->printerAlert) {
+            $res['PrinterAlert'] = $this->printerAlert;
+        }
+
+        if (null !== $this->printerAlertContent) {
+            $res['PrinterAlertContent'] = $this->printerAlertContent;
+        }
+
+        if (null !== $this->printerAlertTitle) {
+            $res['PrinterAlertTitle'] = $this->printerAlertTitle;
+        }
+
         if (null !== $this->printerRedirection) {
             $res['PrinterRedirection'] = $this->printerRedirection;
         }
@@ -1517,6 +1553,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->taskbar) {
             $res['Taskbar'] = $this->taskbar;
+        }
+
+        if (null !== $this->threeScreen) {
+            $res['ThreeScreen'] = $this->threeScreen;
         }
 
         if (null !== $this->usbRedirect) {
@@ -2060,6 +2100,18 @@ class describePolicyGroups extends Model
             $model->portProxy = $map['PortProxy'];
         }
 
+        if (isset($map['PrinterAlert'])) {
+            $model->printerAlert = $map['PrinterAlert'];
+        }
+
+        if (isset($map['PrinterAlertContent'])) {
+            $model->printerAlertContent = $map['PrinterAlertContent'];
+        }
+
+        if (isset($map['PrinterAlertTitle'])) {
+            $model->printerAlertTitle = $map['PrinterAlertTitle'];
+        }
+
         if (isset($map['PrinterRedirection'])) {
             $model->printerRedirection = $map['PrinterRedirection'];
         }
@@ -2207,6 +2259,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['Taskbar'])) {
             $model->taskbar = $map['Taskbar'];
+        }
+
+        if (isset($map['ThreeScreen'])) {
+            $model->threeScreen = $map['ThreeScreen'];
         }
 
         if (isset($map['UsbRedirect'])) {

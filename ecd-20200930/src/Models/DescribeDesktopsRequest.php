@@ -117,6 +117,11 @@ class DescribeDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $networkInterfaceIp;
+
+    /**
+     * @var string
+     */
     public $nextToken;
 
     /**
@@ -158,6 +163,11 @@ class DescribeDesktopsRequest extends Model
      * @var string
      */
     public $protocolType;
+
+    /**
+     * @var string
+     */
+    public $publicIp;
 
     /**
      * @var string
@@ -220,6 +230,7 @@ class DescribeDesktopsRequest extends Model
         'managementFlag' => 'ManagementFlag',
         'maxResults' => 'MaxResults',
         'multiResource' => 'MultiResource',
+        'networkInterfaceIp' => 'NetworkInterfaceIp',
         'nextToken' => 'NextToken',
         'officeSiteId' => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
@@ -229,6 +240,7 @@ class DescribeDesktopsRequest extends Model
         'pageSize' => 'PageSize',
         'policyGroupId' => 'PolicyGroupId',
         'protocolType' => 'ProtocolType',
+        'publicIp' => 'PublicIp',
         'qosRuleId' => 'QosRuleId',
         'queryFotaUpdate' => 'QueryFotaUpdate',
         'regionId' => 'RegionId',
@@ -387,6 +399,10 @@ class DescribeDesktopsRequest extends Model
             $res['MultiResource'] = $this->multiResource;
         }
 
+        if (null !== $this->networkInterfaceIp) {
+            $res['NetworkInterfaceIp'] = $this->networkInterfaceIp;
+        }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -428,6 +444,10 @@ class DescribeDesktopsRequest extends Model
 
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
+        }
+
+        if (null !== $this->publicIp) {
+            $res['PublicIp'] = $this->publicIp;
         }
 
         if (null !== $this->qosRuleId) {
@@ -599,6 +619,10 @@ class DescribeDesktopsRequest extends Model
             $model->multiResource = $map['MultiResource'];
         }
 
+        if (isset($map['NetworkInterfaceIp'])) {
+            $model->networkInterfaceIp = $map['NetworkInterfaceIp'];
+        }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
@@ -640,6 +664,10 @@ class DescribeDesktopsRequest extends Model
 
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
+        }
+
+        if (isset($map['PublicIp'])) {
+            $model->publicIp = $map['PublicIp'];
         }
 
         if (isset($map['QosRuleId'])) {

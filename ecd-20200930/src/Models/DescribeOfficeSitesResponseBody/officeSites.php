@@ -59,6 +59,11 @@ class officeSites extends Model
     /**
      * @var string
      */
+    public $basicInternetType;
+
+    /**
+     * @var string
+     */
     public $cenAttachStatus;
 
     /**
@@ -355,6 +360,7 @@ class officeSites extends Model
         'backupDCHostname' => 'BackupDCHostname',
         'backupDns' => 'BackupDns',
         'bandwidth' => 'Bandwidth',
+        'basicInternetType' => 'BasicInternetType',
         'cenAttachStatus' => 'CenAttachStatus',
         'cenId' => 'CenId',
         'cidrBlock' => 'CidrBlock',
@@ -488,6 +494,10 @@ class officeSites extends Model
 
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+
+        if (null !== $this->basicInternetType) {
+            $res['BasicInternetType'] = $this->basicInternetType;
         }
 
         if (null !== $this->cenAttachStatus) {
@@ -823,6 +833,10 @@ class officeSites extends Model
 
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
+        }
+
+        if (isset($map['BasicInternetType'])) {
+            $model->basicInternetType = $map['BasicInternetType'];
         }
 
         if (isset($map['CenAttachStatus'])) {
