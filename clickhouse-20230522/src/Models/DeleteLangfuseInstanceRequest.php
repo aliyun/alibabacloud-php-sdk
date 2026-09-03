@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DeleteLangfuseInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $confirmDeleteAiGateway;
+
+    /**
      * @var string
      */
     public $DBInstanceId;
@@ -18,6 +23,7 @@ class DeleteLangfuseInstanceRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'confirmDeleteAiGateway' => 'ConfirmDeleteAiGateway',
         'DBInstanceId' => 'DBInstanceId',
         'regionId' => 'RegionId',
     ];
@@ -30,6 +36,10 @@ class DeleteLangfuseInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->confirmDeleteAiGateway) {
+            $res['ConfirmDeleteAiGateway'] = $this->confirmDeleteAiGateway;
+        }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -49,6 +59,10 @@ class DeleteLangfuseInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfirmDeleteAiGateway'])) {
+            $model->confirmDeleteAiGateway = $map['ConfirmDeleteAiGateway'];
+        }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
