@@ -4536,7 +4536,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates an application attached to a PolarDB instance.
+     * Creates an application that is attached to a PolarDB instance.
      *
      * @param tmpReq - CreateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4555,6 +4555,10 @@ class Polardb extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->components) {
             $request->componentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
+        }
+
+        if (null !== $tmpReq->dnatEntries) {
+            $request->dnatEntriesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dnatEntries, 'DnatEntries', 'json');
         }
 
         if (null !== $tmpReq->endpoints) {
@@ -4620,6 +4624,14 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->dnatEntriesShrink) {
+            @$query['DnatEntries'] = $request->dnatEntriesShrink;
+        }
+
+        if (null !== $request->dnatIpAddress) {
+            @$query['DnatIpAddress'] = $request->dnatIpAddress;
         }
 
         if (null !== $request->dryRun) {
@@ -4726,6 +4738,10 @@ class Polardb extends OpenApiClient
             @$query['VpcId'] = $request->vpcId;
         }
 
+        if (null !== $request->vpcNatGatewayId) {
+            @$query['VpcNatGatewayId'] = $request->vpcNatGatewayId;
+        }
+
         if (null !== $request->zoneId) {
             @$query['ZoneId'] = $request->zoneId;
         }
@@ -4749,7 +4765,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates an application attached to a PolarDB instance.
+     * Creates an application that is attached to a PolarDB instance.
      *
      * @param request - CreateApplicationRequest
      *

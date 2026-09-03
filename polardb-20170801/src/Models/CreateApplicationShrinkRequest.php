@@ -70,6 +70,16 @@ class CreateApplicationShrinkRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $dnatEntriesShrink;
+
+    /**
+     * @var string
+     */
+    public $dnatIpAddress;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -202,6 +212,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $vpcNatGatewayId;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'AIDBClusterId' => 'AIDBClusterId',
@@ -216,6 +231,8 @@ class CreateApplicationShrinkRequest extends Model
         'componentsShrink' => 'Components',
         'DBClusterId' => 'DBClusterId',
         'description' => 'Description',
+        'dnatEntriesShrink' => 'DnatEntries',
+        'dnatIpAddress' => 'DnatIpAddress',
         'dryRun' => 'DryRun',
         'endpointsShrink' => 'Endpoints',
         'knowledgeApplicationSpecShrink' => 'KnowledgeApplicationSpec',
@@ -242,6 +259,7 @@ class CreateApplicationShrinkRequest extends Model
         'usedTime' => 'UsedTime',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
+        'vpcNatGatewayId' => 'VpcNatGatewayId',
         'zoneId' => 'ZoneId',
     ];
 
@@ -302,6 +320,14 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->dnatEntriesShrink) {
+            $res['DnatEntries'] = $this->dnatEntriesShrink;
+        }
+
+        if (null !== $this->dnatIpAddress) {
+            $res['DnatIpAddress'] = $this->dnatIpAddress;
         }
 
         if (null !== $this->dryRun) {
@@ -415,6 +441,10 @@ class CreateApplicationShrinkRequest extends Model
             $res['VpcId'] = $this->vpcId;
         }
 
+        if (null !== $this->vpcNatGatewayId) {
+            $res['VpcNatGatewayId'] = $this->vpcNatGatewayId;
+        }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -476,6 +506,14 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DnatEntries'])) {
+            $model->dnatEntriesShrink = $map['DnatEntries'];
+        }
+
+        if (isset($map['DnatIpAddress'])) {
+            $model->dnatIpAddress = $map['DnatIpAddress'];
         }
 
         if (isset($map['DryRun'])) {
@@ -587,6 +625,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['VpcNatGatewayId'])) {
+            $model->vpcNatGatewayId = $map['VpcNatGatewayId'];
         }
 
         if (isset($map['ZoneId'])) {

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\components;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\dnatEntries;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\endpoints;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\knowledgeApplicationSpec;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\memApplicationSpec;
@@ -73,6 +74,16 @@ class CreateApplicationRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var dnatEntries[]
+     */
+    public $dnatEntries;
+
+    /**
+     * @var string
+     */
+    public $dnatIpAddress;
 
     /**
      * @var bool
@@ -207,6 +218,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $vpcNatGatewayId;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'AIDBClusterId' => 'AIDBClusterId',
@@ -221,6 +237,8 @@ class CreateApplicationRequest extends Model
         'components' => 'Components',
         'DBClusterId' => 'DBClusterId',
         'description' => 'Description',
+        'dnatEntries' => 'DnatEntries',
+        'dnatIpAddress' => 'DnatIpAddress',
         'dryRun' => 'DryRun',
         'endpoints' => 'Endpoints',
         'knowledgeApplicationSpec' => 'KnowledgeApplicationSpec',
@@ -247,6 +265,7 @@ class CreateApplicationRequest extends Model
         'usedTime' => 'UsedTime',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
+        'vpcNatGatewayId' => 'VpcNatGatewayId',
         'zoneId' => 'ZoneId',
     ];
 
@@ -254,6 +273,9 @@ class CreateApplicationRequest extends Model
     {
         if (\is_array($this->components)) {
             Model::validateArray($this->components);
+        }
+        if (\is_array($this->dnatEntries)) {
+            Model::validateArray($this->dnatEntries);
         }
         if (\is_array($this->endpoints)) {
             Model::validateArray($this->endpoints);
@@ -329,6 +351,21 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->dnatEntries) {
+            if (\is_array($this->dnatEntries)) {
+                $res['DnatEntries'] = [];
+                $n1 = 0;
+                foreach ($this->dnatEntries as $item1) {
+                    $res['DnatEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->dnatIpAddress) {
+            $res['DnatIpAddress'] = $this->dnatIpAddress;
         }
 
         if (null !== $this->dryRun) {
@@ -456,6 +493,10 @@ class CreateApplicationRequest extends Model
             $res['VpcId'] = $this->vpcId;
         }
 
+        if (null !== $this->vpcNatGatewayId) {
+            $res['VpcNatGatewayId'] = $this->vpcNatGatewayId;
+        }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -524,6 +565,21 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DnatEntries'])) {
+            if (!empty($map['DnatEntries'])) {
+                $model->dnatEntries = [];
+                $n1 = 0;
+                foreach ($map['DnatEntries'] as $item1) {
+                    $model->dnatEntries[$n1] = dnatEntries::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['DnatIpAddress'])) {
+            $model->dnatIpAddress = $map['DnatIpAddress'];
         }
 
         if (isset($map['DryRun'])) {
@@ -649,6 +705,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['VpcNatGatewayId'])) {
+            $model->vpcNatGatewayId = $map['VpcNatGatewayId'];
         }
 
         if (isset($map['ZoneId'])) {

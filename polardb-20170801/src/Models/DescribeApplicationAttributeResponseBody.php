@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\components;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\dnatMappings;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\endpoints;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\memApplicationAttribute;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\polarClawSaaSApplicationAttribute;
@@ -54,6 +55,11 @@ class DescribeApplicationAttributeResponseBody extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var dnatMappings[]
+     */
+    public $dnatMappings;
 
     /**
      * @var endpoints[]
@@ -109,6 +115,11 @@ class DescribeApplicationAttributeResponseBody extends Model
      * @var string
      */
     public $natGatewayId;
+
+    /**
+     * @var string
+     */
+    public $natMappingSnatIpAddress;
 
     /**
      * @var string
@@ -188,6 +199,11 @@ class DescribeApplicationAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $vpcNatGatewayId;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'applicationId' => 'ApplicationId',
@@ -198,6 +214,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'creationTime' => 'CreationTime',
         'DBClusterId' => 'DBClusterId',
         'description' => 'Description',
+        'dnatMappings' => 'DnatMappings',
         'endpoints' => 'Endpoints',
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
@@ -209,6 +226,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'memApplicationAttribute' => 'MemApplicationAttribute',
         'minorVersion' => 'MinorVersion',
         'natGatewayId' => 'NatGatewayId',
+        'natMappingSnatIpAddress' => 'NatMappingSnatIpAddress',
         'payType' => 'PayType',
         'polarClawSaaSApplicationAttribute' => 'PolarClawSaaSApplicationAttribute',
         'polarFSInstanceId' => 'PolarFSInstanceId',
@@ -224,6 +242,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'VPCId' => 'VPCId',
         'vSwitchId' => 'VSwitchId',
         'version' => 'Version',
+        'vpcNatGatewayId' => 'VpcNatGatewayId',
         'zoneId' => 'ZoneId',
     ];
 
@@ -231,6 +250,9 @@ class DescribeApplicationAttributeResponseBody extends Model
     {
         if (\is_array($this->components)) {
             Model::validateArray($this->components);
+        }
+        if (\is_array($this->dnatMappings)) {
+            Model::validateArray($this->dnatMappings);
         }
         if (\is_array($this->endpoints)) {
             Model::validateArray($this->endpoints);
@@ -295,6 +317,17 @@ class DescribeApplicationAttributeResponseBody extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->dnatMappings) {
+            if (\is_array($this->dnatMappings)) {
+                $res['DnatMappings'] = [];
+                $n1 = 0;
+                foreach ($this->dnatMappings as $item1) {
+                    $res['DnatMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->endpoints) {
             if (\is_array($this->endpoints)) {
                 $res['Endpoints'] = [];
@@ -344,6 +377,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
+        }
+
+        if (null !== $this->natMappingSnatIpAddress) {
+            $res['NatMappingSnatIpAddress'] = $this->natMappingSnatIpAddress;
         }
 
         if (null !== $this->payType) {
@@ -427,6 +464,10 @@ class DescribeApplicationAttributeResponseBody extends Model
             $res['Version'] = $this->version;
         }
 
+        if (null !== $this->vpcNatGatewayId) {
+            $res['VpcNatGatewayId'] = $this->vpcNatGatewayId;
+        }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -481,6 +522,17 @@ class DescribeApplicationAttributeResponseBody extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['DnatMappings'])) {
+            if (!empty($map['DnatMappings'])) {
+                $model->dnatMappings = [];
+                $n1 = 0;
+                foreach ($map['DnatMappings'] as $item1) {
+                    $model->dnatMappings[$n1] = dnatMappings::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
@@ -530,6 +582,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
+        }
+
+        if (isset($map['NatMappingSnatIpAddress'])) {
+            $model->natMappingSnatIpAddress = $map['NatMappingSnatIpAddress'];
         }
 
         if (isset($map['PayType'])) {
@@ -611,6 +667,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
+        }
+
+        if (isset($map['VpcNatGatewayId'])) {
+            $model->vpcNatGatewayId = $map['VpcNatGatewayId'];
         }
 
         if (isset($map['ZoneId'])) {
