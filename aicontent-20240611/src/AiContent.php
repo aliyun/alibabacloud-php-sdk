@@ -234,6 +234,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterStopSubscriptionReque
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterStopSubscriptionResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterTransferToMemberRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterTransferToMemberResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateApiKeyStatusRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateApiKeyStatusResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateClientRequest;
@@ -283,8 +285,6 @@ class AiContent extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'cn-beijing' => 'aicontent.cn-beijing.aliyuncs.com',
-            'cn-hangzhou' => 'aicontent.cn-hangzhou.aliyuncs.com',
             'cn-shanghai' => 'aicontent.aliyuncs.com',
             'public' => 'aicontent.aliyuncs.com',
         ];
@@ -9663,6 +9663,69 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterTransferToMemberWithOptions($clientId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Modifies the status of an API key.
+     *
+     * @param request - ModelRouterUpdateApiKeyStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterUpdateApiKeyStatusResponse
+     *
+     * @param string                               $id
+     * @param ModelRouterUpdateApiKeyStatusRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModelRouterUpdateApiKeyStatusResponse
+     */
+    public function modelRouterUpdateApiKeyStatusWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterUpdateApiKeyStatus',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/apikeys/' . Url::percentEncode($id) . '/status',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterUpdateApiKeyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the status of an API key.
+     *
+     * @param request - ModelRouterUpdateApiKeyStatusRequest
+     *
+     * @returns ModelRouterUpdateApiKeyStatusResponse
+     *
+     * @param string                               $id
+     * @param ModelRouterUpdateApiKeyStatusRequest $request
+     *
+     * @return ModelRouterUpdateApiKeyStatusResponse
+     */
+    public function modelRouterUpdateApiKeyStatus($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterUpdateApiKeyStatusWithOptions($id, $request, $headers, $runtime);
     }
 
     /**
