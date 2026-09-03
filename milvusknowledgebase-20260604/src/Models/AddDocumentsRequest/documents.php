@@ -22,10 +22,16 @@ class documents extends Model
      * @var int
      */
     public $size;
+
+    /**
+     * @var string
+     */
+    public $strategyId;
     protected $_name = [
         'name' => 'Name',
         'path' => 'Path',
         'size' => 'Size',
+        'strategyId' => 'StrategyId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class documents extends Model
 
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+
+        if (null !== $this->strategyId) {
+            $res['StrategyId'] = $this->strategyId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class documents extends Model
 
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+
+        if (isset($map['StrategyId'])) {
+            $model->strategyId = $map['StrategyId'];
         }
 
         return $model;
