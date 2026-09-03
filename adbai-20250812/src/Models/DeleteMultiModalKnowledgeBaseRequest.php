@@ -16,9 +16,15 @@ class DeleteMultiModalKnowledgeBaseRequest extends Model
     /**
      * @var string
      */
+    public $mmkbName;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'mmkbName' => 'MmkbName',
         'regionId' => 'RegionId',
     ];
 
@@ -32,6 +38,10 @@ class DeleteMultiModalKnowledgeBaseRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->mmkbName) {
+            $res['MmkbName'] = $this->mmkbName;
         }
 
         if (null !== $this->regionId) {
@@ -51,6 +61,10 @@ class DeleteMultiModalKnowledgeBaseRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['MmkbName'])) {
+            $model->mmkbName = $map['MmkbName'];
         }
 
         if (isset($map['RegionId'])) {

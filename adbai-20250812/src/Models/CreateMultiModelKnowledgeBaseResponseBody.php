@@ -11,8 +11,20 @@ class CreateMultiModelKnowledgeBaseResponseBody extends Model
     /**
      * @var string
      */
+    public $dbClusterId;
+
+    /**
+     * @var string
+     */
+    public $mmkbName;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
+        'dbClusterId' => 'DbClusterId',
+        'mmkbName' => 'MmkbName',
         'requestId' => 'RequestId',
     ];
 
@@ -24,6 +36,14 @@ class CreateMultiModelKnowledgeBaseResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dbClusterId) {
+            $res['DbClusterId'] = $this->dbClusterId;
+        }
+
+        if (null !== $this->mmkbName) {
+            $res['MmkbName'] = $this->mmkbName;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,6 +59,14 @@ class CreateMultiModelKnowledgeBaseResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DbClusterId'])) {
+            $model->dbClusterId = $map['DbClusterId'];
+        }
+
+        if (isset($map['MmkbName'])) {
+            $model->mmkbName = $map['MmkbName'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -50,17 +50,6 @@ class ADBAI extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'ap-northeast-1' => 'adbai.ap-northeast-1.aliyuncs.com',
-            'ap-southeast-1' => 'adbai.ap-southeast-1.aliyuncs.com',
-            'cn-beijing' => 'adbai.cn-beijing.aliyuncs.com',
-            'cn-hangzhou' => 'adbai.cn-hangzhou.aliyuncs.com',
-            'cn-shanghai' => 'adbai.cn-shanghai.aliyuncs.com',
-            'cn-shenzhen' => 'adbai.cn-shenzhen.aliyuncs.com',
-            'cn-guangzhou' => 'adbai.cn-guangzhou.aliyuncs.com',
-            'cn-wulanchabu' => 'adbai.cn-wulanchabu.aliyuncs.com',
-            'us-west-1' => 'adbai.us-west-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('adbai', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -281,12 +270,44 @@ class ADBAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->adbInstanceName) {
+            @$query['AdbInstanceName'] = $request->adbInstanceName;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
+        if (null !== $request->dbClusterAcu) {
+            @$query['DbClusterAcu'] = $request->dbClusterAcu;
+        }
+
+        if (null !== $request->lakeStorageBucketName) {
+            @$query['LakeStorageBucketName'] = $request->lakeStorageBucketName;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceAcuMax) {
+            @$query['ResourceAcuMax'] = $request->resourceAcuMax;
+        }
+
+        if (null !== $request->resourceAcuMin) {
+            @$query['ResourceAcuMin'] = $request->resourceAcuMin;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
 
         $req = new OpenApiRequest([
@@ -480,6 +501,10 @@ class ADBAI extends OpenApiClient
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->mmkbName) {
+            @$query['MmkbName'] = $request->mmkbName;
         }
 
         if (null !== $request->regionId) {
