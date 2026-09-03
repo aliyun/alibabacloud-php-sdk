@@ -104,6 +104,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeCrossAccountsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeCrossAccountsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeDataSourcesRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeDataSourcesResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeFeatureTrialInfoRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeFeatureTrialInfoResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaBackupPlansRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaBackupPlansResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaBackupsAsyncRequest;
@@ -160,11 +162,15 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\GetBasicStatisticsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\GetBasicStatisticsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\GetTempFileDownloadLinkRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\GetTempFileDownloadLinkResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\GetTrialInfoRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\GetTrialInfoResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\InstallBackupClientsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\InstallBackupClientsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\InstallBackupClientsShrinkRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\ListProtectedResourcesRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\ListProtectedResourcesResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\ListSnapshotsRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\ListSnapshotsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\OpenHbrServiceResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\RemoveDataSourceRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\RemoveDataSourceResponse;
@@ -253,39 +259,6 @@ class Hbr extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'hbr.aliyuncs.com',
             'eu-west-1-oxs' => 'hbr.aliyuncs.com',
             'rus-west-1-pop' => 'hbr.aliyuncs.com',
-            'cn-wulanchabu' => 'hbr.cn-wulanchabu.aliyuncs.com',
-            'cn-beijing' => 'hbr.cn-beijing.aliyuncs.com',
-            'cn-qingdao' => 'hbr.cn-qingdao.aliyuncs.com',
-            'cn-shanghai' => 'hbr.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'hbr.cn-hongkong.aliyuncs.com',
-            'cn-heyuan' => 'hbr.cn-heyuan.aliyuncs.com',
-            'cn-zhangjiakou' => 'hbr.cn-zhangjiakou.aliyuncs.com',
-            'cn-shenzhen' => 'hbr.cn-shenzhen.aliyuncs.com',
-            'ap-northeast-2' => 'hbr.ap-northeast-2.aliyuncs.com',
-            'ap-northeast-1' => 'hbr.ap-northeast-1.aliyuncs.com',
-            'cn-chengdu' => 'hbr.cn-chengdu.aliyuncs.com',
-            'cn-guangzhou' => 'hbr.cn-guangzhou.aliyuncs.com',
-            'ap-southeast-1' => 'hbr.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3' => 'hbr.ap-southeast-3.aliyuncs.com',
-            'cn-huhehaote' => 'hbr.cn-huhehaote.aliyuncs.com',
-            'ap-southeast-5' => 'hbr.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-6' => 'hbr.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-7' => 'hbr.ap-southeast-7.aliyuncs.com',
-            'cn-hangzhou' => 'hbr.cn-hangzhou.aliyuncs.com',
-            'ap-southeast-8' => 'hbr.ap-southeast-8.aliyuncs.com',
-            'cn-zhongwei' => 'hbr.cn-zhongwei.aliyuncs.com',
-            'us-southeast-1' => 'hbr.us-southeast-1.aliyuncs.com',
-            'na-south-1' => 'hbr.na-south-1.aliyuncs.com',
-            'eu-central-1' => 'hbr.eu-central-1.aliyuncs.com',
-            'us-west-1' => 'hbr.us-west-1.aliyuncs.com',
-            'eu-west-1' => 'hbr.eu-west-1.aliyuncs.com',
-            'us-east-1' => 'hbr.us-east-1.aliyuncs.com',
-            'me-central-1' => 'hbr.me-central-1.aliyuncs.com',
-            'me-east-1' => 'hbr.me-east-1.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'hbr.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-beijing-finance-1' => 'hbr.cn-beijing-finance-1.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'hbr.cn-shenzhen-finance-1.aliyuncs.com',
-            'cn-hangzhou-finance' => 'hbr.cn-hangzhou-finance.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('hbr', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -4166,6 +4139,63 @@ class Hbr extends OpenApiClient
     }
 
     /**
+     * Queries the free trial activation status and expiration time of a specified feature. Currently, only the free trial information of Tablestore backup can be queried.
+     *
+     * @param request - DescribeFeatureTrialInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFeatureTrialInfoResponse
+     *
+     * @param DescribeFeatureTrialInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeFeatureTrialInfoResponse
+     */
+    public function describeFeatureTrialInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFeatureTrialInfo',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFeatureTrialInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the free trial activation status and expiration time of a specified feature. Currently, only the free trial information of Tablestore backup can be queried.
+     *
+     * @param request - DescribeFeatureTrialInfoRequest
+     *
+     * @returns DescribeFeatureTrialInfoResponse
+     *
+     * @param DescribeFeatureTrialInfoRequest $request
+     *
+     * @return DescribeFeatureTrialInfoResponse
+     */
+    public function describeFeatureTrialInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFeatureTrialInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries for one or more SAP HANA backup plans that match specified criteria.
      *
      * @param request - DescribeHanaBackupPlansRequest
@@ -6230,6 +6260,75 @@ class Hbr extends OpenApiClient
     }
 
     /**
+     * Queries the free trial information of a specified OSS bucket or NAS file system.
+     *
+     * @param request - GetTrialInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTrialInfoResponse
+     *
+     * @param GetTrialInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetTrialInfoResponse
+     */
+    public function getTrialInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bucket) {
+            @$query['Bucket'] = $request->bucket;
+        }
+
+        if (null !== $request->createTime) {
+            @$query['CreateTime'] = $request->createTime;
+        }
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTrialInfo',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTrialInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the free trial information of a specified OSS bucket or NAS file system.
+     *
+     * @param request - GetTrialInfoRequest
+     *
+     * @returns GetTrialInfoResponse
+     *
+     * @param GetTrialInfoRequest $request
+     *
+     * @return GetTrialInfoResponse
+     */
+    public function getTrialInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTrialInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Installs backup clients on one or more ECS instances.
      *
      * @remarks
@@ -6396,6 +6495,95 @@ class Hbr extends OpenApiClient
     }
 
     /**
+     * Queries a list of backup points.
+     *
+     * @param request - ListSnapshotsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSnapshotsResponse
+     *
+     * @param ListSnapshotsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSnapshotsResponse
+     */
+    public function listSnapshotsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->completeTimeEnd) {
+            @$query['CompleteTimeEnd'] = $request->completeTimeEnd;
+        }
+
+        if (null !== $request->completeTimeStart) {
+            @$query['CompleteTimeStart'] = $request->completeTimeStart;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->planId) {
+            @$query['PlanId'] = $request->planId;
+        }
+
+        if (null !== $request->protectedResourceId) {
+            @$query['ProtectedResourceId'] = $request->protectedResourceId;
+        }
+
+        if (null !== $request->skip) {
+            @$query['Skip'] = $request->skip;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->vaultId) {
+            @$query['VaultId'] = $request->vaultId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSnapshots',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of backup points.
+     *
+     * @param request - ListSnapshotsRequest
+     *
+     * @returns ListSnapshotsResponse
+     *
+     * @param ListSnapshotsRequest $request
+     *
+     * @return ListSnapshotsResponse
+     */
+    public function listSnapshots($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSnapshotsWithOptions($request, $runtime);
+    }
+
+    /**
      * Activates Cloud Backup.
      *
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6504,7 +6692,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Retrieves one or more historical backup snapshots that meet the specified criteria.
+     * Retrieves one or more historical backup snapshots that meet the specified conditions.
      *
      * @param tmpReq - SearchHistoricalSnapshotsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6573,7 +6761,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Retrieves one or more historical backup snapshots that meet the specified criteria.
+     * Retrieves one or more historical backup snapshots that meet the specified conditions.
      *
      * @param request - SearchHistoricalSnapshotsRequest
      *
