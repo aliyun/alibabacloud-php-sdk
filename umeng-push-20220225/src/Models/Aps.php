@@ -16,6 +16,16 @@ class Aps extends Model
     /**
      * @var string
      */
+    public $attributes;
+
+    /**
+     * @var string
+     */
+    public $attributesType;
+
+    /**
+     * @var string
+     */
     public $badge;
 
     /**
@@ -31,7 +41,27 @@ class Aps extends Model
     /**
      * @var string
      */
+    public $contentState;
+
+    /**
+     * @var int
+     */
+    public $dismissalDate;
+
+    /**
+     * @var string
+     */
+    public $event;
+
+    /**
+     * @var string
+     */
     public $interruptionLevel;
+
+    /**
+     * @var int
+     */
+    public $mutableContent;
 
     /**
      * @var string
@@ -42,14 +72,26 @@ class Aps extends Model
      * @var string
      */
     public $threadID;
+
+    /**
+     * @var int
+     */
+    public $timestamp;
     protected $_name = [
         'alert' => 'alert',
+        'attributes' => 'attributes',
+        'attributesType' => 'attributesType',
         'badge' => 'badge',
         'category' => 'category',
         'contentAvailable' => 'contentAvailable',
+        'contentState' => 'contentState',
+        'dismissalDate' => 'dismissalDate',
+        'event' => 'event',
         'interruptionLevel' => 'interruptionLevel',
+        'mutableContent' => 'mutableContent',
         'sound' => 'sound',
         'threadID' => 'threadID',
+        'timestamp' => 'timestamp',
     ];
 
     public function validate()
@@ -67,6 +109,14 @@ class Aps extends Model
             $res['alert'] = null !== $this->alert ? $this->alert->toArray($noStream) : $this->alert;
         }
 
+        if (null !== $this->attributes) {
+            $res['attributes'] = $this->attributes;
+        }
+
+        if (null !== $this->attributesType) {
+            $res['attributesType'] = $this->attributesType;
+        }
+
         if (null !== $this->badge) {
             $res['badge'] = $this->badge;
         }
@@ -79,8 +129,24 @@ class Aps extends Model
             $res['contentAvailable'] = $this->contentAvailable;
         }
 
+        if (null !== $this->contentState) {
+            $res['contentState'] = $this->contentState;
+        }
+
+        if (null !== $this->dismissalDate) {
+            $res['dismissalDate'] = $this->dismissalDate;
+        }
+
+        if (null !== $this->event) {
+            $res['event'] = $this->event;
+        }
+
         if (null !== $this->interruptionLevel) {
             $res['interruptionLevel'] = $this->interruptionLevel;
+        }
+
+        if (null !== $this->mutableContent) {
+            $res['mutableContent'] = $this->mutableContent;
         }
 
         if (null !== $this->sound) {
@@ -89,6 +155,10 @@ class Aps extends Model
 
         if (null !== $this->threadID) {
             $res['threadID'] = $this->threadID;
+        }
+
+        if (null !== $this->timestamp) {
+            $res['timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -106,6 +176,14 @@ class Aps extends Model
             $model->alert = Alert::fromMap($map['alert']);
         }
 
+        if (isset($map['attributes'])) {
+            $model->attributes = $map['attributes'];
+        }
+
+        if (isset($map['attributesType'])) {
+            $model->attributesType = $map['attributesType'];
+        }
+
         if (isset($map['badge'])) {
             $model->badge = $map['badge'];
         }
@@ -118,8 +196,24 @@ class Aps extends Model
             $model->contentAvailable = $map['contentAvailable'];
         }
 
+        if (isset($map['contentState'])) {
+            $model->contentState = $map['contentState'];
+        }
+
+        if (isset($map['dismissalDate'])) {
+            $model->dismissalDate = $map['dismissalDate'];
+        }
+
+        if (isset($map['event'])) {
+            $model->event = $map['event'];
+        }
+
         if (isset($map['interruptionLevel'])) {
             $model->interruptionLevel = $map['interruptionLevel'];
+        }
+
+        if (isset($map['mutableContent'])) {
+            $model->mutableContent = $map['mutableContent'];
         }
 
         if (isset($map['sound'])) {
@@ -128,6 +222,10 @@ class Aps extends Model
 
         if (isset($map['threadID'])) {
             $model->threadID = $map['threadID'];
+        }
+
+        if (isset($map['timestamp'])) {
+            $model->timestamp = $map['timestamp'];
         }
 
         return $model;
