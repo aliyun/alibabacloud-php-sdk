@@ -55,6 +55,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\EnableDelegateAccountResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\EnableServiceResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetAccessConfigurationRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetAccessConfigurationResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetAttributePassingSettingRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetAttributePassingSettingResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetDirectoryRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetDirectoryResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetDirectorySAMLServiceProviderInfoRequest;
@@ -152,6 +154,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSCIMSynchronizationStatusReque
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSCIMSynchronizationStatusResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateAccessConfigurationRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateAccessConfigurationResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateAttributePassingSettingRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateAttributePassingSettingResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateDirectoryRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateDirectoryResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateGroupRequest;
@@ -184,14 +188,6 @@ class Cloudsso extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shanghai' => 'cloudsso.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'cloudsso.cn-hongkong.aliyuncs.com',
-            'ap-northeast-2' => 'cloudsso.ap-northeast-2.aliyuncs.com',
-            'ap-southeast-1' => 'cloudsso.ap-southeast-1.aliyuncs.com',
-            'us-west-1' => 'cloudsso.us-west-1.aliyuncs.com',
-            'eu-central-1' => 'cloudsso.eu-central-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloudsso', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -2126,6 +2122,69 @@ class Cloudsso extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAccessConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the attribute passing settings of a specified directory to retrieve the current configuration of the SourceIdentity pass-through mode.
+     *
+     * @remarks
+     * You must have the cloudsso:GetAttributePassingSetting permission to call this operation. If the directory is not explicitly configured, SourceIdentityPassing returns Disabled by default.
+     *
+     * @param request - GetAttributePassingSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAttributePassingSettingResponse
+     *
+     * @param GetAttributePassingSettingRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetAttributePassingSettingResponse
+     */
+    public function getAttributePassingSettingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAttributePassingSetting',
+            'version' => '2021-05-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAttributePassingSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the attribute passing settings of a specified directory to retrieve the current configuration of the SourceIdentity pass-through mode.
+     *
+     * @remarks
+     * You must have the cloudsso:GetAttributePassingSetting permission to call this operation. If the directory is not explicitly configured, SourceIdentityPassing returns Disabled by default.
+     *
+     * @param request - GetAttributePassingSettingRequest
+     *
+     * @returns GetAttributePassingSettingResponse
+     *
+     * @param GetAttributePassingSettingRequest $request
+     *
+     * @return GetAttributePassingSettingResponse
+     */
+    public function getAttributePassingSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAttributePassingSettingWithOptions($request, $runtime);
     }
 
     /**
@@ -5561,6 +5620,73 @@ class Cloudsso extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAccessConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the attribute passing settings for a specified directory, allowing you to set the SourceIdentity pass-through mode to IdP, UserName, or Disabled.
+     *
+     * @remarks
+     * You must have the cloudsso:UpdateAttributePassingSetting permission to call this operation. If the SourceIdentityPassing request parameter is not specified, the existing value is retained. If an invalid enum value is specified, the InvalidParameter.SourceIdentityPassing error is returned.
+     *
+     * @param request - UpdateAttributePassingSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAttributePassingSettingResponse
+     *
+     * @param UpdateAttributePassingSettingRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateAttributePassingSettingResponse
+     */
+    public function updateAttributePassingSettingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->sourceIdentityPassing) {
+            @$query['SourceIdentityPassing'] = $request->sourceIdentityPassing;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAttributePassingSetting',
+            'version' => '2021-05-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAttributePassingSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the attribute passing settings for a specified directory, allowing you to set the SourceIdentity pass-through mode to IdP, UserName, or Disabled.
+     *
+     * @remarks
+     * You must have the cloudsso:UpdateAttributePassingSetting permission to call this operation. If the SourceIdentityPassing request parameter is not specified, the existing value is retained. If an invalid enum value is specified, the InvalidParameter.SourceIdentityPassing error is returned.
+     *
+     * @param request - UpdateAttributePassingSettingRequest
+     *
+     * @returns UpdateAttributePassingSettingResponse
+     *
+     * @param UpdateAttributePassingSettingRequest $request
+     *
+     * @return UpdateAttributePassingSettingResponse
+     */
+    public function updateAttributePassingSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAttributePassingSettingWithOptions($request, $runtime);
     }
 
     /**
