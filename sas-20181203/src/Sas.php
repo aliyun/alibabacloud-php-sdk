@@ -5565,7 +5565,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an anti-ransomware policy for servers.
+     * Creates an anti-ransomware policy for server protection.
      *
      * @param tmpReq - CreateBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5607,6 +5607,10 @@ class Sas extends OpenApiClient
             @$query['SelectType'] = $request->selectType;
         }
 
+        if (null !== $request->serverType) {
+            @$query['ServerType'] = $request->serverType;
+        }
+
         if (null !== $request->uuidList) {
             @$query['UuidList'] = $request->uuidList;
         }
@@ -5630,7 +5634,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an anti-ransomware policy for servers.
+     * Creates an anti-ransomware policy for server protection.
      *
      * @param request - CreateBackupPolicyRequest
      *
@@ -54748,6 +54752,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->selectType) {
             @$query['SelectType'] = $request->selectType;
+        }
+
+        if (null !== $request->serverType) {
+            @$query['ServerType'] = $request->serverType;
         }
 
         if (null !== $request->uuidList) {

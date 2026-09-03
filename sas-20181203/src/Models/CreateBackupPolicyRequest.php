@@ -34,6 +34,11 @@ class CreateBackupPolicyRequest extends Model
     public $selectType;
 
     /**
+     * @var string
+     */
+    public $serverType;
+
+    /**
      * @var string[]
      */
     public $uuidList;
@@ -43,6 +48,7 @@ class CreateBackupPolicyRequest extends Model
         'policyRegionId' => 'PolicyRegionId',
         'policyVersion' => 'PolicyVersion',
         'selectType' => 'SelectType',
+        'serverType' => 'ServerType',
         'uuidList' => 'UuidList',
     ];
 
@@ -83,6 +89,10 @@ class CreateBackupPolicyRequest extends Model
 
         if (null !== $this->selectType) {
             $res['SelectType'] = $this->selectType;
+        }
+
+        if (null !== $this->serverType) {
+            $res['ServerType'] = $this->serverType;
         }
 
         if (null !== $this->uuidList) {
@@ -130,6 +140,10 @@ class CreateBackupPolicyRequest extends Model
 
         if (isset($map['SelectType'])) {
             $model->selectType = $map['SelectType'];
+        }
+
+        if (isset($map['ServerType'])) {
+            $model->serverType = $map['ServerType'];
         }
 
         if (isset($map['UuidList'])) {
