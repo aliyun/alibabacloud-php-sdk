@@ -58,6 +58,11 @@ class DescribeAppInstanceAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $instanceLatestVersion;
+
+    /**
+     * @var string
+     */
     public $instanceMinorVersion;
 
     /**
@@ -69,6 +74,11 @@ class DescribeAppInstanceAttributeResponseBody extends Model
      * @var string
      */
     public $loginToken;
+
+    /**
+     * @var string
+     */
+    public $minorVersionDetail;
 
     /**
      * @var string
@@ -149,9 +159,11 @@ class DescribeAppInstanceAttributeResponseBody extends Model
         'eipId' => 'EipId',
         'eipStatus' => 'EipStatus',
         'instanceClass' => 'InstanceClass',
+        'instanceLatestVersion' => 'InstanceLatestVersion',
         'instanceMinorVersion' => 'InstanceMinorVersion',
         'instanceName' => 'InstanceName',
         'loginToken' => 'LoginToken',
+        'minorVersionDetail' => 'MinorVersionDetail',
         'natCreatedBy' => 'NatCreatedBy',
         'natGatewayId' => 'NatGatewayId',
         'natStatus' => 'NatStatus',
@@ -225,6 +237,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
             $res['InstanceClass'] = $this->instanceClass;
         }
 
+        if (null !== $this->instanceLatestVersion) {
+            $res['InstanceLatestVersion'] = $this->instanceLatestVersion;
+        }
+
         if (null !== $this->instanceMinorVersion) {
             $res['InstanceMinorVersion'] = $this->instanceMinorVersion;
         }
@@ -235,6 +251,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (null !== $this->loginToken) {
             $res['LoginToken'] = $this->loginToken;
+        }
+
+        if (null !== $this->minorVersionDetail) {
+            $res['MinorVersionDetail'] = $this->minorVersionDetail;
         }
 
         if (null !== $this->natCreatedBy) {
@@ -354,6 +374,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
             $model->instanceClass = $map['InstanceClass'];
         }
 
+        if (isset($map['InstanceLatestVersion'])) {
+            $model->instanceLatestVersion = $map['InstanceLatestVersion'];
+        }
+
         if (isset($map['InstanceMinorVersion'])) {
             $model->instanceMinorVersion = $map['InstanceMinorVersion'];
         }
@@ -364,6 +388,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (isset($map['LoginToken'])) {
             $model->loginToken = $map['LoginToken'];
+        }
+
+        if (isset($map['MinorVersionDetail'])) {
+            $model->minorVersionDetail = $map['MinorVersionDetail'];
         }
 
         if (isset($map['NatCreatedBy'])) {
