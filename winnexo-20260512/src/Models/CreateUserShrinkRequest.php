@@ -26,6 +26,11 @@ class CreateUserShrinkRequest extends Model
     /**
      * @var string
      */
+    public $ssoProvider;
+
+    /**
+     * @var string
+     */
     public $tenantId;
 
     /**
@@ -36,6 +41,7 @@ class CreateUserShrinkRequest extends Model
         'displayName' => 'displayName',
         'passwordEncrypted' => 'passwordEncrypted',
         'roleCodesShrink' => 'roleCodes',
+        'ssoProvider' => 'ssoProvider',
         'tenantId' => 'tenantId',
         'wnAccountId' => 'wnAccountId',
     ];
@@ -58,6 +64,10 @@ class CreateUserShrinkRequest extends Model
 
         if (null !== $this->roleCodesShrink) {
             $res['roleCodes'] = $this->roleCodesShrink;
+        }
+
+        if (null !== $this->ssoProvider) {
+            $res['ssoProvider'] = $this->ssoProvider;
         }
 
         if (null !== $this->tenantId) {
@@ -89,6 +99,10 @@ class CreateUserShrinkRequest extends Model
 
         if (isset($map['roleCodes'])) {
             $model->roleCodesShrink = $map['roleCodes'];
+        }
+
+        if (isset($map['ssoProvider'])) {
+            $model->ssoProvider = $map['ssoProvider'];
         }
 
         if (isset($map['tenantId'])) {

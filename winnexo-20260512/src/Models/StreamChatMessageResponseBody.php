@@ -14,6 +14,11 @@ class StreamChatMessageResponseBody extends Model
     public $code;
 
     /**
+     * @var string
+     */
+    public $content;
+
+    /**
      * @var mixed
      */
     public $data;
@@ -27,11 +32,18 @@ class StreamChatMessageResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'code' => 'code',
+        'content' => 'content',
         'data' => 'data',
         'message' => 'message',
         'requestId' => 'requestId',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -46,6 +58,10 @@ class StreamChatMessageResponseBody extends Model
             $res['code'] = $this->code;
         }
 
+        if (null !== $this->content) {
+            $res['content'] = $this->content;
+        }
+
         if (null !== $this->data) {
             $res['data'] = $this->data;
         }
@@ -56,6 +72,10 @@ class StreamChatMessageResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -73,6 +93,10 @@ class StreamChatMessageResponseBody extends Model
             $model->code = $map['code'];
         }
 
+        if (isset($map['content'])) {
+            $model->content = $map['content'];
+        }
+
         if (isset($map['data'])) {
             $model->data = $map['data'];
         }
@@ -83,6 +107,10 @@ class StreamChatMessageResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

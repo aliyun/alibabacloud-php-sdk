@@ -26,6 +26,11 @@ class CreateUserRequest extends Model
     /**
      * @var string
      */
+    public $ssoProvider;
+
+    /**
+     * @var string
+     */
     public $tenantId;
 
     /**
@@ -36,6 +41,7 @@ class CreateUserRequest extends Model
         'displayName' => 'displayName',
         'passwordEncrypted' => 'passwordEncrypted',
         'roleCodes' => 'roleCodes',
+        'ssoProvider' => 'ssoProvider',
         'tenantId' => 'tenantId',
         'wnAccountId' => 'wnAccountId',
     ];
@@ -68,6 +74,10 @@ class CreateUserRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->ssoProvider) {
+            $res['ssoProvider'] = $this->ssoProvider;
         }
 
         if (null !== $this->tenantId) {
@@ -106,6 +116,10 @@ class CreateUserRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ssoProvider'])) {
+            $model->ssoProvider = $map['ssoProvider'];
         }
 
         if (isset($map['tenantId'])) {
