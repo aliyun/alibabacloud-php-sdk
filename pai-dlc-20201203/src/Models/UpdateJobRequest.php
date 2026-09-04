@@ -27,11 +27,17 @@ class UpdateJobRequest extends Model
      * @var int
      */
     public $priority;
+
+    /**
+     * @var string
+     */
+    public $userCommand;
     protected $_name = [
         'accessibility' => 'Accessibility',
         'description' => 'Description',
         'jobSpecs' => 'JobSpecs',
         'priority' => 'Priority',
+        'userCommand' => 'UserCommand',
     ];
 
     public function validate()
@@ -68,6 +74,10 @@ class UpdateJobRequest extends Model
             $res['Priority'] = $this->priority;
         }
 
+        if (null !== $this->userCommand) {
+            $res['UserCommand'] = $this->userCommand;
+        }
+
         return $res;
     }
 
@@ -100,6 +110,10 @@ class UpdateJobRequest extends Model
 
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+
+        if (isset($map['UserCommand'])) {
+            $model->userCommand = $map['UserCommand'];
         }
 
         return $model;

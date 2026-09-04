@@ -127,6 +127,11 @@ class JobSpec extends Model
      * @var bool
      */
     public $useSpotInstance;
+
+    /**
+     * @var string
+     */
+    public $userCommand;
     protected $_name = [
         'assignNodeSpec' => 'AssignNodeSpec',
         'autoScalingSpec' => 'AutoScalingSpec',
@@ -152,6 +157,7 @@ class JobSpec extends Model
         'systemDisk' => 'SystemDisk',
         'type' => 'Type',
         'useSpotInstance' => 'UseSpotInstance',
+        'userCommand' => 'UserCommand',
     ];
 
     public function validate()
@@ -315,6 +321,10 @@ class JobSpec extends Model
             $res['UseSpotInstance'] = $this->useSpotInstance;
         }
 
+        if (null !== $this->userCommand) {
+            $res['UserCommand'] = $this->userCommand;
+        }
+
         return $res;
     }
 
@@ -441,6 +451,10 @@ class JobSpec extends Model
 
         if (isset($map['UseSpotInstance'])) {
             $model->useSpotInstance = $map['UseSpotInstance'];
+        }
+
+        if (isset($map['UserCommand'])) {
+            $model->userCommand = $map['UserCommand'];
         }
 
         return $model;
