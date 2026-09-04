@@ -5,10 +5,17 @@
 namespace AlibabaCloud\SDK\Cloudsiem\V20241212;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CancelCopilotTurnRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CancelCopilotTurnResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CheckUpgradeItemRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CheckUpgradeItemResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateAutoDisposeConfigRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateAutoDisposeConfigResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateCopilotChatRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateCopilotChatResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateCopilotChatShrinkRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateCopilotConversationRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateCopilotConversationResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateDataIngestionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateDataIngestionResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateDataSetRequest;
@@ -71,6 +78,12 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetAlertRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetAlertResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetAutoDisposeConfigRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetAutoDisposeConfigResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetCopilotConversationRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetCopilotConversationResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetCopilotTurnByClientMessageIdRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetCopilotTurnByClientMessageIdResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetCopilotTurnRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetCopilotTurnResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataBatchIngestionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataBatchIngestionResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageRequest;
@@ -100,6 +113,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAlertsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAutoDisposeEntitiesRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAutoDisposeEntitiesResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAutoDisposeEntitiesShrinkRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListCopilotMessagesRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListCopilotMessagesResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataConnectorsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataConnectorsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataConnectorsShrinkRequest;
@@ -170,6 +185,9 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\RefreshDataSourceRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\RefreshDataSourceResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ResetDataStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ResetDataStorageResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ResumeCopilotTurnStreamRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ResumeCopilotTurnStreamResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ResumeCopilotTurnStreamShrinkRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\SetDefaultNormalizationRuleVersionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\SetDefaultNormalizationRuleVersionResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateAlertRequest;
@@ -256,6 +274,85 @@ class Cloudsiem extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Cancels a specified Security Operations Agent conversation turn and returns the turn status after the cancellation request is processed.
+     *
+     * @remarks
+     * Cancels a specified Security Operations Agent conversation turn.
+     *
+     * @param request - CancelCopilotTurnRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelCopilotTurnResponse
+     *
+     * @param CancelCopilotTurnRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CancelCopilotTurnResponse
+     */
+    public function cancelCopilotTurnWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->traceId) {
+            @$body['TraceId'] = $request->traceId;
+        }
+
+        if (null !== $request->turnId) {
+            @$body['TurnId'] = $request->turnId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CancelCopilotTurn',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelCopilotTurnResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Cancels a specified Security Operations Agent conversation turn and returns the turn status after the cancellation request is processed.
+     *
+     * @remarks
+     * Cancels a specified Security Operations Agent conversation turn.
+     *
+     * @param request - CancelCopilotTurnRequest
+     *
+     * @returns CancelCopilotTurnResponse
+     *
+     * @param CancelCopilotTurnRequest $request
+     *
+     * @return CancelCopilotTurnResponse
+     */
+    public function cancelCopilotTurn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelCopilotTurnWithOptions($request, $runtime);
     }
 
     /**
@@ -402,6 +499,355 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAutoDisposeConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
+     *
+     * @remarks
+     * Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+     *
+     * @param tmpReq - CreateCopilotChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCopilotChatResponse
+     *
+     * @param CreateCopilotChatRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateCopilotChatResponse
+     */
+    public function createCopilotChatWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCopilotChatShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createConversation) {
+            $request->createConversationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createConversation, 'CreateConversation', 'json');
+        }
+
+        if (null !== $tmpReq->messages) {
+            $request->messagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientConversationId) {
+            @$body['ClientConversationId'] = $request->clientConversationId;
+        }
+
+        if (null !== $request->clientMessageId) {
+            @$body['ClientMessageId'] = $request->clientMessageId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->createConversationShrink) {
+            @$body['CreateConversation'] = $request->createConversationShrink;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->messagesShrink) {
+            @$body['Messages'] = $request->messagesShrink;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->planMode) {
+            @$body['PlanMode'] = $request->planMode;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->replaceTurnId) {
+            @$body['ReplaceTurnId'] = $request->replaceTurnId;
+        }
+
+        if (null !== $request->routeTarget) {
+            @$body['RouteTarget'] = $request->routeTarget;
+        }
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
+        }
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
+        if (null !== $request->thinkingMode) {
+            @$body['ThinkingMode'] = $request->thinkingMode;
+        }
+
+        if (null !== $request->traceId) {
+            @$body['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCopilotChat',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'string',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = $resp->event->data;
+
+                yield CreateCopilotChatResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
+     *
+     * @remarks
+     * Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+     *
+     * @param tmpReq - CreateCopilotChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCopilotChatResponse
+     *
+     * @param CreateCopilotChatRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateCopilotChatResponse
+     */
+    public function createCopilotChatWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCopilotChatShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createConversation) {
+            $request->createConversationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createConversation, 'CreateConversation', 'json');
+        }
+
+        if (null !== $tmpReq->messages) {
+            $request->messagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientConversationId) {
+            @$body['ClientConversationId'] = $request->clientConversationId;
+        }
+
+        if (null !== $request->clientMessageId) {
+            @$body['ClientMessageId'] = $request->clientMessageId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->createConversationShrink) {
+            @$body['CreateConversation'] = $request->createConversationShrink;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->messagesShrink) {
+            @$body['Messages'] = $request->messagesShrink;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->planMode) {
+            @$body['PlanMode'] = $request->planMode;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->replaceTurnId) {
+            @$body['ReplaceTurnId'] = $request->replaceTurnId;
+        }
+
+        if (null !== $request->routeTarget) {
+            @$body['RouteTarget'] = $request->routeTarget;
+        }
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
+        }
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
+        if (null !== $request->thinkingMode) {
+            @$body['ThinkingMode'] = $request->thinkingMode;
+        }
+
+        if (null !== $request->traceId) {
+            @$body['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCopilotChat',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'string',
+        ]);
+
+        return CreateCopilotChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
+     *
+     * @remarks
+     * Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+     *
+     * @param request - CreateCopilotChatRequest
+     *
+     * @returns CreateCopilotChatResponse
+     *
+     * @param CreateCopilotChatRequest $request
+     *
+     * @return CreateCopilotChatResponse
+     */
+    public function createCopilotChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCopilotChatWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a security operations Agent conversation that belongs to the current tenant and owner, and returns the conversation ID, status, and conversation configuration.
+     *
+     * @remarks
+     * Creates a security operations Agent conversation.
+     *
+     * @param request - CreateCopilotConversationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCopilotConversationResponse
+     *
+     * @param CreateCopilotConversationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateCopilotConversationResponse
+     */
+    public function createCopilotConversationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->planMode) {
+            @$body['PlanMode'] = $request->planMode;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->thinkingMode) {
+            @$body['ThinkingMode'] = $request->thinkingMode;
+        }
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
+        }
+
+        if (null !== $request->traceId) {
+            @$body['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCopilotConversation',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCopilotConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a security operations Agent conversation that belongs to the current tenant and owner, and returns the conversation ID, status, and conversation configuration.
+     *
+     * @remarks
+     * Creates a security operations Agent conversation.
+     *
+     * @param request - CreateCopilotConversationRequest
+     *
+     * @returns CreateCopilotConversationResponse
+     *
+     * @param CreateCopilotConversationRequest $request
+     *
+     * @return CreateCopilotConversationResponse
+     */
+    public function createCopilotConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCopilotConversationWithOptions($request, $runtime);
     }
 
     /**
@@ -3116,6 +3562,239 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * Queries the metadata, status, configuration, and historical summary of a specified security operations Agent conversation.
+     *
+     * @remarks
+     * Queries a specified security operations Agent conversation.
+     *
+     * @param request - GetCopilotConversationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCopilotConversationResponse
+     *
+     * @param GetCopilotConversationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetCopilotConversationResponse
+     */
+    public function getCopilotConversationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->traceId) {
+            @$body['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetCopilotConversation',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCopilotConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the metadata, status, configuration, and historical summary of a specified security operations Agent conversation.
+     *
+     * @remarks
+     * Queries a specified security operations Agent conversation.
+     *
+     * @param request - GetCopilotConversationRequest
+     *
+     * @returns GetCopilotConversationResponse
+     *
+     * @param GetCopilotConversationRequest $request
+     *
+     * @return GetCopilotConversationResponse
+     */
+    public function getCopilotConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCopilotConversationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the status of a security operations Agent conversation turn.
+     *
+     * @remarks
+     * Queries a specified security operations Agent conversation turn.
+     *
+     * @param request - GetCopilotTurnRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCopilotTurnResponse
+     *
+     * @param GetCopilotTurnRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetCopilotTurnResponse
+     */
+    public function getCopilotTurnWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->traceId) {
+            @$body['TraceId'] = $request->traceId;
+        }
+
+        if (null !== $request->turnId) {
+            @$body['TurnId'] = $request->turnId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetCopilotTurn',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCopilotTurnResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the status of a security operations Agent conversation turn.
+     *
+     * @remarks
+     * Queries a specified security operations Agent conversation turn.
+     *
+     * @param request - GetCopilotTurnRequest
+     *
+     * @returns GetCopilotTurnResponse
+     *
+     * @param GetCopilotTurnRequest $request
+     *
+     * @return GetCopilotTurnResponse
+     */
+    public function getCopilotTurn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCopilotTurnWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a security operations Agent conversation turn by conversation ID and client message ID.
+     *
+     * @remarks
+     * Queries a security operations Agent conversation turn by client message ID.
+     *
+     * @param request - GetCopilotTurnByClientMessageIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCopilotTurnByClientMessageIdResponse
+     *
+     * @param GetCopilotTurnByClientMessageIdRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetCopilotTurnByClientMessageIdResponse
+     */
+    public function getCopilotTurnByClientMessageIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientMessageId) {
+            @$body['ClientMessageId'] = $request->clientMessageId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->traceId) {
+            @$body['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetCopilotTurnByClientMessageId',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCopilotTurnByClientMessageIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a security operations Agent conversation turn by conversation ID and client message ID.
+     *
+     * @remarks
+     * Queries a security operations Agent conversation turn by client message ID.
+     *
+     * @param request - GetCopilotTurnByClientMessageIdRequest
+     *
+     * @returns GetCopilotTurnByClientMessageIdResponse
+     *
+     * @param GetCopilotTurnByClientMessageIdRequest $request
+     *
+     * @return GetCopilotTurnByClientMessageIdResponse
+     */
+    public function getCopilotTurnByClientMessageId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCopilotTurnByClientMessageIdWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of a batch data ingestion task.
      *
      * @remarks
@@ -4249,6 +4928,93 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAutoDisposeEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries visible persisted messages in a specified security operations Agent session by paging, with configurable sorting direction.
+     *
+     * @remarks
+     * Queries the message list of a specified security operations Agent conversation.
+     *
+     * @param request - ListCopilotMessagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCopilotMessagesResponse
+     *
+     * @param ListCopilotMessagesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListCopilotMessagesResponse
+     */
+    public function listCopilotMessagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->ascending) {
+            @$body['Ascending'] = $request->ascending;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->traceId) {
+            @$body['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCopilotMessages',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCopilotMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries visible persisted messages in a specified security operations Agent session by paging, with configurable sorting direction.
+     *
+     * @remarks
+     * Queries the message list of a specified security operations Agent conversation.
+     *
+     * @param request - ListCopilotMessagesRequest
+     *
+     * @returns ListCopilotMessagesResponse
+     *
+     * @param ListCopilotMessagesRequest $request
+     *
+     * @return ListCopilotMessagesResponse
+     */
+    public function listCopilotMessages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCopilotMessagesWithOptions($request, $runtime);
     }
 
     /**
@@ -7148,6 +7914,176 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetDataStorageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+     *
+     * @remarks
+     * Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+     *
+     * @param tmpReq - ResumeCopilotTurnStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeCopilotTurnStreamResponse
+     *
+     * @param ResumeCopilotTurnStreamRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ResumeCopilotTurnStreamResponse
+     */
+    public function resumeCopilotTurnStreamWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ResumeCopilotTurnStreamShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cursorByRun) {
+            $request->cursorByRunShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cursorByRun, 'CursorByRun', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->cursorByRunShrink) {
+            @$body['CursorByRun'] = $request->cursorByRunShrink;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->traceId) {
+            @$body['TraceId'] = $request->traceId;
+        }
+
+        if (null !== $request->turnId) {
+            @$body['TurnId'] = $request->turnId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeCopilotTurnStream',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'string',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = $resp->event->data;
+
+                yield ResumeCopilotTurnStreamResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+     *
+     * @remarks
+     * Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+     *
+     * @param tmpReq - ResumeCopilotTurnStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeCopilotTurnStreamResponse
+     *
+     * @param ResumeCopilotTurnStreamRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ResumeCopilotTurnStreamResponse
+     */
+    public function resumeCopilotTurnStreamWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ResumeCopilotTurnStreamShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cursorByRun) {
+            $request->cursorByRunShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cursorByRun, 'CursorByRun', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->cursorByRunShrink) {
+            @$body['CursorByRun'] = $request->cursorByRunShrink;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->traceId) {
+            @$body['TraceId'] = $request->traceId;
+        }
+
+        if (null !== $request->turnId) {
+            @$body['TurnId'] = $request->turnId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeCopilotTurnStream',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'string',
+        ]);
+
+        return ResumeCopilotTurnStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+     *
+     * @remarks
+     * Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+     *
+     * @param request - ResumeCopilotTurnStreamRequest
+     *
+     * @returns ResumeCopilotTurnStreamResponse
+     *
+     * @param ResumeCopilotTurnStreamRequest $request
+     *
+     * @return ResumeCopilotTurnStreamResponse
+     */
+    public function resumeCopilotTurnStream($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeCopilotTurnStreamWithOptions($request, $runtime);
     }
 
     /**
