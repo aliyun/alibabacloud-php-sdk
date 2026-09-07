@@ -297,6 +297,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOnlineUserCountRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOnlineUserCountResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePeripheralDriversRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePeripheralDriversResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForCreateDesktopOversoldGroupRequest;
@@ -353,6 +355,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersPasswordRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersPasswordResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVirtualMFADevicesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVirtualMFADevicesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulDesktopsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulDesktopsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulnerabilityRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulnerabilityResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DetachCenRequest;
@@ -516,8 +522,14 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyVirtualBridgeStatusRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyVirtualBridgeStatusResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryActiveUserStatisticRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryActiveUserStatisticResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryEndUserHistoryUsageRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryEndUserHistoryUsageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryActiveUserCountRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryActiveUserCountResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryActiveUserStatisticRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryActiveUserStatisticResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryAvgMetricListRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryAvgMetricListResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryAvgMetricListShrinkRequest;
@@ -4987,13 +4999,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
+     * Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
      *
      * @remarks
-     * Before creating cloud desktops, complete the following preparations:
-     * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
-     *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-     *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+     * Before creating cloud computers, complete the following preparations:
+     * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
+     *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+     *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
      * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
      * **Call examples:**
      * <details>
@@ -5076,7 +5088,7 @@ class Ecd extends OpenApiClient
      * }
      * ```
      * </details>
-     * To have cloud desktops automatically execute custom command scripts, use the `UserCommands` field to configure custom commands.
+     * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
      *
      * @param tmpReq - CreateDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5297,13 +5309,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
+     * Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
      *
      * @remarks
-     * Before creating cloud desktops, complete the following preparations:
-     * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
-     *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-     *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+     * Before creating cloud computers, complete the following preparations:
+     * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
+     *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+     *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
      * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
      * **Call examples:**
      * <details>
@@ -5386,7 +5398,7 @@ class Ecd extends OpenApiClient
      * }
      * ```
      * </details>
-     * To have cloud desktops automatically execute custom command scripts, use the `UserCommands` field to configure custom commands.
+     * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
      *
      * @param request - CreateDesktopsRequest
      *
@@ -6072,10 +6084,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Enables the Global Accelerator (GA) service for an office network.
+     * Enables Global Accelerator (GA) for an office network.
      *
      * @remarks
-     * Before you call this operation, ensure you fully understand the billing methods and [pricing](t2208086.xdita#) of the GA service.
+     * Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
      *
      * @param request - CreateOfficeSiteAcceleratorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6130,10 +6142,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Enables the Global Accelerator (GA) service for an office network.
+     * Enables Global Accelerator (GA) for an office network.
      *
      * @remarks
-     * Before you call this operation, ensure you fully understand the billing methods and [pricing](t2208086.xdita#) of the GA service.
+     * Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
      *
      * @param request - CreateOfficeSiteAcceleratorRequest
      *
@@ -12088,7 +12100,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the inbound bandwidth and outbound bandwidth monitoring data of a cloud computer, or the public network access inbound bandwidth and outbound bandwidth monitoring data of a premium public bandwidth plan.
+     * Queries the inbound and outbound bandwidth monitoring data of a cloud computer, or the public inbound and outbound bandwidth monitoring data of a premium public bandwidth instance.
      *
      * @param request - DescribeFlowMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12151,7 +12163,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the inbound bandwidth and outbound bandwidth monitoring data of a cloud computer, or the public network access inbound bandwidth and outbound bandwidth monitoring data of a premium public bandwidth plan.
+     * Queries the inbound and outbound bandwidth monitoring data of a cloud computer, or the public inbound and outbound bandwidth monitoring data of a premium public bandwidth instance.
      *
      * @param request - DescribeFlowMetricRequest
      *
@@ -13707,7 +13719,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries all properties of an office network, including the ID, name, status, and creation time.
+     * Queries all attributes of an office network, including the ID, name, status, and creation time.
      *
      * @param request - DescribeOfficeSitesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13778,7 +13790,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries all properties of an office network, including the ID, name, status, and creation time.
+     * Queries all attributes of an office network, including the ID, name, status, and creation time.
      *
      * @param request - DescribeOfficeSitesRequest
      *
@@ -13868,6 +13880,231 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeOnlineUserCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries peripheral drivers visible to the current account, with support for filtering by ownership, brand, device type, driver ID, and keyword, and returns paginated results.
+     *
+     * @remarks
+     * When multiple filter conditions are specified, only drivers that meet all conditions are returned. If no filter conditions are specified, both Wuying official drivers and drivers of the current account are returned. Use PageSize and PageNumber for pagination. Keep the filter conditions and PageSize unchanged, increment PageNumber page by page, and stop when an empty list is returned. The example values are provided to illustrate the format. Replace them with actual values.
+     * ## Request examples
+     * The following JSON examples show the logical request parameters. Common signature parameters are generated by the SDK or signing component.
+     * ### Query official printer drivers
+     * Query official printer drivers of a specified brand that contain a keyword. The first page is returned with a maximum of 20 entries per page.
+     * ```json
+     * {
+     *   "Action": "DescribePeripheralDrivers",
+     *   "Version": "2020-09-30",
+     *   "OwnerType": "WUYING",
+     *   "Brand": "hp",
+     *   "DeviceType": "printer",
+     *   "Filter": "LaserJet",
+     *   "PageSize": 20,
+     *   "PageNumber": 1
+     * }
+     * ```
+     * ### Query drivers by driver ID in batches
+     * ```json
+     * {
+     *   "Action": "DescribePeripheralDrivers",
+     *   "Version": "2020-09-30",
+     *   "DriverIds": [
+     *     "11111111-2222-4333-8444-555555555555",
+     *     "66666666-7777-4888-8999-000000000000"
+     *   ],
+     *   "PageSize": 20,
+     *   "PageNumber": 1
+     * }
+     * ```
+     * When you construct request parameters directly, expand DriverIds by sequence number:
+     * ```text
+     * DriverIds.1=11111111-2222-4333-8444-555555555555
+     * DriverIds.2=66666666-7777-4888-8999-000000000000
+     * ```
+     * When you use an SDK, pass in a string array and the SDK handles the encoding.
+     * ## Response examples
+     * The following responses are format examples. The icon URLs are for illustration purposes only. The reserved fields MaxResults and NextToken do not provide valid values and are omitted from the examples.
+     * ### Successful query
+     * ```json
+     * {
+     *   "RequestId": "00000000-1111-4222-8333-444444444444",
+     *   "Count": 1,
+     *   "DriverInfos": [
+     *     {
+     *       "Id": "11111111-2222-4333-8444-555555555555",
+     *       "Icon": "https://example.com/icons/printer.png",
+     *       "Name": "HP Universal Printing PCL 6",
+     *       "Brand": "hp",
+     *       "DeviceType": "printer",
+     *       "OsType": "Windows",
+     *       "CreateTime": "2026-09-01T10:30:00+08:00",
+     *       "Source": "Wuying",
+     *       "OwnerType": "WUYING"
+     *     }
+     *   ]
+     * }
+     * ```
+     * ### No matching results
+     * ```json
+     * {
+     *   "RequestId": "00000000-1111-4222-8333-444444444444",
+     *   "Count": 0,
+     *   "DriverInfos": []
+     * }
+     * ```
+     *
+     * @param request - DescribePeripheralDriversRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePeripheralDriversResponse
+     *
+     * @param DescribePeripheralDriversRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePeripheralDriversResponse
+     */
+    public function describePeripheralDriversWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brand) {
+            @$query['Brand'] = $request->brand;
+        }
+
+        if (null !== $request->deviceType) {
+            @$query['DeviceType'] = $request->deviceType;
+        }
+
+        if (null !== $request->driverIds) {
+            @$query['DriverIds'] = $request->driverIds;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerType) {
+            @$query['OwnerType'] = $request->ownerType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePeripheralDrivers',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePeripheralDriversResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries peripheral drivers visible to the current account, with support for filtering by ownership, brand, device type, driver ID, and keyword, and returns paginated results.
+     *
+     * @remarks
+     * When multiple filter conditions are specified, only drivers that meet all conditions are returned. If no filter conditions are specified, both Wuying official drivers and drivers of the current account are returned. Use PageSize and PageNumber for pagination. Keep the filter conditions and PageSize unchanged, increment PageNumber page by page, and stop when an empty list is returned. The example values are provided to illustrate the format. Replace them with actual values.
+     * ## Request examples
+     * The following JSON examples show the logical request parameters. Common signature parameters are generated by the SDK or signing component.
+     * ### Query official printer drivers
+     * Query official printer drivers of a specified brand that contain a keyword. The first page is returned with a maximum of 20 entries per page.
+     * ```json
+     * {
+     *   "Action": "DescribePeripheralDrivers",
+     *   "Version": "2020-09-30",
+     *   "OwnerType": "WUYING",
+     *   "Brand": "hp",
+     *   "DeviceType": "printer",
+     *   "Filter": "LaserJet",
+     *   "PageSize": 20,
+     *   "PageNumber": 1
+     * }
+     * ```
+     * ### Query drivers by driver ID in batches
+     * ```json
+     * {
+     *   "Action": "DescribePeripheralDrivers",
+     *   "Version": "2020-09-30",
+     *   "DriverIds": [
+     *     "11111111-2222-4333-8444-555555555555",
+     *     "66666666-7777-4888-8999-000000000000"
+     *   ],
+     *   "PageSize": 20,
+     *   "PageNumber": 1
+     * }
+     * ```
+     * When you construct request parameters directly, expand DriverIds by sequence number:
+     * ```text
+     * DriverIds.1=11111111-2222-4333-8444-555555555555
+     * DriverIds.2=66666666-7777-4888-8999-000000000000
+     * ```
+     * When you use an SDK, pass in a string array and the SDK handles the encoding.
+     * ## Response examples
+     * The following responses are format examples. The icon URLs are for illustration purposes only. The reserved fields MaxResults and NextToken do not provide valid values and are omitted from the examples.
+     * ### Successful query
+     * ```json
+     * {
+     *   "RequestId": "00000000-1111-4222-8333-444444444444",
+     *   "Count": 1,
+     *   "DriverInfos": [
+     *     {
+     *       "Id": "11111111-2222-4333-8444-555555555555",
+     *       "Icon": "https://example.com/icons/printer.png",
+     *       "Name": "HP Universal Printing PCL 6",
+     *       "Brand": "hp",
+     *       "DeviceType": "printer",
+     *       "OsType": "Windows",
+     *       "CreateTime": "2026-09-01T10:30:00+08:00",
+     *       "Source": "Wuying",
+     *       "OwnerType": "WUYING"
+     *     }
+     *   ]
+     * }
+     * ```
+     * ### No matching results
+     * ```json
+     * {
+     *   "RequestId": "00000000-1111-4222-8333-444444444444",
+     *   "Count": 0,
+     *   "DriverInfos": []
+     * }
+     * ```
+     *
+     * @param request - DescribePeripheralDriversRequest
+     *
+     * @returns DescribePeripheralDriversResponse
+     *
+     * @param DescribePeripheralDriversRequest $request
+     *
+     * @return DescribePeripheralDriversResponse
+     */
+    public function describePeripheralDrivers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePeripheralDriversWithOptions($request, $runtime);
     }
 
     /**
@@ -15250,7 +15487,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the snapshot list and snapshot details of a cloud computer.
+     * Queries the snapshot list and detailed snapshot information of a cloud computer.
      *
      * @param request - DescribeSnapshotsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15341,7 +15578,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the snapshot list and snapshot details of a cloud computer.
+     * Queries the snapshot list and detailed snapshot information of a cloud computer.
      *
      * @param request - DescribeSnapshotsRequest
      *
@@ -16150,6 +16387,218 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVirtualMFADevicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves cloud computer information for a vulnerability.
+     *
+     * @remarks
+     * - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
+     * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+     *
+     * @param request - DescribeVulDesktopsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVulDesktopsResponse
+     *
+     * @param DescribeVulDesktopsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeVulDesktopsResponse
+     */
+    public function describeVulDesktopsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cveId) {
+            @$query['CveId'] = $request->cveId;
+        }
+
+        if (null !== $request->desktopIdList) {
+            @$query['DesktopIdList'] = $request->desktopIdList;
+        }
+
+        if (null !== $request->includeFixResult) {
+            @$query['IncludeFixResult'] = $request->includeFixResult;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->onlyCurrentMonthFixAttempted) {
+            @$query['OnlyCurrentMonthFixAttempted'] = $request->onlyCurrentMonthFixAttempted;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->patchId) {
+            @$query['PatchId'] = $request->patchId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->searchRegionId) {
+            @$query['SearchRegionId'] = $request->searchRegionId;
+        }
+
+        if (null !== $request->statusList) {
+            @$query['StatusList'] = $request->statusList;
+        }
+
+        if (null !== $request->vulLevel) {
+            @$query['VulLevel'] = $request->vulLevel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVulDesktops',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVulDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves cloud computer information for a vulnerability.
+     *
+     * @remarks
+     * - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
+     * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+     *
+     * @param request - DescribeVulDesktopsRequest
+     *
+     * @returns DescribeVulDesktopsResponse
+     *
+     * @param DescribeVulDesktopsRequest $request
+     *
+     * @return DescribeVulDesktopsResponse
+     */
+    public function describeVulDesktops($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVulDesktopsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves vulnerability information.
+     *
+     * @remarks
+     * After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+     *
+     * @param request - DescribeVulnerabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVulnerabilityResponse
+     *
+     * @param DescribeVulnerabilityRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeVulnerabilityResponse
+     */
+    public function describeVulnerabilityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cveId) {
+            @$query['CveId'] = $request->cveId;
+        }
+
+        if (null !== $request->includeDesktop) {
+            @$query['IncludeDesktop'] = $request->includeDesktop;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->patchId) {
+            @$query['PatchId'] = $request->patchId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchRegionId) {
+            @$query['SearchRegionId'] = $request->searchRegionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVulnerability',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVulnerabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves vulnerability information.
+     *
+     * @remarks
+     * After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+     *
+     * @param request - DescribeVulnerabilityRequest
+     *
+     * @returns DescribeVulnerabilityResponse
+     *
+     * @param DescribeVulnerabilityRequest $request
+     *
+     * @return DescribeVulnerabilityResponse
+     */
+    public function describeVulnerability($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVulnerabilityWithOptions($request, $runtime);
     }
 
     /**
@@ -17612,7 +18061,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves user information from an enterprise Active Directory (AD) when you use an AD directory to connect to your enterprise AD.
+     * Retrieves user information from an enterprise Active Directory (AD) if you use an AD directory to connect to your enterprise AD.
      *
      * @param request - ListDirectoryUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17683,7 +18132,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves user information from an enterprise Active Directory (AD) when you use an AD directory to connect to your enterprise AD.
+     * Retrieves user information from an enterprise Active Directory (AD) if you use an AD directory to connect to your enterprise AD.
      *
      * @param request - ListDirectoryUsersRequest
      *
@@ -18433,7 +18882,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Migrates cloud computers from the current office network (formerly known as workspace) to a new office network.
+     * Migrates cloud computers from the current office network to a new office network.
      *
      * @param request - MigrateDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18488,7 +18937,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Migrates cloud computers from the current office network (formerly known as workspace) to a new office network.
+     * Migrates cloud computers from the current office network to a new office network.
      *
      * @param request - MigrateDesktopsRequest
      *
@@ -23032,10 +23481,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+     * Adds or removes the authorization of one or more cloud computers for one or more users.
      *
      * @remarks
-     * You can modify end users only for cloud computers that are in the Running state.
+     * Only cloud computers in the Running state support modifying authorized users.
      *
      * @param request - ModifyUserEntitlementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23086,10 +23535,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+     * Adds or removes the authorization of one or more cloud computers for one or more users.
      *
      * @remarks
-     * You can modify end users only for cloud computers that are in the Running state.
+     * Only cloud computers in the Running state support modifying authorized users.
      *
      * @param request - ModifyUserEntitlementRequest
      *
@@ -23423,6 +23872,152 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries the trend of active user count statistics within a specified time range. Returns the deduplicated active user count at each time slice based on the specified aggregation interval (Period), which can be used to plot online user trend charts.
+     *
+     * @param request - QueryActiveUserStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryActiveUserStatisticResponse
+     *
+     * @param QueryActiveUserStatisticRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryActiveUserStatisticResponse
+     */
+    public function queryActiveUserStatisticWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryActiveUserStatistic',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryActiveUserStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the trend of active user count statistics within a specified time range. Returns the deduplicated active user count at each time slice based on the specified aggregation interval (Period), which can be used to plot online user trend charts.
+     *
+     * @param request - QueryActiveUserStatisticRequest
+     *
+     * @returns QueryActiveUserStatisticResponse
+     *
+     * @param QueryActiveUserStatisticRequest $request
+     *
+     * @return QueryActiveUserStatisticResponse
+     */
+    public function queryActiveUserStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryActiveUserStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the usage duration ranking and details of each end user under a tenant within a specified date range. Aggregates offline statistical data, summarizes connection duration by user dimension, and populates basic information and per-desktop usage duration details for users on the current page.
+     *
+     * @param request - QueryEndUserHistoryUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryEndUserHistoryUsageResponse
+     *
+     * @param QueryEndUserHistoryUsageRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryEndUserHistoryUsageResponse
+     */
+    public function queryEndUserHistoryUsageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->isAdUser) {
+            @$query['IsAdUser'] = $request->isAdUser;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryEndUserHistoryUsage',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryEndUserHistoryUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the usage duration ranking and details of each end user under a tenant within a specified date range. Aggregates offline statistical data, summarizes connection duration by user dimension, and populates basic information and per-desktop usage duration details for users on the current page.
+     *
+     * @param request - QueryEndUserHistoryUsageRequest
+     *
+     * @returns QueryEndUserHistoryUsageResponse
+     *
+     * @param QueryEndUserHistoryUsageRequest $request
+     *
+     * @return QueryEndUserHistoryUsageResponse
+     */
+    public function queryEndUserHistoryUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryEndUserHistoryUsageWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the historical daily active user count and monthly active user count for a specified date.
      *
      * @remarks
@@ -23489,6 +24084,83 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryHistoryActiveUserCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the daily historical active user count for a tenant within a specified time range. Based on offline statistical data, this operation aggregates and deduplicates active users by date to calculate daily active users (DAU). Filtering by user group and workspace is supported.
+     *
+     * @param request - QueryHistoryActiveUserStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryHistoryActiveUserStatisticResponse
+     *
+     * @param QueryHistoryActiveUserStatisticRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return QueryHistoryActiveUserStatisticResponse
+     */
+    public function queryHistoryActiveUserStatisticWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->userGroupId) {
+            @$query['UserGroupId'] = $request->userGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryHistoryActiveUserStatistic',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryHistoryActiveUserStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the daily historical active user count for a tenant within a specified time range. Based on offline statistical data, this operation aggregates and deduplicates active users by date to calculate daily active users (DAU). Filtering by user group and workspace is supported.
+     *
+     * @param request - QueryHistoryActiveUserStatisticRequest
+     *
+     * @returns QueryHistoryActiveUserStatisticResponse
+     *
+     * @param QueryHistoryActiveUserStatisticRequest $request
+     *
+     * @return QueryHistoryActiveUserStatisticResponse
+     */
+    public function queryHistoryActiveUserStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryHistoryActiveUserStatisticWithOptions($request, $runtime);
     }
 
     /**
@@ -23779,10 +24451,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Reboots one or more desktops.
+     * Restarts one or more cloud computers.
      *
      * @remarks
-     * The desktops must be in the Running state.
+     * The cloud computers must be in the Running state.
      *
      * @param request - RebootDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23837,10 +24509,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Reboots one or more desktops.
+     * Restarts one or more cloud computers.
      *
      * @remarks
-     * The desktops must be in the Running state.
+     * The cloud computers must be in the Running state.
      *
      * @param request - RebootDesktopsRequest
      *
@@ -24972,7 +25644,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Executes a PowerShell or Bat script on one or more cloud computers that run the Windows operating system.
+     * Executes a PowerShell or Bat script on one or more cloud computers that run Windows.
      *
      * @param request - RunCommandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25039,7 +25711,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Executes a PowerShell or Bat script on one or more cloud computers that run the Windows operating system.
+     * Executes a PowerShell or Bat script on one or more cloud computers that run Windows.
      *
      * @param request - RunCommandRequest
      *
@@ -25692,10 +26364,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+     * Starts one or more stopped cloud computers. After the operation is called successfully, the cloud computers enter the Running state.
      *
      * @remarks
-     * The cloud computers that you want to start must be in the Stopped state.
+     * The cloud computers must be in the Stopped state.
      *
      * @param request - StartDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25738,10 +26410,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+     * Starts one or more stopped cloud computers. After the operation is called successfully, the cloud computers enter the Running state.
      *
      * @remarks
-     * The cloud computers that you want to start must be in the Stopped state.
+     * The cloud computers must be in the Stopped state.
      *
      * @param request - StartDesktopsRequest
      *
