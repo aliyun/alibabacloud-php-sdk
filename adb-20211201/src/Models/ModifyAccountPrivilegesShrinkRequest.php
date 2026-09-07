@@ -26,12 +26,36 @@ class ModifyAccountPrivilegesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $promqlInsertPrivilegesShrink;
+
+    /**
+     * @var float
+     */
+    public $promqlSelectNodePercentage;
+
+    /**
+     * @var string
+     */
+    public $promqlSelectPrivilegesShrink;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupName;
     protected $_name = [
         'accountName' => 'AccountName',
         'accountPrivilegesShrink' => 'AccountPrivileges',
         'DBClusterId' => 'DBClusterId',
+        'promqlInsertPrivilegesShrink' => 'PromqlInsertPrivileges',
+        'promqlSelectNodePercentage' => 'PromqlSelectNodePercentage',
+        'promqlSelectPrivilegesShrink' => 'PromqlSelectPrivileges',
         'regionId' => 'RegionId',
+        'resourceGroupName' => 'ResourceGroupName',
     ];
 
     public function validate()
@@ -54,8 +78,24 @@ class ModifyAccountPrivilegesShrinkRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
+        if (null !== $this->promqlInsertPrivilegesShrink) {
+            $res['PromqlInsertPrivileges'] = $this->promqlInsertPrivilegesShrink;
+        }
+
+        if (null !== $this->promqlSelectNodePercentage) {
+            $res['PromqlSelectNodePercentage'] = $this->promqlSelectNodePercentage;
+        }
+
+        if (null !== $this->promqlSelectPrivilegesShrink) {
+            $res['PromqlSelectPrivileges'] = $this->promqlSelectPrivilegesShrink;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupName) {
+            $res['ResourceGroupName'] = $this->resourceGroupName;
         }
 
         return $res;
@@ -81,8 +121,24 @@ class ModifyAccountPrivilegesShrinkRequest extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
+        if (isset($map['PromqlInsertPrivileges'])) {
+            $model->promqlInsertPrivilegesShrink = $map['PromqlInsertPrivileges'];
+        }
+
+        if (isset($map['PromqlSelectNodePercentage'])) {
+            $model->promqlSelectNodePercentage = $map['PromqlSelectNodePercentage'];
+        }
+
+        if (isset($map['PromqlSelectPrivileges'])) {
+            $model->promqlSelectPrivilegesShrink = $map['PromqlSelectPrivileges'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupName'])) {
+            $model->resourceGroupName = $map['ResourceGroupName'];
         }
 
         return $model;

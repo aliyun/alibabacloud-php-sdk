@@ -41,7 +41,27 @@ class CreateAccountShrinkRequest extends Model
     /**
      * @var string
      */
+    public $promqlInsertPrivilegesShrink;
+
+    /**
+     * @var float
+     */
+    public $promqlSelectNodePercentage;
+
+    /**
+     * @var string
+     */
+    public $promqlSelectPrivilegesShrink;
+
+    /**
+     * @var string
+     */
     public $ramUserListShrink;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupName;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
         'accountName' => 'AccountName',
@@ -49,7 +69,11 @@ class CreateAccountShrinkRequest extends Model
         'accountType' => 'AccountType',
         'DBClusterId' => 'DBClusterId',
         'engine' => 'Engine',
+        'promqlInsertPrivilegesShrink' => 'PromqlInsertPrivileges',
+        'promqlSelectNodePercentage' => 'PromqlSelectNodePercentage',
+        'promqlSelectPrivilegesShrink' => 'PromqlSelectPrivileges',
         'ramUserListShrink' => 'RamUserList',
+        'resourceGroupName' => 'ResourceGroupName',
     ];
 
     public function validate()
@@ -84,8 +108,24 @@ class CreateAccountShrinkRequest extends Model
             $res['Engine'] = $this->engine;
         }
 
+        if (null !== $this->promqlInsertPrivilegesShrink) {
+            $res['PromqlInsertPrivileges'] = $this->promqlInsertPrivilegesShrink;
+        }
+
+        if (null !== $this->promqlSelectNodePercentage) {
+            $res['PromqlSelectNodePercentage'] = $this->promqlSelectNodePercentage;
+        }
+
+        if (null !== $this->promqlSelectPrivilegesShrink) {
+            $res['PromqlSelectPrivileges'] = $this->promqlSelectPrivilegesShrink;
+        }
+
         if (null !== $this->ramUserListShrink) {
             $res['RamUserList'] = $this->ramUserListShrink;
+        }
+
+        if (null !== $this->resourceGroupName) {
+            $res['ResourceGroupName'] = $this->resourceGroupName;
         }
 
         return $res;
@@ -123,8 +163,24 @@ class CreateAccountShrinkRequest extends Model
             $model->engine = $map['Engine'];
         }
 
+        if (isset($map['PromqlInsertPrivileges'])) {
+            $model->promqlInsertPrivilegesShrink = $map['PromqlInsertPrivileges'];
+        }
+
+        if (isset($map['PromqlSelectNodePercentage'])) {
+            $model->promqlSelectNodePercentage = $map['PromqlSelectNodePercentage'];
+        }
+
+        if (isset($map['PromqlSelectPrivileges'])) {
+            $model->promqlSelectPrivilegesShrink = $map['PromqlSelectPrivileges'];
+        }
+
         if (isset($map['RamUserList'])) {
             $model->ramUserListShrink = $map['RamUserList'];
+        }
+
+        if (isset($map['ResourceGroupName'])) {
+            $model->resourceGroupName = $map['ResourceGroupName'];
         }
 
         return $model;

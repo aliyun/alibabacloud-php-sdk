@@ -27,11 +27,17 @@ class DescribeAccountsRequest extends Model
      * @var string
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupName;
     protected $_name = [
         'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
         'engine' => 'Engine',
         'ownerId' => 'OwnerId',
+        'resourceGroupName' => 'ResourceGroupName',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class DescribeAccountsRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->resourceGroupName) {
+            $res['ResourceGroupName'] = $this->resourceGroupName;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class DescribeAccountsRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['ResourceGroupName'])) {
+            $model->resourceGroupName = $map['ResourceGroupName'];
         }
 
         return $model;

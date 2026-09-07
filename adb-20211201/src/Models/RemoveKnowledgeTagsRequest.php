@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteAccountRequest extends Model
+class RemoveKnowledgeTagsRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $accountName;
-
     /**
      * @var string
      */
@@ -21,17 +16,16 @@ class DeleteAccountRequest extends Model
     /**
      * @var string
      */
-    public $engine;
+    public $fileLocation;
 
     /**
      * @var string
      */
-    public $resourceGroupName;
+    public $tags;
     protected $_name = [
-        'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
-        'engine' => 'Engine',
-        'resourceGroupName' => 'ResourceGroupName',
+        'fileLocation' => 'FileLocation',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -42,20 +36,16 @@ class DeleteAccountRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
-
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
+        if (null !== $this->fileLocation) {
+            $res['FileLocation'] = $this->fileLocation;
         }
 
-        if (null !== $this->resourceGroupName) {
-            $res['ResourceGroupName'] = $this->resourceGroupName;
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -69,20 +59,16 @@ class DeleteAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
-        }
-
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
 
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
+        if (isset($map['FileLocation'])) {
+            $model->fileLocation = $map['FileLocation'];
         }
 
-        if (isset($map['ResourceGroupName'])) {
-            $model->resourceGroupName = $map['ResourceGroupName'];
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

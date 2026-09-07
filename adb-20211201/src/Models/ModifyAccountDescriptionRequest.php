@@ -27,11 +27,17 @@ class ModifyAccountDescriptionRequest extends Model
      * @var string
      */
     public $engine;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupName;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
         'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
         'engine' => 'Engine',
+        'resourceGroupName' => 'ResourceGroupName',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ModifyAccountDescriptionRequest extends Model
 
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+
+        if (null !== $this->resourceGroupName) {
+            $res['ResourceGroupName'] = $this->resourceGroupName;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ModifyAccountDescriptionRequest extends Model
 
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+
+        if (isset($map['ResourceGroupName'])) {
+            $model->resourceGroupName = $map['ResourceGroupName'];
         }
 
         return $model;

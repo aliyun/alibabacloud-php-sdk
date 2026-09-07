@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAccountsResponseBody\accountList;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAccountsResponseBody\accountList\DBAccount\promqlInsertPrivileges;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAccountsResponseBody\accountList\DBAccount\promqlSelectNodes;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAccountsResponseBody\accountList\DBAccount\promqlSelectPrivileges;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAccountsResponseBody\accountList\DBAccount\ramUserList;
 
 class DBAccount extends Model
@@ -35,6 +38,21 @@ class DBAccount extends Model
     public $engine;
 
     /**
+     * @var promqlInsertPrivileges
+     */
+    public $promqlInsertPrivileges;
+
+    /**
+     * @var promqlSelectNodes
+     */
+    public $promqlSelectNodes;
+
+    /**
+     * @var promqlSelectPrivileges
+     */
+    public $promqlSelectPrivileges;
+
+    /**
      * @var ramUserList
      */
     public $ramUserList;
@@ -43,18 +61,36 @@ class DBAccount extends Model
      * @var string
      */
     public $ramUsers;
+
+    /**
+     * @var float
+     */
+    public $promqlSelectNodePercentage;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
         'accountName' => 'AccountName',
         'accountStatus' => 'AccountStatus',
         'accountType' => 'AccountType',
         'engine' => 'Engine',
+        'promqlInsertPrivileges' => 'PromqlInsertPrivileges',
+        'promqlSelectNodes' => 'PromqlSelectNodes',
+        'promqlSelectPrivileges' => 'PromqlSelectPrivileges',
         'ramUserList' => 'RamUserList',
         'ramUsers' => 'RamUsers',
+        'promqlSelectNodePercentage' => 'promqlSelectNodePercentage',
     ];
 
     public function validate()
     {
+        if (null !== $this->promqlInsertPrivileges) {
+            $this->promqlInsertPrivileges->validate();
+        }
+        if (null !== $this->promqlSelectNodes) {
+            $this->promqlSelectNodes->validate();
+        }
+        if (null !== $this->promqlSelectPrivileges) {
+            $this->promqlSelectPrivileges->validate();
+        }
         if (null !== $this->ramUserList) {
             $this->ramUserList->validate();
         }
@@ -84,12 +120,28 @@ class DBAccount extends Model
             $res['Engine'] = $this->engine;
         }
 
+        if (null !== $this->promqlInsertPrivileges) {
+            $res['PromqlInsertPrivileges'] = null !== $this->promqlInsertPrivileges ? $this->promqlInsertPrivileges->toArray($noStream) : $this->promqlInsertPrivileges;
+        }
+
+        if (null !== $this->promqlSelectNodes) {
+            $res['PromqlSelectNodes'] = null !== $this->promqlSelectNodes ? $this->promqlSelectNodes->toArray($noStream) : $this->promqlSelectNodes;
+        }
+
+        if (null !== $this->promqlSelectPrivileges) {
+            $res['PromqlSelectPrivileges'] = null !== $this->promqlSelectPrivileges ? $this->promqlSelectPrivileges->toArray($noStream) : $this->promqlSelectPrivileges;
+        }
+
         if (null !== $this->ramUserList) {
             $res['RamUserList'] = null !== $this->ramUserList ? $this->ramUserList->toArray($noStream) : $this->ramUserList;
         }
 
         if (null !== $this->ramUsers) {
             $res['RamUsers'] = $this->ramUsers;
+        }
+
+        if (null !== $this->promqlSelectNodePercentage) {
+            $res['promqlSelectNodePercentage'] = $this->promqlSelectNodePercentage;
         }
 
         return $res;
@@ -123,12 +175,28 @@ class DBAccount extends Model
             $model->engine = $map['Engine'];
         }
 
+        if (isset($map['PromqlInsertPrivileges'])) {
+            $model->promqlInsertPrivileges = promqlInsertPrivileges::fromMap($map['PromqlInsertPrivileges']);
+        }
+
+        if (isset($map['PromqlSelectNodes'])) {
+            $model->promqlSelectNodes = promqlSelectNodes::fromMap($map['PromqlSelectNodes']);
+        }
+
+        if (isset($map['PromqlSelectPrivileges'])) {
+            $model->promqlSelectPrivileges = promqlSelectPrivileges::fromMap($map['PromqlSelectPrivileges']);
+        }
+
         if (isset($map['RamUserList'])) {
             $model->ramUserList = ramUserList::fromMap($map['RamUserList']);
         }
 
         if (isset($map['RamUsers'])) {
             $model->ramUsers = $map['RamUsers'];
+        }
+
+        if (isset($map['promqlSelectNodePercentage'])) {
+            $model->promqlSelectNodePercentage = $map['promqlSelectNodePercentage'];
         }
 
         return $model;

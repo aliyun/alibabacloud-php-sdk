@@ -7,6 +7,10 @@ namespace AlibabaCloud\SDK\Adb\V20211201;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Adb\V20211201\Models\AddKnowledgeFileRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\AddKnowledgeFileResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\AddKnowledgeTagsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\AddKnowledgeTagsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\AddKnowledgeUploadUserRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\AddKnowledgeUploadUserResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\AllocateClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\AllocateClusterPublicConnectionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ApplyAdviceByIdRequest;
@@ -99,6 +103,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteElasticPlanResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteFormationCrawlerRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteFormationCrawlerResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteKnowledgeFileRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteKnowledgeFileResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteLakeStorageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteLakeStorageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteMaterializedViewRecommendRequest;
@@ -398,6 +404,10 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\KillSparkSQLEngineRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\KillSparkSQLEngineResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsWebhookRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsWebhookResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListKnowledgeTagsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListKnowledgeTagsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListKnowledgeUploadUserRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListKnowledgeUploadUserResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListLakeStoragesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListLakeStoragesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListResultExportJobHistoryRequest;
@@ -490,6 +500,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\QueryFormationTasksByTypeRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\QueryFormationTasksByTypeResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ReleaseClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ReleaseClusterPublicConnectionResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\RemoveKnowledgeTagsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\RemoveKnowledgeTagsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\RenameSemanticViewRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\RenameSemanticViewResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ReplaceSemanticViewRequest;
@@ -704,6 +716,136 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addKnowledgeFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * Adds tags to a knowledge base document.
+     *
+     * @param request - AddKnowledgeTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddKnowledgeTagsResponse
+     *
+     * @param AddKnowledgeTagsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddKnowledgeTagsResponse
+     */
+    public function addKnowledgeTagsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fileLocation) {
+            @$query['FileLocation'] = $request->fileLocation;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddKnowledgeTags',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddKnowledgeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds tags to a knowledge base document.
+     *
+     * @param request - AddKnowledgeTagsRequest
+     *
+     * @returns AddKnowledgeTagsResponse
+     *
+     * @param AddKnowledgeTagsRequest $request
+     *
+     * @return AddKnowledgeTagsResponse
+     */
+    public function addKnowledgeTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addKnowledgeTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Adds authorized users to a knowledge base document.
+     *
+     * @param request - AddKnowledgeUploadUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddKnowledgeUploadUserResponse
+     *
+     * @param AddKnowledgeUploadUserRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AddKnowledgeUploadUserResponse
+     */
+    public function addKnowledgeUploadUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fileLocation) {
+            @$query['FileLocation'] = $request->fileLocation;
+        }
+
+        if (null !== $request->users) {
+            @$query['Users'] = $request->users;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddKnowledgeUploadUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddKnowledgeUploadUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds authorized users to a knowledge base document.
+     *
+     * @param request - AddKnowledgeUploadUserRequest
+     *
+     * @returns AddKnowledgeUploadUserResponse
+     *
+     * @param AddKnowledgeUploadUserRequest $request
+     *
+     * @return AddKnowledgeUploadUserResponse
+     */
+    public function addKnowledgeUploadUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addKnowledgeUploadUserWithOptions($request, $runtime);
     }
 
     /**
@@ -1766,7 +1908,7 @@ class Adb extends OpenApiClient
      * Creates a database account for a cluster.
      *
      * @remarks
-     * For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+     * For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param tmpReq - CreateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1783,6 +1925,14 @@ class Adb extends OpenApiClient
         $tmpReq->validate();
         $request = new CreateAccountShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->promqlInsertPrivileges) {
+            $request->promqlInsertPrivilegesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->promqlInsertPrivileges, 'PromqlInsertPrivileges', 'json');
+        }
+
+        if (null !== $tmpReq->promqlSelectPrivileges) {
+            $request->promqlSelectPrivilegesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->promqlSelectPrivileges, 'PromqlSelectPrivileges', 'json');
+        }
+
         if (null !== $tmpReq->ramUserList) {
             $request->ramUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ramUserList, 'RamUserList', 'json');
         }
@@ -1812,8 +1962,24 @@ class Adb extends OpenApiClient
             @$query['Engine'] = $request->engine;
         }
 
+        if (null !== $request->promqlInsertPrivilegesShrink) {
+            @$query['PromqlInsertPrivileges'] = $request->promqlInsertPrivilegesShrink;
+        }
+
+        if (null !== $request->promqlSelectNodePercentage) {
+            @$query['PromqlSelectNodePercentage'] = $request->promqlSelectNodePercentage;
+        }
+
+        if (null !== $request->promqlSelectPrivilegesShrink) {
+            @$query['PromqlSelectPrivileges'] = $request->promqlSelectPrivilegesShrink;
+        }
+
         if (null !== $request->ramUserListShrink) {
             @$query['RamUserList'] = $request->ramUserListShrink;
+        }
+
+        if (null !== $request->resourceGroupName) {
+            @$query['ResourceGroupName'] = $request->resourceGroupName;
         }
 
         $req = new OpenApiRequest([
@@ -1838,7 +2004,7 @@ class Adb extends OpenApiClient
      * Creates a database account for a cluster.
      *
      * @remarks
-     * For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+     * For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateAccountRequest
      *
@@ -2913,7 +3079,7 @@ class Adb extends OpenApiClient
      * Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
      *
      * @remarks
-     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param tmpReq - CreateDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3069,7 +3235,7 @@ class Adb extends OpenApiClient
      * Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
      *
      * @remarks
-     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateDBResourceGroupRequest
      *
@@ -3791,10 +3957,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Deletes a database account from an AnalyticDB for MySQL cluster.
+     * Deletes a database account from a cluster.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3822,6 +3988,10 @@ class Adb extends OpenApiClient
             @$query['Engine'] = $request->engine;
         }
 
+        if (null !== $request->resourceGroupName) {
+            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3841,10 +4011,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Deletes a database account from an AnalyticDB for MySQL cluster.
+     * Deletes a database account from a cluster.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DeleteAccountRequest
      *
@@ -4433,6 +4603,67 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFormationCrawlerWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a knowledge base document.
+     *
+     * @param request - DeleteKnowledgeFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKnowledgeFileResponse
+     *
+     * @param DeleteKnowledgeFileRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteKnowledgeFileResponse
+     */
+    public function deleteKnowledgeFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fileLocation) {
+            @$query['FileLocation'] = $request->fileLocation;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKnowledgeFile',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKnowledgeFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a knowledge base document.
+     *
+     * @param request - DeleteKnowledgeFileRequest
+     *
+     * @returns DeleteKnowledgeFileResponse
+     *
+     * @param DeleteKnowledgeFileRequest $request
+     *
+     * @return DeleteKnowledgeFileResponse
+     */
+    public function deleteKnowledgeFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKnowledgeFileWithOptions($request, $runtime);
     }
 
     /**
@@ -5294,7 +5525,7 @@ class Adb extends OpenApiClient
      * Queries the database accounts of a cluster.
      *
      * @remarks
-     * For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5326,6 +5557,10 @@ class Adb extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->resourceGroupName) {
+            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5348,7 +5583,7 @@ class Adb extends OpenApiClient
      * Queries the database accounts of a cluster.
      *
      * @remarks
-     * For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAccountsRequest
      *
@@ -7963,10 +8198,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * View target cluster performance data.
+     * Queries the performance data of a specified cluster.
      *
      * @remarks
-     * For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8025,10 +8260,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * View target cluster performance data.
+     * Queries the performance data of a specified cluster.
      *
      * @remarks
-     * For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterPerformanceRequest
      *
@@ -15186,8 +15421,8 @@ class Adb extends OpenApiClient
      * Retrieves table information.
      *
      * @remarks
-     * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15241,8 +15476,8 @@ class Adb extends OpenApiClient
      * Retrieves table information.
      *
      * @remarks
-     * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetTableRequest
      *
@@ -16128,6 +16363,128 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * Queries the tags of a knowledge base document.
+     *
+     * @param request - ListKnowledgeTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeTagsResponse
+     *
+     * @param ListKnowledgeTagsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListKnowledgeTagsResponse
+     */
+    public function listKnowledgeTagsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fileLocation) {
+            @$query['FileLocation'] = $request->fileLocation;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeTags',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the tags of a knowledge base document.
+     *
+     * @param request - ListKnowledgeTagsRequest
+     *
+     * @returns ListKnowledgeTagsResponse
+     *
+     * @param ListKnowledgeTagsRequest $request
+     *
+     * @return ListKnowledgeTagsResponse
+     */
+    public function listKnowledgeTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKnowledgeTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the authorized users of a knowledge base document.
+     *
+     * @param request - ListKnowledgeUploadUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeUploadUserResponse
+     *
+     * @param ListKnowledgeUploadUserRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListKnowledgeUploadUserResponse
+     */
+    public function listKnowledgeUploadUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fileLocation) {
+            @$query['FileLocation'] = $request->fileLocation;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeUploadUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeUploadUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the authorized users of a knowledge base document.
+     *
+     * @param request - ListKnowledgeUploadUserRequest
+     *
+     * @returns ListKnowledgeUploadUserResponse
+     *
+     * @param ListKnowledgeUploadUserRequest $request
+     *
+     * @return ListKnowledgeUploadUserResponse
+     */
+    public function listKnowledgeUploadUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKnowledgeUploadUserWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of lake storages.
      *
      * @param request - ListLakeStoragesRequest
@@ -16886,10 +17243,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account for an AnalyticDB for MySQL cluster.
+     * Modifies the description of a database account for a specified cluster.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For information about the service registration of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyAccountDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16921,6 +17278,10 @@ class Adb extends OpenApiClient
             @$query['Engine'] = $request->engine;
         }
 
+        if (null !== $request->resourceGroupName) {
+            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -16940,10 +17301,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account for an AnalyticDB for MySQL cluster.
+     * Modifies the description of a database account for a specified cluster.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For information about the service registration of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyAccountDescriptionRequest
      *
@@ -16964,7 +17325,7 @@ class Adb extends OpenApiClient
      * Modifies the permissions of a database account.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param tmpReq - ModifyAccountPrivilegesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16985,6 +17346,14 @@ class Adb extends OpenApiClient
             $request->accountPrivilegesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accountPrivileges, 'AccountPrivileges', 'json');
         }
 
+        if (null !== $tmpReq->promqlInsertPrivileges) {
+            $request->promqlInsertPrivilegesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->promqlInsertPrivileges, 'PromqlInsertPrivileges', 'json');
+        }
+
+        if (null !== $tmpReq->promqlSelectPrivileges) {
+            $request->promqlSelectPrivilegesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->promqlSelectPrivileges, 'PromqlSelectPrivileges', 'json');
+        }
+
         $query = [];
         if (null !== $request->accountName) {
             @$query['AccountName'] = $request->accountName;
@@ -16998,8 +17367,24 @@ class Adb extends OpenApiClient
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
+        if (null !== $request->promqlInsertPrivilegesShrink) {
+            @$query['PromqlInsertPrivileges'] = $request->promqlInsertPrivilegesShrink;
+        }
+
+        if (null !== $request->promqlSelectNodePercentage) {
+            @$query['PromqlSelectNodePercentage'] = $request->promqlSelectNodePercentage;
+        }
+
+        if (null !== $request->promqlSelectPrivilegesShrink) {
+            @$query['PromqlSelectPrivileges'] = $request->promqlSelectPrivilegesShrink;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupName) {
+            @$query['ResourceGroupName'] = $request->resourceGroupName;
         }
 
         $req = new OpenApiRequest([
@@ -17024,7 +17409,7 @@ class Adb extends OpenApiClient
      * Modifies the permissions of a database account.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyAccountPrivilegesRequest
      *
@@ -17428,10 +17813,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies the SQL audit settings of an AnalyticDB for MySQL cluster.
+     * Modifies the SQL audit log settings of a cluster.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyAuditLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17498,10 +17883,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies the SQL audit settings of an AnalyticDB for MySQL cluster.
+     * Modifies the SQL audit log settings of a cluster.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyAuditLogConfigRequest
      *
@@ -17608,10 +17993,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies the backup policy of an AnalyticDB for MySQL cluster.
+     * Modifies the backup policy of a cluster.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17686,10 +18071,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies the backup policy of an AnalyticDB for MySQL cluster.
+     * Modifies the backup policy of a cluster.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyBackupPolicyRequest
      *
@@ -18379,7 +18764,7 @@ class Adb extends OpenApiClient
      * Changes the resource group of a cluster.
      *
      * @remarks
-     * For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param tmpReq - ModifyDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18527,7 +18912,7 @@ class Adb extends OpenApiClient
      * Changes the resource group of a cluster.
      *
      * @remarks
-     * For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyDBResourceGroupRequest
      *
@@ -19651,6 +20036,71 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * Deletes tags from a knowledge base document.
+     *
+     * @param request - RemoveKnowledgeTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveKnowledgeTagsResponse
+     *
+     * @param RemoveKnowledgeTagsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RemoveKnowledgeTagsResponse
+     */
+    public function removeKnowledgeTagsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fileLocation) {
+            @$query['FileLocation'] = $request->fileLocation;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveKnowledgeTags',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveKnowledgeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes tags from a knowledge base document.
+     *
+     * @param request - RemoveKnowledgeTagsRequest
+     *
+     * @returns RemoveKnowledgeTagsResponse
+     *
+     * @param RemoveKnowledgeTagsRequest $request
+     *
+     * @return RemoveKnowledgeTagsResponse
+     */
+    public function removeKnowledgeTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeKnowledgeTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the name of a semantic view.
      *
      * @param request - RenameSemanticViewRequest
@@ -19793,10 +20243,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Resets the password of a database account for an AnalyticDB for MySQL cluster.
+     * Resets the password of a database account for a specified cluster.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ResetAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19832,6 +20282,10 @@ class Adb extends OpenApiClient
             @$query['Engine'] = $request->engine;
         }
 
+        if (null !== $request->resourceGroupName) {
+            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -19851,10 +20305,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Resets the password of a database account for an AnalyticDB for MySQL cluster.
+     * Resets the password of a database account for a specified cluster.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ResetAccountPasswordRequest
      *
