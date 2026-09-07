@@ -48,6 +48,11 @@ class apiKey extends Model
      * @var string
      */
     public $workspaceId;
+
+    /**
+     * @var string
+     */
+    public $workspaceName;
     protected $_name = [
         'apiKeyId' => 'apiKeyId',
         'apiKeyValue' => 'apiKeyValue',
@@ -57,6 +62,7 @@ class apiKey extends Model
         'disabled' => 'disabled',
         'gmtCreate' => 'gmtCreate',
         'workspaceId' => 'workspaceId',
+        'workspaceName' => 'workspaceName',
     ];
 
     public function validate()
@@ -102,6 +108,10 @@ class apiKey extends Model
             $res['workspaceId'] = $this->workspaceId;
         }
 
+        if (null !== $this->workspaceName) {
+            $res['workspaceName'] = $this->workspaceName;
+        }
+
         return $res;
     }
 
@@ -143,6 +153,10 @@ class apiKey extends Model
 
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
+        }
+
+        if (isset($map['workspaceName'])) {
+            $model->workspaceName = $map['workspaceName'];
         }
 
         return $model;
