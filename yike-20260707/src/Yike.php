@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetRemakeScriptJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetRemakeScriptJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoDetextJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoDetextJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoRenderJobRequest;
@@ -55,6 +57,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitRemakeScriptJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitRemakeScriptJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoDetextJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoDetextJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoRenderJobRequest;
@@ -992,6 +996,69 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * Queries the status, input parameters, and video result of a video text erasure task.
+     *
+     * @remarks
+     * Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+     *
+     * @param request - GetVideoDetextJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoDetextJobResponse
+     *
+     * @param GetVideoDetextJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetVideoDetextJobResponse
+     */
+    public function getVideoDetextJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoDetextJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoDetextJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status, input parameters, and video result of a video text erasure task.
+     *
+     * @remarks
+     * Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+     *
+     * @param request - GetVideoDetextJobRequest
+     *
+     * @returns GetVideoDetextJobResponse
+     *
+     * @param GetVideoDetextJobRequest $request
+     *
+     * @return GetVideoDetextJobResponse
+     */
+    public function getVideoDetextJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoDetextJobWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a video generation task.
      *
      * @param request - GetVideoGenerationJobRequest
@@ -1870,6 +1937,85 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitRemakeScriptJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+     *
+     * @remarks
+     * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+     *
+     * @param request - SubmitVideoDetextJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitVideoDetextJobResponse
+     *
+     * @param SubmitVideoDetextJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitVideoDetextJobResponse
+     */
+    public function submitVideoDetextJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->input) {
+            @$body['Input'] = $request->input;
+        }
+
+        if (null !== $request->jobParameters) {
+            @$body['JobParameters'] = $request->jobParameters;
+        }
+
+        if (null !== $request->output) {
+            @$body['Output'] = $request->output;
+        }
+
+        if (null !== $request->userData) {
+            @$body['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitVideoDetextJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitVideoDetextJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+     *
+     * @remarks
+     * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+     *
+     * @param request - SubmitVideoDetextJobRequest
+     *
+     * @returns SubmitVideoDetextJobResponse
+     *
+     * @param SubmitVideoDetextJobRequest $request
+     *
+     * @return SubmitVideoDetextJobResponse
+     */
+    public function submitVideoDetextJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitVideoDetextJobWithOptions($request, $runtime);
     }
 
     /**
