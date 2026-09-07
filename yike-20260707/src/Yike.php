@@ -78,10 +78,6 @@ class Yike extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shanghai' => 'yike.cn-shanghai.aliyuncs.com',
-            'ap-southeast-1' => 'yike.ap-southeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('yike', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -134,8 +130,16 @@ class Yike extends OpenApiClient
             @$query['AuthTimeout'] = $request->authTimeout;
         }
 
+        if (null !== $request->bizConfig) {
+            @$query['BizConfig'] = $request->bizConfig;
+        }
+
         if (null !== $request->mediaIds) {
             @$query['MediaIds'] = $request->mediaIds;
+        }
+
+        if (null !== $request->returnDynamicMeta) {
+            @$query['ReturnDynamicMeta'] = $request->returnDynamicMeta;
         }
 
         $req = new OpenApiRequest([
@@ -466,6 +470,10 @@ class Yike extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bizConfig) {
+            @$query['BizConfig'] = $request->bizConfig;
+        }
+
         if (null !== $request->deletePhysicalFiles) {
             @$query['DeletePhysicalFiles'] = $request->deletePhysicalFiles;
         }
@@ -788,7 +796,8 @@ class Yike extends OpenApiClient
      * Queries a media asset.
      *
      * @remarks
-     * ## Operation description.
+     * ## Operation description
+     * This API operation is used to query a media content analysis job.
      *
      * @param request - GetMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -806,6 +815,10 @@ class Yike extends OpenApiClient
         $query = [];
         if (null !== $request->authTimeout) {
             @$query['AuthTimeout'] = $request->authTimeout;
+        }
+
+        if (null !== $request->bizConfig) {
+            @$query['BizConfig'] = $request->bizConfig;
         }
 
         if (null !== $request->inputURL) {
@@ -838,7 +851,8 @@ class Yike extends OpenApiClient
      * Queries a media asset.
      *
      * @remarks
-     * ## Operation description.
+     * ## Operation description
+     * This API operation is used to query a media content analysis job.
      *
      * @param request - GetMediaRequest
      *
@@ -1096,16 +1110,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries the status and result of a video translation task by the specified ID.
+     * Queries the status, input parameters, and multilingual outputs of a video translation job.
      *
      * @remarks
-     * ## Request description
-     * - This API retrieves the status and details of a video translation task based on the `JobId`.
-     * - `JobId` is a required parameter, passed through query or form.
-     * - If the task does not exist or does not belong to the current caller, the `InvalidParameter` error code with HTTP status code 400 is returned.
-     * - On a successful response, the HTTP status code is 200, and the task object is located in `data.Job`.
-     * - When the task is completed (`Status=Finished`), the output artifacts can be found in the `data.Job.Output` field. The client needs to perform a JSON parse to obtain the specific results.
-     * - For tasks with multiple target languages, use `Output.AiResult.ResultMap` directly to obtain the specific results for each language. If there is only one target language, you can conveniently obtain the editing project ID through `data.Job.EditingProjectId`.
+     * Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
      *
      * @param request - GetVideoTranslationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1144,16 +1152,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries the status and result of a video translation task by the specified ID.
+     * Queries the status, input parameters, and multilingual outputs of a video translation job.
      *
      * @remarks
-     * ## Request description
-     * - This API retrieves the status and details of a video translation task based on the `JobId`.
-     * - `JobId` is a required parameter, passed through query or form.
-     * - If the task does not exist or does not belong to the current caller, the `InvalidParameter` error code with HTTP status code 400 is returned.
-     * - On a successful response, the HTTP status code is 200, and the task object is located in `data.Job`.
-     * - When the task is completed (`Status=Finished`), the output artifacts can be found in the `data.Job.Output` field. The client needs to perform a JSON parse to obtain the specific results.
-     * - For tasks with multiple target languages, use `Output.AiResult.ResultMap` directly to obtain the specific results for each language. If there is only one target language, you can conveniently obtain the editing project ID through `data.Job.EditingProjectId`.
+     * Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
      *
      * @param request - GetVideoTranslationJobRequest
      *
@@ -1281,8 +1283,8 @@ class Yike extends OpenApiClient
      * Imports a media asset.
      *
      * @remarks
-     * ## Operation description
-     * This API is used to query media content understanding jobs.
+     * ## Request description
+     * This API is used to query media content analysis jobs.
      *
      * @param request - ImportMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1298,6 +1300,10 @@ class Yike extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bizConfig) {
+            @$query['BizConfig'] = $request->bizConfig;
+        }
+
         if (null !== $request->categoryId) {
             @$query['CategoryId'] = $request->categoryId;
         }
@@ -1350,6 +1356,10 @@ class Yike extends OpenApiClient
             @$query['UserData'] = $request->userData;
         }
 
+        if (null !== $request->yikeAssetConfig) {
+            @$query['YikeAssetConfig'] = $request->yikeAssetConfig;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1372,8 +1382,8 @@ class Yike extends OpenApiClient
      * Imports a media asset.
      *
      * @remarks
-     * ## Operation description
-     * This API is used to query media content understanding jobs.
+     * ## Request description
+     * This API is used to query media content analysis jobs.
      *
      * @param request - ImportMediaRequest
      *
@@ -1391,7 +1401,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of categories.
+     * Retrieves a paged list of categories.
      *
      * @param request - ListAssetCategoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1434,7 +1444,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of categories.
+     * Retrieves a paged list of categories.
      *
      * @param request - ListAssetCategoriesRequest
      *
@@ -1557,6 +1567,10 @@ class Yike extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bizConfig) {
+            @$query['BizConfig'] = $request->bizConfig;
+        }
+
         if (null !== $request->categoryId) {
             @$query['CategoryId'] = $request->categoryId;
         }
@@ -2025,17 +2039,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
+     * Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
      *
      * @remarks
-     * ## Request description
-     * - This API supports multiple video translation features, including subtitle translation and voice translation.
-     * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
-     * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
-     * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
-     * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
-     * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
-     * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
+     * Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
      *
      * @param request - SubmitVideoTranslationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2102,17 +2109,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
+     * Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
      *
      * @remarks
-     * ## Request description
-     * - This API supports multiple video translation features, including subtitle translation and voice translation.
-     * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
-     * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
-     * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
-     * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
-     * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
-     * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
+     * Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
      *
      * @param request - SubmitVideoTranslationJobRequest
      *
@@ -2133,7 +2133,7 @@ class Yike extends OpenApiClient
      * Updates a media asset category.
      *
      * @remarks
-     * After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
+     * After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
      *
      * @param request - UpdateAssetCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2179,7 +2179,7 @@ class Yike extends OpenApiClient
      * Updates a media asset category.
      *
      * @remarks
-     * After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
+     * After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
      *
      * @param request - UpdateAssetCategoryRequest
      *
@@ -2273,8 +2273,8 @@ class Yike extends OpenApiClient
      * Updates media asset information.
      *
      * @remarks
-     * ## Request description
-     * This API is used to query media content understanding jobs.
+     * ## Operation description
+     * This API operation is used to query media content understanding jobs.
      *
      * @param request - UpdateMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2292,6 +2292,10 @@ class Yike extends OpenApiClient
         $query = [];
         if (null !== $request->appendTags) {
             @$query['AppendTags'] = $request->appendTags;
+        }
+
+        if (null !== $request->bizConfig) {
+            @$query['BizConfig'] = $request->bizConfig;
         }
 
         if (null !== $request->categoryId) {
@@ -2352,8 +2356,8 @@ class Yike extends OpenApiClient
      * Updates media asset information.
      *
      * @remarks
-     * ## Request description
-     * This API is used to query media content understanding jobs.
+     * ## Operation description
+     * This API operation is used to query media content understanding jobs.
      *
      * @param request - UpdateMediaRequest
      *

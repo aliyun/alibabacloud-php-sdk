@@ -14,6 +14,11 @@ class UpdateMediaRequest extends Model
     public $appendTags;
 
     /**
+     * @var string
+     */
+    public $bizConfig;
+
+    /**
      * @var int
      */
     public $categoryId;
@@ -59,6 +64,7 @@ class UpdateMediaRequest extends Model
     public $userData;
     protected $_name = [
         'appendTags' => 'AppendTags',
+        'bizConfig' => 'BizConfig',
         'categoryId' => 'CategoryId',
         'coverURL' => 'CoverURL',
         'description' => 'Description',
@@ -80,6 +86,10 @@ class UpdateMediaRequest extends Model
         $res = [];
         if (null !== $this->appendTags) {
             $res['AppendTags'] = $this->appendTags;
+        }
+
+        if (null !== $this->bizConfig) {
+            $res['BizConfig'] = $this->bizConfig;
         }
 
         if (null !== $this->categoryId) {
@@ -131,6 +141,10 @@ class UpdateMediaRequest extends Model
         $model = new self();
         if (isset($map['AppendTags'])) {
             $model->appendTags = $map['AppendTags'];
+        }
+
+        if (isset($map['BizConfig'])) {
+            $model->bizConfig = $map['BizConfig'];
         }
 
         if (isset($map['CategoryId'])) {

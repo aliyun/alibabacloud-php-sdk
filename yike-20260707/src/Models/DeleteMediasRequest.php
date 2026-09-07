@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DeleteMediasRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizConfig;
+
+    /**
      * @var bool
      */
     public $deletePhysicalFiles;
@@ -23,6 +28,7 @@ class DeleteMediasRequest extends Model
      */
     public $mediaIds;
     protected $_name = [
+        'bizConfig' => 'BizConfig',
         'deletePhysicalFiles' => 'DeletePhysicalFiles',
         'inputURLs' => 'InputURLs',
         'mediaIds' => 'MediaIds',
@@ -36,6 +42,10 @@ class DeleteMediasRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizConfig) {
+            $res['BizConfig'] = $this->bizConfig;
+        }
+
         if (null !== $this->deletePhysicalFiles) {
             $res['DeletePhysicalFiles'] = $this->deletePhysicalFiles;
         }
@@ -59,6 +69,10 @@ class DeleteMediasRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizConfig'])) {
+            $model->bizConfig = $map['BizConfig'];
+        }
+
         if (isset($map['DeletePhysicalFiles'])) {
             $model->deletePhysicalFiles = $map['DeletePhysicalFiles'];
         }

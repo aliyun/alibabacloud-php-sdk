@@ -16,10 +16,22 @@ class BatchGetMediasRequest extends Model
     /**
      * @var string
      */
+    public $bizConfig;
+
+    /**
+     * @var string
+     */
     public $mediaIds;
+
+    /**
+     * @var bool
+     */
+    public $returnDynamicMeta;
     protected $_name = [
         'authTimeout' => 'AuthTimeout',
+        'bizConfig' => 'BizConfig',
         'mediaIds' => 'MediaIds',
+        'returnDynamicMeta' => 'ReturnDynamicMeta',
     ];
 
     public function validate()
@@ -34,8 +46,16 @@ class BatchGetMediasRequest extends Model
             $res['AuthTimeout'] = $this->authTimeout;
         }
 
+        if (null !== $this->bizConfig) {
+            $res['BizConfig'] = $this->bizConfig;
+        }
+
         if (null !== $this->mediaIds) {
             $res['MediaIds'] = $this->mediaIds;
+        }
+
+        if (null !== $this->returnDynamicMeta) {
+            $res['ReturnDynamicMeta'] = $this->returnDynamicMeta;
         }
 
         return $res;
@@ -53,8 +73,16 @@ class BatchGetMediasRequest extends Model
             $model->authTimeout = $map['AuthTimeout'];
         }
 
+        if (isset($map['BizConfig'])) {
+            $model->bizConfig = $map['BizConfig'];
+        }
+
         if (isset($map['MediaIds'])) {
             $model->mediaIds = $map['MediaIds'];
+        }
+
+        if (isset($map['ReturnDynamicMeta'])) {
+            $model->returnDynamicMeta = $map['ReturnDynamicMeta'];
         }
 
         return $model;

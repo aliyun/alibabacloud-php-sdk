@@ -16,6 +16,11 @@ class GetMediaRequest extends Model
     /**
      * @var string
      */
+    public $bizConfig;
+
+    /**
+     * @var string
+     */
     public $inputURL;
 
     /**
@@ -24,6 +29,7 @@ class GetMediaRequest extends Model
     public $mediaId;
     protected $_name = [
         'authTimeout' => 'AuthTimeout',
+        'bizConfig' => 'BizConfig',
         'inputURL' => 'InputURL',
         'mediaId' => 'MediaId',
     ];
@@ -38,6 +44,10 @@ class GetMediaRequest extends Model
         $res = [];
         if (null !== $this->authTimeout) {
             $res['AuthTimeout'] = $this->authTimeout;
+        }
+
+        if (null !== $this->bizConfig) {
+            $res['BizConfig'] = $this->bizConfig;
         }
 
         if (null !== $this->inputURL) {
@@ -61,6 +71,10 @@ class GetMediaRequest extends Model
         $model = new self();
         if (isset($map['AuthTimeout'])) {
             $model->authTimeout = $map['AuthTimeout'];
+        }
+
+        if (isset($map['BizConfig'])) {
+            $model->bizConfig = $map['BizConfig'];
         }
 
         if (isset($map['InputURL'])) {

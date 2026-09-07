@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class SearchMediaRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizConfig;
+
+    /**
      * @var int
      */
     public $categoryId;
@@ -38,6 +43,7 @@ class SearchMediaRequest extends Model
      */
     public $sortBy;
     protected $_name = [
+        'bizConfig' => 'BizConfig',
         'categoryId' => 'CategoryId',
         'match' => 'Match',
         'pageNo' => 'PageNo',
@@ -54,6 +60,10 @@ class SearchMediaRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizConfig) {
+            $res['BizConfig'] = $this->bizConfig;
+        }
+
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
@@ -89,6 +99,10 @@ class SearchMediaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizConfig'])) {
+            $model->bizConfig = $map['BizConfig'];
+        }
+
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }

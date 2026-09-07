@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ImportMediaRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizConfig;
+
+    /**
      * @var int
      */
     public $categoryId;
@@ -72,7 +77,13 @@ class ImportMediaRequest extends Model
      * @var string
      */
     public $userData;
+
+    /**
+     * @var string
+     */
+    public $yikeAssetConfig;
     protected $_name = [
+        'bizConfig' => 'BizConfig',
         'categoryId' => 'CategoryId',
         'coverURL' => 'CoverURL',
         'description' => 'Description',
@@ -86,6 +97,7 @@ class ImportMediaRequest extends Model
         'registerConfig' => 'RegisterConfig',
         'title' => 'Title',
         'userData' => 'UserData',
+        'yikeAssetConfig' => 'YikeAssetConfig',
     ];
 
     public function validate()
@@ -96,6 +108,10 @@ class ImportMediaRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizConfig) {
+            $res['BizConfig'] = $this->bizConfig;
+        }
+
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
@@ -148,6 +164,10 @@ class ImportMediaRequest extends Model
             $res['UserData'] = $this->userData;
         }
 
+        if (null !== $this->yikeAssetConfig) {
+            $res['YikeAssetConfig'] = $this->yikeAssetConfig;
+        }
+
         return $res;
     }
 
@@ -159,6 +179,10 @@ class ImportMediaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizConfig'])) {
+            $model->bizConfig = $map['BizConfig'];
+        }
+
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
@@ -209,6 +233,10 @@ class ImportMediaRequest extends Model
 
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+
+        if (isset($map['YikeAssetConfig'])) {
+            $model->yikeAssetConfig = $map['YikeAssetConfig'];
         }
 
         return $model;
