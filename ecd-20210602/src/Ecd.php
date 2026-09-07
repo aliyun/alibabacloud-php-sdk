@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Ecd\V20210602\Models\ListSkillAuthedIdentitiesRequest;
 use AlibabaCloud\SDK\Ecd\V20210602\Models\ListSkillAuthedIdentitiesResponse;
 use AlibabaCloud\SDK\Ecd\V20210602\Models\ListSkillsRequest;
 use AlibabaCloud\SDK\Ecd\V20210602\Models\ListSkillsResponse;
+use AlibabaCloud\SDK\Ecd\V20210602\Models\ListTenantAppRequest;
+use AlibabaCloud\SDK\Ecd\V20210602\Models\ListTenantAppResponse;
 use AlibabaCloud\SDK\Ecd\V20210602\Models\ParseSkillPackageRequest;
 use AlibabaCloud\SDK\Ecd\V20210602\Models\ParseSkillPackageResponse;
 use AlibabaCloud\SDK\Ecd\V20210602\Models\SetIdentitySkillAuthRequest;
@@ -39,32 +41,6 @@ class Ecd extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'us-west-1' => 'ecd.us-west-1.aliyuncs.com',
-            'us-east-1' => 'ecd.us-east-1.aliyuncs.com',
-            'me-east-1' => 'ecd.me-east-1.aliyuncs.com',
-            'me-central-1' => 'ecd.me-central-1.aliyuncs.com',
-            'eu-west-1' => 'ecd.eu-west-1.aliyuncs.com',
-            'eu-central-1' => 'ecd.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'ecd.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu' => 'ecd.cn-wulanchabu.aliyuncs.com',
-            'cn-shenzhen' => 'ecd.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'ecd.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shanghai' => 'ecd.cn-shanghai.aliyuncs.com',
-            'cn-qingdao' => 'ecd.cn-qingdao.aliyuncs.com',
-            'cn-nanjing' => 'ecd.cn-nanjing.aliyuncs.com',
-            'cn-hongkong' => 'ecd.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou-finance' => 'ecd.cn-hangzhou-finance.aliyuncs.com',
-            'cn-hangzhou' => 'ecd.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'ecd.cn-guangzhou.aliyuncs.com',
-            'cn-chengdu' => 'ecd.cn-chengdu.aliyuncs.com',
-            'cn-beijing' => 'ecd.cn-beijing.aliyuncs.com',
-            'ap-southeast-7' => 'ecd.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-6' => 'ecd.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-5' => 'ecd.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-1' => 'ecd.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-1' => 'ecd.ap-northeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ecd', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -562,6 +538,10 @@ class Ecd extends OpenApiClient
             @$query['SupplierType'] = $request->supplierType;
         }
 
+        if (null !== $request->tagCodes) {
+            @$query['TagCodes'] = $request->tagCodes;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -596,6 +576,95 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSkillsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs a paging query of desktop applications visible to the current tenant, with support for filtering by application name and source.
+     *
+     * @remarks
+     * The query scope is determined by the caller identity and includes applications uploaded by the current tenant and marketplace applications that the tenant is authorized to view. The visibility of marketplace applications is subject to authorization and display policy restrictions. The authorization and auto-installation information in the list represents application configurations and does not indicate the actual installation result on a specific device.
+     * - **Application identity**: Id is a numeric application ID, and AppUid is a character string UID. The two cannot be used interchangeably.
+     * - **Authorization scope**: DistributeType is used together with AuthType. For example, `AuthType=auth_type_user` and `DistributeType=ALL` indicate that the application is allocated to all users on a per-user dimension.
+     * - **Auto-installation**: AutoInstallmentType specifies the auto-installation scope policy, which is used to distinguish between full, partial, or disabled auto-installation.
+     * - **Partial auto-installation**: When AutoInstallmentType is set to 1, use SetAutoInstallUser or SetAutoInstallDesktop to configure specific users or cloud desktops. OperationType=1 indicates enabled, and OperationType=2 indicates disabled. ListTenantApp only returns configurations and does not modify auto-installation settings.
+     * - **Capabilities and execution results**: The silent installation capability is application metadata returned in the response. To determine the actual installation or execution result on a device, use the corresponding execution result query capability.
+     * - **Optional information**: Information such as timestamps may be empty.
+     * - **Compatibility handling**: Extension information and subtype do not use closed enumerations. Clients should ignore unrecognized extension fields and be compatible with new enumeration values.
+     *
+     * @param request - ListTenantAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTenantAppResponse
+     *
+     * @param ListTenantAppRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTenantAppResponse
+     */
+    public function listTenantAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyName) {
+            @$query['KeyName'] = $request->keyName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTenantApp',
+            'version' => '2021-06-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTenantAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query of desktop applications visible to the current tenant, with support for filtering by application name and source.
+     *
+     * @remarks
+     * The query scope is determined by the caller identity and includes applications uploaded by the current tenant and marketplace applications that the tenant is authorized to view. The visibility of marketplace applications is subject to authorization and display policy restrictions. The authorization and auto-installation information in the list represents application configurations and does not indicate the actual installation result on a specific device.
+     * - **Application identity**: Id is a numeric application ID, and AppUid is a character string UID. The two cannot be used interchangeably.
+     * - **Authorization scope**: DistributeType is used together with AuthType. For example, `AuthType=auth_type_user` and `DistributeType=ALL` indicate that the application is allocated to all users on a per-user dimension.
+     * - **Auto-installation**: AutoInstallmentType specifies the auto-installation scope policy, which is used to distinguish between full, partial, or disabled auto-installation.
+     * - **Partial auto-installation**: When AutoInstallmentType is set to 1, use SetAutoInstallUser or SetAutoInstallDesktop to configure specific users or cloud desktops. OperationType=1 indicates enabled, and OperationType=2 indicates disabled. ListTenantApp only returns configurations and does not modify auto-installation settings.
+     * - **Capabilities and execution results**: The silent installation capability is application metadata returned in the response. To determine the actual installation or execution result on a device, use the corresponding execution result query capability.
+     * - **Optional information**: Information such as timestamps may be empty.
+     * - **Compatibility handling**: Extension information and subtype do not use closed enumerations. Clients should ignore unrecognized extension fields and be compatible with new enumeration values.
+     *
+     * @param request - ListTenantAppRequest
+     *
+     * @returns ListTenantAppResponse
+     *
+     * @param ListTenantAppRequest $request
+     *
+     * @return ListTenantAppResponse
+     */
+    public function listTenantApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTenantAppWithOptions($request, $runtime);
     }
 
     /**

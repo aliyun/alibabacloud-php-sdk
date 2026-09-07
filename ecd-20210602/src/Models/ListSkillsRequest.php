@@ -32,18 +32,27 @@ class ListSkillsRequest extends Model
      * @var string
      */
     public $supplierType;
+
+    /**
+     * @var string[]
+     */
+    public $tagCodes;
     protected $_name = [
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'skillChannel' => 'SkillChannel',
         'skillIds' => 'SkillIds',
         'supplierType' => 'SupplierType',
+        'tagCodes' => 'TagCodes',
     ];
 
     public function validate()
     {
         if (\is_array($this->skillIds)) {
             Model::validateArray($this->skillIds);
+        }
+        if (\is_array($this->tagCodes)) {
+            Model::validateArray($this->tagCodes);
         }
         parent::validate();
     }
@@ -76,6 +85,17 @@ class ListSkillsRequest extends Model
 
         if (null !== $this->supplierType) {
             $res['SupplierType'] = $this->supplierType;
+        }
+
+        if (null !== $this->tagCodes) {
+            if (\is_array($this->tagCodes)) {
+                $res['TagCodes'] = [];
+                $n1 = 0;
+                foreach ($this->tagCodes as $item1) {
+                    $res['TagCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -114,6 +134,17 @@ class ListSkillsRequest extends Model
 
         if (isset($map['SupplierType'])) {
             $model->supplierType = $map['SupplierType'];
+        }
+
+        if (isset($map['TagCodes'])) {
+            if (!empty($map['TagCodes'])) {
+                $model->tagCodes = [];
+                $n1 = 0;
+                foreach ($map['TagCodes'] as $item1) {
+                    $model->tagCodes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
