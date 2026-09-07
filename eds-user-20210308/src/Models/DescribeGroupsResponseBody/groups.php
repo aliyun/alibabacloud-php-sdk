@@ -30,6 +30,11 @@ class groups extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $downloadNeedApproval;
+
+    /**
      * @var string
      */
     public $groupId;
@@ -45,6 +50,11 @@ class groups extends Model
     public $transferFileNeedApproval;
 
     /**
+     * @var bool
+     */
+    public $uploadNeedApproval;
+
+    /**
      * @var int
      */
     public $userCount;
@@ -53,9 +63,11 @@ class groups extends Model
         'authedResources' => 'AuthedResources',
         'createTime' => 'CreateTime',
         'description' => 'Description',
+        'downloadNeedApproval' => 'DownloadNeedApproval',
         'groupId' => 'GroupId',
         'groupName' => 'GroupName',
         'transferFileNeedApproval' => 'TransferFileNeedApproval',
+        'uploadNeedApproval' => 'UploadNeedApproval',
         'userCount' => 'UserCount',
     ];
 
@@ -94,6 +106,10 @@ class groups extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->downloadNeedApproval) {
+            $res['DownloadNeedApproval'] = $this->downloadNeedApproval;
+        }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -104,6 +120,10 @@ class groups extends Model
 
         if (null !== $this->transferFileNeedApproval) {
             $res['TransferFileNeedApproval'] = $this->transferFileNeedApproval;
+        }
+
+        if (null !== $this->uploadNeedApproval) {
+            $res['UploadNeedApproval'] = $this->uploadNeedApproval;
         }
 
         if (null !== $this->userCount) {
@@ -142,6 +162,10 @@ class groups extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['DownloadNeedApproval'])) {
+            $model->downloadNeedApproval = $map['DownloadNeedApproval'];
+        }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
@@ -152,6 +176,10 @@ class groups extends Model
 
         if (isset($map['TransferFileNeedApproval'])) {
             $model->transferFileNeedApproval = $map['TransferFileNeedApproval'];
+        }
+
+        if (isset($map['UploadNeedApproval'])) {
+            $model->uploadNeedApproval = $map['UploadNeedApproval'];
         }
 
         if (isset($map['UserCount'])) {

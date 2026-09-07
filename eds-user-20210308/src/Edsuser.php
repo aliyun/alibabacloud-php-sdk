@@ -48,8 +48,12 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersShrinkRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersShrinkRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetAdUsersCountRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetAdUsersCountResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetManagerInfoByAuthCodeRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetManagerInfoByAuthCodeResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetUsersCountRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetUsersCountResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\InitTenantAliasRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\InitTenantAliasResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyRequest;
@@ -112,10 +116,6 @@ class Edsuser extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shanghai' => 'eds-user.cn-shanghai.aliyuncs.com',
-            'ap-southeast-1' => 'eds-user.ap-southeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eds-user', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -1009,7 +1009,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Query user groups.
+     * Queries user groups.
      *
      * @param request - DescribeGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1088,7 +1088,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Query user groups.
+     * Queries user groups.
      *
      * @param request - DescribeGroupsRequest
      *
@@ -1787,6 +1787,81 @@ class Edsuser extends OpenApiClient
     }
 
     /**
+     * 获取用户数量.
+     *
+     * @remarks
+     * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+     * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+     *
+     * @param request - GetAdUsersCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAdUsersCountResponse
+     *
+     * @param GetAdUsersCountRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAdUsersCountResponse
+     */
+    public function getAdUsersCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
+        $body = [];
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->solutionId) {
+            @$body['SolutionId'] = $request->solutionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAdUsersCount',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAdUsersCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户数量.
+     *
+     * @remarks
+     * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+     * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+     *
+     * @param request - GetAdUsersCountRequest
+     *
+     * @returns GetAdUsersCountResponse
+     *
+     * @param GetAdUsersCountRequest $request
+     *
+     * @return GetAdUsersCountResponse
+     */
+    public function getAdUsersCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAdUsersCountWithOptions($request, $runtime);
+    }
+
+    /**
      * Obtains the information about the current logon administrator based on the authorization code.
      *
      * @param request - GetManagerInfoByAuthCodeRequest
@@ -1841,6 +1916,81 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getManagerInfoByAuthCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取用户数量.
+     *
+     * @remarks
+     * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+     * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+     *
+     * @param request - GetUsersCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUsersCountResponse
+     *
+     * @param GetUsersCountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetUsersCountResponse
+     */
+    public function getUsersCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
+        $body = [];
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->solutionId) {
+            @$body['SolutionId'] = $request->solutionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetUsersCount',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUsersCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户数量.
+     *
+     * @remarks
+     * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+     * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+     *
+     * @param request - GetUsersCountRequest
+     *
+     * @returns GetUsersCountResponse
+     *
+     * @param GetUsersCountRequest $request
+     *
+     * @return GetUsersCountResponse
+     */
+    public function getUsersCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUsersCountWithOptions($request, $runtime);
     }
 
     /**
