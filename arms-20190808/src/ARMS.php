@@ -60,6 +60,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvPodMonitorRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvPodMonitorResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvServiceMonitorRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvServiceMonitorResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateGrafanaWorkspaceAccountRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateGrafanaWorkspaceAccountResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateGrafanaWorkspaceRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateGrafanaWorkspaceResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateGrafanaWorkspaceShrinkRequest;
@@ -138,6 +140,10 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEventBridgeIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEventBridgeIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaResourceRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaResourceResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaWorkspaceAccountRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaWorkspaceAccountResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaWorkspaceAccountRoleRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaWorkspaceAccountRoleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaWorkspaceRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaWorkspaceResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteIMRobotRequest;
@@ -297,6 +303,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GrafanaWorkspaceHttpApiProxyRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GrafanaWorkspaceHttpApiProxyResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ImportAppAlertRulesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ImportAppAlertRulesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\InitEnvironmentRequest;
@@ -355,6 +363,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEscalationPoliciesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEscalationPoliciesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEventBridgeIntegrationsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEventBridgeIntegrationsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListGrafanaWorkspaceAccountRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListGrafanaWorkspaceAccountResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListGrafanaWorkspaceRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListGrafanaWorkspaceResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListGrafanaWorkspaceShrinkRequest;
@@ -487,6 +497,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvPodMonitorRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvPodMonitorResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvServiceMonitorRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvServiceMonitorResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateGrafanaWorkspaceAccountRoleRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateGrafanaWorkspaceAccountRoleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateGrafanaWorkspaceRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateGrafanaWorkspaceResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateGrafanaWorkspaceVersionRequest;
@@ -811,7 +823,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Adds a global aggregation instance in Prometheus Service.
+     * Adds an aggregation instance for ARMS Prometheus monitoring.
      *
      * @deprecated OpenAPI AddPrometheusGlobalView is deprecated
      *
@@ -869,7 +881,7 @@ class ARMS extends OpenApiClient
 
     // Deprecated
     /**
-     * Adds a global aggregation instance in Prometheus Service.
+     * Adds an aggregation instance for ARMS Prometheus monitoring.
      *
      * @deprecated OpenAPI AddPrometheusGlobalView is deprecated
      *
@@ -1333,6 +1345,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * Create or update Business Monitoring.
+     *
      * @param tmpReq - ApplyScenarioRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1416,6 +1430,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * Create or update Business Monitoring.
+     *
      * @param request - ApplyScenarioRequest
      *
      * @returns ApplyScenarioResponse
@@ -1713,10 +1729,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
+     * Checks the commercial activation status of a product.
      *
      * @remarks
-     * You can call this operation to check whether ARMS is available for commercial use in a region.
+     * Retrieves the commercial activation status of a product.
      *
      * @param request - CheckCommercialStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1751,10 +1767,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
+     * Checks the commercial activation status of a product.
      *
      * @remarks
-     * You can call this operation to check whether ARMS is available for commercial use in a region.
+     * Retrieves the commercial activation status of a product.
      *
      * @param request - CheckCommercialStatusRequest
      *
@@ -2200,6 +2216,9 @@ class ARMS extends OpenApiClient
     /**
      * Creates a dispatch policy.
      *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
+     *
      * @param request - CreateDispatchRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2242,6 +2261,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Creates a dispatch policy.
+     *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
      *
      * @param request - CreateDispatchRuleRequest
      *
@@ -2589,14 +2611,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Creates a workspace in Managed Service for Grafana.
+     * Create a Managed Service for Grafana workspace instance.
      *
      * @remarks
-     * Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
+     * Ensure that you fully understand the billing method and <props="china">[pricing](https://help.aliyun.com/zh/grafana/product-overview/billing-4?spm=openapi-amp.newDocPublishment.0.0.7453281fkrsWrp)<props="intl">[pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of the Managed Service for Grafana product before using this API.
      * >
-     * *   To create workspaces, you must complete real-name verification.
-     * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
-     * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
+     * > - Identity verification is required to create a Managed Service for Grafana instance. <props="china">You can refer to the [Account Identity Verification](https://help.aliyun.com/zh/account/user-guide/individual-identities) documentation to complete the verification.
+     * > - Regular users can only create Developer, Expert, or Pro editions (`fees apply`).
+     * > - Internal testing users can only create the internal testing edition (`free of charge`).
      *
      * @param tmpReq - CreateGrafanaWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2693,14 +2715,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Creates a workspace in Managed Service for Grafana.
+     * Create a Managed Service for Grafana workspace instance.
      *
      * @remarks
-     * Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
+     * Ensure that you fully understand the billing method and <props="china">[pricing](https://help.aliyun.com/zh/grafana/product-overview/billing-4?spm=openapi-amp.newDocPublishment.0.0.7453281fkrsWrp)<props="intl">[pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of the Managed Service for Grafana product before using this API.
      * >
-     * *   To create workspaces, you must complete real-name verification.
-     * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
-     * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
+     * > - Identity verification is required to create a Managed Service for Grafana instance. <props="china">You can refer to the [Account Identity Verification](https://help.aliyun.com/zh/account/user-guide/individual-identities) documentation to complete the verification.
+     * > - Regular users can only create Developer, Expert, or Pro editions (`fees apply`).
+     * > - Internal testing users can only create the internal testing edition (`free of charge`).
      *
      * @param request - CreateGrafanaWorkspaceRequest
      *
@@ -2715,6 +2737,91 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createGrafanaWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 指定工作区下创建账号.
+     *
+     * @param request - CreateGrafanaWorkspaceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGrafanaWorkspaceAccountResponse
+     *
+     * @param CreateGrafanaWorkspaceAccountRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateGrafanaWorkspaceAccountResponse
+     */
+    public function createGrafanaWorkspaceAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountNotes) {
+            @$query['AccountNotes'] = $request->accountNotes;
+        }
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
+        }
+
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->aliyunUid) {
+            @$query['AliyunUid'] = $request->aliyunUid;
+        }
+
+        if (null !== $request->grafanaWorkspaceId) {
+            @$query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        }
+
+        if (null !== $request->orgId) {
+            @$query['OrgId'] = $request->orgId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGrafanaWorkspaceAccount',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGrafanaWorkspaceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 指定工作区下创建账号.
+     *
+     * @param request - CreateGrafanaWorkspaceAccountRequest
+     *
+     * @returns CreateGrafanaWorkspaceAccountResponse
+     *
+     * @param CreateGrafanaWorkspaceAccountRequest $request
+     *
+     * @return CreateGrafanaWorkspaceAccountResponse
+     */
+    public function createGrafanaWorkspaceAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGrafanaWorkspaceAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -2797,7 +2904,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Creates or modifies an alert rule.
+     * Create or modify alarm rules.
      *
      * @param request - CreateOrUpdateAlertRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2956,7 +3063,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Creates or modifies an alert rule.
+     * Create or modify alarm rules.
      *
      * @param request - CreateOrUpdateAlertRuleRequest
      *
@@ -3595,6 +3702,9 @@ class ARMS extends OpenApiClient
     /**
      * Creates an alert rule.
      *
+     * @remarks
+     * > 建议使用[CreateOrUpdateAlertRule](https://help.aliyun.com/document_detail/411960.html)接口创建Prometheus告警规则。
+     *
      * @param request - CreatePrometheusAlertRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3678,6 +3788,9 @@ class ARMS extends OpenApiClient
     /**
      * Creates an alert rule.
      *
+     * @remarks
+     * > 建议使用[CreateOrUpdateAlertRule](https://help.aliyun.com/document_detail/411960.html)接口创建Prometheus告警规则。
+     *
      * @param request - CreatePrometheusAlertRuleRequest
      *
      * @returns CreatePrometheusAlertRuleResponse
@@ -3694,7 +3807,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Creates a Prometheus instance.
+     * Creates a Managed Service for Prometheus instance.
      *
      * @param request - CreatePrometheusInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3789,7 +3902,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Creates a Prometheus instance.
+     * Creates a Managed Service for Prometheus instance.
      *
      * @param request - CreatePrometheusInstanceRequest
      *
@@ -4067,10 +4180,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
+     * Generates a presigned URL for uploading application artifacts, such as source map files, symbol table files, and dSYM files.
      *
      * @remarks
-     * This operation returns a URL. You can upload files to the URL. For more information, see [Upload local files with signed URLs](https://help.aliyun.com/document_detail/2579659.html).
+     * This operation returns a presigned URL for uploading a file. For instructions, see [Upload files by using URLs](https://help.aliyun.com/document_detail/2579659.html).
      *
      * @param request - CreateRumUploadFileUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4145,10 +4258,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
+     * Generates a presigned URL for uploading application artifacts, such as source map files, symbol table files, and dSYM files.
      *
      * @remarks
-     * This operation returns a URL. You can upload files to the URL. For more information, see [Upload local files with signed URLs](https://help.aliyun.com/document_detail/2579659.html).
+     * This operation returns a presigned URL for uploading a file. For instructions, see [Upload files by using URLs](https://help.aliyun.com/document_detail/2579659.html).
      *
      * @param request - CreateRumUploadFileUrlRequest
      *
@@ -4311,6 +4424,9 @@ class ARMS extends OpenApiClient
     /**
      * Creates a scheduled synthetic test task.
      *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+     *
      * @param tmpReq - CreateTimingSyntheticTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4420,6 +4536,9 @@ class ARMS extends OpenApiClient
     /**
      * Creates a scheduled synthetic test task.
      *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+     *
      * @param request - CreateTimingSyntheticTaskRequest
      *
      * @returns CreateTimingSyntheticTaskResponse
@@ -4437,6 +4556,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Adds a contact for webhook alerts.
+     *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateWebhookContact接口创建或修改Webhook告警联系人。
      *
      * @param request - CreateWebhookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4504,6 +4626,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Adds a contact for webhook alerts.
+     *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateWebhookContact接口创建或修改Webhook告警联系人。
      *
      * @param request - CreateWebhookRequest
      *
@@ -4722,6 +4847,9 @@ class ARMS extends OpenApiClient
     /**
      * Deletes an DeleteAlertContactGroup contact group.
      *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的DeleteContactGroup接口删除告警联系人组。
+     *
      * @param request - DeleteAlertContactGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4764,6 +4892,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Deletes an DeleteAlertContactGroup contact group.
+     *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的DeleteContactGroup接口删除告警联系人组。
      *
      * @param request - DeleteAlertContactGroupRequest
      *
@@ -4966,7 +5097,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Uninstalls a Prometheus instance.
+     * Uninstall Prometheus for an Alibaba Cloud service instance.
      *
      * @deprecated openAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
      *
@@ -5012,7 +5143,7 @@ class ARMS extends OpenApiClient
 
     // Deprecated
     /**
-     * Uninstalls a Prometheus instance.
+     * Uninstall Prometheus for an Alibaba Cloud service instance.
      *
      * @deprecated openAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
      *
@@ -5148,6 +5279,9 @@ class ARMS extends OpenApiClient
     /**
      * Deletes the dispatch policy of a specified ID.
      *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的DeleteNotificationPolicy接口删除指定ID的通知策略。
+     *
      * @param request - DeleteDispatchRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5190,6 +5324,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Deletes the dispatch policy of a specified ID.
+     *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的DeleteNotificationPolicy接口删除指定ID的通知策略。
      *
      * @param request - DeleteDispatchRuleRequest
      *
@@ -5669,11 +5806,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Deletes a Managed Service for Prometheus workspace.
+     * Deletes a Managed Service for Grafana workspace instance.
      *
      * @remarks
-     *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
-     * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
+     * <props="china">>
+     * > - This operation supports deletion only for beta (`free`) Grafana instances.
+     * > - Developer Edition, Pro Edition, and Advanced Edition instances do not support deletion. Go to [Expenses and Costs](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from the resource.
+     * <props="intl">
+     * > This operation supports deletion only for beta (`free`) Grafana instances.
      *
      * @param request - DeleteGrafanaWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5716,11 +5856,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Deletes a Managed Service for Prometheus workspace.
+     * Deletes a Managed Service for Grafana workspace instance.
      *
      * @remarks
-     *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
-     * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
+     * <props="china">>
+     * > - This operation supports deletion only for beta (`free`) Grafana instances.
+     * > - Developer Edition, Pro Edition, and Advanced Edition instances do not support deletion. Go to [Expenses and Costs](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from the resource.
+     * <props="intl">
+     * > This operation supports deletion only for beta (`free`) Grafana instances.
      *
      * @param request - DeleteGrafanaWorkspaceRequest
      *
@@ -5735,6 +5878,140 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGrafanaWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除指定工作区下账号.
+     *
+     * @param request - DeleteGrafanaWorkspaceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGrafanaWorkspaceAccountResponse
+     *
+     * @param DeleteGrafanaWorkspaceAccountRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteGrafanaWorkspaceAccountResponse
+     */
+    public function deleteGrafanaWorkspaceAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
+        }
+
+        if (null !== $request->grafanaWorkspaceId) {
+            @$query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGrafanaWorkspaceAccount',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGrafanaWorkspaceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定工作区下账号.
+     *
+     * @param request - DeleteGrafanaWorkspaceAccountRequest
+     *
+     * @returns DeleteGrafanaWorkspaceAccountResponse
+     *
+     * @param DeleteGrafanaWorkspaceAccountRequest $request
+     *
+     * @return DeleteGrafanaWorkspaceAccountResponse
+     */
+    public function deleteGrafanaWorkspaceAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGrafanaWorkspaceAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除指定工作区下账号的角色.
+     *
+     * @param request - DeleteGrafanaWorkspaceAccountRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGrafanaWorkspaceAccountRoleResponse
+     *
+     * @param DeleteGrafanaWorkspaceAccountRoleRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DeleteGrafanaWorkspaceAccountRoleResponse
+     */
+    public function deleteGrafanaWorkspaceAccountRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
+        }
+
+        if (null !== $request->grafanaWorkspaceId) {
+            @$query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        }
+
+        if (null !== $request->orgId) {
+            @$query['OrgId'] = $request->orgId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGrafanaWorkspaceAccountRole',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGrafanaWorkspaceAccountRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定工作区下账号的角色.
+     *
+     * @param request - DeleteGrafanaWorkspaceAccountRoleRequest
+     *
+     * @returns DeleteGrafanaWorkspaceAccountRoleResponse
+     *
+     * @param DeleteGrafanaWorkspaceAccountRoleRequest $request
+     *
+     * @return DeleteGrafanaWorkspaceAccountRoleResponse
+     */
+    public function deleteGrafanaWorkspaceAccountRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGrafanaWorkspaceAccountRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -6388,10 +6665,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Deletes a file such as a symbol table or SourceMap.
+     * Deletes files such as symbol tables and SourceMap files.
      *
      * @remarks
-     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     * Real User Monitoring is currently available only in Hangzhou, Singapore, and Silicon Valley. Select the correct endpoint.
      *
      * @param request - DeleteRumUploadFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6458,10 +6735,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Deletes a file such as a symbol table or SourceMap.
+     * Deletes files such as symbol tables and SourceMap files.
      *
      * @remarks
-     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     * Real User Monitoring is currently available only in Hangzhou, Singapore, and Silicon Valley. Select the correct endpoint.
      *
      * @param request - DeleteRumUploadFileRequest
      *
@@ -6479,6 +6756,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * Delete a Business Monitoring.
+     *
      * @param request - DeleteScenarioRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6520,6 +6799,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * Delete a Business Monitoring.
+     *
      * @param request - DeleteScenarioRequest
      *
      * @returns DeleteScenarioResponse
@@ -6727,6 +7008,9 @@ class ARMS extends OpenApiClient
     /**
      * Deletes a scheduled synthetic monitoring task.
      *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+     *
      * @param request - DeleteTimingSyntheticTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6773,6 +7057,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Deletes a scheduled synthetic monitoring task.
+     *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
      *
      * @param request - DeleteTimingSyntheticTaskRequest
      *
@@ -7228,6 +7515,9 @@ class ARMS extends OpenApiClient
     /**
      * Queries the information about a dispatch policy.
      *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的ListNotificationPolicies接口查询通知策略信息。
+     *
      * @param request - DescribeDispatchRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7270,6 +7560,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Queries the information about a dispatch policy.
+     *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的ListNotificationPolicies接口查询通知策略信息。
      *
      * @param request - DescribeDispatchRuleRequest
      *
@@ -7356,7 +7649,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the list of discarded metrics of a specified environment instance.
+     * Queries the metric drop rule for a specified environment instance.
      *
      * @param request - DescribeEnvDropMetricsRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7399,7 +7692,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the list of discarded metrics of a specified environment instance.
+     * Queries the metric drop rule for a specified environment instance.
      *
      * @param request - DescribeEnvDropMetricsRuleRequest
      *
@@ -7925,7 +8218,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Performs actions based on the specified module type.
+     * Executes the corresponding action based on the module type specified by the parameter.
      *
      * @param request - DoInsightsActionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7974,7 +8267,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Performs actions based on the specified module type.
+     * Executes the corresponding action based on the module type specified by the parameter.
      *
      * @param request - DoInsightsActionRequest
      *
@@ -8180,7 +8473,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries alert rules.
+     * Query the created alert rules.
      *
      * @param request - GetAlertRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8259,7 +8552,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries alert rules.
+     * Query the created alert rules.
      *
      * @param request - GetAlertRulesRequest
      *
@@ -8665,7 +8958,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Enables the Explore feature of Grafana.
+     * Retrieves data using the Explore feature of Grafana.
      *
      * @deprecated OpenAPI GetExploreUrl is deprecated
      *
@@ -8719,7 +9012,7 @@ class ARMS extends OpenApiClient
 
     // Deprecated
     /**
-     * Enables the Explore feature of Grafana.
+     * Retrieves data using the Explore feature of Grafana.
      *
      * @deprecated OpenAPI GetExploreUrl is deprecated
      *
@@ -9035,7 +9328,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the information about a scheduling policy.
+     * Use the GetOnCallSchedulesDetail API to retrieve the details of an on-call schedule.
      *
      * @param request - GetOnCallSchedulesDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9070,7 +9363,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the information about a scheduling policy.
+     * Use the GetOnCallSchedulesDetail API to retrieve the details of an on-call schedule.
      *
      * @param request - GetOnCallSchedulesDetailRequest
      *
@@ -9212,7 +9505,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Prometheus instance.
+     * Retrieves information about a specified Prometheus instance.
      *
      * @param request - GetPrometheusInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9255,7 +9548,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Prometheus instance.
+     * Retrieves information about a specified Prometheus instance.
      *
      * @param request - GetPrometheusInstanceRequest
      *
@@ -9731,10 +10024,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a single application in Browser Monitoring.
+     * Retrieves a single Frontend Monitoring application.
      *
      * @remarks
-     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     * User experience monitoring is available only in China (Hangzhou), Asia Pacific SE 1 (Singapore), and US West 1 (Silicon Valley). Select the correct endpoint.
      *
      * @param request - GetRumAppInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9781,10 +10074,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a single application in Browser Monitoring.
+     * Retrieves a single Frontend Monitoring application.
      *
      * @remarks
-     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     * User experience monitoring is available only in China (Hangzhou), Asia Pacific SE 1 (Singapore), and US West 1 (Silicon Valley). Select the correct endpoint.
      *
      * @param request - GetRumAppInfoRequest
      *
@@ -9986,10 +10279,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the exception stack information of a Real User Monitoring (RUM) application.
+     * Retrieves Real User Monitoring (RUM) exception stack information.
      *
      * @remarks
-     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     * Real User Monitoring is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *
      * @param request - GetRumExceptionStackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10060,10 +10353,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the exception stack information of a Real User Monitoring (RUM) application.
+     * Retrieves Real User Monitoring (RUM) exception stack information.
      *
      * @remarks
-     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     * Real User Monitoring is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *
      * @param request - GetRumExceptionStackRequest
      *
@@ -10150,10 +10443,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
+     * Retrieves Real User Monitoring (RUM) related files, including symbol tables and SourceMap files.
      *
      * @remarks
-     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     * Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *
      * @param request - GetRumUploadFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10224,10 +10517,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
+     * Retrieves Real User Monitoring (RUM) related files, including symbol tables and SourceMap files.
      *
      * @remarks
-     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     * Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *
      * @param request - GetRumUploadFilesRequest
      *
@@ -10405,6 +10698,9 @@ class ARMS extends OpenApiClient
     /**
      * Obtains detection points.
      *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+     *
      * @param tmpReq - GetSyntheticMonitorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10445,6 +10741,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Obtains detection points.
+     *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
      *
      * @param request - GetSyntheticMonitorsRequest
      *
@@ -10671,6 +10970,9 @@ class ARMS extends OpenApiClient
     /**
      * Obtains the details of a synthetic monitoring task.
      *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+     *
      * @param request - GetTimingSyntheticTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10705,6 +11007,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Obtains the details of a synthetic monitoring task.
+     *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
      *
      * @param request - GetTimingSyntheticTaskRequest
      *
@@ -10924,6 +11229,77 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTraceAppConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 代理指定工作区的HTTP API 接口.
+     *
+     * @param request - GrafanaWorkspaceHttpApiProxyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GrafanaWorkspaceHttpApiProxyResponse
+     *
+     * @param GrafanaWorkspaceHttpApiProxyRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GrafanaWorkspaceHttpApiProxyResponse
+     */
+    public function grafanaWorkspaceHttpApiProxyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->grafanaWorkspaceId) {
+            @$query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        }
+
+        if (null !== $request->orgId) {
+            @$query['OrgId'] = $request->orgId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->bodyStr) {
+            @$body['BodyStr'] = $request->bodyStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GrafanaWorkspaceHttpApiProxy',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GrafanaWorkspaceHttpApiProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 代理指定工作区的HTTP API 接口.
+     *
+     * @param request - GrafanaWorkspaceHttpApiProxyRequest
+     *
+     * @returns GrafanaWorkspaceHttpApiProxyResponse
+     *
+     * @param GrafanaWorkspaceHttpApiProxyRequest $request
+     *
+     * @return GrafanaWorkspaceHttpApiProxyResponse
+     */
+    public function grafanaWorkspaceHttpApiProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grafanaWorkspaceHttpApiProxyWithOptions($request, $runtime);
     }
 
     /**
@@ -11331,10 +11707,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
+     * Create a managed (ASK/ECS) Prometheus instance.
      *
      * @remarks
-     * You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
+     * This applies only to ASK and ECS instances, and only if Alibaba Cloud Prometheus has not been previously installed on the cluster. The managed Prometheus instance will be installed on the cloud service side and will not be visible within the user\\"s cluster.
      *
      * @deprecated OpenAPI InstallManagedPrometheus is deprecated
      *
@@ -11416,10 +11792,10 @@ class ARMS extends OpenApiClient
 
     // Deprecated
     /**
-     * Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
+     * Create a managed (ASK/ECS) Prometheus instance.
      *
      * @remarks
-     * You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
+     * This applies only to ASK and ECS instances, and only if Alibaba Cloud Prometheus has not been previously installed on the cluster. The managed Prometheus instance will be installed on the cloud service side and will not be visible within the user\\"s cluster.
      *
      * @deprecated OpenAPI InstallManagedPrometheus is deprecated
      *
@@ -11439,7 +11815,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the alerts that have been triggered.
+     * Invoke the ListActivatedAlerts API to query the list of triggered alerts.
+     *
+     * @remarks
+     * This API is no longer maintained. Use the ListAlerts API of the new alert management system to query the alert sending history.
      *
      * @param request - ListActivatedAlertsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11490,7 +11869,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the alerts that have been triggered.
+     * Invoke the ListActivatedAlerts API to query the list of triggered alerts.
+     *
+     * @remarks
+     * This API is no longer maintained. Use the ListAlerts API of the new alert management system to query the alert sending history.
      *
      * @param request - ListActivatedAlertsRequest
      *
@@ -11508,7 +11890,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the add-ons installed in an environment.
+     * Queries the addons installed in an environment.
      *
      * @param request - ListAddonReleasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11555,7 +11937,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the add-ons installed in an environment.
+     * Queries the addons installed in an environment.
      *
      * @param request - ListAddonReleasesRequest
      *
@@ -11898,7 +12280,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the collection of cloud services.
+     * Queries the data collection status of cloud services.
      *
      * @deprecated OpenAPI ListCmsInstances is deprecated
      *
@@ -11948,7 +12330,7 @@ class ARMS extends OpenApiClient
 
     // Deprecated
     /**
-     * Queries the collection of cloud services.
+     * Queries the data collection status of cloud services.
      *
      * @deprecated OpenAPI ListCmsInstances is deprecated
      *
@@ -12411,7 +12793,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the information about the add-ons that are installed in an environment.
+     * Lists the add-ons installed in a specified environment.
      *
      * @param request - ListEnvironmentAddonsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12454,7 +12836,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the information about the add-ons that are installed in an environment.
+     * Lists the add-ons installed in a specified environment.
      *
      * @param request - ListEnvironmentAddonsRequest
      *
@@ -13094,6 +13476,71 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGrafanaWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取指定工作区下的阿里云账号列表.
+     *
+     * @param request - ListGrafanaWorkspaceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGrafanaWorkspaceAccountResponse
+     *
+     * @param ListGrafanaWorkspaceAccountRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListGrafanaWorkspaceAccountResponse
+     */
+    public function listGrafanaWorkspaceAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->grafanaWorkspaceId) {
+            @$query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGrafanaWorkspaceAccount',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGrafanaWorkspaceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定工作区下的阿里云账号列表.
+     *
+     * @param request - ListGrafanaWorkspaceAccountRequest
+     *
+     * @returns ListGrafanaWorkspaceAccountResponse
+     *
+     * @param ListGrafanaWorkspaceAccountRequest $request
+     *
+     * @return ListGrafanaWorkspaceAccountResponse
+     */
+    public function listGrafanaWorkspaceAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGrafanaWorkspaceAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -13895,6 +14342,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * Obtain Business Monitoring details.
+     *
      * @param request - ListScenarioRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13948,6 +14397,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * Obtain Business Monitoring details.
+     *
      * @param request - ListScenarioRequest
      *
      * @returns ListScenarioResponse
@@ -14039,6 +14490,9 @@ class ARMS extends OpenApiClient
     /**
      * Obtains the results of one or more synthetic tests.
      *
+     * @remarks
+     * 云拨测目前仅在杭州 region 提供服务，使用 SDK 或 OpenAPI 时请选择杭州 region 对应的服务接入点。
+     *
      * @param tmpReq - ListSyntheticDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14088,6 +14542,9 @@ class ARMS extends OpenApiClient
     /**
      * Obtains the results of one or more synthetic tests.
      *
+     * @remarks
+     * 云拨测目前仅在杭州 region 提供服务，使用 SDK 或 OpenAPI 时请选择杭州 region 对应的服务接入点。
+     *
      * @param request - ListSyntheticDetailRequest
      *
      * @returns ListSyntheticDetailResponse
@@ -14105,6 +14562,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Queries scheduled synthetic monitoring tasks.
+     *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
      *
      * @param tmpReq - ListTimingSyntheticTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14150,6 +14610,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Queries scheduled synthetic monitoring tasks.
+     *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
      *
      * @param request - ListTimingSyntheticTasksRequest
      *
@@ -14507,7 +14970,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the encoding mapping content based on the metadata IDs and metadata type.
+     * Queries application metadata by ID and type.
      *
      * @param request - QueryAppMetadataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14542,7 +15005,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries the encoding mapping content based on the metadata IDs and metadata type.
+     * Queries application metadata by ID and type.
      *
      * @param request - QueryAppMetadataRequest
      *
@@ -16304,7 +16767,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * 启动报警.
+     * Invoke the StartAlert API to start an alert rule.
+     *
+     * @remarks
+     * This API is no longer maintained. Use the AlertStatus parameter of the CreateOrUpdateAlertRule API in the new alert management system to update the running status of an alert rule.
      *
      * @param request - StartAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16347,7 +16813,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * 启动报警.
+     * Invoke the StartAlert API to start an alert rule.
+     *
+     * @remarks
+     * This API is no longer maintained. Use the AlertStatus parameter of the CreateOrUpdateAlertRule API in the new alert management system to update the running status of an alert rule.
      *
      * @param request - StartAlertRequest
      *
@@ -16366,6 +16835,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Starts scheduled synthetic monitoring tasks.
+     *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
      *
      * @param tmpReq - StartTimingSyntheticTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16416,6 +16888,9 @@ class ARMS extends OpenApiClient
     /**
      * Starts scheduled synthetic monitoring tasks.
      *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+     *
      * @param request - StartTimingSyntheticTaskRequest
      *
      * @returns StartTimingSyntheticTaskResponse
@@ -16433,6 +16908,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Call StartAlert to stop an alert rule.
+     *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理CreateOrUpdateAlertRule接口的AlertStatus参数更新告警规则运行状态。
      *
      * @param request - StopAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16477,6 +16955,9 @@ class ARMS extends OpenApiClient
     /**
      * Call StartAlert to stop an alert rule.
      *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理CreateOrUpdateAlertRule接口的AlertStatus参数更新告警规则运行状态。
+     *
      * @param request - StopAlertRequest
      *
      * @returns StopAlertResponse
@@ -16494,6 +16975,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Stops scheduled synthetic monitoring tasks.
+     *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
      *
      * @param tmpReq - StopTimingSyntheticTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16543,6 +17027,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Stops scheduled synthetic monitoring tasks.
+     *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
      *
      * @param request - StopTimingSyntheticTaskRequest
      *
@@ -16621,7 +17108,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Synchronizes the aggregation rule of a cluster to other clusters in a region.
+     * Batch synchronizes the aggregation rules of a cluster to other target clusters across all regions.
      *
      * @deprecated OpenAPI SyncRecordingRules is deprecated
      *
@@ -16671,7 +17158,7 @@ class ARMS extends OpenApiClient
 
     // Deprecated
     /**
-     * Synchronizes the aggregation rule of a cluster to other clusters in a region.
+     * Batch synchronizes the aggregation rules of a cluster to other target clusters across all regions.
      *
      * @deprecated OpenAPI SyncRecordingRules is deprecated
      *
@@ -17067,6 +17554,9 @@ class ARMS extends OpenApiClient
     /**
      * Updates UpdateAlertContactGroup alarm contact group.
      *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateContactGroup接口创建或修改告警联系人组。
+     *
      * @param request - UpdateAlertContactGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17118,6 +17608,9 @@ class ARMS extends OpenApiClient
     /**
      * Updates UpdateAlertContactGroup alarm contact group.
      *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateContactGroup接口创建或修改告警联系人组。
+     *
      * @param request - UpdateAlertContactGroupRequest
      *
      * @returns UpdateAlertContactGroupResponse
@@ -17134,6 +17627,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * You can invoke the UpdateAlertRule API to update an alert rule.
+     *
+     * @remarks
+     * This API is no longer maintained. Use the CreateOrUpdateAlertRule API of the new alert management system to create or modify an alert rule.
+     *
      * @param request - UpdateAlertRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17187,6 +17685,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * You can invoke the UpdateAlertRule API to update an alert rule.
+     *
+     * @remarks
+     * This API is no longer maintained. Use the CreateOrUpdateAlertRule API of the new alert management system to create or modify an alert rule.
+     *
      * @param request - UpdateAlertRuleRequest
      *
      * @returns UpdateAlertRuleResponse
@@ -17204,6 +17707,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Modifies a dispatch policy.
+     *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
      *
      * @param request - UpdateDispatchRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17247,6 +17753,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Modifies a dispatch policy.
+     *
+     * @remarks
+     * 当前接口已不再维护，请使用新版告警管理的CreateOrUpdateNotificationPolicy接口创建或修改通知策略。
      *
      * @param request - UpdateDispatchRuleRequest
      *
@@ -17726,6 +18235,79 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * 修改指定工作区下账号的角色.
+     *
+     * @param request - UpdateGrafanaWorkspaceAccountRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGrafanaWorkspaceAccountRoleResponse
+     *
+     * @param UpdateGrafanaWorkspaceAccountRoleRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateGrafanaWorkspaceAccountRoleResponse
+     */
+    public function updateGrafanaWorkspaceAccountRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
+        }
+
+        if (null !== $request->grafanaWorkspaceId) {
+            @$query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        }
+
+        if (null !== $request->orgId) {
+            @$query['OrgId'] = $request->orgId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGrafanaWorkspaceAccountRole',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGrafanaWorkspaceAccountRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改指定工作区下账号的角色.
+     *
+     * @param request - UpdateGrafanaWorkspaceAccountRoleRequest
+     *
+     * @returns UpdateGrafanaWorkspaceAccountRoleResponse
+     *
+     * @param UpdateGrafanaWorkspaceAccountRoleRequest $request
+     *
+     * @return UpdateGrafanaWorkspaceAccountRoleResponse
+     */
+    public function updateGrafanaWorkspaceAccountRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGrafanaWorkspaceAccountRoleWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the version of a Grafana workspace.
      *
      * @remarks
@@ -17982,6 +18564,9 @@ class ARMS extends OpenApiClient
     /**
      * Updates a Prometheus alert rule.
      *
+     * @remarks
+     * UpdatePrometheusAlertRule 接口已不再维护，请使用 CreateOrUpdateAlertRule 接口创建或修改告警规则。
+     *
      * @param request - UpdatePrometheusAlertRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -18068,6 +18653,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Updates a Prometheus alert rule.
+     *
+     * @remarks
+     * UpdatePrometheusAlertRule 接口已不再维护，请使用 CreateOrUpdateAlertRule 接口创建或修改告警规则。
      *
      * @param request - UpdatePrometheusAlertRuleRequest
      *
@@ -18171,7 +18759,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Updates the information about a Prometheus instance.
+     * Updates the information of a Prometheus instance.
      *
      * @param request - UpdatePrometheusInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18250,7 +18838,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Updates the information about a Prometheus instance.
+     * Updates the information of a Prometheus instance.
      *
      * @param request - UpdatePrometheusInstanceRequest
      *
@@ -18507,7 +19095,7 @@ class ARMS extends OpenApiClient
      * Updates a Real User Monitoring (RUM) application.
      *
      * @remarks
-     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     * Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *
      * @param request - UpdateRumAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18601,7 +19189,7 @@ class ARMS extends OpenApiClient
      * Updates a Real User Monitoring (RUM) application.
      *
      * @remarks
-     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     * Real User Monitoring is currently available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
      *
      * @param request - UpdateRumAppRequest
      *
@@ -18708,6 +19296,9 @@ class ARMS extends OpenApiClient
     /**
      * Updates a scheduled synthetic test task.
      *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
+     *
      * @param tmpReq - UpdateTimingSyntheticTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -18812,6 +19403,9 @@ class ARMS extends OpenApiClient
 
     /**
      * Updates a scheduled synthetic test task.
+     *
+     * @remarks
+     * 云拨测目前仅在杭州region提供服务，使用SDK或OpenAPI时请选择杭州region对应的服务接入点。
      *
      * @param request - UpdateTimingSyntheticTaskRequest
      *
