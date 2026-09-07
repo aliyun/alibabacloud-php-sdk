@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CancelVulScanTasksResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateBackendReportRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateBackendReportResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateConnectorRequest;
@@ -227,6 +229,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmExtractTaskRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetWmExtractTaskResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ImportEnterpriseAccelerateTargetsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ImportEnterpriseAccelerateTargetsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\InvalidateApprovalRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\InvalidateApprovalResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagRequest;
@@ -1298,6 +1302,86 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createApprovalProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a backend filing.
+     *
+     * @param request - CreateBackendReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBackendReportResponse
+     *
+     * @param CreateBackendReportRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateBackendReportResponse
+     */
+    public function createBackendReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endTimestamp) {
+            @$body['EndTimestamp'] = $request->endTimestamp;
+        }
+
+        if (null !== $request->policyType) {
+            @$body['PolicyType'] = $request->policyType;
+        }
+
+        if (null !== $request->reason) {
+            @$body['Reason'] = $request->reason;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->reportObjects) {
+            @$bodyFlat['ReportObjects'] = $request->reportObjects;
+        }
+
+        if (null !== $request->targets) {
+            @$bodyFlat['Targets'] = $request->targets;
+        }
+
+        if (null !== $request->validityType) {
+            @$body['ValidityType'] = $request->validityType;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBackendReport',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBackendReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a backend filing.
+     *
+     * @param request - CreateBackendReportRequest
+     *
+     * @returns CreateBackendReportResponse
+     *
+     * @param CreateBackendReportRequest $request
+     *
+     * @return CreateBackendReportResponse
+     */
+    public function createBackendReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBackendReportWithOptions($request, $runtime);
     }
 
     /**
@@ -7835,6 +7919,63 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importEnterpriseAccelerateTargetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Immediately invalidates an approval.
+     *
+     * @param request - InvalidateApprovalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvalidateApprovalResponse
+     *
+     * @param InvalidateApprovalRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return InvalidateApprovalResponse
+     */
+    public function invalidateApprovalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->approvalId) {
+            @$body['ApprovalId'] = $request->approvalId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InvalidateApproval',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InvalidateApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Immediately invalidates an approval.
+     *
+     * @param request - InvalidateApprovalRequest
+     *
+     * @returns InvalidateApprovalResponse
+     *
+     * @param InvalidateApprovalRequest $request
+     *
+     * @return InvalidateApprovalResponse
+     */
+    public function invalidateApproval($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->invalidateApprovalWithOptions($request, $runtime);
     }
 
     /**
