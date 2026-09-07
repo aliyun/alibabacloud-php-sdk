@@ -15,6 +15,16 @@ class ListInstancesResponseBody extends Model
     public $currentPage;
 
     /**
+     * @var int
+     */
+    public $disableReissueCount;
+
+    /**
+     * @var int
+     */
+    public $enableReissueCount;
+
+    /**
      * @var instanceList[]
      */
     public $instanceList;
@@ -35,6 +45,8 @@ class ListInstancesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'disableReissueCount' => 'DisableReissueCount',
+        'enableReissueCount' => 'EnableReissueCount',
         'instanceList' => 'InstanceList',
         'requestId' => 'RequestId',
         'showSize' => 'ShowSize',
@@ -54,6 +66,14 @@ class ListInstancesResponseBody extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->disableReissueCount) {
+            $res['DisableReissueCount'] = $this->disableReissueCount;
+        }
+
+        if (null !== $this->enableReissueCount) {
+            $res['EnableReissueCount'] = $this->enableReissueCount;
         }
 
         if (null !== $this->instanceList) {
@@ -92,6 +112,14 @@ class ListInstancesResponseBody extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['DisableReissueCount'])) {
+            $model->disableReissueCount = $map['DisableReissueCount'];
+        }
+
+        if (isset($map['EnableReissueCount'])) {
+            $model->enableReissueCount = $map['EnableReissueCount'];
         }
 
         if (isset($map['InstanceList'])) {

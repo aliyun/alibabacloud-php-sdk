@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $autoReissueFlag;
+
+    /**
      * @var string
      */
     public $brand;
@@ -46,6 +51,11 @@ class ListInstancesRequest extends Model
     /**
      * @var int
      */
+    public $serverDeployFlag;
+
+    /**
+     * @var int
+     */
     public $showSize;
 
     /**
@@ -53,6 +63,7 @@ class ListInstancesRequest extends Model
      */
     public $status;
     protected $_name = [
+        'autoReissueFlag' => 'AutoReissueFlag',
         'brand' => 'Brand',
         'certificateStatus' => 'CertificateStatus',
         'certificateType' => 'CertificateType',
@@ -60,6 +71,7 @@ class ListInstancesRequest extends Model
         'instanceType' => 'InstanceType',
         'keyword' => 'Keyword',
         'resourceGroupId' => 'ResourceGroupId',
+        'serverDeployFlag' => 'ServerDeployFlag',
         'showSize' => 'ShowSize',
         'status' => 'Status',
     ];
@@ -72,6 +84,10 @@ class ListInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoReissueFlag) {
+            $res['AutoReissueFlag'] = $this->autoReissueFlag;
+        }
+
         if (null !== $this->brand) {
             $res['Brand'] = $this->brand;
         }
@@ -100,6 +116,10 @@ class ListInstancesRequest extends Model
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
+        if (null !== $this->serverDeployFlag) {
+            $res['ServerDeployFlag'] = $this->serverDeployFlag;
+        }
+
         if (null !== $this->showSize) {
             $res['ShowSize'] = $this->showSize;
         }
@@ -119,6 +139,10 @@ class ListInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoReissueFlag'])) {
+            $model->autoReissueFlag = $map['AutoReissueFlag'];
+        }
+
         if (isset($map['Brand'])) {
             $model->brand = $map['Brand'];
         }
@@ -145,6 +169,10 @@ class ListInstancesRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ServerDeployFlag'])) {
+            $model->serverDeployFlag = $map['ServerDeployFlag'];
         }
 
         if (isset($map['ShowSize'])) {

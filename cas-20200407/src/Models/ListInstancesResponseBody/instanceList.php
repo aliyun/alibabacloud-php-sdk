@@ -134,6 +134,11 @@ class instanceList extends Model
     public $usingProductList;
 
     /**
+     * @var string
+     */
+    public $versionType;
+
+    /**
      * @var int
      */
     public $wildcardDomainCount;
@@ -163,6 +168,7 @@ class instanceList extends Model
         'spec' => 'Spec',
         'status' => 'Status',
         'usingProductList' => 'UsingProductList',
+        'versionType' => 'VersionType',
         'wildcardDomainCount' => 'WildcardDomainCount',
     ];
 
@@ -282,6 +288,10 @@ class instanceList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->versionType) {
+            $res['VersionType'] = $this->versionType;
         }
 
         if (null !== $this->wildcardDomainCount) {
@@ -404,6 +414,10 @@ class instanceList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['VersionType'])) {
+            $model->versionType = $map['VersionType'];
         }
 
         if (isset($map['WildcardDomainCount'])) {

@@ -17,6 +17,11 @@ class GetInstanceDetailResponseBody extends Model
     public $autoReissue;
 
     /**
+     * @var int
+     */
+    public $autoReissueFlag;
+
+    /**
      * @var string
      */
     public $averageWaitingTime;
@@ -92,6 +97,16 @@ class GetInstanceDetailResponseBody extends Model
     public $csr;
 
     /**
+     * @var int
+     */
+    public $deploymentResourceCount;
+
+    /**
+     * @var int
+     */
+    public $deploymentUseCount;
+
+    /**
      * @var dingGroupList[]
      */
     public $dingGroupList;
@@ -144,6 +159,16 @@ class GetInstanceDetailResponseBody extends Model
     /**
      * @var int
      */
+    public $monitorExpandFlag;
+
+    /**
+     * @var int
+     */
+    public $monitorUseCount;
+
+    /**
+     * @var int
+     */
     public $orderEndTime;
 
     /**
@@ -187,6 +212,16 @@ class GetInstanceDetailResponseBody extends Model
     public $tags;
 
     /**
+     * @var int
+     */
+    public $totalDeploymentCount;
+
+    /**
+     * @var int
+     */
+    public $totalMonitorCount;
+
+    /**
      * @var string
      */
     public $upgradeStatus;
@@ -197,11 +232,17 @@ class GetInstanceDetailResponseBody extends Model
     public $validationMethod;
 
     /**
+     * @var string
+     */
+    public $versionType;
+
+    /**
      * @var int
      */
     public $wildcardDomainCount;
     protected $_name = [
         'autoReissue' => 'AutoReissue',
+        'autoReissueFlag' => 'AutoReissueFlag',
         'averageWaitingTime' => 'AverageWaitingTime',
         'brand' => 'Brand',
         'certIdentifier' => 'CertIdentifier',
@@ -217,6 +258,8 @@ class GetInstanceDetailResponseBody extends Model
         'contactIdList' => 'ContactIdList',
         'countryCode' => 'CountryCode',
         'csr' => 'Csr',
+        'deploymentResourceCount' => 'DeploymentResourceCount',
+        'deploymentUseCount' => 'DeploymentUseCount',
         'dingGroupList' => 'DingGroupList',
         'domain' => 'Domain',
         'domainValidationList' => 'DomainValidationList',
@@ -227,6 +270,8 @@ class GetInstanceDetailResponseBody extends Model
         'instanceStartTime' => 'InstanceStartTime',
         'instanceType' => 'InstanceType',
         'keyAlgorithm' => 'KeyAlgorithm',
+        'monitorExpandFlag' => 'MonitorExpandFlag',
+        'monitorUseCount' => 'MonitorUseCount',
         'orderEndTime' => 'OrderEndTime',
         'orderStartTime' => 'OrderStartTime',
         'pendingResult' => 'PendingResult',
@@ -236,8 +281,11 @@ class GetInstanceDetailResponseBody extends Model
         'spec' => 'Spec',
         'status' => 'Status',
         'tags' => 'Tags',
+        'totalDeploymentCount' => 'TotalDeploymentCount',
+        'totalMonitorCount' => 'TotalMonitorCount',
         'upgradeStatus' => 'UpgradeStatus',
         'validationMethod' => 'ValidationMethod',
+        'versionType' => 'VersionType',
         'wildcardDomainCount' => 'WildcardDomainCount',
     ];
 
@@ -263,6 +311,10 @@ class GetInstanceDetailResponseBody extends Model
         $res = [];
         if (null !== $this->autoReissue) {
             $res['AutoReissue'] = $this->autoReissue;
+        }
+
+        if (null !== $this->autoReissueFlag) {
+            $res['AutoReissueFlag'] = $this->autoReissueFlag;
         }
 
         if (null !== $this->averageWaitingTime) {
@@ -332,6 +384,14 @@ class GetInstanceDetailResponseBody extends Model
             $res['Csr'] = $this->csr;
         }
 
+        if (null !== $this->deploymentResourceCount) {
+            $res['DeploymentResourceCount'] = $this->deploymentResourceCount;
+        }
+
+        if (null !== $this->deploymentUseCount) {
+            $res['DeploymentUseCount'] = $this->deploymentUseCount;
+        }
+
         if (null !== $this->dingGroupList) {
             if (\is_array($this->dingGroupList)) {
                 $res['DingGroupList'] = [];
@@ -386,6 +446,14 @@ class GetInstanceDetailResponseBody extends Model
             $res['KeyAlgorithm'] = $this->keyAlgorithm;
         }
 
+        if (null !== $this->monitorExpandFlag) {
+            $res['MonitorExpandFlag'] = $this->monitorExpandFlag;
+        }
+
+        if (null !== $this->monitorUseCount) {
+            $res['MonitorUseCount'] = $this->monitorUseCount;
+        }
+
         if (null !== $this->orderEndTime) {
             $res['OrderEndTime'] = $this->orderEndTime;
         }
@@ -429,12 +497,24 @@ class GetInstanceDetailResponseBody extends Model
             }
         }
 
+        if (null !== $this->totalDeploymentCount) {
+            $res['TotalDeploymentCount'] = $this->totalDeploymentCount;
+        }
+
+        if (null !== $this->totalMonitorCount) {
+            $res['TotalMonitorCount'] = $this->totalMonitorCount;
+        }
+
         if (null !== $this->upgradeStatus) {
             $res['UpgradeStatus'] = $this->upgradeStatus;
         }
 
         if (null !== $this->validationMethod) {
             $res['ValidationMethod'] = $this->validationMethod;
+        }
+
+        if (null !== $this->versionType) {
+            $res['VersionType'] = $this->versionType;
         }
 
         if (null !== $this->wildcardDomainCount) {
@@ -454,6 +534,10 @@ class GetInstanceDetailResponseBody extends Model
         $model = new self();
         if (isset($map['AutoReissue'])) {
             $model->autoReissue = $map['AutoReissue'];
+        }
+
+        if (isset($map['AutoReissueFlag'])) {
+            $model->autoReissueFlag = $map['AutoReissueFlag'];
         }
 
         if (isset($map['AverageWaitingTime'])) {
@@ -523,6 +607,14 @@ class GetInstanceDetailResponseBody extends Model
             $model->csr = $map['Csr'];
         }
 
+        if (isset($map['DeploymentResourceCount'])) {
+            $model->deploymentResourceCount = $map['DeploymentResourceCount'];
+        }
+
+        if (isset($map['DeploymentUseCount'])) {
+            $model->deploymentUseCount = $map['DeploymentUseCount'];
+        }
+
         if (isset($map['DingGroupList'])) {
             if (!empty($map['DingGroupList'])) {
                 $model->dingGroupList = [];
@@ -577,6 +669,14 @@ class GetInstanceDetailResponseBody extends Model
             $model->keyAlgorithm = $map['KeyAlgorithm'];
         }
 
+        if (isset($map['MonitorExpandFlag'])) {
+            $model->monitorExpandFlag = $map['MonitorExpandFlag'];
+        }
+
+        if (isset($map['MonitorUseCount'])) {
+            $model->monitorUseCount = $map['MonitorUseCount'];
+        }
+
         if (isset($map['OrderEndTime'])) {
             $model->orderEndTime = $map['OrderEndTime'];
         }
@@ -620,12 +720,24 @@ class GetInstanceDetailResponseBody extends Model
             }
         }
 
+        if (isset($map['TotalDeploymentCount'])) {
+            $model->totalDeploymentCount = $map['TotalDeploymentCount'];
+        }
+
+        if (isset($map['TotalMonitorCount'])) {
+            $model->totalMonitorCount = $map['TotalMonitorCount'];
+        }
+
         if (isset($map['UpgradeStatus'])) {
             $model->upgradeStatus = $map['UpgradeStatus'];
         }
 
         if (isset($map['ValidationMethod'])) {
             $model->validationMethod = $map['ValidationMethod'];
+        }
+
+        if (isset($map['VersionType'])) {
+            $model->versionType = $map['VersionType'];
         }
 
         if (isset($map['WildcardDomainCount'])) {

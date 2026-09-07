@@ -241,13 +241,6 @@ class Cas extends OpenApiClient
             'rus-west-1-pop' => 'cas.aliyuncs.com',
             'us-east-1' => 'cas.aliyuncs.com',
             'us-west-1' => 'cas.aliyuncs.com',
-            'ap-southeast-2' => 'cas.ap-southeast-2.aliyuncs.com',
-            'ap-northeast-1' => 'cas.ap-northeast-1.aliyuncs.com',
-            'ap-southeast-1' => 'cas.ap-southeast-1.aliyuncs.com',
-            'eu-central-1' => 'cas.eu-central-1.aliyuncs.com',
-            'me-central-1' => 'cas.me-central-1.aliyuncs.com',
-            'ap-south-1' => 'cas.ap-south-1.aliyuncs.com',
-            'me-east-1' => 'cas.me-east-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -3177,6 +3170,12 @@ class Cas extends OpenApiClient
     /**
      * Queries the details of an instance.
      *
+     * @remarks
+     * This operation queries the status information of a Private Certificate Authority (PCA) instance that you purchased in the Certificate Management Service console by using the instance ID. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
+     *
      * @param request - GetInstanceDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3215,6 +3214,12 @@ class Cas extends OpenApiClient
 
     /**
      * Queries the details of an instance.
+     *
+     * @remarks
+     * This operation queries the status information of a Private Certificate Authority (PCA) instance that you purchased in the Certificate Management Service console by using the instance ID. The status information includes the CA instance status, the number of digital certificates included, and the number of digital certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA in the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
      *
      * @param request - GetInstanceDetailRequest
      *
@@ -4429,6 +4434,12 @@ class Cas extends OpenApiClient
     /**
      * Retrieves a list of instances.
      *
+     * @remarks
+     * Queries the status information of Private Certificate Authority (PCA) instances that you purchased through the SSL Certificate console by using the IDs of the PCA instances. For example, you can query the status of a CA instance, the number of digital certificates included, and the number of digital certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+     *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4443,6 +4454,10 @@ class Cas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoReissueFlag) {
+            @$query['AutoReissueFlag'] = $request->autoReissueFlag;
+        }
+
         if (null !== $request->brand) {
             @$query['Brand'] = $request->brand;
         }
@@ -4469,6 +4484,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->serverDeployFlag) {
+            @$query['ServerDeployFlag'] = $request->serverDeployFlag;
         }
 
         if (null !== $request->showSize) {
@@ -4499,6 +4518,12 @@ class Cas extends OpenApiClient
 
     /**
      * Retrieves a list of instances.
+     *
+     * @remarks
+     * Queries the status information of Private Certificate Authority (PCA) instances that you purchased through the SSL Certificate console by using the IDs of the PCA instances. For example, you can query the status of a CA instance, the number of digital certificates included, and the number of digital certificates issued.
+     * Before you invoke this operation, you must have purchased a private CA through the [Certificate Management Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Purchase a private CA](https://help.aliyun.com/document_detail/208553.html).
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
      *
      * @param request - ListInstancesRequest
      *
@@ -5359,7 +5384,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * 共享证书.
+     * Shares a certificate.
      *
      * @param request - ShareCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5402,7 +5427,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * 共享证书.
+     * Shares a certificate.
      *
      * @param request - ShareCertificateRequest
      *
@@ -6054,7 +6079,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a Certificate Management Service instance.
+     * Updates an instance.
      *
      * @param request - UpdateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6149,7 +6174,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a Certificate Management Service instance.
+     * Updates an instance.
      *
      * @param request - UpdateInstanceRequest
      *
