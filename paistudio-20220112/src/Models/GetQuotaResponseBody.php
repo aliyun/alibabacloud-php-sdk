@@ -26,6 +26,11 @@ class GetQuotaResponseBody extends Model
     /**
      * @var string
      */
+    public $GPUType;
+
+    /**
+     * @var string
+     */
     public $gmtCreatedTime;
 
     /**
@@ -136,6 +141,7 @@ class GetQuotaResponseBody extends Model
         'allocateStrategy' => 'AllocateStrategy',
         'creatorId' => 'CreatorId',
         'description' => 'Description',
+        'GPUType' => 'GPUType',
         'gmtCreatedTime' => 'GmtCreatedTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'hyperZones' => 'HyperZones',
@@ -205,6 +211,10 @@ class GetQuotaResponseBody extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->GPUType) {
+            $res['GPUType'] = $this->GPUType;
         }
 
         if (null !== $this->gmtCreatedTime) {
@@ -351,6 +361,10 @@ class GetQuotaResponseBody extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['GPUType'])) {
+            $model->GPUType = $map['GPUType'];
         }
 
         if (isset($map['GmtCreatedTime'])) {

@@ -146,11 +146,11 @@ class PaiStudio extends OpenApiClient
             'cn-shanghai-finance-1' => 'pai.cn-shanghai-finance-1.aliyuncs.com',
             'cn-wulanchabu' => 'pai.cn-wulanchabu.aliyuncs.com',
             'cn-zhangjiakou' => 'pai.cn-zhangjiakou.aliyuncs.com',
-            'us-southeast-1' => 'pai.us-southeast-1.aliyuncs.com',
             'cn-zhongwei' => 'pai.cn-zhongwei.aliyuncs.com',
+            'ap-northeast-2' => 'pai.ap-northeast-2.aliyuncs.com',
             'cn-guangzhou' => 'pai.cn-guangzhou.aliyuncs.com',
             'ap-southeast-8' => 'pai.ap-southeast-8.aliyuncs.com',
-            'ap-northeast-2' => 'pai.ap-northeast-2.aliyuncs.com',
+            'us-southeast-1' => 'pai.us-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('paistudio', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -443,7 +443,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Call the `CreateQuota` operation to create a quota.
+     * Creates a resource quota by calling the CreateQuota operation.
      *
      * @param request - CreateQuotaRequest
      * @param headers - map
@@ -525,7 +525,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Call the `CreateQuota` operation to create a quota.
+     * Creates a resource quota by calling the CreateQuota operation.
      *
      * @param request - CreateQuotaRequest
      *
@@ -938,7 +938,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * You can delete a resource quota by using DeleteQuota.
+     * Deletes a resource quota.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -972,7 +972,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * You can delete a resource quota by using DeleteQuota.
+     * Deletes a resource quota.
      *
      * @returns DeleteQuotaResponse
      *
@@ -1040,7 +1040,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Deletes the specified machine group from a resource group.
+     * Deletes a machine group.
      *
      * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
      *
@@ -1078,7 +1078,7 @@ class PaiStudio extends OpenApiClient
 
     // Deprecated
     /**
-     * Deletes the specified machine group from a resource group.
+     * Deletes a machine group.
      *
      * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
      *
@@ -1372,7 +1372,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * You can call the GetNodeMetrics operation to obtain the metric information of resource group nodes.
+     * Retrieves metric information for resource group nodes.
      *
      * @deprecated OpenAPI GetNodeMetrics is deprecated
      *
@@ -1435,7 +1435,7 @@ class PaiStudio extends OpenApiClient
 
     // Deprecated
     /**
-     * You can call the GetNodeMetrics operation to obtain the metric information of resource group nodes.
+     * Retrieves metric information for resource group nodes.
      *
      * @deprecated OpenAPI GetNodeMetrics is deprecated
      *
@@ -1458,7 +1458,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Call GetQuota to retrieve the details of a resource quota. This helps you monitor current resource usage for effective resource management and planning.
+     * Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
      *
      * @param request - GetQuotaRequest
      * @param headers - map
@@ -1505,7 +1505,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Call GetQuota to retrieve the details of a resource quota. This helps you monitor current resource usage for effective resource management and planning.
+     * Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
      *
      * @param request - GetQuotaRequest
      *
@@ -1669,7 +1669,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * You can call the GetResourceGroupRequest operation to obtain the number of resources that have been allocated to a resource group.
+     * Retrieves the number of resources that have been assigned to a resource group.
      *
      * @deprecated OpenAPI GetResourceGroupRequest is deprecated
      *
@@ -1718,7 +1718,7 @@ class PaiStudio extends OpenApiClient
 
     // Deprecated
     /**
-     * You can call the GetResourceGroupRequest operation to obtain the number of resources that have been allocated to a resource group.
+     * Retrieves the number of resources that have been assigned to a resource group.
      *
      * @deprecated OpenAPI GetResourceGroupRequest is deprecated
      *
@@ -2362,8 +2362,8 @@ class PaiStudio extends OpenApiClient
      * @remarks
      * ## Operation description
      * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
-     * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the resource group ID to which the node belongs.
-     * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
+     * - NodeName and ResourceGroupId are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+     * - Optional parameters include OversoldTypes and GPUIndexes, which are used to further filter or specify conditions.
      *
      * @param request - ListNodePodsRequest
      * @param headers - map
@@ -2419,8 +2419,8 @@ class PaiStudio extends OpenApiClient
      * @remarks
      * ## Operation description
      * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
-     * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the resource group ID to which the node belongs.
-     * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
+     * - NodeName and ResourceGroupId are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+     * - Optional parameters include OversoldTypes and GPUIndexes, which are used to further filter or specify conditions.
      *
      * @param request - ListNodePodsRequest
      *
@@ -2531,10 +2531,10 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Returns a list of resource nodes.
+     * Retrieves a list of resource nodes.
      *
      * @remarks
-     * ListNodes retrieves resource nodes that match specified filter conditions.
+     * You can call ListNodes to retrieve resource nodes that match specified filter conditions.
      *
      * @param tmpReq - ListNodesRequest
      * @param headers - map
@@ -2706,10 +2706,10 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Returns a list of resource nodes.
+     * Retrieves a list of resource nodes.
      *
      * @remarks
-     * ListNodes retrieves resource nodes that match specified filter conditions.
+     * You can call ListNodes to retrieve resource nodes that match specified filter conditions.
      *
      * @param request - ListNodesRequest
      *
@@ -2728,10 +2728,10 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Lists users within a quota and their resource usage.
+     * Retrieves the list of users under the current resource quota and their resource usage.
      *
      * @remarks
-     * Retrieves the resource usage of users in a specified quota.
+     * Retrieves the resource usage of users for a specified QuotaId.
      *
      * @param request - ListQuotaActiveUserUsagesRequest
      * @param headers - map
@@ -2806,10 +2806,10 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Lists users within a quota and their resource usage.
+     * Retrieves the list of users under the current resource quota and their resource usage.
      *
      * @remarks
-     * Retrieves the resource usage of users in a specified quota.
+     * Retrieves the resource usage of users for a specified QuotaId.
      *
      * @param request - ListQuotaActiveUserUsagesRequest
      *
@@ -2829,7 +2829,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of workloads associated with a specific quota.
+     * Retrieves the list of node information on a resource quota.
      *
      * @param request - ListQuotaWorkloadsRequest
      * @param headers - map
@@ -2964,7 +2964,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of workloads associated with a specific quota.
+     * Retrieves the list of node information on a resource quota.
      *
      * @param request - ListQuotaWorkloadsRequest
      *
@@ -2984,7 +2984,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Lists quotas.
+     * Retrieves a list of resource quotas.
      *
      * @param request - ListQuotasRequest
      * @param headers - map
@@ -3094,7 +3094,7 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Lists quotas.
+     * Retrieves a list of resource quotas.
      *
      * @param request - ListQuotasRequest
      *
@@ -4007,10 +4007,10 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Use OperateNode to manage nodes.
+     * Operates on a specified node.
      *
      * @remarks
-     * Use OperateNode to manage a specified resource node. Supported operations include disabling or enabling scheduling.
+     * You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
      *
      * @param request - OperateNodeRequest
      * @param headers - map
@@ -4061,10 +4061,10 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * Use OperateNode to manage nodes.
+     * Operates on a specified node.
      *
      * @remarks
-     * Use OperateNode to manage a specified resource node. Supported operations include disabling or enabling scheduling.
+     * You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
      *
      * @param request - OperateNodeRequest
      *

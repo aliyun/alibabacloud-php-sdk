@@ -136,6 +136,16 @@ class Node extends Model
     /**
      * @var string
      */
+    public $nodeGPUMemory;
+
+    /**
+     * @var int
+     */
+    public $nodeGPUMemoryBytes;
+
+    /**
+     * @var string
+     */
     public $nodeName;
 
     /**
@@ -248,6 +258,8 @@ class Node extends Model
         'limitMemory' => 'LimitMemory',
         'machineGroupId' => 'MachineGroupId',
         'memory' => 'Memory',
+        'nodeGPUMemory' => 'NodeGPUMemory',
+        'nodeGPUMemoryBytes' => 'NodeGPUMemoryBytes',
         'nodeName' => 'NodeName',
         'nodeStatus' => 'NodeStatus',
         'nodeType' => 'NodeType',
@@ -390,6 +402,14 @@ class Node extends Model
 
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+
+        if (null !== $this->nodeGPUMemory) {
+            $res['NodeGPUMemory'] = $this->nodeGPUMemory;
+        }
+
+        if (null !== $this->nodeGPUMemoryBytes) {
+            $res['NodeGPUMemoryBytes'] = $this->nodeGPUMemoryBytes;
         }
 
         if (null !== $this->nodeName) {
@@ -594,6 +614,14 @@ class Node extends Model
 
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+
+        if (isset($map['NodeGPUMemory'])) {
+            $model->nodeGPUMemory = $map['NodeGPUMemory'];
+        }
+
+        if (isset($map['NodeGPUMemoryBytes'])) {
+            $model->nodeGPUMemoryBytes = $map['NodeGPUMemoryBytes'];
         }
 
         if (isset($map['NodeName'])) {

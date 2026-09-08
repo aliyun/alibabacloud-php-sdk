@@ -19,12 +19,18 @@ class NodeOperationParameters extends Model
     public $drainParameters;
 
     /**
+     * @var ResizeDiskParameters
+     */
+    public $resizeDiskParameters;
+
+    /**
      * @var NodeUncordonParameters
      */
     public $uncordonParameters;
     protected $_name = [
         'cordonParameters' => 'CordonParameters',
         'drainParameters' => 'DrainParameters',
+        'resizeDiskParameters' => 'ResizeDiskParameters',
         'uncordonParameters' => 'UncordonParameters',
     ];
 
@@ -35,6 +41,9 @@ class NodeOperationParameters extends Model
         }
         if (null !== $this->drainParameters) {
             $this->drainParameters->validate();
+        }
+        if (null !== $this->resizeDiskParameters) {
+            $this->resizeDiskParameters->validate();
         }
         if (null !== $this->uncordonParameters) {
             $this->uncordonParameters->validate();
@@ -51,6 +60,10 @@ class NodeOperationParameters extends Model
 
         if (null !== $this->drainParameters) {
             $res['DrainParameters'] = null !== $this->drainParameters ? $this->drainParameters->toArray($noStream) : $this->drainParameters;
+        }
+
+        if (null !== $this->resizeDiskParameters) {
+            $res['ResizeDiskParameters'] = null !== $this->resizeDiskParameters ? $this->resizeDiskParameters->toArray($noStream) : $this->resizeDiskParameters;
         }
 
         if (null !== $this->uncordonParameters) {
@@ -74,6 +87,10 @@ class NodeOperationParameters extends Model
 
         if (isset($map['DrainParameters'])) {
             $model->drainParameters = NodeDrainParameters::fromMap($map['DrainParameters']);
+        }
+
+        if (isset($map['ResizeDiskParameters'])) {
+            $model->resizeDiskParameters = ResizeDiskParameters::fromMap($map['ResizeDiskParameters']);
         }
 
         if (isset($map['UncordonParameters'])) {

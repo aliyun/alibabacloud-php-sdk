@@ -21,6 +21,16 @@ class ResourceAmount extends Model
     /**
      * @var string
      */
+    public $GPUMemory;
+
+    /**
+     * @var int
+     */
+    public $GPUMemoryBytes;
+
+    /**
+     * @var string
+     */
     public $GPUType;
 
     /**
@@ -30,6 +40,8 @@ class ResourceAmount extends Model
     protected $_name = [
         'CPU' => 'CPU',
         'GPU' => 'GPU',
+        'GPUMemory' => 'GPUMemory',
+        'GPUMemoryBytes' => 'GPUMemoryBytes',
         'GPUType' => 'GPUType',
         'memory' => 'Memory',
     ];
@@ -48,6 +60,14 @@ class ResourceAmount extends Model
 
         if (null !== $this->GPU) {
             $res['GPU'] = $this->GPU;
+        }
+
+        if (null !== $this->GPUMemory) {
+            $res['GPUMemory'] = $this->GPUMemory;
+        }
+
+        if (null !== $this->GPUMemoryBytes) {
+            $res['GPUMemoryBytes'] = $this->GPUMemoryBytes;
         }
 
         if (null !== $this->GPUType) {
@@ -75,6 +95,14 @@ class ResourceAmount extends Model
 
         if (isset($map['GPU'])) {
             $model->GPU = $map['GPU'];
+        }
+
+        if (isset($map['GPUMemory'])) {
+            $model->GPUMemory = $map['GPUMemory'];
+        }
+
+        if (isset($map['GPUMemoryBytes'])) {
+            $model->GPUMemoryBytes = $map['GPUMemoryBytes'];
         }
 
         if (isset($map['GPUType'])) {
