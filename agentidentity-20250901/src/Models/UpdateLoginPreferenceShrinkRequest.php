@@ -11,6 +11,11 @@ class UpdateLoginPreferenceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $allowedPostLogoutRedirectUrisShrink;
+
+    /**
+     * @var string
+     */
     public $loginPreferenceShrink;
 
     /**
@@ -18,6 +23,7 @@ class UpdateLoginPreferenceShrinkRequest extends Model
      */
     public $userPoolName;
     protected $_name = [
+        'allowedPostLogoutRedirectUrisShrink' => 'AllowedPostLogoutRedirectUris',
         'loginPreferenceShrink' => 'LoginPreference',
         'userPoolName' => 'UserPoolName',
     ];
@@ -30,6 +36,10 @@ class UpdateLoginPreferenceShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowedPostLogoutRedirectUrisShrink) {
+            $res['AllowedPostLogoutRedirectUris'] = $this->allowedPostLogoutRedirectUrisShrink;
+        }
+
         if (null !== $this->loginPreferenceShrink) {
             $res['LoginPreference'] = $this->loginPreferenceShrink;
         }
@@ -49,6 +59,10 @@ class UpdateLoginPreferenceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowedPostLogoutRedirectUris'])) {
+            $model->allowedPostLogoutRedirectUrisShrink = $map['AllowedPostLogoutRedirectUris'];
+        }
+
         if (isset($map['LoginPreference'])) {
             $model->loginPreferenceShrink = $map['LoginPreference'];
         }

@@ -11,6 +11,11 @@ class UpdateWorkloadIdentityRequest extends Model
     /**
      * @var string[]
      */
+    public $allowedConsentCallbackURLs;
+
+    /**
+     * @var string[]
+     */
     public $allowedResourceOAuth2ReturnURLs;
 
     /**
@@ -38,6 +43,7 @@ class UpdateWorkloadIdentityRequest extends Model
      */
     public $workloadIdentityName;
     protected $_name = [
+        'allowedConsentCallbackURLs' => 'AllowedConsentCallbackURLs',
         'allowedResourceOAuth2ReturnURLs' => 'AllowedResourceOAuth2ReturnURLs',
         'description' => 'Description',
         'identityProviderName' => 'IdentityProviderName',
@@ -48,6 +54,9 @@ class UpdateWorkloadIdentityRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->allowedConsentCallbackURLs)) {
+            Model::validateArray($this->allowedConsentCallbackURLs);
+        }
         if (\is_array($this->allowedResourceOAuth2ReturnURLs)) {
             Model::validateArray($this->allowedResourceOAuth2ReturnURLs);
         }
@@ -57,6 +66,17 @@ class UpdateWorkloadIdentityRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowedConsentCallbackURLs) {
+            if (\is_array($this->allowedConsentCallbackURLs)) {
+                $res['AllowedConsentCallbackURLs'] = [];
+                $n1 = 0;
+                foreach ($this->allowedConsentCallbackURLs as $item1) {
+                    $res['AllowedConsentCallbackURLs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->allowedResourceOAuth2ReturnURLs) {
             if (\is_array($this->allowedResourceOAuth2ReturnURLs)) {
                 $res['AllowedResourceOAuth2ReturnURLs'] = [];
@@ -99,6 +119,17 @@ class UpdateWorkloadIdentityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowedConsentCallbackURLs'])) {
+            if (!empty($map['AllowedConsentCallbackURLs'])) {
+                $model->allowedConsentCallbackURLs = [];
+                $n1 = 0;
+                foreach ($map['AllowedConsentCallbackURLs'] as $item1) {
+                    $model->allowedConsentCallbackURLs[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AllowedResourceOAuth2ReturnURLs'])) {
             if (!empty($map['AllowedResourceOAuth2ReturnURLs'])) {
                 $model->allowedResourceOAuth2ReturnURLs = [];

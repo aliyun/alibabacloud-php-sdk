@@ -1231,11 +1231,19 @@ class AgentIdentity extends OpenApiClient
         $tmpReq->validate();
         $request = new CreateWorkloadIdentityShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->allowedConsentCallbackURLs) {
+            $request->allowedConsentCallbackURLsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->allowedConsentCallbackURLs, 'AllowedConsentCallbackURLs', 'json');
+        }
+
         if (null !== $tmpReq->allowedResourceOAuth2ReturnURLs) {
             $request->allowedResourceOAuth2ReturnURLsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->allowedResourceOAuth2ReturnURLs, 'AllowedResourceOAuth2ReturnURLs', 'json');
         }
 
         $body = [];
+        if (null !== $request->allowedConsentCallbackURLsShrink) {
+            @$body['AllowedConsentCallbackURLs'] = $request->allowedConsentCallbackURLsShrink;
+        }
+
         if (null !== $request->allowedResourceOAuth2ReturnURLsShrink) {
             @$body['AllowedResourceOAuth2ReturnURLs'] = $request->allowedResourceOAuth2ReturnURLsShrink;
         }
@@ -4781,11 +4789,19 @@ class AgentIdentity extends OpenApiClient
         $tmpReq->validate();
         $request = new UpdateLoginPreferenceShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->allowedPostLogoutRedirectUris) {
+            $request->allowedPostLogoutRedirectUrisShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->allowedPostLogoutRedirectUris, 'AllowedPostLogoutRedirectUris', 'json');
+        }
+
         if (null !== $tmpReq->loginPreference) {
             $request->loginPreferenceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->loginPreference, 'LoginPreference', 'json');
         }
 
         $query = [];
+        if (null !== $request->allowedPostLogoutRedirectUrisShrink) {
+            @$query['AllowedPostLogoutRedirectUris'] = $request->allowedPostLogoutRedirectUrisShrink;
+        }
+
         if (null !== $request->loginPreferenceShrink) {
             @$query['LoginPreference'] = $request->loginPreferenceShrink;
         }
@@ -5424,11 +5440,19 @@ class AgentIdentity extends OpenApiClient
         $tmpReq->validate();
         $request = new UpdateWorkloadIdentityShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->allowedConsentCallbackURLs) {
+            $request->allowedConsentCallbackURLsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->allowedConsentCallbackURLs, 'AllowedConsentCallbackURLs', 'json');
+        }
+
         if (null !== $tmpReq->allowedResourceOAuth2ReturnURLs) {
             $request->allowedResourceOAuth2ReturnURLsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->allowedResourceOAuth2ReturnURLs, 'AllowedResourceOAuth2ReturnURLs', 'json');
         }
 
         $body = [];
+        if (null !== $request->allowedConsentCallbackURLsShrink) {
+            @$body['AllowedConsentCallbackURLs'] = $request->allowedConsentCallbackURLsShrink;
+        }
+
         if (null !== $request->allowedResourceOAuth2ReturnURLsShrink) {
             @$body['AllowedResourceOAuth2ReturnURLs'] = $request->allowedResourceOAuth2ReturnURLsShrink;
         }

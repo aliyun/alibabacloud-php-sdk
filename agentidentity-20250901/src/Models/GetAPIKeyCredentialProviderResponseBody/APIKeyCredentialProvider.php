@@ -31,6 +31,11 @@ class APIKeyCredentialProvider extends Model
     /**
      * @var string
      */
+    public $sourcePlatform;
+
+    /**
+     * @var string
+     */
     public $tokenVaultName;
 
     /**
@@ -42,6 +47,7 @@ class APIKeyCredentialProvider extends Model
         'createTime' => 'CreateTime',
         'credentialProviderArn' => 'CredentialProviderArn',
         'description' => 'Description',
+        'sourcePlatform' => 'SourcePlatform',
         'tokenVaultName' => 'TokenVaultName',
         'updateTime' => 'UpdateTime',
     ];
@@ -68,6 +74,10 @@ class APIKeyCredentialProvider extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->sourcePlatform) {
+            $res['SourcePlatform'] = $this->sourcePlatform;
         }
 
         if (null !== $this->tokenVaultName) {
@@ -103,6 +113,10 @@ class APIKeyCredentialProvider extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['SourcePlatform'])) {
+            $model->sourcePlatform = $map['SourcePlatform'];
         }
 
         if (isset($map['TokenVaultName'])) {

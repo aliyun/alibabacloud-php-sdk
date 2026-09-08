@@ -37,6 +37,11 @@ class OAuth2CredentialProviders extends Model
     /**
      * @var string
      */
+    public $IDaaSInstanceId;
+
+    /**
+     * @var string
+     */
     public $OAuth2CredentialProviderName;
 
     /**
@@ -48,6 +53,26 @@ class OAuth2CredentialProviders extends Model
      * @var string
      */
     public $OAuthType;
+
+    /**
+     * @var string
+     */
+    public $outboundApplicationId;
+
+    /**
+     * @var string
+     */
+    public $outboundAudience;
+
+    /**
+     * @var string
+     */
+    public $outboundClientId;
+
+    /**
+     * @var string
+     */
+    public $sourcePlatform;
 
     /**
      * @var string
@@ -64,9 +89,14 @@ class OAuth2CredentialProviders extends Model
         'credentialProviderArn' => 'CredentialProviderArn',
         'credentialProviderVendor' => 'CredentialProviderVendor',
         'description' => 'Description',
+        'IDaaSInstanceId' => 'IDaaSInstanceId',
         'OAuth2CredentialProviderName' => 'OAuth2CredentialProviderName',
         'OAuth2ProviderConfig' => 'OAuth2ProviderConfig',
         'OAuthType' => 'OAuthType',
+        'outboundApplicationId' => 'OutboundApplicationId',
+        'outboundAudience' => 'OutboundAudience',
+        'outboundClientId' => 'OutboundClientId',
+        'sourcePlatform' => 'SourcePlatform',
         'tokenVaultName' => 'TokenVaultName',
         'updateTime' => 'UpdateTime',
     ];
@@ -102,6 +132,10 @@ class OAuth2CredentialProviders extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->IDaaSInstanceId) {
+            $res['IDaaSInstanceId'] = $this->IDaaSInstanceId;
+        }
+
         if (null !== $this->OAuth2CredentialProviderName) {
             $res['OAuth2CredentialProviderName'] = $this->OAuth2CredentialProviderName;
         }
@@ -112,6 +146,22 @@ class OAuth2CredentialProviders extends Model
 
         if (null !== $this->OAuthType) {
             $res['OAuthType'] = $this->OAuthType;
+        }
+
+        if (null !== $this->outboundApplicationId) {
+            $res['OutboundApplicationId'] = $this->outboundApplicationId;
+        }
+
+        if (null !== $this->outboundAudience) {
+            $res['OutboundAudience'] = $this->outboundAudience;
+        }
+
+        if (null !== $this->outboundClientId) {
+            $res['OutboundClientId'] = $this->outboundClientId;
+        }
+
+        if (null !== $this->sourcePlatform) {
+            $res['SourcePlatform'] = $this->sourcePlatform;
         }
 
         if (null !== $this->tokenVaultName) {
@@ -153,6 +203,10 @@ class OAuth2CredentialProviders extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['IDaaSInstanceId'])) {
+            $model->IDaaSInstanceId = $map['IDaaSInstanceId'];
+        }
+
         if (isset($map['OAuth2CredentialProviderName'])) {
             $model->OAuth2CredentialProviderName = $map['OAuth2CredentialProviderName'];
         }
@@ -163,6 +217,22 @@ class OAuth2CredentialProviders extends Model
 
         if (isset($map['OAuthType'])) {
             $model->OAuthType = $map['OAuthType'];
+        }
+
+        if (isset($map['OutboundApplicationId'])) {
+            $model->outboundApplicationId = $map['OutboundApplicationId'];
+        }
+
+        if (isset($map['OutboundAudience'])) {
+            $model->outboundAudience = $map['OutboundAudience'];
+        }
+
+        if (isset($map['OutboundClientId'])) {
+            $model->outboundClientId = $map['OutboundClientId'];
+        }
+
+        if (isset($map['SourcePlatform'])) {
+            $model->sourcePlatform = $map['SourcePlatform'];
         }
 
         if (isset($map['TokenVaultName'])) {

@@ -52,6 +52,11 @@ class OAuth2CredentialProvider extends Model
     /**
      * @var string
      */
+    public $sourcePlatform;
+
+    /**
+     * @var string
+     */
     public $tokenVaultName;
 
     /**
@@ -67,6 +72,7 @@ class OAuth2CredentialProvider extends Model
         'OAuth2CredentialProviderName' => 'OAuth2CredentialProviderName',
         'OAuth2ProviderConfig' => 'OAuth2ProviderConfig',
         'OAuthType' => 'OAuthType',
+        'sourcePlatform' => 'SourcePlatform',
         'tokenVaultName' => 'TokenVaultName',
         'updateTime' => 'UpdateTime',
     ];
@@ -112,6 +118,10 @@ class OAuth2CredentialProvider extends Model
 
         if (null !== $this->OAuthType) {
             $res['OAuthType'] = $this->OAuthType;
+        }
+
+        if (null !== $this->sourcePlatform) {
+            $res['SourcePlatform'] = $this->sourcePlatform;
         }
 
         if (null !== $this->tokenVaultName) {
@@ -163,6 +173,10 @@ class OAuth2CredentialProvider extends Model
 
         if (isset($map['OAuthType'])) {
             $model->OAuthType = $map['OAuthType'];
+        }
+
+        if (isset($map['SourcePlatform'])) {
+            $model->sourcePlatform = $map['SourcePlatform'];
         }
 
         if (isset($map['TokenVaultName'])) {

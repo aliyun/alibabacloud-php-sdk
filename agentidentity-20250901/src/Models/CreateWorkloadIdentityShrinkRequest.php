@@ -11,6 +11,11 @@ class CreateWorkloadIdentityShrinkRequest extends Model
     /**
      * @var string
      */
+    public $allowedConsentCallbackURLsShrink;
+
+    /**
+     * @var string
+     */
     public $allowedResourceOAuth2ReturnURLsShrink;
 
     /**
@@ -53,6 +58,7 @@ class CreateWorkloadIdentityShrinkRequest extends Model
      */
     public $workloadIdentityName;
     protected $_name = [
+        'allowedConsentCallbackURLsShrink' => 'AllowedConsentCallbackURLs',
         'allowedResourceOAuth2ReturnURLsShrink' => 'AllowedResourceOAuth2ReturnURLs',
         'createRAMRole' => 'CreateRAMRole',
         'description' => 'Description',
@@ -72,6 +78,10 @@ class CreateWorkloadIdentityShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowedConsentCallbackURLsShrink) {
+            $res['AllowedConsentCallbackURLs'] = $this->allowedConsentCallbackURLsShrink;
+        }
+
         if (null !== $this->allowedResourceOAuth2ReturnURLsShrink) {
             $res['AllowedResourceOAuth2ReturnURLs'] = $this->allowedResourceOAuth2ReturnURLsShrink;
         }
@@ -119,6 +129,10 @@ class CreateWorkloadIdentityShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowedConsentCallbackURLs'])) {
+            $model->allowedConsentCallbackURLsShrink = $map['AllowedConsentCallbackURLs'];
+        }
+
         if (isset($map['AllowedResourceOAuth2ReturnURLs'])) {
             $model->allowedResourceOAuth2ReturnURLsShrink = $map['AllowedResourceOAuth2ReturnURLs'];
         }

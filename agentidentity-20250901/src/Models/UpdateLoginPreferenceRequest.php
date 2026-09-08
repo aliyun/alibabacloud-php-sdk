@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateLoginPreferenceRequest
 class UpdateLoginPreferenceRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $allowedPostLogoutRedirectUris;
+
+    /**
      * @var loginPreference
      */
     public $loginPreference;
@@ -19,12 +24,16 @@ class UpdateLoginPreferenceRequest extends Model
      */
     public $userPoolName;
     protected $_name = [
+        'allowedPostLogoutRedirectUris' => 'AllowedPostLogoutRedirectUris',
         'loginPreference' => 'LoginPreference',
         'userPoolName' => 'UserPoolName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->allowedPostLogoutRedirectUris)) {
+            Model::validateArray($this->allowedPostLogoutRedirectUris);
+        }
         if (null !== $this->loginPreference) {
             $this->loginPreference->validate();
         }
@@ -34,6 +43,17 @@ class UpdateLoginPreferenceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowedPostLogoutRedirectUris) {
+            if (\is_array($this->allowedPostLogoutRedirectUris)) {
+                $res['AllowedPostLogoutRedirectUris'] = [];
+                $n1 = 0;
+                foreach ($this->allowedPostLogoutRedirectUris as $item1) {
+                    $res['AllowedPostLogoutRedirectUris'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->loginPreference) {
             $res['LoginPreference'] = null !== $this->loginPreference ? $this->loginPreference->toArray($noStream) : $this->loginPreference;
         }
@@ -53,6 +73,17 @@ class UpdateLoginPreferenceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowedPostLogoutRedirectUris'])) {
+            if (!empty($map['AllowedPostLogoutRedirectUris'])) {
+                $model->allowedPostLogoutRedirectUris = [];
+                $n1 = 0;
+                foreach ($map['AllowedPostLogoutRedirectUris'] as $item1) {
+                    $model->allowedPostLogoutRedirectUris[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['LoginPreference'])) {
             $model->loginPreference = loginPreference::fromMap($map['LoginPreference']);
         }

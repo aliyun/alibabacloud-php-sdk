@@ -21,6 +21,16 @@ class userPool extends Model
     /**
      * @var string
      */
+    public $OIDCDiscoveryURL;
+
+    /**
+     * @var string
+     */
+    public $signinBaseURL;
+
+    /**
+     * @var string
+     */
     public $sourcePlatform;
 
     /**
@@ -40,6 +50,8 @@ class userPool extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'description' => 'Description',
+        'OIDCDiscoveryURL' => 'OIDCDiscoveryURL',
+        'signinBaseURL' => 'SigninBaseURL',
         'sourcePlatform' => 'SourcePlatform',
         'updateTime' => 'UpdateTime',
         'userPoolId' => 'UserPoolId',
@@ -60,6 +72,14 @@ class userPool extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->OIDCDiscoveryURL) {
+            $res['OIDCDiscoveryURL'] = $this->OIDCDiscoveryURL;
+        }
+
+        if (null !== $this->signinBaseURL) {
+            $res['SigninBaseURL'] = $this->signinBaseURL;
         }
 
         if (null !== $this->sourcePlatform) {
@@ -95,6 +115,14 @@ class userPool extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['OIDCDiscoveryURL'])) {
+            $model->OIDCDiscoveryURL = $map['OIDCDiscoveryURL'];
+        }
+
+        if (isset($map['SigninBaseURL'])) {
+            $model->signinBaseURL = $map['SigninBaseURL'];
         }
 
         if (isset($map['SourcePlatform'])) {
