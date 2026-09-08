@@ -42,6 +42,11 @@ class DescribeDedicatedHostsRequest extends Model
     /**
      * @var string
      */
+    public $needHostDetail;
+
+    /**
+     * @var string
+     */
     public $nextToken;
 
     /**
@@ -115,6 +120,7 @@ class DescribeDedicatedHostsRequest extends Model
         'dedicatedHostType' => 'DedicatedHostType',
         'lockReason' => 'LockReason',
         'maxResults' => 'MaxResults',
+        'needHostDetail' => 'NeedHostDetail',
         'nextToken' => 'NextToken',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -164,6 +170,10 @@ class DescribeDedicatedHostsRequest extends Model
 
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->needHostDetail) {
+            $res['NeedHostDetail'] = $this->needHostDetail;
         }
 
         if (null !== $this->nextToken) {
@@ -262,6 +272,10 @@ class DescribeDedicatedHostsRequest extends Model
 
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NeedHostDetail'])) {
+            $model->needHostDetail = $map['NeedHostDetail'];
         }
 
         if (isset($map['NextToken'])) {
