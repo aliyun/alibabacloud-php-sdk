@@ -11644,10 +11644,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Reports the publish result back to the system.
+     * Reports the publishing result.
      *
      * @remarks
-     * Reports the publish result back to the system.
+     * Reports the publishing result.
      *
      * @param request - ReportChannelPublishResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11663,6 +11663,10 @@ class WebsiteBuild extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->channelAccountName) {
+            @$query['ChannelAccountName'] = $request->channelAccountName;
+        }
+
         if (null !== $request->draftId) {
             @$query['DraftId'] = $request->draftId;
         }
@@ -11702,10 +11706,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Reports the publish result back to the system.
+     * Reports the publishing result.
      *
      * @remarks
-     * Reports the publish result back to the system.
+     * Reports the publishing result.
      *
      * @param request - ReportChannelPublishResultRequest
      *
@@ -12298,12 +12302,20 @@ class WebsiteBuild extends OpenApiClient
             @$query['AdaptedTitle'] = $request->adaptedTitle;
         }
 
+        if (null !== $request->channelAccountName) {
+            @$query['ChannelAccountName'] = $request->channelAccountName;
+        }
+
         if (null !== $request->coverImagesShrink) {
             @$query['CoverImages'] = $request->coverImagesShrink;
         }
 
         if (null !== $request->draftId) {
             @$query['DraftId'] = $request->draftId;
+        }
+
+        if (null !== $request->websiteNavName) {
+            @$query['WebsiteNavName'] = $request->websiteNavName;
         }
 
         $req = new OpenApiRequest([

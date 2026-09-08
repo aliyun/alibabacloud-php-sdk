@@ -11,6 +11,11 @@ class ReportChannelPublishResultRequest extends Model
     /**
      * @var string
      */
+    public $channelAccountName;
+
+    /**
+     * @var string
+     */
     public $draftId;
 
     /**
@@ -33,6 +38,7 @@ class ReportChannelPublishResultRequest extends Model
      */
     public $success;
     protected $_name = [
+        'channelAccountName' => 'ChannelAccountName',
         'draftId' => 'DraftId',
         'externalId' => 'ExternalId',
         'externalUrl' => 'ExternalUrl',
@@ -48,6 +54,10 @@ class ReportChannelPublishResultRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->channelAccountName) {
+            $res['ChannelAccountName'] = $this->channelAccountName;
+        }
+
         if (null !== $this->draftId) {
             $res['DraftId'] = $this->draftId;
         }
@@ -79,6 +89,10 @@ class ReportChannelPublishResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChannelAccountName'])) {
+            $model->channelAccountName = $map['ChannelAccountName'];
+        }
+
         if (isset($map['DraftId'])) {
             $model->draftId = $map['DraftId'];
         }

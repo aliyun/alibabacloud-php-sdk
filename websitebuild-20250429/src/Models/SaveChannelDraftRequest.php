@@ -20,6 +20,11 @@ class SaveChannelDraftRequest extends Model
     public $adaptedTitle;
 
     /**
+     * @var string
+     */
+    public $channelAccountName;
+
+    /**
      * @var coverImages[]
      */
     public $coverImages;
@@ -28,11 +33,18 @@ class SaveChannelDraftRequest extends Model
      * @var string
      */
     public $draftId;
+
+    /**
+     * @var string
+     */
+    public $websiteNavName;
     protected $_name = [
         'adaptedContent' => 'AdaptedContent',
         'adaptedTitle' => 'AdaptedTitle',
+        'channelAccountName' => 'ChannelAccountName',
         'coverImages' => 'CoverImages',
         'draftId' => 'DraftId',
+        'websiteNavName' => 'WebsiteNavName',
     ];
 
     public function validate()
@@ -54,6 +66,10 @@ class SaveChannelDraftRequest extends Model
             $res['AdaptedTitle'] = $this->adaptedTitle;
         }
 
+        if (null !== $this->channelAccountName) {
+            $res['ChannelAccountName'] = $this->channelAccountName;
+        }
+
         if (null !== $this->coverImages) {
             if (\is_array($this->coverImages)) {
                 $res['CoverImages'] = [];
@@ -67,6 +83,10 @@ class SaveChannelDraftRequest extends Model
 
         if (null !== $this->draftId) {
             $res['DraftId'] = $this->draftId;
+        }
+
+        if (null !== $this->websiteNavName) {
+            $res['WebsiteNavName'] = $this->websiteNavName;
         }
 
         return $res;
@@ -88,6 +108,10 @@ class SaveChannelDraftRequest extends Model
             $model->adaptedTitle = $map['AdaptedTitle'];
         }
 
+        if (isset($map['ChannelAccountName'])) {
+            $model->channelAccountName = $map['ChannelAccountName'];
+        }
+
         if (isset($map['CoverImages'])) {
             if (!empty($map['CoverImages'])) {
                 $model->coverImages = [];
@@ -101,6 +125,10 @@ class SaveChannelDraftRequest extends Model
 
         if (isset($map['DraftId'])) {
             $model->draftId = $map['DraftId'];
+        }
+
+        if (isset($map['WebsiteNavName'])) {
+            $model->websiteNavName = $map['WebsiteNavName'];
         }
 
         return $model;

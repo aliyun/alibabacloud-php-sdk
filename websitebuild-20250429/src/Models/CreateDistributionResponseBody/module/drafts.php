@@ -37,6 +37,11 @@ class drafts extends Model
     /**
      * @var string
      */
+    public $channelAccountName;
+
+    /**
+     * @var string
+     */
     public $channelName;
 
     /**
@@ -89,6 +94,7 @@ class drafts extends Model
         'adaptedTitle' => 'AdaptedTitle',
         'channel' => 'Channel',
         'channelAccount' => 'ChannelAccount',
+        'channelAccountName' => 'ChannelAccountName',
         'channelName' => 'ChannelName',
         'channelType' => 'ChannelType',
         'coverImages' => 'CoverImages',
@@ -130,6 +136,10 @@ class drafts extends Model
 
         if (null !== $this->channelAccount) {
             $res['ChannelAccount'] = $this->channelAccount;
+        }
+
+        if (null !== $this->channelAccountName) {
+            $res['ChannelAccountName'] = $this->channelAccountName;
         }
 
         if (null !== $this->channelName) {
@@ -208,6 +218,10 @@ class drafts extends Model
 
         if (isset($map['ChannelAccount'])) {
             $model->channelAccount = $map['ChannelAccount'];
+        }
+
+        if (isset($map['ChannelAccountName'])) {
+            $model->channelAccountName = $map['ChannelAccountName'];
         }
 
         if (isset($map['ChannelName'])) {

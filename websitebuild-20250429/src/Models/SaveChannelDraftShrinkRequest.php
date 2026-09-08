@@ -21,17 +21,29 @@ class SaveChannelDraftShrinkRequest extends Model
     /**
      * @var string
      */
+    public $channelAccountName;
+
+    /**
+     * @var string
+     */
     public $coverImagesShrink;
 
     /**
      * @var string
      */
     public $draftId;
+
+    /**
+     * @var string
+     */
+    public $websiteNavName;
     protected $_name = [
         'adaptedContent' => 'AdaptedContent',
         'adaptedTitle' => 'AdaptedTitle',
+        'channelAccountName' => 'ChannelAccountName',
         'coverImagesShrink' => 'CoverImages',
         'draftId' => 'DraftId',
+        'websiteNavName' => 'WebsiteNavName',
     ];
 
     public function validate()
@@ -50,12 +62,20 @@ class SaveChannelDraftShrinkRequest extends Model
             $res['AdaptedTitle'] = $this->adaptedTitle;
         }
 
+        if (null !== $this->channelAccountName) {
+            $res['ChannelAccountName'] = $this->channelAccountName;
+        }
+
         if (null !== $this->coverImagesShrink) {
             $res['CoverImages'] = $this->coverImagesShrink;
         }
 
         if (null !== $this->draftId) {
             $res['DraftId'] = $this->draftId;
+        }
+
+        if (null !== $this->websiteNavName) {
+            $res['WebsiteNavName'] = $this->websiteNavName;
         }
 
         return $res;
@@ -77,12 +97,20 @@ class SaveChannelDraftShrinkRequest extends Model
             $model->adaptedTitle = $map['AdaptedTitle'];
         }
 
+        if (isset($map['ChannelAccountName'])) {
+            $model->channelAccountName = $map['ChannelAccountName'];
+        }
+
         if (isset($map['CoverImages'])) {
             $model->coverImagesShrink = $map['CoverImages'];
         }
 
         if (isset($map['DraftId'])) {
             $model->draftId = $map['DraftId'];
+        }
+
+        if (isset($map['WebsiteNavName'])) {
+            $model->websiteNavName = $map['WebsiteNavName'];
         }
 
         return $model;
