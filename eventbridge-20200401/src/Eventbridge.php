@@ -127,6 +127,9 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PauseEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PauseEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PollAskResultRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PollAskResultResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutEventsRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutEventsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutEventsShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutTargetsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutTargetsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutTargetsShrinkRequest;
@@ -4173,6 +4176,79 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pollAskResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Sends events to an event bus.
+     *
+     * @remarks
+     * Sends one or more events to an event bus.
+     *
+     * @param tmpReq - PutEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutEventsResponse
+     *
+     * @param PutEventsRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return PutEventsResponse
+     */
+    public function putEventsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PutEventsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->eventList) {
+            $request->eventListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventList, 'EventList', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->eventBusName) {
+            @$body['EventBusName'] = $request->eventBusName;
+        }
+
+        if (null !== $request->eventListShrink) {
+            @$body['EventList'] = $request->eventListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PutEvents',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PutEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sends events to an event bus.
+     *
+     * @remarks
+     * Sends one or more events to an event bus.
+     *
+     * @param request - PutEventsRequest
+     *
+     * @returns PutEventsResponse
+     *
+     * @param PutEventsRequest $request
+     *
+     * @return PutEventsResponse
+     */
+    public function putEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putEventsWithOptions($request, $runtime);
     }
 
     /**

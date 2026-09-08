@@ -1,3 +1,7 @@
+2026-09-08 Version: 6.5.0
+- Support API PutEvents.
+
+
 2026-09-02 Version: 6.4.0
 - Support API GenerateAgentDataSemantics.
 - Support API GetAgentDataSemantics.
