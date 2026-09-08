@@ -1602,6 +1602,10 @@ class Paidlc extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->containers) {
+            @$query['Containers'] = $request->containers;
+        }
+
         if (null !== $request->downloadToFile) {
             @$query['DownloadToFile'] = $request->downloadToFile;
         }

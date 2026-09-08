@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class GetPodLogsResponseBody extends Model
 {
     /**
+     * @var ContainerInfo
+     */
+    public $containerInfo;
+
+    /**
+     * @var string
+     */
+    public $containers;
+
+    /**
      * @var string
      */
     public $jobId;
@@ -33,6 +43,8 @@ class GetPodLogsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'containerInfo' => 'ContainerInfo',
+        'containers' => 'Containers',
         'jobId' => 'JobId',
         'logs' => 'Logs',
         'podId' => 'PodId',
@@ -42,6 +54,9 @@ class GetPodLogsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->containerInfo) {
+            $this->containerInfo->validate();
+        }
         if (\is_array($this->logs)) {
             Model::validateArray($this->logs);
         }
@@ -51,6 +66,14 @@ class GetPodLogsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->containerInfo) {
+            $res['ContainerInfo'] = null !== $this->containerInfo ? $this->containerInfo->toArray($noStream) : $this->containerInfo;
+        }
+
+        if (null !== $this->containers) {
+            $res['Containers'] = $this->containers;
+        }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -89,6 +112,14 @@ class GetPodLogsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContainerInfo'])) {
+            $model->containerInfo = ContainerInfo::fromMap($map['ContainerInfo']);
+        }
+
+        if (isset($map['Containers'])) {
+            $model->containers = $map['Containers'];
+        }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

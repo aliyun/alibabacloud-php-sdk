@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class GetPodLogsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $containers;
+
+    /**
      * @var bool
      */
     public $downloadToFile;
@@ -33,6 +38,7 @@ class GetPodLogsRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'containers' => 'Containers',
         'downloadToFile' => 'DownloadToFile',
         'endTime' => 'EndTime',
         'maxLines' => 'MaxLines',
@@ -48,6 +54,10 @@ class GetPodLogsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->containers) {
+            $res['Containers'] = $this->containers;
+        }
+
         if (null !== $this->downloadToFile) {
             $res['DownloadToFile'] = $this->downloadToFile;
         }
@@ -79,6 +89,10 @@ class GetPodLogsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Containers'])) {
+            $model->containers = $map['Containers'];
+        }
+
         if (isset($map['DownloadToFile'])) {
             $model->downloadToFile = $map['DownloadToFile'];
         }
