@@ -20,12 +20,12 @@ class sessionConfig extends Model
     public $customAgentStage;
 
     /**
-     * @var string
+     * @var bool
      */
     public $enableSearch;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $kbUuidList;
 
@@ -35,7 +35,7 @@ class sessionConfig extends Model
     public $language;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $mcpServerIds;
 
@@ -103,6 +103,12 @@ class sessionConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->kbUuidList)) {
+            Model::validateArray($this->kbUuidList);
+        }
+        if (\is_array($this->mcpServerIds)) {
+            Model::validateArray($this->mcpServerIds);
+        }
         if (null !== $this->permissionConfig) {
             $this->permissionConfig->validate();
         }
@@ -128,7 +134,14 @@ class sessionConfig extends Model
         }
 
         if (null !== $this->kbUuidList) {
-            $res['KbUuidList'] = $this->kbUuidList;
+            if (\is_array($this->kbUuidList)) {
+                $res['KbUuidList'] = [];
+                $n1 = 0;
+                foreach ($this->kbUuidList as $item1) {
+                    $res['KbUuidList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->language) {
@@ -136,7 +149,14 @@ class sessionConfig extends Model
         }
 
         if (null !== $this->mcpServerIds) {
-            $res['McpServerIds'] = $this->mcpServerIds;
+            if (\is_array($this->mcpServerIds)) {
+                $res['McpServerIds'] = [];
+                $n1 = 0;
+                foreach ($this->mcpServerIds as $item1) {
+                    $res['McpServerIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->mode) {
@@ -206,7 +226,14 @@ class sessionConfig extends Model
         }
 
         if (isset($map['KbUuidList'])) {
-            $model->kbUuidList = $map['KbUuidList'];
+            if (!empty($map['KbUuidList'])) {
+                $model->kbUuidList = [];
+                $n1 = 0;
+                foreach ($map['KbUuidList'] as $item1) {
+                    $model->kbUuidList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Language'])) {
@@ -214,7 +241,14 @@ class sessionConfig extends Model
         }
 
         if (isset($map['McpServerIds'])) {
-            $model->mcpServerIds = $map['McpServerIds'];
+            if (!empty($map['McpServerIds'])) {
+                $model->mcpServerIds = [];
+                $n1 = 0;
+                foreach ($map['McpServerIds'] as $item1) {
+                    $model->mcpServerIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Mode'])) {
