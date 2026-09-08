@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteMediasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteMediasResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GenerateYikeLoginTokenRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GenerateYikeLoginTokenResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetAgentJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetAgentJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetAssetCategoryRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetAssetCategoryResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetImageGenerationJobRequest;
@@ -51,6 +53,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\ListInfiniteCanvasesRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListInfiniteCanvasesResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitAgentJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitAgentJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitImageGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitImageGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobRequest;
@@ -615,6 +619,63 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateYikeLoginTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries an agent asynchronous task.
+     *
+     * @param request - GetAgentJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentJobResponse
+     *
+     * @param GetAgentJobRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetAgentJobResponse
+     */
+    public function getAgentJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries an agent asynchronous task.
+     *
+     * @param request - GetAgentJobRequest
+     *
+     * @returns GetAgentJobResponse
+     *
+     * @param GetAgentJobRequest $request
+     *
+     * @return GetAgentJobResponse
+     */
+    public function getAgentJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1699,6 +1760,83 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * Submits an agent asynchronous node.
+     *
+     * @param request - SubmitAgentJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAgentJobResponse
+     *
+     * @param SubmitAgentJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitAgentJobResponse
+     */
+    public function submitAgentJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->notifyUrl) {
+            @$query['NotifyUrl'] = $request->notifyUrl;
+        }
+
+        if (null !== $request->prompt) {
+            @$query['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->skill) {
+            @$query['Skill'] = $request->skill;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAgentJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAgentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits an agent asynchronous node.
+     *
+     * @param request - SubmitAgentJobRequest
+     *
+     * @returns SubmitAgentJobResponse
+     *
+     * @param SubmitAgentJobRequest $request
+     *
+     * @return SubmitAgentJobResponse
+     */
+    public function submitAgentJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAgentJobWithOptions($request, $runtime);
+    }
+
+    /**
      * Submits an image generation task.
      *
      * @param request - SubmitImageGenerationJobRequest
@@ -1943,7 +2081,7 @@ class Yike extends OpenApiClient
      * Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
      *
      * @remarks
-     * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+     * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
      *
      * @param request - SubmitVideoDetextJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2001,7 +2139,7 @@ class Yike extends OpenApiClient
      * Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
      *
      * @remarks
-     * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+     * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
      *
      * @param request - SubmitVideoDetextJobRequest
      *
