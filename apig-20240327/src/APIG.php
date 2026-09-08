@@ -355,33 +355,6 @@ class APIG extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'ap-southeast-2' => 'apig.ap-southeast-2.aliyuncs.com',
-            'ap-southeast-6' => 'apig.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-7' => 'apig.ap-southeast-7.aliyuncs.com',
-            'cn-guangzhou' => 'apig.cn-guangzhou.aliyuncs.com',
-            'cn-heyuan' => 'apig.cn-heyuan.aliyuncs.com',
-            'cn-shenzhen' => 'apig.cn-shenzhen.aliyuncs.com',
-            'cn-wulanchabu' => 'apig.cn-wulanchabu.aliyuncs.com',
-            'cn-beijing' => 'apig.cn-beijing.aliyuncs.com',
-            'ap-northeast-2' => 'apig.ap-northeast-2.aliyuncs.com',
-            'ap-northeast-1' => 'apig.ap-northeast-1.aliyuncs.com',
-            'cn-chengdu' => 'apig.cn-chengdu.aliyuncs.com',
-            'cn-qingdao' => 'apig.cn-qingdao.aliyuncs.com',
-            'cn-shanghai' => 'apig.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'apig.cn-hongkong.aliyuncs.com',
-            'ap-southeast-1' => 'apig.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3' => 'apig.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-5' => 'apig.ap-southeast-5.aliyuncs.com',
-            'cn-zhangjiakou' => 'apig.cn-zhangjiakou.aliyuncs.com',
-            'cn-hangzhou' => 'apig.cn-hangzhou.aliyuncs.com',
-            'us-west-1' => 'apig.us-west-1.aliyuncs.com',
-            'us-east-1' => 'apig.us-east-1.aliyuncs.com',
-            'eu-central-1' => 'apig.eu-central-1.aliyuncs.com',
-            'eu-west-1' => 'apig.eu-west-1.aliyuncs.com',
-            'me-east-1' => 'apig.me-east-1.aliyuncs.com',
-            'me-central-1' => 'apig.me-central-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('apig', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -5743,7 +5716,7 @@ class APIG extends OpenApiClient
      * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
-     * Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+     * Queries the usage details of a specific subject under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      * @param headers - map
@@ -5764,6 +5737,10 @@ class APIG extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
         if (null !== $request->filterFailedRequests) {
             @$query['filterFailedRequests'] = $request->filterFailedRequests;
         }
@@ -5774,6 +5751,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
         }
 
         $req = new OpenApiRequest([
@@ -5799,7 +5780,7 @@ class APIG extends OpenApiClient
      * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
-     * Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+     * Queries the usage details of a specific subject under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      *

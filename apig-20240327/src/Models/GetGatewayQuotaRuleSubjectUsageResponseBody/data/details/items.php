@@ -14,6 +14,11 @@ class items extends Model
     public $cachedAmount;
 
     /**
+     * @var float
+     */
+    public $cachedAmountDecimal;
+
+    /**
      * @var string
      */
     public $consumer;
@@ -24,6 +29,11 @@ class items extends Model
     public $inputAmount;
 
     /**
+     * @var float
+     */
+    public $inputAmountDecimal;
+
+    /**
      * @var string
      */
     public $model;
@@ -32,6 +42,11 @@ class items extends Model
      * @var int
      */
     public $outputAmount;
+
+    /**
+     * @var float
+     */
+    public $outputAmountDecimal;
 
     /**
      * @var string
@@ -47,15 +62,24 @@ class items extends Model
      * @var int
      */
     public $usedAmount;
+
+    /**
+     * @var float
+     */
+    public $usedAmountDecimal;
     protected $_name = [
         'cachedAmount' => 'cachedAmount',
+        'cachedAmountDecimal' => 'cachedAmountDecimal',
         'consumer' => 'consumer',
         'inputAmount' => 'inputAmount',
+        'inputAmountDecimal' => 'inputAmountDecimal',
         'model' => 'model',
         'outputAmount' => 'outputAmount',
+        'outputAmountDecimal' => 'outputAmountDecimal',
         'requestId' => 'requestId',
         'startTime' => 'startTime',
         'usedAmount' => 'usedAmount',
+        'usedAmountDecimal' => 'usedAmountDecimal',
     ];
 
     public function validate()
@@ -70,6 +94,10 @@ class items extends Model
             $res['cachedAmount'] = $this->cachedAmount;
         }
 
+        if (null !== $this->cachedAmountDecimal) {
+            $res['cachedAmountDecimal'] = $this->cachedAmountDecimal;
+        }
+
         if (null !== $this->consumer) {
             $res['consumer'] = $this->consumer;
         }
@@ -78,12 +106,20 @@ class items extends Model
             $res['inputAmount'] = $this->inputAmount;
         }
 
+        if (null !== $this->inputAmountDecimal) {
+            $res['inputAmountDecimal'] = $this->inputAmountDecimal;
+        }
+
         if (null !== $this->model) {
             $res['model'] = $this->model;
         }
 
         if (null !== $this->outputAmount) {
             $res['outputAmount'] = $this->outputAmount;
+        }
+
+        if (null !== $this->outputAmountDecimal) {
+            $res['outputAmountDecimal'] = $this->outputAmountDecimal;
         }
 
         if (null !== $this->requestId) {
@@ -96,6 +132,10 @@ class items extends Model
 
         if (null !== $this->usedAmount) {
             $res['usedAmount'] = $this->usedAmount;
+        }
+
+        if (null !== $this->usedAmountDecimal) {
+            $res['usedAmountDecimal'] = $this->usedAmountDecimal;
         }
 
         return $res;
@@ -113,6 +153,10 @@ class items extends Model
             $model->cachedAmount = $map['cachedAmount'];
         }
 
+        if (isset($map['cachedAmountDecimal'])) {
+            $model->cachedAmountDecimal = $map['cachedAmountDecimal'];
+        }
+
         if (isset($map['consumer'])) {
             $model->consumer = $map['consumer'];
         }
@@ -121,12 +165,20 @@ class items extends Model
             $model->inputAmount = $map['inputAmount'];
         }
 
+        if (isset($map['inputAmountDecimal'])) {
+            $model->inputAmountDecimal = $map['inputAmountDecimal'];
+        }
+
         if (isset($map['model'])) {
             $model->model = $map['model'];
         }
 
         if (isset($map['outputAmount'])) {
             $model->outputAmount = $map['outputAmount'];
+        }
+
+        if (isset($map['outputAmountDecimal'])) {
+            $model->outputAmountDecimal = $map['outputAmountDecimal'];
         }
 
         if (isset($map['requestId'])) {
@@ -139,6 +191,10 @@ class items extends Model
 
         if (isset($map['usedAmount'])) {
             $model->usedAmount = $map['usedAmount'];
+        }
+
+        if (isset($map['usedAmountDecimal'])) {
+            $model->usedAmountDecimal = $map['usedAmountDecimal'];
         }
 
         return $model;

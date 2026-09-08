@@ -15,6 +15,11 @@ class data extends Model
     public $cachedAmount;
 
     /**
+     * @var float
+     */
+    public $cachedAmountDecimal;
+
+    /**
      * @var details
      */
     public $details;
@@ -25,14 +30,29 @@ class data extends Model
     public $inputAmount;
 
     /**
+     * @var float
+     */
+    public $inputAmountDecimal;
+
+    /**
      * @var int
      */
     public $outputAmount;
 
     /**
+     * @var float
+     */
+    public $outputAmountDecimal;
+
+    /**
      * @var bool
      */
     public $overLimit;
+
+    /**
+     * @var string
+     */
+    public $quotaDimension;
 
     /**
      * @var string
@@ -48,15 +68,25 @@ class data extends Model
      * @var int
      */
     public $usedAmount;
+
+    /**
+     * @var float
+     */
+    public $usedAmountDecimal;
     protected $_name = [
         'cachedAmount' => 'cachedAmount',
+        'cachedAmountDecimal' => 'cachedAmountDecimal',
         'details' => 'details',
         'inputAmount' => 'inputAmount',
+        'inputAmountDecimal' => 'inputAmountDecimal',
         'outputAmount' => 'outputAmount',
+        'outputAmountDecimal' => 'outputAmountDecimal',
         'overLimit' => 'overLimit',
+        'quotaDimension' => 'quotaDimension',
         'subjectType' => 'subjectType',
         'totalQuota' => 'totalQuota',
         'usedAmount' => 'usedAmount',
+        'usedAmountDecimal' => 'usedAmountDecimal',
     ];
 
     public function validate()
@@ -74,6 +104,10 @@ class data extends Model
             $res['cachedAmount'] = $this->cachedAmount;
         }
 
+        if (null !== $this->cachedAmountDecimal) {
+            $res['cachedAmountDecimal'] = $this->cachedAmountDecimal;
+        }
+
         if (null !== $this->details) {
             $res['details'] = null !== $this->details ? $this->details->toArray($noStream) : $this->details;
         }
@@ -82,12 +116,24 @@ class data extends Model
             $res['inputAmount'] = $this->inputAmount;
         }
 
+        if (null !== $this->inputAmountDecimal) {
+            $res['inputAmountDecimal'] = $this->inputAmountDecimal;
+        }
+
         if (null !== $this->outputAmount) {
             $res['outputAmount'] = $this->outputAmount;
         }
 
+        if (null !== $this->outputAmountDecimal) {
+            $res['outputAmountDecimal'] = $this->outputAmountDecimal;
+        }
+
         if (null !== $this->overLimit) {
             $res['overLimit'] = $this->overLimit;
+        }
+
+        if (null !== $this->quotaDimension) {
+            $res['quotaDimension'] = $this->quotaDimension;
         }
 
         if (null !== $this->subjectType) {
@@ -100,6 +146,10 @@ class data extends Model
 
         if (null !== $this->usedAmount) {
             $res['usedAmount'] = $this->usedAmount;
+        }
+
+        if (null !== $this->usedAmountDecimal) {
+            $res['usedAmountDecimal'] = $this->usedAmountDecimal;
         }
 
         return $res;
@@ -117,6 +167,10 @@ class data extends Model
             $model->cachedAmount = $map['cachedAmount'];
         }
 
+        if (isset($map['cachedAmountDecimal'])) {
+            $model->cachedAmountDecimal = $map['cachedAmountDecimal'];
+        }
+
         if (isset($map['details'])) {
             $model->details = details::fromMap($map['details']);
         }
@@ -125,12 +179,24 @@ class data extends Model
             $model->inputAmount = $map['inputAmount'];
         }
 
+        if (isset($map['inputAmountDecimal'])) {
+            $model->inputAmountDecimal = $map['inputAmountDecimal'];
+        }
+
         if (isset($map['outputAmount'])) {
             $model->outputAmount = $map['outputAmount'];
         }
 
+        if (isset($map['outputAmountDecimal'])) {
+            $model->outputAmountDecimal = $map['outputAmountDecimal'];
+        }
+
         if (isset($map['overLimit'])) {
             $model->overLimit = $map['overLimit'];
+        }
+
+        if (isset($map['quotaDimension'])) {
+            $model->quotaDimension = $map['quotaDimension'];
         }
 
         if (isset($map['subjectType'])) {
@@ -143,6 +209,10 @@ class data extends Model
 
         if (isset($map['usedAmount'])) {
             $model->usedAmount = $map['usedAmount'];
+        }
+
+        if (isset($map['usedAmountDecimal'])) {
+            $model->usedAmountDecimal = $map['usedAmountDecimal'];
         }
 
         return $model;
