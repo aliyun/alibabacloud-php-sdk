@@ -13,6 +13,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $accessChannelId;
+
+    /**
+     * @var string
+     */
     public $accessChannelName;
 
     /**
@@ -315,6 +320,7 @@ class list_ extends Model
      */
     public $waitTime;
     protected $_name = [
+        'accessChannelId' => 'AccessChannelId',
         'accessChannelName' => 'AccessChannelName',
         'accessChannelType' => 'AccessChannelType',
         'accessChannelUserId' => 'AccessChannelUserId',
@@ -392,6 +398,10 @@ class list_ extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessChannelId) {
+            $res['AccessChannelId'] = $this->accessChannelId;
+        }
+
         if (null !== $this->accessChannelName) {
             $res['AccessChannelName'] = $this->accessChannelName;
         }
@@ -647,6 +657,10 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessChannelId'])) {
+            $model->accessChannelId = $map['AccessChannelId'];
+        }
+
         if (isset($map['AccessChannelName'])) {
             $model->accessChannelName = $map['AccessChannelName'];
         }

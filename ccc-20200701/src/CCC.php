@@ -587,7 +587,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 废弃预测式外呼活动.
+     * Invoke AbortCampaign to stop the predictive outbound calling Activity corresponding to the specified Activity ID under the specified instance.
      *
      * @param request - AbortCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -630,7 +630,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 废弃预测式外呼活动.
+     * Invoke AbortCampaign to stop the predictive outbound calling Activity corresponding to the specified Activity ID under the specified instance.
      *
      * @param request - AbortCampaignRequest
      *
@@ -648,6 +648,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Call this operation to accept a chat.
+     *
      * @param request - AcceptChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -689,6 +691,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Call this operation to accept a chat.
+     *
      * @param request - AcceptChatRequest
      *
      * @returns AcceptChatResponse
@@ -705,7 +709,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 编辑呼入控制号码
+     * Adds a blacklist tag to a specified phone number. You can use this feature with your Interactive Voice Response (IVR) settings to block frequent harassing calls.
      *
      * @param request - AddBlacklistCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -752,7 +756,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 编辑呼入控制号码
+     * Adds a blacklist tag to a specified phone number. You can use this feature with your Interactive Voice Response (IVR) settings to block frequent harassing calls.
      *
      * @param request - AddBlacklistCallTaggingRequest
      *
@@ -770,7 +774,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 追加联系人.
+     * Invoke AddCases to add an outbound call list to a predictive dialing activity identified by a specified ID under a specified instance.
      *
      * @param tmpReq - AddCasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -823,7 +827,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 追加联系人.
+     * Invoke AddCases to add an outbound call list to a predictive dialing activity identified by a specified ID under a specified instance.
      *
      * @param request - AddCasesRequest
      *
@@ -841,6 +845,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use the AddFeedback API to evaluate and rate AI features.
+     *
      * @param request - AddFeedbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -894,6 +900,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use the AddFeedback API to evaluate and rate AI features.
+     *
      * @param request - AddFeedbackRequest
      *
      * @returns AddFeedbackResponse
@@ -910,7 +918,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 技能组添加号码
+     * Adds one or more phone numbers to a skill group by calling AddNumbersToSkillGroup.
      *
      * @param request - AddNumbersToSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -961,7 +969,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 技能组添加号码
+     * Adds one or more phone numbers to a skill group by calling AddNumbersToSkillGroup.
      *
      * @param request - AddNumbersToSkillGroupRequest
      *
@@ -979,7 +987,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 增加个人号码
+     * You can invoke AddPersonalNumbersToUser to add one or more personal outbound numbers to a specified agent under a specified instance.
      *
      * @param request - AddPersonalNumbersToUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1026,7 +1034,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 增加个人号码
+     * You can invoke AddPersonalNumbersToUser to add one or more personal outbound numbers to a specified agent under a specified instance.
      *
      * @param request - AddPersonalNumbersToUserRequest
      *
@@ -1044,7 +1052,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 技能组添加号码
+     * You can invoke AddPhoneNumberToSkillGroups to associate a phone number with one or more skill groups under a specified instance.
      *
      * @param request - AddPhoneNumberToSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1091,7 +1099,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 技能组添加号码
+     * You can invoke AddPhoneNumberToSkillGroups to associate a phone number with one or more skill groups under a specified instance.
      *
      * @param request - AddPhoneNumberToSkillGroupsRequest
      *
@@ -1109,7 +1117,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 添加号码
+     * You can invoke AddPhoneNumbers to add one or more phone numbers to a specified instance.
      *
      * @param request - AddPhoneNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1164,7 +1172,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 添加号码
+     * You can invoke AddPhoneNumbers to add one or more phone numbers to a specified instance.
      *
      * @param request - AddPhoneNumbersRequest
      *
@@ -1253,7 +1261,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 技能组添加用户.
+     * You can invoke AddSkillGroupsToUser to add one or more skill groups to a specified agent under a specified instance.
      *
      * @param request - AddSkillGroupsToUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1300,7 +1308,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 技能组添加用户.
+     * You can invoke AddSkillGroupsToUser to add one or more skill groups to a specified agent under a specified instance.
      *
      * @param request - AddSkillGroupsToUserRequest
      *
@@ -1318,6 +1326,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use AddTicketTask to add a signature and assign an assignee.
+     *
      * @param request - AddTicketTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1375,6 +1385,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use AddTicketTask to add a signature and assign an assignee.
+     *
      * @param request - AddTicketTaskRequest
      *
      * @returns AddTicketTaskResponse
@@ -1391,7 +1403,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 技能组添加用户.
+     * You can invoke AddUsersToSkillGroup to add one or more agents to the same skill group.
      *
      * @param request - AddUsersToSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1438,7 +1450,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 技能组添加用户.
+     * You can invoke AddUsersToSkillGroup to add one or more agents to the same skill group.
      *
      * @param request - AddUsersToSkillGroupRequest
      *
@@ -1456,7 +1468,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 分析对话.
+     * Analyze the specified text-based conversation content and extract summary-related information, such as the title, keywords, summary, and other specified details.
+     *
+     * @remarks
+     * This API can be used for both online chat sessions and voice sessions. When used for voice sessions, the real-time speech-to-text transcription feature must be enabled.
      *
      * @param request - AnalyzeConversationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1507,7 +1522,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 分析对话.
+     * Analyze the specified text-based conversation content and extract summary-related information, such as the title, keywords, summary, and other specified details.
+     *
+     * @remarks
+     * This API can be used for both online chat sessions and voice sessions. When used for voice sessions, the real-time speech-to-text transcription feature must be enabled.
      *
      * @param request - AnalyzeConversationRequest
      *
@@ -1525,7 +1543,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 接电话.
+     * You can invoke AnswerCall to answer the call associated with a specified call ID under a specified instance.
      *
      * @param request - AnswerCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1576,7 +1594,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 接电话.
+     * You can invoke AnswerCall to answer the call associated with a specified call ID under a specified instance.
      *
      * @param request - AnswerCallRequest
      *
@@ -1594,7 +1612,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 追加联系人.
+     * Adds cases to a predictive campaign in a specified instance.
      *
      * @param tmpReq - AppendCasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1649,7 +1667,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 追加联系人.
+     * Adds cases to a predictive campaign in a specified instance.
      *
      * @param request - AppendCasesRequest
      *
@@ -1667,7 +1685,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 导入坐席.
+     * Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+     *
+     * @remarks
+     * Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
      *
      * @deprecated openAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead
      *
@@ -1729,7 +1750,10 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * 导入坐席.
+     * Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+     *
+     * @remarks
+     * Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
      *
      * @deprecated openAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead
      *
@@ -1749,7 +1773,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * BargeInCall.
+     * You can invoke BargeInCall to forcibly insert into an ongoing call associated with a specified call ID under a specified instance. After the forced insertion succeeds, the original two-party call becomes a three-party conference call.
      *
      * @param request - BargeInCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1808,7 +1832,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * BargeInCall.
+     * You can invoke BargeInCall to forcibly insert into an ongoing call associated with a specified call ID under a specified instance. After the forced insertion succeeds, the original two-party call becomes a three-party conference call.
      *
      * @param request - BargeInCallRequest
      *
@@ -1826,7 +1850,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 盲转.
+     * Directly transfer a call to another agent, a skill group queue, or an external number. Direct transfer is also known as blind transfer or single-step transfer.
      *
      * @param request - BlindTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1929,7 +1953,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 盲转.
+     * Directly transfer a call to another agent, a skill group queue, or an external number. Direct transfer is also known as blind transfer or single-step transfer.
      *
      * @param request - BlindTransferRequest
      *
@@ -2036,7 +2060,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 关注转-取消.
+     * You can invoke the CancelAttendedTransfer API to cancel an attended transfer. You can call this API at any time after initiating the attended transfer and before completing it, even if the transferee has already answered the call.
      *
      * @param request - CancelAttendedTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2087,7 +2111,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 关注转-取消.
+     * You can invoke the CancelAttendedTransfer API to cancel an attended transfer. You can call this API at any time after initiating the attended transfer and before completing it, even if the transferee has already answered the call.
      *
      * @param request - CancelAttendedTransferRequest
      *
@@ -2105,7 +2129,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改隐身状态(等同于仅外呼场景).
+     * Changes an agent\\"s status to invisible. This is equivalent to the outbound-only mode.
      *
      * @param request - ChangeVisibilityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2152,7 +2176,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改隐身状态(等同于仅外呼场景).
+     * Changes an agent\\"s status to invisible. This is equivalent to the outbound-only mode.
      *
      * @param request - ChangeVisibilityRequest
      *
@@ -2170,7 +2194,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改坐席工作模式.
+     * You can invoke ChangeWorkMode to change the agent\\"s work mode.
      *
      * @param request - ChangeWorkModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2229,7 +2253,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改坐席工作模式.
+     * You can invoke ChangeWorkMode to change the agent\\"s work mode.
      *
      * @param request - ChangeWorkModeRequest
      *
@@ -2247,7 +2271,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 认领电话.
+     * Call the `ClaimCall` API to assign a call to an agent.
      *
      * @param request - ClaimCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2306,7 +2330,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 认领电话.
+     * Call the `ClaimCall` API to assign a call to an agent.
      *
      * @param request - ClaimCallRequest
      *
@@ -2324,6 +2348,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can call ClaimChat to claim the chat for a specified Job ID in a specified instance.
+     *
      * @param request - ClaimChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2369,6 +2395,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can call ClaimChat to claim the chat for a specified Job ID in a specified instance.
+     *
      * @param request - ClaimChatRequest
      *
      * @returns ClaimChatResponse
@@ -2385,7 +2413,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 辅导
+     * You can invoke CoachCall to coach a specified agent in a specified call (identified by a call ID) under a specified instance. During the coaching session, the coached agent can hear the coach\\"s voice, but the customer cannot hear the coach\\"s voice.
      *
      * @param request - CoachCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2444,7 +2472,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 辅导
+     * You can invoke CoachCall to coach a specified agent in a specified call (identified by a call ID) under a specified instance. During the coaching session, the coached agent can hear the coach\\"s voice, but the customer cannot hear the coach\\"s voice.
      *
      * @param request - CoachCallRequest
      *
@@ -2462,7 +2490,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 提交ivr流程.
+     * Commits a contact flow.
      *
      * @param request - CommitContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2517,7 +2545,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 提交ivr流程.
+     * Commits a contact flow.
      *
      * @param request - CommitContactFlowRequest
      *
@@ -2535,7 +2563,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 关注转-完成.
+     * You can invoke CompleteAttendedTransfer to complete a consultative transfer.
      *
      * @param request - CompleteAttendedTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2586,7 +2614,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 关注转-完成.
+     * You can invoke CompleteAttendedTransfer to complete a consultative transfer.
      *
      * @param request - CompleteAttendedTransferRequest
      *
@@ -2604,7 +2632,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建媒体文件.
+     * You can invoke CreateAudioFile to create an audio resource under a specified instance. The created audio resource can be used in the instance, such as selecting the audio file for playback during IVR.
      *
      * @param request - CreateAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2659,7 +2687,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建媒体文件.
+     * You can invoke CreateAudioFile to create an audio resource under a specified instance. The created audio resource can be used in the instance, such as selecting the audio file for playback during IVR.
      *
      * @param request - CreateAudioFileRequest
      *
@@ -2677,7 +2705,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建会话小结.
+     * Use the CreateCallSummary operation to create a call summary.
      *
      * @param request - CreateCallSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2728,7 +2756,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建会话小结.
+     * Use the CreateCallSummary operation to create a call summary.
      *
      * @param request - CreateCallSummaryRequest
      *
@@ -2746,7 +2774,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 批量创建号码标签.
+     * You can invoke CreateCallTags to create multiple call tags under a specified instance.
      *
      * @param request - CreateCallTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2789,7 +2817,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 批量创建号码标签.
+     * You can invoke CreateCallTags to create multiple call tags under a specified instance.
      *
      * @param request - CreateCallTagsRequest
      *
@@ -2807,7 +2835,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建预测式外呼活动.
+     * You can invoke CreateCampaign to create a predictive outbound calling activity under a specified instance.
      *
      * @param tmpReq - CreateCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2928,7 +2956,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建预测式外呼活动.
+     * You can invoke CreateCampaign to create a predictive outbound calling activity under a specified instance.
      *
      * @param request - CreateCampaignRequest
      *
@@ -3007,7 +3035,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建ivr流程.
+     * Creates an IVR flow.
      *
      * @param request - CreateContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3062,7 +3090,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建ivr流程.
+     * Creates an IVR flow.
      *
      * @param request - CreateContactFlowRequest
      *
@@ -3080,7 +3108,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建呼入控制号码
+     * You can invoke CreateCustomCallTagging to create one or more inbound number tags under a specified instance.
      *
      * @deprecated openAPI CreateCustomCallTagging is deprecated, please use CCC::2020-07-01::CreateCustomCallTaggings instead
      *
@@ -3126,7 +3154,7 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * 创建呼入控制号码
+     * You can invoke CreateCustomCallTagging to create one or more inbound number tags under a specified instance.
      *
      * @deprecated openAPI CreateCustomCallTagging is deprecated, please use CCC::2020-07-01::CreateCustomCallTaggings instead
      *
@@ -3146,7 +3174,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Invoke CreateInstance to create a Cloud Contact Center instance.
      *
      * @param request - CreateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3201,7 +3229,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Invoke CreateInstance to create a Cloud Contact Center instance.
      *
      * @param request - CreateInstanceRequest
      *
@@ -3294,7 +3322,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建技能组.
+     * You can call CreateSkillGroup to create a skill group under a specified instance.
      *
      * @param request - CreateSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3349,7 +3377,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建技能组.
+     * You can call CreateSkillGroup to create a skill group under a specified instance.
      *
      * @param request - CreateSkillGroupRequest
      *
@@ -3367,6 +3395,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use CreateTicket to create a ticket.
+     *
      * @param request - CreateTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3428,6 +3458,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use CreateTicket to create a ticket.
+     *
      * @param request - CreateTicketRequest
      *
      * @returns CreateTicketResponse
@@ -3444,7 +3476,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建坐席.
+     * Call the CreateUser operation to create a new agent in a specified instance.
+     *
+     * @remarks
+     * Creating an agent is equivalent to creating a Resource Access Management (RAM) sub-account. Agents in Cloud Contact Center are mapped to RAM sub-accounts. Therefore, the parameters for creating an agent are similar to those for creating a RAM account. For example, LoginName is the logon name for the RAM account. Email is the email address associated with the RAM account. This email address receives an email containing the initial logon password for the RAM account.
      *
      * @param request - CreateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3531,7 +3566,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 创建坐席.
+     * Call the CreateUser operation to create a new agent in a specified instance.
+     *
+     * @remarks
+     * Creating an agent is equivalent to creating a Resource Access Management (RAM) sub-account. Agents in Cloud Contact Center are mapped to RAM sub-accounts. Therefore, the parameters for creating an agent are similar to those for creating a RAM account. For example, LoginName is the logon name for the RAM account. Email is the email address associated with the RAM account. This email address receives an email containing the initial logon password for the RAM account.
      *
      * @param request - CreateUserRequest
      *
@@ -3549,7 +3587,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除语音文件.
+     * You can invoke DeleteAudioFile to delete the audio file associated with a specified audio resource ID under a specified instance.
      *
      * @param request - DeleteAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3592,7 +3630,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除语音文件.
+     * You can invoke DeleteAudioFile to delete the audio file associated with a specified audio resource ID under a specified instance.
      *
      * @param request - DeleteAudioFileRequest
      *
@@ -3610,7 +3648,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除号码标签.
+     * You can invoke DeleteCallTag to delete a phone number tag under a specified instance.
      *
      * @param request - DeleteCallTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3653,7 +3691,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除号码标签.
+     * You can invoke DeleteCallTag to delete a phone number tag under a specified instance.
      *
      * @param request - DeleteCallTagRequest
      *
@@ -3671,7 +3709,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除ivr流程.
+     * Deletes the specified contact flow.
      *
      * @param request - DeleteContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3718,7 +3756,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除ivr流程.
+     * Deletes the specified contact flow.
      *
      * @param request - DeleteContactFlowRequest
      *
@@ -3736,7 +3774,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除呼入控制号码
+     * You can invoke DeleteCustomCallTagging to delete the inbound number tag associated with a specified number under a specified instance.
      *
      * @param request - DeleteCustomCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3779,7 +3817,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除呼入控制号码
+     * You can invoke DeleteCustomCallTagging to delete the inbound number tag associated with a specified number under a specified instance.
      *
      * @param request - DeleteCustomCallTaggingRequest
      *
@@ -4112,7 +4150,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除技能组.
+     * Invoke DeleteSkillGroup to delete the skill group associated with the specified skill group ID under the specified instance.
      *
      * @param request - DeleteSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4159,7 +4197,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除技能组.
+     * Invoke DeleteSkillGroup to delete the skill group associated with the specified skill group ID under the specified instance.
      *
      * @param request - DeleteSkillGroupRequest
      *
@@ -4177,6 +4215,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a specified ticket.
+     *
      * @param request - DeleteTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4218,6 +4258,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a specified ticket.
+     *
      * @param request - DeleteTicketRequest
      *
      * @returns DeleteTicketResponse
@@ -4234,6 +4276,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a specified ticket template.
+     *
      * @param request - DeleteTicketTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4275,6 +4319,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a specified ticket template.
+     *
      * @param request - DeleteTicketTemplateRequest
      *
      * @returns DeleteTicketTemplateResponse
@@ -4356,6 +4402,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use the DisableTicketTemplate operation to disable a ticket template. A disabled template cannot be selected when you create a new ticket.
+     *
      * @param request - DisableTicketTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4397,6 +4445,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use the DisableTicketTemplate operation to disable a ticket template. A disabled template cannot be selected when you create a new ticket.
+     *
      * @param request - DisableTicketTemplateRequest
      *
      * @returns DisableTicketTemplateResponse
@@ -4413,7 +4463,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 废弃当前IVR流程.
+     * Revoke contact flow editing and discard the associated draft.
      *
      * @param request - DiscardEditingContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4460,7 +4510,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 废弃当前IVR流程.
+     * Revoke contact flow editing and discard the associated draft.
      *
      * @param request - DiscardEditingContactFlowRequest
      *
@@ -4543,6 +4593,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * The EnableTicketTemplate operation publishes a ticket template. Published ticket templates can be used to create tickets.
+     *
      * @param request - EnableTicketTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4584,6 +4636,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * The EnableTicketTemplate operation publishes a ticket template. Published ticket templates can be used to create tickets.
+     *
      * @param request - EnableTicketTemplateRequest
      *
      * @returns EnableTicketTemplateResponse
@@ -4600,7 +4654,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 结束会议.
+     * You can invoke EndConference to make the specified agent exit the call associated with the specified call ID under the specified instance. The call must be in a conference state.
      *
      * @param request - EndConferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4647,7 +4701,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 结束会议.
+     * You can invoke EndConference to make the specified agent exit the call associated with the specified call ID under the specified instance. The call must be in a conference state.
      *
      * @param request - EndConferenceRequest
      *
@@ -4726,7 +4780,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 导出全部呼入号码标签.
+     * You can invoke ExportCustomCallTagging to export all inbound number tags under a specified instance.
      *
      * @deprecated openAPI ExportCustomCallTagging is deprecated, please use CCC::2020-07-01::ExportCustomCallTaggings instead
      *
@@ -4768,7 +4822,7 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * 导出全部呼入号码标签.
+     * You can invoke ExportCustomCallTagging to export all inbound number tags under a specified instance.
      *
      * @deprecated openAPI ExportCustomCallTagging is deprecated, please use CCC::2020-07-01::ExportCustomCallTaggings instead
      *
@@ -4788,7 +4842,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 导出黑名单号码
+     * The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
      *
      * @param request - ExportDoNotCallNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4835,7 +4889,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 导出黑名单号码
+     * The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
      *
      * @param request - ExportDoNotCallNumbersRequest
      *
@@ -4853,6 +4907,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use the FinishTicketTask operation to process tickets.
+     *
      * @param request - FinishTicketTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4902,6 +4958,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use the FinishTicketTask operation to process tickets.
+     *
      * @param request - FinishTicketTaskRequest
      *
      * @returns FinishTicketTaskResponse
@@ -4971,7 +5029,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取音频文件.
+     * Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
      *
      * @param request - GetAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5014,7 +5072,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取音频文件.
+     * Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
      *
      * @param request - GetAudioFileRequest
      *
@@ -5032,7 +5090,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取录音文件下载链接.
+     * Invoke GetAudioFileDownloadUrl to obtain the OSS download link for a specified audio resource under a specified instance.
      *
      * @param request - GetAudioFileDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5075,7 +5133,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取录音文件下载链接.
+     * Invoke GetAudioFileDownloadUrl to obtain the OSS download link for a specified audio resource under a specified instance.
      *
      * @param request - GetAudioFileDownloadUrlRequest
      *
@@ -5093,7 +5151,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取录音文件上传参数.
+     * Invoke the GetAudioFileUploadParameters API to obtain audio file upload parameters. Before creating an audio file, you must first call this API to retrieve the upload parameters and then call CreateAudioFile to create the audio file. This API is typically invoked by the default public cloud CRM system provided by Cloud Contact Center. It is not recommended for integration customers to call this API directly, because file upload must be performed through a Page operation first; only after the upload is complete can the GetAudioFileUploadParameters API be called.
      *
      * @param request - GetAudioFileUploadParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5136,7 +5194,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取录音文件上传参数.
+     * Invoke the GetAudioFileUploadParameters API to obtain audio file upload parameters. Before creating an audio file, you must first call this API to retrieve the upload parameters and then call CreateAudioFile to create the audio file. This API is typically invoked by the default public cloud CRM system provided by Cloud Contact Center. It is not recommended for integration customers to call this API directly, because file upload must be performed through a Page operation first; only after the upload is complete can the GetAudioFileUploadParameters API be called.
      *
      * @param request - GetAudioFileUploadParametersRequest
      *
@@ -5154,7 +5212,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 通话记录详情.
+     * You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
      *
      * @param request - GetCallDetailRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5197,7 +5255,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 通话记录详情.
+     * You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
      *
      * @param request - GetCallDetailRecordRequest
      *
@@ -5215,7 +5273,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼活动信息.
+     * Gets a predictive outbound campaign by its ID from a specified instance.
      *
      * @param request - GetCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5258,7 +5316,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼活动信息.
+     * Gets a predictive outbound campaign by its ID from a specified instance.
      *
      * @param request - GetCampaignRequest
      *
@@ -5276,7 +5334,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测试外呼号码配置文件上传链接.
+     * Invoke GetCaseFileUploadUrl to obtain the OSS upload parameters for a predictive outbound calling list file under a specified instance. When creating a predictive outbound calling Activity by importing a file, you must first invoke this API to retrieve the file upload parameters and then invoke the CreateCampaign API.
      *
      * @param request - GetCaseFileUploadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5319,7 +5377,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测试外呼号码配置文件上传链接.
+     * Invoke GetCaseFileUploadUrl to obtain the OSS upload parameters for a predictive outbound calling list file under a specified instance. When creating a predictive outbound calling Activity by importing a file, you must first invoke this API to retrieve the file upload parameters and then invoke the CreateCampaign API.
      *
      * @param request - GetCaseFileUploadUrlRequest
      *
@@ -5398,6 +5456,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use GetChatRoutingProfile to retrieve the chat routing configuration.
+     *
      * @param request - GetChatRoutingProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5435,6 +5495,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use GetChatRoutingProfile to retrieve the chat routing configuration.
+     *
      * @param request - GetChatRoutingProfileRequest
      *
      * @returns GetChatRoutingProfileResponse
@@ -5451,7 +5513,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取ivr流程信息.
+     * Retrieve a specified contact flow.
      *
      * @param request - GetContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5498,7 +5560,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取ivr流程信息.
+     * Retrieve a specified contact flow.
      *
      * @param request - GetContactFlowRequest
      *
@@ -5516,7 +5578,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取通话文本信息.
+     * Call GetConversationDetail to obtain the conversation details for the call corresponding to the specified contact ID within the specified instance. The instance and skill group must have quality inspection push enabled to obtain these details.
      *
      * @param request - GetConversationDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5563,7 +5625,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取通话文本信息.
+     * Call GetConversationDetail to obtain the conversation details for the call corresponding to the specified contact ID within the specified instance. The instance and skill group must have quality inspection push enabled to obtain these details.
      *
      * @param request - GetConversationDetailRequest
      *
@@ -5642,7 +5704,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取黑名单文件上传地址
+     * Invoke GetDoNotCallFileUploadParameters to obtain the upload parameters for a do-not-call file. When importing prohibited outbound call numbers through a file, you must first invoke this API to upload the do-not-call number file to the public OSS space of Cloud Contact Center, and then invoke ImportDoNotCallNumbers to execute the import.
      *
      * @param request - GetDoNotCallFileUploadParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5685,7 +5747,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取黑名单文件上传地址
+     * Invoke GetDoNotCallFileUploadParameters to obtain the upload parameters for a do-not-call file. When importing prohibited outbound call numbers through a file, you must first invoke this API to upload the do-not-call number file to the public OSS space of Cloud Contact Center, and then invoke ImportDoNotCallNumbers to execute the import.
      *
      * @param request - GetDoNotCallFileUploadParametersRequest
      *
@@ -5764,7 +5826,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取早媒体音频.
+     * Retrieve early-media audio recordings for a call in a specified Cloud Contact Center instance.
      *
      * @param request - GetEarlyMediaRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5807,7 +5869,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取早媒体音频.
+     * Retrieve early-media audio recordings for a call in a specified Cloud Contact Center instance.
      *
      * @param request - GetEarlyMediaRecordingRequest
      *
@@ -5825,7 +5887,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 统计呼入号码信息.
+     * Invoke GetHistoricalCallerReport to retrieve the historical inbound call report for a specified calling number under a specified instance.
      *
      * @param request - GetHistoricalCallerReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5876,7 +5938,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 统计呼入号码信息.
+     * Invoke GetHistoricalCallerReport to retrieve the historical inbound call report for a specified calling number under a specified instance.
      *
      * @param request - GetHistoricalCallerReportRequest
      *
@@ -5894,7 +5956,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼活动历史报表.
+     * You can invoke the GetHistoricalCampaignReport API to retrieve the historical data report of a predictive outbound calling activity corresponding to a specified ID under a specified instance.
      *
      * @param request - GetHistoricalCampaignReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5929,7 +5991,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼活动历史报表.
+     * You can invoke the GetHistoricalCampaignReport API to retrieve the historical data report of a predictive outbound calling activity corresponding to a specified ID under a specified instance.
      *
      * @param request - GetHistoricalCampaignReportRequest
      *
@@ -5947,7 +6009,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 统计实例呼叫数据.
+     * You can invoke GetHistoricalInstanceReport to obtain the historical data report for a specified instance.
      *
      * @param request - GetHistoricalInstanceReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5998,7 +6060,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 统计实例呼叫数据.
+     * You can invoke GetHistoricalInstanceReport to obtain the historical data report for a specified instance.
      *
      * @param request - GetHistoricalInstanceReportRequest
      *
@@ -6016,7 +6078,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取实例信息.
+     * Retrieves the details of a Cloud Contact Center instance.
      *
      * @param request - GetInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6055,7 +6117,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取实例信息.
+     * Retrieves the details of a Cloud Contact Center instance.
      *
      * @param request - GetInstanceRequest
      *
@@ -6073,7 +6135,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 统计实例呼叫信息.
+     * You can call GetInstanceTrendingReport to retrieve the trend report for a specified instance.
      *
      * @param request - GetInstanceTrendingReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6124,7 +6186,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 统计实例呼叫信息.
+     * You can call GetInstanceTrendingReport to retrieve the trend report for a specified instance.
      *
      * @param request - GetInstanceTrendingReportRequest
      *
@@ -6142,7 +6204,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取IVR轨迹小结.
+     * Retrieve the IVR tracking summary.
      *
      * @param request - GetIvrTrackingSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6185,7 +6247,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取IVR轨迹小结.
+     * Retrieve the IVR tracking summary.
      *
      * @param request - GetIvrTrackingSummaryRequest
      *
@@ -6203,7 +6265,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取登录信息.
+     * Invoke GetLoginDetails to obtain the agent\\"s logon information, including basic agent information, server address information, authentication information, and more. This API can only be invoked by the agent themselves; administrators are not permitted to invoke it on behalf of others.
      *
      * @param request - GetLoginDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6250,7 +6312,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取登录信息.
+     * Invoke GetLoginDetails to obtain the agent\\"s logon information, including basic agent information, server address information, authentication information, and more. This API can only be invoked by the agent themselves; administrators are not permitted to invoke it on behalf of others.
      *
      * @param request - GetLoginDetailsRequest
      *
@@ -6268,7 +6330,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取通话对应的录音, 用于播放和下载.
+     * You can invoke GetMonoRecording to obtain the single-track recording of a specified call under a specified instance. A single-track recording contains only one audio track, with both the agent-side and customer-side recordings merged into the same track in WAV format.
      *
      * @param request - GetMonoRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6315,7 +6377,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取通话对应的录音, 用于播放和下载.
+     * You can invoke GetMonoRecording to obtain the single-track recording of a specified call under a specified instance. A single-track recording contains only one audio track, with both the agent-side and customer-side recordings merged into the same track in WAV format.
      *
      * @param request - GetMonoRecordingRequest
      *
@@ -6333,7 +6395,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取通话对应的录音, 用于分轨或者质检
+     * You can invoke GetMultiChannelRecording to obtain the multi-track recording of a specified call under a specified instance. In the multi-track recording, the agent\\"s and customer\\"s audio are distributed across different sound channels. During each playback, only one sound channel can be played, meaning you can hear only one party\\"s voice. The format is MKV.
      *
      * @param request - GetMultiChannelRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6376,7 +6438,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取通话对应的录音, 用于分轨或者质检
+     * You can invoke GetMultiChannelRecording to obtain the multi-track recording of a specified call under a specified instance. In the multi-track recording, the agent\\"s and customer\\"s audio are distributed across different sound channels. During each playback, only one sound channel can be played, meaning you can hear only one party\\"s voice. The format is MKV.
      *
      * @param request - GetMultiChannelRecordingRequest
      *
@@ -6394,7 +6456,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询号码归属地.
+     * Invoke the GetNumberLocation API to obtain number location information.
      *
      * @param request - GetNumberLocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6437,7 +6499,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询号码归属地.
+     * Invoke the GetNumberLocation API to obtain number location information.
      *
      * @param request - GetNumberLocationRequest
      *
@@ -6455,7 +6517,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼实时状态
+     * You can invoke GetRealtimeCampaignStats to retrieve real-time agent status data for a predictive outbound calling Activity with a specified ID under a specified instance.
      *
      * @param request - GetRealtimeCampaignStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6490,7 +6552,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼实时状态
+     * You can invoke GetRealtimeCampaignStats to retrieve real-time agent status data for a predictive outbound calling Activity with a specified ID under a specified instance.
      *
      * @param request - GetRealtimeCampaignStatsRequest
      *
@@ -6508,7 +6570,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 实时查询实例状态信息.
+     * You can invoke GetRealtimeInstanceStates to obtain the real-time status of a specified instance.
      *
      * @param request - GetRealtimeInstanceStatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6551,7 +6613,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 实时查询实例状态信息.
+     * You can invoke GetRealtimeInstanceStates to obtain the real-time status of a specified instance.
      *
      * @param request - GetRealtimeInstanceStatesRequest
      *
@@ -6630,7 +6692,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询技能组.
+     * You can invoke GetSkillGroup to obtain information about the skill group corresponding to a specified skill group ID under a specified instance.
      *
      * @param request - GetSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6673,7 +6735,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询技能组.
+     * You can invoke GetSkillGroup to obtain information about the skill group corresponding to a specified skill group ID under a specified instance.
      *
      * @param request - GetSkillGroupRequest
      *
@@ -6691,6 +6753,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the content of a session summary template.
+     *
      * @param request - GetSummaryTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6732,6 +6796,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the content of a session summary template.
+     *
      * @param request - GetSummaryTemplateRequest
      *
      * @returns GetSummaryTemplateResponse
@@ -6748,6 +6814,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves information about a specific ticket.
+     *
      * @param request - GetTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6789,6 +6857,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves information about a specific ticket.
+     *
      * @param request - GetTicketRequest
      *
      * @returns GetTicketResponse
@@ -6805,6 +6875,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can call GetTicketSummaryReport to retrieve a summary of ticket statuses.
+     *
      * @param request - GetTicketSummaryReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6882,6 +6954,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can call GetTicketSummaryReport to retrieve a summary of ticket statuses.
+     *
      * @param request - GetTicketSummaryReportRequest
      *
      * @returns GetTicketSummaryReportResponse
@@ -6898,7 +6972,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取工单模版.
+     * Call GetTicketTemplate to retrieve ticket template definitions.
      *
      * @param request - GetTicketTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6945,7 +7019,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取工单模版.
+     * Call GetTicketTemplate to retrieve ticket template definitions.
      *
      * @param request - GetTicketTemplateRequest
      *
@@ -6963,7 +7037,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取TURN服务的临时用户名和密码
+     * Call GetTurnCredentials to get the connection credentials for a Cloud Contact Center Point of Presence (PoP). These credentials include a username and password for authentication. Connecting to Cloud Contact Center through a PoP improves network quality and stability.
      *
      * @param request - GetTurnCredentialsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7006,7 +7080,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取TURN服务的临时用户名和密码
+     * Call GetTurnCredentials to get the connection credentials for a Cloud Contact Center Point of Presence (PoP). These credentials include a username and password for authentication. Connecting to Cloud Contact Center through a PoP improves network quality and stability.
      *
      * @param request - GetTurnCredentialsRequest
      *
@@ -7024,7 +7098,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取可用的TURN服务器列表.
+     * Call GetTurnServerList to get a list of front-end access points for Alibaba Cloud Contact Center. Connecting through these access points improves network quality and stability.
      *
      * @param request - GetTurnServerListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7063,7 +7137,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取可用的TURN服务器列表.
+     * Call GetTurnServerList to get a list of front-end access points for Alibaba Cloud Contact Center. Connecting through these access points improves network quality and stability.
      *
      * @param request - GetTurnServerListRequest
      *
@@ -7081,7 +7155,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取质检参数.
+     * Obtain the parameters related to offline quality inspection audio files. Normally, if the Customer has configured the quality inspection feature in Cloud Contact Center, the audio files requiring offline quality inspection and their corresponding parameters are automatically passed to Intelligent Quality Inspection. You only need to invoke this API to obtain the parameters for pushing quality inspection recordings when the Customer has not configured the quality inspection feature in Cloud Contact Center and wishes to manually push Cloud Contact Center call recordings to the quality inspection system.
      *
      * @param request - GetUploadAudioDataParamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7116,7 +7190,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取质检参数.
+     * Obtain the parameters related to offline quality inspection audio files. Normally, if the Customer has configured the quality inspection feature in Cloud Contact Center, the audio files requiring offline quality inspection and their corresponding parameters are automatically passed to Intelligent Quality Inspection. You only need to invoke this API to obtain the parameters for pushing quality inspection recordings when the Customer has not configured the quality inspection feature in Cloud Contact Center and wishes to manually push Cloud Contact Center call recordings to the quality inspection system.
      *
      * @param request - GetUploadAudioDataParamsRequest
      *
@@ -7134,7 +7208,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询坐席.
+     * You can invoke GetUser to obtain the agent information corresponding to a specified agent ID under a specified instance.
      *
      * @param request - GetUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7181,7 +7255,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询坐席.
+     * You can invoke GetUser to obtain the agent information corresponding to a specified agent ID under a specified instance.
      *
      * @param request - GetUserRequest
      *
@@ -7252,6 +7326,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Call GetVisitorLoginDetails to retrieve login, server address, and authentication information for network service visitors.
+     *
      * @param request - GetVisitorLoginDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7301,6 +7377,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Call GetVisitorLoginDetails to retrieve login, server address, and authentication information for network service visitors.
+     *
      * @param request - GetVisitorLoginDetailsRequest
      *
      * @returns GetVisitorLoginDetailsResponse
@@ -7317,7 +7395,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取语音邮箱录音, 用于播放和下载.
+     * You can invoke GetVoicemailRecording to obtain the voicemail recording of a specified call under a specified instance. The recording is single-track and in WAV format.
      *
      * @param request - GetVoicemailRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7360,7 +7438,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取语音邮箱录音, 用于播放和下载.
+     * You can invoke GetVoicemailRecording to obtain the voicemail recording of a specified call under a specified instance. The recording is single-track and in WAV format.
      *
      * @param request - GetVoicemailRecordingRequest
      *
@@ -7378,7 +7456,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 保持通话.
+     * You can invoke HoldCall to hold the call associated with a specified call ID under a specified instance. After the call is held, it will be temporarily suspended, and the held party will hear hold music.
      *
      * @param request - HoldCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7437,7 +7515,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 保持通话.
+     * You can invoke HoldCall to hold the call associated with a specified call ID under a specified instance. After the call is held, it will be temporarily suspended, and the held party will hear hold music.
      *
      * @param request - HoldCallRequest
      *
@@ -7455,7 +7533,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 导入管理员.
+     * Imports one or more admins to a specified instance. The caller must have the `AliyunCCCFullAccess` permission, which you can grant in the RAM console.
      *
      * @param request - ImportAdminsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7498,7 +7576,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 导入管理员.
+     * Imports one or more admins to a specified instance. The caller must have the `AliyunCCCFullAccess` permission, which you can grant in the RAM console.
      *
      * @param request - ImportAdminsRequest
      *
@@ -7577,7 +7655,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 导入自有线路号码
+     * Imports your organization’s telephone line numbers. Before performing the first import, contact Cloud Contact Center technical support to add the numbers to the allowlist.
      *
      * @param request - ImportCorpNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7636,7 +7714,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 导入自有线路号码
+     * Imports your organization’s telephone line numbers. Before performing the first import, contact Cloud Contact Center technical support to add the numbers to the allowlist.
      *
      * @param request - ImportCorpNumbersRequest
      *
@@ -7654,7 +7732,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 文件导入呼入控制号码
+     * You can invoke ImportCustomCallTagging to import multiple inbound number tags into a specified instance.
      *
      * @deprecated openAPI ImportCustomCallTagging is deprecated, please use CCC::2020-07-01::ImportCustomCallTaggings instead
      *
@@ -7700,7 +7778,7 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * 文件导入呼入控制号码
+     * You can invoke ImportCustomCallTagging to import multiple inbound number tags into a specified instance.
      *
      * @deprecated openAPI ImportCustomCallTagging is deprecated, please use CCC::2020-07-01::ImportCustomCallTaggings instead
      *
@@ -7720,7 +7798,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 添加黑名单号码
+     * Imports one or more do-not-call numbers to a specified instance. You can import numbers by manual entry or file upload.
      *
      * @param request - ImportDoNotCallNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7771,7 +7849,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 添加黑名单号码
+     * Imports one or more do-not-call numbers to a specified instance. You can import numbers by manual entry or file upload.
      *
      * @param request - ImportDoNotCallNumbersRequest
      *
@@ -7854,7 +7932,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 导入ram用户.
+     * Import existing RAM users as contact center agents.
      *
      * @param request - ImportRamUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7909,7 +7987,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 导入ram用户.
+     * Import existing RAM users as contact center agents.
      *
      * @param request - ImportRamUsersRequest
      *
@@ -7927,7 +8005,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 关注转-发起.
+     * Consultation transfer refers to transferring a call to another agent, a skill group queue, or an external number. It is also known as follow transfer or two-step transfer.
      *
      * @param request - InitiateAttendedTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8022,7 +8100,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 关注转-发起.
+     * Consultation transfer refers to transferring a call to another agent, a skill group queue, or an external number. It is also known as follow transfer or two-step transfer.
      *
      * @param request - InitiateAttendedTransferRequest
      *
@@ -8040,7 +8118,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 打断通话.
+     * You can invoke InterceptCall to forcibly disconnect the call associated with a specified call ID under a given instance. The call must be in the listener state, and the forced disconnection must be initiated by the listener. After the forced disconnection succeeds, the agent who was originally talking with the customer will be disconnected, and the agent who initiated the forced disconnection will replace the original agent and continue the conversation with the customer.
      *
      * @param request - InterceptCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8099,7 +8177,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 打断通话.
+     * You can invoke InterceptCall to forcibly disconnect the call associated with a specified call ID under a given instance. The call must be in the listener state, and the forced disconnection must be initiated by the listener. After the forced disconnection succeeds, the agent who was originally talking with the customer will be disconnected, and the agent who initiated the forced disconnection will replace the original agent and continue the conversation with the customer.
      *
      * @param request - InterceptCallRequest
      *
@@ -8117,7 +8195,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 发起IVR认证流程.
+     * You can invoke LaunchAuthentication to temporarily transfer a call into a specified IVR flow. After invoking this API, the call enters an IVR interaction phase, which is commonly used for identity verification operations.
      *
      * @param request - LaunchAuthenticationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8176,7 +8254,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 发起IVR认证流程.
+     * You can invoke LaunchAuthentication to temporarily transfer a call into a specified IVR flow. After invoking this API, the call enters an IVR interaction phase, which is commonly used for identity verification operations.
      *
      * @param request - LaunchAuthenticationRequest
      *
@@ -8194,7 +8272,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 发起话后满意度调查IVR流程.
+     * Invoke LaunchSurvey to send a satisfaction survey. This operation causes the agent to hang up. If it is a voice-based satisfaction survey, the customer enters the IVR satisfaction survey flow after the agent hangs up and completes the satisfaction collection within the IVR flow. If it is an SMS-based satisfaction survey, the call ends and the customer receives a satisfaction survey text message.
      *
      * @param request - LaunchSurveyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8269,7 +8347,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 发起话后满意度调查IVR流程.
+     * Invoke LaunchSurvey to send a satisfaction survey. This operation causes the agent to hang up. If it is a voice-based satisfaction survey, the customer enters the IVR satisfaction survey flow after the agent hangs up and completes the satisfaction collection within the IVR flow. If it is an SMS-based satisfaction survey, the call ends and the customer receives a satisfaction survey text message.
      *
      * @param request - LaunchSurveyRequest
      *
@@ -8287,7 +8365,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取坐席状态记录列表.
+     * Invoke ListAgentStateLogs to obtain the status log list of a specified agent under a specified instance. Note that this API will soon expire. Use the override API ListRealtimeAgentStates instead.
      *
      * @param request - ListAgentStateLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8338,7 +8416,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取坐席状态记录列表.
+     * Invoke ListAgentStateLogs to obtain the status log list of a specified agent under a specified instance. Note that this API will soon expire. Use the override API ListRealtimeAgentStates instead.
      *
      * @param request - ListAgentStateLogsRequest
      *
@@ -8356,7 +8434,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListAgentStates for ACC.
+     * You can invoke the ListAgentStates API to retrieve a list of agent statuses under a specified instance, filtered by specified conditions. This API is available only to specific Users. Other Customers are not recommended to invoke it.
      *
      * @deprecated openAPI ListAgentStates is deprecated, please use CCC::2020-07-01::ListRealtimeAgentStates instead
      *
@@ -8422,7 +8500,7 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * ListAgentStates for ACC.
+     * You can invoke the ListAgentStates API to retrieve a list of agent statuses under a specified instance, filtered by specified conditions. This API is available only to specific Users. Other Customers are not recommended to invoke it.
      *
      * @deprecated openAPI ListAgentStates is deprecated, please use CCC::2020-07-01::ListRealtimeAgentStates instead
      *
@@ -8442,7 +8520,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListAgentSummaryReportsSinceMidnight for acc.
+     * You can invoke the ListAgentSummaryReportsSinceMidnight API to retrieve agent historical data reports under a specified instance, filtered by given conditions. The statistics cover data from 00:00 of the current day up to the current time. This API is available only to specific users; other customers are not recommended to invoke it.
      *
      * @deprecated openAPI ListAgentSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalAgentReport instead
      *
@@ -8480,7 +8558,7 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * ListAgentSummaryReportsSinceMidnight for acc.
+     * You can invoke the ListAgentSummaryReportsSinceMidnight API to retrieve agent historical data reports under a specified instance, filtered by given conditions. The statistics cover data from 00:00 of the current day up to the current time. This API is available only to specific users; other customers are not recommended to invoke it.
      *
      * @deprecated openAPI ListAgentSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalAgentReport instead
      *
@@ -8500,7 +8578,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼呼叫记录.
+     * You can invoke ListAttempts to obtain the list of contact dialing records for a specified predictive outbound calling Activity under a specified instance.
      *
      * @param request - ListAttemptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8535,7 +8613,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼呼叫记录.
+     * You can invoke ListAttempts to obtain the list of contact dialing records for a specified predictive outbound calling Activity under a specified instance.
      *
      * @param request - ListAttemptsRequest
      *
@@ -8553,7 +8631,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取音频文件列表.
+     * Invoke ListAudioFiles to obtain the list of audio files under a specified instance.
      *
      * @param request - ListAudioFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8608,7 +8686,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取音频文件列表.
+     * Invoke ListAudioFiles to obtain the list of audio files under a specified instance.
      *
      * @param request - ListAudioFilesRequest
      *
@@ -8626,7 +8704,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 编辑呼入控制号码
+     * Queries the blacklist tag status of specified numbers in a batch.
      *
      * @param request - ListBlacklistCallTaggingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8669,7 +8747,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 编辑呼入控制号码
+     * Queries the blacklist tag status of specified numbers in a batch.
      *
      * @param request - ListBlacklistCallTaggingsRequest
      *
@@ -8687,7 +8765,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 坐席工作台坐席调用转接使用.
+     * You can invoke ListBriefSkillGroups to obtain the list of skill group summary information under a specified instance.
      *
      * @param request - ListBriefSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8742,7 +8820,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 坐席工作台坐席调用转接使用.
+     * You can invoke ListBriefSkillGroups to obtain the list of skill group summary information under a specified instance.
      *
      * @param request - ListBriefSkillGroupsRequest
      *
@@ -8760,7 +8838,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取通话详情.
+     * You can invoke ListCallDetailRecords to obtain a list of call details filtered by specified search conditions under a specified instance. This API is no longer iteratively updated. We recommend that you use the ListCallDetailRecordsV2 API instead.
+     *
+     * @remarks
+     * To ensure query efficiency, the TotalCount field in the response data is populated only when the first page is queried. For other pages, this field returns 0.
      *
      * @param request - ListCallDetailRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8879,7 +8960,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取通话详情.
+     * You can invoke ListCallDetailRecords to obtain a list of call details filtered by specified search conditions under a specified instance. This API is no longer iteratively updated. We recommend that you use the ListCallDetailRecordsV2 API instead.
+     *
+     * @remarks
+     * To ensure query efficiency, the TotalCount field in the response data is populated only when the first page is queried. For other pages, this field returns 0.
      *
      * @param request - ListCallDetailRecordsRequest
      *
@@ -8897,7 +8981,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 通话记录列表.
+     * Retrieves a list of call detail records that match the specified filter criteria for a specified instance.
+     *
+     * @remarks
+     * ListCallDetailRecordsV2 is used to override the ListCallDetailRecords operation. New fields and query conditions will undergo continuous optimization in ListCallDetailRecordsV2. To ensure query efficiency, the TotalCount field in the response is populated only when you query the first page. For other pages, the value 0 is returned.
      *
      * @param request - ListCallDetailRecordsV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9040,7 +9127,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 通话记录列表.
+     * Retrieves a list of call detail records that match the specified filter criteria for a specified instance.
+     *
+     * @remarks
+     * ListCallDetailRecordsV2 is used to override the ListCallDetailRecords operation. New fields and query conditions will undergo continuous optimization in ListCallDetailRecordsV2. To ensure query efficiency, the TotalCount field in the response is populated only when you query the first page. For other pages, the value 0 is returned.
      *
      * @param request - ListCallDetailRecordsV2Request
      *
@@ -9058,6 +9148,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use the ListCallSummaries operation to retrieve call summaries.
+     *
      * @param tmpReq - ListCallSummariesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9105,6 +9197,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use the ListCallSummaries operation to retrieve call summaries.
+     *
      * @param request - ListCallSummariesRequest
      *
      * @returns ListCallSummariesResponse
@@ -9121,7 +9215,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列出号码标签.
+     * You can invoke ListCallTags to obtain all number tags under a specified instance.
      *
      * @param request - ListCallTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9168,7 +9262,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列出号码标签.
+     * You can invoke ListCallTags to obtain all number tags under a specified instance.
      *
      * @param request - ListCallTagsRequest
      *
@@ -9186,7 +9280,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼活动趋势报表.
+     * Obtain the trend report of the predictive outbound calling activity with the specified ID under the specified instance.
      *
      * @param request - ListCampaignTrendingReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9221,7 +9315,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼活动趋势报表.
+     * Obtain the trend report of the predictive outbound calling activity with the specified ID under the specified instance.
      *
      * @param request - ListCampaignTrendingReportRequest
      *
@@ -9239,7 +9333,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼活动列表.
+     * Calls ListCampaigns to obtain the list of predictive dialing campaigns under a specified instance.
      *
      * @param request - ListCampaignsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9314,7 +9408,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼活动列表.
+     * Calls ListCampaigns to obtain the list of predictive dialing campaigns under a specified instance.
      *
      * @param request - ListCampaignsRequest
      *
@@ -9332,7 +9426,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼活动的联系人呼叫详情.
+     * Invoke ListCases to obtain the execution details list of the outbound contact list for the predictive dialing Activity corresponding to the specified ID under the specified instance.
      *
      * @param request - ListCasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9391,7 +9485,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取预测式外呼活动的联系人呼叫详情.
+     * Invoke ListCases to obtain the execution details list of the outbound contact list for the predictive dialing Activity corresponding to the specified ID under the specified instance.
      *
      * @param request - ListCasesRequest
      *
@@ -9409,6 +9503,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use ListCategories to retrieve category information.
+     *
      * @param request - ListCategoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9454,6 +9550,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use ListCategories to retrieve category information.
+     *
      * @param request - ListCategoriesRequest
      *
      * @returns ListCategoriesResponse
@@ -9470,6 +9568,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the ticket field types that are defined for an instance.
+     *
      * @param request - ListCommonTicketFieldsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9507,6 +9607,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the ticket field types that are defined for an instance.
+     *
      * @param request - ListCommonTicketFieldsRequest
      *
      * @returns ListCommonTicketFieldsResponse
@@ -9523,7 +9625,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询系统配置.
+     * Retrieves the config items for a specified instance.
      *
      * @param request - ListConfigItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9570,7 +9672,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询系统配置.
+     * Retrieves the config items for a specified instance.
      *
      * @param request - ListConfigItemsRequest
      *
@@ -9588,7 +9690,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询ivr流程.
+     * Call ListContactFlows to retrieve the IVR contact flows for a specified instance.
      *
      * @param request - ListContactFlowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9651,7 +9753,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询ivr流程.
+     * Call ListContactFlows to retrieve the IVR contact flows for a specified instance.
      *
      * @param request - ListContactFlowsRequest
      *
@@ -9669,7 +9771,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列出呼入控制号码
+     * You can invoke ListCustomCallTagging to obtain the list of inbound number marks under a specified instance.
      *
      * @deprecated openAPI ListCustomCallTagging is deprecated, please use CCC::2020-07-01::ListCustomCallTaggings instead
      *
@@ -9727,7 +9829,7 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * 列出呼入控制号码
+     * You can invoke ListCustomCallTagging to obtain the list of inbound number marks under a specified instance.
      *
      * @deprecated openAPI ListCustomCallTagging is deprecated, please use CCC::2020-07-01::ListCustomCallTaggings instead
      *
@@ -9747,7 +9849,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询可用设备.
+     * Obtain the device list of a specified agent under a specified instance.
      *
      * @param request - ListDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9790,7 +9892,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询可用设备.
+     * Obtain the device list of a specified agent under a specified instance.
      *
      * @param request - ListDevicesRequest
      *
@@ -9808,7 +9910,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询黑名单号码
+     * Retrieves the list of prohibited outbound call numbers under a specified instance, filtered by specified search conditions.
      *
      * @param request - ListDoNotCallNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9863,7 +9965,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询黑名单号码
+     * Retrieves the list of prohibited outbound call numbers under a specified instance, filtered by specified search conditions.
      *
      * @param request - ListDoNotCallNumbersRequest
      *
@@ -9964,7 +10066,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询反馈记录.
+     * Queries feedback records.
      *
      * @param request - ListFeedbacksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10007,7 +10109,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询反馈记录.
+     * Queries feedback records.
      *
      * @param request - ListFeedbacksRequest
      *
@@ -10025,6 +10127,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use ListFlashSmsApplication to obtain third-party flash SMS configuration information.
+     *
      * @param request - ListFlashSmsApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10078,6 +10182,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use ListFlashSmsApplication to obtain third-party flash SMS configuration information.
+     *
      * @param request - ListFlashSmsApplicationsRequest
      *
      * @returns ListFlashSmsApplicationsResponse
@@ -10094,6 +10200,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Call the ListFlashSmsSettings operation to retrieve the flash SMS configurations for a specified skill group.
+     *
      * @param tmpReq - ListFlashSmsSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10153,6 +10261,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Call the ListFlashSmsSettings operation to retrieve the flash SMS configurations for a specified skill group.
+     *
      * @param request - ListFlashSmsSettingsRequest
      *
      * @returns ListFlashSmsSettingsResponse
@@ -10169,7 +10279,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取闪信模板列表.
+     * Use ListFlashSmsTemplates to retrieve flash SMS template information.
      *
      * @param request - ListFlashSmsTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10216,7 +10326,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取闪信模板列表.
+     * Use ListFlashSmsTemplates to retrieve flash SMS template information.
      *
      * @param request - ListFlashSmsTemplatesRequest
      *
@@ -10234,7 +10344,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListGroupChatMessages.
+     * Retrieves the records of group chat messages.
      *
      * @param request - ListGroupChatMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10289,7 +10399,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListGroupChatMessages.
+     * Retrieves the records of group chat messages.
      *
      * @param request - ListGroupChatMessagesRequest
      *
@@ -10307,7 +10417,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询历史作息报告.
+     * Retrieves historical data reports for one or more agents in a specified instance.
      *
      * @param request - ListHistoricalAgentReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10376,7 +10486,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询历史作息报告.
+     * Retrieves historical data reports for one or more agents in a specified instance.
      *
      * @param request - ListHistoricalAgentReportRequest
      *
@@ -10394,7 +10504,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListHistoricalAgentSkillGroupReport.
+     * You can call ListHistoricalAgentSkillGroupReport to retrieve historical skill group reports for one or more agents in a specified instance.
      *
      * @param request - ListHistoricalAgentSkillGroupReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10463,7 +10573,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListHistoricalAgentSkillGroupReport.
+     * You can call ListHistoricalAgentSkillGroupReport to retrieve historical skill group reports for one or more agents in a specified instance.
      *
      * @param request - ListHistoricalAgentSkillGroupReportRequest
      *
@@ -10481,7 +10591,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 技能组汇总报表.
+     * You can invoke ListHistoricalSkillGroupReport to obtain historical data reports for one or more skill groups under a specified instance.
      *
      * @param request - ListHistoricalSkillGroupReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10546,7 +10656,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 技能组汇总报表.
+     * You can invoke ListHistoricalSkillGroupReport to obtain historical data reports for one or more skill groups under a specified instance.
      *
      * @param request - ListHistoricalSkillGroupReportRequest
      *
@@ -10564,7 +10674,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询实例列表.
+     * Invoke the ListInstances API to obtain the list of Cloud Contact Center instances under the current Alibaba Cloud account.
+     *
+     * @remarks
+     * If a RAM user needs to invoke this API, the RAM user must have the "Manage Cloud Call Center (CCC)" permission (AliyunCCCFullAccess).
      *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10607,7 +10720,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询实例列表.
+     * Invoke the ListInstances API to obtain the list of Cloud Contact Center instances under the current Alibaba Cloud account.
+     *
+     * @remarks
+     * If a RAM user needs to invoke this API, the RAM user must have the "Manage Cloud Call Center (CCC)" permission (AliyunCCCFullAccess).
      *
      * @param request - ListInstancesRequest
      *
@@ -10625,7 +10741,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询实例列表.
+     * You can invoke ListInstancesOfUser to obtain the list of Cloud Contact Center instances to which the User belongs.
      *
      * @param request - ListInstancesOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10668,7 +10784,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询实例列表.
+     * You can invoke ListInstancesOfUser to obtain the list of Cloud Contact Center instances to which the User belongs.
      *
      * @param request - ListInstancesOfUserRequest
      *
@@ -10686,7 +10802,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询坐席报表.
+     * You can invoke ListIntervalAgentReport to obtain the segment statistical report of a specified agent under a specified instance.
      *
      * @param request - ListIntervalAgentReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10745,7 +10861,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询坐席报表.
+     * You can invoke ListIntervalAgentReport to obtain the segment statistical report of a specified agent under a specified instance.
      *
      * @param request - ListIntervalAgentReportRequest
      *
@@ -10763,7 +10879,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListIntervalAgentSkillGroupReport.
+     * Retrieves the interval-based statistical report for a specified agent in a specified instance.
      *
      * @param request - ListIntervalAgentSkillGroupReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10798,7 +10914,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListIntervalAgentSkillGroupReport.
+     * Retrieves the interval-based statistical report for a specified agent in a specified instance.
      *
      * @param request - ListIntervalAgentSkillGroupReportRequest
      *
@@ -10816,7 +10932,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询实例报表.
+     * You can invoke ListIntervalInstanceReport to obtain the segment statistical report for a specified instance.
      *
      * @param request - ListIntervalInstanceReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10867,7 +10983,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询实例报表.
+     * You can invoke ListIntervalInstanceReport to obtain the segment statistical report for a specified instance.
      *
      * @param request - ListIntervalInstanceReportRequest
      *
@@ -10885,7 +11001,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询技能组报表.
+     * You can invoke ListIntervalSkillGroupReport to obtain the segment-based statistical report of a specified skill group under a specified instance.
      *
      * @param request - ListIntervalSkillGroupReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10944,7 +11060,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询技能组报表.
+     * You can invoke ListIntervalSkillGroupReport to obtain the segment-based statistical report of a specified skill group under a specified instance.
      *
      * @param request - ListIntervalSkillGroupReportRequest
      *
@@ -10962,7 +11078,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询ivr轨迹.
+     * Invoke ListIvrTrackingDetails to obtain the IVR tracking details of a specified call under a specified instance.
      *
      * @param request - ListIvrTrackingDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11013,7 +11129,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询ivr轨迹.
+     * Invoke ListIvrTrackingDetails to obtain the IVR tracking details of a specified call under a specified instance.
      *
      * @param request - ListIvrTrackingDetailsRequest
      *
@@ -11031,7 +11147,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListLegacyAgentEventLogs.
+     * You can invoke ListLegacyAgentEventLogs to obtain the list of 1.0 legacy agent event logs. This API is available only to specific Users, and other Customers are not recommended to invoke it.
      *
      * @deprecated openAPI ListLegacyAgentEventLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead
      *
@@ -11093,7 +11209,7 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * ListLegacyAgentEventLogs.
+     * You can invoke ListLegacyAgentEventLogs to obtain the list of 1.0 legacy agent event logs. This API is available only to specific Users, and other Customers are not recommended to invoke it.
      *
      * @deprecated openAPI ListLegacyAgentEventLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead
      *
@@ -11113,7 +11229,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListLegacyAgentStatusLogs.
+     * You can invoke ListLegacyAgentStatusLogs to obtain the list of legacy agent status logs for version 1.0. This API is available only to specific Users, and other Customers are not recommended to invoke it.
      *
      * @deprecated openAPI ListLegacyAgentStatusLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead
      *
@@ -11175,7 +11291,7 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * ListLegacyAgentStatusLogs.
+     * You can invoke ListLegacyAgentStatusLogs to obtain the list of legacy agent status logs for version 1.0. This API is available only to specific Users, and other Customers are not recommended to invoke it.
      *
      * @deprecated openAPI ListLegacyAgentStatusLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead
      *
@@ -11268,7 +11384,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListLegacyQueueEventLogs.
+     * You can invoke ListLegacyQueueEventLogs to obtain the list of 1.0 legacy queue event logs. This API is available only to specific Users, and other Customers are not recommended to invoke it.
      *
      * @param request - ListLegacyQueueEventLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11327,7 +11443,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListLegacyQueueEventLogs.
+     * You can invoke ListLegacyQueueEventLogs to obtain the list of 1.0 legacy queue event logs. This API is available only to specific Users, and other Customers are not recommended to invoke it.
      *
      * @param request - ListLegacyQueueEventLogsRequest
      *
@@ -11345,7 +11461,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取单轨录音.
+     * Call ListMonoRecordings to retrieve single-track recordings for each party in a specified call under a specified instance. During a call, each party has a channel, and each channel generates a combined track recording in WAV format.
      *
      * @param request - ListMonoRecordingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11396,7 +11512,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取单轨录音.
+     * Call ListMonoRecordings to retrieve single-track recordings for each party in a specified call under a specified instance. During a call, each party has a channel, and each channel generates a combined track recording in WAV format.
      *
      * @param request - ListMonoRecordingsRequest
      *
@@ -11414,7 +11530,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取分轨录音.
+     * Call ListMultiChannelRecordings to retrieve the multi-channel recordings for each party in a specified call and instance. Each party has a call channel that corresponds to a multi-channel recording in MKV format.
      *
      * @param request - ListMultiChannelRecordingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11465,7 +11581,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取分轨录音.
+     * Call ListMultiChannelRecordings to retrieve the multi-channel recordings for each party in a specified call and instance. Each party has a call channel that corresponds to a multi-channel recording in MKV format.
      *
      * @param request - ListMultiChannelRecordingsRequest
      *
@@ -11483,7 +11599,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询消息推送记录.
+     * Query notification records that were not sent using Message Queue (MQ).
      *
      * @param request - ListNotificationRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11526,7 +11642,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询消息推送记录.
+     * Query notification records that were not sent using Message Queue (MQ).
      *
      * @param request - ListNotificationRecordsRequest
      *
@@ -11544,7 +11660,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 该坐席可用的外呼号码列表.
+     * `ListOutboundNumbersOfUser` retrieves the outbound numbers for a specified agent in a specified instance.
      *
      * @param request - ListOutboundNumbersOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11599,7 +11715,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 该坐席可用的外呼号码列表.
+     * `ListOutboundNumbersOfUser` retrieves the outbound numbers for a specified agent in a specified instance.
      *
      * @param request - ListOutboundNumbersOfUserRequest
      *
@@ -11617,7 +11733,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取个人外呼号码列表.
+     * You can invoke ListPersonalNumbersOfUser to obtain the list of personal outbound numbers for a specified agent under a specified instance. You can also use this API to retrieve the list of numbers that can be added as personal outbound numbers for an agent.
+     *
+     * @remarks
+     * Note: If a number is already attached to a skill group, it will not appear in the list of numbers available as personal outbound numbers.
      *
      * @param request - ListPersonalNumbersOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11676,7 +11795,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取个人外呼号码列表.
+     * You can invoke ListPersonalNumbersOfUser to obtain the list of personal outbound numbers for a specified agent under a specified instance. You can also use this API to retrieve the list of numbers that can be added as personal outbound numbers for an agent.
+     *
+     * @remarks
+     * Note: If a number is already attached to a skill group, it will not appear in the list of numbers available as personal outbound numbers.
      *
      * @param request - ListPersonalNumbersOfUserRequest
      *
@@ -11694,7 +11816,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取号码列表.
+     * You can invoke ListPhoneNumbers to obtain the phone number list under a specified instance.
      *
      * @param request - ListPhoneNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11753,7 +11875,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取号码列表.
+     * You can invoke ListPhoneNumbers to obtain the phone number list under a specified instance.
      *
      * @param request - ListPhoneNumbersRequest
      *
@@ -11771,7 +11893,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询技能组绑定的号码
+     * You can invoke the ListPhoneNumbersOfSkillGroup API to obtain the list of phone numbers associated with a specified skill group under a specified instance. You can also use this API to query phone numbers that are not currently associated with the skill group but can be associated with it.
+     *
+     * @remarks
+     * Note: If a phone number is already used as a personal outbound number, it will not appear in the list of numbers available for association with a skill group.
      *
      * @param request - ListPhoneNumbersOfSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11834,7 +11959,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询技能组绑定的号码
+     * You can invoke the ListPhoneNumbersOfSkillGroup API to obtain the list of phone numbers associated with a specified skill group under a specified instance. You can also use this API to query phone numbers that are not currently associated with the skill group but can be associated with it.
+     *
+     * @remarks
+     * Note: If a phone number is already used as a personal outbound number, it will not appear in the list of numbers available for association with a skill group.
      *
      * @param request - ListPhoneNumbersOfSkillGroupRequest
      *
@@ -11852,7 +11980,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询用户权限.
+     * Invoke ListPrivilegesOfUser to obtain the permissions owned by the current User.
      *
      * @param request - ListPrivilegesOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11891,7 +12019,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询用户权限.
+     * Invoke ListPrivilegesOfUser to obtain the permissions owned by the current User.
      *
      * @param request - ListPrivilegesOfUserRequest
      *
@@ -11909,7 +12037,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询ram用户.
+     * Lists RAM users that have not been imported into a specified instance.
+     *
+     * @remarks
+     * A Resource Access Management (RAM) user can be imported as an agent into multiple Cloud Contact Center (CCC) instances. However, an agent can be associated with only one RAM account. When you create an agent in a CCC instance, a corresponding RAM account is also created. To avoid creating redundant RAM accounts when you set up a new instance, you can call the ListRamUsers operation to list RAM users that have not been imported into the instance. You can then call the operation that imports RAM users to add them to the new instance. This prevents creating unnecessary RAM accounts and conserves resources.
      *
      * @param request - ListRamUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11960,7 +12091,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询ram用户.
+     * Lists RAM users that have not been imported into a specified instance.
+     *
+     * @remarks
+     * A Resource Access Management (RAM) user can be imported as an agent into multiple Cloud Contact Center (CCC) instances. However, an agent can be associated with only one RAM account. When you create an agent in a CCC instance, a corresponding RAM account is also created. To avoid creating redundant RAM accounts when you set up a new instance, you can call the ListRamUsers operation to list RAM users that have not been imported into the instance. You can then call the operation that imports RAM users to add them to the new instance. This prevents creating unnecessary RAM accounts and conserves resources.
      *
      * @param request - ListRamUsersRequest
      *
@@ -11978,7 +12112,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询坐席状态
+     * You can invoke ListRealtimeAgentStates to obtain a real-time status data report for one or more specified agents in a specified instance.
      *
      * @param request - ListRealtimeAgentStatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12063,7 +12197,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询坐席状态
+     * You can invoke ListRealtimeAgentStates to obtain a real-time status data report for one or more specified agents in a specified instance.
      *
      * @param request - ListRealtimeAgentStatesRequest
      *
@@ -12081,7 +12215,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询技能组状态报表.
+     * You can invoke ListRealtimeSkillGroupStates to obtain the real-time skill group status report for a specified instance.
      *
      * @param request - ListRealtimeSkillGroupStatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12138,7 +12272,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询技能组状态报表.
+     * You can invoke ListRealtimeSkillGroupStates to obtain the real-time skill group status report for a specified instance.
      *
      * @param request - ListRealtimeSkillGroupStatesRequest
      *
@@ -12156,7 +12290,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询历史通话记录.
+     * You can invoke ListRecentCallDetailRecords to obtain the list of recent call detail records for agents mapped to the current Resource Access Management (RAM) user under the specified instance.
      *
      * @param request - ListRecentCallDetailRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12217,7 +12351,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询历史通话记录.
+     * You can invoke ListRecentCallDetailRecords to obtain the list of recent call detail records for agents mapped to the current Resource Access Management (RAM) user under the specified instance.
      *
      * @param request - ListRecentCallDetailRecordsRequest
      *
@@ -12235,7 +12369,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询角色.
+     * You can invoke ListRoles to obtain all roles under a specified instance.
      *
      * @param request - ListRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12274,7 +12408,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 列表查询角色.
+     * You can invoke ListRoles to obtain all roles under a specified instance.
      *
      * @param request - ListRolesRequest
      *
@@ -12292,7 +12426,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListSkillGroupStates for acc.
+     * You can invoke the ListSkillgroupStates API to obtain the status list of specified skill groups under a specified instance. This API is only available to specific Users, and other Customers are not recommended to invoke it.
      *
      * @deprecated openAPI ListSkillGroupStates is deprecated, please use CCC::2020-07-01::ListRealtimeSkillGroupStates instead
      *
@@ -12330,7 +12464,7 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * ListSkillGroupStates for acc.
+     * You can invoke the ListSkillgroupStates API to obtain the status list of specified skill groups under a specified instance. This API is only available to specific Users, and other Customers are not recommended to invoke it.
      *
      * @deprecated openAPI ListSkillGroupStates is deprecated, please use CCC::2020-07-01::ListRealtimeSkillGroupStates instead
      *
@@ -12350,7 +12484,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListSkillGroupSummaryReportsSinceMidnight for acc.
+     * The `ListSkillgroupSummaryReportsSinceMidnight` operation retrieves historical summary reports, filtered by specified conditions, for skill groups in a specified instance. The report contains data from 00:00 (midnight) today to the time of the request. This operation is available to specific users only.
      *
      * @deprecated openAPI ListSkillGroupSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalSkillGroupReport instead
      *
@@ -12388,7 +12522,7 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * ListSkillGroupSummaryReportsSinceMidnight for acc.
+     * The `ListSkillgroupSummaryReportsSinceMidnight` operation retrieves historical summary reports, filtered by specified conditions, for skill groups in a specified instance. The report contains data from 00:00 (midnight) today to the time of the request. This operation is available to specific users only.
      *
      * @deprecated openAPI ListSkillGroupSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalSkillGroupReport instead
      *
@@ -12408,7 +12542,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询技能组列表.
+     * You can invoke ListSkillGroups to obtain the list of skill groups under a specified instance.
      *
      * @param request - ListSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12463,7 +12597,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询技能组列表.
+     * You can invoke ListSkillGroups to obtain the list of skill groups under a specified instance.
      *
      * @param request - ListSkillGroupsRequest
      *
@@ -12481,7 +12615,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询用户技能组级别.
+     * You can use this API to retrieve the list of skill levels for skill groups associated with a specified agent under a specified instance. You can also use this API to query the list of skill groups that the agent can be associated with but is not currently associated with.
      *
      * @param request - ListSkillLevelsOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12540,7 +12674,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询用户技能组级别.
+     * You can use this API to retrieve the list of skill levels for skill groups associated with a specified agent under a specified instance. You can also use this API to query the list of skill groups that the agent can be associated with but is not currently associated with.
      *
      * @param request - ListSkillLevelsOfUserRequest
      *
@@ -12558,7 +12692,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 使用ListSmsMetadata获取短信配置信息。
+     * Queries the details of SMS configurations.
      *
      * @param request - ListSmsMetadataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12609,7 +12743,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 使用ListSmsMetadata获取短信配置信息。
+     * Queries the details of SMS configurations.
      *
      * @param request - ListSmsMetadataRequest
      *
@@ -12684,6 +12818,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of ticket templates.
+     *
      * @param request - ListTicketTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12741,6 +12877,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of ticket templates.
+     *
      * @param request - ListTicketTemplatesRequest
      *
      * @returns ListTicketTemplatesResponse
@@ -12757,6 +12895,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of tickets for an instance.
+     *
      * @param request - ListTicketsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12850,6 +12990,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of tickets for an instance.
+     *
      * @param request - ListTicketsRequest
      *
      * @returns ListTicketsResponse
@@ -12866,7 +13008,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取未分配号码列表.
+     * You can invoke ListUnassignedNumbers to obtain the list of numbers under your Alibaba Cloud account that have not been assigned to an instance.
      *
      * @param request - ListUnassignedNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12913,7 +13055,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 获取未分配号码列表.
+     * You can invoke ListUnassignedNumbers to obtain the list of numbers under your Alibaba Cloud account that have not been assigned to an instance.
      *
      * @param request - ListUnassignedNumbersRequest
      *
@@ -12931,7 +13073,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询技能组级别列表.
+     * You can invoke the ListUserLevelsOfSkillGroup API to retrieve the list of agent skill levels under a specified skill group in a given instance. You can also use this API to retrieve the list of agents who can be associated with but are not currently associated with the specified skill group.
      *
      * @param request - ListUserLevelsOfSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12990,7 +13132,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询技能组级别列表.
+     * You can invoke the ListUserLevelsOfSkillGroup API to retrieve the list of agent skill levels under a specified skill group in a given instance. You can also use this API to retrieve the list of agents who can be associated with but are not currently associated with the specified skill group.
      *
      * @param request - ListUserLevelsOfSkillGroupRequest
      *
@@ -13008,7 +13150,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询用户列表.
+     * Invoke ListUsers to obtain the agent list under a specified instance.
      *
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13063,7 +13205,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询用户列表.
+     * Invoke ListUsers to obtain the agent list under a specified instance.
      *
      * @param request - ListUsersRequest
      *
@@ -13081,7 +13223,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListVisitorChatMessages.
+     * You can use ListVisitorChatMessages to retrieve visitor chat records.
      *
      * @param request - ListVisitorChatMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13152,7 +13294,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * ListVisitorChatMessages.
+     * You can use ListVisitorChatMessages to retrieve visitor chat records.
      *
      * @param request - ListVisitorChatMessagesRequest
      *
@@ -13170,7 +13312,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询语音信箱列表.
+     * You can call the ListVoicemails operation to retrieve a list of voicemails for a specified instance.
      *
      * @param request - ListVoicemailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13237,7 +13379,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 查询语音信箱列表.
+     * You can call the ListVoicemails operation to retrieve a list of voicemails for a specified instance.
      *
      * @param request - ListVoicemailsRequest
      *
@@ -13255,6 +13397,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * The ListWaitingChats operation allows agents to retrieve chats that are waiting in a queue to be assigned or claimed.
+     *
      * @param request - ListWaitingChatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13296,6 +13440,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * The ListWaitingChats operation allows agents to retrieve chats that are waiting in a queue to be assigned or claimed.
+     *
      * @param request - ListWaitingChatsRequest
      *
      * @returns ListWaitingChatsResponse
@@ -13312,6 +13458,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can invoke MakeCall to initiate a call. The callee can be an internal agent or an external customer.
+     *
      * @param request - MakeCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13385,6 +13533,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can invoke MakeCall to initiate a call. The callee can be an internal agent or an external customer.
+     *
      * @param request - MakeCallRequest
      *
      * @returns MakeCallResponse
@@ -13401,7 +13551,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改媒体文件.
+     * You can invoke ModifyAudioFile to modify the audio file associated with a specified audio resource ID under a given instance. You can update the audio file name, display name, and the OSS key of the audio file.
      *
      * @param request - ModifyAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13460,7 +13610,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改媒体文件.
+     * You can invoke ModifyAudioFile to modify the audio file associated with a specified audio resource ID under a given instance. You can update the audio file name, display name, and the OSS key of the audio file.
      *
      * @param request - ModifyAudioFileRequest
      *
@@ -13478,7 +13628,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改活动外呼号码
+     * Modifies the calling numbers for a batch prediction outbound campaign.
      *
      * @param tmpReq - ModifyCampaignNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13535,7 +13685,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改活动外呼号码
+     * Modifies the calling numbers for a batch prediction outbound campaign.
      *
      * @param request - ModifyCampaignNumbersRequest
      *
@@ -13553,7 +13703,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 编辑呼入控制号码
+     * You can invoke ModifyCustomCallTagging to modify the description and attached number tags of an inbound number mark for a specified number under a specified instance.
      *
      * @param request - ModifyCustomCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13604,7 +13754,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 编辑呼入控制号码
+     * You can invoke ModifyCustomCallTagging to modify the description and attached number tags of an inbound number mark for a specified number under a specified instance.
      *
      * @param request - ModifyCustomCallTaggingRequest
      *
@@ -13622,7 +13772,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改实例.
+     * You can invoke ModifyInstance to modify a Cloud Contact Center instance.
      *
      * @param request - ModifyInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13665,7 +13815,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改实例.
+     * You can invoke ModifyInstance to modify a Cloud Contact Center instance.
      *
      * @param request - ModifyInstanceRequest
      *
@@ -13683,7 +13833,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改电话号码
+     * You can invoke ModifyPhoneNumber to modify the information of a specified phone number under a specified instance, primarily to update the number\\"s usage and the attached contact flow ID.
      *
      * @param request - ModifyPhoneNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13734,7 +13884,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改电话号码
+     * You can invoke ModifyPhoneNumber to modify the information of a specified phone number under a specified instance, primarily to update the number\\"s usage and the attached contact flow ID.
      *
      * @param request - ModifyPhoneNumberRequest
      *
@@ -13752,7 +13902,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改技能组.
+     * You can invoke ModifySkillGroup to modify the information of a skill group associated with a specified skill group ID under a specified instance, primarily updating the skill group\\"s display name and description.
      *
      * @param request - ModifySkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13803,7 +13953,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改技能组.
+     * You can invoke ModifySkillGroup to modify the information of a skill group associated with a specified skill group ID under a specified instance, primarily updating the skill group\\"s display name and description.
      *
      * @param request - ModifySkillGroupRequest
      *
@@ -13821,7 +13971,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改坐席技能组.
+     * Modify the skill level of a specified agent in one or more skill groups under a specified instance.
      *
      * @param request - ModifySkillLevelsOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13868,7 +14018,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改坐席技能组.
+     * Modify the skill level of a specified agent in one or more skill groups under a specified instance.
      *
      * @param request - ModifySkillLevelsOfUserRequest
      *
@@ -13886,7 +14036,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改坐席.
+     * You can invoke ModifyUser to modify the information of a specified agent under a specified instance. You can modify the phone number, work mode, role, and agent ID.
      *
      * @param request - ModifyUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13961,7 +14111,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改坐席.
+     * You can invoke ModifyUser to modify the information of a specified agent under a specified instance. You can modify the phone number, work mode, role, and agent ID.
      *
      * @param request - ModifyUserRequest
      *
@@ -13979,7 +14129,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改坐席技能组级别.
+     * You can invoke ModifyUserLevelsOfSkillGroup to modify the skill levels of one or more agents under a specified skill group in a specified instance.
      *
      * @param request - ModifyUserLevelsOfSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14026,7 +14176,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 修改坐席技能组级别.
+     * You can invoke ModifyUserLevelsOfSkillGroup to modify the skill levels of one or more agents under a specified skill group in a specified instance.
      *
      * @param request - ModifyUserLevelsOfSkillGroupRequest
      *
@@ -14044,7 +14194,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 通话监听.
+     * You can invoke MonitorCall to listen to a call associated with a specified call ID under a specified instance. The call must be in a state where both the agent and the customer are normally connected, and the agent initiating the listening must have permission to monitor the target agent.
      *
      * @param request - MonitorCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14099,7 +14249,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 通话监听.
+     * You can invoke MonitorCall to listen to a call associated with a specified call ID under a specified instance. The call must be in a state where both the agent and the customer are normally connected, and the agent initiating the listening must have permission to monitor the target agent.
      *
      * @param request - MonitorCallRequest
      *
@@ -14117,7 +14267,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 静音.
+     * You can invoke MuteCall to mute the call associated with a specified call ID under a specified instance. This operation can only be invoked by an agent who is in a talking state, and the agent can only mute themselves. After the agent mutes themselves, the customer will no longer hear the agent\\"s voice.
      *
      * @param request - MuteCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14172,7 +14322,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 静音.
+     * You can invoke MuteCall to mute the call associated with a specified call ID under a specified instance. This operation can only be invoked by an agent who is in a talking state, and the agent can only mute themselves. After the agent mutes themselves, the customer will no longer hear the agent\\"s voice.
      *
      * @param request - MuteCallRequest
      *
@@ -14190,7 +14340,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 暂停预测式外呼活动.
+     * Invoke PauseCampaign to pause the predictive outbound calling Activity corresponding to the specified ID under the specified instance.
      *
      * @param request - PauseCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14233,7 +14383,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 暂停预测式外呼活动.
+     * Invoke PauseCampaign to pause the predictive outbound calling Activity corresponding to the specified ID under the specified instance.
      *
      * @param request - PauseCampaignRequest
      *
@@ -14251,7 +14401,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 选择外呼号码
+     * You can invoke PickOutboundNumbers to select an appropriate caller number based on the provided callee number. The number selection logic is controlled by an Intelligent algorithm.
      *
      * @param request - PickOutboundNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14302,7 +14452,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 选择外呼号码
+     * You can invoke PickOutboundNumbers to select an appropriate caller number based on the provided callee number. The number selection logic is controlled by an Intelligent algorithm.
      *
      * @param request - PickOutboundNumbersRequest
      *
@@ -14320,7 +14470,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 轮询座席状态
+     * Polls the agent status of a specified agent under a specified instance. This operation is typically invoked by the frontend agent Workbench to synchronize agent status.
      *
      * @param request - PollUserStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14367,7 +14517,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 轮询座席状态
+     * Polls the agent status of a specified agent under a specified instance. This operation is typically invoked by the frontend agent Workbench to synchronize agent status.
      *
      * @param request - PollUserStatusRequest
      *
@@ -14527,7 +14677,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 发布ivr流程.
+     * Publishes a contact flow.
      *
      * @param request - PublishContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14574,7 +14724,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 发布ivr流程.
+     * Publishes a contact flow.
      *
      * @param request - PublishContactFlowRequest
      *
@@ -14592,7 +14742,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 就绪/示闲.
+     * You can invoke ReadyForService to make a specified agent under a specified instance ready. After becoming ready, the agent enters the idle status.
      *
      * @param request - ReadyForServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14643,7 +14793,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 就绪/示闲.
+     * You can invoke ReadyForService to make a specified agent under a specified instance ready. After becoming ready, the agent enters the idle status.
      *
      * @param request - ReadyForServiceRequest
      *
@@ -14661,7 +14811,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 重拨.
+     * Redial the number in the desensitized call record.
      *
      * @param request - RedialCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14728,7 +14878,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 重拨.
+     * Redial the number in the desensitized call record.
      *
      * @param request - RedialCallRequest
      *
@@ -14746,7 +14896,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 注册设备.
+     * Registers a Session Initiation Protocol (SIP) device with a specified agent in an instance. A SIP device can be a physical SIP phone or a softphone.
      *
      * @param request - RegisterDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14797,7 +14947,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 注册设备.
+     * Registers a Session Initiation Protocol (SIP) device with a specified agent in an instance. A SIP device can be a physical SIP phone or a softphone.
      *
      * @param request - RegisterDeviceRequest
      *
@@ -14815,7 +14965,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 注册设备.
+     * Registers one or more SIP devices to specified agents in an instance. A SIP device can be a SIP phone or a SIP softphone.
      *
      * @param request - RegisterDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14866,7 +15016,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 注册设备.
+     * Registers one or more SIP devices to specified agents in an instance. A SIP device can be a SIP phone or a SIP softphone.
      *
      * @param request - RegisterDevicesRequest
      *
@@ -14884,6 +15034,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Rejects a chat assigned to an agent.
+     *
      * @param request - RejectChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14925,6 +15077,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Rejects a chat assigned to an agent.
+     *
      * @param request - RejectChatRequest
      *
      * @returns RejectChatResponse
@@ -14941,6 +15095,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use the RejectTicket operation to reject a ticket. The ticket creator can add information to a rejected ticket and then resubmit it.
+     *
      * @param request - RejectTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14986,6 +15142,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Use the RejectTicket operation to reject a ticket. The ticket creator can add information to a rejected ticket and then resubmit it.
+     *
      * @param request - RejectTicketRequest
      *
      * @returns RejectTicketResponse
@@ -15002,7 +15160,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 释放对话.
+     * You can invoke ReleaseCall to hang up the call associated with a specified call ID under a specified instance. The invoker must be an agent and currently in a call.
      *
      * @param request - ReleaseCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15057,7 +15215,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 释放对话.
+     * You can invoke ReleaseCall to hang up the call associated with a specified call ID under a specified instance. The invoker must be an agent and currently in a call.
      *
      * @param request - ReleaseCallRequest
      *
@@ -15075,6 +15233,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * The ReleaseChat operation ends the current chat.
+     *
      * @param request - ReleaseChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15128,6 +15288,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * The ReleaseChat operation ends the current chat.
+     *
      * @param request - ReleaseChatRequest
      *
      * @returns ReleaseChatResponse
@@ -15144,7 +15306,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 编辑呼入控制号码
+     * Removes the blacklist tag from a specified phone number.
      *
      * @param request - RemoveBlacklistCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15191,7 +15353,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 编辑呼入控制号码
+     * Removes the blacklist tag from a specified phone number.
      *
      * @param request - RemoveBlacklistCallTaggingRequest
      *
@@ -15209,7 +15371,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除黑名单号码
+     * You can invoke RemoveDoNotCallNumbers to delete one or more Do Not Call number configuration items under a specified instance.
      *
      * @param request - RemoveDoNotCallNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15252,7 +15414,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除黑名单号码
+     * You can invoke RemoveDoNotCallNumbers to delete one or more Do Not Call number configuration items under a specified instance.
      *
      * @param request - RemoveDoNotCallNumbersRequest
      *
@@ -15270,7 +15432,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除个人号码
+     * You can invoke RemovePersonalNumbersFromUser to delete one or more personal outbound numbers associated with a specified agent under a specified instance.
      *
      * @param request - RemovePersonalNumbersFromUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15317,7 +15479,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除个人号码
+     * You can invoke RemovePersonalNumbersFromUser to delete one or more personal outbound numbers associated with a specified agent under a specified instance.
      *
      * @param request - RemovePersonalNumbersFromUserRequest
      *
@@ -15335,7 +15497,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除技能组下的电话号码
+     * You can invoke RemovePhoneNumberFromSkillGroups to delete the binding relationship between a specified phone number and one or more skill groups under a given instance. This operation removes only the association between the phone number and the skill groups, not the actual phone number itself.
      *
      * @param request - RemovePhoneNumberFromSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15382,7 +15544,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除技能组下的电话号码
+     * You can invoke RemovePhoneNumberFromSkillGroups to delete the binding relationship between a specified phone number and one or more skill groups under a given instance. This operation removes only the association between the phone number and the skill groups, not the actual phone number itself.
      *
      * @param request - RemovePhoneNumberFromSkillGroupsRequest
      *
@@ -15400,7 +15562,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除电话号码
+     * Removes one or more numbers from an instance. This action disassociates the numbers from the instance but does not permanently delete them. It also disassociates all associated resources, such as skill groups, contact flows, and agents.
      *
      * @param request - RemovePhoneNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15447,7 +15609,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除电话号码
+     * Removes one or more numbers from an instance. This action disassociates the numbers from the instance but does not permanently delete them. It also disassociates all associated resources, such as skill groups, contact flows, and agents.
      *
      * @param request - RemovePhoneNumbersRequest
      *
@@ -15465,7 +15627,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除技能组下的电话号码
+     * You can invoke RemovePhoneNumbersFromSkillGroup to delete the association between one or more phone numbers and a specified skill group under a given instance.
      *
      * @param request - RemovePhoneNumbersFromSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15512,7 +15674,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除技能组下的电话号码
+     * You can invoke RemovePhoneNumbersFromSkillGroup to delete the association between one or more phone numbers and a specified skill group under a given instance.
      *
      * @param request - RemovePhoneNumbersFromSkillGroupRequest
      *
@@ -15530,7 +15692,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除多个技能组下的坐席.
+     * You can invoke RemoveSkillGroupsFromUser to delete the association between one or more skill groups and a specified agent under a specified instance.
      *
      * @param request - RemoveSkillGroupsFromUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15577,7 +15739,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除多个技能组下的坐席.
+     * You can invoke RemoveSkillGroupsFromUser to delete the association between one or more skill groups and a specified agent under a specified instance.
      *
      * @param request - RemoveSkillGroupsFromUserRequest
      *
@@ -15595,7 +15757,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除坐席.
+     * You can invoke RemoveUsers to delete one or more agents from a specified instance. This operation only detaches the RAM accounts from the instance and removes the agents mapped to those RAM accounts from the instance. It does not delete the RAM accounts themselves.
      *
      * @param request - RemoveUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15650,7 +15812,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除坐席.
+     * You can invoke RemoveUsers to delete one or more agents from a specified instance. This operation only detaches the RAM accounts from the instance and removes the agents mapped to those RAM accounts from the instance. It does not delete the RAM accounts themselves.
      *
      * @param request - RemoveUsersRequest
      *
@@ -15668,7 +15830,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除坐席下的技能组.
+     * You can invoke RemoveUsersFromSkillGroup to delete the association between one or more agents and a specified skill group under a specified instance. This operation only removes the association between the skill group and the agents and does not delete the agents themselves.
      *
      * @param request - RemoveUsersFromSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15715,7 +15877,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 移除坐席下的技能组.
+     * You can invoke RemoveUsersFromSkillGroup to delete the association between one or more agents and a specified skill group under a specified instance. This operation only removes the association between the skill group and the agents and does not delete the agents themselves.
      *
      * @param request - RemoveUsersFromSkillGroupRequest
      *
@@ -15733,7 +15895,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 重置坐席状态
+     * Resets the state of a specific agent in a specific instance.
      *
      * @param request - ResetAgentStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15780,7 +15942,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 重置坐席状态
+     * Resets the state of a specific agent in a specific instance.
      *
      * @param request - ResetAgentStateRequest
      *
@@ -15798,7 +15960,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 重置坐席密码
+     * Invoke ResetUserPassword to reset the logon password of a specified agent under a specified instance. In practice, agents do not have logon passwords; this operation actually modifies the logon password of the RAM account associated with the agent. This is typically used in scenarios where a customer service representative forgets the logon password of their RAM account.
      *
      * @param request - ResetUserPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15845,7 +16007,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 重置坐席密码
+     * Invoke ResetUserPassword to reset the logon password of a specified agent under a specified instance. In practice, agents do not have logon passwords; this operation actually modifies the logon password of the RAM account associated with the agent. This is typically used in scenarios where a customer service representative forgets the logon password of their RAM account.
      *
      * @param request - ResetUserPasswordRequest
      *
@@ -15863,7 +16025,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 录音解冻.
+     * Restores call recordings for the specified instance.
      *
      * @param request - RestoreArchivedRecordingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15906,7 +16068,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 录音解冻.
+     * Restores call recordings for the specified instance.
      *
      * @param request - RestoreArchivedRecordingsRequest
      *
@@ -15924,6 +16086,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use the ResubmitTicket API to resubmit a rejected or returned ticket.
+     *
      * @param request - ResubmitTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15969,6 +16133,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use the ResubmitTicket API to resubmit a rejected or returned ticket.
+     *
      * @param request - ResubmitTicketRequest
      *
      * @returns ResubmitTicketResponse
@@ -15985,7 +16151,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 恢复预测式外呼活动.
+     * Invoke ResumeCampaign to recover the predictive outbound calling Activity corresponding to the specified ID under the specified instance.
      *
      * @param request - ResumeCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16028,7 +16194,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 恢复预测式外呼活动.
+     * Invoke ResumeCampaign to recover the predictive outbound calling Activity corresponding to the specified ID under the specified instance.
      *
      * @param request - ResumeCampaignRequest
      *
@@ -16046,7 +16212,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 取回.
+     * You can invoke RetrieveCall to retrieve a call associated with a specified call ID under a specified instance. The call must be on hold for the retrieve operation to be performed.
      *
      * @param request - RetrieveCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16101,7 +16267,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 取回.
+     * You can invoke RetrieveCall to retrieve a call associated with a specified call ID under a specified instance. The call must be on hold for the retrieve operation to be performed.
      *
      * @param request - RetrieveCallRequest
      *
@@ -16188,7 +16354,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 客服侧数据收集.
+     * Invoke SaveRTCStatsV2 to report Web Real-Time Communication (WebRTC) voice transmission statistics information from the agent side. This API is not relevant for regular customers.
      *
      * @param request - SaveRTCStatsV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16247,7 +16413,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 客服侧数据收集.
+     * Invoke SaveRTCStatsV2 to report Web Real-Time Communication (WebRTC) voice transmission statistics information from the agent side. This API is not relevant for regular customers.
      *
      * @param request - SaveRTCStatsV2Request
      *
@@ -16265,7 +16431,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 保存终端埋点日志.
+     * Invoke the SaveTerminalLog API to report agent-side log information. Regular customers do not need to be concerned with this API.
      *
      * @param request - SaveTerminalLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16336,7 +16502,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 保存终端埋点日志.
+     * Invoke the SaveTerminalLog API to report agent-side log information. Regular customers do not need to be concerned with this API.
      *
      * @param request - SaveTerminalLogRequest
      *
@@ -16354,7 +16520,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 客服侧数据收集.
+     * Invoke the SaveWebRTCStats API to report Web Real-Time Communication (WebRTC) voice transmission statistics information from the agent side. Regular customers do not need to concern themselves with this API.
      *
      * @param request - SaveWebRTCStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16413,7 +16579,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 客服侧数据收集.
+     * Invoke the SaveWebRTCStats API to report Web Real-Time Communication (WebRTC) voice transmission statistics information from the agent side. Regular customers do not need to concern themselves with this API.
      *
      * @param request - SaveWebRTCStatsRequest
      *
@@ -16431,7 +16597,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 客服侧数据收集.
+     * Invoke the SaveWebRtcInfo API to report WebRTC call status information from the agent side, including call quality monitoring data, for backend statistics and monitoring. Customers do not need to concern themselves with this API.
      *
      * @param request - SaveWebRtcInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16486,7 +16652,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 客服侧数据收集.
+     * Invoke the SaveWebRtcInfo API to report WebRTC call status information from the agent side, including call quality monitoring data, for backend statistics and monitoring. Customers do not need to concern themselves with this API.
      *
      * @param request - SaveWebRtcInfoRequest
      *
@@ -16504,7 +16670,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 在接通的电话上发送DTMF信号.
+     * You can invoke SendDtmfSignaling to send DTMF keypress information during a call.
      *
      * @param request - SendDtmfSignalingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16563,7 +16729,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 在接通的电话上发送DTMF信号.
+     * You can invoke SendDtmfSignaling to send DTMF keypress information during a call.
      *
      * @param request - SendDtmfSignalingRequest
      *
@@ -16654,7 +16820,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 上线
+     * You can invoke SignInGroup to sign an agent into a specified skill group under a specified instance, which is the operation for publishing the agent online.
      *
      * @param request - SignInGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16713,7 +16879,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 上线
+     * You can invoke SignInGroup to sign an agent into a specified skill group under a specified instance, which is the operation for publishing the agent online.
      *
      * @param request - SignInGroupRequest
      *
@@ -16731,7 +16897,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 下线
+     * You can call SignOutGroup to check out an agent from the skill group they are currently signed into, which is equivalent to performing an unpublish operation for the agent.
      *
      * @param request - SignOutGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16778,7 +16944,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 下线
+     * You can call SignOutGroup to check out an agent from the skill group they are currently signed into, which is equivalent to performing an unpublish operation for the agent.
      *
      * @param request - SignOutGroupRequest
      *
@@ -16796,7 +16962,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 双呼
+     * You can invoke StartBack2BackCall to initiate a back-to-back call.
+     *
+     * @remarks
+     * A back-to-back call differs from a traditional two-party call in that the caller does not directly call the callee. Instead, a Back-to-Back Agent is used. The Back-to-Back Agent first calls the caller, and after the connection is established, it calls the callee and then joins both parties into a single conference. In this mode, because all message streams of each call pass through the Back-to-Back Agent, the service provider (SP) can offer value-added services such as call timing, call recording, and number masking.
      *
      * @param request - StartBack2BackCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16859,7 +17028,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 双呼
+     * You can invoke StartBack2BackCall to initiate a back-to-back call.
+     *
+     * @remarks
+     * A back-to-back call differs from a traditional two-party call in that the caller does not directly call the callee. Instead, a Back-to-Back Agent is used. The Back-to-Back Agent first calls the caller, and after the connection is established, it calls the callee and then joins both parties into a single conference. In this mode, because all message streams of each call pass through the Back-to-Back Agent, the service provider (SP) can offer value-added services such as call timing, call recording, and number masking.
      *
      * @param request - StartBack2BackCallRequest
      *
@@ -16877,6 +17049,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Starts a chat session.
+     *
      * @param tmpReq - StartChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16932,6 +17106,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Starts a chat session.
+     *
      * @param request - StartChatRequest
      *
      * @returns StartChatResponse
@@ -16948,7 +17124,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 开始会议.
+     * You can invoke StartConference to initiate a conference.
      *
      * @param request - StartConferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17003,7 +17179,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 开始会议.
+     * You can invoke StartConference to initiate a conference.
      *
      * @param request - StartConferenceRequest
      *
@@ -17021,7 +17197,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 编辑ivr流程.
+     * Start editing a contact flow and generate a draft version.
      *
      * @param request - StartEditContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17064,7 +17240,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 编辑ivr流程.
+     * Start editing a contact flow and generate a draft version.
      *
      * @param request - StartEditContactFlowRequest
      *
@@ -17082,7 +17258,12 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 开始预测试外呼
+     * Invoke StartPredictiveCall to initiate predictive outbound calling.
+     *
+     * @remarks
+     * In addition to supporting agents initiating outbound calls from the agent Workbench, Cloud Call Center also enables your Operational System backend to initiate outbound calls and transfer the call to an agent after it is answered. This allows you to seamlessly embed Cloud Call Center features into your Business Process.
+     * For example, your Customer can enter their phone number on your WeChat Official Account and click a button to inquire about a product. Your backend system then invokes this API to call the Customer’s Phone. After the call is connected, the system plays back the message: “We have received your inquiry about our product via the Official Account. We are now connecting you to an advisor. Please wait.” The call is then transferred to an appropriate agent.
+     * Compared with the DialEX API in version 1.0, this API offers greater flexibility in configuration. In addition to customizing the IVR for transfer-in, you can also pass custom parameters, which can be played back by voice within the IVR to support notification scenarios.
      *
      * @param request - StartPredictiveCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17153,7 +17334,12 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 开始预测试外呼
+     * Invoke StartPredictiveCall to initiate predictive outbound calling.
+     *
+     * @remarks
+     * In addition to supporting agents initiating outbound calls from the agent Workbench, Cloud Call Center also enables your Operational System backend to initiate outbound calls and transfer the call to an agent after it is answered. This allows you to seamlessly embed Cloud Call Center features into your Business Process.
+     * For example, your Customer can enter their phone number on your WeChat Official Account and click a button to inquire about a product. Your backend system then invokes this API to call the Customer’s Phone. After the call is connected, the system plays back the message: “We have received your inquiry about our product via the Official Account. We are now connecting you to an advisor. Please wait.” The call is then transferred to an appropriate agent.
+     * Compared with the DialEX API in version 1.0, this API offers greater flexibility in configuration. In addition to customizing the IVR for transfer-in, you can also pass custom parameters, which can be played back by voice within the IVR to support notification scenarios.
      *
      * @param request - StartPredictiveCallRequest
      *
@@ -17171,7 +17357,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 发起隐私呼叫.
+     * Starts a privacy call.
      *
      * @param request - StartPrivacyCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17222,7 +17408,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 发起隐私呼叫.
+     * Starts a privacy call.
      *
      * @param request - StartPrivacyCallRequest
      *
@@ -17240,7 +17426,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 提交预测式外呼活动.
+     * Invoke SubmitCampaign to start the predictive outbound calling activity corresponding to the specified ID under the specified instance.
      *
      * @param request - SubmitCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17283,7 +17469,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 提交预测式外呼活动.
+     * Invoke SubmitCampaign to start the predictive outbound calling activity corresponding to the specified ID under the specified instance.
      *
      * @param request - SubmitCampaignRequest
      *
@@ -17301,7 +17487,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 切换关注/咨询转到会议.
+     * You can invoke SwitchToConference to switch the status of a specified call under a specified instance to a three-party conference. This is typically used in scenarios where a consultation is converted into a conference.
      *
      * @param request - SwitchToConferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17352,7 +17538,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 切换关注/咨询转到会议.
+     * You can invoke SwitchToConference to switch the status of a specified call under a specified instance to a three-party conference. This is typically used in scenarios where a consultation is converted into a conference.
      *
      * @param request - SwitchToConferenceRequest
      *
@@ -17370,7 +17556,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 小休.
+     * You can invoke TakeBreak to set a specified agent in a specified instance to the break state.
      *
      * @param request - TakeBreakRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17421,7 +17607,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 小休.
+     * You can invoke TakeBreak to set a specified agent in a specified instance to the break state.
      *
      * @param request - TakeBreakRequest
      *
@@ -17439,6 +17625,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Closes a ticket.
+     *
      * @param request - TerminateTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17484,6 +17672,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Closes a ticket.
+     *
      * @param request - TerminateTicketRequest
      *
      * @returns TerminateTicketResponse
@@ -17500,6 +17690,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can call TransferTicketTask to transfer a ticket to another user.
+     *
      * @param request - TransferTicketTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17553,6 +17745,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can call TransferTicketTask to transfer a ticket to another user.
+     *
      * @param request - TransferTicketTaskRequest
      *
      * @returns TransferTicketTaskResponse
@@ -17569,7 +17763,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 取消静音.
+     * [responses_200_schema_properties_Data_properties_UserContext_properties_UserState_type]string.
      *
      * @param request - UnmuteCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17624,7 +17818,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 取消静音.
+     * [responses_200_schema_properties_Data_properties_UserContext_properties_UserState_type]string.
      *
      * @param request - UnmuteCallRequest
      *
@@ -17642,7 +17836,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除注册设备.
+     * You can invoke UnregisterDevice to delete the device registration record of a specified agent under a specified instance. After deletion, the SIP phone or SIP softphone associated with the agent becomes inactive.
      *
      * @param request - UnregisterDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17685,7 +17879,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 删除注册设备.
+     * You can invoke UnregisterDevice to delete the device registration record of a specified agent under a specified instance. After deletion, the SIP phone or SIP softphone associated with the agent becomes inactive.
      *
      * @param request - UnregisterDeviceRequest
      *
@@ -17703,7 +17897,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 更新会话小结.
+     * Updates a call summary.
      *
      * @param request - UpdateCallSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17750,7 +17944,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 更新会话小结.
+     * Updates a call summary.
      *
      * @param request - UpdateCallSummaryRequest
      *
@@ -17768,7 +17962,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 更新预测试外呼活动.
+     * Updates outbound campaign parameters.
      *
      * @param request - UpdateCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17835,7 +18029,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 更新预测试外呼活动.
+     * Updates outbound campaign parameters.
      *
      * @param request - UpdateCampaignRequest
      *
@@ -17853,6 +18047,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use UpdateChatRoutingProfile to configure session transfers.
+     *
      * @param request - UpdateChatRoutingProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17894,6 +18090,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use UpdateChatRoutingProfile to configure session transfers.
+     *
      * @param request - UpdateChatRoutingProfileRequest
      *
      * @returns UpdateChatRoutingProfileResponse
@@ -17910,7 +18108,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 更新系统配置.
+     * Use the UpdateConfigItems operation to add or modify configuration items for an instance, such as hiding the caller ID for inbound calls or allowing agents to hang up.
      *
      * @param request - UpdateConfigItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17961,7 +18159,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * 更新系统配置.
+     * Use the UpdateConfigItems operation to add or modify configuration items for an instance, such as hiding the caller ID for inbound calls or allowing agents to hang up.
      *
      * @param request - UpdateConfigItemsRequest
      *
@@ -18050,7 +18248,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * UpdateSubscription.
+     * Use the UpdateSubscription operation to configure message subscriptions.
      *
      * @param request - UpdateSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18125,7 +18323,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * UpdateSubscription.
+     * Use the UpdateSubscription operation to configure message subscriptions.
      *
      * @param request - UpdateSubscriptionRequest
      *
@@ -18143,6 +18341,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * UpdateTicket updates the content of a ticket.
+     *
      * @param request - UpdateTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -18196,6 +18396,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * UpdateTicket updates the content of a ticket.
+     *
      * @param request - UpdateTicketRequest
      *
      * @returns UpdateTicketResponse
@@ -18212,6 +18414,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use WithdrawTicket to withdraw a ticket.
+     *
      * @param request - WithdrawTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -18257,6 +18461,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * You can use WithdrawTicket to withdraw a ticket.
+     *
      * @param request - WithdrawTicketRequest
      *
      * @returns WithdrawTicketResponse
