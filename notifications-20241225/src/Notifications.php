@@ -5,26 +5,66 @@
 namespace AlibabaCloud\SDK\Notifications\V20241225;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\CreateWebhookContactRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\CreateWebhookContactResponse;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\DeleteAllMessageRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\DeleteAllMessageResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\DeleteWebhookContactRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\DeleteWebhookContactResponse;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\DelMessageRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\DelMessageResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadAllCommonContactsRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadAllCommonContactsResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadAllMarketingPreferencesRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadAllMarketingPreferencesResponse;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadAllMessageRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadAllMessageResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadAllWebhookContactsRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadAllWebhookContactsResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadCategoryGroupListRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadCategoryGroupListResponse;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadClassNameRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadClassNameResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadCommonContactRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadCommonContactResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMarketingPreferenceRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMarketingPreferenceResponse;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMessageContentRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMessageContentResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMessageLanguageRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMessageLanguageResponse;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMessageListRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMessageListResponse;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMessageNewTotalRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMessageNewTotalResponse;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMessageRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMessageResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMetaConfigRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadMetaConfigResponse;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadNumGroupByClassRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadNumGroupByClassResponse;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadNumGroupTotalRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadNumGroupTotalResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadRevisionHistoryListRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadRevisionHistoryListResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadRevisionHistoryListShrinkRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadUserSubscriptionListRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadUserSubscriptionListResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadWebhookContactRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadWebhookContactResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadWebhookContactSendTemplateListRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ReadWebhookContactSendTemplateListResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ResetUserSubscriptionRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ResetUserSubscriptionResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\ResetUserSubscriptionShrinkRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\TestWebhookContactRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\TestWebhookContactResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateMarketingPreferenceRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateMarketingPreferenceResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateMessageLanguageRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateMessageLanguageResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateWebhookContactRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateWebhookContactResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -35,7 +75,11 @@ class Notifications extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'ap-southeast-1' => 'notifications-intl.aliyuncs.com',
+            'cn-zhangjiakou' => 'notifications.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('notifications', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -65,7 +109,124 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：删除消息.
+     * Creates a webhook contact.
+     *
+     * @param request - CreateWebhookContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWebhookContactResponse
+     *
+     * @param CreateWebhookContactRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateWebhookContactResponse
+     */
+    public function createWebhookContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->botSecurityToken) {
+            @$body['BotSecurityToken'] = $request->botSecurityToken;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->securityToken) {
+            @$body['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->serverUrl) {
+            @$body['ServerUrl'] = $request->serverUrl;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->templateCode) {
+            @$body['TemplateCode'] = $request->templateCode;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        if (null !== $request->verificationCode) {
+            @$body['VerificationCode'] = $request->verificationCode;
+        }
+
+        if (null !== $request->webhookType) {
+            @$body['WebhookType'] = $request->webhookType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWebhookContact',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWebhookContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a webhook contact.
+     *
+     * @param request - CreateWebhookContactRequest
+     *
+     * @returns CreateWebhookContactResponse
+     *
+     * @param CreateWebhookContactRequest $request
+     *
+     * @return CreateWebhookContactResponse
+     */
+    public function createWebhookContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWebhookContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a message.
      *
      * @param request - DelMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -140,7 +301,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：删除消息.
+     * Deletes a message.
      *
      * @param request - DelMessageRequest
      *
@@ -158,7 +319,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：站内信全部删除（逻辑删除）.
+     * Deletes all in-app messages (logical deletion).
      *
      * @param request - DeleteAllMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -237,7 +398,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：站内信全部删除（逻辑删除）.
+     * Deletes all in-app messages (logical deletion).
      *
      * @param request - DeleteAllMessageRequest
      *
@@ -255,7 +416,278 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：分类全部标记为已读，不填则全部标记.
+     * Deletes a webhook contact.
+     *
+     * @param request - DeleteWebhookContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWebhookContactResponse
+     *
+     * @param DeleteWebhookContactRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteWebhookContactResponse
+     */
+    public function deleteWebhookContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWebhookContact',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWebhookContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a webhook contact.
+     *
+     * @param request - DeleteWebhookContactRequest
+     *
+     * @returns DeleteWebhookContactResponse
+     *
+     * @param DeleteWebhookContactRequest $request
+     *
+     * @return DeleteWebhookContactResponse
+     */
+    public function deleteWebhookContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWebhookContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves all common contacts across accounts.
+     *
+     * @param request - ReadAllCommonContactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadAllCommonContactsResponse
+     *
+     * @param ReadAllCommonContactsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ReadAllCommonContactsResponse
+     */
+    public function readAllCommonContactsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadAllCommonContacts',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadAllCommonContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves all common contacts across accounts.
+     *
+     * @param request - ReadAllCommonContactsRequest
+     *
+     * @returns ReadAllCommonContactsResponse
+     *
+     * @param ReadAllCommonContactsRequest $request
+     *
+     * @return ReadAllCommonContactsResponse
+     */
+    public function readAllCommonContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readAllCommonContactsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves all marketing preference configurations.
+     *
+     * @param request - ReadAllMarketingPreferencesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadAllMarketingPreferencesResponse
+     *
+     * @param ReadAllMarketingPreferencesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ReadAllMarketingPreferencesResponse
+     */
+    public function readAllMarketingPreferencesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadAllMarketingPreferences',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadAllMarketingPreferencesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves all marketing preference configurations.
+     *
+     * @param request - ReadAllMarketingPreferencesRequest
+     *
+     * @returns ReadAllMarketingPreferencesResponse
+     *
+     * @param ReadAllMarketingPreferencesRequest $request
+     *
+     * @return ReadAllMarketingPreferencesResponse
+     */
+    public function readAllMarketingPreferences($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readAllMarketingPreferencesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Marks all messages as read. If no category is specified, all messages are marked as read.
      *
      * @param request - ReadAllMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -334,7 +766,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：分类全部标记为已读，不填则全部标记.
+     * Marks all messages as read. If no category is specified, all messages are marked as read.
      *
      * @param request - ReadAllMessageRequest
      *
@@ -352,7 +784,189 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取各分类已读消息数.
+     * Retrieves the full list of webhooks.
+     *
+     * @param request - ReadAllWebhookContactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadAllWebhookContactsResponse
+     *
+     * @param ReadAllWebhookContactsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ReadAllWebhookContactsResponse
+     */
+    public function readAllWebhookContactsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadAllWebhookContacts',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadAllWebhookContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the full list of webhooks.
+     *
+     * @param request - ReadAllWebhookContactsRequest
+     *
+     * @returns ReadAllWebhookContactsResponse
+     *
+     * @param ReadAllWebhookContactsRequest $request
+     *
+     * @return ReadAllWebhookContactsResponse
+     */
+    public function readAllWebhookContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readAllWebhookContactsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get category group list.
+     *
+     * @param request - ReadCategoryGroupListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadCategoryGroupListResponse
+     *
+     * @param ReadCategoryGroupListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ReadCategoryGroupListResponse
+     */
+    public function readCategoryGroupListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->channelGroupCode) {
+            @$body['ChannelGroupCode'] = $request->channelGroupCode;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadCategoryGroupList',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadCategoryGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get category group list.
+     *
+     * @param request - ReadCategoryGroupListRequest
+     *
+     * @returns ReadCategoryGroupListResponse
+     *
+     * @param ReadCategoryGroupListRequest $request
+     *
+     * @return ReadCategoryGroupListResponse
+     */
+    public function readCategoryGroupList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readCategoryGroupListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the number of read messages for each category.
      *
      * @param request - ReadClassNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -423,7 +1037,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取各分类已读消息数.
+     * Retrieves the number of read messages for each category.
      *
      * @param request - ReadClassNameRequest
      *
@@ -441,7 +1055,193 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：消息标记为已读.
+     * Retrieves a general contact.
+     *
+     * @param request - ReadCommonContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadCommonContactResponse
+     *
+     * @param ReadCommonContactRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ReadCommonContactResponse
+     */
+    public function readCommonContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadCommonContact',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadCommonContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a general contact.
+     *
+     * @param request - ReadCommonContactRequest
+     *
+     * @returns ReadCommonContactResponse
+     *
+     * @param ReadCommonContactRequest $request
+     *
+     * @return ReadCommonContactResponse
+     */
+    public function readCommonContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readCommonContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the marketing preferences of a user.
+     *
+     * @param request - ReadMarketingPreferenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadMarketingPreferenceResponse
+     *
+     * @param ReadMarketingPreferenceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ReadMarketingPreferenceResponse
+     */
+    public function readMarketingPreferenceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadMarketingPreference',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadMarketingPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the marketing preferences of a user.
+     *
+     * @param request - ReadMarketingPreferenceRequest
+     *
+     * @returns ReadMarketingPreferenceResponse
+     *
+     * @param ReadMarketingPreferenceRequest $request
+     *
+     * @return ReadMarketingPreferenceResponse
+     */
+    public function readMarketingPreference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readMarketingPreferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Marks a message as read.
      *
      * @param request - ReadMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -516,7 +1316,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：消息标记为已读.
+     * Marks a message as read.
      *
      * @param request - ReadMessageRequest
      *
@@ -534,7 +1334,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取消息正文.
+     * Retrieves the body of a message.
      *
      * @param request - ReadMessageContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -625,7 +1425,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取消息正文.
+     * Retrieves the body of a message.
      *
      * @param request - ReadMessageContentRequest
      *
@@ -643,7 +1443,100 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取消息列表.
+     * Retrieves the message language.
+     *
+     * @param request - ReadMessageLanguageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadMessageLanguageResponse
+     *
+     * @param ReadMessageLanguageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ReadMessageLanguageResponse
+     */
+    public function readMessageLanguageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->returnDefaultLang) {
+            @$body['ReturnDefaultLang'] = $request->returnDefaultLang;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadMessageLanguage',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadMessageLanguageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the message language.
+     *
+     * @param request - ReadMessageLanguageRequest
+     *
+     * @returns ReadMessageLanguageResponse
+     *
+     * @param ReadMessageLanguageRequest $request
+     *
+     * @return ReadMessageLanguageResponse
+     */
+    public function readMessageLanguage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readMessageLanguageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a list of messages.
      *
      * @param request - ReadMessageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -758,7 +1651,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取消息列表.
+     * Retrieves a list of messages.
      *
      * @param request - ReadMessageListRequest
      *
@@ -776,7 +1669,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取未读消息总数.
+     * Retrieves the total number of unread messages.
      *
      * @param request - ReadMessageNewTotalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -847,7 +1740,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取未读消息总数.
+     * Retrieves the total number of unread messages.
      *
      * @param request - ReadMessageNewTotalRequest
      *
@@ -865,7 +1758,96 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取各分类已读消息数.
+     * Retrieves the metadata service.
+     *
+     * @param request - ReadMetaConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadMetaConfigResponse
+     *
+     * @param ReadMetaConfigRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ReadMetaConfigResponse
+     */
+    public function readMetaConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadMetaConfig',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadMetaConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the metadata service.
+     *
+     * @param request - ReadMetaConfigRequest
+     *
+     * @returns ReadMetaConfigResponse
+     *
+     * @param ReadMetaConfigRequest $request
+     *
+     * @return ReadMetaConfigResponse
+     */
+    public function readMetaConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readMetaConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the count of read messages for each category.
      *
      * @param request - ReadNumGroupByClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -936,7 +1918,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取各分类已读消息数.
+     * Retrieves the count of read messages for each category.
      *
      * @param request - ReadNumGroupByClassRequest
      *
@@ -954,7 +1936,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取所有分类下的信息.
+     * Method description: Get information under all categories.
      *
      * @param request - ReadNumGroupTotalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1029,7 +2011,7 @@ class Notifications extends OpenApiClient
     }
 
     /**
-     * 方法描述：获取所有分类下的信息.
+     * Method description: Get information under all categories.
      *
      * @param request - ReadNumGroupTotalRequest
      *
@@ -1044,5 +2026,926 @@ class Notifications extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->readNumGroupTotalWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves revision records.
+     *
+     * @param tmpReq - ReadRevisionHistoryListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadRevisionHistoryListResponse
+     *
+     * @param ReadRevisionHistoryListRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ReadRevisionHistoryListResponse
+     */
+    public function readRevisionHistoryListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ReadRevisionHistoryListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pageInfo) {
+            $request->pageInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pageInfo, 'PageInfo', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->categoryCode) {
+            @$body['CategoryCode'] = $request->categoryCode;
+        }
+
+        if (null !== $request->channelGroupCode) {
+            @$body['ChannelGroupCode'] = $request->channelGroupCode;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->pageInfoShrink) {
+            @$body['PageInfo'] = $request->pageInfoShrink;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadRevisionHistoryList',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadRevisionHistoryListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves revision records.
+     *
+     * @param request - ReadRevisionHistoryListRequest
+     *
+     * @returns ReadRevisionHistoryListResponse
+     *
+     * @param ReadRevisionHistoryListRequest $request
+     *
+     * @return ReadRevisionHistoryListResponse
+     */
+    public function readRevisionHistoryList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readRevisionHistoryListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the subscription list of a user.
+     *
+     * @param request - ReadUserSubscriptionListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadUserSubscriptionListResponse
+     *
+     * @param ReadUserSubscriptionListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ReadUserSubscriptionListResponse
+     */
+    public function readUserSubscriptionListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->categoryGroupCode) {
+            @$body['CategoryGroupCode'] = $request->categoryGroupCode;
+        }
+
+        if (null !== $request->channelGroupCode) {
+            @$body['ChannelGroupCode'] = $request->channelGroupCode;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadUserSubscriptionList',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadUserSubscriptionListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the subscription list of a user.
+     *
+     * @param request - ReadUserSubscriptionListRequest
+     *
+     * @returns ReadUserSubscriptionListResponse
+     *
+     * @param ReadUserSubscriptionListRequest $request
+     *
+     * @return ReadUserSubscriptionListResponse
+     */
+    public function readUserSubscriptionList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readUserSubscriptionListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a webhook contact.
+     *
+     * @param request - ReadWebhookContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadWebhookContactResponse
+     *
+     * @param ReadWebhookContactRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ReadWebhookContactResponse
+     */
+    public function readWebhookContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadWebhookContact',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadWebhookContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a webhook contact.
+     *
+     * @param request - ReadWebhookContactRequest
+     *
+     * @returns ReadWebhookContactResponse
+     *
+     * @param ReadWebhookContactRequest $request
+     *
+     * @return ReadWebhookContactResponse
+     */
+    public function readWebhookContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readWebhookContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of webhook send templates.
+     *
+     * @param request - ReadWebhookContactSendTemplateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadWebhookContactSendTemplateListResponse
+     *
+     * @param ReadWebhookContactSendTemplateListRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ReadWebhookContactSendTemplateListResponse
+     */
+    public function readWebhookContactSendTemplateListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->templateCode) {
+            @$body['TemplateCode'] = $request->templateCode;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadWebhookContactSendTemplateList',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadWebhookContactSendTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of webhook send templates.
+     *
+     * @param request - ReadWebhookContactSendTemplateListRequest
+     *
+     * @returns ReadWebhookContactSendTemplateListResponse
+     *
+     * @param ReadWebhookContactSendTemplateListRequest $request
+     *
+     * @return ReadWebhookContactSendTemplateListResponse
+     */
+    public function readWebhookContactSendTemplateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readWebhookContactSendTemplateListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Resets user subscriptions.
+     *
+     * @param tmpReq - ResetUserSubscriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetUserSubscriptionResponse
+     *
+     * @param ResetUserSubscriptionRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ResetUserSubscriptionResponse
+     */
+    public function resetUserSubscriptionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ResetUserSubscriptionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categoryCodes) {
+            $request->categoryCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categoryCodes, 'CategoryCodes', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->categoryCodesShrink) {
+            @$body['CategoryCodes'] = $request->categoryCodesShrink;
+        }
+
+        if (null !== $request->channelGroupCode) {
+            @$body['ChannelGroupCode'] = $request->channelGroupCode;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->remarks) {
+            @$body['Remarks'] = $request->remarks;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ResetUserSubscription',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetUserSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Resets user subscriptions.
+     *
+     * @param request - ResetUserSubscriptionRequest
+     *
+     * @returns ResetUserSubscriptionResponse
+     *
+     * @param ResetUserSubscriptionRequest $request
+     *
+     * @return ResetUserSubscriptionResponse
+     */
+    public function resetUserSubscription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetUserSubscriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Tests a webhook.
+     *
+     * @param request - TestWebhookContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TestWebhookContactResponse
+     *
+     * @param TestWebhookContactRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TestWebhookContactResponse
+     */
+    public function testWebhookContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->botSecurityToken) {
+            @$body['BotSecurityToken'] = $request->botSecurityToken;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->serverUrl) {
+            @$body['ServerUrl'] = $request->serverUrl;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->templateCode) {
+            @$body['TemplateCode'] = $request->templateCode;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        if (null !== $request->webhookType) {
+            @$body['WebhookType'] = $request->webhookType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TestWebhookContact',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TestWebhookContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Tests a webhook.
+     *
+     * @param request - TestWebhookContactRequest
+     *
+     * @returns TestWebhookContactResponse
+     *
+     * @param TestWebhookContactRequest $request
+     *
+     * @return TestWebhookContactResponse
+     */
+    public function testWebhookContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testWebhookContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates marketing preferences.
+     *
+     * @param request - UpdateMarketingPreferenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMarketingPreferenceResponse
+     *
+     * @param UpdateMarketingPreferenceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateMarketingPreferenceResponse
+     */
+    public function updateMarketingPreferenceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->allowMarketing) {
+            @$body['AllowMarketing'] = $request->allowMarketing;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMarketingPreference',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMarketingPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates marketing preferences.
+     *
+     * @param request - UpdateMarketingPreferenceRequest
+     *
+     * @returns UpdateMarketingPreferenceResponse
+     *
+     * @param UpdateMarketingPreferenceRequest $request
+     *
+     * @return UpdateMarketingPreferenceResponse
+     */
+    public function updateMarketingPreference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMarketingPreferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the message language.
+     *
+     * @param request - UpdateMessageLanguageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMessageLanguageResponse
+     *
+     * @param UpdateMessageLanguageRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateMessageLanguageResponse
+     */
+    public function updateMessageLanguageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->preferLang) {
+            @$body['PreferLang'] = $request->preferLang;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMessageLanguage',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMessageLanguageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the message language.
+     *
+     * @param request - UpdateMessageLanguageRequest
+     *
+     * @returns UpdateMessageLanguageResponse
+     *
+     * @param UpdateMessageLanguageRequest $request
+     *
+     * @return UpdateMessageLanguageResponse
+     */
+    public function updateMessageLanguage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMessageLanguageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies a webhook contact.
+     *
+     * @param request - UpdateWebhookContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWebhookContactResponse
+     *
+     * @param UpdateWebhookContactRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateWebhookContactResponse
+     */
+    public function updateWebhookContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->botSecurityToken) {
+            @$body['BotSecurityToken'] = $request->botSecurityToken;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->securityToken) {
+            @$body['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->serverUrl) {
+            @$body['ServerUrl'] = $request->serverUrl;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->templateCode) {
+            @$body['TemplateCode'] = $request->templateCode;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        if (null !== $request->verificationCode) {
+            @$body['VerificationCode'] = $request->verificationCode;
+        }
+
+        if (null !== $request->webhookType) {
+            @$body['WebhookType'] = $request->webhookType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWebhookContact',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWebhookContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a webhook contact.
+     *
+     * @param request - UpdateWebhookContactRequest
+     *
+     * @returns UpdateWebhookContactResponse
+     *
+     * @param UpdateWebhookContactRequest $request
+     *
+     * @return UpdateWebhookContactResponse
+     */
+    public function updateWebhookContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWebhookContactWithOptions($request, $runtime);
     }
 }
