@@ -1,0 +1,216 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Sddp\V20260120\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class ListColumnsRequest extends Model
+{
+    /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $dataAssetSourceId;
+
+    /**
+     * @var string
+     */
+    public $dataSourceName;
+
+    /**
+     * @var string
+     */
+    public $engineType;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $productCode;
+
+    /**
+     * @var int
+     */
+    public $riskLevelId;
+
+    /**
+     * @var int
+     */
+    public $ruleId;
+
+    /**
+     * @var string
+     */
+    public $tableName;
+
+    /**
+     * @var int
+     */
+    public $templateId;
+    protected $_name = [
+        'currentPage' => 'CurrentPage',
+        'dataAssetSourceId' => 'DataAssetSourceId',
+        'dataSourceName' => 'DataSourceName',
+        'engineType' => 'EngineType',
+        'instanceName' => 'InstanceName',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'productCode' => 'ProductCode',
+        'riskLevelId' => 'RiskLevelId',
+        'ruleId' => 'RuleId',
+        'tableName' => 'TableName',
+        'templateId' => 'TemplateId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->dataAssetSourceId) {
+            $res['DataAssetSourceId'] = $this->dataAssetSourceId;
+        }
+
+        if (null !== $this->dataSourceName) {
+            $res['DataSourceName'] = $this->dataSourceName;
+        }
+
+        if (null !== $this->engineType) {
+            $res['EngineType'] = $this->engineType;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+
+        if (null !== $this->riskLevelId) {
+            $res['RiskLevelId'] = $this->riskLevelId;
+        }
+
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
+        }
+
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['DataAssetSourceId'])) {
+            $model->dataAssetSourceId = $map['DataAssetSourceId'];
+        }
+
+        if (isset($map['DataSourceName'])) {
+            $model->dataSourceName = $map['DataSourceName'];
+        }
+
+        if (isset($map['EngineType'])) {
+            $model->engineType = $map['EngineType'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+
+        if (isset($map['RiskLevelId'])) {
+            $model->riskLevelId = $map['RiskLevelId'];
+        }
+
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
+        }
+
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+
+        return $model;
+    }
+}
