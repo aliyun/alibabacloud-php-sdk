@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Marketing_event\V20210101;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\AddAgendaSumRecordFlowPopRequest;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\AddAgendaSumRecordFlowPopResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\AddSumRecordFlowPopRequest;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\AddSumRecordFlowPopResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\BindExhibitorRfidPopRequest;
@@ -78,6 +80,87 @@ class Marketing_event extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 上报论坛议程汇总数据.
+     *
+     * @param request - AddAgendaSumRecordFlowPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddAgendaSumRecordFlowPopResponse
+     *
+     * @param AddAgendaSumRecordFlowPopRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddAgendaSumRecordFlowPopResponse
+     */
+    public function addAgendaSumRecordFlowPopWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->activeNum) {
+            @$query['ActiveNum'] = $request->activeNum;
+        }
+
+        if (null !== $request->agendaId) {
+            @$query['AgendaId'] = $request->agendaId;
+        }
+
+        if (null !== $request->attendancePercent) {
+            @$query['AttendancePercent'] = $request->attendancePercent;
+        }
+
+        if (null !== $request->flowTime) {
+            @$query['FlowTime'] = $request->flowTime;
+        }
+
+        if (null !== $request->sessionName) {
+            @$query['SessionName'] = $request->sessionName;
+        }
+
+        if (null !== $request->totalPv) {
+            @$query['TotalPv'] = $request->totalPv;
+        }
+
+        if (null !== $request->totalUv) {
+            @$query['TotalUv'] = $request->totalUv;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddAgendaSumRecordFlowPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddAgendaSumRecordFlowPopResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上报论坛议程汇总数据.
+     *
+     * @param request - AddAgendaSumRecordFlowPopRequest
+     *
+     * @returns AddAgendaSumRecordFlowPopResponse
+     *
+     * @param AddAgendaSumRecordFlowPopRequest $request
+     *
+     * @return AddAgendaSumRecordFlowPopResponse
+     */
+    public function addAgendaSumRecordFlowPop($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAgendaSumRecordFlowPopWithOptions($request, $runtime);
     }
 
     /**
