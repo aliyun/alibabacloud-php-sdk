@@ -1,3 +1,7 @@
+2026-09-09 Version: 1.12.3
+- Update API SetFundAccountCreditAmount: add request parameters CancelCredit.
+
+
 2026-08-24 Version: 1.12.2
 - Update API CreateReportDefinition: add request parameters SelectedFields.
 - Update API ListReportDefinitions: add response parameters Body.ReportDefinitions.$.SelectedFields.

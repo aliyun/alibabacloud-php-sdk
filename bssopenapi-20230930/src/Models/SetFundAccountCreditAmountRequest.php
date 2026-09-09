@@ -11,6 +11,11 @@ class SetFundAccountCreditAmountRequest extends Model
     /**
      * @var string
      */
+    public $cancelCredit;
+
+    /**
+     * @var string
+     */
     public $creditAmount;
 
     /**
@@ -23,6 +28,7 @@ class SetFundAccountCreditAmountRequest extends Model
      */
     public $fundAccountId;
     protected $_name = [
+        'cancelCredit' => 'CancelCredit',
         'creditAmount' => 'CreditAmount',
         'currency' => 'Currency',
         'fundAccountId' => 'FundAccountId',
@@ -36,6 +42,10 @@ class SetFundAccountCreditAmountRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cancelCredit) {
+            $res['CancelCredit'] = $this->cancelCredit;
+        }
+
         if (null !== $this->creditAmount) {
             $res['CreditAmount'] = $this->creditAmount;
         }
@@ -59,6 +69,10 @@ class SetFundAccountCreditAmountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CancelCredit'])) {
+            $model->cancelCredit = $map['CancelCredit'];
+        }
+
         if (isset($map['CreditAmount'])) {
             $model->creditAmount = $map['CreditAmount'];
         }

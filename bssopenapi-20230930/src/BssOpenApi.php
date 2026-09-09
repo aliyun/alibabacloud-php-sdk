@@ -4158,10 +4158,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query cost center sharing rules.
+     * Queries the cost allocation rules of financial units.
      *
      * @remarks
-     * Queries the sharing rules of user cost centers.
+     * Queries the cost allocation rules of a user\\"s financial units.
      *
      * @param request - QueryCostCenterShareRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4216,10 +4216,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query cost center sharing rules.
+     * Queries the cost allocation rules of financial units.
      *
      * @remarks
-     * Queries the sharing rules of user cost centers.
+     * Queries the cost allocation rules of a user\\"s financial units.
      *
      * @param request - QueryCostCenterShareRuleRequest
      *
@@ -4417,7 +4417,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Set the credit control limit for a fund account.
+     * Sets the credit limit for a fund account.
      *
      * @param request - SetFundAccountCreditAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4433,6 +4433,10 @@ class BssOpenApi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->cancelCredit) {
+            @$body['CancelCredit'] = $request->cancelCredit;
+        }
+
         if (null !== $request->creditAmount) {
             @$body['CreditAmount'] = $request->creditAmount;
         }
@@ -4464,7 +4468,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Set the credit control limit for a fund account.
+     * Sets the credit limit for a fund account.
      *
      * @param request - SetFundAccountCreditAmountRequest
      *
