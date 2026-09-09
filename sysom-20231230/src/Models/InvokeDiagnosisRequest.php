@@ -11,11 +11,6 @@ class InvokeDiagnosisRequest extends Model
     /**
      * @var string
      */
-    public $xDebugId;
-
-    /**
-     * @var string
-     */
     public $channel;
 
     /**
@@ -27,17 +22,10 @@ class InvokeDiagnosisRequest extends Model
      * @var string
      */
     public $serviceName;
-
-    /**
-     * @var string
-     */
-    public $xSysomInvokeSource;
     protected $_name = [
-        'xDebugId' => 'X-Debug-Id',
         'channel' => 'channel',
         'params' => 'params',
         'serviceName' => 'service_name',
-        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -48,10 +36,6 @@ class InvokeDiagnosisRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->xDebugId) {
-            $res['X-Debug-Id'] = $this->xDebugId;
-        }
-
         if (null !== $this->channel) {
             $res['channel'] = $this->channel;
         }
@@ -62,10 +46,6 @@ class InvokeDiagnosisRequest extends Model
 
         if (null !== $this->serviceName) {
             $res['service_name'] = $this->serviceName;
-        }
-
-        if (null !== $this->xSysomInvokeSource) {
-            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
         }
 
         return $res;
@@ -79,10 +59,6 @@ class InvokeDiagnosisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['X-Debug-Id'])) {
-            $model->xDebugId = $map['X-Debug-Id'];
-        }
-
         if (isset($map['channel'])) {
             $model->channel = $map['channel'];
         }
@@ -93,10 +69,6 @@ class InvokeDiagnosisRequest extends Model
 
         if (isset($map['service_name'])) {
             $model->serviceName = $map['service_name'];
-        }
-
-        if (isset($map['x-sysom-invoke-source'])) {
-            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

@@ -171,9 +171,6 @@ class SysOM extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-hangzhou' => 'sysom.cn-hangzhou.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('sysom', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -299,7 +296,7 @@ class SysOM extends OpenApiClient
      * Checks whether a target instance is supported by SysOM.
      *
      * @remarks
-     * This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+     * The instance list returned by this operation contains only instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
      *
      * @param request - CheckInstanceSupportRequest
      * @param headers - map
@@ -358,7 +355,7 @@ class SysOM extends OpenApiClient
      * Checks whether a target instance is supported by SysOM.
      *
      * @remarks
-     * This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+     * The instance list returned by this operation contains only instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
      *
      * @param request - CheckInstanceSupportRequest
      *
@@ -1183,11 +1180,11 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Get the response result of the copilot service.
+     * Retrieves the response from the Copilot service.
      *
      * @remarks
-     * - Parameters need to be filled in according to the standard LLM service input parameters, converted to a string, and assigned to llmParamString
-     * - The returned data needs to be converted from string to dict before use. Refer to the standard LLM service response format
+     * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+     * - Convert the returned data from a string to a dict before use. Refer to the standard LLM service response format.
      *
      * @param request - GenerateCopilotResponseRequest
      * @param headers - map
@@ -1239,11 +1236,11 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Get the response result of the copilot service.
+     * Retrieves the response from the Copilot service.
      *
      * @remarks
-     * - Parameters need to be filled in according to the standard LLM service input parameters, converted to a string, and assigned to llmParamString
-     * - The returned data needs to be converted from string to dict before use. Refer to the standard LLM service response format
+     * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+     * - Convert the returned data from a string to a dict before use. Refer to the standard LLM service response format.
      *
      * @param request - GenerateCopilotResponseRequest
      *
@@ -1262,7 +1259,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Calls the streaming SSE interface of the OS Copilot service.
+     * Provides a streaming SSE interface for the OS Copilot service.
      *
      * @remarks
      * - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
@@ -1332,7 +1329,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Calls the streaming SSE interface of the OS Copilot service.
+     * Provides a streaming SSE interface for the OS Copilot service.
      *
      * @remarks
      * - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
@@ -1389,7 +1386,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Calls the streaming SSE interface of the OS Copilot service.
+     * Provides a streaming SSE interface for the OS Copilot service.
      *
      * @remarks
      * - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
@@ -2016,7 +2013,7 @@ class SysOM extends OpenApiClient
      * Retrieves the diagnostic result.
      *
      * @remarks
-     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
      *
      * @param request - GetDiagnosisResultRequest
      * @param headers - map
@@ -2069,7 +2066,7 @@ class SysOM extends OpenApiClient
      * Retrieves the diagnostic result.
      *
      * @remarks
-     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
      *
      * @param request - GetDiagnosisResultRequest
      *
@@ -3858,11 +3855,11 @@ class SysOM extends OpenApiClient
      * Initiates a diagnostic task.
      *
      * @remarks
-     * The following requirements apply when diagnosing a target ECS instance:
+     * The following requirements must be met to diagnose a target ECS instance:
      * - The target ECS instance status must be Running.
      * - Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://www.alibabacloud.com/help/en/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
-     * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly returns failed.
-     * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, invoke AuthDiagnosis first to associate the authorization. That operation creates the service-linked role.
+     * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly fails.
+     * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, first invoke AuthDiagnosis to associate the authorization. That operation creates the aforementioned service-linked role.
      *
      * @param request - InvokeDiagnosisRequest
      * @param headers - map
@@ -3879,15 +3876,6 @@ class SysOM extends OpenApiClient
     public function invokeDiagnosisWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->channel) {
             @$body['channel'] = $request->channel;
@@ -3903,7 +3891,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -3925,11 +3912,11 @@ class SysOM extends OpenApiClient
      * Initiates a diagnostic task.
      *
      * @remarks
-     * The following requirements apply when diagnosing a target ECS instance:
+     * The following requirements must be met to diagnose a target ECS instance:
      * - The target ECS instance status must be Running.
      * - Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://www.alibabacloud.com/help/en/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
-     * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly returns failed.
-     * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, invoke AuthDiagnosis first to associate the authorization. That operation creates the service-linked role.
+     * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly fails.
+     * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, first invoke AuthDiagnosis to associate the authorization. That operation creates the aforementioned service-linked role.
      *
      * @param request - InvokeDiagnosisRequest
      *
@@ -4906,7 +4893,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 此接口用于获取某类型实例信息的所有值
+     * Retrieves all values of a specified type of instance information.
      *
      * @param request - ListInstanceInfoRequest
      * @param headers - map
@@ -4980,7 +4967,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 此接口用于获取某类型实例信息的所有值
+     * Retrieves all values of a specified type of instance information.
      *
      * @param request - ListInstanceInfoRequest
      *
