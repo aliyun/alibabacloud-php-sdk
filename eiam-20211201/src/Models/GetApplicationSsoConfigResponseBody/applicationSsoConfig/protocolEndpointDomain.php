@@ -56,6 +56,11 @@ class protocolEndpointDomain extends Model
     /**
      * @var string
      */
+    public $samlSloEndpoint;
+
+    /**
+     * @var string
+     */
     public $samlSsoEndpoint;
     protected $_name = [
         'oauth2AuthorizationEndpoint' => 'Oauth2AuthorizationEndpoint',
@@ -67,6 +72,7 @@ class protocolEndpointDomain extends Model
         'oidcJwksEndpoint' => 'OidcJwksEndpoint',
         'oidcLogoutEndpoint' => 'OidcLogoutEndpoint',
         'samlMetaEndpoint' => 'SamlMetaEndpoint',
+        'samlSloEndpoint' => 'SamlSloEndpoint',
         'samlSsoEndpoint' => 'SamlSsoEndpoint',
     ];
 
@@ -112,6 +118,10 @@ class protocolEndpointDomain extends Model
 
         if (null !== $this->samlMetaEndpoint) {
             $res['SamlMetaEndpoint'] = $this->samlMetaEndpoint;
+        }
+
+        if (null !== $this->samlSloEndpoint) {
+            $res['SamlSloEndpoint'] = $this->samlSloEndpoint;
         }
 
         if (null !== $this->samlSsoEndpoint) {
@@ -163,6 +173,10 @@ class protocolEndpointDomain extends Model
 
         if (isset($map['SamlMetaEndpoint'])) {
             $model->samlMetaEndpoint = $map['SamlMetaEndpoint'];
+        }
+
+        if (isset($map['SamlSloEndpoint'])) {
+            $model->samlSloEndpoint = $map['SamlSloEndpoint'];
         }
 
         if (isset($map['SamlSsoEndpoint'])) {

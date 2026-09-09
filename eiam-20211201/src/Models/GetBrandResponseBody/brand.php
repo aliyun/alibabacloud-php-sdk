@@ -31,13 +31,25 @@ class brand extends Model
     /**
      * @var string
      */
+    public $smsGatewayId;
+
+    /**
+     * @var string
+     */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $systemNotificationStatus;
     protected $_name = [
         'brandId' => 'BrandId',
         'brandName' => 'BrandName',
         'brandType' => 'BrandType',
         'instanceId' => 'InstanceId',
+        'smsGatewayId' => 'SmsGatewayId',
         'status' => 'Status',
+        'systemNotificationStatus' => 'SystemNotificationStatus',
     ];
 
     public function validate()
@@ -64,8 +76,16 @@ class brand extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->smsGatewayId) {
+            $res['SmsGatewayId'] = $this->smsGatewayId;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->systemNotificationStatus) {
+            $res['SystemNotificationStatus'] = $this->systemNotificationStatus;
         }
 
         return $res;
@@ -95,8 +115,16 @@ class brand extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['SmsGatewayId'])) {
+            $model->smsGatewayId = $map['SmsGatewayId'];
+        }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SystemNotificationStatus'])) {
+            $model->systemNotificationStatus = $map['SystemNotificationStatus'];
         }
 
         return $model;

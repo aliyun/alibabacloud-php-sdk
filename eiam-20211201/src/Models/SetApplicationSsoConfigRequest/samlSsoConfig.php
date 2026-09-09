@@ -48,6 +48,11 @@ class samlSsoConfig extends Model
     /**
      * @var bool
      */
+    public $requireAuthnRequestSigned;
+
+    /**
+     * @var bool
+     */
     public $responseSigned;
 
     /**
@@ -61,6 +66,16 @@ class samlSsoConfig extends Model
     public $spEntityId;
 
     /**
+     * @var string[]
+     */
+    public $spSigningCertificates;
+
+    /**
+     * @var string
+     */
+    public $spSloResponseUrl;
+
+    /**
      * @var string
      */
     public $spSsoAcsUrl;
@@ -72,9 +87,12 @@ class samlSsoConfig extends Model
         'nameIdFormat' => 'NameIdFormat',
         'nameIdValueExpression' => 'NameIdValueExpression',
         'optionalRelayStates' => 'OptionalRelayStates',
+        'requireAuthnRequestSigned' => 'RequireAuthnRequestSigned',
         'responseSigned' => 'ResponseSigned',
         'signatureAlgorithm' => 'SignatureAlgorithm',
         'spEntityId' => 'SpEntityId',
+        'spSigningCertificates' => 'SpSigningCertificates',
+        'spSloResponseUrl' => 'SpSloResponseUrl',
         'spSsoAcsUrl' => 'SpSsoAcsUrl',
     ];
 
@@ -85,6 +103,9 @@ class samlSsoConfig extends Model
         }
         if (\is_array($this->optionalRelayStates)) {
             Model::validateArray($this->optionalRelayStates);
+        }
+        if (\is_array($this->spSigningCertificates)) {
+            Model::validateArray($this->spSigningCertificates);
         }
         parent::validate();
     }
@@ -134,6 +155,10 @@ class samlSsoConfig extends Model
             }
         }
 
+        if (null !== $this->requireAuthnRequestSigned) {
+            $res['RequireAuthnRequestSigned'] = $this->requireAuthnRequestSigned;
+        }
+
         if (null !== $this->responseSigned) {
             $res['ResponseSigned'] = $this->responseSigned;
         }
@@ -144,6 +169,21 @@ class samlSsoConfig extends Model
 
         if (null !== $this->spEntityId) {
             $res['SpEntityId'] = $this->spEntityId;
+        }
+
+        if (null !== $this->spSigningCertificates) {
+            if (\is_array($this->spSigningCertificates)) {
+                $res['SpSigningCertificates'] = [];
+                $n1 = 0;
+                foreach ($this->spSigningCertificates as $item1) {
+                    $res['SpSigningCertificates'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->spSloResponseUrl) {
+            $res['SpSloResponseUrl'] = $this->spSloResponseUrl;
         }
 
         if (null !== $this->spSsoAcsUrl) {
@@ -203,6 +243,10 @@ class samlSsoConfig extends Model
             }
         }
 
+        if (isset($map['RequireAuthnRequestSigned'])) {
+            $model->requireAuthnRequestSigned = $map['RequireAuthnRequestSigned'];
+        }
+
         if (isset($map['ResponseSigned'])) {
             $model->responseSigned = $map['ResponseSigned'];
         }
@@ -213,6 +257,21 @@ class samlSsoConfig extends Model
 
         if (isset($map['SpEntityId'])) {
             $model->spEntityId = $map['SpEntityId'];
+        }
+
+        if (isset($map['SpSigningCertificates'])) {
+            if (!empty($map['SpSigningCertificates'])) {
+                $model->spSigningCertificates = [];
+                $n1 = 0;
+                foreach ($map['SpSigningCertificates'] as $item1) {
+                    $model->spSigningCertificates[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['SpSloResponseUrl'])) {
+            $model->spSloResponseUrl = $map['SpSloResponseUrl'];
         }
 
         if (isset($map['SpSsoAcsUrl'])) {

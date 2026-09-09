@@ -727,15 +727,6 @@ class Eiam extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-hongkong' => 'eiam.cn-hongkong.aliyuncs.com',
-            'ap-northeast-2' => 'eiam.ap-northeast-2.aliyuncs.com',
-            'ap-southeast-1' => 'eiam.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5' => 'eiam.ap-southeast-5.aliyuncs.com',
-            'cn-hangzhou' => 'eiam.cn-hangzhou.aliyuncs.com',
-            'cn-beijing' => 'eiam.cn-beijing.aliyuncs.com',
-            'eu-central-1' => 'eiam.eu-central-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eiam', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -2017,7 +2008,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Determines whether an instance has the capability of a specific module.
+     * Checks whether an instance has the feature of a specific module.
      *
      * @param request - CheckInstanceModuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2076,7 +2067,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Determines whether an instance has the capability of a specific module.
+     * Checks whether an instance has the feature of a specific module.
      *
      * @param request - CheckInstanceModuleStatusRequest
      *
@@ -2258,7 +2249,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates an application federated identity credential.
+     * Creates an application federated credential.
      *
      * @param request - CreateApplicationFederatedCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2337,7 +2328,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates an application federated identity credential.
+     * Creates an application federated credential.
      *
      * @param request - CreateApplicationFederatedCredentialRequest
      *
@@ -2793,10 +2784,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates a cloud account resource in a specified EIAM instance.
+     * Creates a cloud account resource under a specified EIAM instance.
      *
      * @remarks
-     * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+     * <props="china">**Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+     * <props="intl">**Before you call this operation, make sure that you fully understand the billing method of IDaaS EIAM.**
      *
      * @param request - CreateCloudAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2863,10 +2855,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates a cloud account resource in a specified EIAM instance.
+     * Creates a cloud account resource under a specified EIAM instance.
      *
      * @remarks
-     * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+     * <props="china">**Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+     * <props="intl">**Before you call this operation, make sure that you fully understand the billing method of IDaaS EIAM.**
      *
      * @param request - CreateCloudAccountRequest
      *
@@ -3716,7 +3709,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Create an identity provider.
+     * Creates an identity provider.
      *
      * @param request - CreateIdentityProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3823,7 +3816,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Create an identity provider.
+     * Creates an identity provider.
      *
      * @param request - CreateIdentityProviderRequest
      *
@@ -9270,7 +9263,8 @@ class Eiam extends OpenApiClient
      * Enables a field.
      *
      * @remarks
-     * *Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**.
+     * <props="china">**Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+     * <props="intl">**Before using this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
      *
      * @param request - EnableCustomFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9316,7 +9310,8 @@ class Eiam extends OpenApiClient
      * Enables a field.
      *
      * @remarks
-     * *Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**.
+     * <props="china">**Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+     * <props="intl">**Before using this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
      *
      * @param request - EnableCustomFieldRequest
      *
@@ -10604,7 +10599,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the federated identity credential of an application.
+     * Retrieves an application federated identity credential.
      *
      * @param request - GetApplicationFederatedCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10651,7 +10646,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the federated identity credential of an application.
+     * Retrieves an application federated identity credential.
      *
      * @param request - GetApplicationFederatedCredentialRequest
      *
@@ -10978,7 +10973,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the single sign-on (SSO) configuration for an application in EIAM.
+     * Queries the single sign-on (SSO) configuration properties of an EIAM application.
      *
      * @param request - GetApplicationSsoConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11021,7 +11016,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the single sign-on (SSO) configuration for an application in EIAM.
+     * Queries the single sign-on (SSO) configuration properties of an EIAM application.
      *
      * @param request - GetApplicationSsoConfigRequest
      *
@@ -11096,7 +11091,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information of an authorization resource.
+     * Queries the information about an authorization resource.
      *
      * @param request - GetAuthorizationResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11143,7 +11138,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information of an authorization resource.
+     * Queries the information about an authorization resource.
      *
      * @param request - GetAuthorizationResourceRequest
      *
@@ -11283,7 +11278,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Get Brand Details.
+     * Retrieves the details of a brand.
      *
      * @param request - GetBrandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11326,7 +11321,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Get Brand Details.
+     * Retrieves the details of a brand.
      *
      * @param request - GetBrandRequest
      *
@@ -13977,7 +13972,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries a list of application federated credentials.
+     * Queries the list of application federated identity credentials.
      *
      * @param request - ListApplicationFederatedCredentialsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14036,7 +14031,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries a list of application federated credentials.
+     * Queries the list of application federated identity credentials.
      *
      * @param request - ListApplicationFederatedCredentialsRequest
      *
@@ -14887,10 +14882,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries a list of authorization resource information.
+     * Lists authorized resource information.
      *
      * @remarks
-     * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
+     * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
      *
      * @param request - ListAuthorizationResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14945,10 +14940,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries a list of authorization resource information.
+     * Lists authorized resource information.
      *
      * @remarks
-     * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
+     * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
      *
      * @param request - ListAuthorizationResourcesRequest
      *
@@ -15445,7 +15440,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more cloud roles by using paging.
+     * Queries information about one or more cloud roles by using paging.
      *
      * @param request - ListCloudAccountRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15500,7 +15495,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more cloud roles by using paging.
+     * Queries information about one or more cloud roles by using paging.
      *
      * @param request - ListCloudAccountRolesRequest
      *
@@ -15518,7 +15513,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries one or more cloud accounts by using paging.
+     * Queries information about one or more cloud accounts by using paging.
      *
      * @param request - ListCloudAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15569,7 +15564,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries one or more cloud accounts by using paging.
+     * Queries information about one or more cloud accounts by using paging.
      *
      * @param request - ListCloudAccountsRequest
      *
@@ -20417,10 +20412,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Sets the single sign-on (SSO) configuration properties for an EIAM application.
+     * Sets the single sign-on (SSO) configuration properties of an EIAM application.
      *
      * @remarks
-     * In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the application.
+     * In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed afterward. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
      *
      * @param request - SetApplicationSsoConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20483,10 +20478,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Sets the single sign-on (SSO) configuration properties for an EIAM application.
+     * Sets the single sign-on (SSO) configuration properties of an EIAM application.
      *
      * @remarks
-     * In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the application.
+     * In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed afterward. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
      *
      * @param request - SetApplicationSsoConfigRequest
      *
@@ -22026,7 +22021,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates a federated credential for an application.
+     * Updates an application federated identity credential.
      *
      * @param request - UpdateApplicationFederatedCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22089,7 +22084,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates a federated credential for an application.
+     * Updates an application federated identity credential.
      *
      * @param request - UpdateApplicationFederatedCredentialRequest
      *
