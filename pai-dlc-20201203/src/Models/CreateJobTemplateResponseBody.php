@@ -29,6 +29,11 @@ class CreateJobTemplateResponseBody extends Model
     public $gmtModifyTime;
 
     /**
+     * @var string
+     */
+    public $lastUsedTime;
+
+    /**
      * @var mixed[]
      */
     public $metadata;
@@ -72,6 +77,7 @@ class CreateJobTemplateResponseBody extends Model
         'description' => 'Description',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifyTime' => 'GmtModifyTime',
+        'lastUsedTime' => 'LastUsedTime',
         'metadata' => 'Metadata',
         'requestId' => 'RequestId',
         'templateId' => 'TemplateId',
@@ -107,6 +113,10 @@ class CreateJobTemplateResponseBody extends Model
 
         if (null !== $this->gmtModifyTime) {
             $res['GmtModifyTime'] = $this->gmtModifyTime;
+        }
+
+        if (null !== $this->lastUsedTime) {
+            $res['LastUsedTime'] = $this->lastUsedTime;
         }
 
         if (null !== $this->metadata) {
@@ -171,6 +181,10 @@ class CreateJobTemplateResponseBody extends Model
 
         if (isset($map['GmtModifyTime'])) {
             $model->gmtModifyTime = $map['GmtModifyTime'];
+        }
+
+        if (isset($map['LastUsedTime'])) {
+            $model->lastUsedTime = $map['LastUsedTime'];
         }
 
         if (isset($map['Metadata'])) {

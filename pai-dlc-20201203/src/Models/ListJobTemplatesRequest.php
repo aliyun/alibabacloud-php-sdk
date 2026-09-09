@@ -11,6 +11,11 @@ class ListJobTemplatesRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $order;
 
     /**
@@ -48,6 +53,7 @@ class ListJobTemplatesRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'description' => 'Description',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -66,6 +72,10 @@ class ListJobTemplatesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
@@ -109,6 +119,10 @@ class ListJobTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }

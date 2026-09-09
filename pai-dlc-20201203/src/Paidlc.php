@@ -346,7 +346,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job template.
+     * Creates a task template.
      *
      * @param request - CreateJobTemplateRequest
      * @param headers - map
@@ -408,7 +408,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job template.
+     * Creates a task template.
      *
      * @param request - CreateJobTemplateRequest
      *
@@ -1327,7 +1327,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a job template.
+     * Retrieves the details of a task template.
      *
      * @param request - GetJobTemplateRequest
      * @param headers - map
@@ -1370,7 +1370,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a job template.
+     * Retrieves the details of a task template.
      *
      * @param request - GetJobTemplateRequest
      *
@@ -2300,7 +2300,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
+     * Lists task templates by workspace with support for pagination and sorting. You can filter results by creator, TemplateId, or TemplateName.
      *
      * @param request - ListJobTemplatesRequest
      * @param headers - map
@@ -2318,6 +2318,10 @@ class Paidlc extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
         if (null !== $request->order) {
             @$query['Order'] = $request->order;
         }
@@ -2370,7 +2374,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
+     * Lists task templates by workspace with support for pagination and sorting. You can filter results by creator, TemplateId, or TemplateName.
      *
      * @param request - ListJobTemplatesRequest
      *
