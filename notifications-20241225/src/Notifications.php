@@ -63,6 +63,9 @@ use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateMarketingPreferenceReq
 use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateMarketingPreferenceResponse;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateMessageLanguageRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateMessageLanguageResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateUserSubscriptionRequest;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateUserSubscriptionResponse;
+use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateUserSubscriptionShrinkRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateWebhookContactRequest;
 use AlibabaCloud\SDK\Notifications\V20241225\Models\UpdateWebhookContactResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1760,6 +1763,9 @@ class Notifications extends OpenApiClient
     /**
      * Retrieves the metadata service.
      *
+     * @remarks
+     * Retrieves page metadata.
+     *
      * @param request - ReadMetaConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1830,6 +1836,9 @@ class Notifications extends OpenApiClient
 
     /**
      * Retrieves the metadata service.
+     *
+     * @remarks
+     * Retrieves page metadata.
      *
      * @param request - ReadMetaConfigRequest
      *
@@ -2826,6 +2835,155 @@ class Notifications extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMessageLanguageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a user subscription.
+     *
+     * @remarks
+     * Updates a user subscription.
+     *
+     * @param tmpReq - UpdateUserSubscriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserSubscriptionResponse
+     *
+     * @param UpdateUserSubscriptionRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateUserSubscriptionResponse
+     */
+    public function updateUserSubscriptionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateUserSubscriptionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categoryCodes) {
+            $request->categoryCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categoryCodes, 'CategoryCodes', 'json');
+        }
+
+        if (null !== $tmpReq->channelConfigs) {
+            $request->channelConfigsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelConfigs, 'ChannelConfigs', 'json');
+        }
+
+        if (null !== $tmpReq->commonContacts) {
+            $request->commonContactsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->commonContacts, 'CommonContacts', 'json');
+        }
+
+        if (null !== $tmpReq->receiveTimeList) {
+            $request->receiveTimeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->receiveTimeList, 'ReceiveTimeList', 'json');
+        }
+
+        if (null !== $tmpReq->webhookContacts) {
+            $request->webhookContactsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->webhookContacts, 'WebhookContacts', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->bizName) {
+            @$body['BizName'] = $request->bizName;
+        }
+
+        if (null !== $request->callerProtocol) {
+            @$body['CallerProtocol'] = $request->callerProtocol;
+        }
+
+        if (null !== $request->categoryCodesShrink) {
+            @$body['CategoryCodes'] = $request->categoryCodesShrink;
+        }
+
+        if (null !== $request->channelConfigsShrink) {
+            @$body['ChannelConfigs'] = $request->channelConfigsShrink;
+        }
+
+        if (null !== $request->channelGroupCode) {
+            @$body['ChannelGroupCode'] = $request->channelGroupCode;
+        }
+
+        if (null !== $request->clientSource) {
+            @$body['ClientSource'] = $request->clientSource;
+        }
+
+        if (null !== $request->commonContactsShrink) {
+            @$body['CommonContacts'] = $request->commonContactsShrink;
+        }
+
+        if (null !== $request->cookies) {
+            @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->operationItemCode) {
+            @$body['OperationItemCode'] = $request->operationItemCode;
+        }
+
+        if (null !== $request->receiveTimeListShrink) {
+            @$body['ReceiveTimeList'] = $request->receiveTimeListShrink;
+        }
+
+        if (null !== $request->remarks) {
+            @$body['Remarks'] = $request->remarks;
+        }
+
+        if (null !== $request->srcUrl) {
+            @$body['SrcUrl'] = $request->srcUrl;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$body['TenantCode'] = $request->tenantCode;
+        }
+
+        if (null !== $request->uidType) {
+            @$body['UidType'] = $request->uidType;
+        }
+
+        if (null !== $request->webhookContactsShrink) {
+            @$body['WebhookContacts'] = $request->webhookContactsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUserSubscription',
+            'version' => '2024-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUserSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a user subscription.
+     *
+     * @remarks
+     * Updates a user subscription.
+     *
+     * @param request - UpdateUserSubscriptionRequest
+     *
+     * @returns UpdateUserSubscriptionResponse
+     *
+     * @param UpdateUserSubscriptionRequest $request
+     *
+     * @return UpdateUserSubscriptionResponse
+     */
+    public function updateUserSubscription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserSubscriptionWithOptions($request, $runtime);
     }
 
     /**
