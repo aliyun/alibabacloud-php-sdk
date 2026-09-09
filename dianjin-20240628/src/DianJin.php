@@ -108,6 +108,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\QueryAmountRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\QueryAmountResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\QueryApiKeysHeaders;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\QueryApiKeysRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\QueryApiKeysResponse;
@@ -154,8 +156,8 @@ use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\undefined;
 use Darabonba\OpenApi\Utils;
+use Darabonba\OpenApi\WebsocketUtils\Client;
 
 class DianJin extends OpenApiClient
 {
@@ -163,9 +165,6 @@ class DianJin extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-beijing' => 'dianjin.cn-beijing.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dianjin', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -1677,7 +1676,7 @@ class DianJin extends OpenApiClient
         $res = new EndToEndRealTimeDialogResponse([]);
         $tmp = $this->callApi($params, $req, $runtime);
         if (null !== @$tmp['webSocketClient']) {
-            $res->webSocketClient = undefined::createWebSocketClient(@$tmp['webSocketClient']);
+            $res->webSocketClient = Client::createWebSocketClient(@$tmp['webSocketClient']);
         }
 
         return $res;
@@ -3712,6 +3711,77 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->previewDocumentWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询用量.
+     *
+     * @param Request - QueryAmountRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAmountResponse
+     *
+     * @param string             $workspaceId
+     * @param QueryAmountRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return QueryAmountResponse
+     */
+    public function queryAmountWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->aliyunUidList) {
+            @$body['aliyunUidList'] = $request->aliyunUidList;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['startDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAmount',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/v1/aigcRevenue/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAmountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用量.
+     *
+     * @param Request - QueryAmountRequest
+     *
+     * @returns QueryAmountResponse
+     *
+     * @param string             $workspaceId
+     * @param QueryAmountRequest $request
+     *
+     * @return QueryAmountResponse
+     */
+    public function queryAmount($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryAmountWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**

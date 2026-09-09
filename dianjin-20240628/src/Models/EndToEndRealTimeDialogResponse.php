@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
 use AlibabaCloud\Dara\Model;
-use Darabonba\OpenApi\Models\WebSocketClient;
+use Darabonba\OpenApi\WebsocketUtils\Models\WebSocketClient;
 
 class EndToEndRealTimeDialogResponse extends Model
 {
