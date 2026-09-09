@@ -5,12 +5,14 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\agenticDBBranchSpec;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\components;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\dnatEntries;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\endpoints;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\knowledgeApplicationSpec;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\memApplicationSpec;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\parameters;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\storages;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\tag;
 
 class CreateApplicationRequest extends Model
@@ -19,6 +21,11 @@ class CreateApplicationRequest extends Model
      * @var string
      */
     public $AIDBClusterId;
+
+    /**
+     * @var agenticDBBranchSpec
+     */
+    public $agenticDBBranchSpec;
 
     /**
      * @var string
@@ -191,6 +198,11 @@ class CreateApplicationRequest extends Model
     public $skillTemplateId;
 
     /**
+     * @var storages[]
+     */
+    public $storages;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -226,6 +238,7 @@ class CreateApplicationRequest extends Model
     public $zoneId;
     protected $_name = [
         'AIDBClusterId' => 'AIDBClusterId',
+        'agenticDBBranchSpec' => 'AgenticDBBranchSpec',
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
         'authProvider' => 'AuthProvider',
@@ -260,6 +273,7 @@ class CreateApplicationRequest extends Model
         'securityIPList' => 'SecurityIPList',
         'securityIPType' => 'SecurityIPType',
         'skillTemplateId' => 'SkillTemplateId',
+        'storages' => 'Storages',
         'tag' => 'Tag',
         'targetVersion' => 'TargetVersion',
         'usedTime' => 'UsedTime',
@@ -271,6 +285,9 @@ class CreateApplicationRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->agenticDBBranchSpec) {
+            $this->agenticDBBranchSpec->validate();
+        }
         if (\is_array($this->components)) {
             Model::validateArray($this->components);
         }
@@ -289,6 +306,9 @@ class CreateApplicationRequest extends Model
         if (\is_array($this->parameters)) {
             Model::validateArray($this->parameters);
         }
+        if (\is_array($this->storages)) {
+            Model::validateArray($this->storages);
+        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -300,6 +320,10 @@ class CreateApplicationRequest extends Model
         $res = [];
         if (null !== $this->AIDBClusterId) {
             $res['AIDBClusterId'] = $this->AIDBClusterId;
+        }
+
+        if (null !== $this->agenticDBBranchSpec) {
+            $res['AgenticDBBranchSpec'] = null !== $this->agenticDBBranchSpec ? $this->agenticDBBranchSpec->toArray($noStream) : $this->agenticDBBranchSpec;
         }
 
         if (null !== $this->applicationType) {
@@ -466,6 +490,17 @@ class CreateApplicationRequest extends Model
             $res['SkillTemplateId'] = $this->skillTemplateId;
         }
 
+        if (null !== $this->storages) {
+            if (\is_array($this->storages)) {
+                $res['Storages'] = [];
+                $n1 = 0;
+                foreach ($this->storages as $item1) {
+                    $res['Storages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
@@ -514,6 +549,10 @@ class CreateApplicationRequest extends Model
         $model = new self();
         if (isset($map['AIDBClusterId'])) {
             $model->AIDBClusterId = $map['AIDBClusterId'];
+        }
+
+        if (isset($map['AgenticDBBranchSpec'])) {
+            $model->agenticDBBranchSpec = agenticDBBranchSpec::fromMap($map['AgenticDBBranchSpec']);
         }
 
         if (isset($map['ApplicationType'])) {
@@ -678,6 +717,17 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['SkillTemplateId'])) {
             $model->skillTemplateId = $map['SkillTemplateId'];
+        }
+
+        if (isset($map['Storages'])) {
+            if (!empty($map['Storages'])) {
+                $model->storages = [];
+                $n1 = 0;
+                foreach ($map['Storages'] as $item1) {
+                    $model->storages[$n1] = storages::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Tag'])) {

@@ -17,6 +17,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $agenticDBBranchSpecShrink;
+
+    /**
+     * @var string
+     */
     public $applicationType;
 
     /**
@@ -185,6 +190,11 @@ class CreateApplicationShrinkRequest extends Model
     public $skillTemplateId;
 
     /**
+     * @var string
+     */
+    public $storagesShrink;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -220,6 +230,7 @@ class CreateApplicationShrinkRequest extends Model
     public $zoneId;
     protected $_name = [
         'AIDBClusterId' => 'AIDBClusterId',
+        'agenticDBBranchSpecShrink' => 'AgenticDBBranchSpec',
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
         'authProvider' => 'AuthProvider',
@@ -254,6 +265,7 @@ class CreateApplicationShrinkRequest extends Model
         'securityIPList' => 'SecurityIPList',
         'securityIPType' => 'SecurityIPType',
         'skillTemplateId' => 'SkillTemplateId',
+        'storagesShrink' => 'Storages',
         'tag' => 'Tag',
         'targetVersion' => 'TargetVersion',
         'usedTime' => 'UsedTime',
@@ -276,6 +288,10 @@ class CreateApplicationShrinkRequest extends Model
         $res = [];
         if (null !== $this->AIDBClusterId) {
             $res['AIDBClusterId'] = $this->AIDBClusterId;
+        }
+
+        if (null !== $this->agenticDBBranchSpecShrink) {
+            $res['AgenticDBBranchSpec'] = $this->agenticDBBranchSpecShrink;
         }
 
         if (null !== $this->applicationType) {
@@ -414,6 +430,10 @@ class CreateApplicationShrinkRequest extends Model
             $res['SkillTemplateId'] = $this->skillTemplateId;
         }
 
+        if (null !== $this->storagesShrink) {
+            $res['Storages'] = $this->storagesShrink;
+        }
+
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
@@ -462,6 +482,10 @@ class CreateApplicationShrinkRequest extends Model
         $model = new self();
         if (isset($map['AIDBClusterId'])) {
             $model->AIDBClusterId = $map['AIDBClusterId'];
+        }
+
+        if (isset($map['AgenticDBBranchSpec'])) {
+            $model->agenticDBBranchSpecShrink = $map['AgenticDBBranchSpec'];
         }
 
         if (isset($map['ApplicationType'])) {
@@ -598,6 +622,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['SkillTemplateId'])) {
             $model->skillTemplateId = $map['SkillTemplateId'];
+        }
+
+        if (isset($map['Storages'])) {
+            $model->storagesShrink = $map['Storages'];
         }
 
         if (isset($map['Tag'])) {

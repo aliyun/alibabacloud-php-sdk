@@ -75,6 +75,16 @@ class DescribeBackupPolicyResponseBody extends Model
     public $dataLevel2BackupRetentionPeriod;
 
     /**
+     * @var bool
+     */
+    public $enableCrossRegionImmutableBackup;
+
+    /**
+     * @var bool
+     */
+    public $enableImmutableBackup;
+
+    /**
      * @var string
      */
     public $preferredBackupPeriod;
@@ -107,6 +117,8 @@ class DescribeBackupPolicyResponseBody extends Model
         'dataLevel2BackupAnotherRegionRetentionPeriod' => 'DataLevel2BackupAnotherRegionRetentionPeriod',
         'dataLevel2BackupPeriod' => 'DataLevel2BackupPeriod',
         'dataLevel2BackupRetentionPeriod' => 'DataLevel2BackupRetentionPeriod',
+        'enableCrossRegionImmutableBackup' => 'EnableCrossRegionImmutableBackup',
+        'enableImmutableBackup' => 'EnableImmutableBackup',
         'preferredBackupPeriod' => 'PreferredBackupPeriod',
         'preferredBackupTime' => 'PreferredBackupTime',
         'preferredNextBackupTime' => 'PreferredNextBackupTime',
@@ -174,6 +186,14 @@ class DescribeBackupPolicyResponseBody extends Model
 
         if (null !== $this->dataLevel2BackupRetentionPeriod) {
             $res['DataLevel2BackupRetentionPeriod'] = $this->dataLevel2BackupRetentionPeriod;
+        }
+
+        if (null !== $this->enableCrossRegionImmutableBackup) {
+            $res['EnableCrossRegionImmutableBackup'] = $this->enableCrossRegionImmutableBackup;
+        }
+
+        if (null !== $this->enableImmutableBackup) {
+            $res['EnableImmutableBackup'] = $this->enableImmutableBackup;
         }
 
         if (null !== $this->preferredBackupPeriod) {
@@ -253,6 +273,14 @@ class DescribeBackupPolicyResponseBody extends Model
 
         if (isset($map['DataLevel2BackupRetentionPeriod'])) {
             $model->dataLevel2BackupRetentionPeriod = $map['DataLevel2BackupRetentionPeriod'];
+        }
+
+        if (isset($map['EnableCrossRegionImmutableBackup'])) {
+            $model->enableCrossRegionImmutableBackup = $map['EnableCrossRegionImmutableBackup'];
+        }
+
+        if (isset($map['EnableImmutableBackup'])) {
+            $model->enableImmutableBackup = $map['EnableImmutableBackup'];
         }
 
         if (isset($map['PreferredBackupPeriod'])) {
