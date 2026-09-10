@@ -1,3 +1,9 @@
+2026-09-10 Version: 1.2.0
+- Support API GetApiPrice.
+- Support API GetTerraformPricingMappings.
+- Support API ListSupportedPricingApis.
+
+
 2025-09-17 Version: 1.1.2
 - Update API DeleteResource: add request parameters filter.
 

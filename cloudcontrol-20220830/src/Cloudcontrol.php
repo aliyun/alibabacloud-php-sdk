@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\CreateResourceResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\DeleteResourceRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\DeleteResourceResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\DeleteResourceShrinkRequest;
+use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetApiPriceRequest;
+use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetApiPriceResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetPriceRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetPriceResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetPriceShrinkRequest;
@@ -21,6 +23,8 @@ use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetResourcesShrinkRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetResourceTypeHeaders;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetResourceTypeResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetTaskResponse;
+use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetTerraformPricingMappingsRequest;
+use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetTerraformPricingMappingsResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListDataSourcesRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListDataSourcesResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListDataSourcesShrinkRequest;
@@ -31,6 +35,8 @@ use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListResourceTypesHeaders;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListResourceTypesRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListResourceTypesResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListResourceTypesShrinkRequest;
+use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListSupportedPricingApisRequest;
+use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListSupportedPricingApisResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\UpdateResourceRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\UpdateResourceResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -43,7 +49,37 @@ class Cloudcontrol extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-6' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-7' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'cn-beijing' => 'cloudcontrol.aliyuncs.com',
+            'cn-chengdu' => 'cloudcontrol.aliyuncs.com',
+            'cn-fuzhou' => 'cloudcontrol.aliyuncs.com',
+            'cn-guangzhou' => 'cloudcontrol.aliyuncs.com',
+            'cn-hangzhou' => 'cloudcontrol.aliyuncs.com',
+            'cn-heyuan' => 'cloudcontrol.aliyuncs.com',
+            'cn-hongkong' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'cn-huhehaote' => 'cloudcontrol.aliyuncs.com',
+            'cn-nanjing' => 'cloudcontrol.aliyuncs.com',
+            'cn-qingdao' => 'cloudcontrol.aliyuncs.com',
+            'cn-shanghai' => 'cloudcontrol.aliyuncs.com',
+            'cn-shenzhen' => 'cloudcontrol.aliyuncs.com',
+            'cn-wulanchabu' => 'cloudcontrol.aliyuncs.com',
+            'cn-zhangjiakou' => 'cloudcontrol.aliyuncs.com',
+            'us-west-1' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'us-east-1' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'eu-central-1' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'me-east-1' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'me-central-1' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'cloudcontrol.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloudcontrol', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -208,10 +244,10 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * Calls this operation to delete resources.
+     * Deletes a resource.
      *
      * @remarks
-     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view resource documentation and try Cloud Control API.
      *
      * @param requestPath - the whole path of resource string
      * @param tmpReq - DeleteResourceRequest
@@ -269,10 +305,10 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * Calls this operation to delete resources.
+     * Deletes a resource.
      *
      * @remarks
-     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view resource documentation and try Cloud Control API.
      *
      * @param requestPath - the whole path of resource string
      * @param request - DeleteResourceRequest
@@ -290,6 +326,62 @@ class Cloudcontrol extends OpenApiClient
         $headers = [];
 
         return $this->deleteResourceWithOptions($requestPath, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries pricing based on an OpenAPI triplet and input parameters.
+     *
+     * @param request - GetApiPriceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApiPriceResponse
+     *
+     * @param GetApiPriceRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetApiPriceResponse
+     */
+    public function getApiPriceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'GetApiPrice',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/price/quote',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApiPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries pricing based on an OpenAPI triplet and input parameters.
+     *
+     * @param request - GetApiPriceRequest
+     *
+     * @returns GetApiPriceResponse
+     *
+     * @param GetApiPriceRequest $request
+     *
+     * @return GetApiPriceResponse
+     */
+    public function getApiPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getApiPriceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -368,7 +460,7 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * You can call the operation to obtain resource metadata.
+     * Retrieves resource metadata.
      *
      * @param requestPath - the whole path of resource string
      * @param headers - GetResourceTypeHeaders
@@ -412,7 +504,7 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * You can call the operation to obtain resource metadata.
+     * Retrieves resource metadata.
      *
      * @param requestPath - the whole path of resource string
      *
@@ -431,11 +523,11 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * You can call the operation to query resources.
+     * Query resources.
      *
      * @remarks
-     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
-     * You can call this operation to query resources List and Get based on different request paths.
+     * You can go to the [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the resource documentation and test the Cloud Control API.
+     * This API provides Get and List operations for resources that you can invoke using different request URIs.
      *
      * @param requestPath - the whole path of resource string
      * @param tmpReq - GetResourcesRequest
@@ -497,11 +589,11 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * You can call the operation to query resources.
+     * Query resources.
      *
      * @remarks
-     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
-     * You can call this operation to query resources List and Get based on different request paths.
+     * You can go to the [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the resource documentation and test the Cloud Control API.
+     * This API provides Get and List operations for resources that you can invoke using different request URIs.
      *
      * @param requestPath - the whole path of resource string
      * @param request - GetResourcesRequest
@@ -579,7 +671,69 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
+     * Retrieves pricing mapping catalogs in batches by Terraform resource type for cost estimation during the RunIaC plan phase.
+     *
+     * @remarks
+     * Retrieves the mappings between schema properties in the Terraform alicloud provider and OpenAPI parameters.
+     *
+     * @param request - GetTerraformPricingMappingsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTerraformPricingMappingsResponse
+     *
+     * @param GetTerraformPricingMappingsRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetTerraformPricingMappingsResponse
+     */
+    public function getTerraformPricingMappingsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTerraformPricingMappings',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/price/terraform-mappings',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTerraformPricingMappingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves pricing mapping catalogs in batches by Terraform resource type for cost estimation during the RunIaC plan phase.
+     *
+     * @remarks
+     * Retrieves the mappings between schema properties in the Terraform alicloud provider and OpenAPI parameters.
+     *
+     * @param request - GetTerraformPricingMappingsRequest
+     *
+     * @returns GetTerraformPricingMappingsResponse
+     *
+     * @param GetTerraformPricingMappingsRequest $request
+     *
+     * @return GetTerraformPricingMappingsResponse
+     */
+    public function getTerraformPricingMappings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTerraformPricingMappingsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the valid values of resource attributes, such as RegionID and ZoneId.
      *
      * @param requestPath - the whole path of resource string
      * @param tmpReq - ListDataSourcesRequest
@@ -633,7 +787,7 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
+     * Queries the valid values of resource attributes, such as RegionID and ZoneId.
      *
      * @param requestPath - the whole path of resource string
      * @param request - ListDataSourcesRequest
@@ -827,6 +981,71 @@ class Cloudcontrol extends OpenApiClient
         $headers = new ListResourceTypesHeaders([]);
 
         return $this->listResourceTypesWithOptions($provider, $product, $request, $headers, $runtime);
+    }
+
+    /**
+     * Lists the OpenAPI triplets that currently support price inquiry.
+     *
+     * @param request - ListSupportedPricingApisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSupportedPricingApisResponse
+     *
+     * @param ListSupportedPricingApisRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListSupportedPricingApisResponse
+     */
+    public function listSupportedPricingApisWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSupportedPricingApis',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/price/supported-apis',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSupportedPricingApisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the OpenAPI triplets that currently support price inquiry.
+     *
+     * @param request - ListSupportedPricingApisRequest
+     *
+     * @returns ListSupportedPricingApisResponse
+     *
+     * @param ListSupportedPricingApisRequest $request
+     *
+     * @return ListSupportedPricingApisResponse
+     */
+    public function listSupportedPricingApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSupportedPricingApisWithOptions($request, $headers, $runtime);
     }
 
     /**
