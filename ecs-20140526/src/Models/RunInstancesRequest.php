@@ -253,6 +253,11 @@ class RunInstancesRequest extends Model
     public $launchTemplateVersion;
 
     /**
+     * @var string
+     */
+    public $managedHostId;
+
+    /**
      * @var int
      */
     public $minAmount;
@@ -458,6 +463,7 @@ class RunInstancesRequest extends Model
         'launchTemplateId' => 'LaunchTemplateId',
         'launchTemplateName' => 'LaunchTemplateName',
         'launchTemplateVersion' => 'LaunchTemplateVersion',
+        'managedHostId' => 'ManagedHostId',
         'minAmount' => 'MinAmount',
         'networkInterface' => 'NetworkInterface',
         'networkInterfaceQueueNumber' => 'NetworkInterfaceQueueNumber',
@@ -761,6 +767,10 @@ class RunInstancesRequest extends Model
 
         if (null !== $this->launchTemplateVersion) {
             $res['LaunchTemplateVersion'] = $this->launchTemplateVersion;
+        }
+
+        if (null !== $this->managedHostId) {
+            $res['ManagedHostId'] = $this->managedHostId;
         }
 
         if (null !== $this->minAmount) {
@@ -1133,6 +1143,10 @@ class RunInstancesRequest extends Model
 
         if (isset($map['LaunchTemplateVersion'])) {
             $model->launchTemplateVersion = $map['LaunchTemplateVersion'];
+        }
+
+        if (isset($map['ManagedHostId'])) {
+            $model->managedHostId = $map['ManagedHostId'];
         }
 
         if (isset($map['MinAmount'])) {

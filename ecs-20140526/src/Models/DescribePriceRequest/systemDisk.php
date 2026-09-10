@@ -22,10 +22,16 @@ class systemDisk extends Model
      * @var int
      */
     public $size;
+
+    /**
+     * @var string
+     */
+    public $storageClusterId;
     protected $_name = [
         'category' => 'Category',
         'performanceLevel' => 'PerformanceLevel',
         'size' => 'Size',
+        'storageClusterId' => 'StorageClusterId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class systemDisk extends Model
 
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+
+        if (null !== $this->storageClusterId) {
+            $res['StorageClusterId'] = $this->storageClusterId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class systemDisk extends Model
 
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+
+        if (isset($map['StorageClusterId'])) {
+            $model->storageClusterId = $map['StorageClusterId'];
         }
 
         return $model;

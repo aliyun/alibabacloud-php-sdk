@@ -27,11 +27,17 @@ class dataDisk extends Model
      * @var int
      */
     public $provisionedIops;
+
+    /**
+     * @var string
+     */
+    public $storageClusterId;
     protected $_name = [
         'category' => 'Category',
         'performanceLevel' => 'PerformanceLevel',
         'size' => 'Size',
         'provisionedIops' => 'ProvisionedIops',
+        'storageClusterId' => 'StorageClusterId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class dataDisk extends Model
 
         if (null !== $this->provisionedIops) {
             $res['ProvisionedIops'] = $this->provisionedIops;
+        }
+
+        if (null !== $this->storageClusterId) {
+            $res['StorageClusterId'] = $this->storageClusterId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class dataDisk extends Model
 
         if (isset($map['ProvisionedIops'])) {
             $model->provisionedIops = $map['ProvisionedIops'];
+        }
+
+        if (isset($map['StorageClusterId'])) {
+            $model->storageClusterId = $map['StorageClusterId'];
         }
 
         return $model;

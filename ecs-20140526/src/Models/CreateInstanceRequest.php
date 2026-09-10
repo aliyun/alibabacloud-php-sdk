@@ -182,6 +182,11 @@ class CreateInstanceRequest extends Model
     /**
      * @var string
      */
+    public $managedHostId;
+
+    /**
+     * @var string
+     */
     public $nodeControllerId;
 
     /**
@@ -352,6 +357,7 @@ class CreateInstanceRequest extends Model
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'ioOptimized' => 'IoOptimized',
         'keyPairName' => 'KeyPairName',
+        'managedHostId' => 'ManagedHostId',
         'nodeControllerId' => 'NodeControllerId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -552,6 +558,10 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
+        }
+
+        if (null !== $this->managedHostId) {
+            $res['ManagedHostId'] = $this->managedHostId;
         }
 
         if (null !== $this->nodeControllerId) {
@@ -828,6 +838,10 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
+        }
+
+        if (isset($map['ManagedHostId'])) {
+            $model->managedHostId = $map['ManagedHostId'];
         }
 
         if (isset($map['NodeControllerId'])) {

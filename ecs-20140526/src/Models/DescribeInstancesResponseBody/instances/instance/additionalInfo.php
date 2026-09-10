@@ -16,9 +16,15 @@ class additionalInfo extends Model
     /**
      * @var string
      */
+    public $managedHostId;
+
+    /**
+     * @var string
+     */
     public $nodeSerialNumber;
     protected $_name = [
         'enableHighDensityMode' => 'EnableHighDensityMode',
+        'managedHostId' => 'ManagedHostId',
         'nodeSerialNumber' => 'NodeSerialNumber',
     ];
 
@@ -32,6 +38,10 @@ class additionalInfo extends Model
         $res = [];
         if (null !== $this->enableHighDensityMode) {
             $res['EnableHighDensityMode'] = $this->enableHighDensityMode;
+        }
+
+        if (null !== $this->managedHostId) {
+            $res['ManagedHostId'] = $this->managedHostId;
         }
 
         if (null !== $this->nodeSerialNumber) {
@@ -51,6 +61,10 @@ class additionalInfo extends Model
         $model = new self();
         if (isset($map['EnableHighDensityMode'])) {
             $model->enableHighDensityMode = $map['EnableHighDensityMode'];
+        }
+
+        if (isset($map['ManagedHostId'])) {
+            $model->managedHostId = $map['ManagedHostId'];
         }
 
         if (isset($map['NodeSerialNumber'])) {
