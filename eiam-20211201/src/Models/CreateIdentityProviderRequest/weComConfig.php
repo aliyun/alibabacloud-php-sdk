@@ -21,6 +21,11 @@ class weComConfig extends Model
     /**
      * @var string
      */
+    public $contactSecret;
+
+    /**
+     * @var string
+     */
     public $corpId;
 
     /**
@@ -35,6 +40,7 @@ class weComConfig extends Model
     protected $_name = [
         'agentId' => 'AgentId',
         'authorizeCallbackDomain' => 'AuthorizeCallbackDomain',
+        'contactSecret' => 'ContactSecret',
         'corpId' => 'CorpId',
         'corpSecret' => 'CorpSecret',
         'trustableDomain' => 'TrustableDomain',
@@ -54,6 +60,10 @@ class weComConfig extends Model
 
         if (null !== $this->authorizeCallbackDomain) {
             $res['AuthorizeCallbackDomain'] = $this->authorizeCallbackDomain;
+        }
+
+        if (null !== $this->contactSecret) {
+            $res['ContactSecret'] = $this->contactSecret;
         }
 
         if (null !== $this->corpId) {
@@ -85,6 +95,10 @@ class weComConfig extends Model
 
         if (isset($map['AuthorizeCallbackDomain'])) {
             $model->authorizeCallbackDomain = $map['AuthorizeCallbackDomain'];
+        }
+
+        if (isset($map['ContactSecret'])) {
+            $model->contactSecret = $map['ContactSecret'];
         }
 
         if (isset($map['CorpId'])) {
