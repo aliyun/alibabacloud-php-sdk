@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationRespon
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\draftVersion\interactionConfig;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\draftVersion\labelConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\draftVersion\ragConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\draftVersion\scriptProfile;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\draftVersion\synthesizerConfig;
@@ -18,6 +19,11 @@ class draftVersion extends Model
      * @var interactionConfig
      */
     public $interactionConfig;
+
+    /**
+     * @var labelConfig[]
+     */
+    public $labelConfig;
 
     /**
      * @var ragConfig
@@ -50,6 +56,7 @@ class draftVersion extends Model
     public $versionId;
     protected $_name = [
         'interactionConfig' => 'InteractionConfig',
+        'labelConfig' => 'LabelConfig',
         'ragConfig' => 'RagConfig',
         'scriptProfile' => 'ScriptProfile',
         'synthesizerConfig' => 'SynthesizerConfig',
@@ -62,6 +69,9 @@ class draftVersion extends Model
     {
         if (null !== $this->interactionConfig) {
             $this->interactionConfig->validate();
+        }
+        if (\is_array($this->labelConfig)) {
+            Model::validateArray($this->labelConfig);
         }
         if (null !== $this->ragConfig) {
             $this->ragConfig->validate();
@@ -86,6 +96,17 @@ class draftVersion extends Model
         $res = [];
         if (null !== $this->interactionConfig) {
             $res['InteractionConfig'] = null !== $this->interactionConfig ? $this->interactionConfig->toArray($noStream) : $this->interactionConfig;
+        }
+
+        if (null !== $this->labelConfig) {
+            if (\is_array($this->labelConfig)) {
+                $res['LabelConfig'] = [];
+                $n1 = 0;
+                foreach ($this->labelConfig as $item1) {
+                    $res['LabelConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->ragConfig) {
@@ -125,6 +146,17 @@ class draftVersion extends Model
         $model = new self();
         if (isset($map['InteractionConfig'])) {
             $model->interactionConfig = interactionConfig::fromMap($map['InteractionConfig']);
+        }
+
+        if (isset($map['LabelConfig'])) {
+            if (!empty($map['LabelConfig'])) {
+                $model->labelConfig = [];
+                $n1 = 0;
+                foreach ($map['LabelConfig'] as $item1) {
+                    $model->labelConfig[$n1] = labelConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RagConfig'])) {

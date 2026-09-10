@@ -21,6 +21,11 @@ class agentProfile extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $promptsJson;
 
     /**
@@ -30,6 +35,7 @@ class agentProfile extends Model
     protected $_name = [
         'agentProfileId' => 'AgentProfileId',
         'description' => 'Description',
+        'name' => 'Name',
         'promptsJson' => 'PromptsJson',
         'scriptProfileTemplateId' => 'ScriptProfileTemplateId',
     ];
@@ -48,6 +54,10 @@ class agentProfile extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->promptsJson) {
@@ -75,6 +85,10 @@ class agentProfile extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['PromptsJson'])) {

@@ -11,8 +11,14 @@ class silenceDetectionConfig extends Model
     /**
      * @var int
      */
+    public $maxRepeats;
+
+    /**
+     * @var int
+     */
     public $timeout;
     protected $_name = [
+        'maxRepeats' => 'MaxRepeats',
         'timeout' => 'Timeout',
     ];
 
@@ -24,6 +30,10 @@ class silenceDetectionConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->maxRepeats) {
+            $res['MaxRepeats'] = $this->maxRepeats;
+        }
+
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
@@ -39,6 +49,10 @@ class silenceDetectionConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxRepeats'])) {
+            $model->maxRepeats = $map['MaxRepeats'];
+        }
+
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }

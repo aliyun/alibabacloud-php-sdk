@@ -56,6 +56,11 @@ class data extends Model
     public $publishedVersion;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var int
      */
     public $updatedTime;
@@ -69,6 +74,7 @@ class data extends Model
         'nluAccessType' => 'NluAccessType',
         'nluEngine' => 'NluEngine',
         'publishedVersion' => 'PublishedVersion',
+        'status' => 'Status',
         'updatedTime' => 'UpdatedTime',
     ];
 
@@ -122,6 +128,10 @@ class data extends Model
             $res['PublishedVersion'] = null !== $this->publishedVersion ? $this->publishedVersion->toArray($noStream) : $this->publishedVersion;
         }
 
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
         if (null !== $this->updatedTime) {
             $res['UpdatedTime'] = $this->updatedTime;
         }
@@ -171,6 +181,10 @@ class data extends Model
 
         if (isset($map['PublishedVersion'])) {
             $model->publishedVersion = publishedVersion::fromMap($map['PublishedVersion']);
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['UpdatedTime'])) {

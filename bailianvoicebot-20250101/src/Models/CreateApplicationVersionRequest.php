@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\interactionConfig;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\labelConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\ragConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\scriptProfile;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\synthesizerConfig;
@@ -28,6 +29,11 @@ class CreateApplicationVersionRequest extends Model
      * @var interactionConfig
      */
     public $interactionConfig;
+
+    /**
+     * @var labelConfig[]
+     */
+    public $labelConfig;
 
     /**
      * @var ragConfig
@@ -62,6 +68,7 @@ class CreateApplicationVersionRequest extends Model
         'applicationId' => 'ApplicationId',
         'businessUnitId' => 'BusinessUnitId',
         'interactionConfig' => 'InteractionConfig',
+        'labelConfig' => 'LabelConfig',
         'ragConfig' => 'RagConfig',
         'scriptProfile' => 'ScriptProfile',
         'sourceVersionId' => 'SourceVersionId',
@@ -74,6 +81,9 @@ class CreateApplicationVersionRequest extends Model
     {
         if (null !== $this->interactionConfig) {
             $this->interactionConfig->validate();
+        }
+        if (\is_array($this->labelConfig)) {
+            Model::validateArray($this->labelConfig);
         }
         if (null !== $this->ragConfig) {
             $this->ragConfig->validate();
@@ -106,6 +116,17 @@ class CreateApplicationVersionRequest extends Model
 
         if (null !== $this->interactionConfig) {
             $res['InteractionConfig'] = null !== $this->interactionConfig ? $this->interactionConfig->toArray($noStream) : $this->interactionConfig;
+        }
+
+        if (null !== $this->labelConfig) {
+            if (\is_array($this->labelConfig)) {
+                $res['LabelConfig'] = [];
+                $n1 = 0;
+                foreach ($this->labelConfig as $item1) {
+                    $res['LabelConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->ragConfig) {
@@ -153,6 +174,17 @@ class CreateApplicationVersionRequest extends Model
 
         if (isset($map['InteractionConfig'])) {
             $model->interactionConfig = interactionConfig::fromMap($map['InteractionConfig']);
+        }
+
+        if (isset($map['LabelConfig'])) {
+            if (!empty($map['LabelConfig'])) {
+                $model->labelConfig = [];
+                $n1 = 0;
+                foreach ($map['LabelConfig'] as $item1) {
+                    $model->labelConfig[$n1] = labelConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RagConfig'])) {

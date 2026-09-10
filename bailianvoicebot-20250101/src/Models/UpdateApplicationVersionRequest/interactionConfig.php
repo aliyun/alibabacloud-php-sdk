@@ -5,20 +5,42 @@
 namespace AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateApplicationVersionRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateApplicationVersionRequest\interactionConfig\endConversationConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateApplicationVersionRequest\interactionConfig\silenceDetectionConfig;
 
 class interactionConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $backgroundMusicId;
+
+    /**
+     * @var endConversationConfig
+     */
+    public $endConversationConfig;
+
+    /**
+     * @var int
+     */
+    public $initialGreetingDelayMilliseconds;
+
+    /**
      * @var silenceDetectionConfig
      */
     public $silenceDetectionConfig;
     protected $_name = [
+        'backgroundMusicId' => 'BackgroundMusicId',
+        'endConversationConfig' => 'EndConversationConfig',
+        'initialGreetingDelayMilliseconds' => 'InitialGreetingDelayMilliseconds',
         'silenceDetectionConfig' => 'SilenceDetectionConfig',
     ];
 
     public function validate()
     {
+        if (null !== $this->endConversationConfig) {
+            $this->endConversationConfig->validate();
+        }
         if (null !== $this->silenceDetectionConfig) {
             $this->silenceDetectionConfig->validate();
         }
@@ -28,6 +50,18 @@ class interactionConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backgroundMusicId) {
+            $res['BackgroundMusicId'] = $this->backgroundMusicId;
+        }
+
+        if (null !== $this->endConversationConfig) {
+            $res['EndConversationConfig'] = null !== $this->endConversationConfig ? $this->endConversationConfig->toArray($noStream) : $this->endConversationConfig;
+        }
+
+        if (null !== $this->initialGreetingDelayMilliseconds) {
+            $res['InitialGreetingDelayMilliseconds'] = $this->initialGreetingDelayMilliseconds;
+        }
+
         if (null !== $this->silenceDetectionConfig) {
             $res['SilenceDetectionConfig'] = null !== $this->silenceDetectionConfig ? $this->silenceDetectionConfig->toArray($noStream) : $this->silenceDetectionConfig;
         }
@@ -43,6 +77,18 @@ class interactionConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackgroundMusicId'])) {
+            $model->backgroundMusicId = $map['BackgroundMusicId'];
+        }
+
+        if (isset($map['EndConversationConfig'])) {
+            $model->endConversationConfig = endConversationConfig::fromMap($map['EndConversationConfig']);
+        }
+
+        if (isset($map['InitialGreetingDelayMilliseconds'])) {
+            $model->initialGreetingDelayMilliseconds = $map['InitialGreetingDelayMilliseconds'];
+        }
+
         if (isset($map['SilenceDetectionConfig'])) {
             $model->silenceDetectionConfig = silenceDetectionConfig::fromMap($map['SilenceDetectionConfig']);
         }

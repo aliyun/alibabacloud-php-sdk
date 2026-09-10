@@ -102,7 +102,7 @@ class BailianVoiceBot extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('bailianvoicebot', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -132,7 +132,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建软电话测试通话.
+     * Creates a softphone test call.
      *
      * @param request - BridgeWebCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -203,7 +203,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建软电话测试通话.
+     * Creates a softphone test call.
      *
      * @param request - BridgeWebCallRequest
      *
@@ -221,7 +221,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates a voice chatbot application.
      *
      * @param request - CreateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -276,7 +276,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates a voice chatbot application.
      *
      * @param request - CreateApplicationRequest
      *
@@ -315,6 +315,10 @@ class BailianVoiceBot extends OpenApiClient
             $request->interactionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->interactionConfig, 'InteractionConfig', 'json');
         }
 
+        if (null !== $tmpReq->labelConfig) {
+            $request->labelConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelConfig, 'LabelConfig', 'json');
+        }
+
         if (null !== $tmpReq->ragConfig) {
             $request->ragConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ragConfig, 'RagConfig', 'json');
         }
@@ -346,6 +350,10 @@ class BailianVoiceBot extends OpenApiClient
 
         if (null !== $request->interactionConfigShrink) {
             @$query['InteractionConfig'] = $request->interactionConfigShrink;
+        }
+
+        if (null !== $request->labelConfigShrink) {
+            @$query['LabelConfig'] = $request->labelConfigShrink;
         }
 
         if (null !== $request->ragConfigShrink) {
@@ -409,7 +417,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建克隆音.
+     * Creates a cloned voice.
      *
      * @param request - CreateCloneVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -456,7 +464,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建克隆音.
+     * Creates a cloned voice.
      *
      * @param request - CreateCloneVoiceRequest
      *
@@ -474,7 +482,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建变量.
+     * Creates a variable.
      *
      * @param request - CreateVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -525,7 +533,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建变量.
+     * Creates a variable.
      *
      * @param request - CreateVariableRequest
      *
@@ -543,7 +551,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param tmpReq - CreateVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -600,7 +608,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param request - CreateVocabularyRequest
      *
@@ -618,7 +626,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param tmpReq - CreateVoiceAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -671,7 +679,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param request - CreateVoiceAccessProfileRequest
      *
@@ -689,7 +697,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 删除应用.
+     * Deletes an application.
      *
      * @param request - DeleteApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -732,7 +740,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 删除应用.
+     * Deletes an application.
      *
      * @param request - DeleteApplicationRequest
      *
@@ -750,7 +758,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a cloned voice.
      *
      * @param request - DeleteCloneVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -793,7 +801,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a cloned voice.
      *
      * @param request - DeleteCloneVoiceRequest
      *
@@ -811,7 +819,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 删除变量.
+     * Deletes a variable.
      *
      * @param request - DeleteVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -854,7 +862,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 删除变量.
+     * Deletes a variable.
      *
      * @param request - DeleteVariableRequest
      *
@@ -872,7 +880,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a scenario.
      *
      * @param request - DeleteVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -915,7 +923,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a scenario.
      *
      * @param request - DeleteVocabularyRequest
      *
@@ -933,7 +941,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 删除三方语音配置.
+     * Deletes a third-party voice configuration.
      *
      * @param request - DeleteVoiceAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -976,7 +984,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 删除三方语音配置.
+     * Deletes a third-party voice configuration.
      *
      * @param request - DeleteVoiceAccessProfileRequest
      *
@@ -994,7 +1002,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 禁用消息订阅.
+     * Disables message subscription.
      *
      * @param request - DisableSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1033,7 +1041,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 禁用消息订阅.
+     * Disables message subscription.
      *
      * @param request - DisableSubscriptionRequest
      *
@@ -1051,7 +1059,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 导出热词.
+     * Exports hot words.
      *
      * @param tmpReq - ExportVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1100,7 +1108,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 导出热词.
+     * Exports hot words.
      *
      * @param request - ExportVocabularyRequest
      *
@@ -1118,7 +1126,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取文件上传信息.
+     * Retrieves file upload information.
      *
      * @param request - GenerateFileUploadParamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1165,7 +1173,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取文件上传信息.
+     * Retrieves file upload information.
      *
      * @param request - GenerateFileUploadParamsRequest
      *
@@ -1183,7 +1191,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * Get应用.
+     * Retrieves a voice chatbot application.
      *
      * @param request - GetApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1226,7 +1234,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * Get应用.
+     * Retrieves a voice chatbot application.
      *
      * @param request - GetApplicationRequest
      *
@@ -1244,7 +1252,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取数据通道凭证
+     * Retrieves data channel credentials.
      *
      * @param request - GetDataChannelCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1287,7 +1295,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取数据通道凭证
+     * Retrieves data channel credentials.
      *
      * @param request - GetDataChannelCredentialRequest
      *
@@ -1305,7 +1313,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取MQ配置.
+     * Retrieves the MQ configuration.
      *
      * @param request - GetSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1344,7 +1352,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取MQ配置.
+     * Retrieves the MQ configuration.
      *
      * @param request - GetSubscriptionRequest
      *
@@ -1362,7 +1370,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of a hot word vocabulary.
      *
      * @param request - GetVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1405,7 +1413,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of a hot word vocabulary.
      *
      * @param request - GetVocabularyRequest
      *
@@ -1423,7 +1431,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 导入热词.
+     * Imports hot words.
      *
      * @param request - ImportVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1466,7 +1474,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 导入热词.
+     * Imports hot words.
      *
      * @param request - ImportVocabularyRequest
      *
@@ -1484,7 +1492,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 查询应用.
+     * Queries the list of voice robot applications.
      *
      * @param request - ListApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1535,7 +1543,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 查询应用.
+     * Queries the list of voice robot applications.
      *
      * @param request - ListApplicationsRequest
      *
@@ -1553,7 +1561,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取背景音列表.
+     * Retrieves the list of background music.
      *
      * @param request - ListBackgroundMusicsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1600,7 +1608,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取背景音列表.
+     * Retrieves the list of background music.
      *
      * @param request - ListBackgroundMusicsRequest
      *
@@ -1618,7 +1626,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of an instance.
      *
      * @param request - ListCloneVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1669,7 +1677,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of an instance.
      *
      * @param request - ListCloneVoiceRequest
      *
@@ -1687,7 +1695,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取克隆音色可用模型列表.
+     * Retrieves the list of available models for voice cloning.
      *
      * @param request - ListCloneVoiceModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1730,7 +1738,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取克隆音色可用模型列表.
+     * Retrieves the list of available models for voice cloning.
      *
      * @param request - ListCloneVoiceModelsRequest
      *
@@ -1748,7 +1756,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取对话模型列表.
+     * Retrieves the list of conversation models.
      *
      * @param request - ListNluModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1787,7 +1795,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取对话模型列表.
+     * Retrieves the list of conversation models.
      *
      * @param request - ListNluModelsRequest
      *
@@ -1805,7 +1813,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取变量列表.
+     * Retrieves a list of variables.
      *
      * @param request - ListVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1856,7 +1864,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取变量列表.
+     * Retrieves a list of variables.
      *
      * @param request - ListVariableRequest
      *
@@ -1874,7 +1882,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of an instance.
      *
      * @param request - ListVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1925,7 +1933,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of an instance.
      *
      * @param request - ListVocabularyRequest
      *
@@ -1943,7 +1951,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取三方语音配置列表.
+     * Retrieves the list of third-party voice configurations.
      *
      * @param request - ListVoiceAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1990,7 +1998,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取三方语音配置列表.
+     * Retrieves the list of third-party voice configurations.
      *
      * @param request - ListVoiceAccessProfileRequest
      *
@@ -2008,7 +2016,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取引擎列表.
+     * Retrieves a paginated list of available voice engines.
      *
      * @param request - ListVoiceEnginesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2051,7 +2059,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取引擎列表.
+     * Retrieves a paginated list of available voice engines.
      *
      * @param request - ListVoiceEnginesRequest
      *
@@ -2069,7 +2077,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取音色列表.
+     * Retrieves the list of voice timbres.
      *
      * @param request - ListVoicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2124,7 +2132,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 获取音色列表.
+     * Retrieves the list of voice timbres.
      *
      * @param request - ListVoicesRequest
      *
@@ -2142,7 +2150,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 试听.
+     * Generates a preview of a synthesized voice.
      *
      * @param tmpReq - PreviewVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2211,7 +2219,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 试听.
+     * Generates a preview of a synthesized voice.
      *
      * @param request - PreviewVoiceRequest
      *
@@ -2229,7 +2237,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 发布版本.
+     * Publishes a voice robot version.
      *
      * @param request - PublishApplicationVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2276,7 +2284,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 发布版本.
+     * Publishes a voice robot version.
      *
      * @param request - PublishApplicationVersionRequest
      *
@@ -2294,7 +2302,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 修改应用.
+     * Updates a voice bot application.
      *
      * @param request - UpdateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2349,7 +2357,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 修改应用.
+     * Updates a voice bot application.
      *
      * @param request - UpdateApplicationRequest
      *
@@ -2388,6 +2396,10 @@ class BailianVoiceBot extends OpenApiClient
             $request->interactionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->interactionConfig, 'InteractionConfig', 'json');
         }
 
+        if (null !== $tmpReq->labelConfig) {
+            $request->labelConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelConfig, 'LabelConfig', 'json');
+        }
+
         if (null !== $tmpReq->ragConfig) {
             $request->ragConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ragConfig, 'RagConfig', 'json');
         }
@@ -2419,6 +2431,10 @@ class BailianVoiceBot extends OpenApiClient
 
         if (null !== $request->interactionConfigShrink) {
             @$query['InteractionConfig'] = $request->interactionConfigShrink;
+        }
+
+        if (null !== $request->labelConfigShrink) {
+            @$query['LabelConfig'] = $request->labelConfigShrink;
         }
 
         if (null !== $request->ragConfigShrink) {
@@ -2482,7 +2498,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param request - UpdateCloneVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2529,7 +2545,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param request - UpdateCloneVoiceRequest
      *
@@ -2547,7 +2563,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建或更新MQ配置.
+     * Creates or updates a message queue (MQ) subscription.
      *
      * @param tmpReq - UpdateSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2624,7 +2640,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 创建或更新MQ配置.
+     * Creates or updates a message queue (MQ) subscription.
      *
      * @param request - UpdateSubscriptionRequest
      *
@@ -2642,7 +2658,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 更新变量.
+     * Updates a variable.
      *
      * @param request - UpdateVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2693,7 +2709,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 更新变量.
+     * Updates a variable.
      *
      * @param request - UpdateVariableRequest
      *
@@ -2711,7 +2727,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates a vocabulary.
      *
      * @param tmpReq - UpdateVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2772,7 +2788,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates a vocabulary.
      *
      * @param request - UpdateVocabularyRequest
      *
@@ -2790,7 +2806,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 更新三方语音配置.
+     * Updates the third-party voice configuration.
      *
      * @param tmpReq - UpdateVoiceAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2847,7 +2863,7 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
-     * 更新三方语音配置.
+     * Updates the third-party voice configuration.
      *
      * @param request - UpdateVoiceAccessProfileRequest
      *

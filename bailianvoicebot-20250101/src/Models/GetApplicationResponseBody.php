@@ -30,6 +30,11 @@ class GetApplicationResponseBody extends Model
     public $message;
 
     /**
+     * @var string[]
+     */
+    public $params;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -38,6 +43,7 @@ class GetApplicationResponseBody extends Model
         'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message' => 'Message',
+        'params' => 'Params',
         'requestId' => 'RequestId',
     ];
 
@@ -45,6 +51,9 @@ class GetApplicationResponseBody extends Model
     {
         if (null !== $this->data) {
             $this->data->validate();
+        }
+        if (\is_array($this->params)) {
+            Model::validateArray($this->params);
         }
         parent::validate();
     }
@@ -66,6 +75,17 @@ class GetApplicationResponseBody extends Model
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->params) {
+            if (\is_array($this->params)) {
+                $res['Params'] = [];
+                $n1 = 0;
+                foreach ($this->params as $item1) {
+                    $res['Params'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->requestId) {
@@ -97,6 +117,17 @@ class GetApplicationResponseBody extends Model
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['Params'])) {
+            if (!empty($map['Params'])) {
+                $model->params = [];
+                $n1 = 0;
+                foreach ($map['Params'] as $item1) {
+                    $model->params[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RequestId'])) {

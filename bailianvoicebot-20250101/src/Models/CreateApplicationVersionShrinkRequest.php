@@ -26,6 +26,11 @@ class CreateApplicationVersionShrinkRequest extends Model
     /**
      * @var string
      */
+    public $labelConfigShrink;
+
+    /**
+     * @var string
+     */
     public $ragConfigShrink;
 
     /**
@@ -56,6 +61,7 @@ class CreateApplicationVersionShrinkRequest extends Model
         'applicationId' => 'ApplicationId',
         'businessUnitId' => 'BusinessUnitId',
         'interactionConfigShrink' => 'InteractionConfig',
+        'labelConfigShrink' => 'LabelConfig',
         'ragConfigShrink' => 'RagConfig',
         'scriptProfileShrink' => 'ScriptProfile',
         'sourceVersionId' => 'SourceVersionId',
@@ -82,6 +88,10 @@ class CreateApplicationVersionShrinkRequest extends Model
 
         if (null !== $this->interactionConfigShrink) {
             $res['InteractionConfig'] = $this->interactionConfigShrink;
+        }
+
+        if (null !== $this->labelConfigShrink) {
+            $res['LabelConfig'] = $this->labelConfigShrink;
         }
 
         if (null !== $this->ragConfigShrink) {
@@ -129,6 +139,10 @@ class CreateApplicationVersionShrinkRequest extends Model
 
         if (isset($map['InteractionConfig'])) {
             $model->interactionConfigShrink = $map['InteractionConfig'];
+        }
+
+        if (isset($map['LabelConfig'])) {
+            $model->labelConfigShrink = $map['LabelConfig'];
         }
 
         if (isset($map['RagConfig'])) {
