@@ -28,6 +28,9 @@ use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeSuspEventsShrinkReq
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeVersionConfigRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeVersionConfigResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeVersionConfigShrinkRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DownloadResourceControlEventsRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DownloadResourceControlEventsResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DownloadResourceControlEventsShrinkRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetAlertRecordAnalysisResultRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetAlertRecordAnalysisResultResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetAlertRecordAnalysisResultShrinkRequest;
@@ -667,6 +670,193 @@ class RiskManagement extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVersionConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Downloads cloud resource control events.
+     *
+     * @param tmpReq - DownloadResourceControlEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DownloadResourceControlEventsResponse
+     *
+     * @param DownloadResourceControlEventsRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DownloadResourceControlEventsResponse
+     */
+    public function downloadResourceControlEventsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DownloadResourceControlEventsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actionCodes) {
+            $request->actionCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionCodes, 'ActionCodes', 'json');
+        }
+
+        if (null !== $tmpReq->caseCodesPrefix) {
+            $request->caseCodesPrefixShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->caseCodesPrefix, 'CaseCodesPrefix', 'json');
+        }
+
+        if (null !== $tmpReq->eventCodes) {
+            $request->eventCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventCodes, 'EventCodes', 'json');
+        }
+
+        if (null !== $tmpReq->excludeActionCodes) {
+            $request->excludeActionCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeActionCodes, 'ExcludeActionCodes', 'json');
+        }
+
+        if (null !== $tmpReq->excludeEventCodes) {
+            $request->excludeEventCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeEventCodes, 'ExcludeEventCodes', 'json');
+        }
+
+        if (null !== $tmpReq->excludeReasons) {
+            $request->excludeReasonsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeReasons, 'ExcludeReasons', 'json');
+        }
+
+        if (null !== $tmpReq->includeReasons) {
+            $request->includeReasonsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->includeReasons, 'IncludeReasons', 'json');
+        }
+
+        if (null !== $tmpReq->sourceCodes) {
+            $request->sourceCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceCodes, 'SourceCodes', 'json');
+        }
+
+        if (null !== $tmpReq->statusList) {
+            $request->statusListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'StatusList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->actionCode) {
+            @$query['ActionCode'] = $request->actionCode;
+        }
+
+        if (null !== $request->actionCodesShrink) {
+            @$query['ActionCodes'] = $request->actionCodesShrink;
+        }
+
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->businessCode) {
+            @$query['BusinessCode'] = $request->businessCode;
+        }
+
+        if (null !== $request->caseCodesPrefixShrink) {
+            @$query['CaseCodesPrefix'] = $request->caseCodesPrefixShrink;
+        }
+
+        if (null !== $request->current) {
+            @$query['Current'] = $request->current;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->eventCode) {
+            @$query['EventCode'] = $request->eventCode;
+        }
+
+        if (null !== $request->eventCodesShrink) {
+            @$query['EventCodes'] = $request->eventCodesShrink;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->excludeActionCodesShrink) {
+            @$query['ExcludeActionCodes'] = $request->excludeActionCodesShrink;
+        }
+
+        if (null !== $request->excludeEventCodesShrink) {
+            @$query['ExcludeEventCodes'] = $request->excludeEventCodesShrink;
+        }
+
+        if (null !== $request->excludeReasonsShrink) {
+            @$query['ExcludeReasons'] = $request->excludeReasonsShrink;
+        }
+
+        if (null !== $request->includeReasonsShrink) {
+            @$query['IncludeReasons'] = $request->includeReasonsShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->punishEndTime) {
+            @$query['PunishEndTime'] = $request->punishEndTime;
+        }
+
+        if (null !== $request->punishStartTime) {
+            @$query['PunishStartTime'] = $request->punishStartTime;
+        }
+
+        if (null !== $request->reason) {
+            @$query['Reason'] = $request->reason;
+        }
+
+        if (null !== $request->sourceCodesShrink) {
+            @$query['SourceCodes'] = $request->sourceCodesShrink;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->statusListShrink) {
+            @$query['StatusList'] = $request->statusListShrink;
+        }
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadResourceControlEvents',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DownloadResourceControlEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Downloads cloud resource control events.
+     *
+     * @param request - DownloadResourceControlEventsRequest
+     *
+     * @returns DownloadResourceControlEventsResponse
+     *
+     * @param DownloadResourceControlEventsRequest $request
+     *
+     * @return DownloadResourceControlEventsResponse
+     */
+    public function downloadResourceControlEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadResourceControlEventsWithOptions($request, $runtime);
     }
 
     /**
