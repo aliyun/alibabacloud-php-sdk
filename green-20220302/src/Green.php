@@ -66,11 +66,11 @@ use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultResponse;
-use Darabonba\OpenApi\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 use Darabonba\OpenApi\Utils;
+use Darabonba\OpenApi\WebsocketUtils\Client;
 
 class Green extends OpenApiClient
 {
@@ -98,10 +98,10 @@ class Green extends OpenApiClient
             'cn-shanghai-finance-1' => 'green.aliyuncs.com',
             'cn-north-2-gov-1' => 'green.aliyuncs.com',
             'cn-shenzhen' => 'green-cip.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai' => 'green-cip.cn-shanghai.aliyuncs.com',
-            'cn-hangzhou' => 'green-cip.cn-hangzhou.aliyuncs.com',
             'cn-beijing' => 'green-cip.cn-beijing.aliyuncs.com',
+            'cn-shanghai' => 'green-cip.cn-shanghai.aliyuncs.com',
             'ap-southeast-1' => 'green-cip.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou' => 'green-cip.cn-hangzhou.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('green', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1024,7 +1024,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Synchronously detects content by using the multimodal Agent API.
+     * Synchronously detects content by calling the multimodal Agent API.
      *
      * @remarks
      * The content moderation agent.
@@ -1070,7 +1070,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Synchronously detects content by using the multimodal Agent API.
+     * Synchronously detects content by calling the multimodal Agent API.
      *
      * @remarks
      * The content moderation agent.
@@ -1091,7 +1091,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Synchronously detects multimodal content by using the Agent API.
+     * Synchronously moderates multimodal content through the Agent API.
      *
      * @remarks
      * The content moderation Agent.
@@ -1154,7 +1154,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Synchronously detects multimodal content by using the Agent API.
+     * Synchronously moderates multimodal content through the Agent API.
      *
      * @remarks
      * The content moderation Agent.
@@ -1204,7 +1204,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Synchronously detects multimodal content by using the Agent API.
+     * Synchronously moderates multimodal content through the Agent API.
      *
      * @remarks
      * The content moderation Agent.
@@ -1893,7 +1893,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Cancels an ApsaraVideo Live moderation task.
+     * Cancels an ApsaraVideo Live content moderation node.
+     *
+     * @remarks
+     * Before calling this operation, you must activate Content Moderation Enhanced Edition. Activation link: https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.14652963KTpjic&commodityCode=lvwang_cip_public_cn. You must grant the required RAM access policy (such as AliyunYundunGreenWebFullAccess) and use the correct endpoint (green-cip.{region}.aliyuncs.com).
      *
      * @param request - VideoModerationCancelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1936,7 +1939,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Cancels an ApsaraVideo Live moderation task.
+     * Cancels an ApsaraVideo Live content moderation node.
+     *
+     * @remarks
+     * Before calling this operation, you must activate Content Moderation Enhanced Edition. Activation link: https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.14652963KTpjic&commodityCode=lvwang_cip_public_cn. You must grant the required RAM access policy (such as AliyunYundunGreenWebFullAccess) and use the correct endpoint (green-cip.{region}.aliyuncs.com).
      *
      * @param request - VideoModerationCancelRequest
      *
@@ -1957,7 +1963,7 @@ class Green extends OpenApiClient
      * Retrieves the task result of a video moderation node from the enhanced video moderation service.
      *
      * @remarks
-     * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After 24 hours, results are automatically deleted.
+     * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous detection task). The maximum query window is 24 hours. After 24 hours, results are automatically deleted.
      *
      * @param request - VideoModerationResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2003,7 +2009,7 @@ class Green extends OpenApiClient
      * Retrieves the task result of a video moderation node from the enhanced video moderation service.
      *
      * @remarks
-     * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After 24 hours, results are automatically deleted.
+     * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous detection task). The maximum query window is 24 hours. After 24 hours, results are automatically deleted.
      *
      * @param request - VideoModerationResultRequest
      *

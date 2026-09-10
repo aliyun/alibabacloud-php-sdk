@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageResult;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageResult\textResult\result;
 
 class textResult extends Model
 {
@@ -22,6 +23,11 @@ class textResult extends Model
      * @var string
      */
     public $labels;
+
+    /**
+     * @var result[]
+     */
+    public $result;
 
     /**
      * @var string
@@ -56,6 +62,7 @@ class textResult extends Model
         'description' => 'Description',
         'descriptions' => 'Descriptions',
         'labels' => 'Labels',
+        'result' => 'Result',
         'riskLevel' => 'RiskLevel',
         'riskTips' => 'RiskTips',
         'riskWords' => 'RiskWords',
@@ -66,6 +73,9 @@ class textResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
         parent::validate();
     }
 
@@ -82,6 +92,17 @@ class textResult extends Model
 
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+
+        if (null !== $this->result) {
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->riskLevel) {
@@ -129,6 +150,17 @@ class textResult extends Model
 
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
+        }
+
+        if (isset($map['Result'])) {
+            if (!empty($map['Result'])) {
+                $model->result = [];
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1] = result::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RiskLevel'])) {

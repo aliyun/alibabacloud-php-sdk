@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
 use AlibabaCloud\Dara\Model;
-use Darabonba\OpenApi\Models\WebSocketClient;
+use Darabonba\OpenApi\WebsocketUtils\Models\WebSocketClient;
 
 class MultiModalGuardWsResponse extends Model
 {
