@@ -150,7 +150,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * Creates a Team.
+     * Creates a team.
      *
      * @param request - CreateTeamRequest
      * @param headers - map
@@ -187,7 +187,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * Creates a Team.
+     * Creates a team.
      *
      * @param request - CreateTeamRequest
      *

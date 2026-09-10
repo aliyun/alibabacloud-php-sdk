@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\E2BVolume\mountConfig;
 class E2BVolume extends Model
 {
     /**
+     * @var AgenticBucketVolumeConfig
+     */
+    public $agenticBucketVolumeConfig;
+
+    /**
      * @var AgenticFSVolumeConfig
      */
     public $agenticFSVolumeConfig;
@@ -74,6 +79,7 @@ class E2BVolume extends Model
      */
     public $volumeName;
     protected $_name = [
+        'agenticBucketVolumeConfig' => 'agenticBucketVolumeConfig',
         'agenticFSVolumeConfig' => 'agenticFSVolumeConfig',
         'createdAt' => 'createdAt',
         'mountConfig' => 'mountConfig',
@@ -91,6 +97,9 @@ class E2BVolume extends Model
 
     public function validate()
     {
+        if (null !== $this->agenticBucketVolumeConfig) {
+            $this->agenticBucketVolumeConfig->validate();
+        }
         if (null !== $this->agenticFSVolumeConfig) {
             $this->agenticFSVolumeConfig->validate();
         }
@@ -106,6 +115,10 @@ class E2BVolume extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agenticBucketVolumeConfig) {
+            $res['agenticBucketVolumeConfig'] = null !== $this->agenticBucketVolumeConfig ? $this->agenticBucketVolumeConfig->toArray($noStream) : $this->agenticBucketVolumeConfig;
+        }
+
         if (null !== $this->agenticFSVolumeConfig) {
             $res['agenticFSVolumeConfig'] = null !== $this->agenticFSVolumeConfig ? $this->agenticFSVolumeConfig->toArray($noStream) : $this->agenticFSVolumeConfig;
         }
@@ -169,6 +182,10 @@ class E2BVolume extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agenticBucketVolumeConfig'])) {
+            $model->agenticBucketVolumeConfig = AgenticBucketVolumeConfig::fromMap($map['agenticBucketVolumeConfig']);
+        }
+
         if (isset($map['agenticFSVolumeConfig'])) {
             $model->agenticFSVolumeConfig = AgenticFSVolumeConfig::fromMap($map['agenticFSVolumeConfig']);
         }
