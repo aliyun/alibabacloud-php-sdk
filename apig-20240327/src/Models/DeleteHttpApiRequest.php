@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class DeleteHttpApiRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $dryRun;
     protected $_name = [
+        'clientToken' => 'clientToken',
         'dryRun' => 'dryRun',
     ];
 
@@ -24,6 +30,10 @@ class DeleteHttpApiRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -39,6 +49,10 @@ class DeleteHttpApiRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }
