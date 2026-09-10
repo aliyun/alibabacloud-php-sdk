@@ -14,9 +14,19 @@ class Triggers extends Model
     public $comparisonOperator;
 
     /**
+     * @var string
+     */
+    public $condition;
+
+    /**
      * @var TriggerConditions[]
      */
     public $conditions;
+
+    /**
+     * @var string
+     */
+    public $countCondition;
 
     /**
      * @var string
@@ -114,7 +124,9 @@ class Triggers extends Model
     public $times;
     protected $_name = [
         'comparisonOperator' => 'comparisonOperator',
+        'condition' => 'condition',
         'conditions' => 'conditions',
+        'countCondition' => 'countCondition',
         'countOperator' => 'countOperator',
         'countThreshold' => 'countThreshold',
         'durationSecs' => 'durationSecs',
@@ -151,6 +163,10 @@ class Triggers extends Model
             $res['comparisonOperator'] = $this->comparisonOperator;
         }
 
+        if (null !== $this->condition) {
+            $res['condition'] = $this->condition;
+        }
+
         if (null !== $this->conditions) {
             if (\is_array($this->conditions)) {
                 $res['conditions'] = [];
@@ -160,6 +176,10 @@ class Triggers extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->countCondition) {
+            $res['countCondition'] = $this->countCondition;
         }
 
         if (null !== $this->countOperator) {
@@ -253,6 +273,10 @@ class Triggers extends Model
             $model->comparisonOperator = $map['comparisonOperator'];
         }
 
+        if (isset($map['condition'])) {
+            $model->condition = $map['condition'];
+        }
+
         if (isset($map['conditions'])) {
             if (!empty($map['conditions'])) {
                 $model->conditions = [];
@@ -262,6 +286,10 @@ class Triggers extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['countCondition'])) {
+            $model->countCondition = $map['countCondition'];
         }
 
         if (isset($map['countOperator'])) {

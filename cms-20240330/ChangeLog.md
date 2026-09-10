@@ -1,3 +1,18 @@
+2026-09-10 Version: 10.5.0
+- Support API CreateMaintainWindow.
+- Support API DeleteMaintainWindow.
+- Support API DisableMaintainWindow.
+- Support API EnableMaintainWindow.
+- Support API GetMaintainWindow.
+- Support API ListMaintainWindows.
+- Support API UpdateMaintainWindow.
+- Update API DescribeMetricMetaList: add request parameters aliyunLang.
+- Update API DescribeMetricMetaList: add request parameters category.
+- Update API GetPrometheusInstance: add response parameters Body.prometheusInstance.storeConfig.
+- Update API ListServiceRecords: add response parameters Body.records.$.serviceName.
+- Update API UpdatePrometheusInstance: add request parameters body.storeConfig.
+
+
 2026-08-14 Version: 10.4.1
 - Update API GetIntegrationPolicy: add response parameters Body.policy.addonNames.
 - Update API ListIntegrationPolicies: add response parameters Body.policies.$.addonNames.

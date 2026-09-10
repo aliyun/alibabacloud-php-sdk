@@ -59,6 +59,11 @@ class UpdatePrometheusInstanceRequest extends Model
     public $storageDuration;
 
     /**
+     * @var PrometheusInstanceStoreConfig
+     */
+    public $storeConfig;
+
+    /**
      * @var string
      */
     public $workspace;
@@ -73,11 +78,15 @@ class UpdatePrometheusInstanceRequest extends Model
         'prometheusInstanceName' => 'prometheusInstanceName',
         'status' => 'status',
         'storageDuration' => 'storageDuration',
+        'storeConfig' => 'storeConfig',
         'workspace' => 'workspace',
     ];
 
     public function validate()
     {
+        if (null !== $this->storeConfig) {
+            $this->storeConfig->validate();
+        }
         parent::validate();
     }
 
@@ -122,6 +131,10 @@ class UpdatePrometheusInstanceRequest extends Model
 
         if (null !== $this->storageDuration) {
             $res['storageDuration'] = $this->storageDuration;
+        }
+
+        if (null !== $this->storeConfig) {
+            $res['storeConfig'] = null !== $this->storeConfig ? $this->storeConfig->toArray($noStream) : $this->storeConfig;
         }
 
         if (null !== $this->workspace) {
@@ -177,6 +190,10 @@ class UpdatePrometheusInstanceRequest extends Model
 
         if (isset($map['storageDuration'])) {
             $model->storageDuration = $map['storageDuration'];
+        }
+
+        if (isset($map['storeConfig'])) {
+            $model->storeConfig = PrometheusInstanceStoreConfig::fromMap($map['storeConfig']);
         }
 
         if (isset($map['workspace'])) {

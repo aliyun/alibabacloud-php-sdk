@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class MetricSetMultiTrigger extends Model
 {
     /**
+     * @var float
+     */
+    public $absDeviation;
+
+    /**
+     * @var string
+     */
+    public $baselinePeriod;
+
+    /**
      * @var MetricSetTriggerSimpleExpression[]
      */
     public $conditions;
@@ -51,6 +61,11 @@ class MetricSetMultiTrigger extends Model
     /**
      * @var string
      */
+    public $sensitivity;
+
+    /**
+     * @var string
+     */
     public $severity;
 
     /**
@@ -58,6 +73,8 @@ class MetricSetMultiTrigger extends Model
      */
     public $threshold;
     protected $_name = [
+        'absDeviation' => 'absDeviation',
+        'baselinePeriod' => 'baselinePeriod',
         'conditions' => 'conditions',
         'durationSecs' => 'durationSecs',
         'expressionType' => 'expressionType',
@@ -66,6 +83,7 @@ class MetricSetMultiTrigger extends Model
         'min' => 'min',
         'operator' => 'operator',
         'queryName' => 'queryName',
+        'sensitivity' => 'sensitivity',
         'severity' => 'severity',
         'threshold' => 'threshold',
     ];
@@ -81,6 +99,14 @@ class MetricSetMultiTrigger extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->absDeviation) {
+            $res['absDeviation'] = $this->absDeviation;
+        }
+
+        if (null !== $this->baselinePeriod) {
+            $res['baselinePeriod'] = $this->baselinePeriod;
+        }
+
         if (null !== $this->conditions) {
             if (\is_array($this->conditions)) {
                 $res['conditions'] = [];
@@ -120,6 +146,10 @@ class MetricSetMultiTrigger extends Model
             $res['queryName'] = $this->queryName;
         }
 
+        if (null !== $this->sensitivity) {
+            $res['sensitivity'] = $this->sensitivity;
+        }
+
         if (null !== $this->severity) {
             $res['severity'] = $this->severity;
         }
@@ -139,6 +169,14 @@ class MetricSetMultiTrigger extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['absDeviation'])) {
+            $model->absDeviation = $map['absDeviation'];
+        }
+
+        if (isset($map['baselinePeriod'])) {
+            $model->baselinePeriod = $map['baselinePeriod'];
+        }
+
         if (isset($map['conditions'])) {
             if (!empty($map['conditions'])) {
                 $model->conditions = [];
@@ -176,6 +214,10 @@ class MetricSetMultiTrigger extends Model
 
         if (isset($map['queryName'])) {
             $model->queryName = $map['queryName'];
+        }
+
+        if (isset($map['sensitivity'])) {
+            $model->sensitivity = $map['sensitivity'];
         }
 
         if (isset($map['severity'])) {

@@ -11,6 +11,16 @@ class SlsMultiConditionCaseConfig extends Model
     /**
      * @var string
      */
+    public $condition;
+
+    /**
+     * @var string
+     */
+    public $countCondition;
+
+    /**
+     * @var string
+     */
     public $countOperator;
 
     /**
@@ -36,13 +46,27 @@ class SlsMultiConditionCaseConfig extends Model
     /**
      * @var string
      */
+    public $operator;
+
+    /**
+     * @var string
+     */
+    public $rawCondition;
+
+    /**
+     * @var string
+     */
     public $severity;
     protected $_name = [
+        'condition' => 'condition',
+        'countCondition' => 'countCondition',
         'countOperator' => 'countOperator',
         'countThreshold' => 'countThreshold',
         'matchField' => 'matchField',
         'matchOperator' => 'matchOperator',
         'matchValue' => 'matchValue',
+        'operator' => 'operator',
+        'rawCondition' => 'rawCondition',
         'severity' => 'severity',
     ];
 
@@ -54,6 +78,14 @@ class SlsMultiConditionCaseConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->condition) {
+            $res['condition'] = $this->condition;
+        }
+
+        if (null !== $this->countCondition) {
+            $res['countCondition'] = $this->countCondition;
+        }
+
         if (null !== $this->countOperator) {
             $res['countOperator'] = $this->countOperator;
         }
@@ -74,6 +106,14 @@ class SlsMultiConditionCaseConfig extends Model
             $res['matchValue'] = $this->matchValue;
         }
 
+        if (null !== $this->operator) {
+            $res['operator'] = $this->operator;
+        }
+
+        if (null !== $this->rawCondition) {
+            $res['rawCondition'] = $this->rawCondition;
+        }
+
         if (null !== $this->severity) {
             $res['severity'] = $this->severity;
         }
@@ -89,6 +129,14 @@ class SlsMultiConditionCaseConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['condition'])) {
+            $model->condition = $map['condition'];
+        }
+
+        if (isset($map['countCondition'])) {
+            $model->countCondition = $map['countCondition'];
+        }
+
         if (isset($map['countOperator'])) {
             $model->countOperator = $map['countOperator'];
         }
@@ -107,6 +155,14 @@ class SlsMultiConditionCaseConfig extends Model
 
         if (isset($map['matchValue'])) {
             $model->matchValue = $map['matchValue'];
+        }
+
+        if (isset($map['operator'])) {
+            $model->operator = $map['operator'];
+        }
+
+        if (isset($map['rawCondition'])) {
+            $model->rawCondition = $map['rawCondition'];
         }
 
         if (isset($map['severity'])) {

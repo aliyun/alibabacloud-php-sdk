@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateEntityStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMaintainWindowRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMaintainWindowResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMemoryStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateNotifyPolicyRequest;
@@ -87,6 +89,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteEntityStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMaintainWindowRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMaintainWindowResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoriesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoriesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryRequest;
@@ -122,8 +126,12 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeMetricMetaListResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeMetricMetaListShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DisableMaintainWindowRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DisableMaintainWindowResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DisableNotifyPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DisableNotifyPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\EnableMaintainWindowRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\EnableMaintainWindowResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\EnableNotifyPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\EnableNotifyPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ExecuteQueryRequest;
@@ -164,6 +172,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationVersionForCSRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationVersionForCSResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMaintainWindowRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMaintainWindowResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoriesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoriesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryHistoryRequest;
@@ -250,6 +260,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyServiceMonitorsRe
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyServiceMonitorsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyStorageRequirementsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyStorageRequirementsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListMaintainWindowsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListMaintainWindowsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListMemoryStoresRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListMemoryStoresResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListNotifyPoliciesRequest;
@@ -322,6 +334,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDeliveryTaskRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDeliveryTaskResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMaintainWindowRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMaintainWindowResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryStoreRequest;
@@ -677,10 +691,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Installs an add-on.
+     * Installs an access component, which represents a single access operation.
      *
      * @remarks
-     * Creates a release for an add-on.
+     * Creates a site monitoring task.
      *
      * @param request - CreateAddonReleaseRequest
      * @param headers - map
@@ -759,10 +773,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Installs an add-on.
+     * Installs an access component, which represents a single access operation.
      *
      * @remarks
-     * Creates a release for an add-on.
+     * Creates a site monitoring task.
      *
      * @param request - CreateAddonReleaseRequest
      *
@@ -911,10 +925,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create a webhook.
+     * Creates a webhook.
      *
      * @remarks
-     * Creates an alert webhook to use as a notification recipient.
+     * Creates a webhook notification recipient.
      *
      * @param request - CreateAlertWebhookRequest
      * @param headers - map
@@ -984,10 +998,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create a webhook.
+     * Creates a webhook.
      *
      * @remarks
-     * Creates an alert webhook to use as a notification recipient.
+     * Creates a webhook notification recipient.
      *
      * @param request - CreateAlertWebhookRequest
      *
@@ -1673,6 +1687,68 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createIntegrationPolicyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建订阅.
+     *
+     * @param request - CreateMaintainWindowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMaintainWindowResponse
+     *
+     * @param CreateMaintainWindowRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateMaintainWindowResponse
+     */
+    public function createMaintainWindowWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMaintainWindow',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maintainWindows',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMaintainWindowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建订阅.
+     *
+     * @param request - CreateMaintainWindowRequest
+     *
+     * @returns CreateMaintainWindowResponse
+     *
+     * @param CreateMaintainWindowRequest $request
+     *
+     * @return CreateMaintainWindowResponse
+     */
+    public function createMaintainWindow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMaintainWindowWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2645,7 +2721,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes add-on release information.
+     * Deletes addon release information.
      *
      * @param request - DeleteAddonReleaseRequest
      * @param headers - map
@@ -2696,7 +2772,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes add-on release information.
+     * Deletes addon release information.
      *
      * @param request - DeleteAddonReleaseRequest
      *
@@ -3495,6 +3571,75 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteIntegrationPolicyWithOptions($policyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除转换器.
+     *
+     * @remarks
+     * 删除指定的静默策略。删除成功后，服务通过异步消息刷新运行时缓存，因此短时间内仍可能按删除前的策略处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+     *
+     * @param request - DeleteMaintainWindowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMaintainWindowResponse
+     *
+     * @param string                      $maintainWindowId
+     * @param DeleteMaintainWindowRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteMaintainWindowResponse
+     */
+    public function deleteMaintainWindowWithOptions($maintainWindowId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMaintainWindow',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maintainWindows/' . Url::percentEncode($maintainWindowId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMaintainWindowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除转换器.
+     *
+     * @remarks
+     * 删除指定的静默策略。删除成功后，服务通过异步消息刷新运行时缓存，因此短时间内仍可能按删除前的策略处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+     *
+     * @param request - DeleteMaintainWindowRequest
+     *
+     * @returns DeleteMaintainWindowResponse
+     *
+     * @param string                      $maintainWindowId
+     * @param DeleteMaintainWindowRequest $request
+     *
+     * @return DeleteMaintainWindowResponse
+     */
+    public function deleteMaintainWindow($maintainWindowId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMaintainWindowWithOptions($maintainWindowId, $request, $headers, $runtime);
     }
 
     /**
@@ -4502,6 +4647,14 @@ class Cms extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->aliyunLang) {
+            @$query['aliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
+        }
+
         if (null !== $request->keywords) {
             @$query['keywords'] = $request->keywords;
         }
@@ -4633,6 +4786,75 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 暂停转换器.
+     *
+     * @remarks
+     * 暂停指定的静默策略。暂停成功后，服务通过异步消息刷新运行时缓存；刷新完成后该策略不再参与事件静默判断，短时间内仍可能按暂停前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+     *
+     * @param request - DisableMaintainWindowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableMaintainWindowResponse
+     *
+     * @param string                       $maintainWindowId
+     * @param DisableMaintainWindowRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DisableMaintainWindowResponse
+     */
+    public function disableMaintainWindowWithOptions($maintainWindowId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableMaintainWindow',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maintainWindows/' . Url::percentEncode($maintainWindowId) . '/disable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableMaintainWindowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 暂停转换器.
+     *
+     * @remarks
+     * 暂停指定的静默策略。暂停成功后，服务通过异步消息刷新运行时缓存；刷新完成后该策略不再参与事件静默判断，短时间内仍可能按暂停前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+     *
+     * @param request - DisableMaintainWindowRequest
+     *
+     * @returns DisableMaintainWindowResponse
+     *
+     * @param string                       $maintainWindowId
+     * @param DisableMaintainWindowRequest $request
+     *
+     * @return DisableMaintainWindowResponse
+     */
+    public function disableMaintainWindow($maintainWindowId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableMaintainWindowWithOptions($maintainWindowId, $request, $headers, $runtime);
+    }
+
+    /**
      * Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
      *
      * @remarks
@@ -4699,6 +4921,75 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->disableNotifyPolicyWithOptions($uuid, $request, $headers, $runtime);
+    }
+
+    /**
+     * 启动转换器.
+     *
+     * @remarks
+     * 启用指定的静默策略。启用成功后，服务通过异步消息刷新运行时缓存；刷新完成后，命中该策略过滤条件且处于生效时间内的事件不会触发通知，短时间内仍可能按启用前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+     *
+     * @param request - EnableMaintainWindowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableMaintainWindowResponse
+     *
+     * @param string                      $maintainWindowId
+     * @param EnableMaintainWindowRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return EnableMaintainWindowResponse
+     */
+    public function enableMaintainWindowWithOptions($maintainWindowId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableMaintainWindow',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maintainWindows/' . Url::percentEncode($maintainWindowId) . '/enable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableMaintainWindowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动转换器.
+     *
+     * @remarks
+     * 启用指定的静默策略。启用成功后，服务通过异步消息刷新运行时缓存；刷新完成后，命中该策略过滤条件且处于生效时间内的事件不会触发通知，短时间内仍可能按启用前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+     *
+     * @param request - EnableMaintainWindowRequest
+     *
+     * @returns EnableMaintainWindowResponse
+     *
+     * @param string                      $maintainWindowId
+     * @param EnableMaintainWindowRequest $request
+     *
+     * @return EnableMaintainWindowResponse
+     */
+    public function enableMaintainWindow($maintainWindowId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableMaintainWindowWithOptions($maintainWindowId, $request, $headers, $runtime);
     }
 
     /**
@@ -6021,6 +6312,75 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getIntegrationVersionForCSWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取订阅.
+     *
+     * @remarks
+     * 查询指定静默策略的详细配置，包括策略名称、描述、启用状态、过滤条件、生效时间配置以及创建时间和更新时间。当前查询结果不返回 workspaceFilterSetting。指定的静默策略不存在时返回 ResourceNotFound。
+     *
+     * @param request - GetMaintainWindowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMaintainWindowResponse
+     *
+     * @param string                   $maintainWindowId
+     * @param GetMaintainWindowRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetMaintainWindowResponse
+     */
+    public function getMaintainWindowWithOptions($maintainWindowId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMaintainWindow',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maintainWindows/' . Url::percentEncode($maintainWindowId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMaintainWindowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取订阅.
+     *
+     * @remarks
+     * 查询指定静默策略的详细配置，包括策略名称、描述、启用状态、过滤条件、生效时间配置以及创建时间和更新时间。当前查询结果不返回 workspaceFilterSetting。指定的静默策略不存在时返回 ResourceNotFound。
+     *
+     * @param request - GetMaintainWindowRequest
+     *
+     * @returns GetMaintainWindowResponse
+     *
+     * @param string                   $maintainWindowId
+     * @param GetMaintainWindowRequest $request
+     *
+     * @return GetMaintainWindowResponse
+     */
+    public function getMaintainWindow($maintainWindowId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMaintainWindowWithOptions($maintainWindowId, $request, $headers, $runtime);
     }
 
     /**
@@ -7497,7 +7857,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries alert chatbots.
+     * Queries alert robots.
+     *
+     * @remarks
+     * This operation can only query alert history from the last year.
+     * This topic provides an example of querying the alert history of Elastic Computing Service from the cloud service `product` dimension.
      *
      * @param tmpReq - ListAlertRobotsRequest
      * @param headers - map
@@ -7569,7 +7933,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries alert chatbots.
+     * Queries alert robots.
+     *
+     * @remarks
+     * This operation can only query alert history from the last year.
+     * This topic provides an example of querying the alert history of Elastic Computing Service from the cloud service `product` dimension.
      *
      * @param request - ListAlertRobotsRequest
      *
@@ -7588,7 +7956,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query webhooks.
+     * Queries webhooks.
      *
      * @param tmpReq - ListAlertWebhooksRequest
      * @param headers - map
@@ -7652,7 +8020,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query webhooks.
+     * Queries webhooks.
      *
      * @param request - ListAlertWebhooksRequest
      *
@@ -7742,6 +8110,9 @@ class Cms extends OpenApiClient
     /**
      * Queries contact groups.
      *
+     * @remarks
+     * This topic provides an example of how to create an alert contact group named `ECS_Group`.
+     *
      * @param tmpReq - ListContactGroupsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7806,6 +8177,9 @@ class Cms extends OpenApiClient
     /**
      * Queries contact groups.
      *
+     * @remarks
+     * This topic provides an example of how to create an alert contact group named `ECS_Group`.
+     *
      * @param request - ListContactGroupsRequest
      *
      * @returns ListContactGroupsResponse
@@ -7823,7 +8197,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query contacts.
+     * Queries contacts.
+     *
+     * @remarks
+     * This topic provides an example of how to create an alert contact group named `ECS_Group`.
      *
      * @param tmpReq - ListContactsRequest
      * @param headers - map
@@ -7903,7 +8280,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query contacts.
+     * Queries contacts.
+     *
+     * @remarks
+     * This topic provides an example of how to create an alert contact group named `ECS_Group`.
      *
      * @param request - ListContactsRequest
      *
@@ -8936,6 +9316,103 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listIntegrationPolicyStorageRequirementsWithOptions($policyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询维护窗口列表.
+     *
+     * @remarks
+     * 分页查询指定工作空间下的静默策略列表，支持按策略名称模糊匹配、按策略 ID 精确匹配、按启用状态过滤，并支持按创建时间、更新时间或启用状态排序。没有匹配项时正常返回空列表；列表项不返回 workspaceFilterSetting。
+     * 当本次返回条数达到 maxResults 时，响应可能包含非空 nextToken；非空 nextToken 仅表示可以继续查询，不保证下一页一定包含数据。nextToken 为空表示分页结束。
+     *
+     * @param request - ListMaintainWindowsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMaintainWindowsResponse
+     *
+     * @param ListMaintainWindowsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMaintainWindowsResponse
+     */
+    public function listMaintainWindowsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->direction) {
+            @$query['direction'] = $request->direction;
+        }
+
+        if (null !== $request->enable) {
+            @$query['enable'] = $request->enable;
+        }
+
+        if (null !== $request->maintainWindowId) {
+            @$query['maintainWindowId'] = $request->maintainWindowId;
+        }
+
+        if (null !== $request->maintainWindowName) {
+            @$query['maintainWindowName'] = $request->maintainWindowName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMaintainWindows',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maintainWindows',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMaintainWindowsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询维护窗口列表.
+     *
+     * @remarks
+     * 分页查询指定工作空间下的静默策略列表，支持按策略名称模糊匹配、按策略 ID 精确匹配、按启用状态过滤，并支持按创建时间、更新时间或启用状态排序。没有匹配项时正常返回空列表；列表项不返回 workspaceFilterSetting。
+     * 当本次返回条数达到 maxResults 时，响应可能包含非空 nextToken；非空 nextToken 仅表示可以继续查询，不保证下一页一定包含数据。nextToken 为空表示分页结束。
+     *
+     * @param request - ListMaintainWindowsRequest
+     *
+     * @returns ListMaintainWindowsResponse
+     *
+     * @param ListMaintainWindowsRequest $request
+     *
+     * @return ListMaintainWindowsResponse
+     */
+    public function listMaintainWindows($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMaintainWindowsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10286,7 +10763,7 @@ class Cms extends OpenApiClient
      * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param tmpReq - QueryAlertRulesRequest
      * @param headers - map
@@ -10355,7 +10832,7 @@ class Cms extends OpenApiClient
      * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param request - QueryAlertRulesRequest
      *
@@ -10724,7 +11201,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Upgrades an add-on component.
+     * Upgrades an access component.
      *
      * @param request - UpdateAddonReleaseRequest
      * @param headers - map
@@ -10780,7 +11257,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Upgrades an add-on component.
+     * Upgrades an access component.
      *
      * @param request - UpdateAddonReleaseRequest
      *
@@ -11647,6 +12124,78 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 修改已存在的维护窗口配置。
+     *
+     * @remarks
+     * 更新指定静默策略的配置。maintainWindowName 为空时保留原名称；description、filterSetting、effective、effectTimeRange、startTime、endTime 按请求体中的值更新，未提供时写为空。建议先通过 GetMaintainWindow 获取当前配置后再提交修改。
+     * 本接口不修改策略的启用状态，启用或暂停请使用 EnableMaintainWindow、DisableMaintainWindow。时间配置校验与 CreateMaintainWindow 一致；同一工作空间下策略名称重复时返回 InvalidParameterValue；指定的静默策略不存在时返回 ResourceNotFound。
+     *
+     * @param request - UpdateMaintainWindowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMaintainWindowResponse
+     *
+     * @param string                      $maintainWindowId
+     * @param UpdateMaintainWindowRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateMaintainWindowResponse
+     */
+    public function updateMaintainWindowWithOptions($maintainWindowId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMaintainWindow',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/maintainWindows/' . Url::percentEncode($maintainWindowId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMaintainWindowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改已存在的维护窗口配置。
+     *
+     * @remarks
+     * 更新指定静默策略的配置。maintainWindowName 为空时保留原名称；description、filterSetting、effective、effectTimeRange、startTime、endTime 按请求体中的值更新，未提供时写为空。建议先通过 GetMaintainWindow 获取当前配置后再提交修改。
+     * 本接口不修改策略的启用状态，启用或暂停请使用 EnableMaintainWindow、DisableMaintainWindow。时间配置校验与 CreateMaintainWindow 一致；同一工作空间下策略名称重复时返回 InvalidParameterValue；指定的静默策略不存在时返回 ResourceNotFound。
+     *
+     * @param request - UpdateMaintainWindowRequest
+     *
+     * @returns UpdateMaintainWindowResponse
+     *
+     * @param string                      $maintainWindowId
+     * @param UpdateMaintainWindowRequest $request
+     *
+     * @return UpdateMaintainWindowResponse
+     */
+    public function updateMaintainWindow($maintainWindowId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMaintainWindowWithOptions($maintainWindowId, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates a specific Memory.
      *
      * @param request - UpdateMemoryRequest
@@ -12068,6 +12617,10 @@ class Cms extends OpenApiClient
 
         if (null !== $request->storageDuration) {
             @$body['storageDuration'] = $request->storageDuration;
+        }
+
+        if (null !== $request->storeConfig) {
+            @$body['storeConfig'] = $request->storeConfig;
         }
 
         if (null !== $request->workspace) {

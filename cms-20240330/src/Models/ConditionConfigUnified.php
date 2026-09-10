@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ConditionConfigUnified extends Model
 {
     /**
+     * @var float
+     */
+    public $absDeviation;
+
+    /**
      * @var string
      */
     public $aggregate;
@@ -17,6 +22,11 @@ class ConditionConfigUnified extends Model
      * @var int
      */
     public $alertCount;
+
+    /**
+     * @var string
+     */
+    public $baselinePeriod;
 
     /**
      * @var CompareList[]
@@ -131,6 +141,11 @@ class ConditionConfigUnified extends Model
     /**
      * @var string
      */
+    public $sensitivity;
+
+    /**
+     * @var string
+     */
     public $severity;
 
     /**
@@ -168,8 +183,10 @@ class ConditionConfigUnified extends Model
      */
     public $yoyTimeValue;
     protected $_name = [
+        'absDeviation' => 'absDeviation',
         'aggregate' => 'aggregate',
         'alertCount' => 'alertCount',
+        'baselinePeriod' => 'baselinePeriod',
         'compareList' => 'compareList',
         'compositeEscalation' => 'compositeEscalation',
         'countOperator' => 'countOperator',
@@ -192,6 +209,7 @@ class ConditionConfigUnified extends Model
         'operator' => 'operator',
         'prometheus' => 'prometheus',
         'relation' => 'relation',
+        'sensitivity' => 'sensitivity',
         'severity' => 'severity',
         'simpleEscalation' => 'simpleEscalation',
         'threshold' => 'threshold',
@@ -231,12 +249,20 @@ class ConditionConfigUnified extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->absDeviation) {
+            $res['absDeviation'] = $this->absDeviation;
+        }
+
         if (null !== $this->aggregate) {
             $res['aggregate'] = $this->aggregate;
         }
 
         if (null !== $this->alertCount) {
             $res['alertCount'] = $this->alertCount;
+        }
+
+        if (null !== $this->baselinePeriod) {
+            $res['baselinePeriod'] = $this->baselinePeriod;
         }
 
         if (null !== $this->compareList) {
@@ -334,6 +360,10 @@ class ConditionConfigUnified extends Model
             $res['relation'] = $this->relation;
         }
 
+        if (null !== $this->sensitivity) {
+            $res['sensitivity'] = $this->sensitivity;
+        }
+
         if (null !== $this->severity) {
             $res['severity'] = $this->severity;
         }
@@ -391,12 +421,20 @@ class ConditionConfigUnified extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['absDeviation'])) {
+            $model->absDeviation = $map['absDeviation'];
+        }
+
         if (isset($map['aggregate'])) {
             $model->aggregate = $map['aggregate'];
         }
 
         if (isset($map['alertCount'])) {
             $model->alertCount = $map['alertCount'];
+        }
+
+        if (isset($map['baselinePeriod'])) {
+            $model->baselinePeriod = $map['baselinePeriod'];
         }
 
         if (isset($map['compareList'])) {
@@ -492,6 +530,10 @@ class ConditionConfigUnified extends Model
 
         if (isset($map['relation'])) {
             $model->relation = $map['relation'];
+        }
+
+        if (isset($map['sensitivity'])) {
+            $model->sensitivity = $map['sensitivity'];
         }
 
         if (isset($map['severity'])) {

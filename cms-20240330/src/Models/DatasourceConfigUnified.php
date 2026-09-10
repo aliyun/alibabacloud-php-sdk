@@ -26,6 +26,11 @@ class DatasourceConfigUnified extends Model
     /**
      * @var string
      */
+    public $namespace;
+
+    /**
+     * @var string
+     */
     public $productCategory;
 
     /**
@@ -46,15 +51,22 @@ class DatasourceConfigUnified extends Model
     /**
      * @var string
      */
+    public $tenantId;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'instanceId' => 'instanceId',
         'legacyRaw' => 'legacyRaw',
         'legacyType' => 'legacyType',
+        'namespace' => 'namespace',
         'productCategory' => 'productCategory',
         'project' => 'project',
         'regionId' => 'regionId',
         'stores' => 'stores',
+        'tenantId' => 'tenantId',
         'type' => 'type',
     ];
 
@@ -81,6 +93,10 @@ class DatasourceConfigUnified extends Model
             $res['legacyType'] = $this->legacyType;
         }
 
+        if (null !== $this->namespace) {
+            $res['namespace'] = $this->namespace;
+        }
+
         if (null !== $this->productCategory) {
             $res['productCategory'] = $this->productCategory;
         }
@@ -102,6 +118,10 @@ class DatasourceConfigUnified extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->tenantId) {
+            $res['tenantId'] = $this->tenantId;
         }
 
         if (null !== $this->type) {
@@ -131,6 +151,10 @@ class DatasourceConfigUnified extends Model
             $model->legacyType = $map['legacyType'];
         }
 
+        if (isset($map['namespace'])) {
+            $model->namespace = $map['namespace'];
+        }
+
         if (isset($map['productCategory'])) {
             $model->productCategory = $map['productCategory'];
         }
@@ -152,6 +176,10 @@ class DatasourceConfigUnified extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['tenantId'])) {
+            $model->tenantId = $map['tenantId'];
         }
 
         if (isset($map['type'])) {

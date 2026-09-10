@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class MetricSetTriggerSimpleExpression extends Model
 {
     /**
+     * @var float
+     */
+    public $absDeviation;
+
+    /**
+     * @var string
+     */
+    public $baselinePeriod;
+
+    /**
      * @var string
      */
     public $expressionType;
@@ -34,15 +44,23 @@ class MetricSetTriggerSimpleExpression extends Model
     public $queryName;
 
     /**
+     * @var string
+     */
+    public $sensitivity;
+
+    /**
      * @var float
      */
     public $threshold;
     protected $_name = [
+        'absDeviation' => 'absDeviation',
+        'baselinePeriod' => 'baselinePeriod',
         'expressionType' => 'expressionType',
         'max' => 'max',
         'min' => 'min',
         'operator' => 'operator',
         'queryName' => 'queryName',
+        'sensitivity' => 'sensitivity',
         'threshold' => 'threshold',
     ];
 
@@ -54,6 +72,14 @@ class MetricSetTriggerSimpleExpression extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->absDeviation) {
+            $res['absDeviation'] = $this->absDeviation;
+        }
+
+        if (null !== $this->baselinePeriod) {
+            $res['baselinePeriod'] = $this->baselinePeriod;
+        }
+
         if (null !== $this->expressionType) {
             $res['expressionType'] = $this->expressionType;
         }
@@ -74,6 +100,10 @@ class MetricSetTriggerSimpleExpression extends Model
             $res['queryName'] = $this->queryName;
         }
 
+        if (null !== $this->sensitivity) {
+            $res['sensitivity'] = $this->sensitivity;
+        }
+
         if (null !== $this->threshold) {
             $res['threshold'] = $this->threshold;
         }
@@ -89,6 +119,14 @@ class MetricSetTriggerSimpleExpression extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['absDeviation'])) {
+            $model->absDeviation = $map['absDeviation'];
+        }
+
+        if (isset($map['baselinePeriod'])) {
+            $model->baselinePeriod = $map['baselinePeriod'];
+        }
+
         if (isset($map['expressionType'])) {
             $model->expressionType = $map['expressionType'];
         }
@@ -107,6 +145,10 @@ class MetricSetTriggerSimpleExpression extends Model
 
         if (isset($map['queryName'])) {
             $model->queryName = $map['queryName'];
+        }
+
+        if (isset($map['sensitivity'])) {
+            $model->sensitivity = $map['sensitivity'];
         }
 
         if (isset($map['threshold'])) {

@@ -26,11 +26,17 @@ class records extends Model
     /**
      * @var string
      */
+    public $serviceName;
+
+    /**
+     * @var string
+     */
     public $workspace;
     protected $_name = [
         'recordContent' => 'recordContent',
         'recordType' => 'recordType',
         'serviceId' => 'serviceId',
+        'serviceName' => 'serviceName',
         'workspace' => 'workspace',
     ];
 
@@ -52,6 +58,10 @@ class records extends Model
 
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
+        }
+
+        if (null !== $this->serviceName) {
+            $res['serviceName'] = $this->serviceName;
         }
 
         if (null !== $this->workspace) {
@@ -79,6 +89,10 @@ class records extends Model
 
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];
+        }
+
+        if (isset($map['serviceName'])) {
+            $model->serviceName = $map['serviceName'];
         }
 
         if (isset($map['workspace'])) {

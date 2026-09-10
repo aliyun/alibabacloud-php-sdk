@@ -34,6 +34,11 @@ class QueryAlertRulesFilter extends Model
     public $labels;
 
     /**
+     * @var MigrationStatusFilter
+     */
+    public $migrationStatus;
+
+    /**
      * @var NotificationChannelsFilter
      */
     public $notificationChannels;
@@ -93,6 +98,7 @@ class QueryAlertRulesFilter extends Model
         'displayName' => 'displayName',
         'enabled' => 'enabled',
         'labels' => 'labels',
+        'migrationStatus' => 'migrationStatus',
         'notificationChannels' => 'notificationChannels',
         'notifyStrategyId' => 'notifyStrategyId',
         'observeResourceConfig' => 'observeResourceConfig',
@@ -122,6 +128,9 @@ class QueryAlertRulesFilter extends Model
         }
         if (null !== $this->labels) {
             $this->labels->validate();
+        }
+        if (null !== $this->migrationStatus) {
+            $this->migrationStatus->validate();
         }
         if (null !== $this->notificationChannels) {
             $this->notificationChannels->validate();
@@ -177,6 +186,10 @@ class QueryAlertRulesFilter extends Model
 
         if (null !== $this->labels) {
             $res['labels'] = null !== $this->labels ? $this->labels->toArray($noStream) : $this->labels;
+        }
+
+        if (null !== $this->migrationStatus) {
+            $res['migrationStatus'] = null !== $this->migrationStatus ? $this->migrationStatus->toArray($noStream) : $this->migrationStatus;
         }
 
         if (null !== $this->notificationChannels) {
@@ -252,6 +265,10 @@ class QueryAlertRulesFilter extends Model
 
         if (isset($map['labels'])) {
             $model->labels = LabelsFilter::fromMap($map['labels']);
+        }
+
+        if (isset($map['migrationStatus'])) {
+            $model->migrationStatus = MigrationStatusFilter::fromMap($map['migrationStatus']);
         }
 
         if (isset($map['notificationChannels'])) {

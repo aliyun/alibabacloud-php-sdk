@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CompareList extends Model
 {
     /**
+     * @var float
+     */
+    public $absDeviation;
+
+    /**
      * @var string
      */
     public $aggregate;
@@ -16,7 +21,17 @@ class CompareList extends Model
     /**
      * @var string
      */
+    public $baselinePeriod;
+
+    /**
+     * @var string
+     */
     public $operator;
+
+    /**
+     * @var string
+     */
+    public $sensitivity;
 
     /**
      * @var float
@@ -33,8 +48,11 @@ class CompareList extends Model
      */
     public $yoyTimeValue;
     protected $_name = [
+        'absDeviation' => 'absDeviation',
         'aggregate' => 'aggregate',
+        'baselinePeriod' => 'baselinePeriod',
         'operator' => 'operator',
+        'sensitivity' => 'sensitivity',
         'threshold' => 'threshold',
         'yoyTimeUnit' => 'yoyTimeUnit',
         'yoyTimeValue' => 'yoyTimeValue',
@@ -48,12 +66,24 @@ class CompareList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->absDeviation) {
+            $res['absDeviation'] = $this->absDeviation;
+        }
+
         if (null !== $this->aggregate) {
             $res['aggregate'] = $this->aggregate;
         }
 
+        if (null !== $this->baselinePeriod) {
+            $res['baselinePeriod'] = $this->baselinePeriod;
+        }
+
         if (null !== $this->operator) {
             $res['operator'] = $this->operator;
+        }
+
+        if (null !== $this->sensitivity) {
+            $res['sensitivity'] = $this->sensitivity;
         }
 
         if (null !== $this->threshold) {
@@ -79,12 +109,24 @@ class CompareList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['absDeviation'])) {
+            $model->absDeviation = $map['absDeviation'];
+        }
+
         if (isset($map['aggregate'])) {
             $model->aggregate = $map['aggregate'];
         }
 
+        if (isset($map['baselinePeriod'])) {
+            $model->baselinePeriod = $map['baselinePeriod'];
+        }
+
         if (isset($map['operator'])) {
             $model->operator = $map['operator'];
+        }
+
+        if (isset($map['sensitivity'])) {
+            $model->sensitivity = $map['sensitivity'];
         }
 
         if (isset($map['threshold'])) {

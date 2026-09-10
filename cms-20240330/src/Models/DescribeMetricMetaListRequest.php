@@ -12,6 +12,16 @@ class DescribeMetricMetaListRequest extends Model
     /**
      * @var string
      */
+    public $aliyunLang;
+
+    /**
+     * @var string
+     */
+    public $category;
+
+    /**
+     * @var string
+     */
     public $keywords;
 
     /**
@@ -44,6 +54,8 @@ class DescribeMetricMetaListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'aliyunLang' => 'aliyunLang',
+        'category' => 'category',
         'keywords' => 'keywords',
         'labels' => 'labels',
         'metaFormat' => 'metaFormat',
@@ -64,6 +76,14 @@ class DescribeMetricMetaListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aliyunLang) {
+            $res['aliyunLang'] = $this->aliyunLang;
+        }
+
+        if (null !== $this->category) {
+            $res['category'] = $this->category;
+        }
+
         if (null !== $this->keywords) {
             $res['keywords'] = $this->keywords;
         }
@@ -110,6 +130,14 @@ class DescribeMetricMetaListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['aliyunLang'])) {
+            $model->aliyunLang = $map['aliyunLang'];
+        }
+
+        if (isset($map['category'])) {
+            $model->category = $map['category'];
+        }
+
         if (isset($map['keywords'])) {
             $model->keywords = $map['keywords'];
         }

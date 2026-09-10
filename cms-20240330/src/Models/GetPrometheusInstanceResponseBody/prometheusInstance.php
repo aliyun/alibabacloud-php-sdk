@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceResponseBod
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceResponseBody\prometheusInstance\tags;
+use AlibabaCloud\SDK\Cms\V20240330\Models\PrometheusInstanceStoreConfig;
 
 class prometheusInstance extends Model
 {
@@ -190,6 +191,11 @@ class prometheusInstance extends Model
     public $storageDuration;
 
     /**
+     * @var PrometheusInstanceStoreConfig
+     */
+    public $storeConfig;
+
+    /**
      * @var string[]
      */
     public $supportAuthTypes;
@@ -250,6 +256,7 @@ class prometheusInstance extends Model
         'resourceType' => 'resourceType',
         'status' => 'status',
         'storageDuration' => 'storageDuration',
+        'storeConfig' => 'storeConfig',
         'supportAuthTypes' => 'supportAuthTypes',
         'tags' => 'tags',
         'userId' => 'userId',
@@ -261,6 +268,9 @@ class prometheusInstance extends Model
     {
         if (\is_array($this->extraInfo)) {
             Model::validateArray($this->extraInfo);
+        }
+        if (null !== $this->storeConfig) {
+            $this->storeConfig->validate();
         }
         if (\is_array($this->supportAuthTypes)) {
             Model::validateArray($this->supportAuthTypes);
@@ -421,6 +431,10 @@ class prometheusInstance extends Model
 
         if (null !== $this->storageDuration) {
             $res['storageDuration'] = $this->storageDuration;
+        }
+
+        if (null !== $this->storeConfig) {
+            $res['storeConfig'] = null !== $this->storeConfig ? $this->storeConfig->toArray($noStream) : $this->storeConfig;
         }
 
         if (null !== $this->supportAuthTypes) {
@@ -615,6 +629,10 @@ class prometheusInstance extends Model
 
         if (isset($map['storageDuration'])) {
             $model->storageDuration = $map['storageDuration'];
+        }
+
+        if (isset($map['storeConfig'])) {
+            $model->storeConfig = PrometheusInstanceStoreConfig::fromMap($map['storeConfig']);
         }
 
         if (isset($map['supportAuthTypes'])) {
