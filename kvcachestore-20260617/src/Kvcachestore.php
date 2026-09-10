@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Kvcachestore\V20260617\Models\ListKVCacheStoreAttachInfoReq
 use AlibabaCloud\SDK\Kvcachestore\V20260617\Models\ListKVCacheStoreAttachInfoResponse;
 use AlibabaCloud\SDK\Kvcachestore\V20260617\Models\ListKVCacheStoreAvailableHpnZonesRequest;
 use AlibabaCloud\SDK\Kvcachestore\V20260617\Models\ListKVCacheStoreAvailableHpnZonesResponse;
+use AlibabaCloud\SDK\Kvcachestore\V20260617\Models\ListKVCacheStoreAvailableVscsRequest;
+use AlibabaCloud\SDK\Kvcachestore\V20260617\Models\ListKVCacheStoreAvailableVscsResponse;
 use AlibabaCloud\SDK\Kvcachestore\V20260617\Models\ListKVCacheStoresRequest;
 use AlibabaCloud\SDK\Kvcachestore\V20260617\Models\ListKVCacheStoresResponse;
 use AlibabaCloud\SDK\Kvcachestore\V20260617\Models\UpdateKVCacheStoreRequest;
@@ -38,11 +40,6 @@ class Kvcachestore extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-beijing' => 'kvcachestore.cn-beijing.aliyuncs.com',
-            'cn-shanghai' => 'kvcachestore.cn-shanghai.aliyuncs.com',
-            'ap-southeast-1' => 'kvcachestore.ap-southeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('kvcachestore', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -72,7 +69,7 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Mounts KVCacheInstance resources to the virtualization side in batches.
+     * Mounts KVCacheInstance resources to the virtualization stack in batches.
      *
      * @remarks
      * This is an asynchronous operation. A return status of Attaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. A record status of Attached indicates that the mount is complete.
@@ -127,7 +124,7 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Mounts KVCacheInstance resources to the virtualization side in batches.
+     * Mounts KVCacheInstance resources to the virtualization stack in batches.
      *
      * @remarks
      * This is an asynchronous operation. A return status of Attaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. A record status of Attached indicates that the mount is complete.
@@ -510,7 +507,7 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * 查询 KvCacheStore 实例详情.
+     * Queries the details of a KvCacheStore instance.
      *
      * @param request - GetKVCacheStoreRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -553,7 +550,7 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * 查询 KvCacheStore 实例详情.
+     * Queries the details of a KvCacheStore instance.
      *
      * @param request - GetKVCacheStoreRequest
      *
@@ -571,7 +568,13 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Queries the mount information of KVCacheInstance resources in batches.
+     * Queries mount information of KVCacheInstances in batches.
+     *
+     * @remarks
+     * This operation has no KVCacheStore status restrictions. If a KVCacheStore is in the Creating state, an empty list is returned.
+     * * A KVCacheStore can be mounted to multiple VSCs, so each KVCacheStore may return multiple mount records.
+     * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
+     * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
      *
      * @param request - ListKVCacheStoreAttachInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -630,7 +633,13 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Queries the mount information of KVCacheInstance resources in batches.
+     * Queries mount information of KVCacheInstances in batches.
+     *
+     * @remarks
+     * This operation has no KVCacheStore status restrictions. If a KVCacheStore is in the Creating state, an empty list is returned.
+     * * A KVCacheStore can be mounted to multiple VSCs, so each KVCacheStore may return multiple mount records.
+     * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
+     * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
      *
      * @param request - ListKVCacheStoreAttachInfoRequest
      *
@@ -648,7 +657,10 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * 查询指定 KVCacheStore 实例可用的 HpnZone 列表.
+     * Queries the list of available HpnZones for a specified KVCacheStore instance.
+     *
+     * @remarks
+     * This operation queries available HpnZones by KVCacheStore. Use this operation to query available HPN cluster IDs before scaling or migrating a KVCacheStore.
      *
      * @param request - ListKVCacheStoreAvailableHpnZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -691,7 +703,10 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * 查询指定 KVCacheStore 实例可用的 HpnZone 列表.
+     * Queries the list of available HpnZones for a specified KVCacheStore instance.
+     *
+     * @remarks
+     * This operation queries available HpnZones by KVCacheStore. Use this operation to query available HPN cluster IDs before scaling or migrating a KVCacheStore.
      *
      * @param request - ListKVCacheStoreAvailableHpnZonesRequest
      *
@@ -706,6 +721,79 @@ class Kvcachestore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listKVCacheStoreAvailableHpnZonesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of available VSC resources associated with a specified KVCacheStore instance.
+     *
+     * @param request - ListKVCacheStoreAvailableVscsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKVCacheStoreAvailableVscsResponse
+     *
+     * @param ListKVCacheStoreAvailableVscsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListKVCacheStoreAvailableVscsResponse
+     */
+    public function listKVCacheStoreAvailableVscsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->arns) {
+            @$query['Arns'] = $request->arns;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->kvcsId) {
+            @$query['KvcsId'] = $request->kvcsId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKVCacheStoreAvailableVscs',
+            'version' => '2026-06-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKVCacheStoreAvailableVscsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of available VSC resources associated with a specified KVCacheStore instance.
+     *
+     * @param request - ListKVCacheStoreAvailableVscsRequest
+     *
+     * @returns ListKVCacheStoreAvailableVscsResponse
+     *
+     * @param ListKVCacheStoreAvailableVscsRequest $request
+     *
+     * @return ListKVCacheStoreAvailableVscsResponse
+     */
+    public function listKVCacheStoreAvailableVscs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKVCacheStoreAvailableVscsWithOptions($request, $runtime);
     }
 
     /**
