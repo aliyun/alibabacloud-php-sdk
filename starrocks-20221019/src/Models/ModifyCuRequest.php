@@ -11,6 +11,11 @@ class ModifyCuRequest extends Model
     /**
      * @var bool
      */
+    public $autoPay;
+
+    /**
+     * @var bool
+     */
     public $fastMode;
 
     /**
@@ -33,6 +38,7 @@ class ModifyCuRequest extends Model
      */
     public $target;
     protected $_name = [
+        'autoPay' => 'AutoPay',
         'fastMode' => 'FastMode',
         'instanceId' => 'InstanceId',
         'nodeGroupId' => 'NodeGroupId',
@@ -48,6 +54,10 @@ class ModifyCuRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+
         if (null !== $this->fastMode) {
             $res['FastMode'] = $this->fastMode;
         }
@@ -79,6 +89,10 @@ class ModifyCuRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+
         if (isset($map['FastMode'])) {
             $model->fastMode = $map['FastMode'];
         }

@@ -18,6 +18,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $aiFunctionClusterId;
+
+    /**
+     * @var string
+     */
+    public $aiFunctionEndpoint;
+
+    /**
+     * @var string
+     */
     public $aiFunctionInstanceId;
 
     /**
@@ -171,6 +181,8 @@ class data extends Model
     public $vpcId;
     protected $_name = [
         'aclId' => 'AclId',
+        'aiFunctionClusterId' => 'AiFunctionClusterId',
+        'aiFunctionEndpoint' => 'AiFunctionEndpoint',
         'aiFunctionInstanceId' => 'AiFunctionInstanceId',
         'architecture' => 'Architecture',
         'beginTime' => 'BeginTime',
@@ -220,6 +232,14 @@ class data extends Model
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
+        }
+
+        if (null !== $this->aiFunctionClusterId) {
+            $res['AiFunctionClusterId'] = $this->aiFunctionClusterId;
+        }
+
+        if (null !== $this->aiFunctionEndpoint) {
+            $res['AiFunctionEndpoint'] = $this->aiFunctionEndpoint;
         }
 
         if (null !== $this->aiFunctionInstanceId) {
@@ -373,6 +393,14 @@ class data extends Model
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
+        }
+
+        if (isset($map['AiFunctionClusterId'])) {
+            $model->aiFunctionClusterId = $map['AiFunctionClusterId'];
+        }
+
+        if (isset($map['AiFunctionEndpoint'])) {
+            $model->aiFunctionEndpoint = $map['AiFunctionEndpoint'];
         }
 
         if (isset($map['AiFunctionInstanceId'])) {
