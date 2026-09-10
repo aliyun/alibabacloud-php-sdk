@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\defaultHaNamespaceResourceSpec;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\defaultNamespaceResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\haResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\resourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest\storage;
@@ -26,6 +28,16 @@ class CreateInstanceRequest extends Model
      * @var string
      */
     public $chargeType;
+
+    /**
+     * @var defaultHaNamespaceResourceSpec
+     */
+    public $defaultHaNamespaceResourceSpec;
+
+    /**
+     * @var defaultNamespaceResourceSpec
+     */
+    public $defaultNamespaceResourceSpec;
 
     /**
      * @var int
@@ -115,6 +127,8 @@ class CreateInstanceRequest extends Model
         'architectureType' => 'ArchitectureType',
         'autoRenew' => 'AutoRenew',
         'chargeType' => 'ChargeType',
+        'defaultHaNamespaceResourceSpec' => 'DefaultHaNamespaceResourceSpec',
+        'defaultNamespaceResourceSpec' => 'DefaultNamespaceResourceSpec',
         'duration' => 'Duration',
         'extra' => 'Extra',
         'ha' => 'Ha',
@@ -136,6 +150,12 @@ class CreateInstanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->defaultHaNamespaceResourceSpec) {
+            $this->defaultHaNamespaceResourceSpec->validate();
+        }
+        if (null !== $this->defaultNamespaceResourceSpec) {
+            $this->defaultNamespaceResourceSpec->validate();
+        }
         if (null !== $this->haResourceSpec) {
             $this->haResourceSpec->validate();
         }
@@ -170,6 +190,14 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->defaultHaNamespaceResourceSpec) {
+            $res['DefaultHaNamespaceResourceSpec'] = null !== $this->defaultHaNamespaceResourceSpec ? $this->defaultHaNamespaceResourceSpec->toArray($noStream) : $this->defaultHaNamespaceResourceSpec;
+        }
+
+        if (null !== $this->defaultNamespaceResourceSpec) {
+            $res['DefaultNamespaceResourceSpec'] = null !== $this->defaultNamespaceResourceSpec ? $this->defaultNamespaceResourceSpec->toArray($noStream) : $this->defaultNamespaceResourceSpec;
         }
 
         if (null !== $this->duration) {
@@ -282,6 +310,14 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['DefaultHaNamespaceResourceSpec'])) {
+            $model->defaultHaNamespaceResourceSpec = defaultHaNamespaceResourceSpec::fromMap($map['DefaultHaNamespaceResourceSpec']);
+        }
+
+        if (isset($map['DefaultNamespaceResourceSpec'])) {
+            $model->defaultNamespaceResourceSpec = defaultNamespaceResourceSpec::fromMap($map['DefaultNamespaceResourceSpec']);
         }
 
         if (isset($map['Duration'])) {

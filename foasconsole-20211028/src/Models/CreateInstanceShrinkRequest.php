@@ -24,6 +24,16 @@ class CreateInstanceShrinkRequest extends Model
     public $chargeType;
 
     /**
+     * @var string
+     */
+    public $defaultHaNamespaceResourceSpecShrink;
+
+    /**
+     * @var string
+     */
+    public $defaultNamespaceResourceSpecShrink;
+
+    /**
      * @var int
      */
     public $duration;
@@ -111,6 +121,8 @@ class CreateInstanceShrinkRequest extends Model
         'architectureType' => 'ArchitectureType',
         'autoRenew' => 'AutoRenew',
         'chargeType' => 'ChargeType',
+        'defaultHaNamespaceResourceSpecShrink' => 'DefaultHaNamespaceResourceSpec',
+        'defaultNamespaceResourceSpecShrink' => 'DefaultNamespaceResourceSpec',
         'duration' => 'Duration',
         'extra' => 'Extra',
         'ha' => 'Ha',
@@ -148,6 +160,14 @@ class CreateInstanceShrinkRequest extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->defaultHaNamespaceResourceSpecShrink) {
+            $res['DefaultHaNamespaceResourceSpec'] = $this->defaultHaNamespaceResourceSpecShrink;
+        }
+
+        if (null !== $this->defaultNamespaceResourceSpecShrink) {
+            $res['DefaultNamespaceResourceSpec'] = $this->defaultNamespaceResourceSpecShrink;
         }
 
         if (null !== $this->duration) {
@@ -239,6 +259,14 @@ class CreateInstanceShrinkRequest extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['DefaultHaNamespaceResourceSpec'])) {
+            $model->defaultHaNamespaceResourceSpecShrink = $map['DefaultHaNamespaceResourceSpec'];
+        }
+
+        if (isset($map['DefaultNamespaceResourceSpec'])) {
+            $model->defaultNamespaceResourceSpecShrink = $map['DefaultNamespaceResourceSpec'];
         }
 
         if (isset($map['Duration'])) {

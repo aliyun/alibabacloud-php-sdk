@@ -64,6 +64,11 @@ class instances extends Model
     /**
      * @var bool
      */
+    public $deletionProtection;
+
+    /**
+     * @var bool
+     */
     public $elastic;
 
     /**
@@ -219,6 +224,7 @@ class instances extends Model
         'clusterStatus' => 'ClusterStatus',
         'clusterUsedResources' => 'ClusterUsedResources',
         'clusterUsedStorage' => 'ClusterUsedStorage',
+        'deletionProtection' => 'DeletionProtection',
         'elastic' => 'Elastic',
         'elasticInstanceId' => 'ElasticInstanceId',
         'elasticOrderState' => 'ElasticOrderState',
@@ -334,6 +340,10 @@ class instances extends Model
 
         if (null !== $this->clusterUsedStorage) {
             $res['ClusterUsedStorage'] = null !== $this->clusterUsedStorage ? $this->clusterUsedStorage->toArray($noStream) : $this->clusterUsedStorage;
+        }
+
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
 
         if (null !== $this->elastic) {
@@ -539,6 +549,10 @@ class instances extends Model
 
         if (isset($map['ClusterUsedStorage'])) {
             $model->clusterUsedStorage = clusterUsedStorage::fromMap($map['ClusterUsedStorage']);
+        }
+
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
 
         if (isset($map['Elastic'])) {
