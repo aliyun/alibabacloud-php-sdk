@@ -1,0 +1,90 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\LHM\V20250116\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class ExecDataCheckStopResponseBody extends Model
+{
+    /**
+     * @var string
+     */
+    public $errCode;
+
+    /**
+     * @var string
+     */
+    public $errMessage;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
+    protected $_name = [
+        'errCode' => 'errCode',
+        'errMessage' => 'errMessage',
+        'requestId' => 'requestId',
+        'success' => 'success',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->errCode) {
+            $res['errCode'] = $this->errCode;
+        }
+
+        if (null !== $this->errMessage) {
+            $res['errMessage'] = $this->errMessage;
+        }
+
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->success) {
+            $res['success'] = $this->success;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['errCode'])) {
+            $model->errCode = $map['errCode'];
+        }
+
+        if (isset($map['errMessage'])) {
+            $model->errMessage = $map['errMessage'];
+        }
+
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['success'])) {
+            $model->success = $map['success'];
+        }
+
+        return $model;
+    }
+}
