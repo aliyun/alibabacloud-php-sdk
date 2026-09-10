@@ -73,6 +73,11 @@ class exportTasks extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $terraformProviderVersion;
+
+    /**
      * @var variables[]
      */
     public $variables;
@@ -89,6 +94,7 @@ class exportTasks extends Model
         'modules' => 'modules',
         'name' => 'name',
         'status' => 'status',
+        'terraformProviderVersion' => 'terraformProviderVersion',
         'variables' => 'variables',
     ];
 
@@ -174,6 +180,10 @@ class exportTasks extends Model
             $res['status'] = $this->status;
         }
 
+        if (null !== $this->terraformProviderVersion) {
+            $res['terraformProviderVersion'] = $this->terraformProviderVersion;
+        }
+
         if (null !== $this->variables) {
             if (\is_array($this->variables)) {
                 $res['variables'] = [];
@@ -256,6 +266,10 @@ class exportTasks extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['terraformProviderVersion'])) {
+            $model->terraformProviderVersion = $map['terraformProviderVersion'];
         }
 
         if (isset($map['variables'])) {

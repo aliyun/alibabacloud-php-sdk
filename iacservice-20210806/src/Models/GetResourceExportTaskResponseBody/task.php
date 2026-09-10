@@ -53,6 +53,11 @@ class task extends Model
     public $includeRules;
 
     /**
+     * @var string
+     */
+    public $modifyTime;
+
+    /**
      * @var modules[]
      */
     public $modules;
@@ -110,6 +115,7 @@ class task extends Model
         'exportVersion' => 'exportVersion',
         'failedReason' => 'failedReason',
         'includeRules' => 'includeRules',
+        'modifyTime' => 'modifyTime',
         'modules' => 'modules',
         'name' => 'name',
         'ramRole' => 'ramRole',
@@ -182,6 +188,10 @@ class task extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->modifyTime) {
+            $res['modifyTime'] = $this->modifyTime;
         }
 
         if (null !== $this->modules) {
@@ -291,6 +301,10 @@ class task extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['modifyTime'])) {
+            $model->modifyTime = $map['modifyTime'];
         }
 
         if (isset($map['modules'])) {

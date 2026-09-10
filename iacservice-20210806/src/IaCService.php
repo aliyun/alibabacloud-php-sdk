@@ -6050,7 +6050,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of versions for a resource export task.
+     * Retrieves the list of resource export task versions.
      *
      * @remarks
      * Single-user call frequency: 100 calls per second.
@@ -6112,7 +6112,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of versions for a resource export task.
+     * Retrieves the list of resource export task versions.
      *
      * @remarks
      * Single-user call frequency: 100 calls per second.
