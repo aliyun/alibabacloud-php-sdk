@@ -61,7 +61,22 @@ class ModifyDtsJobEndpointRequest extends Model
     /**
      * @var string
      */
+    public $endpointPrimaryVswId;
+
+    /**
+     * @var string
+     */
     public $endpointRegionId;
+
+    /**
+     * @var string
+     */
+    public $endpointSecondaryVswId;
+
+    /**
+     * @var string
+     */
+    public $endpointVpcId;
 
     /**
      * @var bool
@@ -123,7 +138,10 @@ class ModifyDtsJobEndpointRequest extends Model
         'endpointInstanceType' => 'EndpointInstanceType',
         'endpointIp' => 'EndpointIp',
         'endpointPort' => 'EndpointPort',
+        'endpointPrimaryVswId' => 'EndpointPrimaryVswId',
         'endpointRegionId' => 'EndpointRegionId',
+        'endpointSecondaryVswId' => 'EndpointSecondaryVswId',
+        'endpointVpcId' => 'EndpointVpcId',
         'modifyAccount' => 'ModifyAccount',
         'password' => 'Password',
         'regionId' => 'RegionId',
@@ -184,8 +202,20 @@ class ModifyDtsJobEndpointRequest extends Model
             $res['EndpointPort'] = $this->endpointPort;
         }
 
+        if (null !== $this->endpointPrimaryVswId) {
+            $res['EndpointPrimaryVswId'] = $this->endpointPrimaryVswId;
+        }
+
         if (null !== $this->endpointRegionId) {
             $res['EndpointRegionId'] = $this->endpointRegionId;
+        }
+
+        if (null !== $this->endpointSecondaryVswId) {
+            $res['EndpointSecondaryVswId'] = $this->endpointSecondaryVswId;
+        }
+
+        if (null !== $this->endpointVpcId) {
+            $res['EndpointVpcId'] = $this->endpointVpcId;
         }
 
         if (null !== $this->modifyAccount) {
@@ -279,8 +309,20 @@ class ModifyDtsJobEndpointRequest extends Model
             $model->endpointPort = $map['EndpointPort'];
         }
 
+        if (isset($map['EndpointPrimaryVswId'])) {
+            $model->endpointPrimaryVswId = $map['EndpointPrimaryVswId'];
+        }
+
         if (isset($map['EndpointRegionId'])) {
             $model->endpointRegionId = $map['EndpointRegionId'];
+        }
+
+        if (isset($map['EndpointSecondaryVswId'])) {
+            $model->endpointSecondaryVswId = $map['EndpointSecondaryVswId'];
+        }
+
+        if (isset($map['EndpointVpcId'])) {
+            $model->endpointVpcId = $map['EndpointVpcId'];
         }
 
         if (isset($map['ModifyAccount'])) {
