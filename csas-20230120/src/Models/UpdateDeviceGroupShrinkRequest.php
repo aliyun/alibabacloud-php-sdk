@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateDeviceGroupRequest extends Model
+class UpdateDeviceGroupShrinkRequest extends Model
 {
     /**
      * @var string
@@ -24,9 +24,9 @@ class UpdateDeviceGroupRequest extends Model
     public $dynamicOperator;
 
     /**
-     * @var Rule
+     * @var string
      */
-    public $dynamicRule;
+    public $dynamicRuleShrink;
 
     /**
      * @var string
@@ -36,15 +36,12 @@ class UpdateDeviceGroupRequest extends Model
         'description' => 'Description',
         'deviceGroupId' => 'DeviceGroupId',
         'dynamicOperator' => 'DynamicOperator',
-        'dynamicRule' => 'DynamicRule',
+        'dynamicRuleShrink' => 'DynamicRule',
         'name' => 'Name',
     ];
 
     public function validate()
     {
-        if (null !== $this->dynamicRule) {
-            $this->dynamicRule->validate();
-        }
         parent::validate();
     }
 
@@ -63,8 +60,8 @@ class UpdateDeviceGroupRequest extends Model
             $res['DynamicOperator'] = $this->dynamicOperator;
         }
 
-        if (null !== $this->dynamicRule) {
-            $res['DynamicRule'] = null !== $this->dynamicRule ? $this->dynamicRule->toArray($noStream) : $this->dynamicRule;
+        if (null !== $this->dynamicRuleShrink) {
+            $res['DynamicRule'] = $this->dynamicRuleShrink;
         }
 
         if (null !== $this->name) {
@@ -95,7 +92,7 @@ class UpdateDeviceGroupRequest extends Model
         }
 
         if (isset($map['DynamicRule'])) {
-            $model->dynamicRule = Rule::fromMap($map['DynamicRule']);
+            $model->dynamicRuleShrink = $map['DynamicRule'];
         }
 
         if (isset($map['Name'])) {

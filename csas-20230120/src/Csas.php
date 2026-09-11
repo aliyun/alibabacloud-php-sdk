@@ -408,6 +408,7 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDeviceGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDeviceGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDeviceGroupShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDomainMetaRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDomainMetaResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteRequest;
@@ -13337,19 +13338,25 @@ class Csas extends OpenApiClient
     /**
      * Updates a device label.
      *
-     * @param request - UpdateDeviceGroupRequest
+     * @param tmpReq - UpdateDeviceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateDeviceGroupResponse
      *
-     * @param UpdateDeviceGroupRequest $request
+     * @param UpdateDeviceGroupRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
      * @return UpdateDeviceGroupResponse
      */
-    public function updateDeviceGroupWithOptions($request, $runtime)
+    public function updateDeviceGroupWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateDeviceGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dynamicRule) {
+            $request->dynamicRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dynamicRule, 'DynamicRule', 'json');
+        }
+
         $body = [];
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
@@ -13361,6 +13368,10 @@ class Csas extends OpenApiClient
 
         if (null !== $request->dynamicOperator) {
             @$body['DynamicOperator'] = $request->dynamicOperator;
+        }
+
+        if (null !== $request->dynamicRuleShrink) {
+            @$body['DynamicRule'] = $request->dynamicRuleShrink;
         }
 
         if (null !== $request->name) {
