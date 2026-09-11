@@ -23,6 +23,11 @@ class applications extends Model
     /**
      * @var string
      */
+    public $branchId;
+
+    /**
+     * @var string
+     */
     public $creationTime;
 
     /**
@@ -87,6 +92,7 @@ class applications extends Model
     protected $_name = [
         'applicationId' => 'ApplicationId',
         'applicationType' => 'ApplicationType',
+        'branchId' => 'BranchId',
         'creationTime' => 'CreationTime',
         'DBClusterId' => 'DBClusterId',
         'description' => 'Description',
@@ -122,6 +128,10 @@ class applications extends Model
 
         if (null !== $this->applicationType) {
             $res['ApplicationType'] = $this->applicationType;
+        }
+
+        if (null !== $this->branchId) {
+            $res['BranchId'] = $this->branchId;
         }
 
         if (null !== $this->creationTime) {
@@ -193,6 +203,10 @@ class applications extends Model
 
         if (isset($map['ApplicationType'])) {
             $model->applicationType = $map['ApplicationType'];
+        }
+
+        if (isset($map['BranchId'])) {
+            $model->branchId = $map['BranchId'];
         }
 
         if (isset($map['CreationTime'])) {
