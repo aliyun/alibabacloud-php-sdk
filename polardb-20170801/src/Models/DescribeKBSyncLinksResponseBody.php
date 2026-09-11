@@ -15,12 +15,30 @@ class DescribeKBSyncLinksResponseBody extends Model
     public $items;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalRecordCount;
     protected $_name = [
         'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -45,8 +63,20 @@ class DescribeKBSyncLinksResponseBody extends Model
             }
         }
 
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
 
         return $res;
@@ -71,8 +101,20 @@ class DescribeKBSyncLinksResponseBody extends Model
             }
         }
 
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
 
         return $model;

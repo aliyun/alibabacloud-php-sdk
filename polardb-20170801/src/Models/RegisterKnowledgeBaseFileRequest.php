@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeKBSyncLinksRequest extends Model
+class RegisterKnowledgeBaseFileRequest extends Model
 {
     /**
      * @var string
      */
-    public $imPlatform;
+    public $filePath;
 
     /**
      * @var string
@@ -19,24 +19,12 @@ class DescribeKBSyncLinksRequest extends Model
     public $knowledgeBaseId;
 
     /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'imPlatform' => 'ImPlatform',
+        'filePath' => 'FilePath',
         'knowledgeBaseId' => 'KnowledgeBaseId',
-        'pageNumber' => 'PageNumber',
-        'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
     ];
 
@@ -48,20 +36,12 @@ class DescribeKBSyncLinksRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->imPlatform) {
-            $res['ImPlatform'] = $this->imPlatform;
+        if (null !== $this->filePath) {
+            $res['FilePath'] = $this->filePath;
         }
 
         if (null !== $this->knowledgeBaseId) {
             $res['KnowledgeBaseId'] = $this->knowledgeBaseId;
-        }
-
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->regionId) {
@@ -79,20 +59,12 @@ class DescribeKBSyncLinksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImPlatform'])) {
-            $model->imPlatform = $map['ImPlatform'];
+        if (isset($map['FilePath'])) {
+            $model->filePath = $map['FilePath'];
         }
 
         if (isset($map['KnowledgeBaseId'])) {
             $model->knowledgeBaseId = $map['KnowledgeBaseId'];
-        }
-
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['RegionId'])) {

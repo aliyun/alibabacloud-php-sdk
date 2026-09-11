@@ -864,6 +864,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ReactivateDBClusterBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ReactivateDBClusterBackupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterKnowledgeBaseFileRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterKnowledgeBaseFileResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RejectPolarClawDevicePairRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RejectPolarClawDevicePairResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RemoveApplicationEnvironmentVariablesRequest;
@@ -22384,7 +22386,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the synchronization list of a knowledge base.
+     * Queries the list of knowledge base synchronization links.
      *
      * @param request - DescribeKBSyncLinksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22406,6 +22408,14 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->knowledgeBaseId) {
             @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
 
         if (null !== $request->regionId) {
@@ -22431,7 +22441,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the synchronization list of a knowledge base.
+     * Queries the list of knowledge base synchronization links.
      *
      * @param request - DescribeKBSyncLinksRequest
      *
@@ -36677,6 +36687,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Registers an OSS file in a knowledge base.
+     *
+     * @param request - RegisterKnowledgeBaseFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RegisterKnowledgeBaseFileResponse
+     *
+     * @param RegisterKnowledgeBaseFileRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RegisterKnowledgeBaseFileResponse
+     */
+    public function registerKnowledgeBaseFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RegisterKnowledgeBaseFile',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RegisterKnowledgeBaseFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Registers an OSS file in a knowledge base.
+     *
+     * @param request - RegisterKnowledgeBaseFileRequest
+     *
+     * @returns RegisterKnowledgeBaseFileResponse
+     *
+     * @param RegisterKnowledgeBaseFileRequest $request
+     *
+     * @return RegisterKnowledgeBaseFileResponse
+     */
+    public function registerKnowledgeBaseFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerKnowledgeBaseFileWithOptions($request, $runtime);
+    }
+
+    /**
      * Rejects a PolarClaw device pairing request.
      *
      * @param request - RejectPolarClawDevicePairRequest
@@ -37956,7 +38031,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves information from a knowledge base.
+     * Retrieves knowledge base search results.
      *
      * @param request - RetrievalKnowledgeBaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -38015,7 +38090,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves information from a knowledge base.
+     * Retrieves knowledge base search results.
      *
      * @param request - RetrievalKnowledgeBaseRequest
      *
