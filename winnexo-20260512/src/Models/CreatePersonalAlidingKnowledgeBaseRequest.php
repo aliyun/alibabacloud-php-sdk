@@ -36,6 +36,11 @@ class CreatePersonalAlidingKnowledgeBaseRequest extends Model
     public $operatingObjectName;
 
     /**
+     * @var string
+     */
+    public $sourceTags;
+
+    /**
      * @var syncConfig
      */
     public $syncConfig;
@@ -50,6 +55,7 @@ class CreatePersonalAlidingKnowledgeBaseRequest extends Model
         'kbUrl' => 'kbUrl',
         'objectBindings' => 'objectBindings',
         'operatingObjectName' => 'operatingObjectName',
+        'sourceTags' => 'sourceTags',
         'syncConfig' => 'syncConfig',
         'tenantId' => 'tenantId',
     ];
@@ -93,6 +99,10 @@ class CreatePersonalAlidingKnowledgeBaseRequest extends Model
 
         if (null !== $this->operatingObjectName) {
             $res['operatingObjectName'] = $this->operatingObjectName;
+        }
+
+        if (null !== $this->sourceTags) {
+            $res['sourceTags'] = $this->sourceTags;
         }
 
         if (null !== $this->syncConfig) {
@@ -139,6 +149,10 @@ class CreatePersonalAlidingKnowledgeBaseRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
+        }
+
+        if (isset($map['sourceTags'])) {
+            $model->sourceTags = $map['sourceTags'];
         }
 
         if (isset($map['syncConfig'])) {

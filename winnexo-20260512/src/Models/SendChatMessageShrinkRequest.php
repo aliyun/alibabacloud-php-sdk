@@ -29,6 +29,11 @@ class SendChatMessageShrinkRequest extends Model
     public $directChat;
 
     /**
+     * @var bool
+     */
+    public $enableWebSearch;
+
+    /**
      * @var string
      */
     public $filesShrink;
@@ -67,6 +72,7 @@ class SendChatMessageShrinkRequest extends Model
         'contentType' => 'contentType',
         'digitalEmployeeNameShrink' => 'digitalEmployeeName',
         'directChat' => 'directChat',
+        'enableWebSearch' => 'enableWebSearch',
         'filesShrink' => 'files',
         'model' => 'model',
         'reuseLastSession' => 'reuseLastSession',
@@ -98,6 +104,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (null !== $this->directChat) {
             $res['directChat'] = $this->directChat;
+        }
+
+        if (null !== $this->enableWebSearch) {
+            $res['enableWebSearch'] = $this->enableWebSearch;
         }
 
         if (null !== $this->filesShrink) {
@@ -153,6 +163,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (isset($map['directChat'])) {
             $model->directChat = $map['directChat'];
+        }
+
+        if (isset($map['enableWebSearch'])) {
+            $model->enableWebSearch = $map['enableWebSearch'];
         }
 
         if (isset($map['files'])) {

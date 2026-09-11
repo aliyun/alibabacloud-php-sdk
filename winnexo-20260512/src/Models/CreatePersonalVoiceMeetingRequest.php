@@ -36,6 +36,11 @@ class CreatePersonalVoiceMeetingRequest extends Model
     /**
      * @var string
      */
+    public $sourceTags;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
         'description' => 'description',
@@ -43,6 +48,7 @@ class CreatePersonalVoiceMeetingRequest extends Model
         'fileUrl' => 'fileUrl',
         'name' => 'name',
         'operatingObjectName' => 'operatingObjectName',
+        'sourceTags' => 'sourceTags',
         'tenantId' => 'tenantId',
     ];
 
@@ -72,6 +78,10 @@ class CreatePersonalVoiceMeetingRequest extends Model
 
         if (null !== $this->operatingObjectName) {
             $res['operatingObjectName'] = $this->operatingObjectName;
+        }
+
+        if (null !== $this->sourceTags) {
+            $res['sourceTags'] = $this->sourceTags;
         }
 
         if (null !== $this->tenantId) {
@@ -107,6 +117,10 @@ class CreatePersonalVoiceMeetingRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
+        }
+
+        if (isset($map['sourceTags'])) {
+            $model->sourceTags = $map['sourceTags'];
         }
 
         if (isset($map['tenantId'])) {

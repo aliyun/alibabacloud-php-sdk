@@ -31,6 +31,11 @@ class SendAsyncChatMessageRequest extends Model
     public $directChat;
 
     /**
+     * @var bool
+     */
+    public $enableWebSearch;
+
+    /**
      * @var files[]
      */
     public $files;
@@ -69,6 +74,7 @@ class SendAsyncChatMessageRequest extends Model
         'contentType' => 'contentType',
         'digitalEmployeeName' => 'digitalEmployeeName',
         'directChat' => 'directChat',
+        'enableWebSearch' => 'enableWebSearch',
         'files' => 'files',
         'model' => 'model',
         'reuseLastSession' => 'reuseLastSession',
@@ -116,6 +122,10 @@ class SendAsyncChatMessageRequest extends Model
 
         if (null !== $this->directChat) {
             $res['directChat'] = $this->directChat;
+        }
+
+        if (null !== $this->enableWebSearch) {
+            $res['enableWebSearch'] = $this->enableWebSearch;
         }
 
         if (null !== $this->files) {
@@ -185,6 +195,10 @@ class SendAsyncChatMessageRequest extends Model
 
         if (isset($map['directChat'])) {
             $model->directChat = $map['directChat'];
+        }
+
+        if (isset($map['enableWebSearch'])) {
+            $model->enableWebSearch = $map['enableWebSearch'];
         }
 
         if (isset($map['files'])) {

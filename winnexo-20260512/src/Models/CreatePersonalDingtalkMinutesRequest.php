@@ -41,6 +41,11 @@ class CreatePersonalDingtalkMinutesRequest extends Model
     /**
      * @var string
      */
+    public $sourceTags;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
         'description' => 'description',
@@ -49,6 +54,7 @@ class CreatePersonalDingtalkMinutesRequest extends Model
         'notes' => 'notes',
         'operatingObjectName' => 'operatingObjectName',
         'shanjiUrl' => 'shanjiUrl',
+        'sourceTags' => 'sourceTags',
         'tenantId' => 'tenantId',
     ];
 
@@ -82,6 +88,10 @@ class CreatePersonalDingtalkMinutesRequest extends Model
 
         if (null !== $this->shanjiUrl) {
             $res['shanjiUrl'] = $this->shanjiUrl;
+        }
+
+        if (null !== $this->sourceTags) {
+            $res['sourceTags'] = $this->sourceTags;
         }
 
         if (null !== $this->tenantId) {
@@ -121,6 +131,10 @@ class CreatePersonalDingtalkMinutesRequest extends Model
 
         if (isset($map['shanjiUrl'])) {
             $model->shanjiUrl = $map['shanjiUrl'];
+        }
+
+        if (isset($map['sourceTags'])) {
+            $model->sourceTags = $map['sourceTags'];
         }
 
         if (isset($map['tenantId'])) {

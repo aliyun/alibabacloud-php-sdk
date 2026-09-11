@@ -36,6 +36,11 @@ class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends Model
     /**
      * @var string
      */
+    public $sourceTags;
+
+    /**
+     * @var string
+     */
     public $syncConfigShrink;
 
     /**
@@ -48,6 +53,7 @@ class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends Model
         'kbUrl' => 'kbUrl',
         'objectBindingsShrink' => 'objectBindings',
         'operatingObjectName' => 'operatingObjectName',
+        'sourceTags' => 'sourceTags',
         'syncConfigShrink' => 'syncConfig',
         'tenantId' => 'tenantId',
     ];
@@ -78,6 +84,10 @@ class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends Model
 
         if (null !== $this->operatingObjectName) {
             $res['operatingObjectName'] = $this->operatingObjectName;
+        }
+
+        if (null !== $this->sourceTags) {
+            $res['sourceTags'] = $this->sourceTags;
         }
 
         if (null !== $this->syncConfigShrink) {
@@ -117,6 +127,10 @@ class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
+        }
+
+        if (isset($map['sourceTags'])) {
+            $model->sourceTags = $map['sourceTags'];
         }
 
         if (isset($map['syncConfig'])) {
