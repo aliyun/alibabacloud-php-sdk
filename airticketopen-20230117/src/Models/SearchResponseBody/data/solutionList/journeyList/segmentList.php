@@ -74,6 +74,11 @@ class segmentList extends Model
     public $equipType;
 
     /**
+     * @var string
+     */
+    public $fareBasis;
+
+    /**
      * @var int
      */
     public $flightDuration;
@@ -131,6 +136,7 @@ class segmentList extends Model
         'departureTerminal' => 'departure_terminal',
         'departureTime' => 'departure_time',
         'equipType' => 'equip_type',
+        'fareBasis' => 'fare_basis',
         'flightDuration' => 'flight_duration',
         'marketingAirline' => 'marketing_airline',
         'marketingFlightNo' => 'marketing_flight_no',
@@ -200,6 +206,10 @@ class segmentList extends Model
 
         if (null !== $this->equipType) {
             $res['equip_type'] = $this->equipType;
+        }
+
+        if (null !== $this->fareBasis) {
+            $res['fare_basis'] = $this->fareBasis;
         }
 
         if (null !== $this->flightDuration) {
@@ -299,6 +309,10 @@ class segmentList extends Model
 
         if (isset($map['equip_type'])) {
             $model->equipType = $map['equip_type'];
+        }
+
+        if (isset($map['fare_basis'])) {
+            $model->fareBasis = $map['fare_basis'];
         }
 
         if (isset($map['flight_duration'])) {
