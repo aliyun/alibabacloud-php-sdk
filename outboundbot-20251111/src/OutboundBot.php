@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCaseDetailRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCaseDetailResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetInstanceResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetRecordingRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetRecordingResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetScriptProfileTemplateRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetScriptProfileTemplateResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetSubscriptionRequest;
@@ -131,9 +133,6 @@ class OutboundBot extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shanghai' => 'outboundbot.cn-shanghai.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('outboundbot', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -163,7 +162,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Stops an outbound call campaign.
+     * Terminates an outbound call campaign.
      *
      * @remarks
      *
@@ -208,7 +207,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Stops an outbound call campaign.
+     * Terminates an outbound call campaign.
      *
      * @remarks
      *
@@ -380,7 +379,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Creates an outbound call task.
+     * Creates an outbound call campaign.
      *
      * @remarks
      *
@@ -505,7 +504,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Creates an outbound call task.
+     * Creates an outbound call campaign.
      *
      * @remarks
      *
@@ -1726,6 +1725,67 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a call recording.
+     *
+     * @param request - GetRecordingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRecordingResponse
+     *
+     * @param GetRecordingRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetRecordingResponse
+     */
+    public function getRecordingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetRecording',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a call recording.
+     *
+     * @param request - GetRecordingRequest
+     *
+     * @returns GetRecordingResponse
+     *
+     * @param GetRecordingRequest $request
+     *
+     * @return GetRecordingResponse
+     */
+    public function getRecording($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRecordingWithOptions($request, $runtime);
     }
 
     /**
