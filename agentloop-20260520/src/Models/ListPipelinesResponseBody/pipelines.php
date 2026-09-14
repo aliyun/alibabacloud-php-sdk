@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\pipelines\executePolicy;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\pipelines\sink;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\pipelines\source;
 
 class pipelines extends Model
 {
@@ -45,6 +47,16 @@ class pipelines extends Model
     public $scheduleType;
 
     /**
+     * @var sink
+     */
+    public $sink;
+
+    /**
+     * @var source
+     */
+    public $source;
+
+    /**
      * @var string
      */
     public $updateTime;
@@ -61,6 +73,8 @@ class pipelines extends Model
         'regionId' => 'regionId',
         'scheduleStatus' => 'scheduleStatus',
         'scheduleType' => 'scheduleType',
+        'sink' => 'sink',
+        'source' => 'source',
         'updateTime' => 'updateTime',
         'workspace' => 'workspace',
     ];
@@ -69,6 +83,12 @@ class pipelines extends Model
     {
         if (null !== $this->executePolicy) {
             $this->executePolicy->validate();
+        }
+        if (null !== $this->sink) {
+            $this->sink->validate();
+        }
+        if (null !== $this->source) {
+            $this->source->validate();
         }
         parent::validate();
     }
@@ -102,6 +122,14 @@ class pipelines extends Model
 
         if (null !== $this->scheduleType) {
             $res['scheduleType'] = $this->scheduleType;
+        }
+
+        if (null !== $this->sink) {
+            $res['sink'] = null !== $this->sink ? $this->sink->toArray($noStream) : $this->sink;
+        }
+
+        if (null !== $this->source) {
+            $res['source'] = null !== $this->source ? $this->source->toArray($noStream) : $this->source;
         }
 
         if (null !== $this->updateTime) {
@@ -149,6 +177,14 @@ class pipelines extends Model
 
         if (isset($map['scheduleType'])) {
             $model->scheduleType = $map['scheduleType'];
+        }
+
+        if (isset($map['sink'])) {
+            $model->sink = sink::fromMap($map['sink']);
+        }
+
+        if (isset($map['source'])) {
+            $model->source = source::fromMap($map['source']);
         }
 
         if (isset($map['updateTime'])) {

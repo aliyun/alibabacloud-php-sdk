@@ -21,6 +21,11 @@ class ConnectorProperties extends Model
     /**
      * @var string
      */
+    public $maxRetries;
+
+    /**
+     * @var string
+     */
     public $modelList;
 
     /**
@@ -32,6 +37,11 @@ class ConnectorProperties extends Model
      * @var string
      */
     public $protocol;
+
+    /**
+     * @var string
+     */
+    public $qpsLimit;
 
     /**
      * @var string
@@ -51,6 +61,11 @@ class ConnectorProperties extends Model
     /**
      * @var string
      */
+    public $timeoutMs;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -60,12 +75,15 @@ class ConnectorProperties extends Model
     protected $_name = [
         'channelType' => 'channelType',
         'dryRunRequestBody' => 'dryRunRequestBody',
+        'maxRetries' => 'maxRetries',
         'modelList' => 'modelList',
         'network' => 'network',
         'protocol' => 'protocol',
+        'qpsLimit' => 'qpsLimit',
         'region' => 'region',
         'responseBodyPath' => 'responseBodyPath',
         'securityGroupId' => 'securityGroupId',
+        'timeoutMs' => 'timeoutMs',
         'vSwitchId' => 'vSwitchId',
         'vpcId' => 'vpcId',
     ];
@@ -86,6 +104,10 @@ class ConnectorProperties extends Model
             $res['dryRunRequestBody'] = $this->dryRunRequestBody;
         }
 
+        if (null !== $this->maxRetries) {
+            $res['maxRetries'] = $this->maxRetries;
+        }
+
         if (null !== $this->modelList) {
             $res['modelList'] = $this->modelList;
         }
@@ -98,6 +120,10 @@ class ConnectorProperties extends Model
             $res['protocol'] = $this->protocol;
         }
 
+        if (null !== $this->qpsLimit) {
+            $res['qpsLimit'] = $this->qpsLimit;
+        }
+
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
@@ -108,6 +134,10 @@ class ConnectorProperties extends Model
 
         if (null !== $this->securityGroupId) {
             $res['securityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->timeoutMs) {
+            $res['timeoutMs'] = $this->timeoutMs;
         }
 
         if (null !== $this->vSwitchId) {
@@ -137,6 +167,10 @@ class ConnectorProperties extends Model
             $model->dryRunRequestBody = $map['dryRunRequestBody'];
         }
 
+        if (isset($map['maxRetries'])) {
+            $model->maxRetries = $map['maxRetries'];
+        }
+
         if (isset($map['modelList'])) {
             $model->modelList = $map['modelList'];
         }
@@ -149,6 +183,10 @@ class ConnectorProperties extends Model
             $model->protocol = $map['protocol'];
         }
 
+        if (isset($map['qpsLimit'])) {
+            $model->qpsLimit = $map['qpsLimit'];
+        }
+
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }
@@ -159,6 +197,10 @@ class ConnectorProperties extends Model
 
         if (isset($map['securityGroupId'])) {
             $model->securityGroupId = $map['securityGroupId'];
+        }
+
+        if (isset($map['timeoutMs'])) {
+            $model->timeoutMs = $map['timeoutMs'];
         }
 
         if (isset($map['vSwitchId'])) {

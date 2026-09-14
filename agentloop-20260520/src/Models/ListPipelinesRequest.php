@@ -32,12 +32,18 @@ class ListPipelinesRequest extends Model
      * @var string
      */
     public $scheduleType;
+
+    /**
+     * @var string
+     */
+    public $sinkName;
     protected $_name = [
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
         'pipelineName' => 'pipelineName',
         'scheduleStatus' => 'scheduleStatus',
         'scheduleType' => 'scheduleType',
+        'sinkName' => 'sinkName',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class ListPipelinesRequest extends Model
 
         if (null !== $this->scheduleType) {
             $res['scheduleType'] = $this->scheduleType;
+        }
+
+        if (null !== $this->sinkName) {
+            $res['sinkName'] = $this->sinkName;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class ListPipelinesRequest extends Model
 
         if (isset($map['scheduleType'])) {
             $model->scheduleType = $map['scheduleType'];
+        }
+
+        if (isset($map['sinkName'])) {
+            $model->sinkName = $map['sinkName'];
         }
 
         return $model;

@@ -2907,7 +2907,10 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries the list of AgentSpaces.
+     * Queries a list of AgentSpaces.
+     *
+     * @remarks
+     * Supports filtering by region.
      *
      * @param request - ListAgentSpacesRequest
      * @param headers - map
@@ -2961,7 +2964,10 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries the list of AgentSpaces.
+     * Queries a list of AgentSpaces.
+     *
+     * @remarks
+     * Supports filtering by region.
      *
      * @param request - ListAgentSpacesRequest
      *
@@ -3831,6 +3837,10 @@ class AgentLoop extends OpenApiClient
 
         if (null !== $request->scheduleType) {
             @$query['scheduleType'] = $request->scheduleType;
+        }
+
+        if (null !== $request->sinkName) {
+            @$query['sinkName'] = $request->sinkName;
         }
 
         $req = new OpenApiRequest([
