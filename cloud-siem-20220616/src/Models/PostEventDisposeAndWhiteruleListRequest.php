@@ -69,6 +69,11 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     public $status;
 
     /**
+     * @var bool
+     */
+    public $syncAlertStatus;
+
+    /**
      * @var string
      */
     public $threatLevel;
@@ -85,6 +90,7 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
         'roleFor' => 'RoleFor',
         'roleType' => 'RoleType',
         'status' => 'Status',
+        'syncAlertStatus' => 'SyncAlertStatus',
         'threatLevel' => 'ThreatLevel',
     ];
 
@@ -142,6 +148,10 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->syncAlertStatus) {
+            $res['SyncAlertStatus'] = $this->syncAlertStatus;
         }
 
         if (null !== $this->threatLevel) {
@@ -205,6 +215,10 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SyncAlertStatus'])) {
+            $model->syncAlertStatus = $map['SyncAlertStatus'];
         }
 
         if (isset($map['ThreatLevel'])) {

@@ -101,6 +101,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeStorageResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeUserBuyStatusRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeUserBuyStatusResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeUserSiemOrderStatusRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeUserSiemOrderStatusResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWafScopeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWafScopeResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeWhiteRuleListRequest;
@@ -195,10 +197,6 @@ class Cloudsiem extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shanghai' => 'cloud-siem.cn-shanghai.aliyuncs.com',
-            'ap-southeast-1' => 'cloud-siem.ap-southeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloud-siem', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -1776,7 +1774,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieves alerts associated with a specific event.
+     * Retrieves the list of alerts associated with an incident.
      *
      * @param request - DescribeAlertsWithEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1887,7 +1885,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieves alerts associated with a specific event.
+     * Retrieves the list of alerts associated with an incident.
      *
      * @param request - DescribeAlertsWithEventRequest
      *
@@ -3022,7 +3020,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * You can obtain the count for each event type.
+     * Retrieves the count of events by type.
      *
      * @param request - DescribeEventCountByThreatLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3077,7 +3075,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * You can obtain the count for each event type.
+     * Retrieves the count of events by type.
      *
      * @param request - DescribeEventCountByThreatLevelRequest
      *
@@ -3826,6 +3824,71 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * Queries the purchase status of a user\\"s SIEM.
+     *
+     * @param request - DescribeUserSiemOrderStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserSiemOrderStatusResponse
+     *
+     * @param DescribeUserSiemOrderStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeUserSiemOrderStatusResponse
+     */
+    public function describeUserSiemOrderStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeUserSiemOrderStatus',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeUserSiemOrderStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the purchase status of a user\\"s SIEM.
+     *
+     * @param request - DescribeUserSiemOrderStatusRequest
+     *
+     * @returns DescribeUserSiemOrderStatusResponse
+     *
+     * @param DescribeUserSiemOrderStatusRequest $request
+     *
+     * @return DescribeUserSiemOrderStatusResponse
+     */
+    public function describeUserSiemOrderStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserSiemOrderStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the list of domain names protected by Web Application Firewall (WAF) instances.
      *
      * @param request - DescribeWafScopeRequest
@@ -4178,7 +4241,7 @@ class Cloudsiem extends OpenApiClient
      * Retrieves the details of user data storage on the Log Management page.
      *
      * @remarks
-     * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
      *
      * @param request - GetDataStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4228,7 +4291,7 @@ class Cloudsiem extends OpenApiClient
      * Retrieves the details of user data storage on the Log Management page.
      *
      * @remarks
-     * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
      *
      * @param request - GetDataStorageRequest
      *
@@ -6506,7 +6569,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Submit incident response information to update the incident status and severity level.
+     * Submits incident handling information, updates the incident status, and updates the incident severity level.
      *
      * @param request - PostEventDisposeAndWhiteruleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6570,6 +6633,10 @@ class Cloudsiem extends OpenApiClient
             @$body['Status'] = $request->status;
         }
 
+        if (null !== $request->syncAlertStatus) {
+            @$body['SyncAlertStatus'] = $request->syncAlertStatus;
+        }
+
         if (null !== $request->threatLevel) {
             @$body['ThreatLevel'] = $request->threatLevel;
         }
@@ -6593,7 +6660,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Submit incident response information to update the incident status and severity level.
+     * Submits incident handling information, updates the incident status, and updates the incident severity level.
      *
      * @param request - PostEventDisposeAndWhiteruleListRequest
      *

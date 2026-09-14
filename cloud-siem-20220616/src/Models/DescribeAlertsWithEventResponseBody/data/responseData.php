@@ -67,6 +67,11 @@ class responseData extends Model
     /**
      * @var string
      */
+    public $alertStatus;
+
+    /**
+     * @var string
+     */
     public $alertTitle;
 
     /**
@@ -215,6 +220,7 @@ class responseData extends Model
         'alertNameEn' => 'AlertNameEn',
         'alertSrcProd' => 'AlertSrcProd',
         'alertSrcProdModule' => 'AlertSrcProdModule',
+        'alertStatus' => 'AlertStatus',
         'alertTitle' => 'AlertTitle',
         'alertTitleEn' => 'AlertTitleEn',
         'alertType' => 'AlertType',
@@ -305,6 +311,10 @@ class responseData extends Model
 
         if (null !== $this->alertSrcProdModule) {
             $res['AlertSrcProdModule'] = $this->alertSrcProdModule;
+        }
+
+        if (null !== $this->alertStatus) {
+            $res['AlertStatus'] = $this->alertStatus;
         }
 
         if (null !== $this->alertTitle) {
@@ -479,6 +489,10 @@ class responseData extends Model
 
         if (isset($map['AlertSrcProdModule'])) {
             $model->alertSrcProdModule = $map['AlertSrcProdModule'];
+        }
+
+        if (isset($map['AlertStatus'])) {
+            $model->alertStatus = $map['AlertStatus'];
         }
 
         if (isset($map['AlertTitle'])) {
