@@ -24,6 +24,11 @@ class DescribeLensMonitorDisksRequest extends Model
     public $diskIds;
 
     /**
+     * @var string
+     */
+    public $ecsInstanceId;
+
+    /**
      * @var string[]
      */
     public $lensTags;
@@ -46,6 +51,7 @@ class DescribeLensMonitorDisksRequest extends Model
         'diskCategory' => 'DiskCategory',
         'diskIdPattern' => 'DiskIdPattern',
         'diskIds' => 'DiskIds',
+        'ecsInstanceId' => 'EcsInstanceId',
         'lensTags' => 'LensTags',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -83,6 +89,10 @@ class DescribeLensMonitorDisksRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->ecsInstanceId) {
+            $res['EcsInstanceId'] = $this->ecsInstanceId;
         }
 
         if (null !== $this->lensTags) {
@@ -136,6 +146,10 @@ class DescribeLensMonitorDisksRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EcsInstanceId'])) {
+            $model->ecsInstanceId = $map['EcsInstanceId'];
         }
 
         if (isset($map['LensTags'])) {
