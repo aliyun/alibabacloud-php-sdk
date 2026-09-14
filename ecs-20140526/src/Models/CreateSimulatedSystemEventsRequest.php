@@ -47,6 +47,11 @@ class CreateSimulatedSystemEventsRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var bool
+     */
+    public $triggerRealOps;
     protected $_name = [
         'eventType' => 'EventType',
         'instanceId' => 'InstanceId',
@@ -56,6 +61,7 @@ class CreateSimulatedSystemEventsRequest extends Model
         'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'triggerRealOps' => 'TriggerRealOps',
     ];
 
     public function validate()
@@ -108,6 +114,10 @@ class CreateSimulatedSystemEventsRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
+        if (null !== $this->triggerRealOps) {
+            $res['TriggerRealOps'] = $this->triggerRealOps;
+        }
+
         return $res;
     }
 
@@ -156,6 +166,10 @@ class CreateSimulatedSystemEventsRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['TriggerRealOps'])) {
+            $model->triggerRealOps = $map['TriggerRealOps'];
         }
 
         return $model;
