@@ -14,6 +14,8 @@ use AlibabaCloud\Dara\RetryPolicy\RetryPolicyContext;
 use AlibabaCloud\Dara\Util\FormUtil;
 use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishCrossProjectPipelineRunRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishCrossProjectPipelineRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishPipelineRunRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishPipelineRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddEntityIntoMetaCollectionRequest;
@@ -66,6 +68,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComputeResourceRespo
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCrawlerRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCrawlerResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCrawlerShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCrossProjectPipelineRunRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCrossProjectPipelineRunResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCrossProjectPipelineRunShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCustomAttributeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCustomAttributeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCustomAttributeShrinkRequest;
@@ -300,6 +305,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EnableProcessDefinitionReq
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EnableProcessDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EstablishRelationTableToBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EstablishRelationTableToBusinessResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecCrossProjectPipelineRunRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecCrossProjectPipelineRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecPipelineRunStageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecPipelineRunStageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceRequest;
@@ -331,6 +338,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetColumnRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetColumnResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComponentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComponentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComputeResourceAuthUserMappingsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComputeResourceAuthUserMappingsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComputeResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComputeResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCrawlerRequest;
@@ -339,6 +348,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCrawlerTypeCapabilities
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCrawlerTypeCapabilitiesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstancesResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstancesResultResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCrossProjectPipelineRunRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCrossProjectPipelineRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCustomAttributeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCustomAttributeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatabaseRequest;
@@ -449,6 +460,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetUpdateTaskResultRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetUpdateTaskResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowInstanceRequest;
@@ -497,6 +510,14 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrawlersRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrawlersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrawlersShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrawlerTypesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrossProjectDeploymentCandidatesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrossProjectDeploymentCandidatesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrossProjectDeploymentEnvironmentsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrossProjectDeploymentEnvironmentsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrossProjectPipelineRunItemsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrossProjectPipelineRunItemsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrossProjectPipelineRunsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrossProjectPipelineRunsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCustomAgentsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCustomAgentsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCustomAgentsShrinkRequest;
@@ -790,6 +811,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetada
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComponentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComponentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComputeResourceAuthUserMappingsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComputeResourceAuthUserMappingsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComputeResourceAuthUserMappingsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComputeResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComputeResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCrawlerRequest;
@@ -885,6 +909,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateSkillShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTableBusinessMetadataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTableBusinessMetadataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTableBusinessMetadataShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskAsyncRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskAsyncResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskAsyncShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesShrinkRequest;
@@ -1101,6 +1128,71 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Stops a cross-workspace publish flow.
+     *
+     * @param Request - AbolishCrossProjectPipelineRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AbolishCrossProjectPipelineRunResponse
+     *
+     * @param AbolishCrossProjectPipelineRunRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return AbolishCrossProjectPipelineRunResponse
+     */
+    public function abolishCrossProjectPipelineRunWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pipelineRunId) {
+            @$body['PipelineRunId'] = $request->pipelineRunId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->reason) {
+            @$body['Reason'] = $request->reason;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AbolishCrossProjectPipelineRun',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AbolishCrossProjectPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Stops a cross-workspace publish flow.
+     *
+     * @param Request - AbolishCrossProjectPipelineRunRequest
+     *
+     * @returns AbolishCrossProjectPipelineRunResponse
+     *
+     * @param AbolishCrossProjectPipelineRunRequest $request
+     *
+     * @return AbolishCrossProjectPipelineRunResponse
+     */
+    public function abolishCrossProjectPipelineRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->abolishCrossProjectPipelineRunWithOptions($request, $runtime);
+    }
+
+    /**
      * Calls this operation to change the status of a specified deployment process to terminated. The deployment process is not deleted and can still be queried through query operations.
      *
      * @remarks
@@ -1239,19 +1331,19 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Submits an application for access permissions on a specific resource.
+     * Commits an access permissions request for specific resources.
      *
      * @remarks
-     * ## Request Description
-     * - **Reason**: The reason for the application. This parameter is required.
-     * - **ApplyContents**: Contains multiple resource permission application contents, each including the resource description (Resource), grantee description (Grantee), permission types (AccessTypes), and permission expiration time (ExpirationTime). The maximum limit per request is 400 entries.
-     * - **Resource**: The resource description. You need to specify the ResourceSchema.name and version that the resource parsing depends on, as well as the resource metadata MetaData.
-     * - **Grantee**: The grantee description. You need to specify the grantee type (PrincipalType) and the principal ID (PrincipalId).
-     * - **AccessTypes**: The list of permission types. Multiple permission combinations are supported.
-     * - **ExpirationTime**: The permission expiration time, provided as a milliseconds timestamp.
-     * - **AuthMethod**: An optional parameter that specifies the authorization method. The system uses the built-in default authorization method if not specified.
+     * ## Operation description
+     * - **Reason**: The reason for the request. This parameter is required.
+     * - **ApplyContents**: Contains multiple resource permission request entries. Each entry includes a resource description (Resource), a grantee description (Grantee), access types (AccessTypes), and a permission expiration time (ExpirationTime). A maximum of 400 entries can be submitted in a single request.
+     * - **Resource**: The resource description. You must specify the ResourceSchema.name and version on which the resource parsing depends, as well as the resource metadata (MetaData).
+     * - **Grantee**: The grantee description. You must specify the principal type (PrincipalType) and principal ID (PrincipalId).
+     * - **AccessTypes**: The list of access types. Multiple access type combinations are supported.
+     * - **ExpirationTime**: The permission expiration time, provided as a millisecond-level timestamp.
+     * - **AuthMethod**: Optional. Specifies the authorization method. The system uses the built-in default authorization method if this parameter is not specified.
      * - **ClientToken**: The client token used to prevent duplicate requests. This parameter is optional.
-     * Ensure all required fields are filled in correctly and comply with the corresponding constraints. For example, `DefVersion` and `MetaData` in `Resource` should match the selected `DefSchema`.
+     * Make sure that all required fields are correctly specified and meet the corresponding constraints. For example, the DefVersion and MetaData in Resource must match the selected DefSchema.
      *
      * @param tmpReq - ApplyResourceAccessPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1304,19 +1396,19 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Submits an application for access permissions on a specific resource.
+     * Commits an access permissions request for specific resources.
      *
      * @remarks
-     * ## Request Description
-     * - **Reason**: The reason for the application. This parameter is required.
-     * - **ApplyContents**: Contains multiple resource permission application contents, each including the resource description (Resource), grantee description (Grantee), permission types (AccessTypes), and permission expiration time (ExpirationTime). The maximum limit per request is 400 entries.
-     * - **Resource**: The resource description. You need to specify the ResourceSchema.name and version that the resource parsing depends on, as well as the resource metadata MetaData.
-     * - **Grantee**: The grantee description. You need to specify the grantee type (PrincipalType) and the principal ID (PrincipalId).
-     * - **AccessTypes**: The list of permission types. Multiple permission combinations are supported.
-     * - **ExpirationTime**: The permission expiration time, provided as a milliseconds timestamp.
-     * - **AuthMethod**: An optional parameter that specifies the authorization method. The system uses the built-in default authorization method if not specified.
+     * ## Operation description
+     * - **Reason**: The reason for the request. This parameter is required.
+     * - **ApplyContents**: Contains multiple resource permission request entries. Each entry includes a resource description (Resource), a grantee description (Grantee), access types (AccessTypes), and a permission expiration time (ExpirationTime). A maximum of 400 entries can be submitted in a single request.
+     * - **Resource**: The resource description. You must specify the ResourceSchema.name and version on which the resource parsing depends, as well as the resource metadata (MetaData).
+     * - **Grantee**: The grantee description. You must specify the principal type (PrincipalType) and principal ID (PrincipalId).
+     * - **AccessTypes**: The list of access types. Multiple access type combinations are supported.
+     * - **ExpirationTime**: The permission expiration time, provided as a millisecond-level timestamp.
+     * - **AuthMethod**: Optional. Specifies the authorization method. The system uses the built-in default authorization method if this parameter is not specified.
      * - **ClientToken**: The client token used to prevent duplicate requests. This parameter is optional.
-     * Ensure all required fields are filled in correctly and comply with the corresponding constraints. For example, `DefVersion` and `MetaData` in `Resource` should match the selected `DefSchema`.
+     * Make sure that all required fields are correctly specified and meet the corresponding constraints. For example, the DefVersion and MetaData in Resource must match the selected DefSchema.
      *
      * @param Request - ApplyResourceAccessPermissionRequest
      *
@@ -1422,8 +1514,8 @@ class Dataworkspublic extends OpenApiClient
      * Associates an image with a workspace.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or later to use this operation.
-     * 2. **Ensure the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.**
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
      *
      * @param Request - AssociateProjectToImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1469,8 +1561,8 @@ class Dataworkspublic extends OpenApiClient
      * Associates an image with a workspace.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or later to use this operation.
-     * 2. **Ensure the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.**
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
      *
      * @param Request - AssociateProjectToImageRequest
      *
@@ -1491,9 +1583,9 @@ class Dataworkspublic extends OpenApiClient
      * Associates a resource group with a workspace.
      *
      * @remarks
-     * 1. This operation requires DataWorks Basic Edition or a more advanced edition.
-     * 2. You must have one of the following roles in the DataWorks workspace:
-     * - tenant owner, workspace administrator, project owner, or operator
+     * 1. You must have purchased DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. You must have at least one of the following roles in the DataWorks workspace:
+     * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
      *
      * @param Request - AssociateProjectToResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1539,9 +1631,9 @@ class Dataworkspublic extends OpenApiClient
      * Associates a resource group with a workspace.
      *
      * @remarks
-     * 1. This operation requires DataWorks Basic Edition or a more advanced edition.
-     * 2. You must have one of the following roles in the DataWorks workspace:
-     * - tenant owner, workspace administrator, project owner, or operator
+     * 1. You must have purchased DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. You must have at least one of the following roles in the DataWorks workspace:
+     * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
      *
      * @param Request - AssociateProjectToResourceGroupRequest
      *
@@ -2156,9 +2248,9 @@ class Dataworkspublic extends OpenApiClient
      * ## Operation description
      * - **Agent name**: Must be unique within the current account.
      * - **Model configuration**: An optional parameter that specifies the model used by the Agent and its related settings.
-     * - **Visibility level**: Defines who can access the Agent. Supported levels include account-wide, project-specific, or user-specific visibility.
+     * - **Visibility level**: Defines who can access the Agent. The Agent can be visible within the account, to a specific project, or to specific users.
      * - **Visibility scope**: When you set the visibility level to `PROJECT` or `USER`, you must specify the list of project IDs or user IDs.
-     * - **Other parameters**: Parameters such as display name and description are optional. Set them as needed.
+     * - **Other parameters**: Optional parameters such as display name and description. Set them as needed.
      *
      * @param tmpReq - CreateAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2269,9 +2361,9 @@ class Dataworkspublic extends OpenApiClient
      * ## Operation description
      * - **Agent name**: Must be unique within the current account.
      * - **Model configuration**: An optional parameter that specifies the model used by the Agent and its related settings.
-     * - **Visibility level**: Defines who can access the Agent. Supported levels include account-wide, project-specific, or user-specific visibility.
+     * - **Visibility level**: Defines who can access the Agent. The Agent can be visible within the account, to a specific project, or to specific users.
      * - **Visibility scope**: When you set the visibility level to `PROJECT` or `USER`, you must specify the list of project IDs or user IDs.
-     * - **Other parameters**: Parameters such as display name and description are optional. Set them as needed.
+     * - **Other parameters**: Optional parameters such as display name and description. Set them as needed.
      *
      * @param Request - CreateAgentRequest
      *
@@ -2821,6 +2913,91 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a cross-workspace deployment flow.
+     *
+     * @remarks
+     * Creates and persists a cross-workspace deployment flow. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Child objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects, call ExecCrossProjectPipelineRun to execute the deployment after creation, and call GetCrossProjectPipelineRun to query the deployment status.
+     *
+     * @param tmpReq - CreateCrossProjectPipelineRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCrossProjectPipelineRunResponse
+     *
+     * @param CreateCrossProjectPipelineRunRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateCrossProjectPipelineRunResponse
+     */
+    public function createCrossProjectPipelineRunWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCrossProjectPipelineRunShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->objectIds) {
+            $request->objectIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectIds, 'ObjectIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->deploymentEnvironmentId) {
+            @$body['DeploymentEnvironmentId'] = $request->deploymentEnvironmentId;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->objectIdsShrink) {
+            @$body['ObjectIds'] = $request->objectIdsShrink;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCrossProjectPipelineRun',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCrossProjectPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a cross-workspace deployment flow.
+     *
+     * @remarks
+     * Creates and persists a cross-workspace deployment flow. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Child objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects, call ExecCrossProjectPipelineRun to execute the deployment after creation, and call GetCrossProjectPipelineRun to query the deployment status.
+     *
+     * @param Request - CreateCrossProjectPipelineRunRequest
+     *
+     * @returns CreateCrossProjectPipelineRunResponse
+     *
+     * @param CreateCrossProjectPipelineRunRequest $request
+     *
+     * @return CreateCrossProjectPipelineRunResponse
+     */
+    public function createCrossProjectPipelineRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCrossProjectPipelineRunWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a custom attribute definition.
      *
      * @param tmpReq - CreateCustomAttributeRequest
@@ -3138,10 +3315,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a tag.
+     * Creates a label.
      *
      * @remarks
-     * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+     * You must purchase DataWorks Enterprise Edition or a higher edition to use this feature.
      *
      * @param tmpReq - CreateDataAssetTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3206,10 +3383,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a tag.
+     * Creates a label.
      *
      * @remarks
-     * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+     * You must purchase DataWorks Enterprise Edition or a higher edition to use this feature.
      *
      * @param Request - CreateDataAssetTagRequest
      *
@@ -3954,10 +4131,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a data quality template.
+     * Creates a data quality rule template in a specified project.
      *
      * @remarks
-     * DataWorks Basic Edition or a higher edition is required.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
      *
      * @param Request - CreateDataQualityTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4004,10 +4181,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a data quality template.
+     * Creates a data quality rule template in a specified project.
      *
      * @remarks
-     * DataWorks Basic Edition or a higher edition is required.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
      *
      * @param Request - CreateDataQualityTemplateRequest
      *
@@ -4685,8 +4862,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates an identity credential.
      *
      * @remarks
-     * >Notice:
-     * This operation does not support batch processing. If you specify multiple entities in the request parameters, only the first entity is processed and the rest are ignored.
+     * >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
      *
      * @param tmpReq - CreateIdentifyCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4734,8 +4910,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates an identity credential.
      *
      * @remarks
-     * >Notice:
-     * This operation does not support batch processing. If you specify multiple entities in the request parameters, only the first entity is processed and the rest are ignored.
+     * >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
      *
      * @param Request - CreateIdentifyCredentialRequest
      *
@@ -8533,7 +8708,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Deletes a dataset version. Only non-v1 DataWorks datasets are supported. To delete v1 datasets, use the DeleteDataset operation. Requires dataset creator or workspace administrator permissions.
+     * Deletes a dataset version. Only non-v1 DataWorks dataset versions can be deleted by using this operation. To delete a v1 dataset version, use the DeleteDataset operation. The operator must be the creator of the dataset or an administrator of the workspace to which the dataset belongs.
      *
      * @param Request - DeleteDatasetVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8572,7 +8747,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Deletes a dataset version. Only non-v1 DataWorks datasets are supported. To delete v1 datasets, use the DeleteDataset operation. Requires dataset creator or workspace administrator permissions.
+     * Deletes a dataset version. Only non-v1 DataWorks dataset versions can be deleted by using this operation. To delete a v1 dataset version, use the DeleteDataset operation. The operator must be the creator of the dataset or an administrator of the workspace to which the dataset belongs.
      *
      * @param Request - DeleteDatasetVersionRequest
      *
@@ -9183,11 +9358,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Deletes a node from DataStudio.
+     * Deletes a specified data development node.
      *
      * @remarks
-     * >Notice:
-     * After a node is published, it cannot be deleted. You must unpublish the node before you can delete it.
+     * >Notice: After a node is published, it cannot be deleted. You must offline the node before deleting it.
      *
      * @param Request - DeleteNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9230,11 +9404,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Deletes a node from DataStudio.
+     * Deletes a specified data development node.
      *
      * @remarks
-     * >Notice:
-     * After a node is published, it cannot be deleted. You must unpublish the node before you can delete it.
+     * >Notice: After a node is published, it cannot be deleted. You must offline the node before deleting it.
      *
      * @param Request - DeleteNodeRequest
      *
@@ -9387,8 +9560,8 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a DataWorks workspace.
      *
      * @remarks
-     * To call this API, you must purchase DataWorks Basic Edition or a higher edition.
-     * Note: When you delete a workspace, the system moves it to the Recycle Bin. After a 14-day retention period, the system permanently purges the workspace. During this time, you cannot create a new workspace with the same name. You can find the deleted workspace in the Recycle Bin on the Workspace page in the console.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * > Note: After a workspace is deleted, it is moved to the recycle bin on the **Workspaces** page in the console. The workspace is permanently removed after a 14-day cool-down period. During this period, you cannot create a workspace with the same name.
      *
      * @param Request - DeleteProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9430,8 +9603,8 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a DataWorks workspace.
      *
      * @remarks
-     * To call this API, you must purchase DataWorks Basic Edition or a higher edition.
-     * Note: When you delete a workspace, the system moves it to the Recycle Bin. After a 14-day retention period, the system permanently purges the workspace. During this time, you cannot create a new workspace with the same name. You can find the deleted workspace in the Recycle Bin on the Workspace page in the console.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * > Note: After a workspace is deleted, it is moved to the recycle bin on the **Workspaces** page in the console. The workspace is permanently removed after a 14-day cool-down period. During this period, you cannot create a workspace with the same name.
      *
      * @param Request - DeleteProjectRequest
      *
@@ -10982,6 +11155,67 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Executes a cross-workspace publish flow.
+     *
+     * @param Request - ExecCrossProjectPipelineRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecCrossProjectPipelineRunResponse
+     *
+     * @param ExecCrossProjectPipelineRunRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ExecCrossProjectPipelineRunResponse
+     */
+    public function execCrossProjectPipelineRunWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pipelineRunId) {
+            @$body['PipelineRunId'] = $request->pipelineRunId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecCrossProjectPipelineRun',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecCrossProjectPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes a cross-workspace publish flow.
+     *
+     * @param Request - ExecCrossProjectPipelineRunRequest
+     *
+     * @returns ExecCrossProjectPipelineRunResponse
+     *
+     * @param ExecCrossProjectPipelineRunRequest $request
+     *
+     * @return ExecCrossProjectPipelineRunResponse
+     */
+    public function execCrossProjectPipelineRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->execCrossProjectPipelineRunWithOptions($request, $runtime);
+    }
+
+    /**
      * Executes a specified stage of a publish flow.
      *
      * @remarks
@@ -11570,7 +11804,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询批量转交表Owner状态
+     * Queries the status of a batch table owner transfer task.
      *
      * @param Request - GetBatchChangeTableOwnerStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11609,7 +11843,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询批量转交表Owner状态
+     * Queries the status of a batch table owner transfer task.
      *
      * @param Request - GetBatchChangeTableOwnerStatusRequest
      *
@@ -12009,6 +12243,77 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the user mappings of a compute resource. Supports EMR and Serverless Spark resource types.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. You must have at least one of the following roles in the DataWorks workspace:
+     * - Tenant Owner, Storage Management Administrator, Deployment, Developer, Project Owner, or O&M Engineer
+     *
+     * @param Request - GetComputeResourceAuthUserMappingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetComputeResourceAuthUserMappingsResponse
+     *
+     * @param GetComputeResourceAuthUserMappingsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetComputeResourceAuthUserMappingsResponse
+     */
+    public function getComputeResourceAuthUserMappingsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->computeResourceId) {
+            @$query['ComputeResourceId'] = $request->computeResourceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetComputeResourceAuthUserMappings',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetComputeResourceAuthUserMappingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the user mappings of a compute resource. Supports EMR and Serverless Spark resource types.
+     *
+     * @remarks
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * 2. You must have at least one of the following roles in the DataWorks workspace:
+     * - Tenant Owner, Storage Management Administrator, Deployment, Developer, Project Owner, or O&M Engineer
+     *
+     * @param Request - GetComputeResourceAuthUserMappingsRequest
+     *
+     * @returns GetComputeResourceAuthUserMappingsResponse
+     *
+     * @param GetComputeResourceAuthUserMappingsRequest $request
+     *
+     * @return GetComputeResourceAuthUserMappingsResponse
+     */
+    public function getComputeResourceAuthUserMappings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getComputeResourceAuthUserMappingsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the configuration, status, and latest run information of a specified metadata crawler.
      *
      * @remarks
@@ -12218,6 +12523,67 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCreateWorkflowInstancesResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a cross-workspace deployment flow.
+     *
+     * @param Request - GetCrossProjectPipelineRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCrossProjectPipelineRunResponse
+     *
+     * @param GetCrossProjectPipelineRunRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetCrossProjectPipelineRunResponse
+     */
+    public function getCrossProjectPipelineRunWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pipelineRunId) {
+            @$body['PipelineRunId'] = $request->pipelineRunId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetCrossProjectPipelineRun',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCrossProjectPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a cross-workspace deployment flow.
+     *
+     * @param Request - GetCrossProjectPipelineRunRequest
+     *
+     * @returns GetCrossProjectPipelineRunResponse
+     *
+     * @param GetCrossProjectPipelineRunRequest $request
+     *
+     * @return GetCrossProjectPipelineRunResponse
+     */
+    public function getCrossProjectPipelineRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCrossProjectPipelineRunWithOptions($request, $runtime);
     }
 
     /**
@@ -12590,7 +12956,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the details of a data quality rule.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or above to use this feature.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
      *
      * @deprecated openAPI GetDataQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead
      *
@@ -12631,7 +12997,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the details of a data quality rule.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or above to use this feature.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
      *
      * @deprecated openAPI GetDataQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead
      *
@@ -12841,10 +13207,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the log of a specific task instance that monitors data quality.
+     * Queries the log content of a specified data quality monitoring task instance.
      *
      * @remarks
-     * DataWorks Basic Edition or a higher edition is required.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
      *
      * @param Request - GetDataQualityScanRunLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12887,10 +13253,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the log of a specific task instance that monitors data quality.
+     * Queries the log content of a specified data quality monitoring task instance.
      *
      * @remarks
-     * DataWorks Basic Edition or a higher edition is required.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
      *
      * @param Request - GetDataQualityScanRunLogRequest
      *
@@ -15534,7 +15900,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the information about an instance.
+     * Retrieves the details of a specified task instance.
      *
      * @remarks
      * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
@@ -15572,7 +15938,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the information about an instance.
+     * Retrieves the details of a specified task instance.
      *
      * @remarks
      * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
@@ -15649,6 +16015,69 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTaskInstanceLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the result of asynchronously creating a workflow instance.
+     *
+     * @remarks
+     * DataWorks Basic Edition or a more advanced edition is required.
+     *
+     * @param Request - GetUpdateTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUpdateTaskResultResponse
+     *
+     * @param GetUpdateTaskResultRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetUpdateTaskResultResponse
+     */
+    public function getUpdateTaskResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->operationId) {
+            @$query['OperationId'] = $request->operationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUpdateTaskResult',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUpdateTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the result of asynchronously creating a workflow instance.
+     *
+     * @remarks
+     * DataWorks Basic Edition or a more advanced edition is required.
+     *
+     * @param Request - GetUpdateTaskResultRequest
+     *
+     * @returns GetUpdateTaskResultResponse
+     *
+     * @param GetUpdateTaskResultRequest $request
+     *
+     * @return GetUpdateTaskResultResponse
+     */
+    public function getUpdateTaskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUpdateTaskResultWithOptions($request, $runtime);
     }
 
     /**
@@ -16312,15 +16741,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the conversation history for the agent session.
+     * Loads the conversation history list of an Agent Session.
      *
      * @remarks
-     * ## Request
-     * - Specify at least one of `agentName` or `sessionSourceList`.
-     * - You can use the `tagList`, `sessionId`, and `sessionTitle` parameters for combined filtering.
-     * - The response follows the Alibaba Cloud OpenAPI pagination specification and includes the `totalCount`, `maxResults`, `nextToken`, and `sessionList` fields.
-     * - If you provide an invalid string for `nextToken`, its value defaults to `1`.
-     * - By default, this operation returns 50 records per page. You can use the `maxResults` parameter to adjust this number.
+     * ## Operation description
+     * - At least one of `agentName` and `sessionSourceList` must be provided.
+     * - Supports combined filtering by `tagList`, `sessionId`, and `sessionTitle`.
+     * - The response conforms to the Alibaba Cloud OpenAPI paging specification, including `totalCount`, `maxResults`, `nextToken`, and `sessionList`.
+     * - If `nextToken` is an invalid character string, it defaults to 1.
+     * - By default, 50 records are returned per page. Adjust this by using the `maxResults` parameter.
      *
      * @param tmpReq - ListAgentSessionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16373,15 +16802,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the conversation history for the agent session.
+     * Loads the conversation history list of an Agent Session.
      *
      * @remarks
-     * ## Request
-     * - Specify at least one of `agentName` or `sessionSourceList`.
-     * - You can use the `tagList`, `sessionId`, and `sessionTitle` parameters for combined filtering.
-     * - The response follows the Alibaba Cloud OpenAPI pagination specification and includes the `totalCount`, `maxResults`, `nextToken`, and `sessionList` fields.
-     * - If you provide an invalid string for `nextToken`, its value defaults to `1`.
-     * - By default, this operation returns 50 records per page. You can use the `maxResults` parameter to adjust this number.
+     * ## Operation description
+     * - At least one of `agentName` and `sessionSourceList` must be provided.
+     * - Supports combined filtering by `tagList`, `sessionId`, and `sessionTitle`.
+     * - The response conforms to the Alibaba Cloud OpenAPI paging specification, including `totalCount`, `maxResults`, `nextToken`, and `sessionList`.
+     * - If `nextToken` is an invalid character string, it defaults to 1.
+     * - By default, 50 records are returned per page. Adjust this by using the `maxResults` parameter.
      *
      * @param Request - ListAgentSessionsRequest
      *
@@ -17265,6 +17694,334 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCrawlersWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries cross-workspace deployment candidate objects.
+     *
+     * @param Request - ListCrossProjectDeploymentCandidatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCrossProjectDeploymentCandidatesResponse
+     *
+     * @param ListCrossProjectDeploymentCandidatesRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListCrossProjectDeploymentCandidatesResponse
+     */
+    public function listCrossProjectDeploymentCandidatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->changeType) {
+            @$body['ChangeType'] = $request->changeType;
+        }
+
+        if (null !== $request->commitTimeFrom) {
+            @$body['CommitTimeFrom'] = $request->commitTimeFrom;
+        }
+
+        if (null !== $request->commitTimeTo) {
+            @$body['CommitTimeTo'] = $request->commitTimeTo;
+        }
+
+        if (null !== $request->commitUser) {
+            @$body['CommitUser'] = $request->commitUser;
+        }
+
+        if (null !== $request->deploymentEnvironmentId) {
+            @$body['DeploymentEnvironmentId'] = $request->deploymentEnvironmentId;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->objectId) {
+            @$body['ObjectId'] = $request->objectId;
+        }
+
+        if (null !== $request->objectType) {
+            @$body['ObjectType'] = $request->objectType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCrossProjectDeploymentCandidates',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCrossProjectDeploymentCandidatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries cross-workspace deployment candidate objects.
+     *
+     * @param Request - ListCrossProjectDeploymentCandidatesRequest
+     *
+     * @returns ListCrossProjectDeploymentCandidatesResponse
+     *
+     * @param ListCrossProjectDeploymentCandidatesRequest $request
+     *
+     * @return ListCrossProjectDeploymentCandidatesResponse
+     */
+    public function listCrossProjectDeploymentCandidates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCrossProjectDeploymentCandidatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries cross-workspace deployment environments.
+     *
+     * @param Request - ListCrossProjectDeploymentEnvironmentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCrossProjectDeploymentEnvironmentsResponse
+     *
+     * @param ListCrossProjectDeploymentEnvironmentsRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListCrossProjectDeploymentEnvironmentsResponse
+     */
+    public function listCrossProjectDeploymentEnvironmentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCrossProjectDeploymentEnvironments',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCrossProjectDeploymentEnvironmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries cross-workspace deployment environments.
+     *
+     * @param Request - ListCrossProjectDeploymentEnvironmentsRequest
+     *
+     * @returns ListCrossProjectDeploymentEnvironmentsResponse
+     *
+     * @param ListCrossProjectDeploymentEnvironmentsRequest $request
+     *
+     * @return ListCrossProjectDeploymentEnvironmentsResponse
+     */
+    public function listCrossProjectDeploymentEnvironments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCrossProjectDeploymentEnvironmentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the publish items of a cross-workspace publish pipeline.
+     *
+     * @param Request - ListCrossProjectPipelineRunItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCrossProjectPipelineRunItemsResponse
+     *
+     * @param ListCrossProjectPipelineRunItemsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListCrossProjectPipelineRunItemsResponse
+     */
+    public function listCrossProjectPipelineRunItemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pipelineRunId) {
+            @$body['PipelineRunId'] = $request->pipelineRunId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCrossProjectPipelineRunItems',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCrossProjectPipelineRunItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the publish items of a cross-workspace publish pipeline.
+     *
+     * @param Request - ListCrossProjectPipelineRunItemsRequest
+     *
+     * @returns ListCrossProjectPipelineRunItemsResponse
+     *
+     * @param ListCrossProjectPipelineRunItemsRequest $request
+     *
+     * @return ListCrossProjectPipelineRunItemsResponse
+     */
+    public function listCrossProjectPipelineRunItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCrossProjectPipelineRunItemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of cross-workspace publish flows.
+     *
+     * @param Request - ListCrossProjectPipelineRunsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCrossProjectPipelineRunsResponse
+     *
+     * @param ListCrossProjectPipelineRunsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListCrossProjectPipelineRunsResponse
+     */
+    public function listCrossProjectPipelineRunsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->createTimeFrom) {
+            @$body['CreateTimeFrom'] = $request->createTimeFrom;
+        }
+
+        if (null !== $request->createTimeTo) {
+            @$body['CreateTimeTo'] = $request->createTimeTo;
+        }
+
+        if (null !== $request->creator) {
+            @$body['Creator'] = $request->creator;
+        }
+
+        if (null !== $request->deploymentEnvironmentId) {
+            @$body['DeploymentEnvironmentId'] = $request->deploymentEnvironmentId;
+        }
+
+        if (null !== $request->executor) {
+            @$body['Executor'] = $request->executor;
+        }
+
+        if (null !== $request->objectId) {
+            @$body['ObjectId'] = $request->objectId;
+        }
+
+        if (null !== $request->objectType) {
+            @$body['ObjectType'] = $request->objectType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCrossProjectPipelineRuns',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCrossProjectPipelineRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of cross-workspace publish flows.
+     *
+     * @param Request - ListCrossProjectPipelineRunsRequest
+     *
+     * @returns ListCrossProjectPipelineRunsResponse
+     *
+     * @param ListCrossProjectPipelineRunsRequest $request
+     *
+     * @return ListCrossProjectPipelineRunsResponse
+     */
+    public function listCrossProjectPipelineRuns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCrossProjectPipelineRunsWithOptions($request, $runtime);
     }
 
     /**
@@ -20692,7 +21449,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Gets a paginated list of dependent nodes for a specified data development node.
+     * Retrieves the dependency nodes of a specified DataStudio node with pagination.
      *
      * @param Request - ListNodeDependenciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20727,7 +21484,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Gets a paginated list of dependent nodes for a specified data development node.
+     * Retrieves the dependency nodes of a specified DataStudio node with pagination.
      *
      * @param Request - ListNodeDependenciesRequest
      *
@@ -22868,10 +23625,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances. You can also specify filter conditions to query specific instances.
+     * Lists node instances by paging and supports filtered query by conditions.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
      *
      * @param tmpReq - ListTaskInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23004,10 +23761,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances. You can also specify filter conditions to query specific instances.
+     * Lists node instances by paging and supports filtered query by conditions.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
      *
      * @param Request - ListTaskInstancesRequest
      *
@@ -25367,15 +26124,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Submits a saved semantic job for execution by name and returns the run identifier and executor job identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+     * Submits a saved semantic job for execution by name and returns the run and executor identifiers. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
      *
      * @remarks
      * ## Description
-     * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime `Source`, resource group, or reference file overrides. The execution always uses the configuration saved by `CreateSemanticJob`.
+     * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime overrides for `Source`, resource groups, or reference files. The execution always uses the configuration saved by `CreateSemanticJob`.
      * ## Pre-execution validation
-     * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them to temporary addresses readable by the current run before submission. Deleting a file after upload or specifying an invalid file ID causes the submission to fail.
+     * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them into temporary addresses readable by the current run before submission. If a file is deleted after upload or an invalid file ID is specified, the submission fails.
      * ## Response and What to do next
-     * `Data.JobRunId` is the identity of the current semantics node run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor node and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
+     * `Data.JobRunId` is the identity of the current semantics job run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor job and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
      * ## Billing
      * **Before using this operation, make sure that you fully understand the billing method and pricing of the [model calls](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) used by semantic construction.**
      *
@@ -25416,15 +26173,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Submits a saved semantic job for execution by name and returns the run identifier and executor job identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+     * Submits a saved semantic job for execution by name and returns the run and executor identifiers. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
      *
      * @remarks
      * ## Description
-     * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime `Source`, resource group, or reference file overrides. The execution always uses the configuration saved by `CreateSemanticJob`.
+     * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime overrides for `Source`, resource groups, or reference files. The execution always uses the configuration saved by `CreateSemanticJob`.
      * ## Pre-execution validation
-     * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them to temporary addresses readable by the current run before submission. Deleting a file after upload or specifying an invalid file ID causes the submission to fail.
+     * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them into temporary addresses readable by the current run before submission. If a file is deleted after upload or an invalid file ID is specified, the submission fails.
      * ## Response and What to do next
-     * `Data.JobRunId` is the identity of the current semantics node run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor node and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
+     * `Data.JobRunId` is the identity of the current semantics job run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor job and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
      * ## Billing
      * **Before using this operation, make sure that you fully understand the billing method and pricing of the [model calls](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) used by semantic construction.**
      *
@@ -25799,10 +26556,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Stops a synchronization task.
+     * Aborts a data integration task.
      *
      * @remarks
-     * This API operation is available for all DataWorks editions.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
      *
      * @param Request - StopDIJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25837,10 +26594,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Stops a synchronization task.
+     * Aborts a data integration task.
      *
      * @remarks
-     * This API operation is available for all DataWorks editions.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
      *
      * @param Request - StopDIJobRequest
      *
@@ -26140,7 +26897,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 提交批量转交表Owner.
+     * Submits a batch request to transfer table ownership.
      *
      * @param tmpReq - SubmitBatchChangeTableOwnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26193,7 +26950,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 提交批量转交表Owner.
+     * Submits a batch request to transfer table ownership.
      *
      * @param Request - SubmitBatchChangeTableOwnerRequest
      *
@@ -27083,6 +27840,95 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateComputeResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the account mapping of a compute resource. Currently supports EMR and Serverless Spark resource types.
+     *
+     * @remarks
+     * 1. DataWorks Basic Edition or a higher edition is required.
+     * 2. You must have at least one of the following roles in the DataWorks workspace:
+     * 3. Tenant owner, tenant administrator, storage management administrator, project owner, or O&M engineer.
+     *
+     * @param tmpReq - UpdateComputeResourceAuthUserMappingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateComputeResourceAuthUserMappingsResponse
+     *
+     * @param UpdateComputeResourceAuthUserMappingsRequest $tmpReq
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return UpdateComputeResourceAuthUserMappingsResponse
+     */
+    public function updateComputeResourceAuthUserMappingsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateComputeResourceAuthUserMappingsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->removeUserIds) {
+            $request->removeUserIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeUserIds, 'RemoveUserIds', 'json');
+        }
+
+        if (null !== $tmpReq->upserts) {
+            $request->upsertsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->upserts, 'Upserts', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->computeResourceId) {
+            @$body['ComputeResourceId'] = $request->computeResourceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->removeUserIdsShrink) {
+            @$body['RemoveUserIds'] = $request->removeUserIdsShrink;
+        }
+
+        if (null !== $request->upsertsShrink) {
+            @$body['Upserts'] = $request->upsertsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateComputeResourceAuthUserMappings',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateComputeResourceAuthUserMappingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the account mapping of a compute resource. Currently supports EMR and Serverless Spark resource types.
+     *
+     * @remarks
+     * 1. DataWorks Basic Edition or a higher edition is required.
+     * 2. You must have at least one of the following roles in the DataWorks workspace:
+     * 3. Tenant owner, tenant administrator, storage management administrator, project owner, or O&M engineer.
+     *
+     * @param Request - UpdateComputeResourceAuthUserMappingsRequest
+     *
+     * @returns UpdateComputeResourceAuthUserMappingsResponse
+     *
+     * @param UpdateComputeResourceAuthUserMappingsRequest $request
+     *
+     * @return UpdateComputeResourceAuthUserMappingsResponse
+     */
+    public function updateComputeResourceAuthUserMappings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateComputeResourceAuthUserMappingsWithOptions($request, $runtime);
     }
 
     /**
@@ -28722,7 +29568,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Recalls the check result of the message of an extension point event.
+     * Returns the check result of an extension point event message.
      *
      * @param Request - UpdateIDEEventResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28773,7 +29619,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Recalls the check result of the message of an extension point event.
+     * Returns the check result of an extension point event message.
      *
      * @param Request - UpdateIDEEventResultRequest
      *
@@ -30542,6 +31388,181 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a specified node and synchronizes the changes to DataStudio to create a new saved version.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API operation updates the information of a specified node, including but not limited to the node name, description, and owner.
+     * - The changes are synchronized to DataStudio, and DataStudio creates a new saved version.
+     * - You can set detailed parameters such as the trigger method, runtime environment configuration, and dependencies of the node.
+     *
+     * @param tmpReq - UpdateTaskAsyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTaskAsyncResponse
+     *
+     * @param UpdateTaskAsyncRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateTaskAsyncResponse
+     */
+    public function updateTaskAsyncWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateTaskAsyncShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataSource) {
+            $request->dataSourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSource, 'DataSource', 'json');
+        }
+
+        if (null !== $tmpReq->dependencies) {
+            $request->dependenciesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dependencies, 'Dependencies', 'json');
+        }
+
+        if (null !== $tmpReq->inputs) {
+            $request->inputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputs, 'Inputs', 'json');
+        }
+
+        if (null !== $tmpReq->outputs) {
+            $request->outputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outputs, 'Outputs', 'json');
+        }
+
+        if (null !== $tmpReq->runtimeResource) {
+            $request->runtimeResourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runtimeResource, 'RuntimeResource', 'json');
+        }
+
+        if (null !== $tmpReq->script) {
+            $request->scriptShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->script, 'Script', 'json');
+        }
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
+        if (null !== $tmpReq->trigger) {
+            $request->triggerShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientUniqueCode) {
+            @$body['ClientUniqueCode'] = $request->clientUniqueCode;
+        }
+
+        if (null !== $request->dataSourceShrink) {
+            @$body['DataSource'] = $request->dataSourceShrink;
+        }
+
+        if (null !== $request->dependenciesShrink) {
+            @$body['Dependencies'] = $request->dependenciesShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->envType) {
+            @$body['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->inputsShrink) {
+            @$body['Inputs'] = $request->inputsShrink;
+        }
+
+        if (null !== $request->instanceMode) {
+            @$body['InstanceMode'] = $request->instanceMode;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->outputsShrink) {
+            @$body['Outputs'] = $request->outputsShrink;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->rerunInterval) {
+            @$body['RerunInterval'] = $request->rerunInterval;
+        }
+
+        if (null !== $request->rerunMode) {
+            @$body['RerunMode'] = $request->rerunMode;
+        }
+
+        if (null !== $request->rerunTimes) {
+            @$body['RerunTimes'] = $request->rerunTimes;
+        }
+
+        if (null !== $request->runtimeResourceShrink) {
+            @$body['RuntimeResource'] = $request->runtimeResourceShrink;
+        }
+
+        if (null !== $request->scriptShrink) {
+            @$body['Script'] = $request->scriptShrink;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
+        }
+
+        if (null !== $request->timeout) {
+            @$body['Timeout'] = $request->timeout;
+        }
+
+        if (null !== $request->triggerShrink) {
+            @$body['Trigger'] = $request->triggerShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTaskAsync',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTaskAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a specified node and synchronizes the changes to DataStudio to create a new saved version.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API operation updates the information of a specified node, including but not limited to the node name, description, and owner.
+     * - The changes are synchronized to DataStudio, and DataStudio creates a new saved version.
+     * - You can set detailed parameters such as the trigger method, runtime environment configuration, and dependencies of the node.
+     *
+     * @param Request - UpdateTaskAsyncRequest
+     *
+     * @returns UpdateTaskAsyncResponse
+     *
+     * @param UpdateTaskAsyncRequest $request
+     *
+     * @return UpdateTaskAsyncResponse
+     */
+    public function updateTaskAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskAsyncWithOptions($request, $runtime);
     }
 
     /**

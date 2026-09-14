@@ -71,6 +71,11 @@ class taskInstance extends Model
     public $modifyUser;
 
     /**
+     * @var string
+     */
+    public $operationType;
+
+    /**
      * @var outputs
      */
     public $outputs;
@@ -221,6 +226,7 @@ class taskInstance extends Model
         'inputs' => 'Inputs',
         'modifyTime' => 'ModifyTime',
         'modifyUser' => 'ModifyUser',
+        'operationType' => 'OperationType',
         'outputs' => 'Outputs',
         'owner' => 'Owner',
         'periodNumber' => 'PeriodNumber',
@@ -322,6 +328,10 @@ class taskInstance extends Model
 
         if (null !== $this->modifyUser) {
             $res['ModifyUser'] = $this->modifyUser;
+        }
+
+        if (null !== $this->operationType) {
+            $res['OperationType'] = $this->operationType;
         }
 
         if (null !== $this->outputs) {
@@ -496,6 +506,10 @@ class taskInstance extends Model
 
         if (isset($map['ModifyUser'])) {
             $model->modifyUser = $map['ModifyUser'];
+        }
+
+        if (isset($map['OperationType'])) {
+            $model->operationType = $map['OperationType'];
         }
 
         if (isset($map['Outputs'])) {
