@@ -251,6 +251,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBResourceManagementModeReque
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBResourceManagementModeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBVersionInfosRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBVersionInfosResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBVersionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBVersionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisDimensionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisDimensionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisMonitorPerformanceRequest;
@@ -680,30 +682,6 @@ class Gpdb extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'gpdb.aliyuncs.com',
             'eu-west-1-oxs' => 'gpdb.aliyuncs.com',
             'rus-west-1-pop' => 'gpdb.aliyuncs.com',
-            'cn-wulanchabu' => 'gpdb.cn-wulanchabu.aliyuncs.com',
-            'cn-beijing' => 'gpdb.cn-beijing.aliyuncs.com',
-            'cn-qingdao' => 'gpdb.cn-qingdao.aliyuncs.com',
-            'cn-shanghai' => 'gpdb.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'gpdb.cn-hongkong.aliyuncs.com',
-            'cn-zhangjiakou' => 'gpdb.cn-zhangjiakou.aliyuncs.com',
-            'cn-shenzhen' => 'gpdb.cn-shenzhen.aliyuncs.com',
-            'ap-northeast-2' => 'gpdb.ap-northeast-2.aliyuncs.com',
-            'ap-northeast-1' => 'gpdb.ap-northeast-1.aliyuncs.com',
-            'cn-chengdu' => 'gpdb.cn-chengdu.aliyuncs.com',
-            'ap-southeast-1' => 'gpdb.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3' => 'gpdb.ap-southeast-3.aliyuncs.com',
-            'cn-huhehaote' => 'gpdb.cn-huhehaote.aliyuncs.com',
-            'ap-southeast-5' => 'gpdb.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-7' => 'gpdb.ap-southeast-7.aliyuncs.com',
-            'us-east-1' => 'gpdb.us-east-1.aliyuncs.com',
-            'eu-west-1' => 'gpdb.eu-west-1.aliyuncs.com',
-            'us-west-1' => 'gpdb.us-west-1.aliyuncs.com',
-            'eu-central-1' => 'gpdb.eu-central-1.aliyuncs.com',
-            'me-east-1' => 'gpdb.me-east-1.aliyuncs.com',
-            'me-central-1' => 'gpdb.me-central-1.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'gpdb.cn-shenzhen-finance-1.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'gpdb.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-north-2-gov-1' => 'gpdb.cn-north-2-gov-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('gpdb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -4855,7 +4833,7 @@ class Gpdb extends OpenApiClient
      * Creates a Supabase project.
      *
      * @remarks
-     * Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+     * Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
      *
      * @param Request - CreateSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4965,7 +4943,7 @@ class Gpdb extends OpenApiClient
      * Creates a Supabase project.
      *
      * @remarks
-     * Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+     * Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
      *
      * @param Request - CreateSupabaseProjectRequest
      *
@@ -9661,6 +9639,67 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBResourceManagementModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the kernel update version information.
+     *
+     * @param Request - DescribeDBVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBVersionResponse
+     *
+     * @param DescribeDBVersionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeDBVersionResponse
+     */
+    public function describeDBVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBVersion',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the kernel update version information.
+     *
+     * @param Request - DescribeDBVersionRequest
+     *
+     * @returns DescribeDBVersionResponse
+     *
+     * @param DescribeDBVersionRequest $request
+     *
+     * @return DescribeDBVersionResponse
+     */
+    public function describeDBVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -14683,10 +14722,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves details of a Supabase instance.
+     * Queries the details of a Supabase instance.
      *
      * @remarks
-     * Gets the details of a Supabase instance.
+     * Queries the details of a Supabase instance.
      *
      * @param Request - GetSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14729,10 +14768,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves details of a Supabase instance.
+     * Queries the details of a Supabase instance.
      *
      * @remarks
-     * Gets the details of a Supabase instance.
+     * Queries the details of a Supabase instance.
      *
      * @param Request - GetSupabaseProjectRequest
      *
@@ -20128,6 +20167,10 @@ class Gpdb extends OpenApiClient
             @$query['AutoScale'] = $request->autoScale;
         }
 
+        if (null !== $request->idleTimeHours) {
+            @$query['IdleTimeHours'] = $request->idleTimeHours;
+        }
+
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
         }
@@ -21697,10 +21740,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Reset the password of a Supabase database.
+     * Resets the password of a Supabase database.
      *
      * @remarks
-     * Call this API to reset the password of the Supabase database.
+     * Resets the password of a Supabase database.
      *
      * @param Request - ResetSupabaseProjectPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21718,6 +21761,10 @@ class Gpdb extends OpenApiClient
         $query = [];
         if (null !== $request->accountPassword) {
             @$query['AccountPassword'] = $request->accountPassword;
+        }
+
+        if (null !== $request->dashboardPassword) {
+            @$query['DashboardPassword'] = $request->dashboardPassword;
         }
 
         if (null !== $request->projectId) {
@@ -21747,10 +21794,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Reset the password of a Supabase database.
+     * Resets the password of a Supabase database.
      *
      * @remarks
-     * Call this API to reset the password of the Supabase database.
+     * Resets the password of a Supabase database.
      *
      * @param Request - ResetSupabaseProjectPasswordRequest
      *

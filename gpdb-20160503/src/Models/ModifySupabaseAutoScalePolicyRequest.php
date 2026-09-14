@@ -16,6 +16,11 @@ class ModifySupabaseAutoScalePolicyRequest extends Model
     /**
      * @var string
      */
+    public $idleTimeHours;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
@@ -24,6 +29,7 @@ class ModifySupabaseAutoScalePolicyRequest extends Model
     public $regionId;
     protected $_name = [
         'autoScale' => 'AutoScale',
+        'idleTimeHours' => 'IdleTimeHours',
         'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
@@ -38,6 +44,10 @@ class ModifySupabaseAutoScalePolicyRequest extends Model
         $res = [];
         if (null !== $this->autoScale) {
             $res['AutoScale'] = $this->autoScale;
+        }
+
+        if (null !== $this->idleTimeHours) {
+            $res['IdleTimeHours'] = $this->idleTimeHours;
         }
 
         if (null !== $this->projectId) {
@@ -61,6 +71,10 @@ class ModifySupabaseAutoScalePolicyRequest extends Model
         $model = new self();
         if (isset($map['AutoScale'])) {
             $model->autoScale = $map['AutoScale'];
+        }
+
+        if (isset($map['IdleTimeHours'])) {
+            $model->idleTimeHours = $map['IdleTimeHours'];
         }
 
         if (isset($map['ProjectId'])) {

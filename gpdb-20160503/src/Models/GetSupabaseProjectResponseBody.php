@@ -11,6 +11,11 @@ class GetSupabaseProjectResponseBody extends Model
     /**
      * @var string
      */
+    public $appliedIdleTimeHours;
+
+    /**
+     * @var string
+     */
     public $autoScale;
 
     /**
@@ -143,6 +148,7 @@ class GetSupabaseProjectResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
+        'appliedIdleTimeHours' => 'AppliedIdleTimeHours',
         'autoScale' => 'AutoScale',
         'createTime' => 'CreateTime',
         'DBSecurityIpList' => 'DBSecurityIpList',
@@ -180,6 +186,10 @@ class GetSupabaseProjectResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appliedIdleTimeHours) {
+            $res['AppliedIdleTimeHours'] = $this->appliedIdleTimeHours;
+        }
+
         if (null !== $this->autoScale) {
             $res['AutoScale'] = $this->autoScale;
         }
@@ -299,6 +309,10 @@ class GetSupabaseProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppliedIdleTimeHours'])) {
+            $model->appliedIdleTimeHours = $map['AppliedIdleTimeHours'];
+        }
+
         if (isset($map['AutoScale'])) {
             $model->autoScale = $map['AutoScale'];
         }

@@ -16,6 +16,11 @@ class ResetSupabaseProjectPasswordRequest extends Model
     /**
      * @var string
      */
+    public $dashboardPassword;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
@@ -24,6 +29,7 @@ class ResetSupabaseProjectPasswordRequest extends Model
     public $regionId;
     protected $_name = [
         'accountPassword' => 'AccountPassword',
+        'dashboardPassword' => 'DashboardPassword',
         'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
     ];
@@ -38,6 +44,10 @@ class ResetSupabaseProjectPasswordRequest extends Model
         $res = [];
         if (null !== $this->accountPassword) {
             $res['AccountPassword'] = $this->accountPassword;
+        }
+
+        if (null !== $this->dashboardPassword) {
+            $res['DashboardPassword'] = $this->dashboardPassword;
         }
 
         if (null !== $this->projectId) {
@@ -61,6 +71,10 @@ class ResetSupabaseProjectPasswordRequest extends Model
         $model = new self();
         if (isset($map['AccountPassword'])) {
             $model->accountPassword = $map['AccountPassword'];
+        }
+
+        if (isset($map['DashboardPassword'])) {
+            $model->dashboardPassword = $map['DashboardPassword'];
         }
 
         if (isset($map['ProjectId'])) {
