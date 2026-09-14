@@ -14,6 +14,11 @@ class headSpec extends Model
     public $cpu;
 
     /**
+     * @var string
+     */
+    public $displayReleaseVersion;
+
+    /**
      * @var bool
      */
     public $enableAutoScaling;
@@ -44,6 +49,7 @@ class headSpec extends Model
     public $replica;
     protected $_name = [
         'cpu' => 'cpu',
+        'displayReleaseVersion' => 'displayReleaseVersion',
         'enableAutoScaling' => 'enableAutoScaling',
         'gpuSpec' => 'gpuSpec',
         'idleTimeoutSeconds' => 'idleTimeoutSeconds',
@@ -62,6 +68,10 @@ class headSpec extends Model
         $res = [];
         if (null !== $this->cpu) {
             $res['cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->displayReleaseVersion) {
+            $res['displayReleaseVersion'] = $this->displayReleaseVersion;
         }
 
         if (null !== $this->enableAutoScaling) {
@@ -101,6 +111,10 @@ class headSpec extends Model
         $model = new self();
         if (isset($map['cpu'])) {
             $model->cpu = $map['cpu'];
+        }
+
+        if (isset($map['displayReleaseVersion'])) {
+            $model->displayReleaseVersion = $map['displayReleaseVersion'];
         }
 
         if (isset($map['enableAutoScaling'])) {

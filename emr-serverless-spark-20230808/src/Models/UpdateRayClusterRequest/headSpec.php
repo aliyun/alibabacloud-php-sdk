@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateRayClusterRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateRayClusterRequest\headSpec\gftConfig;
 
 class headSpec extends Model
 {
@@ -14,9 +15,29 @@ class headSpec extends Model
     public $cpu;
 
     /**
+     * @var string
+     */
+    public $displayReleaseVersion;
+
+    /**
      * @var bool
      */
     public $enableAutoScaling;
+
+    /**
+     * @var string
+     */
+    public $env;
+
+    /**
+     * @var gftConfig
+     */
+    public $gftConfig;
+
+    /**
+     * @var bool
+     */
+    public $gftEnabled;
 
     /**
      * @var string
@@ -37,17 +58,30 @@ class headSpec extends Model
      * @var string
      */
     public $queueName;
+
+    /**
+     * @var string
+     */
+    public $rayStartParams;
     protected $_name = [
         'cpu' => 'cpu',
+        'displayReleaseVersion' => 'displayReleaseVersion',
         'enableAutoScaling' => 'enableAutoScaling',
+        'env' => 'env',
+        'gftConfig' => 'gftConfig',
+        'gftEnabled' => 'gftEnabled',
         'gpuSpec' => 'gpuSpec',
         'idleTimeoutSeconds' => 'idleTimeoutSeconds',
         'memory' => 'memory',
         'queueName' => 'queueName',
+        'rayStartParams' => 'rayStartParams',
     ];
 
     public function validate()
     {
+        if (null !== $this->gftConfig) {
+            $this->gftConfig->validate();
+        }
         parent::validate();
     }
 
@@ -58,8 +92,24 @@ class headSpec extends Model
             $res['cpu'] = $this->cpu;
         }
 
+        if (null !== $this->displayReleaseVersion) {
+            $res['displayReleaseVersion'] = $this->displayReleaseVersion;
+        }
+
         if (null !== $this->enableAutoScaling) {
             $res['enableAutoScaling'] = $this->enableAutoScaling;
+        }
+
+        if (null !== $this->env) {
+            $res['env'] = $this->env;
+        }
+
+        if (null !== $this->gftConfig) {
+            $res['gftConfig'] = null !== $this->gftConfig ? $this->gftConfig->toArray($noStream) : $this->gftConfig;
+        }
+
+        if (null !== $this->gftEnabled) {
+            $res['gftEnabled'] = $this->gftEnabled;
         }
 
         if (null !== $this->gpuSpec) {
@@ -78,6 +128,10 @@ class headSpec extends Model
             $res['queueName'] = $this->queueName;
         }
 
+        if (null !== $this->rayStartParams) {
+            $res['rayStartParams'] = $this->rayStartParams;
+        }
+
         return $res;
     }
 
@@ -93,8 +147,24 @@ class headSpec extends Model
             $model->cpu = $map['cpu'];
         }
 
+        if (isset($map['displayReleaseVersion'])) {
+            $model->displayReleaseVersion = $map['displayReleaseVersion'];
+        }
+
         if (isset($map['enableAutoScaling'])) {
             $model->enableAutoScaling = $map['enableAutoScaling'];
+        }
+
+        if (isset($map['env'])) {
+            $model->env = $map['env'];
+        }
+
+        if (isset($map['gftConfig'])) {
+            $model->gftConfig = gftConfig::fromMap($map['gftConfig']);
+        }
+
+        if (isset($map['gftEnabled'])) {
+            $model->gftEnabled = $map['gftEnabled'];
         }
 
         if (isset($map['gpuSpec'])) {
@@ -111,6 +181,10 @@ class headSpec extends Model
 
         if (isset($map['queueName'])) {
             $model->queueName = $map['queueName'];
+        }
+
+        if (isset($map['rayStartParams'])) {
+            $model->rayStartParams = $map['rayStartParams'];
         }
 
         return $model;

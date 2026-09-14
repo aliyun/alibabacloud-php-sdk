@@ -16,6 +16,16 @@ class workerSpec extends Model
     /**
      * @var string
      */
+    public $displayReleaseVersion;
+
+    /**
+     * @var string
+     */
+    public $env;
+
+    /**
+     * @var string
+     */
     public $gpuSpec;
 
     /**
@@ -44,6 +54,11 @@ class workerSpec extends Model
     public $queueName;
 
     /**
+     * @var string
+     */
+    public $rayStartParams;
+
+    /**
      * @var int
      */
     public $replica;
@@ -54,12 +69,15 @@ class workerSpec extends Model
     public $workerType;
     protected $_name = [
         'cpu' => 'cpu',
+        'displayReleaseVersion' => 'displayReleaseVersion',
+        'env' => 'env',
         'gpuSpec' => 'gpuSpec',
         'groupName' => 'groupName',
         'maxReplica' => 'maxReplica',
         'memory' => 'memory',
         'minReplica' => 'minReplica',
         'queueName' => 'queueName',
+        'rayStartParams' => 'rayStartParams',
         'replica' => 'replica',
         'workerType' => 'workerType',
     ];
@@ -74,6 +92,14 @@ class workerSpec extends Model
         $res = [];
         if (null !== $this->cpu) {
             $res['cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->displayReleaseVersion) {
+            $res['displayReleaseVersion'] = $this->displayReleaseVersion;
+        }
+
+        if (null !== $this->env) {
+            $res['env'] = $this->env;
         }
 
         if (null !== $this->gpuSpec) {
@@ -100,6 +126,10 @@ class workerSpec extends Model
             $res['queueName'] = $this->queueName;
         }
 
+        if (null !== $this->rayStartParams) {
+            $res['rayStartParams'] = $this->rayStartParams;
+        }
+
         if (null !== $this->replica) {
             $res['replica'] = $this->replica;
         }
@@ -121,6 +151,14 @@ class workerSpec extends Model
         $model = new self();
         if (isset($map['cpu'])) {
             $model->cpu = $map['cpu'];
+        }
+
+        if (isset($map['displayReleaseVersion'])) {
+            $model->displayReleaseVersion = $map['displayReleaseVersion'];
+        }
+
+        if (isset($map['env'])) {
+            $model->env = $map['env'];
         }
 
         if (isset($map['gpuSpec'])) {
@@ -145,6 +183,10 @@ class workerSpec extends Model
 
         if (isset($map['queueName'])) {
             $model->queueName = $map['queueName'];
+        }
+
+        if (isset($map['rayStartParams'])) {
+            $model->rayStartParams = $map['rayStartParams'];
         }
 
         if (isset($map['replica'])) {

@@ -39,6 +39,11 @@ class releaseVersions extends Model
     public $iaasType;
 
     /**
+     * @var bool
+     */
+    public $isCustom;
+
+    /**
      * @var string
      */
     public $releaseVersion;
@@ -64,6 +69,7 @@ class releaseVersions extends Model
         'fusion' => 'fusion',
         'gmtCreate' => 'gmtCreate',
         'iaasType' => 'iaasType',
+        'isCustom' => 'isCustom',
         'releaseVersion' => 'releaseVersion',
         'scalaVersion' => 'scalaVersion',
         'state' => 'state',
@@ -110,6 +116,10 @@ class releaseVersions extends Model
 
         if (null !== $this->iaasType) {
             $res['iaasType'] = $this->iaasType;
+        }
+
+        if (null !== $this->isCustom) {
+            $res['isCustom'] = $this->isCustom;
         }
 
         if (null !== $this->releaseVersion) {
@@ -168,6 +178,10 @@ class releaseVersions extends Model
 
         if (isset($map['iaasType'])) {
             $model->iaasType = $map['iaasType'];
+        }
+
+        if (isset($map['isCustom'])) {
+            $model->isCustom = $map['isCustom'];
         }
 
         if (isset($map['releaseVersion'])) {

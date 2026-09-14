@@ -94,6 +94,7 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobExecutorsRespons
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsShrinkRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiServicesRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiServicesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiSparkApplicationsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiSparkApplicationsResponse;
@@ -132,6 +133,9 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspaceQueuesResp
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesShrinkRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\QueryApmGrafanaDataRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\QueryApmGrafanaDataResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\QueryApmGrafanaDataShrinkRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\RefreshLivyComputeTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\RefreshLivyComputeTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartCacheClusterRequest;
@@ -184,23 +188,6 @@ class Emrserverlessspark extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shenzhen' => 'emr-serverless-spark.cn-shenzhen.aliyuncs.com',
-            'cn-wulanchabu' => 'emr-serverless-spark.cn-wulanchabu.aliyuncs.com',
-            'cn-beijing' => 'emr-serverless-spark.cn-beijing.aliyuncs.com',
-            'ap-northeast-1' => 'emr-serverless-spark.ap-northeast-1.aliyuncs.com',
-            'cn-chengdu' => 'emr-serverless-spark.cn-chengdu.aliyuncs.com',
-            'cn-shanghai' => 'emr-serverless-spark.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'emr-serverless-spark.cn-hongkong.aliyuncs.com',
-            'ap-southeast-1' => 'emr-serverless-spark.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5' => 'emr-serverless-spark.ap-southeast-5.aliyuncs.com',
-            'cn-zhangjiakou' => 'emr-serverless-spark.cn-zhangjiakou.aliyuncs.com',
-            'cn-hangzhou' => 'emr-serverless-spark.cn-hangzhou.aliyuncs.com',
-            'us-west-1' => 'emr-serverless-spark.us-west-1.aliyuncs.com',
-            'us-east-1' => 'emr-serverless-spark.us-east-1.aliyuncs.com',
-            'eu-central-1' => 'emr-serverless-spark.eu-central-1.aliyuncs.com',
-            'na-south-1' => 'emr-serverless-spark.na-south-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('emr-serverless-spark', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -2044,7 +2031,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Modifies a workspace queue.
+     * Edits a workspace queue.
      *
      * @param request - EditWorkspaceQueueRequest
      * @param headers - map
@@ -2067,6 +2054,10 @@ class Emrserverlessspark extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
         if (null !== $request->environments) {
             @$body['environments'] = $request->environments;
         }
@@ -2112,7 +2103,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Modifies a workspace queue.
+     * Edits a workspace queue.
      *
      * @param request - EditWorkspaceQueueRequest
      *
@@ -2464,7 +2455,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Get the details of a job.
+     * Retrieves the details of a job run by calling GetJobRun.
      *
      * @param request - GetJobRunRequest
      * @param headers - map
@@ -2508,7 +2499,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Get the details of a job.
+     * Retrieves the details of a job run by calling GetJobRun.
      *
      * @param request - GetJobRunRequest
      *
@@ -2781,7 +2772,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
+     * Retrieves a Ray cluster.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2816,7 +2807,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
+     * Retrieves a Ray cluster.
      *
      * @returns GetRayClusterResponse
      *
@@ -3673,21 +3664,30 @@ class Emrserverlessspark extends OpenApiClient
     /**
      * Lists Kyuubi Gateways.
      *
+     * @param request - ListKyuubiServicesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListKyuubiServicesResponse
      *
-     * @param string         $workspaceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $workspaceId
+     * @param ListKyuubiServicesRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return ListKyuubiServicesResponse
      */
-    public function listKyuubiServicesWithOptions($workspaceId, $headers, $runtime)
+    public function listKyuubiServicesWithOptions($workspaceId, $request, $headers, $runtime)
     {
+        $request->validate();
+        $query = [];
+        if (null !== $request->token) {
+            @$query['token'] = $request->token;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListKyuubiServices',
@@ -3707,18 +3707,21 @@ class Emrserverlessspark extends OpenApiClient
     /**
      * Lists Kyuubi Gateways.
      *
+     * @param request - ListKyuubiServicesRequest
+     *
      * @returns ListKyuubiServicesResponse
      *
-     * @param string $workspaceId
+     * @param string                    $workspaceId
+     * @param ListKyuubiServicesRequest $request
      *
      * @return ListKyuubiServicesResponse
      */
-    public function listKyuubiServices($workspaceId)
+    public function listKyuubiServices($workspaceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listKyuubiServicesWithOptions($workspaceId, $headers, $runtime);
+        return $this->listKyuubiServicesWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5017,6 +5020,121 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * Queries APM Grafana panel data for Serverless Spark.
+     *
+     * @param tmpReq - QueryApmGrafanaDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryApmGrafanaDataResponse
+     *
+     * @param QueryApmGrafanaDataRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryApmGrafanaDataResponse
+     */
+    public function queryApmGrafanaDataWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryApmGrafanaDataShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryParams) {
+            $request->queryParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryParams, 'queryParams', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->componentName) {
+            @$query['componentName'] = $request->componentName;
+        }
+
+        if (null !== $request->dashboardId) {
+            @$query['dashboardId'] = $request->dashboardId;
+        }
+
+        if (null !== $request->end) {
+            @$query['end'] = $request->end;
+        }
+
+        if (null !== $request->provider) {
+            @$query['provider'] = $request->provider;
+        }
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
+        }
+
+        if (null !== $request->queryParamsShrink) {
+            @$query['queryParams'] = $request->queryParamsShrink;
+        }
+
+        if (null !== $request->queryUrl) {
+            @$query['queryUrl'] = $request->queryUrl;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->start) {
+            @$query['start'] = $request->start;
+        }
+
+        if (null !== $request->step) {
+            @$query['step'] = $request->step;
+        }
+
+        if (null !== $request->time) {
+            @$query['time'] = $request->time;
+        }
+
+        if (null !== $request->variables) {
+            @$query['variables'] = $request->variables;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryApmGrafanaData',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/apm/action/queryApmGrafanaData',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryApmGrafanaDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries APM Grafana panel data for Serverless Spark.
+     *
+     * @param request - QueryApmGrafanaDataRequest
+     *
+     * @returns QueryApmGrafanaDataResponse
+     *
+     * @param QueryApmGrafanaDataRequest $request
+     *
+     * @return QueryApmGrafanaDataResponse
+     */
+    public function queryApmGrafanaData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryApmGrafanaDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Refreshes the token for a Livy Gateway.
      *
      * @param request - RefreshLivyComputeTokenRequest
@@ -5392,7 +5510,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Starts a workflow manually.
+     * Manually runs a workflow.
      *
      * @param request - StartProcessInstanceRequest
      * @param headers - map
@@ -5423,6 +5541,10 @@ class Emrserverlessspark extends OpenApiClient
             @$query['email'] = $request->email;
         }
 
+        if (null !== $request->expectedParallelismNumber) {
+            @$query['expectedParallelismNumber'] = $request->expectedParallelismNumber;
+        }
+
         if (null !== $request->interval) {
             @$query['interval'] = $request->interval;
         }
@@ -5441,6 +5563,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->runMode) {
+            @$query['runMode'] = $request->runMode;
         }
 
         if (null !== $request->runtimeQueue) {
@@ -5475,7 +5601,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Starts a workflow manually.
+     * Manually runs a workflow.
      *
      * @param request - StartProcessInstanceRequest
      *
@@ -5973,6 +6099,10 @@ class Emrserverlessspark extends OpenApiClient
         $body = [];
         if (null !== $request->activeDeadlineSeconds) {
             @$body['activeDeadlineSeconds'] = $request->activeDeadlineSeconds;
+        }
+
+        if (null !== $request->clusterId) {
+            @$body['clusterId'] = $request->clusterId;
         }
 
         if (null !== $request->displayReleaseVersion) {

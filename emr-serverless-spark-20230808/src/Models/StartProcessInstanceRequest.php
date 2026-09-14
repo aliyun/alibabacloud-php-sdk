@@ -24,6 +24,11 @@ class StartProcessInstanceRequest extends Model
     public $email;
 
     /**
+     * @var int
+     */
+    public $expectedParallelismNumber;
+
+    /**
      * @var string
      */
     public $interval;
@@ -51,6 +56,11 @@ class StartProcessInstanceRequest extends Model
     /**
      * @var string
      */
+    public $runMode;
+
+    /**
+     * @var string
+     */
     public $runtimeQueue;
 
     /**
@@ -66,11 +76,13 @@ class StartProcessInstanceRequest extends Model
         'action' => 'action',
         'comments' => 'comments',
         'email' => 'email',
+        'expectedParallelismNumber' => 'expectedParallelismNumber',
         'interval' => 'interval',
         'isProd' => 'isProd',
         'processDefinitionCode' => 'processDefinitionCode',
         'productNamespace' => 'productNamespace',
         'regionId' => 'regionId',
+        'runMode' => 'runMode',
         'runtimeQueue' => 'runtimeQueue',
         'versionHashCode' => 'versionHashCode',
         'versionNumber' => 'versionNumber',
@@ -96,6 +108,10 @@ class StartProcessInstanceRequest extends Model
             $res['email'] = $this->email;
         }
 
+        if (null !== $this->expectedParallelismNumber) {
+            $res['expectedParallelismNumber'] = $this->expectedParallelismNumber;
+        }
+
         if (null !== $this->interval) {
             $res['interval'] = $this->interval;
         }
@@ -114,6 +130,10 @@ class StartProcessInstanceRequest extends Model
 
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
+        }
+
+        if (null !== $this->runMode) {
+            $res['runMode'] = $this->runMode;
         }
 
         if (null !== $this->runtimeQueue) {
@@ -151,6 +171,10 @@ class StartProcessInstanceRequest extends Model
             $model->email = $map['email'];
         }
 
+        if (isset($map['expectedParallelismNumber'])) {
+            $model->expectedParallelismNumber = $map['expectedParallelismNumber'];
+        }
+
         if (isset($map['interval'])) {
             $model->interval = $map['interval'];
         }
@@ -169,6 +193,10 @@ class StartProcessInstanceRequest extends Model
 
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
+        }
+
+        if (isset($map['runMode'])) {
+            $model->runMode = $map['runMode'];
         }
 
         if (isset($map['runtimeQueue'])) {

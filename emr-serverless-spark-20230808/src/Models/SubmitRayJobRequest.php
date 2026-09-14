@@ -19,6 +19,11 @@ class SubmitRayJobRequest extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $displayReleaseVersion;
 
     /**
@@ -112,6 +117,7 @@ class SubmitRayJobRequest extends Model
     public $workingDir;
     protected $_name = [
         'activeDeadlineSeconds' => 'activeDeadlineSeconds',
+        'clusterId' => 'clusterId',
         'displayReleaseVersion' => 'displayReleaseVersion',
         'entrypoint' => 'entrypoint',
         'entrypointMemory' => 'entrypointMemory',
@@ -155,6 +161,10 @@ class SubmitRayJobRequest extends Model
         $res = [];
         if (null !== $this->activeDeadlineSeconds) {
             $res['activeDeadlineSeconds'] = $this->activeDeadlineSeconds;
+        }
+
+        if (null !== $this->clusterId) {
+            $res['clusterId'] = $this->clusterId;
         }
 
         if (null !== $this->displayReleaseVersion) {
@@ -267,6 +277,10 @@ class SubmitRayJobRequest extends Model
         $model = new self();
         if (isset($map['activeDeadlineSeconds'])) {
             $model->activeDeadlineSeconds = $map['activeDeadlineSeconds'];
+        }
+
+        if (isset($map['clusterId'])) {
+            $model->clusterId = $map['clusterId'];
         }
 
         if (isset($map['displayReleaseVersion'])) {

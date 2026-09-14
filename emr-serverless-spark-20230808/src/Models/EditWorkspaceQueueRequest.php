@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueReque
 class EditWorkspaceQueueRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var string[]
      */
     public $environments;
@@ -44,6 +49,7 @@ class EditWorkspaceQueueRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'description' => 'description',
         'environments' => 'environments',
         'gpuSpec' => 'gpuSpec',
         'instanceId' => 'instanceId',
@@ -70,6 +76,10 @@ class EditWorkspaceQueueRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+
         if (null !== $this->environments) {
             if (\is_array($this->environments)) {
                 $res['environments'] = [];
@@ -123,6 +133,10 @@ class EditWorkspaceQueueRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+
         if (isset($map['environments'])) {
             if (!empty($map['environments'])) {
                 $model->environments = [];

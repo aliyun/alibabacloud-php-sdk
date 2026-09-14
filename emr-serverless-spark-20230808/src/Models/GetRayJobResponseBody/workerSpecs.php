@@ -16,6 +16,11 @@ class workerSpecs extends Model
     /**
      * @var string
      */
+    public $displayReleaseVersion;
+
+    /**
+     * @var string
+     */
     public $gpuSpec;
 
     /**
@@ -49,6 +54,7 @@ class workerSpecs extends Model
     public $replica;
     protected $_name = [
         'cpu' => 'cpu',
+        'displayReleaseVersion' => 'displayReleaseVersion',
         'gpuSpec' => 'gpuSpec',
         'groupName' => 'groupName',
         'maxReplica' => 'maxReplica',
@@ -68,6 +74,10 @@ class workerSpecs extends Model
         $res = [];
         if (null !== $this->cpu) {
             $res['cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->displayReleaseVersion) {
+            $res['displayReleaseVersion'] = $this->displayReleaseVersion;
         }
 
         if (null !== $this->gpuSpec) {
@@ -111,6 +121,10 @@ class workerSpecs extends Model
         $model = new self();
         if (isset($map['cpu'])) {
             $model->cpu = $map['cpu'];
+        }
+
+        if (isset($map['displayReleaseVersion'])) {
+            $model->displayReleaseVersion = $map['displayReleaseVersion'];
         }
 
         if (isset($map['gpuSpec'])) {

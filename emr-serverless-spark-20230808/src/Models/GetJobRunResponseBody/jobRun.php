@@ -114,6 +114,11 @@ class jobRun extends Model
     public $tags;
 
     /**
+     * @var int
+     */
+    public $totalTokens;
+
+    /**
      * @var string
      */
     public $webUI;
@@ -143,6 +148,7 @@ class jobRun extends Model
         'stateChangeReason' => 'stateChangeReason',
         'submitTime' => 'submitTime',
         'tags' => 'tags',
+        'totalTokens' => 'totalTokens',
         'webUI' => 'webUI',
         'workspaceId' => 'workspaceId',
     ];
@@ -257,6 +263,10 @@ class jobRun extends Model
             }
         }
 
+        if (null !== $this->totalTokens) {
+            $res['totalTokens'] = $this->totalTokens;
+        }
+
         if (null !== $this->webUI) {
             $res['webUI'] = $this->webUI;
         }
@@ -361,6 +371,10 @@ class jobRun extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['totalTokens'])) {
+            $model->totalTokens = $map['totalTokens'];
         }
 
         if (isset($map['webUI'])) {

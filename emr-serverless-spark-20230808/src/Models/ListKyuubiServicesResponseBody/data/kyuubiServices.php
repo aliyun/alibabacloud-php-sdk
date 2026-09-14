@@ -82,6 +82,11 @@ class kyuubiServices extends Model
      * @var string
      */
     public $state;
+
+    /**
+     * @var string
+     */
+    public $webUi;
     protected $_name = [
         'computeInstance' => 'computeInstance',
         'createTime' => 'createTime',
@@ -98,6 +103,7 @@ class kyuubiServices extends Model
         'sparkConfigs' => 'sparkConfigs',
         'startTime' => 'startTime',
         'state' => 'state',
+        'webUi' => 'webUi',
     ];
 
     public function validate()
@@ -166,6 +172,10 @@ class kyuubiServices extends Model
 
         if (null !== $this->state) {
             $res['state'] = $this->state;
+        }
+
+        if (null !== $this->webUi) {
+            $res['webUi'] = $this->webUi;
         }
 
         return $res;
@@ -237,6 +247,10 @@ class kyuubiServices extends Model
 
         if (isset($map['state'])) {
             $model->state = $map['state'];
+        }
+
+        if (isset($map['webUi'])) {
+            $model->webUi = $map['webUi'];
         }
 
         return $model;

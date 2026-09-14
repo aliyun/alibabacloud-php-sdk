@@ -25,6 +25,11 @@ class queues extends Model
     public $creator;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var string[]
      */
     public $environments;
@@ -112,6 +117,7 @@ class queues extends Model
         'allowActions' => 'allowActions',
         'createTime' => 'createTime',
         'creator' => 'creator',
+        'description' => 'description',
         'environments' => 'environments',
         'gpuMachineNum' => 'gpuMachineNum',
         'gpuSpec' => 'gpuSpec',
@@ -165,6 +171,10 @@ class queues extends Model
 
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
+        }
+
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
 
         if (null !== $this->environments) {
@@ -277,6 +287,10 @@ class queues extends Model
 
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
+        }
+
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
 
         if (isset($map['environments'])) {
