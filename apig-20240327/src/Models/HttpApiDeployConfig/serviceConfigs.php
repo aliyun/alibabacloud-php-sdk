@@ -13,6 +13,11 @@ class serviceConfigs extends Model
     /**
      * @var string
      */
+    public $capabilityTier;
+
+    /**
+     * @var string
+     */
     public $gatewayServiceId;
 
     /**
@@ -75,6 +80,7 @@ class serviceConfigs extends Model
      */
     public $weight;
     protected $_name = [
+        'capabilityTier' => 'capabilityTier',
         'gatewayServiceId' => 'gatewayServiceId',
         'intentCode' => 'intentCode',
         'match' => 'match',
@@ -104,6 +110,10 @@ class serviceConfigs extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->capabilityTier) {
+            $res['capabilityTier'] = $this->capabilityTier;
+        }
+
         if (null !== $this->gatewayServiceId) {
             $res['gatewayServiceId'] = $this->gatewayServiceId;
         }
@@ -167,6 +177,10 @@ class serviceConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['capabilityTier'])) {
+            $model->capabilityTier = $map['capabilityTier'];
+        }
+
         if (isset($map['gatewayServiceId'])) {
             $model->gatewayServiceId = $map['gatewayServiceId'];
         }

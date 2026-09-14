@@ -101,6 +101,11 @@ class HttpApiDeployConfig extends Model
      * @var subDomains[]
      */
     public $subDomains;
+
+    /**
+     * @var string[]
+     */
+    public $systemModelTiers;
     protected $_name = [
         'autoDeploy' => 'autoDeploy',
         'backendScene' => 'backendScene',
@@ -120,6 +125,7 @@ class HttpApiDeployConfig extends Model
         'routeBackend' => 'routeBackend',
         'serviceConfigs' => 'serviceConfigs',
         'subDomains' => 'subDomains',
+        'systemModelTiers' => 'systemModelTiers',
     ];
 
     public function validate()
@@ -156,6 +162,9 @@ class HttpApiDeployConfig extends Model
         }
         if (\is_array($this->subDomains)) {
             Model::validateArray($this->subDomains);
+        }
+        if (\is_array($this->systemModelTiers)) {
+            Model::validateArray($this->systemModelTiers);
         }
         parent::validate();
     }
@@ -286,6 +295,17 @@ class HttpApiDeployConfig extends Model
                 $n1 = 0;
                 foreach ($this->subDomains as $item1) {
                     $res['subDomains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->systemModelTiers) {
+            if (\is_array($this->systemModelTiers)) {
+                $res['systemModelTiers'] = [];
+                $n1 = 0;
+                foreach ($this->systemModelTiers as $item1) {
+                    $res['systemModelTiers'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -425,6 +445,17 @@ class HttpApiDeployConfig extends Model
                 $n1 = 0;
                 foreach ($map['subDomains'] as $item1) {
                     $model->subDomains[$n1] = subDomains::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['systemModelTiers'])) {
+            if (!empty($map['systemModelTiers'])) {
+                $model->systemModelTiers = [];
+                $n1 = 0;
+                foreach ($map['systemModelTiers'] as $item1) {
+                    $model->systemModelTiers[$n1] = $item1;
                     ++$n1;
                 }
             }

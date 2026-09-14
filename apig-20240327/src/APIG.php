@@ -392,8 +392,8 @@ class APIG extends OpenApiClient
      * >  Recommended call sequence:
      * > - Step 1: Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
-     * > - - The response returns a conflict preview that contains the conflictHash value.
-     * > - Step 2: Submit the request after confirmation.
+     * > - - The response returns a conflict preview that contains conflictHash.
+     * > - Step 2: Submit the rule after confirmation.
      * > - - No conflicts: Set dryRun to false and overwrite to false.
      * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
@@ -494,8 +494,8 @@ class APIG extends OpenApiClient
      * >  Recommended call sequence:
      * > - Step 1: Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
-     * > - - The response returns a conflict preview that contains the conflictHash value.
-     * > - Step 2: Submit the request after confirmation.
+     * > - - The response returns a conflict preview that contains conflictHash.
+     * > - Step 2: Submit the rule after confirmation.
      * > - - No conflicts: Set dryRun to false and overwrite to false.
      * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
@@ -1371,6 +1371,15 @@ class APIG extends OpenApiClient
     public function createConsumerWithOptions($request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         $body = [];
         if (null !== $request->akSkIdentityConfigs) {
             @$body['akSkIdentityConfigs'] = $request->akSkIdentityConfigs;
@@ -1402,6 +1411,7 @@ class APIG extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2111,7 +2121,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates operations for an HTTP API.
+     * Creates an operation for an HTTP API.
      *
      * @param request - CreateHttpApiOperationRequest
      * @param headers - map
@@ -2154,7 +2164,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates operations for an HTTP API.
+     * Creates an operation for an HTTP API.
      *
      * @param request - CreateHttpApiOperationRequest
      *
@@ -2868,7 +2878,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a policy attachment to a resource.
+     * Creates a policy resource mount.
      *
      * @param request - CreatePolicyAttachmentRequest
      * @param headers - map
@@ -2926,7 +2936,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a policy attachment to a resource.
+     * Creates a policy resource mount.
      *
      * @param request - CreatePolicyAttachmentRequest
      *
@@ -3745,10 +3755,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a quota throttling rule from a gateway.
+     * Deletes a quota throttling rule for a gateway.
      *
      * @remarks
-     * This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+     * Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      * @param headers - map
@@ -3786,10 +3796,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a quota throttling rule from a gateway.
+     * Deletes a quota throttling rule for a gateway.
      *
      * @remarks
-     * This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+     * Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      *
@@ -5806,7 +5816,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves HTTP API information.
+     * Retrieves the information of an HTTP API.
      *
      * @param request - GetHttpApiRequest
      * @param headers - map
@@ -5849,7 +5859,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves HTTP API information.
+     * Retrieves the information of an HTTP API.
      *
      * @param request - GetHttpApiRequest
      *
@@ -5869,7 +5879,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves operation information.
+     * Retrieves the API operation information.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5904,7 +5914,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves operation information.
+     * Retrieves the API operation information.
      *
      * @returns GetHttpApiOperationResponse
      *
@@ -6816,7 +6826,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+     * Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
      *
      * @param request - ImportHttpApiRequest
      * @param headers - map
@@ -6910,7 +6920,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+     * Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
      *
      * @param request - ImportHttpApiRequest
      *
@@ -7377,7 +7387,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of consumer authorization rules.
+     * Retrieves a list of consumer authorization rules.
      *
      * @param request - ListConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -7428,7 +7438,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of consumer authorization rules.
+     * Retrieves a list of consumer authorization rules.
      *
      * @param request - ListConsumerAuthorizationRulesRequest
      *
@@ -9421,7 +9431,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of plugin mounts.
+     * Retrieves the plug-in mount list.
      *
      * @param request - ListPluginAttachmentsRequest
      * @param headers - map
@@ -9495,7 +9505,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of plugin mounts.
+     * Retrieves the plug-in mount list.
      *
      * @param request - ListPluginAttachmentsRequest
      *
@@ -11911,7 +11921,7 @@ class APIG extends OpenApiClient
      * Updates a consumer authorization rule.
      *
      * @remarks
-     * 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+     * This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
      *
      * @param request - UpdateConsumerAuthorizationRuleRequest
      * @param headers - map
@@ -11966,7 +11976,7 @@ class APIG extends OpenApiClient
      * Updates a consumer authorization rule.
      *
      * @remarks
-     * 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+     * This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
      *
      * @param request - UpdateConsumerAuthorizationRuleRequest
      *

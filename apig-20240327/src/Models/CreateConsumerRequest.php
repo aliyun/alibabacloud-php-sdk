@@ -42,6 +42,16 @@ class CreateConsumerRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
     protected $_name = [
         'akSkIdentityConfigs' => 'akSkIdentityConfigs',
         'apikeyIdentityConfig' => 'apikeyIdentityConfig',
@@ -50,6 +60,8 @@ class CreateConsumerRequest extends Model
         'gatewayType' => 'gatewayType',
         'jwtIdentityConfig' => 'jwtIdentityConfig',
         'name' => 'name',
+        'clientToken' => 'clientToken',
+        'dryRun' => 'dryRun',
     ];
 
     public function validate()
@@ -104,6 +116,14 @@ class CreateConsumerRequest extends Model
             $res['name'] = $this->name;
         }
 
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
+        }
+
         return $res;
     }
 
@@ -148,6 +168,14 @@ class CreateConsumerRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
+
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
         }
 
         return $model;
