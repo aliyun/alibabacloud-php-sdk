@@ -16,7 +16,17 @@ class GetKnowledgeRecallRequest extends Model
     /**
      * @var string
      */
+    public $path;
+
+    /**
+     * @var string
+     */
     public $question;
+
+    /**
+     * @var string
+     */
+    public $tags;
 
     /**
      * @var int
@@ -29,7 +39,9 @@ class GetKnowledgeRecallRequest extends Model
     public $user;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'path' => 'Path',
         'question' => 'Question',
+        'tags' => 'Tags',
         'topk' => 'Topk',
         'user' => 'User',
     ];
@@ -46,8 +58,16 @@ class GetKnowledgeRecallRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
+
         if (null !== $this->question) {
             $res['Question'] = $this->question;
+        }
+
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         if (null !== $this->topk) {
@@ -73,8 +93,16 @@ class GetKnowledgeRecallRequest extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
+
         if (isset($map['Question'])) {
             $model->question = $map['Question'];
+        }
+
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         if (isset($map['Topk'])) {

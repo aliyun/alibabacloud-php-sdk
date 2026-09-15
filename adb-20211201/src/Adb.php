@@ -502,6 +502,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ReleaseClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ReleaseClusterPublicConnectionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\RemoveKnowledgeTagsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\RemoveKnowledgeTagsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\RemoveKnowledgeUploadUserRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\RemoveKnowledgeUploadUserResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\RenameSemanticViewRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\RenameSemanticViewResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ReplaceSemanticViewRequest;
@@ -14066,7 +14068,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Adds a knowledge base document.
+     * Performs knowledge base recall.
      *
      * @param request - GetKnowledgeRecallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14086,8 +14088,16 @@ class Adb extends OpenApiClient
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
         if (null !== $request->question) {
             @$query['Question'] = $request->question;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         if (null !== $request->topk) {
@@ -14117,7 +14127,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Adds a knowledge base document.
+     * Performs knowledge base recall.
      *
      * @param request - GetKnowledgeRecallRequest
      *
@@ -19248,7 +19258,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies an automatic materialized view recommendation task.
+     * Modifies a materialized view automatic recommendation task.
      *
      * @param request - ModifyMaterializedViewRecommendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19343,7 +19353,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies an automatic materialized view recommendation task.
+     * Modifies a materialized view automatic recommendation task.
      *
      * @param request - ModifyMaterializedViewRecommendRequest
      *
@@ -20098,6 +20108,71 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeKnowledgeTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes authorized users from a knowledge base document.
+     *
+     * @param request - RemoveKnowledgeUploadUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveKnowledgeUploadUserResponse
+     *
+     * @param RemoveKnowledgeUploadUserRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RemoveKnowledgeUploadUserResponse
+     */
+    public function removeKnowledgeUploadUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fileLocation) {
+            @$query['FileLocation'] = $request->fileLocation;
+        }
+
+        if (null !== $request->users) {
+            @$query['Users'] = $request->users;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveKnowledgeUploadUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveKnowledgeUploadUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes authorized users from a knowledge base document.
+     *
+     * @param request - RemoveKnowledgeUploadUserRequest
+     *
+     * @returns RemoveKnowledgeUploadUserResponse
+     *
+     * @param RemoveKnowledgeUploadUserRequest $request
+     *
+     * @return RemoveKnowledgeUploadUserResponse
+     */
+    public function removeKnowledgeUploadUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeKnowledgeUploadUserWithOptions($request, $runtime);
     }
 
     /**
