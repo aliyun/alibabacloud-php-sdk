@@ -23,10 +23,16 @@ class DescribeRouteEntryListResponseBody extends Model
      * @var routeEntrys
      */
     public $routeEntrys;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
         'routeEntrys' => 'RouteEntrys',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -52,6 +58,10 @@ class DescribeRouteEntryListResponseBody extends Model
             $res['RouteEntrys'] = null !== $this->routeEntrys ? $this->routeEntrys->toArray($noStream) : $this->routeEntrys;
         }
 
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+
         return $res;
     }
 
@@ -73,6 +83,10 @@ class DescribeRouteEntryListResponseBody extends Model
 
         if (isset($map['RouteEntrys'])) {
             $model->routeEntrys = routeEntrys::fromMap($map['RouteEntrys']);
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

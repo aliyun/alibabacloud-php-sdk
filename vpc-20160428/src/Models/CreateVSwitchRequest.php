@@ -15,6 +15,11 @@ class CreateVSwitchRequest extends Model
     public $cidrBlock;
 
     /**
+     * @var int
+     */
+    public $cidrMask;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -28,6 +33,11 @@ class CreateVSwitchRequest extends Model
      * @var int
      */
     public $ipv6CidrBlock;
+
+    /**
+     * @var int
+     */
+    public $ipv6CidrMask;
 
     /**
      * @var string
@@ -80,9 +90,11 @@ class CreateVSwitchRequest extends Model
     public $zoneId;
     protected $_name = [
         'cidrBlock' => 'CidrBlock',
+        'cidrMask' => 'CidrMask',
         'clientToken' => 'ClientToken',
         'description' => 'Description',
         'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'ipv6CidrMask' => 'Ipv6CidrMask',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -110,6 +122,10 @@ class CreateVSwitchRequest extends Model
             $res['CidrBlock'] = $this->cidrBlock;
         }
 
+        if (null !== $this->cidrMask) {
+            $res['CidrMask'] = $this->cidrMask;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -120,6 +136,10 @@ class CreateVSwitchRequest extends Model
 
         if (null !== $this->ipv6CidrBlock) {
             $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
+        }
+
+        if (null !== $this->ipv6CidrMask) {
+            $res['Ipv6CidrMask'] = $this->ipv6CidrMask;
         }
 
         if (null !== $this->ownerAccount) {
@@ -184,6 +204,10 @@ class CreateVSwitchRequest extends Model
             $model->cidrBlock = $map['CidrBlock'];
         }
 
+        if (isset($map['CidrMask'])) {
+            $model->cidrMask = $map['CidrMask'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -194,6 +218,10 @@ class CreateVSwitchRequest extends Model
 
         if (isset($map['Ipv6CidrBlock'])) {
             $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
+        }
+
+        if (isset($map['Ipv6CidrMask'])) {
+            $model->ipv6CidrMask = $map['Ipv6CidrMask'];
         }
 
         if (isset($map['OwnerAccount'])) {

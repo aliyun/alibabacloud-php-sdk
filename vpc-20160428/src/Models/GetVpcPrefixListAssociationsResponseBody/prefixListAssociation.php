@@ -52,6 +52,11 @@ class prefixListAssociation extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $suppressedList;
     protected $_name = [
         'cidrList' => 'CidrList',
         'ownerId' => 'OwnerId',
@@ -62,6 +67,7 @@ class prefixListAssociation extends Model
         'resourceType' => 'ResourceType',
         'resourceUid' => 'ResourceUid',
         'status' => 'Status',
+        'suppressedList' => 'SuppressedList',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class prefixListAssociation extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->suppressedList) {
+            $res['SuppressedList'] = $this->suppressedList;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class prefixListAssociation extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SuppressedList'])) {
+            $model->suppressedList = $map['SuppressedList'];
         }
 
         return $model;

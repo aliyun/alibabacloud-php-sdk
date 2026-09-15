@@ -24,6 +24,11 @@ class ModifyVSwitchAttributeRequest extends Model
     public $ipv6CidrBlock;
 
     /**
+     * @var int
+     */
+    public $ipv6CidrMask;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -66,6 +71,7 @@ class ModifyVSwitchAttributeRequest extends Model
         'description' => 'Description',
         'enableIPv6' => 'EnableIPv6',
         'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'ipv6CidrMask' => 'Ipv6CidrMask',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -94,6 +100,10 @@ class ModifyVSwitchAttributeRequest extends Model
 
         if (null !== $this->ipv6CidrBlock) {
             $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
+        }
+
+        if (null !== $this->ipv6CidrMask) {
+            $res['Ipv6CidrMask'] = $this->ipv6CidrMask;
         }
 
         if (null !== $this->ownerAccount) {
@@ -149,6 +159,10 @@ class ModifyVSwitchAttributeRequest extends Model
 
         if (isset($map['Ipv6CidrBlock'])) {
             $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
+        }
+
+        if (isset($map['Ipv6CidrMask'])) {
+            $model->ipv6CidrMask = $map['Ipv6CidrMask'];
         }
 
         if (isset($map['OwnerAccount'])) {
