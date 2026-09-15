@@ -144,26 +144,26 @@ class Schedulerx2 extends OpenApiClient
             'cn-hangzhou' => 'schedulerx.cn-hangzhou.aliyuncs.com',
             'cn-shanghai' => 'schedulerx.cn-shanghai.aliyuncs.com',
             'cn-shenzhen' => 'schedulerx.cn-shenzhen.aliyuncs.com',
+            'ap-southeast-8' => 'schedulerx.aliyuncs.com',
+            'cn-wulanchabu' => 'schedulerx.aliyuncs.com',
+            'ap-northeast-1' => 'schedulerx.aliyuncs.com',
+            'cn-chengdu' => 'schedulerx.aliyuncs.com',
+            'cn-qingdao' => 'schedulerx.aliyuncs.com',
+            'cn-guangzhou' => 'schedulerx.aliyuncs.com',
+            'cn-hongkong' => 'schedulerx.aliyuncs.com',
+            'ap-southeast-1' => 'schedulerx.aliyuncs.com',
+            'ap-southeast-3' => 'schedulerx.aliyuncs.com',
+            'cn-huhehaote' => 'schedulerx.aliyuncs.com',
+            'ap-southeast-5' => 'schedulerx.aliyuncs.com',
+            'ap-southeast-6' => 'schedulerx.aliyuncs.com',
+            'cn-zhangjiakou' => 'schedulerx.aliyuncs.com',
+            'ap-southeast-7' => 'schedulerx.aliyuncs.com',
             'us-west-1' => 'schedulerx.aliyuncs.com',
             'us-east-1' => 'schedulerx.aliyuncs.com',
-            'public' => 'schedulerx.aliyuncs.com',
-            'eu-west-1' => 'schedulerx.aliyuncs.com',
             'eu-central-1' => 'schedulerx.aliyuncs.com',
-            'cn-zhangjiakou' => 'schedulerx.aliyuncs.com',
-            'cn-wulanchabu' => 'schedulerx.aliyuncs.com',
+            'eu-west-1' => 'schedulerx.aliyuncs.com',
+            'public' => 'schedulerx.aliyuncs.com',
             'cn-shanghai-finance-1' => 'schedulerx.aliyuncs.com',
-            'cn-qingdao' => 'schedulerx.aliyuncs.com',
-            'cn-huhehaote' => 'schedulerx.aliyuncs.com',
-            'cn-hongkong' => 'schedulerx.aliyuncs.com',
-            'cn-guangzhou' => 'schedulerx.aliyuncs.com',
-            'cn-chengdu' => 'schedulerx.aliyuncs.com',
-            'ap-southeast-8' => 'schedulerx.aliyuncs.com',
-            'ap-southeast-7' => 'schedulerx.aliyuncs.com',
-            'ap-southeast-6' => 'schedulerx.aliyuncs.com',
-            'ap-southeast-5' => 'schedulerx.aliyuncs.com',
-            'ap-southeast-3' => 'schedulerx.aliyuncs.com',
-            'ap-southeast-1' => 'schedulerx.aliyuncs.com',
-            'ap-northeast-1' => 'schedulerx.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('schedulerx2', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -662,6 +662,10 @@ class Schedulerx2 extends OpenApiClient
 
         if (null !== $request->dispatcherSize) {
             @$body['DispatcherSize'] = $request->dispatcherSize;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
 
         if (null !== $request->executeMode) {
@@ -2131,7 +2135,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+     * Retrieves the details of a specified node by job ID. This operation is typically used to update a node.
      *
      * @param request - GetJobInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2166,7 +2170,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+     * Retrieves the details of a specified node by job ID. This operation is typically used to update a node.
      *
      * @param request - GetJobInfoRequest
      *
@@ -2830,7 +2834,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of nodes.
+     * Retrieves a list of jobs.
      *
      * @remarks
      * Before calling this operation, add the following dependency to the POM file:
@@ -2875,7 +2879,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of nodes.
+     * Retrieves a list of jobs.
      *
      * @remarks
      * Before calling this operation, add the following dependency to the POM file:
@@ -4186,7 +4190,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields to modify.
+     * Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields before making modifications.
      *
      * @param request - UpdateJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4245,6 +4249,10 @@ class Schedulerx2 extends OpenApiClient
 
         if (null !== $request->dispatcherSize) {
             @$body['DispatcherSize'] = $request->dispatcherSize;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
 
         if (null !== $request->executeMode) {
@@ -4379,7 +4387,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields to modify.
+     * Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields before making modifications.
      *
      * @param request - UpdateJobRequest
      *

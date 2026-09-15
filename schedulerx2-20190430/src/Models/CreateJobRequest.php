@@ -55,6 +55,11 @@ class CreateJobRequest extends Model
     public $dispatcherSize;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $executeMode;
@@ -208,6 +213,7 @@ class CreateJobRequest extends Model
         'dataOffset' => 'DataOffset',
         'description' => 'Description',
         'dispatcherSize' => 'DispatcherSize',
+        'endTime' => 'EndTime',
         'executeMode' => 'ExecuteMode',
         'failEnable' => 'FailEnable',
         'failTimes' => 'FailTimes',
@@ -291,6 +297,10 @@ class CreateJobRequest extends Model
 
         if (null !== $this->dispatcherSize) {
             $res['DispatcherSize'] = $this->dispatcherSize;
+        }
+
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
 
         if (null !== $this->executeMode) {
@@ -461,6 +471,10 @@ class CreateJobRequest extends Model
 
         if (isset($map['DispatcherSize'])) {
             $model->dispatcherSize = $map['DispatcherSize'];
+        }
+
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
 
         if (isset($map['ExecuteMode'])) {

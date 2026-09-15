@@ -32,6 +32,11 @@ class jobConfigInfo extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $executeMode;
@@ -100,6 +105,7 @@ class jobConfigInfo extends Model
         'className' => 'ClassName',
         'content' => 'Content',
         'description' => 'Description',
+        'endTime' => 'EndTime',
         'executeMode' => 'ExecuteMode',
         'jarUrl' => 'JarUrl',
         'jobId' => 'JobId',
@@ -146,6 +152,10 @@ class jobConfigInfo extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
 
         if (null !== $this->executeMode) {
@@ -225,6 +235,10 @@ class jobConfigInfo extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
 
         if (isset($map['ExecuteMode'])) {
