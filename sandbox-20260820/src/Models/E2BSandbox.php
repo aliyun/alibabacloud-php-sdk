@@ -1,0 +1,447 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Sandbox\V20260820\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class E2BSandbox extends Model
+{
+    /**
+     * @var string
+     */
+    public $accessEndpoint;
+
+    /**
+     * @var bool
+     */
+    public $allowInternetAccess;
+
+    /**
+     * @var int
+     */
+    public $cpuCount;
+
+    /**
+     * @var int
+     */
+    public $diskSizeMB;
+
+    /**
+     * @var string
+     */
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $endAt;
+
+    /**
+     * @var string[]
+     */
+    public $envVars;
+
+    /**
+     * @var string
+     */
+    public $envdAccessToken;
+
+    /**
+     * @var string
+     */
+    public $fcFunctionName;
+
+    /**
+     * @var string
+     */
+    public $fcInstanceID;
+
+    /**
+     * @var string
+     */
+    public $fcSessionID;
+
+    /**
+     * @var int
+     */
+    public $generation;
+
+    /**
+     * @var int
+     */
+    public $memoryMB;
+
+    /**
+     * @var string[]
+     */
+    public $metadata;
+
+    /**
+     * @var E2BNetwork
+     */
+    public $network;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupID;
+
+    /**
+     * @var InnerSandboxRuntimeConfig
+     */
+    public $runtime;
+
+    /**
+     * @var string
+     */
+    public $sandboxID;
+
+    /**
+     * @var string
+     */
+    public $startedAt;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var string
+     */
+    public $teamID;
+
+    /**
+     * @var string
+     */
+    public $teamName;
+
+    /**
+     * @var string
+     */
+    public $teamPlan;
+
+    /**
+     * @var string
+     */
+    public $templateID;
+
+    /**
+     * @var string
+     */
+    public $templateName;
+
+    /**
+     * @var string
+     */
+    public $userID;
+
+    /**
+     * @var InnerSandboxVolumeMount
+     */
+    public $volumeMounts;
+    protected $_name = [
+        'accessEndpoint' => 'accessEndpoint',
+        'allowInternetAccess' => 'allowInternetAccess',
+        'cpuCount' => 'cpuCount',
+        'diskSizeMB' => 'diskSizeMB',
+        'domain' => 'domain',
+        'endAt' => 'endAt',
+        'envVars' => 'envVars',
+        'envdAccessToken' => 'envdAccessToken',
+        'fcFunctionName' => 'fcFunctionName',
+        'fcInstanceID' => 'fcInstanceID',
+        'fcSessionID' => 'fcSessionID',
+        'generation' => 'generation',
+        'memoryMB' => 'memoryMB',
+        'metadata' => 'metadata',
+        'network' => 'network',
+        'resourceGroupID' => 'resourceGroupID',
+        'runtime' => 'runtime',
+        'sandboxID' => 'sandboxID',
+        'startedAt' => 'startedAt',
+        'state' => 'state',
+        'teamID' => 'teamID',
+        'teamName' => 'teamName',
+        'teamPlan' => 'teamPlan',
+        'templateID' => 'templateID',
+        'templateName' => 'templateName',
+        'userID' => 'userID',
+        'volumeMounts' => 'volumeMounts',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->envVars)) {
+            Model::validateArray($this->envVars);
+        }
+        if (\is_array($this->metadata)) {
+            Model::validateArray($this->metadata);
+        }
+        if (null !== $this->network) {
+            $this->network->validate();
+        }
+        if (null !== $this->runtime) {
+            $this->runtime->validate();
+        }
+        if (null !== $this->volumeMounts) {
+            $this->volumeMounts->validate();
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->accessEndpoint) {
+            $res['accessEndpoint'] = $this->accessEndpoint;
+        }
+
+        if (null !== $this->allowInternetAccess) {
+            $res['allowInternetAccess'] = $this->allowInternetAccess;
+        }
+
+        if (null !== $this->cpuCount) {
+            $res['cpuCount'] = $this->cpuCount;
+        }
+
+        if (null !== $this->diskSizeMB) {
+            $res['diskSizeMB'] = $this->diskSizeMB;
+        }
+
+        if (null !== $this->domain) {
+            $res['domain'] = $this->domain;
+        }
+
+        if (null !== $this->endAt) {
+            $res['endAt'] = $this->endAt;
+        }
+
+        if (null !== $this->envVars) {
+            if (\is_array($this->envVars)) {
+                $res['envVars'] = [];
+                foreach ($this->envVars as $key1 => $value1) {
+                    $res['envVars'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->envdAccessToken) {
+            $res['envdAccessToken'] = $this->envdAccessToken;
+        }
+
+        if (null !== $this->fcFunctionName) {
+            $res['fcFunctionName'] = $this->fcFunctionName;
+        }
+
+        if (null !== $this->fcInstanceID) {
+            $res['fcInstanceID'] = $this->fcInstanceID;
+        }
+
+        if (null !== $this->fcSessionID) {
+            $res['fcSessionID'] = $this->fcSessionID;
+        }
+
+        if (null !== $this->generation) {
+            $res['generation'] = $this->generation;
+        }
+
+        if (null !== $this->memoryMB) {
+            $res['memoryMB'] = $this->memoryMB;
+        }
+
+        if (null !== $this->metadata) {
+            if (\is_array($this->metadata)) {
+                $res['metadata'] = [];
+                foreach ($this->metadata as $key1 => $value1) {
+                    $res['metadata'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->network) {
+            $res['network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
+        }
+
+        if (null !== $this->resourceGroupID) {
+            $res['resourceGroupID'] = $this->resourceGroupID;
+        }
+
+        if (null !== $this->runtime) {
+            $res['runtime'] = null !== $this->runtime ? $this->runtime->toArray($noStream) : $this->runtime;
+        }
+
+        if (null !== $this->sandboxID) {
+            $res['sandboxID'] = $this->sandboxID;
+        }
+
+        if (null !== $this->startedAt) {
+            $res['startedAt'] = $this->startedAt;
+        }
+
+        if (null !== $this->state) {
+            $res['state'] = $this->state;
+        }
+
+        if (null !== $this->teamID) {
+            $res['teamID'] = $this->teamID;
+        }
+
+        if (null !== $this->teamName) {
+            $res['teamName'] = $this->teamName;
+        }
+
+        if (null !== $this->teamPlan) {
+            $res['teamPlan'] = $this->teamPlan;
+        }
+
+        if (null !== $this->templateID) {
+            $res['templateID'] = $this->templateID;
+        }
+
+        if (null !== $this->templateName) {
+            $res['templateName'] = $this->templateName;
+        }
+
+        if (null !== $this->userID) {
+            $res['userID'] = $this->userID;
+        }
+
+        if (null !== $this->volumeMounts) {
+            $res['volumeMounts'] = null !== $this->volumeMounts ? $this->volumeMounts->toArray($noStream) : $this->volumeMounts;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['accessEndpoint'])) {
+            $model->accessEndpoint = $map['accessEndpoint'];
+        }
+
+        if (isset($map['allowInternetAccess'])) {
+            $model->allowInternetAccess = $map['allowInternetAccess'];
+        }
+
+        if (isset($map['cpuCount'])) {
+            $model->cpuCount = $map['cpuCount'];
+        }
+
+        if (isset($map['diskSizeMB'])) {
+            $model->diskSizeMB = $map['diskSizeMB'];
+        }
+
+        if (isset($map['domain'])) {
+            $model->domain = $map['domain'];
+        }
+
+        if (isset($map['endAt'])) {
+            $model->endAt = $map['endAt'];
+        }
+
+        if (isset($map['envVars'])) {
+            if (!empty($map['envVars'])) {
+                $model->envVars = [];
+                foreach ($map['envVars'] as $key1 => $value1) {
+                    $model->envVars[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['envdAccessToken'])) {
+            $model->envdAccessToken = $map['envdAccessToken'];
+        }
+
+        if (isset($map['fcFunctionName'])) {
+            $model->fcFunctionName = $map['fcFunctionName'];
+        }
+
+        if (isset($map['fcInstanceID'])) {
+            $model->fcInstanceID = $map['fcInstanceID'];
+        }
+
+        if (isset($map['fcSessionID'])) {
+            $model->fcSessionID = $map['fcSessionID'];
+        }
+
+        if (isset($map['generation'])) {
+            $model->generation = $map['generation'];
+        }
+
+        if (isset($map['memoryMB'])) {
+            $model->memoryMB = $map['memoryMB'];
+        }
+
+        if (isset($map['metadata'])) {
+            if (!empty($map['metadata'])) {
+                $model->metadata = [];
+                foreach ($map['metadata'] as $key1 => $value1) {
+                    $model->metadata[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['network'])) {
+            $model->network = E2BNetwork::fromMap($map['network']);
+        }
+
+        if (isset($map['resourceGroupID'])) {
+            $model->resourceGroupID = $map['resourceGroupID'];
+        }
+
+        if (isset($map['runtime'])) {
+            $model->runtime = InnerSandboxRuntimeConfig::fromMap($map['runtime']);
+        }
+
+        if (isset($map['sandboxID'])) {
+            $model->sandboxID = $map['sandboxID'];
+        }
+
+        if (isset($map['startedAt'])) {
+            $model->startedAt = $map['startedAt'];
+        }
+
+        if (isset($map['state'])) {
+            $model->state = $map['state'];
+        }
+
+        if (isset($map['teamID'])) {
+            $model->teamID = $map['teamID'];
+        }
+
+        if (isset($map['teamName'])) {
+            $model->teamName = $map['teamName'];
+        }
+
+        if (isset($map['teamPlan'])) {
+            $model->teamPlan = $map['teamPlan'];
+        }
+
+        if (isset($map['templateID'])) {
+            $model->templateID = $map['templateID'];
+        }
+
+        if (isset($map['templateName'])) {
+            $model->templateName = $map['templateName'];
+        }
+
+        if (isset($map['userID'])) {
+            $model->userID = $map['userID'];
+        }
+
+        if (isset($map['volumeMounts'])) {
+            $model->volumeMounts = InnerSandboxVolumeMount::fromMap($map['volumeMounts']);
+        }
+
+        return $model;
+    }
+}
