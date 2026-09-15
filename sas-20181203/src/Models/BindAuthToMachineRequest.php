@@ -39,6 +39,11 @@ class BindAuthToMachineRequest extends Model
     public $criteria;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var int
      */
     public $isPreBind;
@@ -79,6 +84,7 @@ class BindAuthToMachineRequest extends Model
         'bindAll' => 'BindAll',
         'clientToken' => 'ClientToken',
         'criteria' => 'Criteria',
+        'dryRun' => 'DryRun',
         'isPreBind' => 'IsPreBind',
         'logicalExp' => 'LogicalExp',
         'ntmVersion' => 'NtmVersion',
@@ -131,6 +137,10 @@ class BindAuthToMachineRequest extends Model
 
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->isPreBind) {
@@ -208,6 +218,10 @@ class BindAuthToMachineRequest extends Model
 
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['IsPreBind'])) {

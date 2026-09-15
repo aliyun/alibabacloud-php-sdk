@@ -19,6 +19,11 @@ class AddCheckResultWhiteListRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -35,6 +40,7 @@ class AddCheckResultWhiteListRequest extends Model
     protected $_name = [
         'checkIds' => 'CheckIds',
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'instanceIds' => 'InstanceIds',
         'remark' => 'Remark',
         'ruleType' => 'RuleType',
@@ -67,6 +73,10 @@ class AddCheckResultWhiteListRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->instanceIds) {
@@ -112,6 +122,10 @@ class AddCheckResultWhiteListRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['InstanceIds'])) {

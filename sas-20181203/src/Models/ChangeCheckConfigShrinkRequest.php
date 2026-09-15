@@ -43,6 +43,11 @@ class ChangeCheckConfigShrinkRequest extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $enableAddCheck;
 
     /**
@@ -96,6 +101,7 @@ class ChangeCheckConfigShrinkRequest extends Model
         'configStandardIdsShrink' => 'ConfigStandardIds',
         'configure' => 'Configure',
         'cycleDays' => 'CycleDays',
+        'dryRun' => 'DryRun',
         'enableAddCheck' => 'EnableAddCheck',
         'enableAutoCheck' => 'EnableAutoCheck',
         'endTime' => 'EndTime',
@@ -167,6 +173,10 @@ class ChangeCheckConfigShrinkRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->enableAddCheck) {
@@ -277,6 +287,10 @@ class ChangeCheckConfigShrinkRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EnableAddCheck'])) {

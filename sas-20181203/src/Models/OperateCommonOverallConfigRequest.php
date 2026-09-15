@@ -21,6 +21,11 @@ class OperateCommonOverallConfigRequest extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $noTargetAsOn;
 
     /**
@@ -35,6 +40,7 @@ class OperateCommonOverallConfigRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'config' => 'Config',
+        'dryRun' => 'DryRun',
         'noTargetAsOn' => 'NoTargetAsOn',
         'sourceIp' => 'SourceIp',
         'type' => 'Type',
@@ -54,6 +60,10 @@ class OperateCommonOverallConfigRequest extends Model
 
         if (null !== $this->config) {
             $res['Config'] = $this->config;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->noTargetAsOn) {
@@ -85,6 +95,10 @@ class OperateCommonOverallConfigRequest extends Model
 
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['NoTargetAsOn'])) {

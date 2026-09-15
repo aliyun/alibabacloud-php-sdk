@@ -44,6 +44,11 @@ class CreateOssScanConfigRequest extends Model
     public $decryptionList;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var int
      */
     public $enable;
@@ -100,6 +105,7 @@ class CreateOssScanConfigRequest extends Model
         'decompressMaxFileCount' => 'DecompressMaxFileCount',
         'decompressMaxLayer' => 'DecompressMaxLayer',
         'decryptionList' => 'DecryptionList',
+        'dryRun' => 'DryRun',
         'enable' => 'Enable',
         'endTime' => 'EndTime',
         'keyPrefixList' => 'KeyPrefixList',
@@ -175,6 +181,10 @@ class CreateOssScanConfigRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->enable) {
@@ -289,6 +299,10 @@ class CreateOssScanConfigRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Enable'])) {

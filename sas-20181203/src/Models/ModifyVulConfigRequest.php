@@ -19,12 +19,18 @@ class ModifyVulConfigRequest extends Model
     public $config;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $type;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'config' => 'Config',
+        'dryRun' => 'DryRun',
         'type' => 'Type',
     ];
 
@@ -42,6 +48,10 @@ class ModifyVulConfigRequest extends Model
 
         if (null !== $this->config) {
             $res['Config'] = $this->config;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->type) {
@@ -65,6 +75,10 @@ class ModifyVulConfigRequest extends Model
 
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Type'])) {

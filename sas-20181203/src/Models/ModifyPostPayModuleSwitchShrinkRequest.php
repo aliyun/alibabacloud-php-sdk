@@ -14,6 +14,11 @@ class ModifyPostPayModuleSwitchShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $edrModuleSwitchShrink;
@@ -44,6 +49,7 @@ class ModifyPostPayModuleSwitchShrinkRequest extends Model
     public $postPayModuleSwitchObjShrink;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'edrModuleSwitchShrink' => 'EdrModuleSwitch',
         'postPaidHostAutoBind' => 'PostPaidHostAutoBind',
         'postPaidHostAutoBindVersion' => 'PostPaidHostAutoBindVersion',
@@ -62,6 +68,10 @@ class ModifyPostPayModuleSwitchShrinkRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->edrModuleSwitchShrink) {
@@ -101,6 +111,10 @@ class ModifyPostPayModuleSwitchShrinkRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EdrModuleSwitch'])) {

@@ -61,6 +61,11 @@ class ListUnknownThreatDetectProcessRequest extends Model
     /**
      * @var string
      */
+    public $tag;
+
+    /**
+     * @var string
+     */
     public $uuid;
     protected $_name = [
         'analyzeResult' => 'AnalyzeResult',
@@ -73,6 +78,7 @@ class ListUnknownThreatDetectProcessRequest extends Model
         'processPath' => 'ProcessPath',
         'remark' => 'Remark',
         'sha256' => 'Sha256',
+        'tag' => 'Tag',
         'uuid' => 'Uuid',
     ];
 
@@ -122,6 +128,10 @@ class ListUnknownThreatDetectProcessRequest extends Model
 
         if (null !== $this->sha256) {
             $res['Sha256'] = $this->sha256;
+        }
+
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         if (null !== $this->uuid) {
@@ -177,6 +187,10 @@ class ListUnknownThreatDetectProcessRequest extends Model
 
         if (isset($map['Sha256'])) {
             $model->sha256 = $map['Sha256'];
+        }
+
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         if (isset($map['Uuid'])) {

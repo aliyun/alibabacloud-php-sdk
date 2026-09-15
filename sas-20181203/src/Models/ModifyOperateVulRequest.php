@@ -14,6 +14,11 @@ class ModifyOperateVulRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $from;
@@ -44,6 +49,7 @@ class ModifyOperateVulRequest extends Model
     public $type;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'from' => 'From',
         'info' => 'Info',
         'operateType' => 'OperateType',
@@ -62,6 +68,10 @@ class ModifyOperateVulRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->from) {
@@ -101,6 +111,10 @@ class ModifyOperateVulRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['From'])) {

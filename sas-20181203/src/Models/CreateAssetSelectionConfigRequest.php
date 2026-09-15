@@ -19,6 +19,11 @@ class CreateAssetSelectionConfigRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $platform;
@@ -30,6 +35,7 @@ class CreateAssetSelectionConfigRequest extends Model
     protected $_name = [
         'businessType' => 'BusinessType',
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'platform' => 'Platform',
         'targetType' => 'TargetType',
     ];
@@ -48,6 +54,10 @@ class CreateAssetSelectionConfigRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->platform) {
@@ -75,6 +85,10 @@ class CreateAssetSelectionConfigRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Platform'])) {

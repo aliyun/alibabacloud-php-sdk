@@ -14,6 +14,11 @@ class CreateVirusScanOnceTaskRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $param;
@@ -34,6 +39,7 @@ class CreateVirusScanOnceTaskRequest extends Model
     public $selectionKey;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'param' => 'Param',
         'scanPath' => 'ScanPath',
         'scanType' => 'ScanType',
@@ -53,6 +59,10 @@ class CreateVirusScanOnceTaskRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->param) {
@@ -91,6 +101,10 @@ class CreateVirusScanOnceTaskRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Param'])) {

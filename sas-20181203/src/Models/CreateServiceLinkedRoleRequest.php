@@ -14,11 +14,17 @@ class CreateServiceLinkedRoleRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $serviceLinkedRole;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'serviceLinkedRole' => 'ServiceLinkedRole',
     ];
 
@@ -32,6 +38,10 @@ class CreateServiceLinkedRoleRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->serviceLinkedRole) {
@@ -51,6 +61,10 @@ class CreateServiceLinkedRoleRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['ServiceLinkedRole'])) {

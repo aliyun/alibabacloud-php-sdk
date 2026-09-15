@@ -25,6 +25,11 @@ class AddAssetSelectionCriteriaRequest extends Model
     public $criteriaOperation;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $selectionKey;
@@ -37,6 +42,7 @@ class AddAssetSelectionCriteriaRequest extends Model
         'clientToken' => 'ClientToken',
         'criteria' => 'Criteria',
         'criteriaOperation' => 'CriteriaOperation',
+        'dryRun' => 'DryRun',
         'selectionKey' => 'SelectionKey',
         'targetOperationList' => 'TargetOperationList',
     ];
@@ -62,6 +68,10 @@ class AddAssetSelectionCriteriaRequest extends Model
 
         if (null !== $this->criteriaOperation) {
             $res['CriteriaOperation'] = $this->criteriaOperation;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->selectionKey) {
@@ -100,6 +110,10 @@ class AddAssetSelectionCriteriaRequest extends Model
 
         if (isset($map['CriteriaOperation'])) {
             $model->criteriaOperation = $map['CriteriaOperation'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['SelectionKey'])) {

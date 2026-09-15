@@ -14,6 +14,11 @@ class CreateCycleTaskRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var int
      */
     public $enable;
@@ -64,6 +69,7 @@ class CreateCycleTaskRequest extends Model
     public $taskType;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'enable' => 'Enable',
         'firstDateStr' => 'FirstDateStr',
         'intervalPeriod' => 'IntervalPeriod',
@@ -86,6 +92,10 @@ class CreateCycleTaskRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->enable) {
@@ -141,6 +151,10 @@ class CreateCycleTaskRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Enable'])) {

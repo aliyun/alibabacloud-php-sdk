@@ -30,6 +30,11 @@ class UpdatePostPaidBindRelRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $productCode;
@@ -43,6 +48,7 @@ class UpdatePostPaidBindRelRequest extends Model
         'autoBindVersion' => 'AutoBindVersion',
         'bindAction' => 'BindAction',
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'productCode' => 'ProductCode',
         'updateIfNecessary' => 'UpdateIfNecessary',
     ];
@@ -79,6 +85,10 @@ class UpdatePostPaidBindRelRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->productCode) {
@@ -121,6 +131,10 @@ class UpdatePostPaidBindRelRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['ProductCode'])) {

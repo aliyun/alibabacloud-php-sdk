@@ -1990,6 +1990,10 @@ class Sas extends OpenApiClient
             @$query['CriteriaOperation'] = $request->criteriaOperation;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->selectionKey) {
             @$query['SelectionKey'] = $request->selectionKey;
         }
@@ -2136,6 +2140,10 @@ class Sas extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->instanceIds) {
             @$query['InstanceIds'] = $request->instanceIds;
         }
@@ -2211,6 +2219,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->instanceIds) {
@@ -4096,6 +4108,10 @@ class Sas extends OpenApiClient
             @$query['Criteria'] = $request->criteria;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->isPreBind) {
             @$query['IsPreBind'] = $request->isPreBind;
         }
@@ -4340,7 +4356,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a cloud platform configuration check.
+     * Modifies the configuration items for cloud platform configuration checks.
      *
      * @param tmpReq - ChangeCheckConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4388,6 +4404,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->cycleDays) {
             @$query['CycleDays'] = $request->cycleDays;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->enableAddCheck) {
@@ -4449,7 +4469,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a cloud platform configuration check.
+     * Modifies the configuration items for cloud platform configuration checks.
      *
      * @param request - ChangeCheckConfigRequest
      *
@@ -5315,6 +5335,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->platform) {
@@ -6262,7 +6286,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
+     * Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
      *
      * @param request - CreateCycleTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6280,6 +6304,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->enable) {
@@ -6341,7 +6369,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
+     * Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
      *
      * @param request - CreateCycleTaskRequest
      *
@@ -8510,6 +8538,10 @@ class Sas extends OpenApiClient
             @$query['DecryptionList'] = $request->decryptionList;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->enable) {
             @$query['Enable'] = $request->enable;
         }
@@ -8764,6 +8796,10 @@ class Sas extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         $body = [];
         if (null !== $request->fromEcs) {
             @$body['FromEcs'] = $request->fromEcs;
@@ -8844,6 +8880,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->serviceLinkedRole) {
@@ -8959,7 +8999,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
+     * Creates a node to query alerting events triggered by the same rule or Alarm Metric.
      *
      * @param request - CreateSimilarSecurityEventsQueryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8977,6 +9017,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->resourceDirectoryAccountId) {
@@ -9018,7 +9062,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
+     * Creates a node to query alerting events triggered by the same rule or Alarm Metric.
      *
      * @param request - CreateSimilarSecurityEventsQueryTaskRequest
      *
@@ -9528,6 +9572,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->param) {
@@ -53423,7 +53471,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of processes from unknown threat detections.
+     * Queries the process list of intelligent behavior analytics.
      *
      * @param request - ListUnknownThreatDetectProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -53479,6 +53527,10 @@ class Sas extends OpenApiClient
             @$query['Sha256'] = $request->sha256;
         }
 
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         if (null !== $request->uuid) {
             @$query['Uuid'] = $request->uuid;
         }
@@ -53502,7 +53554,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of processes from unknown threat detections.
+     * Queries the process list of intelligent behavior analytics.
      *
      * @param request - ListUnknownThreatDetectProcessRequest
      *
@@ -56052,6 +56104,10 @@ class Sas extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->reason) {
             @$query['Reason'] = $request->reason;
         }
@@ -56356,6 +56412,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->lang) {
@@ -57364,6 +57424,10 @@ class Sas extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->focusLevel) {
             @$query['FocusLevel'] = $request->focusLevel;
         }
@@ -57518,6 +57582,10 @@ class Sas extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->from) {
             @$query['From'] = $request->from;
         }
@@ -57607,6 +57675,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->edrModuleSwitchShrink) {
@@ -58285,6 +58357,10 @@ class Sas extends OpenApiClient
             @$query['Criteria'] = $request->criteria;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->logicalExp) {
             @$query['LogicalExp'] = $request->logicalExp;
         }
@@ -58435,6 +58511,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->resourceDirectoryAccountId) {
@@ -58912,6 +58992,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->config) {
             @$query['Config'] = $request->config;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->type) {
@@ -60255,6 +60339,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->config) {
             @$query['Config'] = $request->config;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->noTargetAsOn) {
@@ -67484,6 +67572,10 @@ class Sas extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->productCode) {
             @$query['ProductCode'] = $request->productCode;
         }
@@ -67809,6 +67901,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->selectionKey) {
@@ -68698,6 +68794,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->instanceIds) {

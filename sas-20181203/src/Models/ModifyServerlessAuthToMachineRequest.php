@@ -54,6 +54,11 @@ class ModifyServerlessAuthToMachineRequest extends Model
     public $criteria;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $logicalExp;
@@ -97,6 +102,7 @@ class ModifyServerlessAuthToMachineRequest extends Model
         'bindUuidList' => 'BindUuidList',
         'clientToken' => 'ClientToken',
         'criteria' => 'Criteria',
+        'dryRun' => 'DryRun',
         'logicalExp' => 'LogicalExp',
         'ntmVersion' => 'NtmVersion',
         'preBind' => 'PreBind',
@@ -174,6 +180,10 @@ class ModifyServerlessAuthToMachineRequest extends Model
 
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->logicalExp) {
@@ -277,6 +287,10 @@ class ModifyServerlessAuthToMachineRequest extends Model
 
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['LogicalExp'])) {

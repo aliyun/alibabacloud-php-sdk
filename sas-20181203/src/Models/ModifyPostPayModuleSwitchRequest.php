@@ -16,6 +16,11 @@ class ModifyPostPayModuleSwitchRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var edrModuleSwitch
      */
     public $edrModuleSwitch;
@@ -46,6 +51,7 @@ class ModifyPostPayModuleSwitchRequest extends Model
     public $postPayModuleSwitchObj;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'edrModuleSwitch' => 'EdrModuleSwitch',
         'postPaidHostAutoBind' => 'PostPaidHostAutoBind',
         'postPaidHostAutoBindVersion' => 'PostPaidHostAutoBindVersion',
@@ -70,6 +76,10 @@ class ModifyPostPayModuleSwitchRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->edrModuleSwitch) {
@@ -109,6 +119,10 @@ class ModifyPostPayModuleSwitchRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EdrModuleSwitch'])) {

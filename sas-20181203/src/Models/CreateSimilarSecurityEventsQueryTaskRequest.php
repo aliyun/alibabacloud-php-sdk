@@ -14,6 +14,11 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var int
      */
     public $resourceDirectoryAccountId;
@@ -39,6 +44,7 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
     public $sourceIp;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityEventId' => 'SecurityEventId',
@@ -56,6 +62,10 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->resourceDirectoryAccountId) {
@@ -91,6 +101,10 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['ResourceDirectoryAccountId'])) {

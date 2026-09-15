@@ -14,6 +14,11 @@ class ModifyEmgVulSubmitRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $lang;
@@ -34,6 +39,7 @@ class ModifyEmgVulSubmitRequest extends Model
     public $userAgreement;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'lang' => 'Lang',
         'name' => 'Name',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
@@ -50,6 +56,10 @@ class ModifyEmgVulSubmitRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->lang) {
@@ -81,6 +91,10 @@ class ModifyEmgVulSubmitRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Lang'])) {
