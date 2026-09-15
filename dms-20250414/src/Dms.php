@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigDataAgentMemoryRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigDataAgentMemoryResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAgentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowRequest;
@@ -956,6 +958,75 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 创建 Agent.
+     *
+     * @param request - CreateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentResponse
+     *
+     * @param CreateAgentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAgentResponse
+     */
+    public function createAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->expireAfterSeconds) {
+            @$query['ExpireAfterSeconds'] = $request->expireAfterSeconds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgent',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 Agent.
+     *
+     * @param request - CreateAgentRequest
+     *
+     * @returns CreateAgentResponse
+     *
+     * @param CreateAgentRequest $request
+     *
+     * @return CreateAgentResponse
+     */
+    public function createAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an Airflow instance in a workspace.
      *
      * @remarks
@@ -1572,7 +1643,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Create a DataAgent session.
+     * Creates a DataAgent session.
      *
      * @param tmpReq - CreateDataAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1633,7 +1704,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Create a DataAgent session.
+     * Creates a DataAgent session.
      *
      * @param request - CreateDataAgentSessionRequest
      *
@@ -1758,6 +1829,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->themeType) {
             @$query['ThemeType'] = $request->themeType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
 
         $req = new OpenApiRequest([
@@ -3749,7 +3824,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+     * Invokes the DescribeDataAgentTheme operation to query the details of a specific DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
      *
      * @param request - DescribeDataAgentThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3788,7 +3863,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+     * Invokes the DescribeDataAgentTheme operation to query the details of a specific DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
      *
      * @param request - DescribeDataAgentThemeRequest
      *
@@ -6870,7 +6945,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+     * Calls the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter results by theme stage, source, and common scenario.
      *
      * @param request - ListDataAgentThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6914,6 +6989,10 @@ class Dms extends OpenApiClient
             @$query['ThemeType'] = $request->themeType;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -6933,7 +7012,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+     * Calls the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter results by theme stage, source, and common scenario.
      *
      * @param request - ListDataAgentThemeRequest
      *

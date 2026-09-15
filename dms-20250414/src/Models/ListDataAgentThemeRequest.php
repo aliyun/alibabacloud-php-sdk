@@ -42,6 +42,11 @@ class ListDataAgentThemeRequest extends Model
      * @var string
      */
     public $themeType;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'category' => 'Category',
         'maxResults' => 'MaxResults',
@@ -50,6 +55,7 @@ class ListDataAgentThemeRequest extends Model
         'pageSize' => 'PageSize',
         'themeFrom' => 'ThemeFrom',
         'themeType' => 'ThemeType',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class ListDataAgentThemeRequest extends Model
 
         if (null !== $this->themeType) {
             $res['ThemeType'] = $this->themeType;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class ListDataAgentThemeRequest extends Model
 
         if (isset($map['ThemeType'])) {
             $model->themeType = $map['ThemeType'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

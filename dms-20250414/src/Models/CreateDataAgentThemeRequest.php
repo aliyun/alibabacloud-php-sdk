@@ -37,6 +37,11 @@ class CreateDataAgentThemeRequest extends Model
      * @var string
      */
     public $themeType;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'category' => 'Category',
         'description' => 'Description',
@@ -44,6 +49,7 @@ class CreateDataAgentThemeRequest extends Model
         'themeId' => 'ThemeId',
         'themeName' => 'ThemeName',
         'themeType' => 'ThemeType',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class CreateDataAgentThemeRequest extends Model
 
         if (null !== $this->themeType) {
             $res['ThemeType'] = $this->themeType;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class CreateDataAgentThemeRequest extends Model
 
         if (isset($map['ThemeType'])) {
             $model->themeType = $map['ThemeType'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;
