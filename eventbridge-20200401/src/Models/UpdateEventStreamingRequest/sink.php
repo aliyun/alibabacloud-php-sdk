@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkApiDestinationParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkBaiLianParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkDataWorksTriggerParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkHttpsParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkKnowledgeBaseParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkMQTTParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkOSSParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkRabbitMQMetaParameters;
@@ -116,6 +117,11 @@ class sink extends Model
     public $sinkKafkaParameters;
 
     /**
+     * @var SinkKnowledgeBaseParameters
+     */
+    public $sinkKnowledgeBaseParameters;
+
+    /**
      * @var sinkMNSParameters
      */
     public $sinkMNSParameters;
@@ -186,6 +192,7 @@ class sink extends Model
         'sinkFnfParameters' => 'SinkFnfParameters',
         'sinkHttpsParameters' => 'SinkHttpsParameters',
         'sinkKafkaParameters' => 'SinkKafkaParameters',
+        'sinkKnowledgeBaseParameters' => 'SinkKnowledgeBaseParameters',
         'sinkMNSParameters' => 'SinkMNSParameters',
         'sinkMQTTParameters' => 'SinkMQTTParameters',
         'sinkOSSParameters' => 'SinkOSSParameters',
@@ -248,6 +255,9 @@ class sink extends Model
         }
         if (null !== $this->sinkKafkaParameters) {
             $this->sinkKafkaParameters->validate();
+        }
+        if (null !== $this->sinkKnowledgeBaseParameters) {
+            $this->sinkKnowledgeBaseParameters->validate();
         }
         if (null !== $this->sinkMNSParameters) {
             $this->sinkMNSParameters->validate();
@@ -350,6 +360,10 @@ class sink extends Model
 
         if (null !== $this->sinkKafkaParameters) {
             $res['SinkKafkaParameters'] = null !== $this->sinkKafkaParameters ? $this->sinkKafkaParameters->toArray($noStream) : $this->sinkKafkaParameters;
+        }
+
+        if (null !== $this->sinkKnowledgeBaseParameters) {
+            $res['SinkKnowledgeBaseParameters'] = null !== $this->sinkKnowledgeBaseParameters ? $this->sinkKnowledgeBaseParameters->toArray($noStream) : $this->sinkKnowledgeBaseParameters;
         }
 
         if (null !== $this->sinkMNSParameters) {
@@ -469,6 +483,10 @@ class sink extends Model
 
         if (isset($map['SinkKafkaParameters'])) {
             $model->sinkKafkaParameters = sinkKafkaParameters::fromMap($map['SinkKafkaParameters']);
+        }
+
+        if (isset($map['SinkKnowledgeBaseParameters'])) {
+            $model->sinkKnowledgeBaseParameters = SinkKnowledgeBaseParameters::fromMap($map['SinkKnowledgeBaseParameters']);
         }
 
         if (isset($map['SinkMNSParameters'])) {

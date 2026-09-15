@@ -92,6 +92,20 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetGenerateAgentDataSemanticsProgressRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetGenerateAgentDataSemanticsProgressResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaCatalogRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaCatalogResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaChunkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaChunkResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaDocumentDownloadUrlRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaDocumentDownloadUrlResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaDocumentRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaDocumentResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaNamespaceRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaNamespaceResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaTableRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaTableResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetNamespaceRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetNamespaceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleRequest;
@@ -113,6 +127,18 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventHouseRuntimesRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventHouseRuntimesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaCatalogsRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaCatalogsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaChunksRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaChunksResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaDocumentsRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaDocumentsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaKnowledgeBasesRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaKnowledgeBasesResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaNamespacesRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaNamespacesResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaTablesRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaTablesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListNamespacesRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListNamespacesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListRulesRequest;
@@ -143,6 +169,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventTracesRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventTracesResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryLumaWithSQLRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryLumaWithSQLResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventByEventIdRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventByEventIdResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventsRequest;
@@ -150,6 +178,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SaveAgentDataSemanticsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SaveAgentDataSemanticsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SaveAgentDataSemanticsShrinkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SearchLumaKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SearchLumaKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\StartEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\StartEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventPatternRequest;
@@ -253,7 +283,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries data by using natural language.
+     * Queries data using natural language.
      *
      * @param request - AskLumaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -304,7 +334,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries data by using natural language.
+     * Queries data using natural language.
      *
      * @param request - AskLumaRequest
      *
@@ -1791,7 +1821,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Delete Namespace.
+     * Deletes a namespace.
      *
      * @param request - DeleteNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1840,7 +1870,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Delete Namespace.
+     * Deletes a namespace.
      *
      * @param request - DeleteNamespaceRequest
      *
@@ -2953,6 +2983,539 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of a specified data catalog bound to a Luma Agent. You can only query data catalogs that are already bound to the Agent. A ResourceNotFound error is returned for unbound catalogs.
+     *
+     * @remarks
+     * Retrieves the details of a specified data catalog bound to a Luma Agent. You can only query data catalogs that are already bound to the Agent. A ResourceNotFound error is returned for unbound catalogs.
+     *
+     * @param request - GetLumaCatalogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLumaCatalogResponse
+     *
+     * @param GetLumaCatalogRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetLumaCatalogResponse
+     */
+    public function getLumaCatalogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetLumaCatalog',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLumaCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a specified data catalog bound to a Luma Agent. You can only query data catalogs that are already bound to the Agent. A ResourceNotFound error is returned for unbound catalogs.
+     *
+     * @remarks
+     * Retrieves the details of a specified data catalog bound to a Luma Agent. You can only query data catalogs that are already bound to the Agent. A ResourceNotFound error is returned for unbound catalogs.
+     *
+     * @param request - GetLumaCatalogRequest
+     *
+     * @returns GetLumaCatalogResponse
+     *
+     * @param GetLumaCatalogRequest $request
+     *
+     * @return GetLumaCatalogResponse
+     */
+    public function getLumaCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLumaCatalogWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the full content of a specified text chunk from a knowledge base bound to a Luma Agent.
+     *
+     * @remarks
+     * Retrieves the full content of a specified text chunk from a knowledge base bound to a Luma Agent.
+     *
+     * @param request - GetLumaChunkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLumaChunkResponse
+     *
+     * @param GetLumaChunkRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetLumaChunkResponse
+     */
+    public function getLumaChunkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->chunkSeq) {
+            @$body['ChunkSeq'] = $request->chunkSeq;
+        }
+
+        if (null !== $request->documentId) {
+            @$body['DocumentId'] = $request->documentId;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$body['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetLumaChunk',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLumaChunkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the full content of a specified text chunk from a knowledge base bound to a Luma Agent.
+     *
+     * @remarks
+     * Retrieves the full content of a specified text chunk from a knowledge base bound to a Luma Agent.
+     *
+     * @param request - GetLumaChunkRequest
+     *
+     * @returns GetLumaChunkResponse
+     *
+     * @param GetLumaChunkRequest $request
+     *
+     * @return GetLumaChunkResponse
+     */
+    public function getLumaChunk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLumaChunkWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a specified document in the knowledge base bound to a Luma Agent.
+     *
+     * @remarks
+     * Retrieves the details of a specified document in the knowledge base bound to a Luma Agent.
+     *
+     * @param request - GetLumaDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLumaDocumentResponse
+     *
+     * @param GetLumaDocumentRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetLumaDocumentResponse
+     */
+    public function getLumaDocumentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->documentId) {
+            @$body['DocumentId'] = $request->documentId;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$body['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetLumaDocument',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLumaDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a specified document in the knowledge base bound to a Luma Agent.
+     *
+     * @remarks
+     * Retrieves the details of a specified document in the knowledge base bound to a Luma Agent.
+     *
+     * @param request - GetLumaDocumentRequest
+     *
+     * @returns GetLumaDocumentResponse
+     *
+     * @param GetLumaDocumentRequest $request
+     *
+     * @return GetLumaDocumentResponse
+     */
+    public function getLumaDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLumaDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a temporary download URL for a specified document in the knowledge base bound to a Luma Agent. The URL is valid for one hour by default.
+     *
+     * @remarks
+     * Retrieves a temporary download URL for a specified document in the knowledge base bound to a Luma Agent. The URL is valid for one hour by default.
+     *
+     * @param request - GetLumaDocumentDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLumaDocumentDownloadUrlResponse
+     *
+     * @param GetLumaDocumentDownloadUrlRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetLumaDocumentDownloadUrlResponse
+     */
+    public function getLumaDocumentDownloadUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->documentId) {
+            @$body['DocumentId'] = $request->documentId;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$body['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->networkType) {
+            @$body['NetworkType'] = $request->networkType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetLumaDocumentDownloadUrl',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLumaDocumentDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a temporary download URL for a specified document in the knowledge base bound to a Luma Agent. The URL is valid for one hour by default.
+     *
+     * @remarks
+     * Retrieves a temporary download URL for a specified document in the knowledge base bound to a Luma Agent. The URL is valid for one hour by default.
+     *
+     * @param request - GetLumaDocumentDownloadUrlRequest
+     *
+     * @returns GetLumaDocumentDownloadUrlResponse
+     *
+     * @param GetLumaDocumentDownloadUrlRequest $request
+     *
+     * @return GetLumaDocumentDownloadUrlResponse
+     */
+    public function getLumaDocumentDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLumaDocumentDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a specified knowledge base bound to a Luma Agent, including the vector model, chunking configuration, and retrieval configuration.
+     *
+     * @remarks
+     * Retrieves the details of a specified knowledge base bound to a Luma Agent, including the vector model, chunking configuration, and retrieval configuration.
+     *
+     * @param request - GetLumaKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLumaKnowledgeBaseResponse
+     *
+     * @param GetLumaKnowledgeBaseRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetLumaKnowledgeBaseResponse
+     */
+    public function getLumaKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$body['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetLumaKnowledgeBase',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLumaKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a specified knowledge base bound to a Luma Agent, including the vector model, chunking configuration, and retrieval configuration.
+     *
+     * @remarks
+     * Retrieves the details of a specified knowledge base bound to a Luma Agent, including the vector model, chunking configuration, and retrieval configuration.
+     *
+     * @param request - GetLumaKnowledgeBaseRequest
+     *
+     * @returns GetLumaKnowledgeBaseResponse
+     *
+     * @param GetLumaKnowledgeBaseRequest $request
+     *
+     * @return GetLumaKnowledgeBaseResponse
+     */
+    public function getLumaKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLumaKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a specified namespace bound to a Luma Agent. Only namespaces that are already bound to the Agent can be queried.
+     *
+     * @remarks
+     * Retrieves the details of a specified namespace bound to a Luma Agent. Only namespaces that are already bound to the Agent can be queried.
+     *
+     * @param request - GetLumaNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLumaNamespaceResponse
+     *
+     * @param GetLumaNamespaceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetLumaNamespaceResponse
+     */
+    public function getLumaNamespaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetLumaNamespace',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLumaNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a specified namespace bound to a Luma Agent. Only namespaces that are already bound to the Agent can be queried.
+     *
+     * @remarks
+     * Retrieves the details of a specified namespace bound to a Luma Agent. Only namespaces that are already bound to the Agent can be queried.
+     *
+     * @param request - GetLumaNamespaceRequest
+     *
+     * @returns GetLumaNamespaceResponse
+     *
+     * @param GetLumaNamespaceRequest $request
+     *
+     * @return GetLumaNamespaceResponse
+     */
+    public function getLumaNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLumaNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a specified event table bound to a Luma Agent, including column definitions and the data retention policy. Only event tables that are already bound to the Agent can be queried.
+     *
+     * @remarks
+     * Retrieves the details of a specified event table bound to a Luma Agent, including column definitions and the data retention policy. Only event tables that are already bound to the Agent can be queried.
+     *
+     * @param request - GetLumaTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLumaTableResponse
+     *
+     * @param GetLumaTableRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetLumaTableResponse
+     */
+    public function getLumaTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetLumaTable',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLumaTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a specified event table bound to a Luma Agent, including column definitions and the data retention policy. Only event tables that are already bound to the Agent can be queried.
+     *
+     * @remarks
+     * Retrieves the details of a specified event table bound to a Luma Agent, including column definitions and the data retention policy. Only event tables that are already bound to the Agent can be queried.
+     *
+     * @param request - GetLumaTableRequest
+     *
+     * @returns GetLumaTableResponse
+     *
+     * @param GetLumaTableRequest $request
+     *
+     * @return GetLumaTableResponse
+     */
+    public function getLumaTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLumaTableWithOptions($request, $runtime);
+    }
+
+    /**
      * Get namespace.
      *
      * @param request - GetNamespaceRequest
@@ -3698,6 +4261,464 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+     *
+     * @remarks
+     * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+     *
+     * @param request - ListLumaCatalogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLumaCatalogsResponse
+     *
+     * @param ListLumaCatalogsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListLumaCatalogsResponse
+     */
+    public function listLumaCatalogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListLumaCatalogs',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLumaCatalogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+     *
+     * @remarks
+     * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+     *
+     * @param request - ListLumaCatalogsRequest
+     *
+     * @returns ListLumaCatalogsResponse
+     *
+     * @param ListLumaCatalogsRequest $request
+     *
+     * @return ListLumaCatalogsResponse
+     */
+    public function listLumaCatalogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLumaCatalogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists text chunks in a knowledge base bound to a Luma Agent, with support for filtering by document, keyword, and enabled status.
+     *
+     * @remarks
+     * Lists text chunks in a knowledge base bound to a Luma Agent, with support for filtering by document, keyword, and enabled status.
+     *
+     * @param request - ListLumaChunksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLumaChunksResponse
+     *
+     * @param ListLumaChunksRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListLumaChunksResponse
+     */
+    public function listLumaChunksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->documentId) {
+            @$body['DocumentId'] = $request->documentId;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$body['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListLumaChunks',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLumaChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists text chunks in a knowledge base bound to a Luma Agent, with support for filtering by document, keyword, and enabled status.
+     *
+     * @remarks
+     * Lists text chunks in a knowledge base bound to a Luma Agent, with support for filtering by document, keyword, and enabled status.
+     *
+     * @param request - ListLumaChunksRequest
+     *
+     * @returns ListLumaChunksResponse
+     *
+     * @param ListLumaChunksRequest $request
+     *
+     * @return ListLumaChunksResponse
+     */
+    public function listLumaChunks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLumaChunksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists documents in a knowledge base bound to a Luma Agent, with support for filtering by file name prefix and processing status.
+     *
+     * @remarks
+     * Lists documents in a knowledge base bound to a Luma Agent, with support for filtering by file name prefix and processing status.
+     *
+     * @param request - ListLumaDocumentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLumaDocumentsResponse
+     *
+     * @param ListLumaDocumentsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListLumaDocumentsResponse
+     */
+    public function listLumaDocumentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->fileNamePrefix) {
+            @$body['FileNamePrefix'] = $request->fileNamePrefix;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$body['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListLumaDocuments',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLumaDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists documents in a knowledge base bound to a Luma Agent, with support for filtering by file name prefix and processing status.
+     *
+     * @remarks
+     * Lists documents in a knowledge base bound to a Luma Agent, with support for filtering by file name prefix and processing status.
+     *
+     * @param request - ListLumaDocumentsRequest
+     *
+     * @returns ListLumaDocumentsResponse
+     *
+     * @param ListLumaDocumentsRequest $request
+     *
+     * @return ListLumaDocumentsResponse
+     */
+    public function listLumaDocuments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLumaDocumentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     *
+     * @remarks
+     * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     *
+     * @param request - ListLumaKnowledgeBasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLumaKnowledgeBasesResponse
+     *
+     * @param ListLumaKnowledgeBasesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListLumaKnowledgeBasesResponse
+     */
+    public function listLumaKnowledgeBasesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListLumaKnowledgeBases',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLumaKnowledgeBasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     *
+     * @remarks
+     * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     *
+     * @param request - ListLumaKnowledgeBasesRequest
+     *
+     * @returns ListLumaKnowledgeBasesResponse
+     *
+     * @param ListLumaKnowledgeBasesRequest $request
+     *
+     * @return ListLumaKnowledgeBasesResponse
+     */
+    public function listLumaKnowledgeBases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLumaKnowledgeBasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+     *
+     * @remarks
+     * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+     *
+     * @param request - ListLumaNamespacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLumaNamespacesResponse
+     *
+     * @param ListLumaNamespacesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListLumaNamespacesResponse
+     */
+    public function listLumaNamespacesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListLumaNamespaces',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLumaNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+     *
+     * @remarks
+     * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+     *
+     * @param request - ListLumaNamespacesRequest
+     *
+     * @returns ListLumaNamespacesResponse
+     *
+     * @param ListLumaNamespacesRequest $request
+     *
+     * @return ListLumaNamespacesResponse
+     */
+    public function listLumaNamespaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLumaNamespacesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     *
+     * @remarks
+     * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     *
+     * @param request - ListLumaTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLumaTablesResponse
+     *
+     * @param ListLumaTablesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListLumaTablesResponse
+     */
+    public function listLumaTablesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListLumaTables',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLumaTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     *
+     * @remarks
+     * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     *
+     * @param request - ListLumaTablesRequest
+     *
+     * @returns ListLumaTablesResponse
+     *
+     * @param ListLumaTablesRequest $request
+     *
+     * @return ListLumaTablesResponse
+     */
+    public function listLumaTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLumaTablesWithOptions($request, $runtime);
+    }
+
+    /**
      * Query namespace list.
      *
      * @param request - ListNamespacesRequest
@@ -4118,7 +5139,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Polls for natural language query results.
+     * Polls for the result of a natural language query.
      *
      * @param request - PollAskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4161,7 +5182,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Polls for natural language query results.
+     * Polls for the result of a natural language query.
      *
      * @param request - PollAskResultRequest
      *
@@ -4668,6 +5689,77 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Executes an SQL query directly on the EventHouse associated with a Luma Agent and returns structured results. Unlike AskLuma, this operation executes the SQL provided by the caller without natural language rewriting.
+     *
+     * @remarks
+     * Executes an SQL query directly on the EventHouse associated with a Luma Agent and returns structured results. Unlike AskLuma, this operation executes the SQL provided by the caller without natural language rewriting.
+     *
+     * @param request - QueryLumaWithSQLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryLumaWithSQLResponse
+     *
+     * @param QueryLumaWithSQLRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryLumaWithSQLResponse
+     */
+    public function queryLumaWithSQLWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->maxRows) {
+            @$body['MaxRows'] = $request->maxRows;
+        }
+
+        if (null !== $request->sql) {
+            @$body['Sql'] = $request->sql;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryLumaWithSQL',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryLumaWithSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes an SQL query directly on the EventHouse associated with a Luma Agent and returns structured results. Unlike AskLuma, this operation executes the SQL provided by the caller without natural language rewriting.
+     *
+     * @remarks
+     * Executes an SQL query directly on the EventHouse associated with a Luma Agent and returns structured results. Unlike AskLuma, this operation executes the SQL provided by the caller without natural language rewriting.
+     *
+     * @param request - QueryLumaWithSQLRequest
+     *
+     * @returns QueryLumaWithSQLResponse
+     *
+     * @param QueryLumaWithSQLRequest $request
+     *
+     * @return QueryLumaWithSQLResponse
+     */
+    public function queryLumaWithSQL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryLumaWithSQLWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries event traces by event ID.
      *
      * @remarks
@@ -4922,6 +6014,101 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveAgentDataSemanticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+     *
+     * @remarks
+     * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+     *
+     * @param request - SearchLumaKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchLumaKnowledgeBaseResponse
+     *
+     * @param SearchLumaKnowledgeBaseRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SearchLumaKnowledgeBaseResponse
+     */
+    public function searchLumaKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->catalog) {
+            @$body['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$body['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->metadataFilter) {
+            @$body['MetadataFilter'] = $request->metadataFilter;
+        }
+
+        if (null !== $request->mode) {
+            @$body['Mode'] = $request->mode;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
+        }
+
+        if (null !== $request->rerank) {
+            @$body['Rerank'] = $request->rerank;
+        }
+
+        if (null !== $request->topK) {
+            @$body['TopK'] = $request->topK;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SearchLumaKnowledgeBase',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchLumaKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+     *
+     * @remarks
+     * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+     *
+     * @param request - SearchLumaKnowledgeBaseRequest
+     *
+     * @returns SearchLumaKnowledgeBaseResponse
+     *
+     * @param SearchLumaKnowledgeBaseRequest $request
+     *
+     * @return SearchLumaKnowledgeBaseResponse
+     */
+    public function searchLumaKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchLumaKnowledgeBaseWithOptions($request, $runtime);
     }
 
     /**

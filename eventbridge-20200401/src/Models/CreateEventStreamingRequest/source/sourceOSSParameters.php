@@ -19,6 +19,11 @@ class sourceOSSParameters extends Model
     public $delimiter;
 
     /**
+     * @var string[]
+     */
+    public $fileExtensions;
+
+    /**
      * @var string
      */
     public $loadFormat;
@@ -40,6 +45,7 @@ class sourceOSSParameters extends Model
     protected $_name = [
         'bucketName' => 'BucketName',
         'delimiter' => 'Delimiter',
+        'fileExtensions' => 'FileExtensions',
         'loadFormat' => 'LoadFormat',
         'loadMode' => 'LoadMode',
         'prefix' => 'Prefix',
@@ -48,6 +54,9 @@ class sourceOSSParameters extends Model
 
     public function validate()
     {
+        if (\is_array($this->fileExtensions)) {
+            Model::validateArray($this->fileExtensions);
+        }
         parent::validate();
     }
 
@@ -60,6 +69,17 @@ class sourceOSSParameters extends Model
 
         if (null !== $this->delimiter) {
             $res['Delimiter'] = $this->delimiter;
+        }
+
+        if (null !== $this->fileExtensions) {
+            if (\is_array($this->fileExtensions)) {
+                $res['FileExtensions'] = [];
+                $n1 = 0;
+                foreach ($this->fileExtensions as $item1) {
+                    $res['FileExtensions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->loadFormat) {
@@ -95,6 +115,17 @@ class sourceOSSParameters extends Model
 
         if (isset($map['Delimiter'])) {
             $model->delimiter = $map['Delimiter'];
+        }
+
+        if (isset($map['FileExtensions'])) {
+            if (!empty($map['FileExtensions'])) {
+                $model->fileExtensions = [];
+                $n1 = 0;
+                foreach ($map['FileExtensions'] as $item1) {
+                    $model->fileExtensions[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['LoadFormat'])) {
