@@ -56,6 +56,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $serviceStatus;
 
     /**
@@ -87,6 +92,7 @@ class data extends Model
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'serviceStatus' => 'ServiceStatus',
         'totalJobs' => 'TotalJobs',
         'totalRunningJobs' => 'TotalRunningJobs',
@@ -139,6 +145,10 @@ class data extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->serviceStatus) {
@@ -213,6 +223,10 @@ class data extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ServiceStatus'])) {
