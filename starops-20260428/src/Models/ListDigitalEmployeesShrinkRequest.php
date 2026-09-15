@@ -11,6 +11,11 @@ class ListDigitalEmployeesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -43,6 +48,7 @@ class ListDigitalEmployeesShrinkRequest extends Model
      */
     public $tagsShrink;
     protected $_name = [
+        'channel' => 'channel',
         'displayName' => 'displayName',
         'employeeType' => 'employeeType',
         'maxResults' => 'maxResults',
@@ -60,6 +66,10 @@ class ListDigitalEmployeesShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->channel) {
+            $res['channel'] = $this->channel;
+        }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
@@ -99,6 +109,10 @@ class ListDigitalEmployeesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['channel'])) {
+            $model->channel = $map['channel'];
+        }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }

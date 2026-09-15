@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeSkillResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeUmodelCommonSchemaRefRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteMcpServiceRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteMcpServiceResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteThreadRequest;
@@ -35,10 +37,14 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactDownloadUrlRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactDownloadUrlResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeEntityDataRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeEntityDataResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeSkillResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeUmodelRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeUmodelResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetMcpServiceRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetMcpServiceResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetThreadDataRequest;
@@ -63,10 +69,14 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeSkillResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeUmodelRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeUmodelResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateMcpServiceRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateMcpServiceResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateThreadRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateThreadResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\UpsertDigitalEmployeeUmodelCommonSchemaRefRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\UpsertDigitalEmployeeUmodelCommonSchemaRefResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -78,10 +88,6 @@ class STAROps extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-beijing' => 'starops.cn-beijing.aliyuncs.com',
-            'ap-southeast-1' => 'starops.ap-southeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('starops', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -896,6 +902,65 @@ class STAROps extends OpenApiClient
     }
 
     /**
+     * Deletes a public schema reference from a digital employee UModel.
+     *
+     * @param request - DeleteDigitalEmployeeUmodelCommonSchemaRefRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDigitalEmployeeUmodelCommonSchemaRefResponse
+     *
+     * @param string                                            $name
+     * @param string                                            $group
+     * @param DeleteDigitalEmployeeUmodelCommonSchemaRefRequest $request
+     * @param string[]                                          $headers
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return DeleteDigitalEmployeeUmodelCommonSchemaRefResponse
+     */
+    public function deleteDigitalEmployeeUmodelCommonSchemaRefWithOptions($name, $group, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDigitalEmployeeUmodelCommonSchemaRef',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/umodel/commonSchemaRefs/' . Url::percentEncode($group) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDigitalEmployeeUmodelCommonSchemaRefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a public schema reference from a digital employee UModel.
+     *
+     * @param request - DeleteDigitalEmployeeUmodelCommonSchemaRefRequest
+     *
+     * @returns DeleteDigitalEmployeeUmodelCommonSchemaRefResponse
+     *
+     * @param string                                            $name
+     * @param string                                            $group
+     * @param DeleteDigitalEmployeeUmodelCommonSchemaRefRequest $request
+     *
+     * @return DeleteDigitalEmployeeUmodelCommonSchemaRefResponse
+     */
+    public function deleteDigitalEmployeeUmodelCommonSchemaRef($name, $group, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDigitalEmployeeUmodelCommonSchemaRefWithOptions($name, $group, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes an MCP service.
      *
      * @param request - DeleteMcpServiceRequest
@@ -1302,6 +1367,77 @@ class STAROps extends OpenApiClient
     }
 
     /**
+     * Queries the entity data of a digital employee.
+     *
+     * @param request - GetDigitalEmployeeEntityDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDigitalEmployeeEntityDataResponse
+     *
+     * @param string                              $name
+     * @param GetDigitalEmployeeEntityDataRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDigitalEmployeeEntityDataResponse
+     */
+    public function getDigitalEmployeeEntityDataWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->from) {
+            @$body['from'] = $request->from;
+        }
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
+        }
+
+        if (null !== $request->to) {
+            @$body['to'] = $request->to;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDigitalEmployeeEntityData',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/entities/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDigitalEmployeeEntityDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the entity data of a digital employee.
+     *
+     * @param request - GetDigitalEmployeeEntityDataRequest
+     *
+     * @returns GetDigitalEmployeeEntityDataResponse
+     *
+     * @param string                              $name
+     * @param GetDigitalEmployeeEntityDataRequest $request
+     *
+     * @return GetDigitalEmployeeEntityDataResponse
+     */
+    public function getDigitalEmployeeEntityData($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDigitalEmployeeEntityDataWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the details of a specific skill.
      *
      * @remarks
@@ -1370,6 +1506,63 @@ class STAROps extends OpenApiClient
         $headers = [];
 
         return $this->getDigitalEmployeeSkillWithOptions($name, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the UModel of a digital employee.
+     *
+     * @param request - GetDigitalEmployeeUmodelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDigitalEmployeeUmodelResponse
+     *
+     * @param string                          $name
+     * @param GetDigitalEmployeeUmodelRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDigitalEmployeeUmodelResponse
+     */
+    public function getDigitalEmployeeUmodelWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetDigitalEmployeeUmodel',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/umodel',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDigitalEmployeeUmodelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the UModel of a digital employee.
+     *
+     * @param request - GetDigitalEmployeeUmodelRequest
+     *
+     * @returns GetDigitalEmployeeUmodelResponse
+     *
+     * @param string                          $name
+     * @param GetDigitalEmployeeUmodelRequest $request
+     *
+     * @return GetDigitalEmployeeUmodelResponse
+     */
+    public function getDigitalEmployeeUmodel($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDigitalEmployeeUmodelWithOptions($name, $request, $headers, $runtime);
     }
 
     /**
@@ -1818,6 +2011,10 @@ class STAROps extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->channel) {
+            @$query['channel'] = $request->channel;
+        }
+
         if (null !== $request->displayName) {
             @$query['displayName'] = $request->displayName;
         }
@@ -2234,6 +2431,69 @@ class STAROps extends OpenApiClient
     }
 
     /**
+     * Updates the UModel of a digital human.
+     *
+     * @param request - UpdateDigitalEmployeeUmodelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDigitalEmployeeUmodelResponse
+     *
+     * @param string                             $name
+     * @param UpdateDigitalEmployeeUmodelRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateDigitalEmployeeUmodelResponse
+     */
+    public function updateDigitalEmployeeUmodelWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDigitalEmployeeUmodel',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/umodel',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDigitalEmployeeUmodelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the UModel of a digital human.
+     *
+     * @param request - UpdateDigitalEmployeeUmodelRequest
+     *
+     * @returns UpdateDigitalEmployeeUmodelResponse
+     *
+     * @param string                             $name
+     * @param UpdateDigitalEmployeeUmodelRequest $request
+     *
+     * @return UpdateDigitalEmployeeUmodelResponse
+     */
+    public function updateDigitalEmployeeUmodel($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDigitalEmployeeUmodelWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates an MCP service.
      *
      * @param request - UpdateMcpServiceRequest
@@ -2395,5 +2655,70 @@ class STAROps extends OpenApiClient
         $headers = [];
 
         return $this->updateThreadWithOptions($name, $threadId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates or updates a public schema reference for a digital employee UModel.
+     *
+     * @param request - UpsertDigitalEmployeeUmodelCommonSchemaRefRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpsertDigitalEmployeeUmodelCommonSchemaRefResponse
+     *
+     * @param string                                            $name
+     * @param string                                            $group
+     * @param UpsertDigitalEmployeeUmodelCommonSchemaRefRequest $request
+     * @param string[]                                          $headers
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return UpsertDigitalEmployeeUmodelCommonSchemaRefResponse
+     */
+    public function upsertDigitalEmployeeUmodelCommonSchemaRefWithOptions($name, $group, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpsertDigitalEmployeeUmodelCommonSchemaRef',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/umodel/commonSchemaRefs/' . Url::percentEncode($group) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpsertDigitalEmployeeUmodelCommonSchemaRefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates or updates a public schema reference for a digital employee UModel.
+     *
+     * @param request - UpsertDigitalEmployeeUmodelCommonSchemaRefRequest
+     *
+     * @returns UpsertDigitalEmployeeUmodelCommonSchemaRefResponse
+     *
+     * @param string                                            $name
+     * @param string                                            $group
+     * @param UpsertDigitalEmployeeUmodelCommonSchemaRefRequest $request
+     *
+     * @return UpsertDigitalEmployeeUmodelCommonSchemaRefResponse
+     */
+    public function upsertDigitalEmployeeUmodelCommonSchemaRef($name, $group, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->upsertDigitalEmployeeUmodelCommonSchemaRefWithOptions($name, $group, $request, $headers, $runtime);
     }
 }

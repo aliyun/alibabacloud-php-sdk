@@ -1,0 +1,142 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\STAROps\V20260428\Models;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeEntityDataResponseBody\responseStatus;
+
+class GetDigitalEmployeeEntityDataResponseBody extends Model
+{
+    /**
+     * @var string[][]
+     */
+    public $data;
+
+    /**
+     * @var string[]
+     */
+    public $header;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var responseStatus
+     */
+    public $responseStatus;
+    protected $_name = [
+        'data' => 'data',
+        'header' => 'header',
+        'requestId' => 'requestId',
+        'responseStatus' => 'responseStatus',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        if (\is_array($this->header)) {
+            Model::validateArray($this->header);
+        }
+        if (null !== $this->responseStatus) {
+            $this->responseStatus->validate();
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->data) {
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    if (\is_array($item1)) {
+                        $res['data'][$n1] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $res['data'][$n1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->header) {
+            if (\is_array($this->header)) {
+                $res['header'] = [];
+                $n1 = 0;
+                foreach ($this->header as $item1) {
+                    $res['header'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->responseStatus) {
+            $res['responseStatus'] = null !== $this->responseStatus ? $this->responseStatus->toArray($noStream) : $this->responseStatus;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['data'])) {
+            if (!empty($map['data'])) {
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['data'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->data[$n1] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $model->data[$n1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['header'])) {
+            if (!empty($map['header'])) {
+                $model->header = [];
+                $n1 = 0;
+                foreach ($map['header'] as $item1) {
+                    $model->header[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['responseStatus'])) {
+            $model->responseStatus = responseStatus::fromMap($map['responseStatus']);
+        }
+
+        return $model;
+    }
+}

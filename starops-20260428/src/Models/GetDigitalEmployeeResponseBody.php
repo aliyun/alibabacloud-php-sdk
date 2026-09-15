@@ -19,6 +19,11 @@ class GetDigitalEmployeeResponseBody extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -92,6 +97,7 @@ class GetDigitalEmployeeResponseBody extends Model
     public $updateTime;
     protected $_name = [
         'attributes' => 'attributes',
+        'channel' => 'channel',
         'createTime' => 'createTime',
         'defaultRule' => 'defaultRule',
         'description' => 'description',
@@ -139,6 +145,10 @@ class GetDigitalEmployeeResponseBody extends Model
                     $res['attributes'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->channel) {
+            $res['channel'] = $this->channel;
         }
 
         if (null !== $this->createTime) {
@@ -226,6 +236,10 @@ class GetDigitalEmployeeResponseBody extends Model
                     $model->attributes[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['channel'])) {
+            $model->channel = $map['channel'];
         }
 
         if (isset($map['createTime'])) {

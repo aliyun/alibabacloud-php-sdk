@@ -18,6 +18,11 @@ class digitalEmployees extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -71,6 +76,7 @@ class digitalEmployees extends Model
     public $updateTime;
     protected $_name = [
         'attributes' => 'attributes',
+        'channel' => 'channel',
         'createTime' => 'createTime',
         'defaultRule' => 'defaultRule',
         'description' => 'description',
@@ -108,6 +114,10 @@ class digitalEmployees extends Model
                     $res['attributes'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->channel) {
+            $res['channel'] = $this->channel;
         }
 
         if (null !== $this->createTime) {
@@ -179,6 +189,10 @@ class digitalEmployees extends Model
                     $model->attributes[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['channel'])) {
+            $model->channel = $map['channel'];
         }
 
         if (isset($map['createTime'])) {
