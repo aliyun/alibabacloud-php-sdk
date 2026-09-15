@@ -11,6 +11,11 @@ class prometheusDashboards extends Model
     /**
      * @var string
      */
+    public $folderUid;
+
+    /**
+     * @var string
+     */
     public $id;
 
     /**
@@ -38,6 +43,7 @@ class prometheusDashboards extends Model
      */
     public $url;
     protected $_name = [
+        'folderUid' => 'folderUid',
         'id' => 'id',
         'name' => 'name',
         'tags' => 'tags',
@@ -57,6 +63,10 @@ class prometheusDashboards extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->folderUid) {
+            $res['folderUid'] = $this->folderUid;
+        }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
@@ -99,6 +109,10 @@ class prometheusDashboards extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['folderUid'])) {
+            $model->folderUid = $map['folderUid'];
+        }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }

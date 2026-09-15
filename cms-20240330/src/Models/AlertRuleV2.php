@@ -69,6 +69,11 @@ class AlertRuleV2 extends Model
     public $labels;
 
     /**
+     * @var string
+     */
+    public $managedBy;
+
+    /**
      * @var NotifyConfigUnified
      */
     public $notifyConfig;
@@ -160,6 +165,7 @@ class AlertRuleV2 extends Model
         'displayName' => 'displayName',
         'enabled' => 'enabled',
         'labels' => 'labels',
+        'managedBy' => 'managedBy',
         'notifyConfig' => 'notifyConfig',
         'notifyStrategyId' => 'notifyStrategyId',
         'observeResourceConfig' => 'observeResourceConfig',
@@ -278,6 +284,10 @@ class AlertRuleV2 extends Model
                     $res['labels'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->managedBy) {
+            $res['managedBy'] = $this->managedBy;
         }
 
         if (null !== $this->notifyConfig) {
@@ -418,6 +428,10 @@ class AlertRuleV2 extends Model
                     $model->labels[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['managedBy'])) {
+            $model->managedBy = $map['managedBy'];
         }
 
         if (isset($map['notifyConfig'])) {
