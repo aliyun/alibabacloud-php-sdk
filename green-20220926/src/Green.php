@@ -2518,7 +2518,7 @@ class Green extends OpenApiClient
      * Retrieves OSS moderation results v2.
      *
      * @remarks
-     * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
+     * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
      *
      * @param request - DescribeOssV2ResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2584,7 +2584,7 @@ class Green extends OpenApiClient
      * Retrieves OSS moderation results v2.
      *
      * @remarks
-     * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
+     * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
      *
      * @param request - DescribeOssV2ResultRequest
      *
@@ -7365,7 +7365,7 @@ class Green extends OpenApiClient
      * Provides feedback on OSS detection results.
      *
      * @remarks
-     * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
+     * This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
      *
      * @param request - MarkOssV2ResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7427,7 +7427,7 @@ class Green extends OpenApiClient
      * Provides feedback on OSS detection results.
      *
      * @remarks
-     * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
+     * This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
      *
      * @param request - MarkOssV2ResultRequest
      *
@@ -9394,6 +9394,14 @@ class Green extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->fileConfig) {
             @$body['FileConfig'] = $request->fileConfig;
         }
