@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateQuotaResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateTeamRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateTeamResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateTemplateRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateVolumeRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateVolumeResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1527,6 +1529,70 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->updateTeamWithOptions($teamID, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates a template.
+     *
+     * @param request - UpdateTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTemplateResponse
+     *
+     * @param string                $templateID
+     * @param UpdateTemplateRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateTemplateResponse
+     */
+    public function updateTemplateWithOptions($templateID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTemplate',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/templates/' . Url::percentEncode($templateID) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a template.
+     *
+     * @param request - UpdateTemplateRequest
+     *
+     * @returns UpdateTemplateResponse
+     *
+     * @param string                $templateID
+     * @param UpdateTemplateRequest $request
+     *
+     * @return UpdateTemplateResponse
+     */
+    public function updateTemplate($templateID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTemplateWithOptions($templateID, $request, $headers, $runtime);
     }
 
     /**
