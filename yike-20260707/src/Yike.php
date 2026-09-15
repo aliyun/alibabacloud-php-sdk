@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Yike\V20260707;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Yike\V20260707\Models\BatchGetMediasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\BatchGetMediasResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CancelGenerationJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CancelGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateAssetCategoryRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateAssetCategoryResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateInfiniteCanvasRequest;
@@ -187,6 +189,63 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchGetMediasWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消生成任务接口.
+     *
+     * @param request - CancelGenerationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelGenerationJobResponse
+     *
+     * @param CancelGenerationJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CancelGenerationJobResponse
+     */
+    public function cancelGenerationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelGenerationJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelGenerationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消生成任务接口.
+     *
+     * @param request - CancelGenerationJobRequest
+     *
+     * @returns CancelGenerationJobResponse
+     *
+     * @param CancelGenerationJobRequest $request
+     *
+     * @return CancelGenerationJobResponse
+     */
+    public function cancelGenerationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelGenerationJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1241,7 +1300,7 @@ class Yike extends OpenApiClient
      * Queries the status, input parameters, and multilingual outputs of a video translation job.
      *
      * @remarks
-     * Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
+     * Queries the status, input, parameters, and final results of a video translation job by `JobId`.
      *
      * @param request - GetVideoTranslationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1283,7 +1342,7 @@ class Yike extends OpenApiClient
      * Queries the status, input parameters, and multilingual outputs of a video translation job.
      *
      * @remarks
-     * Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
+     * Queries the status, input, parameters, and final results of a video translation job by `JobId`.
      *
      * @param request - GetVideoTranslationJobRequest
      *
@@ -2078,10 +2137,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+     * Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
      *
      * @remarks
-     * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
+     * Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
      *
      * @param request - SubmitVideoDetextJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2136,10 +2195,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+     * Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
      *
      * @remarks
-     * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
+     * Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
      *
      * @param request - SubmitVideoDetextJobRequest
      *
