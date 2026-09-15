@@ -2005,6 +2005,11 @@ class APIG extends OpenApiClient
     public function createHttpApiWithOptions($request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
         $body = [];
         if (null !== $request->agentProtocols) {
             @$body['agentProtocols'] = $request->agentProtocols;
@@ -2084,6 +2089,7 @@ class APIG extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2121,7 +2127,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an operation for an HTTP API.
+     * Creates operations for an HTTP API.
      *
      * @param request - CreateHttpApiOperationRequest
      * @param headers - map
@@ -2164,7 +2170,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an operation for an HTTP API.
+     * Creates operations for an HTTP API.
      *
      * @param request - CreateHttpApiOperationRequest
      *
@@ -3758,7 +3764,7 @@ class APIG extends OpenApiClient
      * Deletes a quota throttling rule for a gateway.
      *
      * @remarks
-     * Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+     * Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      * @param headers - map
@@ -3799,7 +3805,7 @@ class APIG extends OpenApiClient
      * Deletes a quota throttling rule for a gateway.
      *
      * @remarks
-     * Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+     * Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      *
@@ -5879,7 +5885,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the API operation information.
+     * Retrieves operation information.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5914,7 +5920,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the API operation information.
+     * Retrieves operation information.
      *
      * @returns GetHttpApiOperationResponse
      *

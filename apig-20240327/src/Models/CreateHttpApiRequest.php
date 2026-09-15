@@ -103,6 +103,11 @@ class CreateHttpApiRequest extends Model
      * @var HttpApiVersionConfig
      */
     public $versionConfig;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
     protected $_name = [
         'agentProtocols' => 'agentProtocols',
         'aiProtocols' => 'aiProtocols',
@@ -123,6 +128,7 @@ class CreateHttpApiRequest extends Model
         'strategy' => 'strategy',
         'type' => 'type',
         'versionConfig' => 'versionConfig',
+        'clientToken' => 'clientToken',
     ];
 
     public function validate()
@@ -258,6 +264,10 @@ class CreateHttpApiRequest extends Model
             $res['versionConfig'] = null !== $this->versionConfig ? $this->versionConfig->toArray($noStream) : $this->versionConfig;
         }
 
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+
         return $res;
     }
 
@@ -371,6 +381,10 @@ class CreateHttpApiRequest extends Model
 
         if (isset($map['versionConfig'])) {
             $model->versionConfig = HttpApiVersionConfig::fromMap($map['versionConfig']);
+        }
+
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         return $model;
