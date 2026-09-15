@@ -31,6 +31,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $customOssPath;
+
+    /**
+     * @var string
+     */
     public $DBClusterDescription;
 
     /**
@@ -146,6 +151,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $previousCustomOssPath;
+
+    /**
+     * @var string
+     */
     public $publicIp;
 
     /**
@@ -211,6 +221,7 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'aiNodeType' => 'AiNodeType',
         'apiKey' => 'ApiKey',
         'creationTime' => 'CreationTime',
+        'customOssPath' => 'CustomOssPath',
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterId' => 'DBClusterId',
         'DBClusterStatus' => 'DBClusterStatus',
@@ -234,6 +245,7 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'modelSpaceName' => 'ModelSpaceName',
         'modelType' => 'ModelType',
         'payType' => 'PayType',
+        'previousCustomOssPath' => 'PreviousCustomOssPath',
         'publicIp' => 'PublicIp',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
@@ -282,6 +294,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+
+        if (null !== $this->customOssPath) {
+            $res['CustomOssPath'] = $this->customOssPath;
         }
 
         if (null !== $this->DBClusterDescription) {
@@ -390,6 +406,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
             $res['PayType'] = $this->payType;
         }
 
+        if (null !== $this->previousCustomOssPath) {
+            $res['PreviousCustomOssPath'] = $this->previousCustomOssPath;
+        }
+
         if (null !== $this->publicIp) {
             $res['PublicIp'] = $this->publicIp;
         }
@@ -470,6 +490,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+
+        if (isset($map['CustomOssPath'])) {
+            $model->customOssPath = $map['CustomOssPath'];
         }
 
         if (isset($map['DBClusterDescription'])) {
@@ -576,6 +600,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+
+        if (isset($map['PreviousCustomOssPath'])) {
+            $model->previousCustomOssPath = $map['PreviousCustomOssPath'];
         }
 
         if (isset($map['PublicIp'])) {

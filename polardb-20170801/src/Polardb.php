@@ -13294,7 +13294,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the detailed attributes of a custom instance.
+     * Queries the details of a custom instance.
      *
      * @param request - DescribeAIDBClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13349,7 +13349,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the detailed attributes of a custom instance.
+     * Queries the details of a custom instance.
      *
      * @param request - DescribeAIDBClusterAttributeRequest
      *
@@ -16315,7 +16315,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of AI cluster models.
+     * Retrieves the list of models in an AI cluster.
      *
      * @param request - DescribeAvailableModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16333,6 +16333,10 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->kubeType) {
             @$query['KubeType'] = $request->kubeType;
+        }
+
+        if (null !== $request->modelType) {
+            @$query['ModelType'] = $request->modelType;
         }
 
         if (null !== $request->regionId) {
@@ -16358,7 +16362,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of AI cluster models.
+     * Retrieves the list of models in an AI cluster.
      *
      * @param request - DescribeAvailableModelsRequest
      *

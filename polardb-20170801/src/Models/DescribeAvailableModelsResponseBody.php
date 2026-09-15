@@ -27,12 +27,24 @@ class DescribeAvailableModelsResponseBody extends Model
     /**
      * @var string
      */
+    public $modelType;
+
+    /**
+     * @var string
+     */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $tuneArch;
     protected $_name = [
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
         'items' => 'Items',
+        'modelType' => 'ModelType',
         'requestId' => 'RequestId',
+        'tuneArch' => 'TuneArch',
     ];
 
     public function validate()
@@ -65,8 +77,16 @@ class DescribeAvailableModelsResponseBody extends Model
             }
         }
 
+        if (null !== $this->modelType) {
+            $res['ModelType'] = $this->modelType;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->tuneArch) {
+            $res['TuneArch'] = $this->tuneArch;
         }
 
         return $res;
@@ -99,8 +119,16 @@ class DescribeAvailableModelsResponseBody extends Model
             }
         }
 
+        if (isset($map['ModelType'])) {
+            $model->modelType = $map['ModelType'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TuneArch'])) {
+            $model->tuneArch = $map['TuneArch'];
         }
 
         return $model;

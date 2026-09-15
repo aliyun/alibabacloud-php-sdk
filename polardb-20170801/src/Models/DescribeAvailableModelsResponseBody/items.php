@@ -10,6 +10,21 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableModelsResponseBod
 class items extends Model
 {
     /**
+     * @var string
+     */
+    public $customModelName;
+
+    /**
+     * @var string
+     */
+    public $displayModelName;
+
+    /**
+     * @var string
+     */
+    public $gmtModified;
+
+    /**
      * @var gpuRequired[]
      */
     public $gpuRequired;
@@ -35,6 +50,16 @@ class items extends Model
     public $modelSeries;
 
     /**
+     * @var string
+     */
+    public $modelType;
+
+    /**
+     * @var string
+     */
+    public $ossPath;
+
+    /**
      * @var string[]
      */
     public $supportedGpuModels;
@@ -44,11 +69,16 @@ class items extends Model
      */
     public $tuneArch;
     protected $_name = [
+        'customModelName' => 'CustomModelName',
+        'displayModelName' => 'DisplayModelName',
+        'gmtModified' => 'GmtModified',
         'gpuRequired' => 'GpuRequired',
         'minimumCpu' => 'MinimumCpu',
         'minimumMemory' => 'MinimumMemory',
         'modelName' => 'ModelName',
         'modelSeries' => 'ModelSeries',
+        'modelType' => 'ModelType',
+        'ossPath' => 'OssPath',
         'supportedGpuModels' => 'SupportedGpuModels',
         'tuneArch' => 'TuneArch',
     ];
@@ -67,6 +97,18 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customModelName) {
+            $res['CustomModelName'] = $this->customModelName;
+        }
+
+        if (null !== $this->displayModelName) {
+            $res['DisplayModelName'] = $this->displayModelName;
+        }
+
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+
         if (null !== $this->gpuRequired) {
             if (\is_array($this->gpuRequired)) {
                 $res['GpuRequired'] = [];
@@ -92,6 +134,14 @@ class items extends Model
 
         if (null !== $this->modelSeries) {
             $res['ModelSeries'] = $this->modelSeries;
+        }
+
+        if (null !== $this->modelType) {
+            $res['ModelType'] = $this->modelType;
+        }
+
+        if (null !== $this->ossPath) {
+            $res['OssPath'] = $this->ossPath;
         }
 
         if (null !== $this->supportedGpuModels) {
@@ -120,6 +170,18 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomModelName'])) {
+            $model->customModelName = $map['CustomModelName'];
+        }
+
+        if (isset($map['DisplayModelName'])) {
+            $model->displayModelName = $map['DisplayModelName'];
+        }
+
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+
         if (isset($map['GpuRequired'])) {
             if (!empty($map['GpuRequired'])) {
                 $model->gpuRequired = [];
@@ -145,6 +207,14 @@ class items extends Model
 
         if (isset($map['ModelSeries'])) {
             $model->modelSeries = $map['ModelSeries'];
+        }
+
+        if (isset($map['ModelType'])) {
+            $model->modelType = $map['ModelType'];
+        }
+
+        if (isset($map['OssPath'])) {
+            $model->ossPath = $map['OssPath'];
         }
 
         if (isset($map['SupportedGpuModels'])) {

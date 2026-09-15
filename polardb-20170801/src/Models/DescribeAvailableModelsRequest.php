@@ -16,9 +16,15 @@ class DescribeAvailableModelsRequest extends Model
     /**
      * @var string
      */
+    public $modelType;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'kubeType' => 'KubeType',
+        'modelType' => 'ModelType',
         'regionId' => 'RegionId',
     ];
 
@@ -32,6 +38,10 @@ class DescribeAvailableModelsRequest extends Model
         $res = [];
         if (null !== $this->kubeType) {
             $res['KubeType'] = $this->kubeType;
+        }
+
+        if (null !== $this->modelType) {
+            $res['ModelType'] = $this->modelType;
         }
 
         if (null !== $this->regionId) {
@@ -51,6 +61,10 @@ class DescribeAvailableModelsRequest extends Model
         $model = new self();
         if (isset($map['KubeType'])) {
             $model->kubeType = $map['KubeType'];
+        }
+
+        if (isset($map['ModelType'])) {
+            $model->modelType = $map['ModelType'];
         }
 
         if (isset($map['RegionId'])) {
