@@ -51,22 +51,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $orderId;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
      * @var string
      */
     public $serviceStatus;
-
-    /**
-     * @var string
-     */
-    public $serviceVersion;
 
     /**
      * @var int
@@ -96,10 +86,8 @@ class data extends Model
         'expireTime' => 'ExpireTime',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'orderId' => 'OrderId',
         'regionId' => 'RegionId',
         'serviceStatus' => 'ServiceStatus',
-        'serviceVersion' => 'ServiceVersion',
         'totalJobs' => 'TotalJobs',
         'totalRunningJobs' => 'TotalRunningJobs',
         'vSwitchIds' => 'VSwitchIds',
@@ -149,20 +137,12 @@ class data extends Model
             $res['InstanceName'] = $this->instanceName;
         }
 
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->serviceStatus) {
             $res['ServiceStatus'] = $this->serviceStatus;
-        }
-
-        if (null !== $this->serviceVersion) {
-            $res['ServiceVersion'] = $this->serviceVersion;
         }
 
         if (null !== $this->totalJobs) {
@@ -231,20 +211,12 @@ class data extends Model
             $model->instanceName = $map['InstanceName'];
         }
 
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['ServiceStatus'])) {
             $model->serviceStatus = $map['ServiceStatus'];
-        }
-
-        if (isset($map['ServiceVersion'])) {
-            $model->serviceVersion = $map['ServiceVersion'];
         }
 
         if (isset($map['TotalJobs'])) {

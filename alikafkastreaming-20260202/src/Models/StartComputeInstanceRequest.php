@@ -11,11 +11,6 @@ class StartComputeInstanceRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -29,16 +24,6 @@ class StartComputeInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @var string
-     */
-    public $selectedZones;
-
-    /**
-     * @var string
-     */
-    public $serviceVersion;
-
-    /**
      * @var string[]
      */
     public $vSwitchIds;
@@ -48,12 +33,9 @@ class StartComputeInstanceRequest extends Model
      */
     public $vpcId;
     protected $_name = [
-        'clientToken' => 'ClientToken',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
-        'selectedZones' => 'SelectedZones',
-        'serviceVersion' => 'ServiceVersion',
         'vSwitchIds' => 'VSwitchIds',
         'vpcId' => 'VpcId',
     ];
@@ -69,10 +51,6 @@ class StartComputeInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -83,14 +61,6 @@ class StartComputeInstanceRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-
-        if (null !== $this->selectedZones) {
-            $res['SelectedZones'] = $this->selectedZones;
-        }
-
-        if (null !== $this->serviceVersion) {
-            $res['ServiceVersion'] = $this->serviceVersion;
         }
 
         if (null !== $this->vSwitchIds) {
@@ -119,10 +89,6 @@ class StartComputeInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -133,14 +99,6 @@ class StartComputeInstanceRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['SelectedZones'])) {
-            $model->selectedZones = $map['SelectedZones'];
-        }
-
-        if (isset($map['ServiceVersion'])) {
-            $model->serviceVersion = $map['ServiceVersion'];
         }
 
         if (isset($map['VSwitchIds'])) {

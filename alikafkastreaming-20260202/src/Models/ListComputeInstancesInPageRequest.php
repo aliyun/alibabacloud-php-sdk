@@ -14,19 +14,9 @@ class ListComputeInstancesInPageRequest extends Model
     public $currentPage;
 
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var string[]
      */
     public $instanceIds;
-
-    /**
-     * @var string
-     */
-    public $orderId;
 
     /**
      * @var int
@@ -37,13 +27,17 @@ class ListComputeInstancesInPageRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'instanceId' => 'InstanceId',
         'instanceIds' => 'InstanceIds',
-        'orderId' => 'OrderId',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -61,10 +55,6 @@ class ListComputeInstancesInPageRequest extends Model
             $res['CurrentPage'] = $this->currentPage;
         }
 
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
                 $res['InstanceIds'] = [];
@@ -76,16 +66,16 @@ class ListComputeInstancesInPageRequest extends Model
             }
         }
 
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -103,10 +93,6 @@ class ListComputeInstancesInPageRequest extends Model
             $model->currentPage = $map['CurrentPage'];
         }
 
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = [];
@@ -118,16 +104,16 @@ class ListComputeInstancesInPageRequest extends Model
             }
         }
 
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

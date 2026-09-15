@@ -16,15 +16,9 @@ class GetComputeInstanceRequest extends Model
     /**
      * @var string
      */
-    public $orderId;
-
-    /**
-     * @var string
-     */
     public $regionId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'orderId' => 'OrderId',
         'regionId' => 'RegionId',
     ];
 
@@ -38,10 +32,6 @@ class GetComputeInstanceRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
         }
 
         if (null !== $this->regionId) {
@@ -61,10 +51,6 @@ class GetComputeInstanceRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
         }
 
         if (isset($map['RegionId'])) {

@@ -11,11 +11,6 @@ class UpdateComputeJobDraftSqlRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $draftSql;
 
     /**
@@ -33,7 +28,6 @@ class UpdateComputeJobDraftSqlRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'clientToken' => 'ClientToken',
         'draftSql' => 'DraftSql',
         'instanceId' => 'InstanceId',
         'jobName' => 'JobName',
@@ -48,10 +42,6 @@ class UpdateComputeJobDraftSqlRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-
         if (null !== $this->draftSql) {
             $res['DraftSql'] = $this->draftSql;
         }
@@ -79,10 +69,6 @@ class UpdateComputeJobDraftSqlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-
         if (isset($map['DraftSql'])) {
             $model->draftSql = $map['DraftSql'];
         }

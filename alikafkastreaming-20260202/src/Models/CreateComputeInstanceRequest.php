@@ -22,16 +22,10 @@ class CreateComputeInstanceRequest extends Model
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
     protected $_name = [
         'paidType' => 'PaidType',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -52,10 +46,6 @@ class CreateComputeInstanceRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -79,10 +69,6 @@ class CreateComputeInstanceRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

@@ -46,17 +46,17 @@ class data extends Model
     /**
      * @var string
      */
-    public $historyInfos;
+    public $errorMsg;
+
+    /**
+     * @var string
+     */
+    public $expirationTime;
 
     /**
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $jobConfig;
 
     /**
      * @var string
@@ -95,9 +95,9 @@ class data extends Model
         'debugMode' => 'DebugMode',
         'deployedSql' => 'DeployedSql',
         'draftSql' => 'DraftSql',
-        'historyInfos' => 'HistoryInfos',
+        'errorMsg' => 'ErrorMsg',
+        'expirationTime' => 'ExpirationTime',
         'instanceId' => 'InstanceId',
-        'jobConfig' => 'JobConfig',
         'jobName' => 'JobName',
         'owner' => 'Owner',
         'regionId' => 'RegionId',
@@ -142,16 +142,16 @@ class data extends Model
             $res['DraftSql'] = $this->draftSql;
         }
 
-        if (null !== $this->historyInfos) {
-            $res['HistoryInfos'] = $this->historyInfos;
+        if (null !== $this->errorMsg) {
+            $res['ErrorMsg'] = $this->errorMsg;
+        }
+
+        if (null !== $this->expirationTime) {
+            $res['ExpirationTime'] = $this->expirationTime;
         }
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-
-        if (null !== $this->jobConfig) {
-            $res['JobConfig'] = $this->jobConfig;
         }
 
         if (null !== $this->jobName) {
@@ -217,16 +217,16 @@ class data extends Model
             $model->draftSql = $map['DraftSql'];
         }
 
-        if (isset($map['HistoryInfos'])) {
-            $model->historyInfos = $map['HistoryInfos'];
+        if (isset($map['ErrorMsg'])) {
+            $model->errorMsg = $map['ErrorMsg'];
+        }
+
+        if (isset($map['ExpirationTime'])) {
+            $model->expirationTime = $map['ExpirationTime'];
         }
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-
-        if (isset($map['JobConfig'])) {
-            $model->jobConfig = $map['JobConfig'];
         }
 
         if (isset($map['JobName'])) {

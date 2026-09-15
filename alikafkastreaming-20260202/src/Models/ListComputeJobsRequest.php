@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class ListComputeJobsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
      * @var string
      */
     public $instanceId;
@@ -27,11 +22,6 @@ class ListComputeJobsRequest extends Model
      * @var string
      */
     public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
 
     /**
      * @var string
@@ -53,11 +43,9 @@ class ListComputeJobsRequest extends Model
      */
     public $sortField;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
         'instanceId' => 'InstanceId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
-        'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'search' => 'Search',
         'sortDirection' => 'SortDirection',
@@ -72,10 +60,6 @@ class ListComputeJobsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -86,10 +70,6 @@ class ListComputeJobsRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->regionId) {
@@ -119,10 +99,6 @@ class ListComputeJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -133,10 +109,6 @@ class ListComputeJobsRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['RegionId'])) {

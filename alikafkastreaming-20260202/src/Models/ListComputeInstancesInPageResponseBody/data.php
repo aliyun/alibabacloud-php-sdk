@@ -21,17 +21,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $commodityCode;
-
-    /**
-     * @var string
-     */
     public $createTime;
-
-    /**
-     * @var int
-     */
-    public $cu;
 
     /**
      * @var float
@@ -96,18 +86,11 @@ class data extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
     public $vpcId;
     protected $_name = [
         'autoRenewFlag' => 'AutoRenewFlag',
         'chargeType' => 'ChargeType',
-        'commodityCode' => 'CommodityCode',
         'createTime' => 'CreateTime',
-        'cu' => 'Cu',
         'cuLimitSum' => 'CuLimitSum',
         'cuReservedSum' => 'CuReservedSum',
         'cuUsedSum' => 'CuUsedSum',
@@ -120,7 +103,6 @@ class data extends Model
         'totalJobs' => 'TotalJobs',
         'totalRunningJobs' => 'TotalRunningJobs',
         'vSwitchIds' => 'VSwitchIds',
-        'version' => 'Version',
         'vpcId' => 'VpcId',
     ];
 
@@ -143,16 +125,8 @@ class data extends Model
             $res['ChargeType'] = $this->chargeType;
         }
 
-        if (null !== $this->commodityCode) {
-            $res['CommodityCode'] = $this->commodityCode;
-        }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-
-        if (null !== $this->cu) {
-            $res['Cu'] = $this->cu;
         }
 
         if (null !== $this->cuLimitSum) {
@@ -210,10 +184,6 @@ class data extends Model
             }
         }
 
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -237,16 +207,8 @@ class data extends Model
             $model->chargeType = $map['ChargeType'];
         }
 
-        if (isset($map['CommodityCode'])) {
-            $model->commodityCode = $map['CommodityCode'];
-        }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-
-        if (isset($map['Cu'])) {
-            $model->cu = $map['Cu'];
         }
 
         if (isset($map['CuLimitSum'])) {
@@ -302,10 +264,6 @@ class data extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         if (isset($map['VpcId'])) {

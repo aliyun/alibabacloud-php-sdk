@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class StartComputeJobRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
      * @var float
      */
     public $cuLimit;
@@ -27,11 +22,6 @@ class StartComputeJobRequest extends Model
      * @var string
      */
     public $draftSql;
-
-    /**
-     * @var bool
-     */
-    public $draftSqlStart;
 
     /**
      * @var string
@@ -53,11 +43,9 @@ class StartComputeJobRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'clientToken' => 'ClientToken',
         'cuLimit' => 'CuLimit',
         'cuReserved' => 'CuReserved',
         'draftSql' => 'DraftSql',
-        'draftSqlStart' => 'DraftSqlStart',
         'instanceId' => 'InstanceId',
         'jobName' => 'JobName',
         'recoveryMode' => 'RecoveryMode',
@@ -72,10 +60,6 @@ class StartComputeJobRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-
         if (null !== $this->cuLimit) {
             $res['CuLimit'] = $this->cuLimit;
         }
@@ -86,10 +70,6 @@ class StartComputeJobRequest extends Model
 
         if (null !== $this->draftSql) {
             $res['DraftSql'] = $this->draftSql;
-        }
-
-        if (null !== $this->draftSqlStart) {
-            $res['DraftSqlStart'] = $this->draftSqlStart;
         }
 
         if (null !== $this->instanceId) {
@@ -119,10 +99,6 @@ class StartComputeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-
         if (isset($map['CuLimit'])) {
             $model->cuLimit = $map['CuLimit'];
         }
@@ -133,10 +109,6 @@ class StartComputeJobRequest extends Model
 
         if (isset($map['DraftSql'])) {
             $model->draftSql = $map['DraftSql'];
-        }
-
-        if (isset($map['DraftSqlStart'])) {
-            $model->draftSqlStart = $map['DraftSqlStart'];
         }
 
         if (isset($map['InstanceId'])) {

@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class UpdateComputeJobCuRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
      * @var float
      */
     public $cuLimit;
@@ -38,7 +33,6 @@ class UpdateComputeJobCuRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'clientToken' => 'ClientToken',
         'cuLimit' => 'CuLimit',
         'cuReserved' => 'CuReserved',
         'instanceId' => 'InstanceId',
@@ -54,10 +48,6 @@ class UpdateComputeJobCuRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-
         if (null !== $this->cuLimit) {
             $res['CuLimit'] = $this->cuLimit;
         }
@@ -89,10 +79,6 @@ class UpdateComputeJobCuRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-
         if (isset($map['CuLimit'])) {
             $model->cuLimit = $map['CuLimit'];
         }

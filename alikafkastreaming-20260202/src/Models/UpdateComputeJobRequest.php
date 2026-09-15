@@ -11,11 +11,6 @@ class UpdateComputeJobRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -32,18 +27,11 @@ class UpdateComputeJobRequest extends Model
      * @var string
      */
     public $remark;
-
-    /**
-     * @var string
-     */
-    public $upgradeMode;
     protected $_name = [
-        'clientToken' => 'ClientToken',
         'instanceId' => 'InstanceId',
         'jobName' => 'JobName',
         'regionId' => 'RegionId',
         'remark' => 'Remark',
-        'upgradeMode' => 'UpgradeMode',
     ];
 
     public function validate()
@@ -54,10 +42,6 @@ class UpdateComputeJobRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -74,10 +58,6 @@ class UpdateComputeJobRequest extends Model
             $res['Remark'] = $this->remark;
         }
 
-        if (null !== $this->upgradeMode) {
-            $res['UpgradeMode'] = $this->upgradeMode;
-        }
-
         return $res;
     }
 
@@ -89,10 +69,6 @@ class UpdateComputeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -107,10 +83,6 @@ class UpdateComputeJobRequest extends Model
 
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
-        }
-
-        if (isset($map['UpgradeMode'])) {
-            $model->upgradeMode = $map['UpgradeMode'];
         }
 
         return $model;

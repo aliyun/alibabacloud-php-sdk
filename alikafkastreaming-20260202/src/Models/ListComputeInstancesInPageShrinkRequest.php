@@ -16,17 +16,7 @@ class ListComputeInstancesInPageShrinkRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $instanceIdsShrink;
-
-    /**
-     * @var string
-     */
-    public $orderId;
 
     /**
      * @var int
@@ -37,13 +27,17 @@ class ListComputeInstancesInPageShrinkRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'instanceId' => 'InstanceId',
         'instanceIdsShrink' => 'InstanceIds',
-        'orderId' => 'OrderId',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -58,16 +52,8 @@ class ListComputeInstancesInPageShrinkRequest extends Model
             $res['CurrentPage'] = $this->currentPage;
         }
 
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-
         if (null !== $this->instanceIdsShrink) {
             $res['InstanceIds'] = $this->instanceIdsShrink;
-        }
-
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
         }
 
         if (null !== $this->pageSize) {
@@ -76,6 +62,10 @@ class ListComputeInstancesInPageShrinkRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -93,16 +83,8 @@ class ListComputeInstancesInPageShrinkRequest extends Model
             $model->currentPage = $map['CurrentPage'];
         }
 
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-
         if (isset($map['InstanceIds'])) {
             $model->instanceIdsShrink = $map['InstanceIds'];
-        }
-
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
         }
 
         if (isset($map['PageSize'])) {
@@ -111,6 +93,10 @@ class ListComputeInstancesInPageShrinkRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;
