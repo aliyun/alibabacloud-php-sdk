@@ -1,3 +1,17 @@
+2026-09-15 Version: 10.1.3
+- Update API ChangeCheckScopeConfigInstance: add request parameters SelectionKey.
+- Update API CreateAgentlessScanTask: add request parameters From.
+- Update API CreateAgentlessScanTask: add request parameters ResourceRegionId.
+- Update API CreateAgentlessScanTask: add request parameters Targets.
+- Update API DescribeImageGroupedVulList: add request parameters AgentlessCanFix.
+- Update API DescribeImageGroupedVulList: add response parameters Body.GroupedVulItems.$.AgentlessCanFix.
+- Update API DescribeImageGroupedVulList: add response parameters Body.GroupedVulItems.$.CveScore.
+- Update API DescribeImageGroupedVulList: add response parameters Body.GroupedVulItems.$.Related.
+- Update API DescribeImageVulList: add request parameters GroupByAsset.
+- Update API DescribeImageVulList: add response parameters Body.VulRecords.$.AgentlessCanFix.
+- Update API ListAgentlessTask: add response parameters Body.List.$.Extension.
+
+
 2026-09-03 Version: 10.1.2
 - Generated php 2018-12-03 for Sas.
 

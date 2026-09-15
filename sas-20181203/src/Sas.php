@@ -2387,7 +2387,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds the configuration information of multi-cloud assets.
+     * Adds multi-cloud asset configuration information.
      *
      * @param request - AddCloudVendorAccountAKRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2474,7 +2474,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds the configuration information of multi-cloud assets.
+     * Adds multi-cloud asset configuration information.
      *
      * @param request - AddCloudVendorAccountAKRequest
      *
@@ -2492,7 +2492,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds configurations of connecting the audit logs of a third-party cloud asset.
+     * Adds an audit log access configuration for third-party cloud assets.
      *
      * @param request - AddCloudVendorTrialConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2539,7 +2539,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds configurations of connecting the audit logs of a third-party cloud asset.
+     * Adds an audit log access configuration for third-party cloud assets.
      *
      * @param request - AddCloudVendorTrialConfigRequest
      *
@@ -2557,7 +2557,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a rule for non-image program defense.
+     * Creates a non-image process defense rule.
      *
      * @param tmpReq - AddContainerDefenseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2630,7 +2630,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a rule for non-image program defense.
+     * Creates a non-image process defense rule.
      *
      * @param request - AddContainerDefenseRuleRequest
      *
@@ -3751,7 +3751,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an advanced whitelist rule.
+     * Queries the advanced whitelist editing information.
      *
      * @param request - AdvanceSecurityEventOperationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3806,7 +3806,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an advanced whitelist rule.
+     * Queries the advanced whitelist editing information.
      *
      * @param request - AdvanceSecurityEventOperationsRequest
      *
@@ -4467,7 +4467,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the custom configuration items of a check item.
+     * Modifies the custom configuration of a check item.
      *
      * @param request - ChangeCheckCustomConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4518,7 +4518,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the custom configuration items of a check item.
+     * Modifies the custom configuration of a check item.
      *
      * @param request - ChangeCheckCustomConfigRequest
      *
@@ -4536,7 +4536,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration instance of a check scope.
+     * Modifies the check scope configuration instance.
      *
      * @param request - ChangeCheckScopeConfigInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4564,6 +4564,10 @@ class Sas extends OpenApiClient
             @$query['DeleteAssetUuids'] = $request->deleteAssetUuids;
         }
 
+        if (null !== $request->selectionKey) {
+            @$query['SelectionKey'] = $request->selectionKey;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4583,7 +4587,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration instance of a check scope.
+     * Modifies the check scope configuration instance.
      *
      * @param request - ChangeCheckScopeConfigInstanceRequest
      *
@@ -4601,7 +4605,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the details of the deduction modules of the security score feature, including custom settings.
+     * Modifies custom security score rules.
      *
      * @param request - ChangeSecurityScoreRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4656,7 +4660,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the details of the deduction modules of the security score feature, including custom settings.
+     * Modifies custom security score rules.
      *
      * @param request - ChangeSecurityScoreRuleRequest
      *
@@ -4967,7 +4971,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Confirms the alert events that you want to handle.
+     * Confirms the handling of a trojan scan alert.
      *
      * @param request - ConfirmVirusEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5014,7 +5018,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Confirms the alert events that you want to handle.
+     * Confirms the handling of a trojan scan alert.
      *
      * @param request - ConfirmVirusEventsRequest
      *
@@ -5125,6 +5129,10 @@ class Sas extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -5133,12 +5141,20 @@ class Sas extends OpenApiClient
             @$query['ReleaseAfterScan'] = $request->releaseAfterScan;
         }
 
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+
         if (null !== $request->scanDataDisk) {
             @$query['ScanDataDisk'] = $request->scanDataDisk;
         }
 
         if (null !== $request->targetType) {
             @$query['TargetType'] = $request->targetType;
+        }
+
+        if (null !== $request->targets) {
+            @$query['Targets'] = $request->targets;
         }
 
         if (null !== $request->uuidList) {
@@ -5407,7 +5423,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Create Attack Path Whitelist.
+     * Creates an attack path whitelist.
      *
      * @param request - CreateAttackPathWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5466,7 +5482,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Create Attack Path Whitelist.
+     * Creates an attack path whitelist.
      *
      * @param request - CreateAttackPathWhitelistRequest
      *
@@ -5565,7 +5581,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an anti-ransomware policy for server protection.
+     * Creates an anti-ransomware policy for servers.
      *
      * @param tmpReq - CreateBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5634,7 +5650,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an anti-ransomware policy for server protection.
+     * Creates an anti-ransomware policy for servers.
      *
      * @param request - CreateBackupPolicyRequest
      *
@@ -5794,7 +5810,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * User creates a custom check item.
+     * Creates a custom check item in the Cloud Security Posture Management (CSPM) custom check item feature.
      *
      * @param tmpReq - CreateCheckItemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5891,7 +5907,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * User creates a custom check item.
+     * Creates a custom check item in the Cloud Security Posture Management (CSPM) custom check item feature.
      *
      * @param request - CreateCheckItemRequest
      *
@@ -6043,7 +6059,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a scan task for a running container application based on the application name.
+     * Creates a container runtime scan task in the appNames dimension.
      *
      * @param request - CreateContainerScanTaskByAppNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6090,7 +6106,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a scan task for a running container application based on the application name.
+     * Creates a container runtime scan task in the appNames dimension.
      *
      * @param request - CreateContainerScanTaskByAppNameRequest
      *
@@ -6108,7 +6124,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an IP address blocking policy for one or more servers.
+     * Adds custom IP blocking policies for one or more specific servers based on your requirements.
      *
      * @param request - CreateCustomBlockRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6163,7 +6179,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an IP address blocking policy for one or more servers.
+     * Adds custom IP blocking policies for one or more specific servers based on your requirements.
      *
      * @param request - CreateCustomBlockRecordRequest
      *
@@ -6246,7 +6262,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
+     * Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
      *
      * @param request - CreateCycleTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6325,7 +6341,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
+     * Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
      *
      * @param request - CreateCycleTaskRequest
      *
@@ -6415,15 +6431,15 @@ class Sas extends OpenApiClient
      * Pushes a file to the cloud for detection.
      * ### File upload methods
      * Two file upload methods are supported: pre-upload and download URL.
-     * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+     * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For more information about how to upload a file, see the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
      * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
-     * ### File unique identifier
-     * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
-     * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
-     * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+     * ### Unique file identifier
+     * All file detection operations include the HashKey parameter, which specifies the unique identifier of the file to be detected and is used to query detection results.
+     * Calculate the HashKey before you call this operation. Only the MD5 or SHA-256 hash of the complete file content is supported.
+     * To calculate the MD5 or SHA-256 hash of the file content, perform the following steps:
      * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
-     * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
-     * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
+     * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and the Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 hash is 32 characters long, and the SHA-256 hash is 64 characters long.
+     * The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
      *
      * @param request - CreateFileDetectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6496,15 +6512,15 @@ class Sas extends OpenApiClient
      * Pushes a file to the cloud for detection.
      * ### File upload methods
      * Two file upload methods are supported: pre-upload and download URL.
-     * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+     * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For more information about how to upload a file, see the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
      * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
-     * ### File unique identifier
-     * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
-     * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
-     * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+     * ### Unique file identifier
+     * All file detection operations include the HashKey parameter, which specifies the unique identifier of the file to be detected and is used to query detection results.
+     * Calculate the HashKey before you call this operation. Only the MD5 or SHA-256 hash of the complete file content is supported.
+     * To calculate the MD5 or SHA-256 hash of the file content, perform the following steps:
      * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
-     * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
-     * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
+     * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and the Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 hash is 32 characters long, and the SHA-256 hash is 64 characters long.
+     * The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
      *
      * @param request - CreateFileDetectRequest
      *
@@ -6700,7 +6716,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a core file monitoring rule.
+     * Creates a core file protection rule.
      *
      * @param request - CreateFileProtectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6771,7 +6787,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a core file monitoring rule.
+     * Creates a core file protection rule.
      *
      * @param request - CreateFileProtectRuleRequest
      *
@@ -6846,7 +6862,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a honeypot.
+     * Creates a honeypot instance.
+     *
+     * @remarks
+     * Before calling this operation to create a honeypot instance, complete the following steps:
+     * 1. If no honeypot management node exists in your account, call the CreateHoneypotNode operation to create a honeypot management node.
+     * 2. Call the ListHoneypotNode operation to obtain the NodeId of the honeypot management node.
+     * 3. Use the obtained NodeId to call this operation (CreateHoneypot) to create a honeypot instance.
      *
      * @param request - CreateHoneypotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6901,7 +6923,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a honeypot.
+     * Creates a honeypot instance.
+     *
+     * @remarks
+     * Before calling this operation to create a honeypot instance, complete the following steps:
+     * 1. If no honeypot management node exists in your account, call the CreateHoneypotNode operation to create a honeypot management node.
+     * 2. Call the ListHoneypotNode operation to obtain the NodeId of the honeypot management node.
+     * 3. Use the obtained NodeId to call this operation (CreateHoneypot) to create a honeypot instance.
      *
      * @param request - CreateHoneypotRequest
      *
@@ -6919,7 +6947,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a management node.
+     * Creates a honeypot management node.
      *
      * @param request - CreateHoneypotNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6970,7 +6998,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a management node.
+     * Creates a honeypot management node.
      *
      * @param request - CreateHoneypotNodeRequest
      *
@@ -7061,7 +7089,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a probe.
+     * Creates a honeypot probe.
      *
      * @param request - CreateHoneypotProbeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7140,7 +7168,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a probe.
+     * Creates a honeypot probe.
      *
      * @param request - CreateHoneypotProbeRequest
      *
@@ -7158,7 +7186,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a monitoring or forwarding service for a probe.
+     * Creates a listener or forwarding service for a specified probe.
+     *
+     * @remarks
+     * Before calling this operation to create a probe service, prepare the honeypot infrastructure: purchase a probe authorization quota, and then call the CreateHoneypotNode operation to create a honeypot management node, the CreateHoneypotProbe operation to create a honeypot probe, and the CreateHoneypot operation to create a honeypot instance. After creating these resources, you can call this operation.
      *
      * @param request - CreateHoneypotProbeBindRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7213,7 +7244,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a monitoring or forwarding service for a probe.
+     * Creates a listener or forwarding service for a specified probe.
+     *
+     * @remarks
+     * Before calling this operation to create a probe service, prepare the honeypot infrastructure: purchase a probe authorization quota, and then call the CreateHoneypotNode operation to create a honeypot management node, the CreateHoneypotProbe operation to create a honeypot probe, and the CreateHoneypot operation to create a honeypot instance. After creating these resources, you can call this operation.
      *
      * @param request - CreateHoneypotProbeBindRequest
      *
@@ -8316,7 +8350,15 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a bucket detection task.
+     * Creates a bucket scan task.
+     *
+     * @remarks
+     * Before calling this operation to create an OSS bucket malicious file scan task, complete the following prerequisites in order:
+     * 1. The OSS malicious file detection feature is activated for the Security Center instance.
+     * 2. The service-linked role AliyunServiceRoleForSas is created.
+     * 3. The OSS bucket to be scanned is created.
+     * 4. The RefreshOssBucketScanInfo operation is called to synchronize the OSS bucket information to Security Center.
+     * After completing the preceding steps, you can call this operation to create a scan task.
      *
      * @param request - CreateOssBucketScanTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8395,7 +8437,15 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a bucket detection task.
+     * Creates a bucket scan task.
+     *
+     * @remarks
+     * Before calling this operation to create an OSS bucket malicious file scan task, complete the following prerequisites in order:
+     * 1. The OSS malicious file detection feature is activated for the Security Center instance.
+     * 2. The service-linked role AliyunServiceRoleForSas is created.
+     * 3. The OSS bucket to be scanned is created.
+     * 4. The RefreshOssBucketScanInfo operation is called to synchronize the OSS bucket information to Security Center.
+     * After completing the preceding steps, you can call this operation to create a scan task.
      *
      * @param request - CreateOssBucketScanTaskRequest
      *
@@ -9241,7 +9291,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a database anti-ransomware restoration task.
+     * Creates a restoration task for anti-ransomware database protection.
      *
      * @param request - CreateUniRestorePlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9304,7 +9354,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a database anti-ransomware restoration task.
+     * Creates a restoration task for anti-ransomware database protection.
      *
      * @param request - CreateUniRestorePlanRequest
      *
@@ -9533,7 +9583,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a list of vulnerabilities that can be automatically fixed. After the list is created, you can select the list when you create a vulnerability fixing task on the Playbook page.
+     * Creates a batch list of vulnerabilities that can be automatically fixed. After creation, the list is used for vulnerability selection in vulnerability fix tasks in the task center.
      *
      * @param request - CreateVulAutoRepairConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9580,7 +9630,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a list of vulnerabilities that can be automatically fixed. After the list is created, you can select the list when you create a vulnerability fixing task on the Playbook page.
+     * Creates a batch list of vulnerabilities that can be automatically fixed. After creation, the list is used for vulnerability selection in vulnerability fix tasks in the task center.
      *
      * @param request - CreateVulAutoRepairConfigRequest
      *
@@ -10863,7 +10913,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Deletes a file protection rule.
+     * Deletes a web tamper-proofing rule.
      *
      * @param request - DeleteFileProtectClientRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10926,7 +10976,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Deletes a file protection rule.
+     * Deletes a web tamper-proofing rule.
      *
      * @param request - DeleteFileProtectClientRuleRequest
      *
@@ -11609,7 +11659,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Deletes an image vulnerability whitelist.
+     * Deletes image vulnerability whitelists.
      *
      * @param request - DeleteImageVulWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11652,7 +11702,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Deletes an image vulnerability whitelist.
+     * Deletes image vulnerability whitelists.
      *
      * @param request - DeleteImageVulWhitelistRequest
      *
@@ -12449,7 +12499,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
+     * Deletes alert whitelisting configurations in batches.
      *
      * @deprecated openAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead
      *
@@ -12499,7 +12549,7 @@ class Sas extends OpenApiClient
 
     // Deprecated
     /**
-     * Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
+     * Deletes alert whitelisting configurations in batches.
      *
      * @deprecated openAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead
      *
@@ -12704,7 +12754,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Deletes the description of an alert.
+     * Deletes a note from a security alert.
      *
      * @param request - DeleteSuspEventNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12747,7 +12797,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Deletes the description of an alert.
+     * Deletes a note from a security alert.
      *
      * @param request - DeleteSuspEventNodeRequest
      *
@@ -13707,7 +13757,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details about an alert event. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
+     * Retrieves the details of a security alert event. Alert events are categorized into alerts and exceptions. An alert event contains multiple exception events.
      *
      * @param request - DescribeAlarmEventDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13762,7 +13812,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details about an alert event. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
+     * Retrieves the details of a security alert event. Alert events are categorized into alerts and exceptions. An alert event contains multiple exception events.
      *
      * @param request - DescribeAlarmEventDetailRequest
      *
@@ -14019,7 +14069,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on global security events, including the numbers of unfixed vulnerabilities, baseline risks, and alerts.
+     * Retrieves global security event statistics, including the number of unfixed vulnerabilities, baseline checks, and alerts.
      *
      * @param request - DescribeAllRegionsStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14074,7 +14124,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on global security events, including the numbers of unfixed vulnerabilities, baseline risks, and alerts.
+     * Retrieves global security event statistics, including the number of unfixed vulnerabilities, baseline checks, and alerts.
      *
      * @param request - DescribeAllRegionsStatisticsRequest
      *
@@ -14941,7 +14991,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the backup status of servers that are associated with an anti-ransomware backup policy.
+     * Queries the backup status of servers associated with an anti-ransomware backup policy.
      *
      * @param request - DescribeBackupMachineStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14988,7 +15038,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the backup status of servers that are associated with an anti-ransomware backup policy.
+     * Queries the backup status of servers associated with an anti-ransomware backup policy.
      *
      * @param request - DescribeBackupMachineStatusRequest
      *
@@ -17737,7 +17787,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the information about a containerized application.
+     * Retrieves the list of apps in a cluster.
      *
      * @param request - DescribeContainerAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17788,7 +17838,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the information about a containerized application.
+     * Retrieves the list of apps in a cluster.
      *
      * @param request - DescribeContainerAppsRequest
      *
@@ -17910,7 +17960,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the attribute details of containers.
+     * Queries the details of container properties.
      *
      * @param request - DescribeContainerGroupedFieldDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17953,7 +18003,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the attribute details of containers.
+     * Queries the details of container properties.
      *
      * @param request - DescribeContainerGroupedFieldDetailRequest
      *
@@ -18162,7 +18212,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the namespace of a Container Service for Kubernetes (ACK) cluster.
+     * Queries the namespaces of a Container Service for Kubernetes (ACK) cluster.
+     *
+     * @remarks
+     * Before you call this operation to query the namespaces of a Container Service for Kubernetes (ACK) cluster, make sure that the following prerequisites are met: An ACK cluster exists within the current account. How to obtain the ClusterId: View the cluster ID in the Container Service console, or call the DescribeClustersV1 operation of Container Service to obtain the ID of the ACK managed cluster.
      *
      * @param request - DescribeContainerServiceK8sClusterNamespacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18209,7 +18262,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the namespace of a Container Service for Kubernetes (ACK) cluster.
+     * Queries the namespaces of a Container Service for Kubernetes (ACK) cluster.
+     *
+     * @remarks
+     * Before you call this operation to query the namespaces of a Container Service for Kubernetes (ACK) cluster, make sure that the following prerequisites are met: An ACK cluster exists within the current account. How to obtain the ClusterId: View the cluster ID in the Container Service console, or call the DescribeClustersV1 operation of Container Service to obtain the ID of the ACK managed cluster.
      *
      * @param request - DescribeContainerServiceK8sClusterNamespacesRequest
      *
@@ -18737,7 +18793,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a report delivery configuration.
+     * Retrieves the details of a report sending configuration.
      *
      * @param request - DescribeCustomizeReportConfigDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18788,7 +18844,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a report delivery configuration.
+     * Retrieves the details of a report sending configuration.
      *
      * @param request - DescribeCustomizeReportConfigDetailRequest
      *
@@ -20194,7 +20250,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of alert events by risk level.
+     * Queries the total number of security alerts by severity level.
      *
      * @param request - DescribeEventLevelCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20261,7 +20317,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the statistics of alert events by risk level.
+     * Queries the total number of security alerts by severity level.
      *
      * @param request - DescribeEventLevelCountRequest
      *
@@ -21282,7 +21338,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query asset statistics by specified aggregation dimensions.
+     * Queries statistics information of assets based on specified aggregation dimensions.
      *
      * @param request - DescribeGroupedInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21361,7 +21417,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query asset statistics by specified aggregation dimensions.
+     * Queries statistics information of assets based on specified aggregation dimensions.
      *
      * @param request - DescribeGroupedInstancesRequest
      *
@@ -23271,7 +23327,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of image vulnerabilities.
+     * Queries a list of image vulnerabilities.
      *
      * @param request - DescribeImageGroupedVulListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23287,6 +23343,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentlessCanFix) {
+            @$query['AgentlessCanFix'] = $request->agentlessCanFix;
+        }
+
         if (null !== $request->aliasName) {
             @$query['AliasName'] = $request->aliasName;
         }
@@ -23402,7 +23462,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of image vulnerabilities.
+     * Queries a list of image vulnerabilities.
      *
      * @param request - DescribeImageGroupedVulListRequest
      *
@@ -23420,7 +23480,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the image list.
+     * Queries the list of images.
      *
      * @param request - DescribeImageInfoListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23459,7 +23519,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the image list.
+     * Queries the list of images.
      *
      * @param request - DescribeImageInfoListRequest
      *
@@ -23550,7 +23610,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the most recent scan task for an image.
+     * Queries the most recent image scan task.
      *
      * @param request - DescribeImageLatestScanTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23589,7 +23649,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the most recent scan task for an image.
+     * Queries the most recent image scan task.
      *
      * @param request - DescribeImageLatestScanTaskRequest
      *
@@ -24546,7 +24606,7 @@ class Sas extends OpenApiClient
      * Queries the details of vulnerabilities detected by image security scans and the list of container images affected by the vulnerabilities.
      *
      * @remarks
-     * To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to view the container image vulnerability list.
+     * To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
      *
      * @param request - DescribeImageVulListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24588,6 +24648,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->digest) {
             @$query['Digest'] = $request->digest;
+        }
+
+        if (null !== $request->groupByAsset) {
+            @$query['GroupByAsset'] = $request->groupByAsset;
         }
 
         if (null !== $request->image) {
@@ -24704,7 +24768,7 @@ class Sas extends OpenApiClient
      * Queries the details of vulnerabilities detected by image security scans and the list of container images affected by the vulnerabilities.
      *
      * @remarks
-     * To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to view the container image vulnerability list.
+     * To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
      *
      * @param request - DescribeImageVulListRequest
      *
@@ -26358,7 +26422,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Asset Fingerprint Scheduled Task Details.
+     * Queries the details of the scheduled task list in host assets.
      *
      * @param request - DescribePropertyCronDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26433,7 +26497,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Asset Fingerprint Scheduled Task Details.
+     * Queries the details of the scheduled task list in host assets.
      *
      * @param request - DescribePropertyCronDetailRequest
      *
@@ -26686,7 +26750,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Details of Asset Fingerprint Collection Process.
+     * Queries the Asset Fingerprints information of process assets on a server.
      *
      * @param request - DescribePropertyProcDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26773,7 +26837,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Details of Asset Fingerprint Collection Process.
+     * Queries the Asset Fingerprints information of process assets on a server.
      *
      * @param request - DescribePropertyProcDetailRequest
      *
@@ -28790,7 +28854,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the security score trend on the security dashboard.
+     * Queries the security score trends on the security dashboard.
      *
      * @param request - DescribeScreenScoreThreadRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28841,7 +28905,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the security score trend on the security dashboard.
+     * Queries the security score trends on the security dashboard.
      *
      * @param request - DescribeScreenScoreThreadRequest
      *
@@ -30759,7 +30823,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries quarantined files by page.
+     * Queries quarantined files in the file quarantine box by paging.
      *
      * @param request - DescribeSuspEventQuaraFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30826,7 +30890,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries quarantined files by page.
+     * Queries quarantined files in the file quarantine box by paging.
      *
      * @param request - DescribeSuspEventQuaraFilesRequest
      *
@@ -30909,7 +30973,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of security alert events that have not been aggregated.
+     * Queries a list of security alert events that have not been aggregated.
      *
      * @param tmpReq - DescribeSuspEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31100,7 +31164,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of security alert events that have not been aggregated.
+     * Queries a list of security alert events that have not been aggregated.
      *
      * @param request - DescribeSuspEventsRequest
      *
@@ -31855,7 +31919,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of database anti-ransomware policies.
+     * Queries the list of anti-ransomware policies for databases.
      *
      * @param request - DescribeUniBackupPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31902,7 +31966,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of database anti-ransomware policies.
+     * Queries the list of anti-ransomware policies for databases.
      *
      * @param request - DescribeUniBackupPoliciesRequest
      *
@@ -32358,7 +32422,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
+     * Retrieves the list of servers that support vulnerability fix based on vulnerability names.
      *
      * @param request - DescribeUuidsByVulNamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32457,7 +32521,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
+     * Retrieves the list of servers that support vulnerability fix based on vulnerability names.
      *
      * @param request - DescribeUuidsByVulNamesRequest
      *
@@ -32823,7 +32887,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the status information about vulnerability scan tasks on a server.
+     * Queries the status of a vulnerability scanning node for a specified server.
      *
      * @param request - DescribeVulCheckTaskStatusDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32874,7 +32938,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the status information about vulnerability scan tasks on a server.
+     * Queries the status of a vulnerability scanning node for a specified server.
      *
      * @param request - DescribeVulCheckTaskStatusDetailRequest
      *
@@ -35813,7 +35877,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Exports the information about exceptions to a file.
+     * Exports anomaly alert information.
      *
      * @param request - ExportSuspEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -35944,7 +36008,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Exports the information about exceptions to a file.
+     * Exports anomaly alert information.
      *
      * @param request - ExportSuspEventsRequest
      *
@@ -36588,7 +36652,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Generate commands for connecting self-built Kubernetes clusters.
+     * Generates an access command for a self-managed Kubernetes cluster.
      *
      * @param request - GenerateK8sAccessInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36667,7 +36731,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Generate commands for connecting self-built Kubernetes clusters.
+     * Generates an access command for a self-managed Kubernetes cluster.
      *
      * @param request - GenerateK8sAccessInfoRequest
      *
@@ -36815,10 +36879,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a container escape prevention rule.
+     * Queries the details of a container anti-escape rule.
      *
      * @remarks
-     * Only Security Center Ultimate users can call this operation.
+     * Only users of the Ultimate edition of Security Center can call this operation.
      *
      * @param request - GetAegisContainerPluginRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36865,10 +36929,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a container escape prevention rule.
+     * Queries the details of a container anti-escape rule.
      *
      * @remarks
-     * Only Security Center Ultimate users can call this operation.
+     * Only users of the Ultimate edition of Security Center can call this operation.
      *
      * @param request - GetAegisContainerPluginRuleRequest
      *
@@ -37542,6 +37606,9 @@ class Sas extends OpenApiClient
     /**
      * Retrieves the details of an attack analysis event.
      *
+     * @remarks
+     * Before calling this operation to retrieve the details of an attack analysis event, call the ListAttackEventInfo operation to obtain a valid attack analysis event ID.
+     *
      * @param request - GetAttackEventDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -37584,6 +37651,9 @@ class Sas extends OpenApiClient
 
     /**
      * Retrieves the details of an attack analysis event.
+     *
+     * @remarks
+     * Before calling this operation to retrieve the details of an attack analysis event, call the ListAttackEventInfo operation to obtain a valid attack analysis event ID.
      *
      * @param request - GetAttackEventDetailRequest
      *
@@ -40457,7 +40527,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the total number of core file monitoring events by filter condition.
+     * Queries the total number of monitoring events for core files of the current user based on specified filter conditions.
      *
      * @param request - GetFileProtectEventCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40496,7 +40566,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the total number of core file monitoring events by filter condition.
+     * Queries the total number of monitoring events for core files of the current user based on specified filter conditions.
      *
      * @param request - GetFileProtectEventCountRequest
      *
@@ -41673,7 +41743,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves runtime information for the latest scan task to check its completion status.
+     * Queries the running information of the latest scan task to determine whether the task is complete.
      *
      * @param request - GetLastOnceTaskInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -41720,7 +41790,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves runtime information for the latest scan task to check its completion status.
+     * Queries the running information of the latest scan task to determine whether the task is complete.
      *
      * @param request - GetLastOnceTaskInfoRequest
      *
@@ -41738,7 +41808,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the default synchronization region for external asset synchronization.
+     * Retrieves the default synchronization region for synchronizing off-cloud assets.
      *
      * @param request - GetLocalDefaultRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -41777,7 +41847,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the default synchronization region for external asset synchronization.
+     * Retrieves the default synchronization region for synchronizing off-cloud assets.
      *
      * @param request - GetLocalDefaultRegionRequest
      *
@@ -43049,7 +43119,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of applications for container file defense configurations.
+     * Retrieves the application list of container file defense configurations.
      *
      * @param request - GetSasContainerWebDefenseRuleApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -43088,7 +43158,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of applications for container file defense configurations.
+     * Retrieves the application list of container file defense configurations.
      *
      * @param request - GetSasContainerWebDefenseRuleApplicationRequest
      *
@@ -43163,7 +43233,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of custom security scoring rules.
+     * Queries the details of custom security score rules.
      *
      * @param request - GetSecurityScoreRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -43210,7 +43280,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of custom security scoring rules.
+     * Queries the details of custom security score rules.
      *
      * @param request - GetSecurityScoreRuleRequest
      *
@@ -43289,7 +43359,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the authorization details of a serverless application.
+     * Retrieves the authorization details of a Serverless application.
      *
      * @param request - GetServerlessAppAuthDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -43340,7 +43410,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the authorization details of a serverless application.
+     * Retrieves the authorization details of a Serverless application.
      *
      * @param request - GetServerlessAppAuthDetailRequest
      *
@@ -43659,7 +43729,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, this operation retrieves the migration progress and status.
+     * Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, you can retrieve the migration progress and status.
      *
      * @param request - GetSwitchRegionDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -43702,7 +43772,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, this operation retrieves the migration progress and status.
+     * Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, you can retrieve the migration progress and status.
      *
      * @param request - GetSwitchRegionDetailRequest
      *
@@ -45180,7 +45250,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Installs the CloudMonitor agent on a server that is not deployed on Alibaba Cloud.
+     * Installs the CloudMonitor agent on non-Alibaba Cloud ECS servers.
      *
      * @param request - InstallPmAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -45231,7 +45301,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Installs the CloudMonitor agent on a server that is not deployed on Alibaba Cloud.
+     * Installs the CloudMonitor agent on non-Alibaba Cloud ECS servers.
      *
      * @param request - InstallPmAgentRequest
      *
@@ -46107,7 +46177,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the custom upgrade information about assets.
+     * Retrieves the list of custom upgrade information for a specified asset of the user.
      *
      * @param request - ListAssetInfoPublishRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -46150,7 +46220,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the custom upgrade information about assets.
+     * Retrieves the list of custom upgrade information for a specified asset of the user.
      *
      * @param request - ListAssetInfoPublishRequest
      *
@@ -46961,7 +47031,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the instances that failed a specified check item of configuration assessment.
+     * Retrieves instances that failed a cloud platform configuration check item.
      *
      * @param request - ListCheckInstanceResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -47036,7 +47106,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the instances that failed a specified check item of configuration assessment.
+     * Retrieves instances that failed a cloud platform configuration check item.
      *
      * @param request - ListCheckInstanceResultRequest
      *
@@ -47228,7 +47298,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the risk statistics of check items by page.
+     * Queries statistics on risks generated by check items by paging.
      *
      * @param request - ListCheckItemWarningSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -47327,7 +47397,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the risk statistics of check items by page.
+     * Queries statistics on risks generated by check items by paging.
      *
      * @param request - ListCheckItemWarningSummaryRequest
      *
@@ -47848,7 +47918,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the alert settings of assets. The default alert setting for assets is balance mode. The detailed asset list is returned only in strict mode.
+     * Queries the alert settings of assets. The default alert setting for assets is balance mode. Only strict mode returns a detailed asset list.
      *
      * @param request - ListClientAlertModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -47883,7 +47953,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the alert settings of assets. The default alert setting for assets is balance mode. The detailed asset list is returned only in strict mode.
+     * Queries the alert settings of assets. The default alert setting for assets is balance mode. Only strict mode returns a detailed asset list.
      *
      * @param request - ListClientAlertModeRequest
      *
@@ -48013,7 +48083,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of cloud service assets.
+     * Retrieves the list of cloud service assets.
      *
      * @param request - ListCloudAssetInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -48084,7 +48154,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of cloud service assets.
+     * Retrieves the list of cloud service assets.
      *
      * @param request - ListCloudAssetInstancesRequest
      *
@@ -48587,14 +48657,20 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of file detection results from an archive.
+     * Retrieves the detection results of files within a compressed archive.
      *
      * @remarks
-     * Use this API to retrieve detection results for files within a compressed file that has been submitted for detection. The system retains detection results for 5 hours, during which you can query them multiple times. To submit a file for detection, use the `CreateFileDetect` API. To retrieve the detection result for the compressed file itself, use the `GetFileDetectResult` API.
-     * All file detection APIs include the `HashKey` parameter, which is the unique file identifier.
-     * For malicious file detection (when `Type` is `0`), you must provide the MD5 or SHA-256 hash of the complete file content. Calculate this value before you call the API.
-     * For Skill compressed file detection (when `Type` is `6`), obtain the `HashKey` from the return value of the `CreateFileDetect` API.
-     * Note: You must use the same `HashKey` for the submission and query requests for a single detection. Otherwise, you cannot correctly submit the file for detection or retrieve its results.
+     * Only files that have been submitted for detection and identified as compressed archives can be queried through this operation. Detection results are retained for 5 hours and can be queried repeatedly within that period. To submit a file for detection, refer to [CreateFileDetect](~~CreateFileDetect~~). To retrieve the detection result of the compressed archive file itself, refer to [GetFileDetectResult](~~GetFileDetectResult~~).
+     * All file detection operations include the HashKey parameter, which represents the unique identifier of a file.
+     * In the malicious file detection scenario (Type is 0), only the MD5 or SHA-256 hash of the complete file content is supported. Calculate this value before calling the operation.
+     * In the Skill compressed archive detection scenario (Type is 6), obtain the value from the response of the CreateFileDetect operation.
+     * Note that the submission and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly submitted or the results cannot be correctly queried.
+     * ### Compressed archive detection workflow
+     * To retrieve the detection results of files within a compressed archive, complete the following four steps in order:
+     * 1. Call the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation to obtain a file upload URL.
+     * 2. Upload the file to be detected to OSS.
+     * 3. Call the [CreateFileDetect](~~CreateFileDetect~~) operation to submit the file for detection, and set the Decompress parameter to true.
+     * 4. Call this operation (ListCompressFileDetectResult) to query the detection results of files within the compressed archive.
      *
      * @param request - ListCompressFileDetectResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -48645,14 +48721,20 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of file detection results from an archive.
+     * Retrieves the detection results of files within a compressed archive.
      *
      * @remarks
-     * Use this API to retrieve detection results for files within a compressed file that has been submitted for detection. The system retains detection results for 5 hours, during which you can query them multiple times. To submit a file for detection, use the `CreateFileDetect` API. To retrieve the detection result for the compressed file itself, use the `GetFileDetectResult` API.
-     * All file detection APIs include the `HashKey` parameter, which is the unique file identifier.
-     * For malicious file detection (when `Type` is `0`), you must provide the MD5 or SHA-256 hash of the complete file content. Calculate this value before you call the API.
-     * For Skill compressed file detection (when `Type` is `6`), obtain the `HashKey` from the return value of the `CreateFileDetect` API.
-     * Note: You must use the same `HashKey` for the submission and query requests for a single detection. Otherwise, you cannot correctly submit the file for detection or retrieve its results.
+     * Only files that have been submitted for detection and identified as compressed archives can be queried through this operation. Detection results are retained for 5 hours and can be queried repeatedly within that period. To submit a file for detection, refer to [CreateFileDetect](~~CreateFileDetect~~). To retrieve the detection result of the compressed archive file itself, refer to [GetFileDetectResult](~~GetFileDetectResult~~).
+     * All file detection operations include the HashKey parameter, which represents the unique identifier of a file.
+     * In the malicious file detection scenario (Type is 0), only the MD5 or SHA-256 hash of the complete file content is supported. Calculate this value before calling the operation.
+     * In the Skill compressed archive detection scenario (Type is 6), obtain the value from the response of the CreateFileDetect operation.
+     * Note that the submission and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly submitted or the results cannot be correctly queried.
+     * ### Compressed archive detection workflow
+     * To retrieve the detection results of files within a compressed archive, complete the following four steps in order:
+     * 1. Call the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation to obtain a file upload URL.
+     * 2. Upload the file to be detected to OSS.
+     * 3. Call the [CreateFileDetect](~~CreateFileDetect~~) operation to submit the file for detection, and set the Decompress parameter to true.
+     * 4. Call this operation (ListCompressFileDetectResult) to query the detection results of files within the compressed archive.
      *
      * @param request - ListCompressFileDetectResultRequest
      *
@@ -49323,7 +49405,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries core file monitoring rules.
+     * Retrieves the list of rules for the core file protection feature.
      *
      * @param request - ListFileProtectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -49382,7 +49464,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries core file monitoring rules.
+     * Retrieves the list of rules for the core file protection feature.
      *
      * @param request - ListFileProtectRuleRequest
      *
@@ -51483,10 +51565,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the list of instance results under the operation check item.
+     * Queries the details of a one-click fix or rollback task for cloud platform configuration checks.
      *
      * @remarks
-     * This interface is only available to users who have purchased the cloud platform configuration check authorization or enabled the pay-as-you-go service for cloud platform configuration checks.
+     * Only users who have purchased the cloud platform configuration check quota or enabled pay-as-you-go billing for cloud platform configuration checks can call this operation.
      *
      * @param request - ListOperationCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -51521,10 +51603,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the list of instance results under the operation check item.
+     * Queries the details of a one-click fix or rollback task for cloud platform configuration checks.
      *
      * @remarks
-     * This interface is only available to users who have purchased the cloud platform configuration check authorization or enabled the pay-as-you-go service for cloud platform configuration checks.
+     * Only users who have purchased the cloud platform configuration check quota or enabled pay-as-you-go billing for cloud platform configuration checks can call this operation.
      *
      * @param request - ListOperationCheckRequest
      *
@@ -51636,7 +51718,7 @@ class Sas extends OpenApiClient
      * Queries the subtask list of an operation task.
      *
      * @remarks
-     * Currently, only check operation subtask queries are supported.
+     * Currently, only check operation subtask queries are supported. Before calling this operation, call the ListOperationProcess operation to obtain operation tasks. The TaskIds parameter of this operation can be obtained from the ListOperationProcess operation.
      *
      * @param request - ListOperationProcessDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -51702,7 +51784,7 @@ class Sas extends OpenApiClient
      * Queries the subtask list of an operation task.
      *
      * @remarks
-     * Currently, only check operation subtask queries are supported.
+     * Currently, only check operation subtask queries are supported. Before calling this operation, call the ListOperationProcess operation to obtain operation tasks. The TaskIds parameter of this operation can be obtained from the ListOperationProcess operation.
      *
      * @param request - ListOperationProcessDetailRequest
      *
@@ -55162,7 +55244,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies an agent configuration policy.
+     * Modifies a client configuration policy.
      *
      * @param request - ModifyClientConfStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -55217,7 +55299,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies an agent configuration policy.
+     * Modifies a client configuration policy.
      *
      * @param request - ModifyClientConfStrategyRequest
      *
@@ -58072,7 +58154,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the alert handling rule for alerts that are added to the whitelist by asset.
+     * Adjusts advanced whitelisting rules for security alerts by asset dimension.
      *
      * @param request - ModifySecurityEventMarkMissIndividuallyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -58133,7 +58215,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the alert handling rule for alerts that are added to the whitelist by asset.
+     * Adjusts advanced whitelisting rules for security alerts by asset dimension.
      *
      * @param request - ModifySecurityEventMarkMissIndividuallyRequest
      *
@@ -58335,7 +58417,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Starts the one-click scan feature on the vulnerability management page of the console.
+     * Enables the one-click scan feature on the vulnerability management page of the console.
      *
      * @param request - ModifyStartVulScanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -58386,7 +58468,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Starts the one-click scan feature on the vulnerability management page of the console.
+     * Enables the one-click scan feature on the vulnerability management page of the console.
      *
      * @param request - ModifyStartVulScanRequest
      *
@@ -58808,7 +58890,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the vulnerability scanning switch configuration.
+     * Modifies the vulnerability scanning toggle configuration.
      *
      * @param request - ModifyVulConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -58855,7 +58937,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the vulnerability scanning switch configuration.
+     * Modifies the vulnerability scanning toggle configuration.
      *
      * @param request - ModifyVulConfigRequest
      *
@@ -60074,7 +60156,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Operates on a bucket detection task.
+     * Operates on a bucket scan task.
+     *
+     * @remarks
+     * Before calling this operation, the following prerequisites must be met:
+     * 1. The OSS bucket has been discovered by Security Center (SAS). You can call the ListOssBucket operation to query the bucket.
+     * 2. An active scan task exists for the bucket. You can call the CreateOssBucketScanTask operation to create a scan task.
+     * The complete API call chain is: PutBucket → RefreshOssBucketScanInfo → CreateOssBucketScanTask → OperateBucketScanTask. Additional implicit prerequisites, such as activating the service in the console, may also apply.
      *
      * @param request - OperateBucketScanTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -60121,7 +60209,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Operates on a bucket detection task.
+     * Operates on a bucket scan task.
+     *
+     * @remarks
+     * Before calling this operation, the following prerequisites must be met:
+     * 1. The OSS bucket has been discovered by Security Center (SAS). You can call the ListOssBucket operation to query the bucket.
+     * 2. An active scan task exists for the bucket. You can call the CreateOssBucketScanTask operation to create a scan task.
+     * The complete API call chain is: PutBucket → RefreshOssBucketScanInfo → CreateOssBucketScanTask → OperateBucketScanTask. Additional implicit prerequisites, such as activating the service in the console, may also apply.
      *
      * @param request - OperateBucketScanTaskRequest
      *
@@ -60139,7 +60233,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Sets a global switch by type.
+     * Configures a global switch based on the specified type.
      *
      * @param request - OperateCommonOverallConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -60194,7 +60288,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Sets a global switch by type.
+     * Configures a global switch based on the specified type.
      *
      * @param request - OperateCommonOverallConfigRequest
      *
@@ -60764,7 +60858,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Fixes a Linux software vulnerability.
+     * Fixes Linux software vulnerabilities.
      *
      * @param request - OperateVulsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -60819,7 +60913,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Fixes a Linux software vulnerability.
+     * Fixes Linux software vulnerabilities.
      *
      * @param request - OperateVulsRequest
      *
@@ -60902,7 +60996,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Cancels ignoring alert events.
+     * Unmarks ignored anomaly alert events.
      *
      * @param request - OperationCancelIgnoreSuspEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -60949,7 +61043,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Cancels ignoring alert events.
+     * Unmarks ignored anomaly alert events.
      *
      * @param request - OperationCancelIgnoreSuspEventRequest
      *
@@ -61252,7 +61346,7 @@ class Sas extends OpenApiClient
      * Executes a policy task in the task center.
      *
      * @remarks
-     * Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions do not support this operation.
+     * Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions are not supported.
      *
      * @param request - ProcessSoarStrategyTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -61298,7 +61392,7 @@ class Sas extends OpenApiClient
      * Executes a policy task in the task center.
      *
      * @remarks
-     * Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions do not support this operation.
+     * Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions are not supported.
      *
      * @param request - ProcessSoarStrategyTaskRequest
      *
@@ -61959,7 +62053,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the task result of a database dry run node.
+     * Queries the node result of a database dry run.
      *
      * @param request - QueryPreCheckDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -62006,7 +62100,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the task result of a database dry run node.
+     * Queries the node result of a database dry run.
      *
      * @param request - QueryPreCheckDatabaseRequest
      *
@@ -62142,7 +62236,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Synchronizes assets.
+     * Synchronizes asset data.
      *
      * @param request - RefreshAssetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -62197,7 +62291,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Synchronizes assets.
+     * Synchronizes asset data.
      *
      * @param request - RefreshAssetsRequest
      *
@@ -64371,7 +64465,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Submits a repair task of risk items detected in configuration assessment or rolls back a repair task that is executed.
+     * Submits a remediation task for risky check items in cloud product configuration checks, or rolls back a remediation task that has been executed.
      *
      * @param request - SubmitOperationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -64430,7 +64524,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Submits a repair task of risk items detected in configuration assessment or rolls back a repair task that is executed.
+     * Submits a remediation task for risky check items in cloud product configuration checks, or rolls back a remediation task that has been executed.
      *
      * @param request - SubmitOperationTaskRequest
      *
@@ -65139,7 +65233,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * User creates a custom check item.
+     * Updates a custom check item in the Cloud Security Posture Management (CSPM) custom check item feature.
      *
      * @param tmpReq - UpdateCheckItemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -65240,7 +65334,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * User creates a custom check item.
+     * Updates a custom check item in the Cloud Security Posture Management (CSPM) custom check item feature.
      *
      * @param request - UpdateCheckItemRequest
      *
@@ -65404,7 +65498,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies alerting settings for servers.
+     * Modifies the alert settings for servers.
      *
      * @param request - UpdateClientAlertModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -65447,7 +65541,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies alerting settings for servers.
+     * Modifies the alert settings for servers.
      *
      * @param request - UpdateClientAlertModeRequest
      *
@@ -65809,7 +65903,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Updates the status of file tamper-proofing rules in batches.
+     * Updates the status of file tamper-proofing rules.
      *
      * @param request - UpdateFileProtectClientRuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -65876,7 +65970,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Updates the status of file tamper-proofing rules in batches.
+     * Updates the status of file tamper-proofing rules.
      *
      * @param request - UpdateFileProtectClientRuleStatusRequest
      *
@@ -65894,7 +65988,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the status of core file monitoring events reported by the Security Center agent.
+     * Modifies the status of core file monitoring events reported by the client.
      *
      * @param request - UpdateFileProtectEventStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -65981,7 +66075,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the status of core file monitoring events reported by the Security Center agent.
+     * Modifies the status of core file monitoring events reported by the client.
      *
      * @param request - UpdateFileProtectEventStatusRequest
      *
@@ -65999,7 +66093,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modify Alert Remarks.
+     * Adds remarks to core file monitoring events reported by the client.
      *
      * @param request - UpdateFileProtectRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -66090,7 +66184,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modify Alert Remarks.
+     * Adds remarks to core file monitoring events reported by the client.
      *
      * @param request - UpdateFileProtectRemarkRequest
      *
@@ -66108,7 +66202,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the content of a core file monitoring rule based on the ID of the rule.
+     * Modifies the content of a core file monitoring rule based on the rule ID.
      *
      * @param request - UpdateFileProtectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -66175,7 +66269,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the content of a core file monitoring rule based on the ID of the rule.
+     * Modifies the content of a core file monitoring rule based on the rule ID.
      *
      * @param request - UpdateFileProtectRuleRequest
      *
@@ -67693,7 +67787,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the key corresponding to a specified type.
+     * Modifies the key that corresponds to a specified type.
      *
      * @param request - UpdateSelectionKeyByTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -67740,7 +67834,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the key corresponding to a specified type.
+     * Modifies the key that corresponds to a specified type.
      *
      * @param request - UpdateSelectionKeyByTypeRequest
      *
@@ -68213,6 +68307,12 @@ class Sas extends OpenApiClient
     /**
      * Upgrades the version of a specified honeypot management node.
      *
+     * @remarks
+     * Before calling this operation to upgrade a honeypot management node version, ensure the following prerequisites are met:
+     * 1. A honeypot management node already exists. If no node exists, call the CreateHoneypotNode operation to create one first.
+     * 2. The probe quota is greater than zero (TotalProbeCount is greater than 0). The probe quota is allocated by purchasing a Security Center honeypot subscription.
+     * 3. You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the NodeId of the management node to be upgraded.
+     *
      * @param request - UpgradeHoneypotNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -68259,6 +68359,12 @@ class Sas extends OpenApiClient
 
     /**
      * Upgrades the version of a specified honeypot management node.
+     *
+     * @remarks
+     * Before calling this operation to upgrade a honeypot management node version, ensure the following prerequisites are met:
+     * 1. A honeypot management node already exists. If no node exists, call the CreateHoneypotNode operation to create one first.
+     * 2. The probe quota is greater than zero (TotalProbeCount is greater than 0). The probe quota is allocated by purchasing a Security Center honeypot subscription.
+     * 3. You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the NodeId of the management node to be upgraded.
      *
      * @param request - UpgradeHoneypotNodeRequest
      *
@@ -68566,7 +68672,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Verifies instances under a check item.
+     * Performs instance-level verification for a check item.
      *
      * @param request - VerifyCheckInstanceResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -68621,7 +68727,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Verifies instances under a check item.
+     * Performs instance-level verification for a check item.
      *
      * @param request - VerifyCheckInstanceResultRequest
      *

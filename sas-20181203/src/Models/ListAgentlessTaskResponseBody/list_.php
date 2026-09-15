@@ -14,6 +14,11 @@ class list_ extends Model
     public $endTime;
 
     /**
+     * @var string[]
+     */
+    public $extension;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -99,6 +104,7 @@ class list_ extends Model
     public $uuid;
     protected $_name = [
         'endTime' => 'EndTime',
+        'extension' => 'Extension',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
         'internetIp' => 'InternetIp',
@@ -120,6 +126,9 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->extension)) {
+            Model::validateArray($this->extension);
+        }
         parent::validate();
     }
 
@@ -128,6 +137,15 @@ class list_ extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->extension) {
+            if (\is_array($this->extension)) {
+                $res['Extension'] = [];
+                foreach ($this->extension as $key1 => $value1) {
+                    $res['Extension'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->instanceId) {
@@ -211,6 +229,15 @@ class list_ extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['Extension'])) {
+            if (!empty($map['Extension'])) {
+                $model->extension = [];
+                foreach ($map['Extension'] as $key1 => $value1) {
+                    $model->extension[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['InstanceId'])) {

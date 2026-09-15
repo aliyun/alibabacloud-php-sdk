@@ -11,6 +11,11 @@ class groupedVulItems extends Model
     /**
      * @var string
      */
+    public $agentlessCanFix;
+
+    /**
+     * @var string
+     */
     public $aliasName;
 
     /**
@@ -22,6 +27,11 @@ class groupedVulItems extends Model
      * @var string
      */
     public $canFix;
+
+    /**
+     * @var string
+     */
+    public $cveScore;
 
     /**
      * @var int
@@ -51,6 +61,11 @@ class groupedVulItems extends Model
     /**
      * @var string
      */
+    public $related;
+
+    /**
+     * @var string
+     */
     public $ruleTag;
 
     /**
@@ -68,14 +83,17 @@ class groupedVulItems extends Model
      */
     public $type;
     protected $_name = [
+        'agentlessCanFix' => 'AgentlessCanFix',
         'aliasName' => 'AliasName',
         'asapCount' => 'AsapCount',
         'canFix' => 'CanFix',
+        'cveScore' => 'CveScore',
         'gmtLast' => 'GmtLast',
         'lastScanTime' => 'LastScanTime',
         'laterCount' => 'LaterCount',
         'name' => 'Name',
         'nntfCount' => 'NntfCount',
+        'related' => 'Related',
         'ruleTag' => 'RuleTag',
         'status' => 'Status',
         'tags' => 'Tags',
@@ -90,6 +108,10 @@ class groupedVulItems extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentlessCanFix) {
+            $res['AgentlessCanFix'] = $this->agentlessCanFix;
+        }
+
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
@@ -100,6 +122,10 @@ class groupedVulItems extends Model
 
         if (null !== $this->canFix) {
             $res['CanFix'] = $this->canFix;
+        }
+
+        if (null !== $this->cveScore) {
+            $res['CveScore'] = $this->cveScore;
         }
 
         if (null !== $this->gmtLast) {
@@ -120,6 +146,10 @@ class groupedVulItems extends Model
 
         if (null !== $this->nntfCount) {
             $res['NntfCount'] = $this->nntfCount;
+        }
+
+        if (null !== $this->related) {
+            $res['Related'] = $this->related;
         }
 
         if (null !== $this->ruleTag) {
@@ -149,6 +179,10 @@ class groupedVulItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentlessCanFix'])) {
+            $model->agentlessCanFix = $map['AgentlessCanFix'];
+        }
+
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
@@ -159,6 +193,10 @@ class groupedVulItems extends Model
 
         if (isset($map['CanFix'])) {
             $model->canFix = $map['CanFix'];
+        }
+
+        if (isset($map['CveScore'])) {
+            $model->cveScore = $map['CveScore'];
         }
 
         if (isset($map['GmtLast'])) {
@@ -179,6 +217,10 @@ class groupedVulItems extends Model
 
         if (isset($map['NntfCount'])) {
             $model->nntfCount = $map['NntfCount'];
+        }
+
+        if (isset($map['Related'])) {
+            $model->related = $map['Related'];
         }
 
         if (isset($map['RuleTag'])) {

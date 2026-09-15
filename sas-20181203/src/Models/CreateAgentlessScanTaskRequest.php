@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAgentlessScanTaskRequest\targets;
 
 class CreateAgentlessScanTaskRequest extends Model
 {
@@ -26,12 +27,22 @@ class CreateAgentlessScanTaskRequest extends Model
     /**
      * @var string
      */
+    public $from;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
      * @var bool
      */
     public $releaseAfterScan;
+
+    /**
+     * @var string
+     */
+    public $resourceRegionId;
 
     /**
      * @var bool
@@ -44,6 +55,11 @@ class CreateAgentlessScanTaskRequest extends Model
     public $targetType;
 
     /**
+     * @var targets[]
+     */
+    public $targets;
+
+    /**
      * @var string[]
      */
     public $uuidList;
@@ -51,15 +67,21 @@ class CreateAgentlessScanTaskRequest extends Model
         'assetSelectionType' => 'AssetSelectionType',
         'autoDeleteDays' => 'AutoDeleteDays',
         'clientToken' => 'ClientToken',
+        'from' => 'From',
         'regionId' => 'RegionId',
         'releaseAfterScan' => 'ReleaseAfterScan',
+        'resourceRegionId' => 'ResourceRegionId',
         'scanDataDisk' => 'ScanDataDisk',
         'targetType' => 'TargetType',
+        'targets' => 'Targets',
         'uuidList' => 'UuidList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->targets)) {
+            Model::validateArray($this->targets);
+        }
         if (\is_array($this->uuidList)) {
             Model::validateArray($this->uuidList);
         }
@@ -81,6 +103,10 @@ class CreateAgentlessScanTaskRequest extends Model
             $res['ClientToken'] = $this->clientToken;
         }
 
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -89,12 +115,27 @@ class CreateAgentlessScanTaskRequest extends Model
             $res['ReleaseAfterScan'] = $this->releaseAfterScan;
         }
 
+        if (null !== $this->resourceRegionId) {
+            $res['ResourceRegionId'] = $this->resourceRegionId;
+        }
+
         if (null !== $this->scanDataDisk) {
             $res['ScanDataDisk'] = $this->scanDataDisk;
         }
 
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
+        }
+
+        if (null !== $this->targets) {
+            if (\is_array($this->targets)) {
+                $res['Targets'] = [];
+                $n1 = 0;
+                foreach ($this->targets as $item1) {
+                    $res['Targets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->uuidList) {
@@ -131,6 +172,10 @@ class CreateAgentlessScanTaskRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -139,12 +184,27 @@ class CreateAgentlessScanTaskRequest extends Model
             $model->releaseAfterScan = $map['ReleaseAfterScan'];
         }
 
+        if (isset($map['ResourceRegionId'])) {
+            $model->resourceRegionId = $map['ResourceRegionId'];
+        }
+
         if (isset($map['ScanDataDisk'])) {
             $model->scanDataDisk = $map['ScanDataDisk'];
         }
 
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
+        }
+
+        if (isset($map['Targets'])) {
+            if (!empty($map['Targets'])) {
+                $model->targets = [];
+                $n1 = 0;
+                foreach ($map['Targets'] as $item1) {
+                    $model->targets[$n1] = targets::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UuidList'])) {

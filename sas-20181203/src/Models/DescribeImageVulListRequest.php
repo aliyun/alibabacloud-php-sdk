@@ -44,6 +44,11 @@ class DescribeImageVulListRequest extends Model
     public $digest;
 
     /**
+     * @var bool
+     */
+    public $groupByAsset;
+
+    /**
      * @var string
      */
     public $image;
@@ -155,6 +160,7 @@ class DescribeImageVulListRequest extends Model
         'currentPage' => 'CurrentPage',
         'dealed' => 'Dealed',
         'digest' => 'Digest',
+        'groupByAsset' => 'GroupByAsset',
         'image' => 'Image',
         'instanceId' => 'InstanceId',
         'lang' => 'Lang',
@@ -215,6 +221,10 @@ class DescribeImageVulListRequest extends Model
 
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
+        }
+
+        if (null !== $this->groupByAsset) {
+            $res['GroupByAsset'] = $this->groupByAsset;
         }
 
         if (null !== $this->image) {
@@ -345,6 +355,10 @@ class DescribeImageVulListRequest extends Model
 
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
+        }
+
+        if (isset($map['GroupByAsset'])) {
+            $model->groupByAsset = $map['GroupByAsset'];
         }
 
         if (isset($map['Image'])) {

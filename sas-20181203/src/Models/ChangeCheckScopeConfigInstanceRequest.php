@@ -22,10 +22,16 @@ class ChangeCheckScopeConfigInstanceRequest extends Model
      * @var string[]
      */
     public $deleteAssetUuids;
+
+    /**
+     * @var string
+     */
+    public $selectionKey;
     protected $_name = [
         'addAssetUuids' => 'AddAssetUuids',
         'configId' => 'ConfigId',
         'deleteAssetUuids' => 'DeleteAssetUuids',
+        'selectionKey' => 'SelectionKey',
     ];
 
     public function validate()
@@ -68,6 +74,10 @@ class ChangeCheckScopeConfigInstanceRequest extends Model
             }
         }
 
+        if (null !== $this->selectionKey) {
+            $res['SelectionKey'] = $this->selectionKey;
+        }
+
         return $res;
     }
 
@@ -103,6 +113,10 @@ class ChangeCheckScopeConfigInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SelectionKey'])) {
+            $model->selectionKey = $map['SelectionKey'];
         }
 
         return $model;

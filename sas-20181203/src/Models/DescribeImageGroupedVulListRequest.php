@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeImageGroupedVulListRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $agentlessCanFix;
+
+    /**
      * @var string
      */
     public $aliasName;
@@ -128,6 +133,7 @@ class DescribeImageGroupedVulListRequest extends Model
      */
     public $uuids;
     protected $_name = [
+        'agentlessCanFix' => 'AgentlessCanFix',
         'aliasName' => 'AliasName',
         'clusterId' => 'ClusterId',
         'currentPage' => 'CurrentPage',
@@ -165,6 +171,10 @@ class DescribeImageGroupedVulListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentlessCanFix) {
+            $res['AgentlessCanFix'] = $this->agentlessCanFix;
+        }
+
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
@@ -279,6 +289,10 @@ class DescribeImageGroupedVulListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentlessCanFix'])) {
+            $model->agentlessCanFix = $map['AgentlessCanFix'];
+        }
+
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }

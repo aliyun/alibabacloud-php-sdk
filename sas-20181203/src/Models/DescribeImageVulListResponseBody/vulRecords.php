@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListResponseBody\vulRe
 class vulRecords extends Model
 {
     /**
+     * @var bool
+     */
+    public $agentlessCanFix;
+
+    /**
      * @var string
      */
     public $aliasName;
@@ -179,6 +184,7 @@ class vulRecords extends Model
      */
     public $uuid;
     protected $_name = [
+        'agentlessCanFix' => 'AgentlessCanFix',
         'aliasName' => 'AliasName',
         'canFix' => 'CanFix',
         'canUpdate' => 'CanUpdate',
@@ -229,6 +235,10 @@ class vulRecords extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentlessCanFix) {
+            $res['AgentlessCanFix'] = $this->agentlessCanFix;
+        }
+
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
@@ -383,6 +393,10 @@ class vulRecords extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentlessCanFix'])) {
+            $model->agentlessCanFix = $map['AgentlessCanFix'];
+        }
+
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
