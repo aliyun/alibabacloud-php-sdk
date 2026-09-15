@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionRequest\sessionConfig\mcpHeaders;
 
 class sessionConfig extends Model
 {
@@ -44,6 +45,11 @@ class sessionConfig extends Model
     public $language;
 
     /**
+     * @var mcpHeaders[]
+     */
+    public $mcpHeaders;
+
+    /**
      * @var string[]
      */
     public $mcpServerIds;
@@ -75,6 +81,7 @@ class sessionConfig extends Model
         'encryptType' => 'EncryptType',
         'kbUuidList' => 'KbUuidList',
         'language' => 'Language',
+        'mcpHeaders' => 'McpHeaders',
         'mcpServerIds' => 'McpServerIds',
         'mode' => 'Mode',
         'reportPageWidth' => 'ReportPageWidth',
@@ -86,6 +93,9 @@ class sessionConfig extends Model
     {
         if (\is_array($this->kbUuidList)) {
             Model::validateArray($this->kbUuidList);
+        }
+        if (\is_array($this->mcpHeaders)) {
+            Model::validateArray($this->mcpHeaders);
         }
         if (\is_array($this->mcpServerIds)) {
             Model::validateArray($this->mcpServerIds);
@@ -129,6 +139,17 @@ class sessionConfig extends Model
 
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+
+        if (null !== $this->mcpHeaders) {
+            if (\is_array($this->mcpHeaders)) {
+                $res['McpHeaders'] = [];
+                $n1 = 0;
+                foreach ($this->mcpHeaders as $item1) {
+                    $res['McpHeaders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->mcpServerIds) {
@@ -202,6 +223,17 @@ class sessionConfig extends Model
 
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+
+        if (isset($map['McpHeaders'])) {
+            if (!empty($map['McpHeaders'])) {
+                $model->mcpHeaders = [];
+                $n1 = 0;
+                foreach ($map['McpHeaders'] as $item1) {
+                    $model->mcpHeaders[$n1] = mcpHeaders::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['McpServerIds'])) {
