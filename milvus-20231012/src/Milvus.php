@@ -58,17 +58,6 @@ class Milvus extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'eu-central-1' => 'milvus.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'milvus.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu' => 'milvus.cn-wulanchabu.aliyuncs.com',
-            'cn-shenzhen' => 'milvus.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai' => 'milvus.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'milvus.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'milvus.cn-hangzhou.aliyuncs.com',
-            'cn-beijing' => 'milvus.cn-beijing.aliyuncs.com',
-            'ap-southeast-1' => 'milvus.ap-southeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('milvus', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -385,6 +374,10 @@ class Milvus extends OpenApiClient
 
         if (null !== $request->multiZoneMode) {
             @$body['multiZoneMode'] = $request->multiZoneMode;
+        }
+
+        if (null !== $request->nodeType) {
+            @$body['nodeType'] = $request->nodeType;
         }
 
         if (null !== $request->paymentDuration) {

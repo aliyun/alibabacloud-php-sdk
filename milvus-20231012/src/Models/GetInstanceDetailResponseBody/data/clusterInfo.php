@@ -17,6 +17,16 @@ class clusterInfo extends Model
     /**
      * @var string
      */
+    public $caCertUrl;
+
+    /**
+     * @var string
+     */
+    public $certificateTrust;
+
+    /**
+     * @var string
+     */
     public $internetUrl;
 
     /**
@@ -45,6 +55,21 @@ class clusterInfo extends Model
     public $proxyPort;
 
     /**
+     * @var string
+     */
+    public $secureInternetUrl;
+
+    /**
+     * @var string
+     */
+    public $secureIntranetUrl;
+
+    /**
+     * @var int
+     */
+    public $secureProxyPort;
+
+    /**
      * @var int
      */
     public $totalCuNum;
@@ -55,12 +80,17 @@ class clusterInfo extends Model
     public $totalDiskSize;
     protected $_name = [
         'attuPort' => 'AttuPort',
+        'caCertUrl' => 'CaCertUrl',
+        'certificateTrust' => 'CertificateTrust',
         'internetUrl' => 'InternetUrl',
         'intranetUrl' => 'IntranetUrl',
         'milvusResourceInfoList' => 'MilvusResourceInfoList',
         'ossStorageSize' => 'OssStorageSize',
         'ossStorageTimestamp' => 'OssStorageTimestamp',
         'proxyPort' => 'ProxyPort',
+        'secureInternetUrl' => 'SecureInternetUrl',
+        'secureIntranetUrl' => 'SecureIntranetUrl',
+        'secureProxyPort' => 'SecureProxyPort',
         'totalCuNum' => 'TotalCuNum',
         'totalDiskSize' => 'TotalDiskSize',
     ];
@@ -78,6 +108,14 @@ class clusterInfo extends Model
         $res = [];
         if (null !== $this->attuPort) {
             $res['AttuPort'] = $this->attuPort;
+        }
+
+        if (null !== $this->caCertUrl) {
+            $res['CaCertUrl'] = $this->caCertUrl;
+        }
+
+        if (null !== $this->certificateTrust) {
+            $res['CertificateTrust'] = $this->certificateTrust;
         }
 
         if (null !== $this->internetUrl) {
@@ -111,6 +149,18 @@ class clusterInfo extends Model
             $res['ProxyPort'] = $this->proxyPort;
         }
 
+        if (null !== $this->secureInternetUrl) {
+            $res['SecureInternetUrl'] = $this->secureInternetUrl;
+        }
+
+        if (null !== $this->secureIntranetUrl) {
+            $res['SecureIntranetUrl'] = $this->secureIntranetUrl;
+        }
+
+        if (null !== $this->secureProxyPort) {
+            $res['SecureProxyPort'] = $this->secureProxyPort;
+        }
+
         if (null !== $this->totalCuNum) {
             $res['TotalCuNum'] = $this->totalCuNum;
         }
@@ -132,6 +182,14 @@ class clusterInfo extends Model
         $model = new self();
         if (isset($map['AttuPort'])) {
             $model->attuPort = $map['AttuPort'];
+        }
+
+        if (isset($map['CaCertUrl'])) {
+            $model->caCertUrl = $map['CaCertUrl'];
+        }
+
+        if (isset($map['CertificateTrust'])) {
+            $model->certificateTrust = $map['CertificateTrust'];
         }
 
         if (isset($map['InternetUrl'])) {
@@ -163,6 +221,18 @@ class clusterInfo extends Model
 
         if (isset($map['ProxyPort'])) {
             $model->proxyPort = $map['ProxyPort'];
+        }
+
+        if (isset($map['SecureInternetUrl'])) {
+            $model->secureInternetUrl = $map['SecureInternetUrl'];
+        }
+
+        if (isset($map['SecureIntranetUrl'])) {
+            $model->secureIntranetUrl = $map['SecureIntranetUrl'];
+        }
+
+        if (isset($map['SecureProxyPort'])) {
+            $model->secureProxyPort = $map['SecureProxyPort'];
         }
 
         if (isset($map['TotalCuNum'])) {

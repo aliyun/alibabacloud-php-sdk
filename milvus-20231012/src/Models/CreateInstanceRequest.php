@@ -98,6 +98,11 @@ class CreateInstanceRequest extends Model
     public $multiZoneMode;
 
     /**
+     * @var string
+     */
+    public $nodeType;
+
+    /**
      * @var int
      */
     public $paymentDuration;
@@ -164,6 +169,7 @@ class CreateInstanceRequest extends Model
         'kmsKeyId' => 'kmsKeyId',
         'loadReplicas' => 'loadReplicas',
         'multiZoneMode' => 'multiZoneMode',
+        'nodeType' => 'nodeType',
         'paymentDuration' => 'paymentDuration',
         'paymentDurationUnit' => 'paymentDurationUnit',
         'paymentType' => 'paymentType',
@@ -269,6 +275,10 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->multiZoneMode) {
             $res['multiZoneMode'] = $this->multiZoneMode;
+        }
+
+        if (null !== $this->nodeType) {
+            $res['nodeType'] = $this->nodeType;
         }
 
         if (null !== $this->paymentDuration) {
@@ -409,6 +419,10 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['multiZoneMode'])) {
             $model->multiZoneMode = $map['multiZoneMode'];
+        }
+
+        if (isset($map['nodeType'])) {
+            $model->nodeType = $map['nodeType'];
         }
 
         if (isset($map['paymentDuration'])) {
