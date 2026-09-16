@@ -1,3 +1,7 @@
+2026-09-16 Version: 1.2.5
+- Update API CreateDigitalEmployee: add request parameters body.channel.
+
+
 2026-09-16 Version: 1.2.4
 - Generated php 2026-04-28 for STAROps.
 

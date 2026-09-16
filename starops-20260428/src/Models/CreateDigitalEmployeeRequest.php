@@ -19,6 +19,11 @@ class CreateDigitalEmployeeRequest extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $defaultRule;
 
     /**
@@ -67,6 +72,7 @@ class CreateDigitalEmployeeRequest extends Model
     public $toolPolicy;
     protected $_name = [
         'attributes' => 'attributes',
+        'channel' => 'channel',
         'defaultRule' => 'defaultRule',
         'description' => 'description',
         'displayName' => 'displayName',
@@ -109,6 +115,10 @@ class CreateDigitalEmployeeRequest extends Model
                     $res['attributes'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->channel) {
+            $res['channel'] = $this->channel;
         }
 
         if (null !== $this->defaultRule) {
@@ -176,6 +186,10 @@ class CreateDigitalEmployeeRequest extends Model
                     $model->attributes[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['channel'])) {
+            $model->channel = $map['channel'];
         }
 
         if (isset($map['defaultRule'])) {

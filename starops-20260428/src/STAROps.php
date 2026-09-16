@@ -368,6 +368,10 @@ class STAROps extends OpenApiClient
             @$body['attributes'] = $request->attributes;
         }
 
+        if (null !== $request->channel) {
+            @$body['channel'] = $request->channel;
+        }
+
         if (null !== $request->defaultRule) {
             @$body['defaultRule'] = $request->defaultRule;
         }
