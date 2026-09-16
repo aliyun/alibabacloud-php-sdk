@@ -1,3 +1,6 @@
+2026-09-16 Version: 1.2.4
+- Generated php 2026-04-28 for STAROps.
+
 2026-09-15 Version: 1.3.0
 - Support API DeleteDigitalEmployeeUmodelCommonSchemaRef.
 - Support API GetDigitalEmployeeEntityData.
