@@ -44,6 +44,11 @@ class GetRepoSyncTaskResponseBody extends Model
     /**
      * @var int
      */
+    public $priority;
+
+    /**
+     * @var int
+     */
     public $progress;
 
     /**
@@ -97,6 +102,7 @@ class GetRepoSyncTaskResponseBody extends Model
         'imageTo' => 'ImageTo',
         'isSuccess' => 'IsSuccess',
         'layerTasks' => 'LayerTasks',
+        'priority' => 'Priority',
         'progress' => 'Progress',
         'requestId' => 'RequestId',
         'syncBatchTaskId' => 'SyncBatchTaskId',
@@ -155,6 +161,10 @@ class GetRepoSyncTaskResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->progress) {
@@ -237,6 +247,10 @@ class GetRepoSyncTaskResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['Progress'])) {

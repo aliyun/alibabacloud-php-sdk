@@ -49,6 +49,11 @@ class GetInstanceUsageResponseBody extends Model
     public $namespaceUsage;
 
     /**
+     * @var int
+     */
+    public $performanceUnits;
+
+    /**
      * @var string
      */
     public $repoQuota;
@@ -81,6 +86,7 @@ class GetInstanceUsageResponseBody extends Model
         'isSuccess' => 'IsSuccess',
         'namespaceQuota' => 'NamespaceQuota',
         'namespaceUsage' => 'NamespaceUsage',
+        'performanceUnits' => 'PerformanceUnits',
         'repoQuota' => 'RepoQuota',
         'repoUsage' => 'RepoUsage',
         'requestId' => 'RequestId',
@@ -126,6 +132,10 @@ class GetInstanceUsageResponseBody extends Model
 
         if (null !== $this->namespaceUsage) {
             $res['NamespaceUsage'] = $this->namespaceUsage;
+        }
+
+        if (null !== $this->performanceUnits) {
+            $res['PerformanceUnits'] = $this->performanceUnits;
         }
 
         if (null !== $this->repoQuota) {
@@ -189,6 +199,10 @@ class GetInstanceUsageResponseBody extends Model
 
         if (isset($map['NamespaceUsage'])) {
             $model->namespaceUsage = $map['NamespaceUsage'];
+        }
+
+        if (isset($map['PerformanceUnits'])) {
+            $model->performanceUnits = $map['PerformanceUnits'];
         }
 
         if (isset($map['RepoQuota'])) {

@@ -26,6 +26,16 @@ class CreateRepoSyncRuleRequest extends Model
     /**
      * @var string
      */
+    public $namespaceNameFilter;
+
+    /**
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @var string
+     */
     public $repoName;
 
     /**
@@ -81,6 +91,8 @@ class CreateRepoSyncRuleRequest extends Model
         'instanceId' => 'InstanceId',
         'linkId' => 'LinkId',
         'namespaceName' => 'NamespaceName',
+        'namespaceNameFilter' => 'NamespaceNameFilter',
+        'priority' => 'Priority',
         'repoName' => 'RepoName',
         'repoNameFilter' => 'RepoNameFilter',
         'syncRuleName' => 'SyncRuleName',
@@ -112,6 +124,14 @@ class CreateRepoSyncRuleRequest extends Model
 
         if (null !== $this->namespaceName) {
             $res['NamespaceName'] = $this->namespaceName;
+        }
+
+        if (null !== $this->namespaceNameFilter) {
+            $res['NamespaceNameFilter'] = $this->namespaceNameFilter;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->repoName) {
@@ -179,6 +199,14 @@ class CreateRepoSyncRuleRequest extends Model
 
         if (isset($map['NamespaceName'])) {
             $model->namespaceName = $map['NamespaceName'];
+        }
+
+        if (isset($map['NamespaceNameFilter'])) {
+            $model->namespaceNameFilter = $map['NamespaceNameFilter'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['RepoName'])) {

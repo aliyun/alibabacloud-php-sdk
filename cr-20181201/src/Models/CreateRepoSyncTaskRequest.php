@@ -19,6 +19,11 @@ class CreateRepoSyncTaskRequest extends Model
     public $override;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @var string
      */
     public $repoId;
@@ -60,6 +65,7 @@ class CreateRepoSyncTaskRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'override' => 'Override',
+        'priority' => 'Priority',
         'repoId' => 'RepoId',
         'tag' => 'Tag',
         'targetInstanceId' => 'TargetInstanceId',
@@ -84,6 +90,10 @@ class CreateRepoSyncTaskRequest extends Model
 
         if (null !== $this->override) {
             $res['Override'] = $this->override;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->repoId) {
@@ -135,6 +145,10 @@ class CreateRepoSyncTaskRequest extends Model
 
         if (isset($map['Override'])) {
             $model->override = $map['Override'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['RepoId'])) {

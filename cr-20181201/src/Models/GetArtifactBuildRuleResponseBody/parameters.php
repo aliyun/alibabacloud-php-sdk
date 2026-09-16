@@ -14,11 +14,17 @@ class parameters extends Model
     public $imageIndexOnly;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @var string
      */
     public $priorityFile;
     protected $_name = [
         'imageIndexOnly' => 'ImageIndexOnly',
+        'priority' => 'Priority',
         'priorityFile' => 'PriorityFile',
     ];
 
@@ -32,6 +38,10 @@ class parameters extends Model
         $res = [];
         if (null !== $this->imageIndexOnly) {
             $res['ImageIndexOnly'] = $this->imageIndexOnly;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->priorityFile) {
@@ -51,6 +61,10 @@ class parameters extends Model
         $model = new self();
         if (isset($map['ImageIndexOnly'])) {
             $model->imageIndexOnly = $map['ImageIndexOnly'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['PriorityFile'])) {

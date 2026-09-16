@@ -51,6 +51,11 @@ class syncTasks extends Model
     public $modifiedTime;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @var string
      */
     public $syncBatchTaskId;
@@ -93,6 +98,7 @@ class syncTasks extends Model
         'linkId' => 'LinkId',
         'modifedTime' => 'ModifedTime',
         'modifiedTime' => 'ModifiedTime',
+        'priority' => 'Priority',
         'syncBatchTaskId' => 'SyncBatchTaskId',
         'syncRuleId' => 'SyncRuleId',
         'syncTaskId' => 'SyncTaskId',
@@ -146,6 +152,10 @@ class syncTasks extends Model
 
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->syncBatchTaskId) {
@@ -217,6 +227,10 @@ class syncTasks extends Model
 
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['SyncBatchTaskId'])) {

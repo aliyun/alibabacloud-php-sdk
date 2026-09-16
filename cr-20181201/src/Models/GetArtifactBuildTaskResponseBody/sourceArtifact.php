@@ -14,9 +14,19 @@ class sourceArtifact extends Model
     public $artifactType;
 
     /**
+     * @var int
+     */
+    public $layerCount;
+
+    /**
      * @var string
      */
     public $repoId;
+
+    /**
+     * @var int
+     */
+    public $size;
 
     /**
      * @var string
@@ -24,7 +34,9 @@ class sourceArtifact extends Model
     public $version;
     protected $_name = [
         'artifactType' => 'ArtifactType',
+        'layerCount' => 'LayerCount',
         'repoId' => 'RepoId',
+        'size' => 'Size',
         'version' => 'Version',
     ];
 
@@ -40,8 +52,16 @@ class sourceArtifact extends Model
             $res['ArtifactType'] = $this->artifactType;
         }
 
+        if (null !== $this->layerCount) {
+            $res['LayerCount'] = $this->layerCount;
+        }
+
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
+        }
+
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         if (null !== $this->version) {
@@ -63,8 +83,16 @@ class sourceArtifact extends Model
             $model->artifactType = $map['ArtifactType'];
         }
 
+        if (isset($map['LayerCount'])) {
+            $model->layerCount = $map['LayerCount'];
+        }
+
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
+        }
+
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
 
         if (isset($map['Version'])) {

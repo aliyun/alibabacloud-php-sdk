@@ -51,6 +51,16 @@ class syncRules extends Model
     /**
      * @var string
      */
+    public $namespaceNameFilter;
+
+    /**
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @var string
+     */
     public $repoNameFilter;
 
     /**
@@ -111,6 +121,8 @@ class syncRules extends Model
         'localRegionId' => 'LocalRegionId',
         'localRepoName' => 'LocalRepoName',
         'modifiedTime' => 'ModifiedTime',
+        'namespaceNameFilter' => 'NamespaceNameFilter',
+        'priority' => 'Priority',
         'repoNameFilter' => 'RepoNameFilter',
         'syncDirection' => 'SyncDirection',
         'syncRuleId' => 'SyncRuleId',
@@ -162,6 +174,14 @@ class syncRules extends Model
 
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
+        }
+
+        if (null !== $this->namespaceNameFilter) {
+            $res['NamespaceNameFilter'] = $this->namespaceNameFilter;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->repoNameFilter) {
@@ -249,6 +269,14 @@ class syncRules extends Model
 
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
+        }
+
+        if (isset($map['NamespaceNameFilter'])) {
+            $model->namespaceNameFilter = $map['NamespaceNameFilter'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['RepoNameFilter'])) {

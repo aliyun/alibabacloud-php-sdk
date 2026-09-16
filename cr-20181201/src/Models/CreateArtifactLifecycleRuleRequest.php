@@ -16,7 +16,17 @@ class CreateArtifactLifecycleRuleRequest extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $enableDeleteTag;
+
+    /**
+     * @var bool
+     */
+    public $enableDeleteUntaggedManifest;
 
     /**
      * @var string
@@ -54,7 +64,9 @@ class CreateArtifactLifecycleRuleRequest extends Model
     public $tagRegexp;
     protected $_name = [
         'auto' => 'Auto',
+        'dryRun' => 'DryRun',
         'enableDeleteTag' => 'EnableDeleteTag',
+        'enableDeleteUntaggedManifest' => 'EnableDeleteUntaggedManifest',
         'instanceId' => 'InstanceId',
         'namespaceName' => 'NamespaceName',
         'repoName' => 'RepoName',
@@ -76,8 +88,16 @@ class CreateArtifactLifecycleRuleRequest extends Model
             $res['Auto'] = $this->auto;
         }
 
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->enableDeleteTag) {
             $res['EnableDeleteTag'] = $this->enableDeleteTag;
+        }
+
+        if (null !== $this->enableDeleteUntaggedManifest) {
+            $res['EnableDeleteUntaggedManifest'] = $this->enableDeleteUntaggedManifest;
         }
 
         if (null !== $this->instanceId) {
@@ -123,8 +143,16 @@ class CreateArtifactLifecycleRuleRequest extends Model
             $model->auto = $map['Auto'];
         }
 
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['EnableDeleteTag'])) {
             $model->enableDeleteTag = $map['EnableDeleteTag'];
+        }
+
+        if (isset($map['EnableDeleteUntaggedManifest'])) {
+            $model->enableDeleteUntaggedManifest = $map['EnableDeleteUntaggedManifest'];
         }
 
         if (isset($map['InstanceId'])) {

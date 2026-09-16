@@ -1,3 +1,30 @@
+2026-09-16 Version: 2.2.3
+- Update API CreateArtifactLifecycleRule: add request parameters DryRun.
+- Update API CreateArtifactLifecycleRule: add request parameters EnableDeleteUntaggedManifest.
+- Update API CreateRepoSyncRule: add request parameters NamespaceNameFilter.
+- Update API CreateRepoSyncRule: add request parameters Priority.
+- Update API CreateRepoSyncTask: add request parameters Priority.
+- Update API CreateRepoSyncTaskByRule: add request parameters Priority.
+- Update API GetArtifactBuildRule: add response parameters Body.Parameters.Priority.
+- Update API GetArtifactBuildTask: add response parameters Body.ArtifactCompression.
+- Update API GetArtifactBuildTask: add response parameters Body.Priority.
+- Update API GetArtifactBuildTask: add response parameters Body.SourceArtifact.LayerCount.
+- Update API GetArtifactBuildTask: add response parameters Body.SourceArtifact.Size.
+- Update API GetArtifactBuildTask: add response parameters Body.TargetArtifact.LayerCount.
+- Update API GetArtifactBuildTask: add response parameters Body.TargetArtifact.Size.
+- Update API GetArtifactLifecycleRule: add response parameters Body.DryRun.
+- Update API GetArtifactLifecycleRule: add response parameters Body.EnableDeleteUntaggedManifest.
+- Update API GetInstanceUsage: add response parameters Body.PerformanceUnits.
+- Update API GetRepoSyncTask: add response parameters Body.Priority.
+- Update API ListArtifactLifecycleRule: add response parameters Body.Rules.$.DryRun.
+- Update API ListArtifactLifecycleRule: add response parameters Body.Rules.$.EnableDeleteUntaggedManifest.
+- Update API ListRepoSyncRule: add response parameters Body.SyncRules.$.NamespaceNameFilter.
+- Update API ListRepoSyncRule: add response parameters Body.SyncRules.$.Priority.
+- Update API ListRepoSyncTask: add response parameters Body.SyncTasks.$.Priority.
+- Update API UpdateArtifactLifecycleRule: add request parameters DryRun.
+- Update API UpdateArtifactLifecycleRule: add request parameters EnableDeleteUntaggedManifest.
+
+
 2026-08-05 Version: 2.2.2
 - Update API GetAuthorizationToken: add request parameters ExpiresInHours.
 

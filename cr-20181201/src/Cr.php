@@ -263,49 +263,6 @@ class Cr extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'us-west-1' => 'cr.us-west-1.aliyuncs.com',
-            'us-southeast-1' => 'cr.us-southeast-1.aliyuncs.com',
-            'us-east-1' => 'cr.us-east-1.aliyuncs.com',
-            'na-south-1' => 'cr.na-south-1.aliyuncs.com',
-            'me-east-1' => 'cr.me-east-1.aliyuncs.com',
-            'me-central-1' => 'cr.me-central-1.aliyuncs.com',
-            'eu-west-2' => 'cr.eu-west-2.aliyuncs.com',
-            'eu-west-1' => 'cr.eu-west-1.aliyuncs.com',
-            'eu-central-1' => 'cr.eu-central-1.aliyuncs.com',
-            'cn-zhongwei' => 'cr.cn-zhongwei.aliyuncs.com',
-            'cn-zhengzhou-jva' => 'cr.cn-zhengzhou-jva.aliyuncs.com',
-            'cn-zhangjiakou' => 'cr.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu-gic-1' => 'cr.cn-wulanchabu-gic-1.aliyuncs.com',
-            'cn-wulanchabu' => 'cr.cn-wulanchabu.aliyuncs.com',
-            'cn-wuhan-lr' => 'cr.cn-wuhan-lr.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'cr.cn-shenzhen-finance-1.aliyuncs.com',
-            'cn-shenzhen' => 'cr.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'cr.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shanghai' => 'cr.cn-shanghai.aliyuncs.com',
-            'cn-qingdao' => 'cr.cn-qingdao.aliyuncs.com',
-            'cn-north-2-gov-1' => 'cr.cn-north-2-gov-1.aliyuncs.com',
-            'cn-nanjing' => 'cr.cn-nanjing.aliyuncs.com',
-            'cn-huhehaote' => 'cr.cn-huhehaote.aliyuncs.com',
-            'cn-hongkong' => 'cr.cn-hongkong.aliyuncs.com',
-            'cn-heyuan-acdr-1' => 'cr.cn-heyuan-acdr-1.aliyuncs.com',
-            'cn-heyuan' => 'cr.cn-heyuan.aliyuncs.com',
-            'cn-hangzhou-finance' => 'cr.cn-hangzhou-finance.aliyuncs.com',
-            'cn-hangzhou' => 'cr.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'cr.cn-guangzhou.aliyuncs.com',
-            'cn-fuzhou' => 'cr.cn-fuzhou.aliyuncs.com',
-            'cn-chengdu' => 'cr.cn-chengdu.aliyuncs.com',
-            'cn-beijing-finance-1' => 'cr.cn-beijing-finance-1.aliyuncs.com',
-            'cn-beijing' => 'cr.cn-beijing.aliyuncs.com',
-            'ap-southeast-8' => 'cr.ap-southeast-8.aliyuncs.com',
-            'ap-southeast-7' => 'cr.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-6' => 'cr.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-5' => 'cr.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'cr.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'cr.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2' => 'cr.ap-northeast-2.aliyuncs.com',
-            'ap-northeast-1' => 'cr.ap-northeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cr', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -694,8 +651,16 @@ class Cr extends OpenApiClient
             @$query['Auto'] = $request->auto;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->enableDeleteTag) {
             @$query['EnableDeleteTag'] = $request->enableDeleteTag;
+        }
+
+        if (null !== $request->enableDeleteUntaggedManifest) {
+            @$query['EnableDeleteUntaggedManifest'] = $request->enableDeleteUntaggedManifest;
         }
 
         if (null !== $request->instanceId) {
@@ -1762,7 +1727,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Creates an image synchronization rule for an image repository.
+     * Creates a synchronization rule for an image repository.
      *
      * @param request - CreateRepoSyncRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1788,6 +1753,14 @@ class Cr extends OpenApiClient
 
         if (null !== $request->namespaceName) {
             @$query['NamespaceName'] = $request->namespaceName;
+        }
+
+        if (null !== $request->namespaceNameFilter) {
+            @$query['NamespaceNameFilter'] = $request->namespaceNameFilter;
+        }
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
 
         if (null !== $request->repoName) {
@@ -1853,7 +1826,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Creates an image synchronization rule for an image repository.
+     * Creates a synchronization rule for an image repository.
      *
      * @param request - CreateRepoSyncRuleRequest
      *
@@ -1871,7 +1844,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Manually create a sync task.
+     * Manually creates a synchronization task.
      *
      * @param request - CreateRepoSyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1893,6 +1866,10 @@ class Cr extends OpenApiClient
 
         if (null !== $request->override) {
             @$query['Override'] = $request->override;
+        }
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
 
         if (null !== $request->repoId) {
@@ -1946,7 +1923,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Manually create a sync task.
+     * Manually creates a synchronization task.
      *
      * @param request - CreateRepoSyncTaskRequest
      *
@@ -1964,7 +1941,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Creates an image replication task based on a manual replication rule.
+     * Creates a synchronization task for an image repository based on a synchronization rule (manual synchronization rules only).
      *
      * @param request - CreateRepoSyncTaskByRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1982,6 +1959,10 @@ class Cr extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
 
         if (null !== $request->repoId) {
@@ -2015,7 +1996,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Creates an image replication task based on a manual replication rule.
+     * Creates a synchronization task for an image repository based on a synchronization rule (manual synchronization rules only).
      *
      * @param request - CreateRepoSyncTaskByRuleRequest
      *
@@ -3709,7 +3690,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the details of an artifact building rule.
+     * Retrieves an artifact build rule.
      *
      * @param request - GetArtifactBuildRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3744,7 +3725,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the details of an artifact building rule.
+     * Retrieves an artifact build rule.
      *
      * @param request - GetArtifactBuildRuleRequest
      *
@@ -3762,7 +3743,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an artifact build task.
+     * Retrieves the build task of an artifact.
      *
      * @param request - GetArtifactBuildTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3797,7 +3778,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an artifact build task.
+     * Retrieves the build task of an artifact.
      *
      * @param request - GetArtifactBuildTaskRequest
      *
@@ -3815,7 +3796,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Lists artifact lifecycle management rules.
+     * Queries the lifecycle management rules of artifacts.
      *
      * @param request - GetArtifactLifecycleRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3850,7 +3831,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Lists artifact lifecycle management rules.
+     * Queries the lifecycle management rules of artifacts.
      *
      * @param request - GetArtifactLifecycleRuleRequest
      *
@@ -4030,10 +4011,10 @@ class Cr extends OpenApiClient
      * Retrieves a temporary username and password for logging on to an instance.
      *
      * @remarks
-     * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
-     * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
-     * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
-     * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
+     * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password equals the validity period of the STS token used in the request.
+     * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when logging on to the instance with the username and password of the Alibaba Cloud account.
+     * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when logging on to the instance with the username and password of the RAM user.
+     * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
      *
      * @param request - GetAuthorizationTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4079,10 +4060,10 @@ class Cr extends OpenApiClient
      * Retrieves a temporary username and password for logging on to an instance.
      *
      * @remarks
-     * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
-     * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
-     * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
-     * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
+     * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password equals the validity period of the STS token used in the request.
+     * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when logging on to the instance with the username and password of the Alibaba Cloud account.
+     * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when logging on to the instance with the username and password of the RAM user.
+     * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
      *
      * @param request - GetAuthorizationTokenRequest
      *
@@ -4891,7 +4872,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries an image synchronization task in an instance.
+     * Queries a repository synchronization task.
      *
      * @param request - GetRepoSyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4934,7 +4915,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries an image synchronization task in an instance.
+     * Queries a repository synchronization task.
      *
      * @param request - GetRepoSyncTaskRequest
      *
@@ -6524,7 +6505,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Returns a list of repository synchronization rules.
+     * Queries the list of repository synchronization rules.
      *
      * @param request - ListRepoSyncRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6587,7 +6568,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Returns a list of repository synchronization rules.
+     * Queries the list of repository synchronization rules.
      *
      * @param request - ListRepoSyncRuleRequest
      *
@@ -6605,7 +6586,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Lists repository synchronization tasks.
+     * Queries the list of repository synchronization tasks.
      *
      * @param request - ListRepoSyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6668,7 +6649,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Lists repository synchronization tasks.
+     * Queries the list of repository synchronization tasks.
      *
      * @param request - ListRepoSyncTaskRequest
      *
@@ -7475,7 +7456,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Updates a lifecycle management rule of an artifact.
+     * Updates an artifact lifecycle management rule.
      *
      * @param request - UpdateArtifactLifecycleRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7495,8 +7476,16 @@ class Cr extends OpenApiClient
             @$query['Auto'] = $request->auto;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->enableDeleteTag) {
             @$query['EnableDeleteTag'] = $request->enableDeleteTag;
+        }
+
+        if (null !== $request->enableDeleteUntaggedManifest) {
+            @$query['EnableDeleteUntaggedManifest'] = $request->enableDeleteUntaggedManifest;
         }
 
         if (null !== $request->instanceId) {
@@ -7550,7 +7539,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Updates a lifecycle management rule of an artifact.
+     * Updates an artifact lifecycle management rule.
      *
      * @param request - UpdateArtifactLifecycleRuleRequest
      *

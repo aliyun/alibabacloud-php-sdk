@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskResponseBody\artifactCompression;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskResponseBody\sourceArtifact;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskResponseBody\targetArtifact;
 
@@ -14,6 +15,11 @@ class GetArtifactBuildTaskResponseBody extends Model
      * @var string
      */
     public $artifactBuildType;
+
+    /**
+     * @var artifactCompression
+     */
+    public $artifactCompression;
 
     /**
      * @var string
@@ -41,6 +47,11 @@ class GetArtifactBuildTaskResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -66,11 +77,13 @@ class GetArtifactBuildTaskResponseBody extends Model
     public $taskStatus;
     protected $_name = [
         'artifactBuildType' => 'ArtifactBuildType',
+        'artifactCompression' => 'ArtifactCompression',
         'buildTaskId' => 'BuildTaskId',
         'code' => 'Code',
         'endTime' => 'EndTime',
         'instructions' => 'Instructions',
         'isSuccess' => 'IsSuccess',
+        'priority' => 'Priority',
         'requestId' => 'RequestId',
         'sourceArtifact' => 'SourceArtifact',
         'startTime' => 'StartTime',
@@ -80,6 +93,9 @@ class GetArtifactBuildTaskResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->artifactCompression) {
+            $this->artifactCompression->validate();
+        }
         if (\is_array($this->instructions)) {
             Model::validateArray($this->instructions);
         }
@@ -97,6 +113,10 @@ class GetArtifactBuildTaskResponseBody extends Model
         $res = [];
         if (null !== $this->artifactBuildType) {
             $res['ArtifactBuildType'] = $this->artifactBuildType;
+        }
+
+        if (null !== $this->artifactCompression) {
+            $res['ArtifactCompression'] = null !== $this->artifactCompression ? $this->artifactCompression->toArray($noStream) : $this->artifactCompression;
         }
 
         if (null !== $this->buildTaskId) {
@@ -124,6 +144,10 @@ class GetArtifactBuildTaskResponseBody extends Model
 
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->requestId) {
@@ -161,6 +185,10 @@ class GetArtifactBuildTaskResponseBody extends Model
             $model->artifactBuildType = $map['ArtifactBuildType'];
         }
 
+        if (isset($map['ArtifactCompression'])) {
+            $model->artifactCompression = artifactCompression::fromMap($map['ArtifactCompression']);
+        }
+
         if (isset($map['BuildTaskId'])) {
             $model->buildTaskId = $map['BuildTaskId'];
         }
@@ -186,6 +214,10 @@ class GetArtifactBuildTaskResponseBody extends Model
 
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['RequestId'])) {

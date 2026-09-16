@@ -27,7 +27,17 @@ class GetArtifactLifecycleRuleResponseBody extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $enableDeleteTag;
+
+    /**
+     * @var bool
+     */
+    public $enableDeleteUntaggedManifest;
 
     /**
      * @var string
@@ -97,7 +107,9 @@ class GetArtifactLifecycleRuleResponseBody extends Model
         'auto' => 'Auto',
         'code' => 'Code',
         'createTime' => 'CreateTime',
+        'dryRun' => 'DryRun',
         'enableDeleteTag' => 'EnableDeleteTag',
+        'enableDeleteUntaggedManifest' => 'EnableDeleteUntaggedManifest',
         'instanceId' => 'InstanceId',
         'isSuccess' => 'IsSuccess',
         'modifiedTime' => 'ModifiedTime',
@@ -136,8 +148,16 @@ class GetArtifactLifecycleRuleResponseBody extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->enableDeleteTag) {
             $res['EnableDeleteTag'] = $this->enableDeleteTag;
+        }
+
+        if (null !== $this->enableDeleteUntaggedManifest) {
+            $res['EnableDeleteUntaggedManifest'] = $this->enableDeleteUntaggedManifest;
         }
 
         if (null !== $this->instanceId) {
@@ -222,8 +242,16 @@ class GetArtifactLifecycleRuleResponseBody extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['EnableDeleteTag'])) {
             $model->enableDeleteTag = $map['EnableDeleteTag'];
+        }
+
+        if (isset($map['EnableDeleteUntaggedManifest'])) {
+            $model->enableDeleteUntaggedManifest = $map['EnableDeleteUntaggedManifest'];
         }
 
         if (isset($map['InstanceId'])) {

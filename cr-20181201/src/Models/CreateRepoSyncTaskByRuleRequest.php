@@ -14,6 +14,11 @@ class CreateRepoSyncTaskByRuleRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @var string
      */
     public $repoId;
@@ -29,6 +34,7 @@ class CreateRepoSyncTaskByRuleRequest extends Model
     public $tag;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'priority' => 'Priority',
         'repoId' => 'RepoId',
         'syncRuleId' => 'SyncRuleId',
         'tag' => 'Tag',
@@ -44,6 +50,10 @@ class CreateRepoSyncTaskByRuleRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->repoId) {
@@ -71,6 +81,10 @@ class CreateRepoSyncTaskByRuleRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['RepoId'])) {
