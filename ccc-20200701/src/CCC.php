@@ -54,6 +54,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeWorkModeRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeWorkModeResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CheckBusinessHoursRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CheckBusinessHoursResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ClaimCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ClaimCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ClaimChatRequest;
@@ -2268,6 +2270,73 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeWorkModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 假期工作日检查.
+     *
+     * @remarks
+     * 拥有RAM权限的账号可以到RAM控制台查询阿里云主账号下管理的所有RAM子账号，RAM控制台地址：https://ram.console.aliyun.com/users
+     *
+     * @param request - CheckBusinessHoursRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckBusinessHoursResponse
+     *
+     * @param CheckBusinessHoursRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckBusinessHoursResponse
+     */
+    public function checkBusinessHoursWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->time) {
+            @$query['Time'] = $request->time;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckBusinessHours',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckBusinessHoursResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 假期工作日检查.
+     *
+     * @remarks
+     * 拥有RAM权限的账号可以到RAM控制台查询阿里云主账号下管理的所有RAM子账号，RAM控制台地址：https://ram.console.aliyun.com/users
+     *
+     * @param request - CheckBusinessHoursRequest
+     *
+     * @returns CheckBusinessHoursResponse
+     *
+     * @param CheckBusinessHoursRequest $request
+     *
+     * @return CheckBusinessHoursResponse
+     */
+    public function checkBusinessHours($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkBusinessHoursWithOptions($request, $runtime);
     }
 
     /**

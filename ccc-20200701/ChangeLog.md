@@ -1,3 +1,13 @@
+2026-09-16 Version: 2.37.0
+- Support API CheckBusinessHours.
+- Support API ClaimCall.
+- Support API ListNotificationRecords.
+- Support API UpdateSubscription.
+- Update API AssignUsers: add request parameters Async.
+- Update API ListCallDetailRecordsV2: add response parameters Body.Data.List.$.AccessChannelId.
+- Update API ListCallDetailRecordsV2: add response parameters Body.Data.List.$.OutsideNumberDestinationNumber.
+
+
 2026-09-09 Version: 2.37.0
 - Support API ClaimCall.
 - Support API ListNotificationRecords.
