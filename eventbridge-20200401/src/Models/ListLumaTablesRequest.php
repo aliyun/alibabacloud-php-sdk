@@ -19,13 +19,25 @@ class ListLumaTablesRequest extends Model
     public $catalog;
 
     /**
+     * @var int
+     */
+    public $limit;
+
+    /**
      * @var string
      */
     public $namespace;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
         'agentName' => 'AgentName',
         'catalog' => 'Catalog',
+        'limit' => 'Limit',
         'namespace' => 'Namespace',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
@@ -44,8 +56,16 @@ class ListLumaTablesRequest extends Model
             $res['Catalog'] = $this->catalog;
         }
 
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -67,8 +87,16 @@ class ListLumaTablesRequest extends Model
             $model->catalog = $map['Catalog'];
         }
 
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

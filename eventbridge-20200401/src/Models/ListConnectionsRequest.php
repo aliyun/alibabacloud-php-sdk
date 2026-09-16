@@ -14,6 +14,11 @@ class ListConnectionsRequest extends Model
     public $connectionNamePrefix;
 
     /**
+     * @var string
+     */
+    public $excludeType;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -29,6 +34,7 @@ class ListConnectionsRequest extends Model
     public $type;
     protected $_name = [
         'connectionNamePrefix' => 'ConnectionNamePrefix',
+        'excludeType' => 'ExcludeType',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'type' => 'Type',
@@ -44,6 +50,10 @@ class ListConnectionsRequest extends Model
         $res = [];
         if (null !== $this->connectionNamePrefix) {
             $res['ConnectionNamePrefix'] = $this->connectionNamePrefix;
+        }
+
+        if (null !== $this->excludeType) {
+            $res['ExcludeType'] = $this->excludeType;
         }
 
         if (null !== $this->maxResults) {
@@ -71,6 +81,10 @@ class ListConnectionsRequest extends Model
         $model = new self();
         if (isset($map['ConnectionNamePrefix'])) {
             $model->connectionNamePrefix = $map['ConnectionNamePrefix'];
+        }
+
+        if (isset($map['ExcludeType'])) {
+            $model->excludeType = $map['ExcludeType'];
         }
 
         if (isset($map['MaxResults'])) {

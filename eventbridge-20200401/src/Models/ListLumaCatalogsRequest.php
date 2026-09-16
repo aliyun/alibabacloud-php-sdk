@@ -12,8 +12,20 @@ class ListLumaCatalogsRequest extends Model
      * @var string
      */
     public $agentName;
+
+    /**
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
         'agentName' => 'AgentName',
+        'limit' => 'Limit',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
@@ -26,6 +38,14 @@ class ListLumaCatalogsRequest extends Model
         $res = [];
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
+        }
+
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -41,6 +61,14 @@ class ListLumaCatalogsRequest extends Model
         $model = new self();
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
+        }
+
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

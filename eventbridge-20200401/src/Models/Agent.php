@@ -19,6 +19,16 @@ class Agent extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $mcpServerId;
+
+    /**
+     * @var string
+     */
+    public $mcpServerName;
+
+    /**
      * @var Metadata
      */
     public $metadata;
@@ -40,6 +50,8 @@ class Agent extends Model
     protected $_name = [
         'createdAt' => 'CreatedAt',
         'description' => 'Description',
+        'mcpServerId' => 'McpServerId',
+        'mcpServerName' => 'McpServerName',
         'metadata' => 'Metadata',
         'name' => 'Name',
         'prompt' => 'Prompt',
@@ -63,6 +75,14 @@ class Agent extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->mcpServerId) {
+            $res['McpServerId'] = $this->mcpServerId;
+        }
+
+        if (null !== $this->mcpServerName) {
+            $res['McpServerName'] = $this->mcpServerName;
         }
 
         if (null !== $this->metadata) {
@@ -98,6 +118,14 @@ class Agent extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['McpServerId'])) {
+            $model->mcpServerId = $map['McpServerId'];
+        }
+
+        if (isset($map['McpServerName'])) {
+            $model->mcpServerName = $map['McpServerName'];
         }
 
         if (isset($map['Metadata'])) {

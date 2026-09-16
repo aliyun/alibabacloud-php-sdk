@@ -19,13 +19,25 @@ class ListLumaKnowledgeBasesRequest extends Model
     public $catalog;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $namespace;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
         'agentName' => 'AgentName',
         'catalog' => 'Catalog',
+        'maxResults' => 'MaxResults',
         'namespace' => 'Namespace',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
@@ -44,8 +56,16 @@ class ListLumaKnowledgeBasesRequest extends Model
             $res['Catalog'] = $this->catalog;
         }
 
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -67,8 +87,16 @@ class ListLumaKnowledgeBasesRequest extends Model
             $model->catalog = $map['Catalog'];
         }
 
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

@@ -20,6 +20,16 @@ class UpdateAgentRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $mcpServerId;
+
+    /**
+     * @var string
+     */
+    public $mcpServerName;
+
+    /**
      * @var metadata
      */
     public $metadata;
@@ -36,6 +46,8 @@ class UpdateAgentRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'description' => 'Description',
+        'mcpServerId' => 'McpServerId',
+        'mcpServerName' => 'McpServerName',
         'metadata' => 'Metadata',
         'name' => 'Name',
         'prompt' => 'Prompt',
@@ -58,6 +70,14 @@ class UpdateAgentRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->mcpServerId) {
+            $res['McpServerId'] = $this->mcpServerId;
+        }
+
+        if (null !== $this->mcpServerName) {
+            $res['McpServerName'] = $this->mcpServerName;
         }
 
         if (null !== $this->metadata) {
@@ -89,6 +109,14 @@ class UpdateAgentRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['McpServerId'])) {
+            $model->mcpServerId = $map['McpServerId'];
+        }
+
+        if (isset($map['McpServerName'])) {
+            $model->mcpServerName = $map['McpServerName'];
         }
 
         if (isset($map['Metadata'])) {

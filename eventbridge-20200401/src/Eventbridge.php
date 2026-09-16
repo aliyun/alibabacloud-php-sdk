@@ -3994,6 +3994,10 @@ class Eventbridge extends OpenApiClient
             @$body['ConnectionNamePrefix'] = $request->connectionNamePrefix;
         }
 
+        if (null !== $request->excludeType) {
+            @$body['ExcludeType'] = $request->excludeType;
+        }
+
         if (null !== $request->maxResults) {
             @$body['MaxResults'] = $request->maxResults;
         }
@@ -4284,6 +4288,14 @@ class Eventbridge extends OpenApiClient
             @$body['AgentName'] = $request->agentName;
         }
 
+        if (null !== $request->limit) {
+            @$body['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -4510,10 +4522,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     * Lists all knowledge bases bound to a Luma Agent in a specified namespace. Returns the complete set of bindings without pagination.
      *
      * @remarks
-     * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     * Lists the knowledge bases bound to a Luma Agent in a specified namespace. Results are returned in pages. To retrieve the next page, pass the NextToken value from the previous response. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than MaxResults. Do not determine whether the last page is reached based on an insufficient number of entries on the current page.
      *
      * @param request - ListLumaKnowledgeBasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4537,8 +4549,16 @@ class Eventbridge extends OpenApiClient
             @$body['Catalog'] = $request->catalog;
         }
 
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
         if (null !== $request->namespace) {
             @$body['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
 
         $req = new OpenApiRequest([
@@ -4560,10 +4580,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     * Lists all knowledge bases bound to a Luma Agent in a specified namespace. Returns the complete set of bindings without pagination.
      *
      * @remarks
-     * Lists all knowledge bases bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     * Lists the knowledge bases bound to a Luma Agent in a specified namespace. Results are returned in pages. To retrieve the next page, pass the NextToken value from the previous response. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than MaxResults. Do not determine whether the last page is reached based on an insufficient number of entries on the current page.
      *
      * @param request - ListLumaKnowledgeBasesRequest
      *
@@ -4608,6 +4628,14 @@ class Eventbridge extends OpenApiClient
             @$body['Catalog'] = $request->catalog;
         }
 
+        if (null !== $request->limit) {
+            @$body['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -4648,10 +4676,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     * Lists all event tables bound to a Luma Agent in a specified namespace. Returns the complete set of bindings without pagination.
      *
      * @remarks
-     * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     * Lists the event tables bound to a Luma Agent in a specified namespace. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient number of entries on the current page to determine that the last page has been reached.
      *
      * @param request - ListLumaTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4675,8 +4703,16 @@ class Eventbridge extends OpenApiClient
             @$body['Catalog'] = $request->catalog;
         }
 
+        if (null !== $request->limit) {
+            @$body['Limit'] = $request->limit;
+        }
+
         if (null !== $request->namespace) {
             @$body['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
 
         $req = new OpenApiRequest([
@@ -4698,10 +4734,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     * Lists all event tables bound to a Luma Agent in a specified namespace. Returns the complete set of bindings without pagination.
      *
      * @remarks
-     * Lists all event tables bound to a Luma Agent under a specified namespace. Returns the complete set of bindings without pagination.
+     * Lists the event tables bound to a Luma Agent in a specified namespace. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient number of entries on the current page to determine that the last page has been reached.
      *
      * @param request - ListLumaTablesRequest
      *
@@ -6339,6 +6375,14 @@ class Eventbridge extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->mcpServerId) {
+            @$body['McpServerId'] = $request->mcpServerId;
+        }
+
+        if (null !== $request->mcpServerName) {
+            @$body['McpServerName'] = $request->mcpServerName;
         }
 
         if (null !== $request->metadataShrink) {

@@ -13,8 +13,26 @@ class data extends Model
      * @var KnowledgeBase[]
      */
     public $knowledgeBases;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'knowledgeBases' => 'KnowledgeBases',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -39,6 +57,18 @@ class data extends Model
             }
         }
 
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+
         return $res;
     }
 
@@ -59,6 +89,18 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

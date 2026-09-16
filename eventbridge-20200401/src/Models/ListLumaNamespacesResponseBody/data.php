@@ -10,11 +10,29 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\Namespace_;
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $limit;
+
+    /**
      * @var Namespace_[]
      */
     public $namespaces;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
+        'limit' => 'Limit',
         'namespaces' => 'Namespaces',
+        'nextToken' => 'NextToken',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -28,6 +46,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+
         if (null !== $this->namespaces) {
             if (\is_array($this->namespaces)) {
                 $res['Namespaces'] = [];
@@ -37,6 +59,14 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -50,6 +80,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+
         if (isset($map['Namespaces'])) {
             if (!empty($map['Namespaces'])) {
                 $model->namespaces = [];
@@ -59,6 +93,14 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

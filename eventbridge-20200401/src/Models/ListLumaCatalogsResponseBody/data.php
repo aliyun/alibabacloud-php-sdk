@@ -13,8 +13,26 @@ class data extends Model
      * @var Catalog[]
      */
     public $catalogs;
+
+    /**
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'catalogs' => 'Catalogs',
+        'limit' => 'Limit',
+        'nextToken' => 'NextToken',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -39,6 +57,18 @@ class data extends Model
             }
         }
 
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+
         return $res;
     }
 
@@ -59,6 +89,18 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

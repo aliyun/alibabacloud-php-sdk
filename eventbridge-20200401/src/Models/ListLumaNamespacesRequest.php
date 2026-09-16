@@ -17,9 +17,21 @@ class ListLumaNamespacesRequest extends Model
      * @var string
      */
     public $catalog;
+
+    /**
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
         'agentName' => 'AgentName',
         'catalog' => 'Catalog',
+        'limit' => 'Limit',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
@@ -36,6 +48,14 @@ class ListLumaNamespacesRequest extends Model
 
         if (null !== $this->catalog) {
             $res['Catalog'] = $this->catalog;
+        }
+
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -55,6 +75,14 @@ class ListLumaNamespacesRequest extends Model
 
         if (isset($map['Catalog'])) {
             $model->catalog = $map['Catalog'];
+        }
+
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

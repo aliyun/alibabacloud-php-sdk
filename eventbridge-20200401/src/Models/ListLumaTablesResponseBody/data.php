@@ -10,11 +10,29 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\LumaTable;
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var LumaTable[]
      */
     public $tables;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
+        'limit' => 'Limit',
+        'nextToken' => 'NextToken',
         'tables' => 'Tables',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -28,6 +46,14 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
         if (null !== $this->tables) {
             if (\is_array($this->tables)) {
                 $res['Tables'] = [];
@@ -37,6 +63,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -50,6 +80,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
@@ -59,6 +97,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
