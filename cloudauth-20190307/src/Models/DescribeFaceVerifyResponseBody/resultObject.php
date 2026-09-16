@@ -11,6 +11,11 @@ class resultObject extends Model
     /**
      * @var string
      */
+    public $degradeInfo;
+
+    /**
+     * @var string
+     */
     public $deviceRisk;
 
     /**
@@ -48,6 +53,7 @@ class resultObject extends Model
      */
     public $userInfo;
     protected $_name = [
+        'degradeInfo' => 'DegradeInfo',
         'deviceRisk' => 'DeviceRisk',
         'deviceToken' => 'DeviceToken',
         'identityInfo' => 'IdentityInfo',
@@ -66,6 +72,10 @@ class resultObject extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->degradeInfo) {
+            $res['DegradeInfo'] = $this->degradeInfo;
+        }
+
         if (null !== $this->deviceRisk) {
             $res['DeviceRisk'] = $this->deviceRisk;
         }
@@ -109,6 +119,10 @@ class resultObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DegradeInfo'])) {
+            $model->degradeInfo = $map['DegradeInfo'];
+        }
+
         if (isset($map['DeviceRisk'])) {
             $model->deviceRisk = $map['DeviceRisk'];
         }

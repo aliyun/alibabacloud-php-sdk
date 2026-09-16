@@ -26,6 +26,21 @@ class UpdateAntCloudAuthSceneRequest extends Model
     /**
      * @var string
      */
+    public $degradeAppScheme;
+
+    /**
+     * @var string
+     */
+    public $degradeSubCodes;
+
+    /**
+     * @var string
+     */
+    public $degradeType;
+
+    /**
+     * @var string
+     */
     public $deviceRiskPlus;
 
     /**
@@ -67,10 +82,18 @@ class UpdateAntCloudAuthSceneRequest extends Model
      * @var string
      */
     public $storeImage;
+
+    /**
+     * @var string
+     */
+    public $useDegrade;
     protected $_name = [
         'bindMiniProgram' => 'BindMiniProgram',
         'checkFileBody' => 'CheckFileBody',
         'checkFileName' => 'CheckFileName',
+        'degradeAppScheme' => 'DegradeAppScheme',
+        'degradeSubCodes' => 'DegradeSubCodes',
+        'degradeType' => 'DegradeType',
         'deviceRiskPlus' => 'DeviceRiskPlus',
         'miniProgramName' => 'MiniProgramName',
         'platform' => 'Platform',
@@ -80,6 +103,7 @@ class UpdateAntCloudAuthSceneRequest extends Model
         'sceneName' => 'SceneName',
         'status' => 'Status',
         'storeImage' => 'StoreImage',
+        'useDegrade' => 'UseDegrade',
     ];
 
     public function validate()
@@ -100,6 +124,18 @@ class UpdateAntCloudAuthSceneRequest extends Model
 
         if (null !== $this->checkFileName) {
             $res['CheckFileName'] = $this->checkFileName;
+        }
+
+        if (null !== $this->degradeAppScheme) {
+            $res['DegradeAppScheme'] = $this->degradeAppScheme;
+        }
+
+        if (null !== $this->degradeSubCodes) {
+            $res['DegradeSubCodes'] = $this->degradeSubCodes;
+        }
+
+        if (null !== $this->degradeType) {
+            $res['DegradeType'] = $this->degradeType;
         }
 
         if (null !== $this->deviceRiskPlus) {
@@ -138,6 +174,10 @@ class UpdateAntCloudAuthSceneRequest extends Model
             $res['StoreImage'] = $this->storeImage;
         }
 
+        if (null !== $this->useDegrade) {
+            $res['UseDegrade'] = $this->useDegrade;
+        }
+
         return $res;
     }
 
@@ -159,6 +199,18 @@ class UpdateAntCloudAuthSceneRequest extends Model
 
         if (isset($map['CheckFileName'])) {
             $model->checkFileName = $map['CheckFileName'];
+        }
+
+        if (isset($map['DegradeAppScheme'])) {
+            $model->degradeAppScheme = $map['DegradeAppScheme'];
+        }
+
+        if (isset($map['DegradeSubCodes'])) {
+            $model->degradeSubCodes = $map['DegradeSubCodes'];
+        }
+
+        if (isset($map['DegradeType'])) {
+            $model->degradeType = $map['DegradeType'];
         }
 
         if (isset($map['DeviceRiskPlus'])) {
@@ -195,6 +247,10 @@ class UpdateAntCloudAuthSceneRequest extends Model
 
         if (isset($map['StoreImage'])) {
             $model->storeImage = $map['StoreImage'];
+        }
+
+        if (isset($map['UseDegrade'])) {
+            $model->useDegrade = $map['UseDegrade'];
         }
 
         return $model;

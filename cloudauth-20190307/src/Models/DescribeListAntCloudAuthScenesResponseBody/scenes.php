@@ -31,6 +31,21 @@ class scenes extends Model
     /**
      * @var string
      */
+    public $degradeAppScheme;
+
+    /**
+     * @var string
+     */
+    public $degradeSubCodes;
+
+    /**
+     * @var string
+     */
+    public $degradeType;
+
+    /**
+     * @var string
+     */
     public $deviceRiskPlus;
 
     /**
@@ -87,11 +102,19 @@ class scenes extends Model
      * @var string
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $useDegrade;
     protected $_name = [
         'appId' => 'AppId',
         'bindMiniProgram' => 'BindMiniProgram',
         'createTime' => 'CreateTime',
         'creator' => 'Creator',
+        'degradeAppScheme' => 'DegradeAppScheme',
+        'degradeSubCodes' => 'DegradeSubCodes',
+        'degradeType' => 'DegradeType',
         'deviceRiskPlus' => 'DeviceRiskPlus',
         'domain' => 'Domain',
         'miniProgramName' => 'MiniProgramName',
@@ -104,6 +127,7 @@ class scenes extends Model
         'status' => 'Status',
         'storeImage' => 'StoreImage',
         'updateTime' => 'UpdateTime',
+        'useDegrade' => 'UseDegrade',
     ];
 
     public function validate()
@@ -128,6 +152,18 @@ class scenes extends Model
 
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
+        }
+
+        if (null !== $this->degradeAppScheme) {
+            $res['DegradeAppScheme'] = $this->degradeAppScheme;
+        }
+
+        if (null !== $this->degradeSubCodes) {
+            $res['DegradeSubCodes'] = $this->degradeSubCodes;
+        }
+
+        if (null !== $this->degradeType) {
+            $res['DegradeType'] = $this->degradeType;
         }
 
         if (null !== $this->deviceRiskPlus) {
@@ -178,6 +214,10 @@ class scenes extends Model
             $res['UpdateTime'] = $this->updateTime;
         }
 
+        if (null !== $this->useDegrade) {
+            $res['UseDegrade'] = $this->useDegrade;
+        }
+
         return $res;
     }
 
@@ -203,6 +243,18 @@ class scenes extends Model
 
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
+        }
+
+        if (isset($map['DegradeAppScheme'])) {
+            $model->degradeAppScheme = $map['DegradeAppScheme'];
+        }
+
+        if (isset($map['DegradeSubCodes'])) {
+            $model->degradeSubCodes = $map['DegradeSubCodes'];
+        }
+
+        if (isset($map['DegradeType'])) {
+            $model->degradeType = $map['DegradeType'];
         }
 
         if (isset($map['DeviceRiskPlus'])) {
@@ -251,6 +303,10 @@ class scenes extends Model
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['UseDegrade'])) {
+            $model->useDegrade = $map['UseDegrade'];
         }
 
         return $model;
