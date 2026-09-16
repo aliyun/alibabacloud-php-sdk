@@ -197,6 +197,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBTenantApiKeyRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBTenantApiKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterApiKeyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterApiKeyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterCustomModelRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterCustomModelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterDatasetRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterDatasetResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterRequest;
@@ -719,6 +721,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterDescriptionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterDescriptionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterModelRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterModelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationDescriptionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationDescriptionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationEndpointAddressRequest;
@@ -864,6 +868,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ReactivateDBClusterBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ReactivateDBClusterBackupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterAIDBClusterCustomModelRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterAIDBClusterCustomModelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterKnowledgeBaseFileRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterKnowledgeBaseFileResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RejectPolarClawDevicePairRequest;
@@ -9364,6 +9370,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAIDBClusterApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a custom model registration from an AI cluster.
+     *
+     * @param request - DeleteAIDBClusterCustomModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAIDBClusterCustomModelResponse
+     *
+     * @param DeleteAIDBClusterCustomModelRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteAIDBClusterCustomModelResponse
+     */
+    public function deleteAIDBClusterCustomModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAIDBClusterCustomModel',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAIDBClusterCustomModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a custom model registration from an AI cluster.
+     *
+     * @param request - DeleteAIDBClusterCustomModelRequest
+     *
+     * @returns DeleteAIDBClusterCustomModelResponse
+     *
+     * @param DeleteAIDBClusterCustomModelRequest $request
+     *
+     * @return DeleteAIDBClusterCustomModelResponse
+     */
+    public function deleteAIDBClusterCustomModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAIDBClusterCustomModelWithOptions($request, $runtime);
     }
 
     /**
@@ -29854,6 +29925,79 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Changes the model or the customer-facing invocation name of an AI cluster.
+     *
+     * @param request - ModifyAIDBClusterModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAIDBClusterModelResponse
+     *
+     * @param ModifyAIDBClusterModelRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyAIDBClusterModelResponse
+     */
+    public function modifyAIDBClusterModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->displayModelName) {
+            @$query['DisplayModelName'] = $request->displayModelName;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAIDBClusterModel',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAIDBClusterModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Changes the model or the customer-facing invocation name of an AI cluster.
+     *
+     * @param request - ModifyAIDBClusterModelRequest
+     *
+     * @returns ModifyAIDBClusterModelResponse
+     *
+     * @param ModifyAIDBClusterModelRequest $request
+     *
+     * @return ModifyAIDBClusterModelResponse
+     */
+    public function modifyAIDBClusterModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAIDBClusterModelWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the description of a PolarDB database account.
      *
      * @param request - ModifyAccountDescriptionRequest
@@ -36688,6 +36832,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->refreshDBClusterStorageUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Registers a custom model for an AI cluster.
+     *
+     * @param request - RegisterAIDBClusterCustomModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RegisterAIDBClusterCustomModelResponse
+     *
+     * @param RegisterAIDBClusterCustomModelRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RegisterAIDBClusterCustomModelResponse
+     */
+    public function registerAIDBClusterCustomModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customOssBucketName) {
+            @$query['CustomOssBucketName'] = $request->customOssBucketName;
+        }
+
+        if (null !== $request->customOssBucketPath) {
+            @$query['CustomOssBucketPath'] = $request->customOssBucketPath;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->displayModelName) {
+            @$query['DisplayModelName'] = $request->displayModelName;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RegisterAIDBClusterCustomModel',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RegisterAIDBClusterCustomModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Registers a custom model for an AI cluster.
+     *
+     * @param request - RegisterAIDBClusterCustomModelRequest
+     *
+     * @returns RegisterAIDBClusterCustomModelResponse
+     *
+     * @param RegisterAIDBClusterCustomModelRequest $request
+     *
+     * @return RegisterAIDBClusterCustomModelResponse
+     */
+    public function registerAIDBClusterCustomModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerAIDBClusterCustomModelWithOptions($request, $runtime);
     }
 
     /**
