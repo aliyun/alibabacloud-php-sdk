@@ -75,6 +75,11 @@ class UpdateHttpApiRequest extends Model
     public $versionConfig;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -92,6 +97,7 @@ class UpdateHttpApiRequest extends Model
         'protocols' => 'protocols',
         'removeBasePathOnForward' => 'removeBasePathOnForward',
         'versionConfig' => 'versionConfig',
+        'clientToken' => 'clientToken',
         'dryRun' => 'dryRun',
     ];
 
@@ -204,6 +210,10 @@ class UpdateHttpApiRequest extends Model
             $res['versionConfig'] = null !== $this->versionConfig ? $this->versionConfig->toArray($noStream) : $this->versionConfig;
         }
 
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -297,6 +307,10 @@ class UpdateHttpApiRequest extends Model
 
         if (isset($map['versionConfig'])) {
             $model->versionConfig = HttpApiVersionConfig::fromMap($map['versionConfig']);
+        }
+
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         if (isset($map['dryRun'])) {
