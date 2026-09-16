@@ -27,11 +27,29 @@ class CreateSkillRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $uploadId;
+
+    /**
+     * @var string
+     */
+    public $uploadToken;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'content' => 'Content',
         'dbtypes' => 'Dbtypes',
         'description' => 'Description',
         'name' => 'Name',
+        'uploadId' => 'UploadId',
+        'uploadToken' => 'UploadToken',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -76,6 +94,18 @@ class CreateSkillRequest extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->uploadId) {
+            $res['UploadId'] = $this->uploadId;
+        }
+
+        if (null !== $this->uploadToken) {
+            $res['UploadToken'] = $this->uploadToken;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -113,6 +143,18 @@ class CreateSkillRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['UploadId'])) {
+            $model->uploadId = $map['UploadId'];
+        }
+
+        if (isset($map['UploadToken'])) {
+            $model->uploadToken = $map['UploadToken'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

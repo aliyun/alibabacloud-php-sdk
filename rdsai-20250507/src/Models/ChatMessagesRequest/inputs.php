@@ -36,20 +36,38 @@ class inputs extends Model
     /**
      * @var string
      */
+    public $resumeCallId;
+
+    /**
+     * @var string
+     */
     public $thinkEffort;
 
     /**
      * @var string
      */
     public $timezone;
+
+    /**
+     * @var string
+     */
+    public $toolApprovalMode;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'customAgentId' => 'CustomAgentId',
         'enableThinking' => 'EnableThinking',
         'language' => 'Language',
         'modelId' => 'ModelId',
         'regionId' => 'RegionId',
+        'resumeCallId' => 'ResumeCallId',
         'thinkEffort' => 'ThinkEffort',
         'timezone' => 'Timezone',
+        'toolApprovalMode' => 'ToolApprovalMode',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -80,12 +98,24 @@ class inputs extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->resumeCallId) {
+            $res['ResumeCallId'] = $this->resumeCallId;
+        }
+
         if (null !== $this->thinkEffort) {
             $res['ThinkEffort'] = $this->thinkEffort;
         }
 
         if (null !== $this->timezone) {
             $res['Timezone'] = $this->timezone;
+        }
+
+        if (null !== $this->toolApprovalMode) {
+            $res['ToolApprovalMode'] = $this->toolApprovalMode;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -119,12 +149,24 @@ class inputs extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['ResumeCallId'])) {
+            $model->resumeCallId = $map['ResumeCallId'];
+        }
+
         if (isset($map['ThinkEffort'])) {
             $model->thinkEffort = $map['ThinkEffort'];
         }
 
         if (isset($map['Timezone'])) {
             $model->timezone = $map['Timezone'];
+        }
+
+        if (isset($map['ToolApprovalMode'])) {
+            $model->toolApprovalMode = $map['ToolApprovalMode'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

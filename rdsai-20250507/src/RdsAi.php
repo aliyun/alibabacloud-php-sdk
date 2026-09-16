@@ -431,6 +431,10 @@ class RdsAi extends OpenApiClient
             @$query['TaskId'] = $request->taskId;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1404,7 +1408,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Create a user-defined skill.
+     * Creates a user-defined Skill.
      *
      * @param tmpReq - CreateSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1446,6 +1450,18 @@ class RdsAi extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->uploadId) {
+            @$query['UploadId'] = $request->uploadId;
+        }
+
+        if (null !== $request->uploadToken) {
+            @$query['UploadToken'] = $request->uploadToken;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1465,7 +1481,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Create a user-defined skill.
+     * Creates a user-defined Skill.
      *
      * @param request - CreateSkillRequest
      *
@@ -1767,7 +1783,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Deletes the dedicated agent created by a user.
+     * Deletes a dedicated agent created by the user.
      *
      * @param request - DeleteCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1806,7 +1822,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Deletes the dedicated agent created by a user.
+     * Deletes a dedicated agent created by the user.
      *
      * @param request - DeleteCustomAgentRequest
      *
@@ -1958,7 +1974,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Deletes the specified skill.
+     * Deletes a specified Skill.
      *
      * @param request - DeleteSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1976,6 +1992,10 @@ class RdsAi extends OpenApiClient
         $query = [];
         if (null !== $request->skillId) {
             @$query['SkillId'] = $request->skillId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
 
         $req = new OpenApiRequest([
@@ -1997,7 +2017,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Deletes the specified skill.
+     * Deletes a specified Skill.
      *
      * @param request - DeleteSkillRequest
      *
@@ -3683,6 +3703,10 @@ class RdsAi extends OpenApiClient
             @$query['SortBy'] = $request->sortBy;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3872,6 +3896,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->limit) {
             @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
 
         $req = new OpenApiRequest([
@@ -4114,7 +4142,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
+     * Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
      *
      * @param request - GetSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4138,6 +4166,10 @@ class RdsAi extends OpenApiClient
             @$query['SkillId'] = $request->skillId;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4157,7 +4189,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
+     * Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
      *
      * @param request - GetSkillRequest
      *
@@ -4792,7 +4824,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Obtains the user-defined skills and all system preset skills of the current user.
+     * Retrieves the custom skills of the current user and all system-preset skills.
      *
      * @param request - ListSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4820,6 +4852,10 @@ class RdsAi extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4839,7 +4875,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Obtains the user-defined skills and all system preset skills of the current user.
+     * Retrieves the custom skills of the current user and all system-preset skills.
      *
      * @param request - ListSkillRequest
      *
@@ -5577,7 +5613,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the returned messages.
+     * Modifies message feedback.
      *
      * @param request - ModifyMessagesFeedbacksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5624,7 +5660,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the returned messages.
+     * Modifies message feedback.
      *
      * @param request - ModifyMessagesFeedbacksRequest
      *
@@ -6981,7 +7017,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates the information about a specified skill.
+     * Updates the information of a specified skill.
      *
      * @param tmpReq - UpdateSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7046,7 +7082,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates the information about a specified skill.
+     * Updates the information of a specified skill.
      *
      * @param request - UpdateSkillRequest
      *

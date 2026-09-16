@@ -22,10 +22,16 @@ class messageFiles extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $uploadFileId;
     protected $_name = [
         'id' => 'Id',
         'previewUrl' => 'PreviewUrl',
         'type' => 'Type',
+        'uploadFileId' => 'UploadFileId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class messageFiles extends Model
 
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+
+        if (null !== $this->uploadFileId) {
+            $res['UploadFileId'] = $this->uploadFileId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class messageFiles extends Model
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['UploadFileId'])) {
+            $model->uploadFileId = $map['UploadFileId'];
         }
 
         return $model;

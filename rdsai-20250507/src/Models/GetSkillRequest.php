@@ -17,9 +17,15 @@ class GetSkillRequest extends Model
      * @var string
      */
     public $skillId;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'language' => 'Language',
         'skillId' => 'SkillId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class GetSkillRequest extends Model
 
         if (null !== $this->skillId) {
             $res['SkillId'] = $this->skillId;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class GetSkillRequest extends Model
 
         if (isset($map['SkillId'])) {
             $model->skillId = $map['SkillId'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

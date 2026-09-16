@@ -27,11 +27,17 @@ class GetMessagesRequest extends Model
      * @var int
      */
     public $limit;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'conversationId' => 'ConversationId',
         'eventMode' => 'EventMode',
         'firstId' => 'FirstId',
         'limit' => 'Limit',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class GetMessagesRequest extends Model
 
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class GetMessagesRequest extends Model
 
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

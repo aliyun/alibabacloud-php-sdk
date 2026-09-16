@@ -12,8 +12,14 @@ class DeleteSkillRequest extends Model
      * @var string
      */
     public $skillId;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'skillId' => 'SkillId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DeleteSkillRequest extends Model
         $res = [];
         if (null !== $this->skillId) {
             $res['SkillId'] = $this->skillId;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DeleteSkillRequest extends Model
         $model = new self();
         if (isset($map['SkillId'])) {
             $model->skillId = $map['SkillId'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

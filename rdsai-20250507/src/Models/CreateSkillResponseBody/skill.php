@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\RdsAi\V20250507\Models\ListSkillResponseBody;
+namespace AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSkillResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class data extends Model
+class skill extends Model
 {
     /**
      * @var string
@@ -19,19 +19,9 @@ class data extends Model
     public $category;
 
     /**
-     * @var mixed[]
-     */
-    public $content;
-
-    /**
      * @var string
      */
     public $createdAt;
-
-    /**
-     * @var string[]
-     */
-    public $dbtypes;
 
     /**
      * @var string
@@ -61,17 +51,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $scope;
-
-    /**
-     * @var string
-     */
-    public $skillType;
 
     /**
      * @var string
@@ -85,29 +65,19 @@ class data extends Model
     protected $_name = [
         'activeVersionId' => 'ActiveVersionId',
         'category' => 'Category',
-        'content' => 'Content',
         'createdAt' => 'CreatedAt',
-        'dbtypes' => 'Dbtypes',
         'description' => 'Description',
         'displayName' => 'DisplayName',
         'icon' => 'Icon',
         'id' => 'Id',
         'isDeleted' => 'IsDeleted',
-        'name' => 'Name',
         'scope' => 'Scope',
-        'skillType' => 'SkillType',
         'slug' => 'Slug',
         'updatedAt' => 'UpdatedAt',
     ];
 
     public function validate()
     {
-        if (\is_array($this->content)) {
-            Model::validateArray($this->content);
-        }
-        if (\is_array($this->dbtypes)) {
-            Model::validateArray($this->dbtypes);
-        }
         parent::validate();
     }
 
@@ -122,28 +92,8 @@ class data extends Model
             $res['Category'] = $this->category;
         }
 
-        if (null !== $this->content) {
-            if (\is_array($this->content)) {
-                $res['Content'] = [];
-                foreach ($this->content as $key1 => $value1) {
-                    $res['Content'][$key1] = $value1;
-                }
-            }
-        }
-
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
-        }
-
-        if (null !== $this->dbtypes) {
-            if (\is_array($this->dbtypes)) {
-                $res['Dbtypes'] = [];
-                $n1 = 0;
-                foreach ($this->dbtypes as $item1) {
-                    $res['Dbtypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->description) {
@@ -166,16 +116,8 @@ class data extends Model
             $res['IsDeleted'] = $this->isDeleted;
         }
 
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
-        }
-
-        if (null !== $this->skillType) {
-            $res['SkillType'] = $this->skillType;
         }
 
         if (null !== $this->slug) {
@@ -205,28 +147,8 @@ class data extends Model
             $model->category = $map['Category'];
         }
 
-        if (isset($map['Content'])) {
-            if (!empty($map['Content'])) {
-                $model->content = [];
-                foreach ($map['Content'] as $key1 => $value1) {
-                    $model->content[$key1] = $value1;
-                }
-            }
-        }
-
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
-        }
-
-        if (isset($map['Dbtypes'])) {
-            if (!empty($map['Dbtypes'])) {
-                $model->dbtypes = [];
-                $n1 = 0;
-                foreach ($map['Dbtypes'] as $item1) {
-                    $model->dbtypes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['Description'])) {
@@ -249,16 +171,8 @@ class data extends Model
             $model->isDeleted = $map['IsDeleted'];
         }
 
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
-        }
-
-        if (isset($map['SkillType'])) {
-            $model->skillType = $map['SkillType'];
         }
 
         if (isset($map['Slug'])) {

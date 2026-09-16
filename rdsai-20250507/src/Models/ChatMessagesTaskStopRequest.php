@@ -12,8 +12,14 @@ class ChatMessagesTaskStopRequest extends Model
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'taskId' => 'TaskId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class ChatMessagesTaskStopRequest extends Model
         $res = [];
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class ChatMessagesTaskStopRequest extends Model
         $model = new self();
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

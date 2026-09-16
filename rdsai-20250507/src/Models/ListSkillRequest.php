@@ -22,10 +22,16 @@ class ListSkillRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'language' => 'Language',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ListSkillRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ListSkillRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

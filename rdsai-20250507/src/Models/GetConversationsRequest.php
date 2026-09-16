@@ -27,11 +27,17 @@ class GetConversationsRequest extends Model
      * @var string
      */
     public $sortBy;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'lastId' => 'LastId',
         'limit' => 'Limit',
         'pinned' => 'Pinned',
         'sortBy' => 'SortBy',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class GetConversationsRequest extends Model
 
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class GetConversationsRequest extends Model
 
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class DeleteSkillResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $catalogRevision;
+
+    /**
+     * @var bool
+     */
+    public $deleted;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -17,9 +27,17 @@ class DeleteSkillResponseBody extends Model
      * @var string
      */
     public $result;
+
+    /**
+     * @var string
+     */
+    public $skillId;
     protected $_name = [
+        'catalogRevision' => 'CatalogRevision',
+        'deleted' => 'Deleted',
         'requestId' => 'RequestId',
         'result' => 'Result',
+        'skillId' => 'SkillId',
     ];
 
     public function validate()
@@ -30,12 +48,24 @@ class DeleteSkillResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->catalogRevision) {
+            $res['CatalogRevision'] = $this->catalogRevision;
+        }
+
+        if (null !== $this->deleted) {
+            $res['Deleted'] = $this->deleted;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
 
         if (null !== $this->result) {
             $res['Result'] = $this->result;
+        }
+
+        if (null !== $this->skillId) {
+            $res['SkillId'] = $this->skillId;
         }
 
         return $res;
@@ -49,12 +79,24 @@ class DeleteSkillResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CatalogRevision'])) {
+            $model->catalogRevision = $map['CatalogRevision'];
+        }
+
+        if (isset($map['Deleted'])) {
+            $model->deleted = $map['Deleted'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
 
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
+        }
+
+        if (isset($map['SkillId'])) {
+            $model->skillId = $map['SkillId'];
         }
 
         return $model;

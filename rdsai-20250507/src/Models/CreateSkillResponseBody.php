@@ -5,9 +5,16 @@
 namespace AlibabaCloud\SDK\RdsAi\V20250507\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSkillResponseBody\skill;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSkillResponseBody\version;
 
 class CreateSkillResponseBody extends Model
 {
+    /**
+     * @var int
+     */
+    public $catalogRevision;
+
     /**
      * @var mixed[]
      */
@@ -44,10 +51,21 @@ class CreateSkillResponseBody extends Model
     public $requestId;
 
     /**
+     * @var skill
+     */
+    public $skill;
+
+    /**
      * @var string
      */
     public $skillType;
+
+    /**
+     * @var version
+     */
+    public $version;
     protected $_name = [
+        'catalogRevision' => 'CatalogRevision',
         'content' => 'Content',
         'createdAt' => 'CreatedAt',
         'dbtypes' => 'Dbtypes',
@@ -55,7 +73,9 @@ class CreateSkillResponseBody extends Model
         'id' => 'Id',
         'name' => 'Name',
         'requestId' => 'RequestId',
+        'skill' => 'Skill',
         'skillType' => 'SkillType',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -66,12 +86,22 @@ class CreateSkillResponseBody extends Model
         if (\is_array($this->dbtypes)) {
             Model::validateArray($this->dbtypes);
         }
+        if (null !== $this->skill) {
+            $this->skill->validate();
+        }
+        if (null !== $this->version) {
+            $this->version->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->catalogRevision) {
+            $res['CatalogRevision'] = $this->catalogRevision;
+        }
+
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['Content'] = [];
@@ -112,8 +142,16 @@ class CreateSkillResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->skill) {
+            $res['Skill'] = null !== $this->skill ? $this->skill->toArray($noStream) : $this->skill;
+        }
+
         if (null !== $this->skillType) {
             $res['SkillType'] = $this->skillType;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = null !== $this->version ? $this->version->toArray($noStream) : $this->version;
         }
 
         return $res;
@@ -127,6 +165,10 @@ class CreateSkillResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CatalogRevision'])) {
+            $model->catalogRevision = $map['CatalogRevision'];
+        }
+
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
@@ -167,8 +209,16 @@ class CreateSkillResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
 
+        if (isset($map['Skill'])) {
+            $model->skill = skill::fromMap($map['Skill']);
+        }
+
         if (isset($map['SkillType'])) {
             $model->skillType = $map['SkillType'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = version::fromMap($map['Version']);
         }
 
         return $model;

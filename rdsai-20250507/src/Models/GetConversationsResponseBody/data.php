@@ -36,6 +36,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $updatedAt;
     protected $_name = [
         'createdAt' => 'CreatedAt',
@@ -43,6 +48,7 @@ class data extends Model
         'introduction' => 'Introduction',
         'isRunning' => 'IsRunning',
         'name' => 'Name',
+        'status' => 'Status',
         'updatedAt' => 'UpdatedAt',
     ];
 
@@ -72,6 +78,10 @@ class data extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->updatedAt) {
@@ -107,6 +117,10 @@ class data extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['UpdatedAt'])) {
