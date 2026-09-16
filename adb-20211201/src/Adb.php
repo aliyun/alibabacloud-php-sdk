@@ -404,6 +404,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\KillSparkSQLEngineRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\KillSparkSQLEngineResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsWebhookRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsWebhookResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListKnowledgeFilesRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListKnowledgeFilesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListKnowledgeTagsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListKnowledgeTagsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListKnowledgeUploadUserRequest;
@@ -16370,6 +16372,83 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApsWebhookWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询知识库文件.
+     *
+     * @param request - ListKnowledgeFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeFilesResponse
+     *
+     * @param ListKnowledgeFilesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListKnowledgeFilesResponse
+     */
+    public function listKnowledgeFilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fileIds) {
+            @$query['FileIds'] = $request->fileIds;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->user) {
+            @$query['User'] = $request->user;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeFiles',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询知识库文件.
+     *
+     * @param request - ListKnowledgeFilesRequest
+     *
+     * @returns ListKnowledgeFilesResponse
+     *
+     * @param ListKnowledgeFilesRequest $request
+     *
+     * @return ListKnowledgeFilesResponse
+     */
+    public function listKnowledgeFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKnowledgeFilesWithOptions($request, $runtime);
     }
 
     /**
