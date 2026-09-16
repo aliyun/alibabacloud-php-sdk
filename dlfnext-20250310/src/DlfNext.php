@@ -3534,7 +3534,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * Lists partitions.
+     * Lists the partitions of a data table.
      *
      * @param request - ListPartitionsRequest
      * @param headers - map
@@ -3587,7 +3587,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * Lists partitions.
+     * Lists the partitions of a data table.
      *
      * @param request - ListPartitionsRequest
      *

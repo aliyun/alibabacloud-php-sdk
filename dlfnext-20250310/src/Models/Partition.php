@@ -39,6 +39,11 @@ class Partition extends Model
     public $lastFileCreationTime;
 
     /**
+     * @var string[]
+     */
+    public $options;
+
+    /**
      * @var int
      */
     public $recordCount;
@@ -84,6 +89,7 @@ class Partition extends Model
         'fileCount' => 'fileCount',
         'fileSizeInBytes' => 'fileSizeInBytes',
         'lastFileCreationTime' => 'lastFileCreationTime',
+        'options' => 'options',
         'recordCount' => 'recordCount',
         'spec' => 'spec',
         'storageAction' => 'storageAction',
@@ -96,6 +102,9 @@ class Partition extends Model
 
     public function validate()
     {
+        if (\is_array($this->options)) {
+            Model::validateArray($this->options);
+        }
         if (\is_array($this->spec)) {
             Model::validateArray($this->spec);
         }
@@ -127,6 +136,15 @@ class Partition extends Model
 
         if (null !== $this->lastFileCreationTime) {
             $res['lastFileCreationTime'] = $this->lastFileCreationTime;
+        }
+
+        if (null !== $this->options) {
+            if (\is_array($this->options)) {
+                $res['options'] = [];
+                foreach ($this->options as $key1 => $value1) {
+                    $res['options'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->recordCount) {
@@ -199,6 +217,15 @@ class Partition extends Model
 
         if (isset($map['lastFileCreationTime'])) {
             $model->lastFileCreationTime = $map['lastFileCreationTime'];
+        }
+
+        if (isset($map['options'])) {
+            if (!empty($map['options'])) {
+                $model->options = [];
+                foreach ($map['options'] as $key1 => $value1) {
+                    $model->options[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['recordCount'])) {
