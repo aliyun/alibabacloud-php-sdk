@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertRobotRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertRobotResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertWebhookRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertWebhookResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceRequest;
@@ -65,6 +67,9 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertRobotsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertRobotsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertRobotsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksShrinkRequest;
@@ -318,6 +323,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertRobotRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertRobotResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertWebhookRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertWebhookResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceRequest;
@@ -922,6 +929,95 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createAggTaskGroupWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates an alert robot.
+     *
+     * @param request - CreateAlertRobotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAlertRobotResponse
+     *
+     * @param CreateAlertRobotRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAlertRobotResponse
+     */
+    public function createAlertRobotWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->digitalEmployeeName) {
+            @$body['digitalEmployeeName'] = $request->digitalEmployeeName;
+        }
+
+        if (null !== $request->lang) {
+            @$body['lang'] = $request->lang;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->robotId) {
+            @$body['robotId'] = $request->robotId;
+        }
+
+        if (null !== $request->robotSignKey) {
+            @$body['robotSignKey'] = $request->robotSignKey;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        if (null !== $request->url) {
+            @$body['url'] = $request->url;
+        }
+
+        if (null !== $request->workspace) {
+            @$body['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAlertRobot',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/robot',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAlertRobotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an alert robot.
+     *
+     * @param request - CreateAlertRobotRequest
+     *
+     * @returns CreateAlertRobotResponse
+     *
+     * @param CreateAlertRobotRequest $request
+     *
+     * @return CreateAlertRobotResponse
+     */
+    public function createAlertRobot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAlertRobotWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2856,6 +2952,77 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteAggTaskGroupWithOptions($instanceId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes an alert chatbot.
+     *
+     * @param tmpReq - DeleteAlertRobotsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAlertRobotsResponse
+     *
+     * @param DeleteAlertRobotsRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteAlertRobotsResponse
+     */
+    public function deleteAlertRobotsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteAlertRobotsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->robotIds) {
+            $request->robotIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->robotIds, 'robotIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->robotIdsShrink) {
+            @$query['robotIds'] = $request->robotIdsShrink;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAlertRobots',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/robots',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAlertRobotsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an alert chatbot.
+     *
+     * @param request - DeleteAlertRobotsRequest
+     *
+     * @returns DeleteAlertRobotsResponse
+     *
+     * @param DeleteAlertRobotsRequest $request
+     *
+     * @return DeleteAlertRobotsResponse
+     */
+    public function deleteAlertRobots($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlertRobotsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7868,8 +8035,7 @@ class Cms extends OpenApiClient
      * Queries alert robots.
      *
      * @remarks
-     * This operation can only query alert history from the last year.
-     * This topic provides an example of querying the alert history of Elastic Computing Service from the `product` dimension of a cloud service.
+     * Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
      *
      * @param tmpReq - ListAlertRobotsRequest
      * @param headers - map
@@ -7944,8 +8110,7 @@ class Cms extends OpenApiClient
      * Queries alert robots.
      *
      * @remarks
-     * This operation can only query alert history from the last year.
-     * This topic provides an example of querying the alert history of Elastic Computing Service from the `product` dimension of a cloud service.
+     * Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
      *
      * @param request - ListAlertRobotsRequest
      *
@@ -11473,6 +11638,89 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateAggTaskGroupStatusWithOptions($instanceId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates an alert robot.
+     *
+     * @param request - UpdateAlertRobotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlertRobotResponse
+     *
+     * @param string                  $robotId
+     * @param UpdateAlertRobotRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateAlertRobotResponse
+     */
+    public function updateAlertRobotWithOptions($robotId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->digitalEmployeeName) {
+            @$body['digitalEmployeeName'] = $request->digitalEmployeeName;
+        }
+
+        if (null !== $request->lang) {
+            @$body['lang'] = $request->lang;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->robotSignKey) {
+            @$body['robotSignKey'] = $request->robotSignKey;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        if (null !== $request->url) {
+            @$body['url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAlertRobot',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/robot/' . Url::percentEncode($robotId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAlertRobotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an alert robot.
+     *
+     * @param request - UpdateAlertRobotRequest
+     *
+     * @returns UpdateAlertRobotResponse
+     *
+     * @param string                  $robotId
+     * @param UpdateAlertRobotRequest $request
+     *
+     * @return UpdateAlertRobotResponse
+     */
+    public function updateAlertRobot($robotId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAlertRobotWithOptions($robotId, $request, $headers, $runtime);
     }
 
     /**
