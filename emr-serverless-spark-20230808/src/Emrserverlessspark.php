@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSessionClusterReq
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateWorkspaceQueueRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateWorkspaceQueueResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteKyuubiServiceResponse;
@@ -1658,6 +1660,105 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->createWorkspaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a workspace queue.
+     *
+     * @param request - CreateWorkspaceQueueRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWorkspaceQueueResponse
+     *
+     * @param CreateWorkspaceQueueRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateWorkspaceQueueResponse
+     */
+    public function createWorkspaceQueueWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->gpuSpec) {
+            @$body['gpuSpec'] = $request->gpuSpec;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->paymentType) {
+            @$body['paymentType'] = $request->paymentType;
+        }
+
+        if (null !== $request->preheat) {
+            @$body['preheat'] = $request->preheat;
+        }
+
+        if (null !== $request->queueCategory) {
+            @$body['queueCategory'] = $request->queueCategory;
+        }
+
+        if (null !== $request->resourceSpec) {
+            @$body['resourceSpec'] = $request->resourceSpec;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceQueueName) {
+            @$body['workspaceQueueName'] = $request->workspaceQueueName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWorkspaceQueue',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/queues',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWorkspaceQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a workspace queue.
+     *
+     * @param request - CreateWorkspaceQueueRequest
+     *
+     * @returns CreateWorkspaceQueueResponse
+     *
+     * @param CreateWorkspaceQueueRequest $request
+     *
+     * @return CreateWorkspaceQueueResponse
+     */
+    public function createWorkspaceQueue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkspaceQueueWithOptions($request, $headers, $runtime);
     }
 
     /**
