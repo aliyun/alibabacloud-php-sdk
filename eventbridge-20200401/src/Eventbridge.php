@@ -26,6 +26,9 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceShrinkRequest
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingShrinkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateKnowledgeBaseShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateNamespaceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateRuleRequest;
@@ -53,6 +56,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventSourceRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventSourceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventStreamingResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteNamespaceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteRuleRequest;
@@ -82,8 +87,14 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetApiDestinationRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetApiDestinationResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetCatalogRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetCatalogResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetChunkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetChunkResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetConnectionRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetConnectionResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetDocumentDownloadUrlRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetDocumentDownloadUrlResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetDocumentRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetDocumentResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventBusRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventBusResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventHouseRuntimeRequest;
@@ -92,6 +103,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetGenerateAgentDataSemanticsProgressRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetGenerateAgentDataSemanticsProgressResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaCatalogRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaCatalogResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetLumaChunkRequest;
@@ -119,14 +132,20 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListApiDestinationsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListApiDestinationsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListCatalogsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListCatalogsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListChunksRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListChunksResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListConnectionsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListConnectionsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListDocumentsRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListDocumentsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventBusesRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventBusesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventHouseRuntimesRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventHouseRuntimesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListKnowledgeBasesRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListKnowledgeBasesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaCatalogsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaCatalogsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListLumaChunksRequest;
@@ -175,9 +194,13 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventByEventIdReque
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventByEventIdResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryTracedEventsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryWithSQLRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryWithSQLResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SaveAgentDataSemanticsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SaveAgentDataSemanticsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SaveAgentDataSemanticsShrinkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SearchKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SearchKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SearchLumaKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SearchLumaKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\StartEventStreamingRequest;
@@ -208,6 +231,9 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingBusinessOp
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingShrinkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateKnowledgeBaseShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateNamespaceRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateNamespaceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateRuleRequest;
@@ -998,6 +1024,109 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEventStreamingWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a knowledge base.
+     *
+     * @param tmpReq - CreateKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeBaseResponse
+     *
+     * @param CreateKnowledgeBaseRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateKnowledgeBaseResponse
+     */
+    public function createKnowledgeBaseWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateKnowledgeBaseShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->chunkConfiguration) {
+            $request->chunkConfigurationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->chunkConfiguration, 'ChunkConfiguration', 'json');
+        }
+
+        if (null !== $tmpReq->metadataSchema) {
+            $request->metadataSchemaShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metadataSchema, 'MetadataSchema', 'json');
+        }
+
+        if (null !== $tmpReq->searchConfiguration) {
+            $request->searchConfigurationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchConfiguration, 'SearchConfiguration', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->chunkConfigurationShrink) {
+            @$query['ChunkConfiguration'] = $request->chunkConfigurationShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->embeddingDimension) {
+            @$query['EmbeddingDimension'] = $request->embeddingDimension;
+        }
+
+        if (null !== $request->embeddingModel) {
+            @$query['EmbeddingModel'] = $request->embeddingModel;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$query['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->metadataSchemaShrink) {
+            @$query['MetadataSchema'] = $request->metadataSchemaShrink;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->searchConfigurationShrink) {
+            @$query['SearchConfiguration'] = $request->searchConfigurationShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeBase',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a knowledge base.
+     *
+     * @param request - CreateKnowledgeBaseRequest
+     *
+     * @returns CreateKnowledgeBaseResponse
+     *
+     * @param CreateKnowledgeBaseRequest $request
+     *
+     * @return CreateKnowledgeBaseResponse
+     */
+    public function createKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKnowledgeBaseWithOptions($request, $runtime);
     }
 
     /**
@@ -1821,6 +1950,71 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Deletes a knowledge base.
+     *
+     * @param request - DeleteKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKnowledgeBaseResponse
+     *
+     * @param DeleteKnowledgeBaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteKnowledgeBaseResponse
+     */
+    public function deleteKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$query['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKnowledgeBase',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a knowledge base.
+     *
+     * @param request - DeleteKnowledgeBaseRequest
+     *
+     * @returns DeleteKnowledgeBaseResponse
+     *
+     * @param DeleteKnowledgeBaseRequest $request
+     *
+     * @return DeleteKnowledgeBaseResponse
+     */
+    public function deleteKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a namespace.
      *
      * @param request - DeleteNamespaceRequest
@@ -2440,7 +2634,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Retrieves agent metadata.
+     * Retrieves Agent metadata.
      *
      * @param request - GetAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2479,7 +2673,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Retrieves agent metadata.
+     * Retrieves Agent metadata.
      *
      * @param request - GetAgentRequest
      *
@@ -2680,6 +2874,79 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Queries the details of a chunk.
+     *
+     * @param request - GetChunkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChunkResponse
+     *
+     * @param GetChunkRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetChunkResponse
+     */
+    public function getChunkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->chunkSeq) {
+            @$query['ChunkSeq'] = $request->chunkSeq;
+        }
+
+        if (null !== $request->documentId) {
+            @$query['DocumentId'] = $request->documentId;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$query['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetChunk',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetChunkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a chunk.
+     *
+     * @param request - GetChunkRequest
+     *
+     * @returns GetChunkResponse
+     *
+     * @param GetChunkRequest $request
+     *
+     * @return GetChunkResponse
+     */
+    public function getChunk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChunkWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the configuration of a single connection.
      *
      * @remarks
@@ -2740,6 +3007,148 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a document.
+     *
+     * @param request - GetDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDocumentResponse
+     *
+     * @param GetDocumentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetDocumentResponse
+     */
+    public function getDocumentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->documentId) {
+            @$query['DocumentId'] = $request->documentId;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$query['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDocument',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a document.
+     *
+     * @param request - GetDocumentRequest
+     *
+     * @returns GetDocumentResponse
+     *
+     * @param GetDocumentRequest $request
+     *
+     * @return GetDocumentResponse
+     */
+    public function getDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the download URL of a document.
+     *
+     * @param request - GetDocumentDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDocumentDownloadUrlResponse
+     *
+     * @param GetDocumentDownloadUrlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDocumentDownloadUrlResponse
+     */
+    public function getDocumentDownloadUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->documentId) {
+            @$query['DocumentId'] = $request->documentId;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$query['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDocumentDownloadUrl',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDocumentDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the download URL of a document.
+     *
+     * @param request - GetDocumentDownloadUrlRequest
+     *
+     * @returns GetDocumentDownloadUrlResponse
+     *
+     * @param GetDocumentDownloadUrlRequest $request
+     *
+     * @return GetDocumentDownloadUrlResponse
+     */
+    public function getDocumentDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDocumentDownloadUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -2980,6 +3389,71 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getGenerateAgentDataSemanticsProgressWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a knowledge base.
+     *
+     * @param request - GetKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKnowledgeBaseResponse
+     *
+     * @param GetKnowledgeBaseRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetKnowledgeBaseResponse
+     */
+    public function getKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$query['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetKnowledgeBase',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a knowledge base.
+     *
+     * @param request - GetKnowledgeBaseRequest
+     *
+     * @returns GetKnowledgeBaseResponse
+     *
+     * @param GetKnowledgeBaseRequest $request
+     *
+     * @return GetKnowledgeBaseResponse
+     */
+    public function getKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKnowledgeBaseWithOptions($request, $runtime);
     }
 
     /**
@@ -3971,6 +4445,91 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Queries the list of document chunks.
+     *
+     * @param request - ListChunksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChunksResponse
+     *
+     * @param ListChunksRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListChunksResponse
+     */
+    public function listChunksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->documentId) {
+            @$query['DocumentId'] = $request->documentId;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$query['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListChunks',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of document chunks.
+     *
+     * @param request - ListChunksRequest
+     *
+     * @returns ListChunksResponse
+     *
+     * @param ListChunksRequest $request
+     *
+     * @return ListChunksResponse
+     */
+    public function listChunks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listChunksWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves a list of connection configurations.
      *
      * @remarks
@@ -4047,6 +4606,87 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConnectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of documents.
+     *
+     * @param request - ListDocumentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDocumentsResponse
+     *
+     * @param ListDocumentsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDocumentsResponse
+     */
+    public function listDocumentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->fileNamePrefix) {
+            @$query['FileNamePrefix'] = $request->fileNamePrefix;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$query['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDocuments',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of documents.
+     *
+     * @param request - ListDocumentsRequest
+     *
+     * @returns ListDocumentsResponse
+     *
+     * @param ListDocumentsRequest $request
+     *
+     * @return ListDocumentsResponse
+     */
+    public function listDocuments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDocumentsWithOptions($request, $runtime);
     }
 
     /**
@@ -4265,10 +4905,79 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Queries a list of knowledge bases.
+     *
+     * @param request - ListKnowledgeBasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeBasesResponse
+     *
+     * @param ListKnowledgeBasesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListKnowledgeBasesResponse
+     */
+    public function listKnowledgeBasesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeBases',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeBasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of knowledge bases.
+     *
+     * @param request - ListKnowledgeBasesRequest
+     *
+     * @returns ListKnowledgeBasesResponse
+     *
+     * @param ListKnowledgeBasesRequest $request
+     *
+     * @return ListKnowledgeBasesResponse
+     */
+    public function listKnowledgeBases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKnowledgeBasesWithOptions($request, $runtime);
+    }
+
+    /**
      * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
      *
      * @remarks
-     * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+     * Lists the data catalogs bound to a Luma Agent. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient page count to determine whether the last page has been reached.
      *
      * @param request - ListLumaCatalogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4318,7 +5027,7 @@ class Eventbridge extends OpenApiClient
      * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
      *
      * @remarks
-     * Lists all data catalogs bound to a Luma Agent. Returns the complete set of bindings without pagination.
+     * Lists the data catalogs bound to a Luma Agent. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient page count to determine whether the last page has been reached.
      *
      * @param request - ListLumaCatalogsRequest
      *
@@ -4604,7 +5313,7 @@ class Eventbridge extends OpenApiClient
      * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
      *
      * @remarks
-     * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+     * Lists the namespaces bound to a Luma Agent under a specified data catalog. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient number of entries on the current page to determine whether the last page has been reached.
      *
      * @param request - ListLumaNamespacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4658,7 +5367,7 @@ class Eventbridge extends OpenApiClient
      * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
      *
      * @remarks
-     * Lists all namespaces bound to a Luma Agent under a specified data catalog. Returns the complete set of bindings without pagination.
+     * Lists the namespaces bound to a Luma Agent under a specified data catalog. Results are returned in pages. Pass the NextToken from the previous response to retrieve the next page. An empty NextToken indicates that no more data is available. Expired bindings are skipped, so the number of entries on a single page may be less than the Limit value. Do not use an insufficient number of entries on the current page to determine whether the last page has been reached.
      *
      * @param request - ListLumaNamespacesRequest
      *
@@ -5962,6 +6671,73 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Executes a SQL statement to query event warehouse data. This operation is suitable for scenarios where the exact SQL is known, without natural language conversion or conversation context. Returns a structured result set.
+     *
+     * @remarks
+     * Queries event content.
+     *
+     * @param request - QueryWithSQLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryWithSQLResponse
+     *
+     * @param QueryWithSQLRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryWithSQLResponse
+     */
+    public function queryWithSQLWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryWithSQL',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryWithSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes a SQL statement to query event warehouse data. This operation is suitable for scenarios where the exact SQL is known, without natural language conversion or conversation context. Returns a structured result set.
+     *
+     * @remarks
+     * Queries event content.
+     *
+     * @param request - QueryWithSQLRequest
+     *
+     * @returns QueryWithSQLResponse
+     *
+     * @param QueryWithSQLRequest $request
+     *
+     * @return QueryWithSQLResponse
+     */
+    public function queryWithSQL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryWithSQLWithOptions($request, $runtime);
+    }
+
+    /**
      * Saves data semantics for an agent.
      *
      * @param tmpReq - SaveAgentDataSemanticsRequest
@@ -6050,6 +6826,107 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveAgentDataSemanticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves knowledge base search results.
+     *
+     * @param request - SearchKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchKnowledgeBaseResponse
+     *
+     * @param SearchKnowledgeBaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SearchKnowledgeBaseResponse
+     */
+    public function searchKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$query['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->metadataFilter) {
+            @$query['MetadataFilter'] = $request->metadataFilter;
+        }
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->rankAlgorithm) {
+            @$query['RankAlgorithm'] = $request->rankAlgorithm;
+        }
+
+        if (null !== $request->rerank) {
+            @$query['Rerank'] = $request->rerank;
+        }
+
+        if (null !== $request->rerankModel) {
+            @$query['RerankModel'] = $request->rerankModel;
+        }
+
+        if (null !== $request->rrfK) {
+            @$query['RrfK'] = $request->rrfK;
+        }
+
+        if (null !== $request->topK) {
+            @$query['TopK'] = $request->topK;
+        }
+
+        if (null !== $request->vectorWeight) {
+            @$query['VectorWeight'] = $request->vectorWeight;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchKnowledgeBase',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves knowledge base search results.
+     *
+     * @param request - SearchKnowledgeBaseRequest
+     *
+     * @returns SearchKnowledgeBaseResponse
+     *
+     * @param SearchKnowledgeBaseRequest $request
+     *
+     * @return SearchKnowledgeBaseResponse
+     */
+    public function searchKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchKnowledgeBaseWithOptions($request, $runtime);
     }
 
     /**
@@ -7074,6 +7951,93 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEventStreamingBusinessOptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a knowledge base.
+     *
+     * @param tmpReq - UpdateKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param UpdateKnowledgeBaseRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBaseWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateKnowledgeBaseShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->chunkConfiguration) {
+            $request->chunkConfigurationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->chunkConfiguration, 'ChunkConfiguration', 'json');
+        }
+
+        if (null !== $tmpReq->searchConfiguration) {
+            $request->searchConfigurationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchConfiguration, 'SearchConfiguration', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->chunkConfigurationShrink) {
+            @$query['ChunkConfiguration'] = $request->chunkConfigurationShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->knowledgeBaseName) {
+            @$query['KnowledgeBaseName'] = $request->knowledgeBaseName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->searchConfigurationShrink) {
+            @$query['SearchConfiguration'] = $request->searchConfigurationShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeBase',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a knowledge base.
+     *
+     * @param request - UpdateKnowledgeBaseRequest
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param UpdateKnowledgeBaseRequest $request
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKnowledgeBaseWithOptions($request, $runtime);
     }
 
     /**
