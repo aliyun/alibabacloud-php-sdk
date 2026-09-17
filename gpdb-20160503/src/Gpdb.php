@@ -19387,11 +19387,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of coordinator node resources for an AnalyticDB for PostgreSQL instance.
+     * Modifies the master node specifications.
      *
      * @remarks
-     * This operation is not available for instances in reserved storage mode.
-     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     * This operation does not support instances in storage reservation mode.
+     * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param Request - ModifyMasterSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19413,6 +19413,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->effectiveTime) {
+            @$query['EffectiveTime'] = $request->effectiveTime;
         }
 
         if (null !== $request->masterAISpec) {
@@ -19446,11 +19450,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of coordinator node resources for an AnalyticDB for PostgreSQL instance.
+     * Modifies the master node specifications.
      *
      * @remarks
-     * This operation is not available for instances in reserved storage mode.
-     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     * This operation does not support instances in storage reservation mode.
+     * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param Request - ModifyMasterSpecRequest
      *
@@ -20144,10 +20148,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the automatic start and stop policy for a Supabase instance.
+     * Modifies the auto start/stop policy for a Supabase instance.
      *
      * @remarks
-     * - Only ADBPG Supabase instances are supported.
+     * - Only AnalyticDB for PostgreSQL Supabase instances are supported.
      *
      * @param Request - ModifySupabaseAutoScalePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20198,10 +20202,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the automatic start and stop policy for a Supabase instance.
+     * Modifies the auto start/stop policy for a Supabase instance.
      *
      * @remarks
-     * - Only ADBPG Supabase instances are supported.
+     * - Only AnalyticDB for PostgreSQL Supabase instances are supported.
      *
      * @param Request - ModifySupabaseAutoScalePolicyRequest
      *
@@ -23739,6 +23743,10 @@ class Gpdb extends OpenApiClient
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
 
+        if (null !== $request->effectiveTime) {
+            @$query['EffectiveTime'] = $request->effectiveTime;
+        }
+
         if (null !== $request->instanceSpec) {
             @$query['InstanceSpec'] = $request->instanceSpec;
         }
@@ -23828,7 +23836,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+     * Upgrades the minor engine version of a specified AnalyticDB for PostgreSQL instance.
      *
      * @param Request - UpgradeDBVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23846,6 +23854,10 @@ class Gpdb extends OpenApiClient
         $query = [];
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->effectiveTime) {
+            @$query['EffectiveTime'] = $request->effectiveTime;
         }
 
         if (null !== $request->majorVersion) {
@@ -23891,7 +23903,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+     * Upgrades the minor engine version of a specified AnalyticDB for PostgreSQL instance.
      *
      * @param Request - UpgradeDBVersionRequest
      *

@@ -16,6 +16,11 @@ class UpgradeDBVersionRequest extends Model
     /**
      * @var string
      */
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
     public $majorVersion;
 
     /**
@@ -44,6 +49,7 @@ class UpgradeDBVersionRequest extends Model
     public $switchTimeMode;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
+        'effectiveTime' => 'EffectiveTime',
         'majorVersion' => 'MajorVersion',
         'minorVersion' => 'MinorVersion',
         'ownerId' => 'OwnerId',
@@ -62,6 +68,10 @@ class UpgradeDBVersionRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
         }
 
         if (null !== $this->majorVersion) {
@@ -101,6 +111,10 @@ class UpgradeDBVersionRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
         }
 
         if (isset($map['MajorVersion'])) {

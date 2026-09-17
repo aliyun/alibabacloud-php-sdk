@@ -21,6 +21,11 @@ class ModifyMasterSpecRequest extends Model
     /**
      * @var string
      */
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
     public $masterAISpec;
 
     /**
@@ -35,6 +40,7 @@ class ModifyMasterSpecRequest extends Model
     protected $_name = [
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceId' => 'DBInstanceId',
+        'effectiveTime' => 'EffectiveTime',
         'masterAISpec' => 'MasterAISpec',
         'masterCU' => 'MasterCU',
         'resourceGroupId' => 'ResourceGroupId',
@@ -54,6 +60,10 @@ class ModifyMasterSpecRequest extends Model
 
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
         }
 
         if (null !== $this->masterAISpec) {
@@ -85,6 +95,10 @@ class ModifyMasterSpecRequest extends Model
 
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
         }
 
         if (isset($map['MasterAISpec'])) {

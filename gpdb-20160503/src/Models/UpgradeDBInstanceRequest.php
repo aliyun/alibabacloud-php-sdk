@@ -31,6 +31,11 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
     public $instanceSpec;
 
     /**
@@ -92,6 +97,7 @@ class UpgradeDBInstanceRequest extends Model
         'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceGroupCount' => 'DBInstanceGroupCount',
         'DBInstanceId' => 'DBInstanceId',
+        'effectiveTime' => 'EffectiveTime',
         'instanceSpec' => 'InstanceSpec',
         'masterNodeNum' => 'MasterNodeNum',
         'ownerId' => 'OwnerId',
@@ -128,6 +134,10 @@ class UpgradeDBInstanceRequest extends Model
 
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
         }
 
         if (null !== $this->instanceSpec) {
@@ -203,6 +213,10 @@ class UpgradeDBInstanceRequest extends Model
 
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
         }
 
         if (isset($map['InstanceSpec'])) {
