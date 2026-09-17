@@ -16,6 +16,11 @@ class IndexKey extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $embedding;
 
     /**
@@ -29,6 +34,7 @@ class IndexKey extends Model
     public $type;
     protected $_name = [
         'chn' => 'chn',
+        'description' => 'description',
         'embedding' => 'embedding',
         'jsonKeys' => 'jsonKeys',
         'type' => 'type',
@@ -47,6 +53,10 @@ class IndexKey extends Model
         $res = [];
         if (null !== $this->chn) {
             $res['chn'] = $this->chn;
+        }
+
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
 
         if (null !== $this->embedding) {
@@ -79,6 +89,10 @@ class IndexKey extends Model
         $model = new self();
         if (isset($map['chn'])) {
             $model->chn = $map['chn'];
+        }
+
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
 
         if (isset($map['embedding'])) {

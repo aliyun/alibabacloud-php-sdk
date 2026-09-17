@@ -1,3 +1,6 @@
+2026-09-17 Version: 2.0.7
+- Generated php 2026-05-20 for AgentLoop.
+
 2026-09-14 Version: 2.0.6
 - Update API ListPipelines: add request parameters sinkName.
 - Update API ListPipelines: add response parameters Body.pipelines.$.sink.

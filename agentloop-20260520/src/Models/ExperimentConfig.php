@@ -51,6 +51,11 @@ class ExperimentConfig extends Model
     /**
      * @var string
      */
+    public $requestHeaderTemplate;
+
+    /**
+     * @var string
+     */
     public $requestMethod;
     protected $_name = [
         'endpointConnectorId' => 'endpointConnectorId',
@@ -61,6 +66,7 @@ class ExperimentConfig extends Model
         'name' => 'name',
         'promptTemplate' => 'promptTemplate',
         'requestBodyTemplate' => 'requestBodyTemplate',
+        'requestHeaderTemplate' => 'requestHeaderTemplate',
         'requestMethod' => 'requestMethod',
     ];
 
@@ -117,6 +123,10 @@ class ExperimentConfig extends Model
             $res['requestBodyTemplate'] = $this->requestBodyTemplate;
         }
 
+        if (null !== $this->requestHeaderTemplate) {
+            $res['requestHeaderTemplate'] = $this->requestHeaderTemplate;
+        }
+
         if (null !== $this->requestMethod) {
             $res['requestMethod'] = $this->requestMethod;
         }
@@ -169,6 +179,10 @@ class ExperimentConfig extends Model
 
         if (isset($map['requestBodyTemplate'])) {
             $model->requestBodyTemplate = $map['requestBodyTemplate'];
+        }
+
+        if (isset($map['requestHeaderTemplate'])) {
+            $model->requestHeaderTemplate = $map['requestHeaderTemplate'];
         }
 
         if (isset($map['requestMethod'])) {
