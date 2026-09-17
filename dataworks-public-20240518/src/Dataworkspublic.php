@@ -736,6 +736,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ReplyAgentSessionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ReplyAgentSessionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ReplyAgentSessionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunTaskInstancesShrinkRequest;
@@ -2384,12 +2387,12 @@ class Dataworkspublic extends OpenApiClient
      * Creates a new agent session and returns the session ID.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * - This operation creates a new agent session.
-     * - Use `_meta.agent.agentName` to specify the bound agent name. This parameter is required.
-     *   - dataworks_data_agent: DataWorks built-in agent — Data Agent, which provides intelligent data development AI capabilities covering the entire workflow of data integration, development, O&M, governance, and analytics.
-     *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI, which uses natural language processing and intelligent analytics technologies to automate the entire analysis workflow from requirement parsing, data extraction, and automatic code generation to visualization report output through conversational interaction.
-     *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service, which is a DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+     * - Use `_meta.agent.agentName` to specify the agent name to bind. This parameter is required.
+     *   - dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire pipeline of data integration, development, O&M, governance, and analytics.
+     *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visualization report output.
+     *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. A DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
      * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
      * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
      *
@@ -2447,12 +2450,12 @@ class Dataworkspublic extends OpenApiClient
      * Creates a new agent session and returns the session ID.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * - This operation creates a new agent session.
-     * - Use `_meta.agent.agentName` to specify the bound agent name. This parameter is required.
-     *   - dataworks_data_agent: DataWorks built-in agent — Data Agent, which provides intelligent data development AI capabilities covering the entire workflow of data integration, development, O&M, governance, and analytics.
-     *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI, which uses natural language processing and intelligent analytics technologies to automate the entire analysis workflow from requirement parsing, data extraction, and automatic code generation to visualization report output through conversational interaction.
-     *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service, which is a DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+     * - Use `_meta.agent.agentName` to specify the agent name to bind. This parameter is required.
+     *   - dataworks_data_agent: DataWorks built-in agent — Data Agent. Provides intelligent data development AI capabilities that cover the entire pipeline of data integration, development, O&M, governance, and analytics.
+     *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI. Uses natural language processing and intelligent analytics to automate the entire analysis workflow through conversational interaction, from requirement parsing, data extraction, and automatic code generation to visualization report output.
+     *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service. A DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
      * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
      * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
      *
@@ -25487,6 +25490,83 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renameWorkflowDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Replies to a pending user interaction in a DataAgent session.
+     *
+     * @remarks
+     * Replies to a permission_request issued by the DataAgent daemon. You can submit an answer to an ask_user_question or cancel the current interaction. The PermissionRequestId must come from the params.data.requestId field in the _qwen/notify event (params.kind=permission_request) of the original PromptAgentSession SSE. The reply only returns whether it was accepted. Subsequent execution events are still returned through the original PromptAgentSession SSE. Do not resubmit the same prompt round.
+     *
+     * @param tmpReq - ReplyAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReplyAgentSessionResponse
+     *
+     * @param ReplyAgentSessionRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ReplyAgentSessionResponse
+     */
+    public function replyAgentSessionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ReplyAgentSessionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReplyAgentSession',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReplyAgentSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Replies to a pending user interaction in a DataAgent session.
+     *
+     * @remarks
+     * Replies to a permission_request issued by the DataAgent daemon. You can submit an answer to an ask_user_question or cancel the current interaction. The PermissionRequestId must come from the params.data.requestId field in the _qwen/notify event (params.kind=permission_request) of the original PromptAgentSession SSE. The reply only returns whether it was accepted. Subsequent execution events are still returned through the original PromptAgentSession SSE. Do not resubmit the same prompt round.
+     *
+     * @param Request - ReplyAgentSessionRequest
+     *
+     * @returns ReplyAgentSessionResponse
+     *
+     * @param ReplyAgentSessionRequest $request
+     *
+     * @return ReplyAgentSessionResponse
+     */
+    public function replyAgentSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->replyAgentSessionWithOptions($request, $runtime);
     }
 
     /**

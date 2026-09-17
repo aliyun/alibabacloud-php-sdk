@@ -1,3 +1,7 @@
+2026-09-17 Version: 8.6.0
+- Support API ReplyAgentSession.
+
+
 2026-09-14 Version: 8.5.0
 - Support API AbolishCrossProjectPipelineRun.
 - Support API CreateCrossProjectPipelineRun.
