@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeComfyTasksRequest extends Model
+class ListRenderingImagesRequest extends Model
 {
     /**
      * @var string
      */
-    public $hiveId;
+    public $imageId;
 
     /**
      * @var int
@@ -22,28 +22,10 @@ class DescribeComfyTasksRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
-     * @var string
-     */
-    public $taskState;
-
-    /**
-     * @var string
-     */
-    public $workflowId;
     protected $_name = [
-        'hiveId' => 'HiveId',
+        'imageId' => 'ImageId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
-        'taskId' => 'TaskId',
-        'taskState' => 'TaskState',
-        'workflowId' => 'WorkflowId',
     ];
 
     public function validate()
@@ -54,8 +36,8 @@ class DescribeComfyTasksRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->hiveId) {
-            $res['HiveId'] = $this->hiveId;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         if (null !== $this->pageNumber) {
@@ -64,18 +46,6 @@ class DescribeComfyTasksRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-
-        if (null !== $this->taskState) {
-            $res['TaskState'] = $this->taskState;
-        }
-
-        if (null !== $this->workflowId) {
-            $res['WorkflowId'] = $this->workflowId;
         }
 
         return $res;
@@ -89,8 +59,8 @@ class DescribeComfyTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HiveId'])) {
-            $model->hiveId = $map['HiveId'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
 
         if (isset($map['PageNumber'])) {
@@ -99,18 +69,6 @@ class DescribeComfyTasksRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-
-        if (isset($map['TaskState'])) {
-            $model->taskState = $map['TaskState'];
-        }
-
-        if (isset($map['WorkflowId'])) {
-            $model->workflowId = $map['WorkflowId'];
         }
 
         return $model;

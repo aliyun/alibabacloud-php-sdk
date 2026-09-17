@@ -21,6 +21,16 @@ class patches extends Model
     /**
      * @var string
      */
+    public $postCommandPath;
+
+    /**
+     * @var int
+     */
+    public $postCommandTimeoutSec;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -40,6 +50,8 @@ class patches extends Model
     protected $_name = [
         'patchId' => 'PatchId',
         'patchName' => 'PatchName',
+        'postCommandPath' => 'PostCommandPath',
+        'postCommandTimeoutSec' => 'PostCommandTimeoutSec',
         'status' => 'Status',
         'statusDescription' => 'StatusDescription',
         'updateTime' => 'UpdateTime',
@@ -60,6 +72,14 @@ class patches extends Model
 
         if (null !== $this->patchName) {
             $res['PatchName'] = $this->patchName;
+        }
+
+        if (null !== $this->postCommandPath) {
+            $res['PostCommandPath'] = $this->postCommandPath;
+        }
+
+        if (null !== $this->postCommandTimeoutSec) {
+            $res['PostCommandTimeoutSec'] = $this->postCommandTimeoutSec;
         }
 
         if (null !== $this->status) {
@@ -95,6 +115,14 @@ class patches extends Model
 
         if (isset($map['PatchName'])) {
             $model->patchName = $map['PatchName'];
+        }
+
+        if (isset($map['PostCommandPath'])) {
+            $model->postCommandPath = $map['PostCommandPath'];
+        }
+
+        if (isset($map['PostCommandTimeoutSec'])) {
+            $model->postCommandTimeoutSec = $map['PostCommandTimeoutSec'];
         }
 
         if (isset($map['Status'])) {

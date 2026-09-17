@@ -151,6 +151,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyProductionsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyProductionsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyTasksRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyTasksResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyTaskWaitingQueueRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyTaskWaitingQueueResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyUserDataDownloadUrlRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyUserDataDownloadUrlResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyUserDatasRequest;
@@ -300,6 +302,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ListPublicKeysRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListPublicKeysResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingDataPackagesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingDataPackagesResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingImagesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingImagesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstanceGatewayRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstanceGatewayResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstancesRequest;
@@ -438,6 +442,9 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingProjectResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingProjectShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateVsPullStreamInfoConfigResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingInstanceImageRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingInstanceImageResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingInstanceImageShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadCloudAppRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadCloudAppResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadCloudAppShrinkRequest;
@@ -458,12 +465,6 @@ class Vs extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shenzhen' => 'vs.cn-shenzhen.aliyuncs.com',
-            'cn-qingdao' => 'vs.cn-qingdao.aliyuncs.com',
-            'cn-beijing' => 'vs.cn-beijing.aliyuncs.com',
-            'cn-shanghai' => 'vs.cn-shanghai.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('vs', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -3896,7 +3897,7 @@ class Vs extends OpenApiClient
      * ## Request description
      * - **HiveId** is a required parameter that specifies the ID of the cluster to operate on.
      * - **InstanceIds** is a required parameter that specifies a list of workload IDs to unbind from the cluster.
-     * - After the unbind operation succeeds, the response returns lists of successful and failed workload instances along with related information.
+     * - After the unbind operation is complete, the response returns lists of successful and failed workload instances along with related information.
      *
      * @param tmpReq - DelHiveEdgeWorkersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3951,7 +3952,7 @@ class Vs extends OpenApiClient
      * ## Request description
      * - **HiveId** is a required parameter that specifies the ID of the cluster to operate on.
      * - **InstanceIds** is a required parameter that specifies a list of workload IDs to unbind from the cluster.
-     * - After the unbind operation succeeds, the response returns lists of successful and failed workload instances along with related information.
+     * - After the unbind operation is complete, the response returns lists of successful and failed workload instances along with related information.
      *
      * @param request - DelHiveEdgeWorkersRequest
      *
@@ -4459,8 +4460,8 @@ class Vs extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - Ensure that all application services in the cluster have been removed. Otherwise, the delete operation cannot be performed.
-     * - `HiveId` is a required parameter that identifies the cluster to be deleted.
+     * - Ensure that all workloads in the cluster have been cleared. Otherwise, the delete operation cannot be performed.
+     * - HiveId is a required parameter that identifies the cluster to be deleted.
      *
      * @param request - DeleteHiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4503,8 +4504,8 @@ class Vs extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - Ensure that all application services in the cluster have been removed. Otherwise, the delete operation cannot be performed.
-     * - `HiveId` is a required parameter that identifies the cluster to be deleted.
+     * - Ensure that all workloads in the cluster have been cleared. Otherwise, the delete operation cannot be performed.
+     * - HiveId is a required parameter that identifies the cluster to be deleted.
      *
      * @param request - DeleteHiveRequest
      *
@@ -5353,10 +5354,67 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the waiting queue information of Comfy tasks. The maximum length of a single Hive waiting queue is 100 by default.
+     *
+     * @param request - DescribeComfyTaskWaitingQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComfyTaskWaitingQueueResponse
+     *
+     * @param DescribeComfyTaskWaitingQueueRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeComfyTaskWaitingQueueResponse
+     */
+    public function describeComfyTaskWaitingQueueWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hiveId) {
+            @$query['HiveId'] = $request->hiveId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeComfyTaskWaitingQueue',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeComfyTaskWaitingQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the waiting queue information of Comfy tasks. The maximum length of a single Hive waiting queue is 100 by default.
+     *
+     * @param request - DescribeComfyTaskWaitingQueueRequest
+     *
+     * @returns DescribeComfyTaskWaitingQueueResponse
+     *
+     * @param DescribeComfyTaskWaitingQueueRequest $request
+     *
+     * @return DescribeComfyTaskWaitingQueueResponse
+     */
+    public function describeComfyTaskWaitingQueue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeComfyTaskWaitingQueueWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of Comfy tasks.
      *
      * @remarks
-     * > Currently, screenshot queries do not support pagination. Only iterative queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
+     * > Screenshot queries do not support pagination. Only iteration-based queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
      *
      * @param request - DescribeComfyTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5372,6 +5430,10 @@ class Vs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->hiveId) {
+            @$query['HiveId'] = $request->hiveId;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -5414,7 +5476,7 @@ class Vs extends OpenApiClient
      * Queries the list of Comfy tasks.
      *
      * @remarks
-     * > Currently, screenshot queries do not support pagination. Only iterative queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
+     * > Screenshot queries do not support pagination. Only iteration-based queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
      *
      * @param request - DescribeComfyTasksRequest
      *
@@ -10050,10 +10112,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the list of patches for a cloud application.
+     * Queries the patch list of a cloud application.
      *
      * @remarks
-     * > Specify at least one of the template ID or the template type.
+     * >You must specify at least one of the template ID and templatetype.
      *
      * @param request - ListCloudAppPatchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10116,10 +10178,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the list of patches for a cloud application.
+     * Queries the patch list of a cloud application.
      *
      * @remarks
-     * > Specify at least one of the template ID or the template type.
+     * >You must specify at least one of the template ID and templatetype.
      *
      * @param request - ListCloudAppPatchesRequest
      *
@@ -10137,7 +10199,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries a list of cloud applications. This operation supports paged queries.
+     * Queries a list of cloud applications. Paging is supported.
      *
      * @param request - ListCloudAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10172,7 +10234,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries a list of cloud applications. This operation supports paged queries.
+     * Queries a list of cloud applications. Paging is supported.
      *
      * @param request - ListCloudAppsRequest
      *
@@ -10190,14 +10252,14 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries workload information with pagination.
+     * Queries load information with paged query and paging support.
      *
      * @remarks
-     * ## Description
-     * - This API operation queries workload information and supports filtering and pagination by using multiple parameters.
+     * ## Operation description
+     * - This API operation queries load information. You can filter results by using various parameters and perform paged query operations.
      * - Optional parameters include Spec (specification), Statuses (status list), InstanceIds (instance ID list), PlanIds (plan ID list), and HiveIds (cluster ID list).
-     * - For pagination, use the PageNumber and PageSize parameters to control the amount of returned data. By default, 10 records are returned per page and a maximum of 100 records are supported per page.
-     * - Use the StartTime and EndTime parameters to specify the time range for queries.
+     * - For paged query operations, use the PageNumber and PageSize parameters to control the data volume of returned results. The default page size is 10 records, and the maximum is 100 records. Paging is supported.
+     * - To query by time range, specify the StartTime and EndTime parameters.
      *
      * @param tmpReq - ListEdgeWorkersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10286,14 +10348,14 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries workload information with pagination.
+     * Queries load information with paged query and paging support.
      *
      * @remarks
-     * ## Description
-     * - This API operation queries workload information and supports filtering and pagination by using multiple parameters.
+     * ## Operation description
+     * - This API operation queries load information. You can filter results by using various parameters and perform paged query operations.
      * - Optional parameters include Spec (specification), Statuses (status list), InstanceIds (instance ID list), PlanIds (plan ID list), and HiveIds (cluster ID list).
-     * - For pagination, use the PageNumber and PageSize parameters to control the amount of returned data. By default, 10 records are returned per page and a maximum of 100 records are supported per page.
-     * - Use the StartTime and EndTime parameters to specify the time range for queries.
+     * - For paged query operations, use the PageNumber and PageSize parameters to control the data volume of returned results. The default page size is 10 records, and the maximum is 100 records. Paging is supported.
+     * - To query by time range, specify the StartTime and EndTime parameters.
      *
      * @param request - ListEdgeWorkersRequest
      *
@@ -10417,14 +10479,14 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries all cluster information by using paging and supports filtering by conditions.
+     * Queries all cluster information by paging and supports filtering by conditions.
      *
      * @remarks
      * ## Operation description
      * - This API operation queries information about all clusters created by the user.
      * - You can use the `HiveId` and `Name` parameters to filter query results.
-     * - The pagination parameters `PageNumber` and `PageSize` control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
-     * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information, but they are optional.
+     * - The `PageNumber` and `PageSize` pagination parameters control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
+     * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information. These parameters are optional.
      *
      * @param request - ListHivesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10483,14 +10545,14 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries all cluster information by using paging and supports filtering by conditions.
+     * Queries all cluster information by paging and supports filtering by conditions.
      *
      * @remarks
      * ## Operation description
      * - This API operation queries information about all clusters created by the user.
      * - You can use the `HiveId` and `Name` parameters to filter query results.
-     * - The pagination parameters `PageNumber` and `PageSize` control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
-     * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information, but they are optional.
+     * - The `PageNumber` and `PageSize` pagination parameters control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
+     * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information. These parameters are optional.
      *
      * @param request - ListHivesRequest
      *
@@ -10643,6 +10705,81 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRenderingDataPackagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of images.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation supports filtering and paged query of rendering session lists by using various parameter combinations.
+     * - You must specify at least one of the `SessionId` and `ClientId` parameters, but neither is required. If both parameters are specified, more precise matching is performed based on the two parameters.
+     *
+     * @param request - ListRenderingImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRenderingImagesResponse
+     *
+     * @param ListRenderingImagesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListRenderingImagesResponse
+     */
+    public function listRenderingImagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRenderingImages',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRenderingImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of images.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation supports filtering and paged query of rendering session lists by using various parameter combinations.
+     * - You must specify at least one of the `SessionId` and `ClientId` parameters, but neither is required. If both parameters are specified, more precise matching is performed based on the two parameters.
+     *
+     * @param request - ListRenderingImagesRequest
+     *
+     * @returns ListRenderingImagesResponse
+     *
+     * @param ListRenderingImagesRequest $request
+     *
+     * @return ListRenderingImagesResponse
+     */
+    public function listRenderingImages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRenderingImagesWithOptions($request, $runtime);
     }
 
     /**
@@ -11065,7 +11202,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries all cloud application service specification information. Paging is supported.
+     * Queries the specifications of all cloud application services. Paging is supported.
      *
      * @remarks
      * ## Operation description
@@ -11118,7 +11255,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries all cloud application service specification information. Paging is supported.
+     * Queries the specifications of all cloud application services. Paging is supported.
      *
      * @remarks
      * ## Operation description
@@ -11815,10 +11952,10 @@ class Vs extends OpenApiClient
      * Updates the name or description of a specified cluster.
      *
      * @remarks
-     * ## Request
-     * - This API modifies the name and/or description of an existing cluster.
-     * - `HiveId` is a required parameter that identifies the cluster to modify.
-     * - The `Name` and `Description` parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
+     * ## Operation description
+     * - This API operation modifies the basic attributes of an existing cluster, including the name and description.
+     * - HiveId is a required parameter that identifies the cluster to modify.
+     * - The Name and Description parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
      *
      * @param request - ModifyHiveAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11868,10 +12005,10 @@ class Vs extends OpenApiClient
      * Updates the name or description of a specified cluster.
      *
      * @remarks
-     * ## Request
-     * - This API modifies the name and/or description of an existing cluster.
-     * - `HiveId` is a required parameter that identifies the cluster to modify.
-     * - The `Name` and `Description` parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
+     * ## Operation description
+     * - This API operation modifies the basic attributes of an existing cluster, including the name and description.
+     * - HiveId is a required parameter that identifies the cluster to modify.
+     * - The Name and Description parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
      *
      * @param request - ModifyHiveAttributeRequest
      *
@@ -12390,11 +12527,11 @@ class Vs extends OpenApiClient
      * Moves specified workloads to a target cluster.
      *
      * @remarks
-     * ## Request description
-     * - **HiveId**: The target cluster ID. Required.
-     * - **InstanceIds**: The list of workload IDs to move. Required.
+     * ## Operation description
+     * - **HiveId**: The ID of the target cluster. This parameter is required.
+     * - **InstanceIds**: The list of workload IDs to move. This parameter is required.
      * - This operation moves the specified workloads from the current cluster to the target cluster.
-     * - Ensure that the target cluster exists to accept the new workloads.
+     * - Make sure the target cluster exists to accept the new workloads.
      *
      * @param tmpReq - MoveHiveEdgeWorkersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12446,11 +12583,11 @@ class Vs extends OpenApiClient
      * Moves specified workloads to a target cluster.
      *
      * @remarks
-     * ## Request description
-     * - **HiveId**: The target cluster ID. Required.
-     * - **InstanceIds**: The list of workload IDs to move. Required.
+     * ## Operation description
+     * - **HiveId**: The ID of the target cluster. This parameter is required.
+     * - **InstanceIds**: The list of workload IDs to move. This parameter is required.
      * - This operation moves the specified workloads from the current cluster to the target cluster.
-     * - Ensure that the target cluster exists to accept the new workloads.
+     * - Make sure the target cluster exists to accept the new workloads.
      *
      * @param request - MoveHiveEdgeWorkersRequest
      *
@@ -12629,7 +12766,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Restarts the host of a cloud application service instance.
+     * Restarts the hosts of cloud application service instances.
      *
      * @param tmpReq - RebootRenderingServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12651,6 +12788,10 @@ class Vs extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->precheck) {
+            @$query['Precheck'] = $request->precheck;
+        }
+
         if (null !== $request->renderingInstanceIdsShrink) {
             @$query['RenderingInstanceIds'] = $request->renderingInstanceIdsShrink;
         }
@@ -12674,7 +12815,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Restarts the host of a cloud application service instance.
+     * Restarts the hosts of cloud application service instances.
      *
      * @param request - RebootRenderingServerRequest
      *
@@ -14971,7 +15112,8 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Updates information for a cloud application, such as its description and tags. You can upload patch or hotfix packages and create hotfix packages for the Android cloud application marketplace. A cloud application supports up to 20 patch packages, but only one package can be in the uploading state at a time.
+     * Updates the information of a cloud application, such as the description, application labels, and patches.
+     * You can upload patches or hot update packages, and create hot update packages for Android cloud application marketplace applications. Each cloud application supports up to 20 patches, and only one patch can be in the uploading state at a time for a single cloud application.
      *
      * @param tmpReq - UpdateCloudAppInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15038,7 +15180,8 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Updates information for a cloud application, such as its description and tags. You can upload patch or hotfix packages and create hotfix packages for the Android cloud application marketplace. A cloud application supports up to 20 patch packages, but only one package can be in the uploading state at a time.
+     * Updates the information of a cloud application, such as the description, application labels, and patches.
+     * You can upload patches or hot update packages, and create hot update packages for Android cloud application marketplace applications. Each cloud application supports up to 20 patches, and only one patch can be in the uploading state at a time for a single cloud application.
      *
      * @param request - UpdateCloudAppInfoRequest
      *
@@ -15417,7 +15560,74 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Upload or list a cloud application package. This is an asynchronous API. Use the ListCloudApps API to check upload progress.
+     * Upgrades instance images in batch.
+     *
+     * @param tmpReq - UpgradeRenderingInstanceImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeRenderingInstanceImageResponse
+     *
+     * @param UpgradeRenderingInstanceImageRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpgradeRenderingInstanceImageResponse
+     */
+    public function upgradeRenderingInstanceImageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpgradeRenderingInstanceImageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->renderingInstanceIds) {
+            $request->renderingInstanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->renderingInstanceIds, 'RenderingInstanceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->renderingInstanceIdsShrink) {
+            @$query['RenderingInstanceIds'] = $request->renderingInstanceIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeRenderingInstanceImage',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeRenderingInstanceImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Upgrades instance images in batch.
+     *
+     * @param request - UpgradeRenderingInstanceImageRequest
+     *
+     * @returns UpgradeRenderingInstanceImageResponse
+     *
+     * @param UpgradeRenderingInstanceImageRequest $request
+     *
+     * @return UpgradeRenderingInstanceImageResponse
+     */
+    public function upgradeRenderingInstanceImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeRenderingInstanceImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Uploads a cloud application package for listing. This is an asynchronous operation. You can call the ListCloudApps operation to query the upload progress.
      *
      * @param tmpReq - UploadCloudAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15471,6 +15681,14 @@ class Vs extends OpenApiClient
             @$query['PkgType'] = $request->pkgType;
         }
 
+        if (null !== $request->postCommandPath) {
+            @$query['PostCommandPath'] = $request->postCommandPath;
+        }
+
+        if (null !== $request->postCommandTimeoutSec) {
+            @$query['PostCommandTimeoutSec'] = $request->postCommandTimeoutSec;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -15490,7 +15708,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Upload or list a cloud application package. This is an asynchronous API. Use the ListCloudApps API to check upload progress.
+     * Uploads a cloud application package for listing. This is an asynchronous operation. You can call the ListCloudApps operation to query the upload progress.
      *
      * @param request - UploadCloudAppRequest
      *

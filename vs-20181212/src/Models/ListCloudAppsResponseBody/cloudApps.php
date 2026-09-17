@@ -41,6 +41,16 @@ class cloudApps extends Model
     /**
      * @var string
      */
+    public $postCommandPath;
+
+    /**
+     * @var int
+     */
+    public $postCommandTimeoutSec;
+
+    /**
+     * @var string
+     */
     public $stablePatchId;
 
     /**
@@ -69,6 +79,8 @@ class cloudApps extends Model
         'description' => 'Description',
         'pkgFormat' => 'PkgFormat',
         'pkgType' => 'PkgType',
+        'postCommandPath' => 'PostCommandPath',
+        'postCommandTimeoutSec' => 'PostCommandTimeoutSec',
         'stablePatchId' => 'StablePatchId',
         'status' => 'Status',
         'statusDescription' => 'StatusDescription',
@@ -106,6 +118,14 @@ class cloudApps extends Model
 
         if (null !== $this->pkgType) {
             $res['PkgType'] = $this->pkgType;
+        }
+
+        if (null !== $this->postCommandPath) {
+            $res['PostCommandPath'] = $this->postCommandPath;
+        }
+
+        if (null !== $this->postCommandTimeoutSec) {
+            $res['PostCommandTimeoutSec'] = $this->postCommandTimeoutSec;
         }
 
         if (null !== $this->stablePatchId) {
@@ -161,6 +181,14 @@ class cloudApps extends Model
 
         if (isset($map['PkgType'])) {
             $model->pkgType = $map['PkgType'];
+        }
+
+        if (isset($map['PostCommandPath'])) {
+            $model->postCommandPath = $map['PostCommandPath'];
+        }
+
+        if (isset($map['PostCommandTimeoutSec'])) {
+            $model->postCommandTimeoutSec = $map['PostCommandTimeoutSec'];
         }
 
         if (isset($map['StablePatchId'])) {

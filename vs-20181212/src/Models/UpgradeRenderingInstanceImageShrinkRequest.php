@@ -6,19 +6,19 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class RebootRenderingServerShrinkRequest extends Model
+class UpgradeRenderingInstanceImageShrinkRequest extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $precheck;
+    public $imageId;
 
     /**
      * @var string
      */
     public $renderingInstanceIdsShrink;
     protected $_name = [
-        'precheck' => 'Precheck',
+        'imageId' => 'ImageId',
         'renderingInstanceIdsShrink' => 'RenderingInstanceIds',
     ];
 
@@ -30,8 +30,8 @@ class RebootRenderingServerShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->precheck) {
-            $res['Precheck'] = $this->precheck;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         if (null !== $this->renderingInstanceIdsShrink) {
@@ -49,8 +49,8 @@ class RebootRenderingServerShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Precheck'])) {
-            $model->precheck = $map['Precheck'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
 
         if (isset($map['RenderingInstanceIds'])) {

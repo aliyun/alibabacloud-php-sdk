@@ -47,6 +47,16 @@ class UploadCloudAppRequest extends Model
      * @var string
      */
     public $pkgType;
+
+    /**
+     * @var string
+     */
+    public $postCommandPath;
+
+    /**
+     * @var int
+     */
+    public $postCommandTimeoutSec;
     protected $_name = [
         'appName' => 'AppName',
         'appVersion' => 'AppVersion',
@@ -56,6 +66,8 @@ class UploadCloudAppRequest extends Model
         'pkgFormat' => 'PkgFormat',
         'pkgLabels' => 'PkgLabels',
         'pkgType' => 'PkgType',
+        'postCommandPath' => 'PostCommandPath',
+        'postCommandTimeoutSec' => 'PostCommandTimeoutSec',
     ];
 
     public function validate()
@@ -108,6 +120,14 @@ class UploadCloudAppRequest extends Model
             $res['PkgType'] = $this->pkgType;
         }
 
+        if (null !== $this->postCommandPath) {
+            $res['PostCommandPath'] = $this->postCommandPath;
+        }
+
+        if (null !== $this->postCommandTimeoutSec) {
+            $res['PostCommandTimeoutSec'] = $this->postCommandTimeoutSec;
+        }
+
         return $res;
     }
 
@@ -156,6 +176,14 @@ class UploadCloudAppRequest extends Model
 
         if (isset($map['PkgType'])) {
             $model->pkgType = $map['PkgType'];
+        }
+
+        if (isset($map['PostCommandPath'])) {
+            $model->postCommandPath = $map['PostCommandPath'];
+        }
+
+        if (isset($map['PostCommandTimeoutSec'])) {
+            $model->postCommandTimeoutSec = $map['PostCommandTimeoutSec'];
         }
 
         return $model;

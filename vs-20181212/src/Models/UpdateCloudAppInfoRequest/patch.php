@@ -36,6 +36,16 @@ class patch extends Model
     /**
      * @var string
      */
+    public $postCommandPath;
+
+    /**
+     * @var int
+     */
+    public $postCommandTimeoutSec;
+
+    /**
+     * @var string
+     */
     public $renderingInstanceId;
     protected $_name = [
         'asStablePatch' => 'AsStablePatch',
@@ -43,6 +53,8 @@ class patch extends Model
         'md5' => 'Md5',
         'patchName' => 'PatchName',
         'pkgFormat' => 'PkgFormat',
+        'postCommandPath' => 'PostCommandPath',
+        'postCommandTimeoutSec' => 'PostCommandTimeoutSec',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
@@ -72,6 +84,14 @@ class patch extends Model
 
         if (null !== $this->pkgFormat) {
             $res['PkgFormat'] = $this->pkgFormat;
+        }
+
+        if (null !== $this->postCommandPath) {
+            $res['PostCommandPath'] = $this->postCommandPath;
+        }
+
+        if (null !== $this->postCommandTimeoutSec) {
+            $res['PostCommandTimeoutSec'] = $this->postCommandTimeoutSec;
         }
 
         if (null !== $this->renderingInstanceId) {
@@ -107,6 +127,14 @@ class patch extends Model
 
         if (isset($map['PkgFormat'])) {
             $model->pkgFormat = $map['PkgFormat'];
+        }
+
+        if (isset($map['PostCommandPath'])) {
+            $model->postCommandPath = $map['PostCommandPath'];
+        }
+
+        if (isset($map['PostCommandTimeoutSec'])) {
+            $model->postCommandTimeoutSec = $map['PostCommandTimeoutSec'];
         }
 
         if (isset($map['RenderingInstanceId'])) {
