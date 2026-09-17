@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseAnswerResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBaseAnswerResponseBody\sources\imageResources;
 
 class sources extends Model
 {
@@ -22,6 +23,11 @@ class sources extends Model
      * @var string
      */
     public $fileName;
+
+    /**
+     * @var imageResources[]
+     */
+    public $imageResources;
 
     /**
      * @var string
@@ -61,6 +67,7 @@ class sources extends Model
         'chunkMetadata' => 'ChunkMetadata',
         'fileId' => 'FileId',
         'fileName' => 'FileName',
+        'imageResources' => 'ImageResources',
         'knowledgeBaseId' => 'KnowledgeBaseId',
         'metadata' => 'Metadata',
         'pageNumbers' => 'PageNumbers',
@@ -74,6 +81,9 @@ class sources extends Model
     {
         if (\is_array($this->chunkMetadata)) {
             Model::validateArray($this->chunkMetadata);
+        }
+        if (\is_array($this->imageResources)) {
+            Model::validateArray($this->imageResources);
         }
         if (\is_array($this->metadata)) {
             Model::validateArray($this->metadata);
@@ -102,6 +112,17 @@ class sources extends Model
 
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+
+        if (null !== $this->imageResources) {
+            if (\is_array($this->imageResources)) {
+                $res['ImageResources'] = [];
+                $n1 = 0;
+                foreach ($this->imageResources as $item1) {
+                    $res['ImageResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->knowledgeBaseId) {
@@ -170,6 +191,17 @@ class sources extends Model
 
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+
+        if (isset($map['ImageResources'])) {
+            if (!empty($map['ImageResources'])) {
+                $model->imageResources = [];
+                $n1 = 0;
+                foreach ($map['ImageResources'] as $item1) {
+                    $model->imageResources[$n1] = imageResources::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['KnowledgeBaseId'])) {

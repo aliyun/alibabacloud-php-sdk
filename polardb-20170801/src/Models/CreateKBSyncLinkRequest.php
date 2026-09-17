@@ -71,6 +71,11 @@ class CreateKBSyncLinkRequest extends Model
     /**
      * @var string
      */
+    public $userAccessToken;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
         'clientId' => 'ClientId',
@@ -85,6 +90,7 @@ class CreateKBSyncLinkRequest extends Model
         'sourceType' => 'SourceType',
         'syncIntervalMinutes' => 'SyncIntervalMinutes',
         'tenantId' => 'TenantId',
+        'userAccessToken' => 'UserAccessToken',
         'userId' => 'UserId',
     ];
 
@@ -142,6 +148,10 @@ class CreateKBSyncLinkRequest extends Model
 
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+
+        if (null !== $this->userAccessToken) {
+            $res['UserAccessToken'] = $this->userAccessToken;
         }
 
         if (null !== $this->userId) {
@@ -205,6 +215,10 @@ class CreateKBSyncLinkRequest extends Model
 
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+
+        if (isset($map['UserAccessToken'])) {
+            $model->userAccessToken = $map['UserAccessToken'];
         }
 
         if (isset($map['UserId'])) {

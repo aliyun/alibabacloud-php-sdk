@@ -56,6 +56,11 @@ class UpdateKBSyncLinkRequest extends Model
     /**
      * @var string
      */
+    public $userAccessToken;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
         'clientId' => 'ClientId',
@@ -67,6 +72,7 @@ class UpdateKBSyncLinkRequest extends Model
         'sheetMcpEndpoint' => 'SheetMcpEndpoint',
         'syncEnabled' => 'SyncEnabled',
         'syncIntervalMinutes' => 'SyncIntervalMinutes',
+        'userAccessToken' => 'UserAccessToken',
         'userId' => 'UserId',
     ];
 
@@ -112,6 +118,10 @@ class UpdateKBSyncLinkRequest extends Model
 
         if (null !== $this->syncIntervalMinutes) {
             $res['SyncIntervalMinutes'] = $this->syncIntervalMinutes;
+        }
+
+        if (null !== $this->userAccessToken) {
+            $res['UserAccessToken'] = $this->userAccessToken;
         }
 
         if (null !== $this->userId) {
@@ -163,6 +173,10 @@ class UpdateKBSyncLinkRequest extends Model
 
         if (isset($map['SyncIntervalMinutes'])) {
             $model->syncIntervalMinutes = $map['SyncIntervalMinutes'];
+        }
+
+        if (isset($map['UserAccessToken'])) {
+            $model->userAccessToken = $map['UserAccessToken'];
         }
 
         if (isset($map['UserId'])) {

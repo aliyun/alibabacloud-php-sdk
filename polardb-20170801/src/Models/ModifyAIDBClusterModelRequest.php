@@ -32,12 +32,24 @@ class ModifyAIDBClusterModelRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $restartMode;
+
+    /**
+     * @var int
+     */
+    public $workerBatchSize;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'displayModelName' => 'DisplayModelName',
         'dryRun' => 'DryRun',
         'modelName' => 'ModelName',
         'regionId' => 'RegionId',
+        'restartMode' => 'RestartMode',
+        'workerBatchSize' => 'WorkerBatchSize',
     ];
 
     public function validate()
@@ -66,6 +78,14 @@ class ModifyAIDBClusterModelRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->restartMode) {
+            $res['RestartMode'] = $this->restartMode;
+        }
+
+        if (null !== $this->workerBatchSize) {
+            $res['WorkerBatchSize'] = $this->workerBatchSize;
         }
 
         return $res;
@@ -97,6 +117,14 @@ class ModifyAIDBClusterModelRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['RestartMode'])) {
+            $model->restartMode = $map['RestartMode'];
+        }
+
+        if (isset($map['WorkerBatchSize'])) {
+            $model->workerBatchSize = $map['WorkerBatchSize'];
         }
 
         return $model;

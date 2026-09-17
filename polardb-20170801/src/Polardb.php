@@ -1707,7 +1707,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Performs a single-round knowledge base question answering.
+     * Performs a single-turn knowledge base question answering.
      *
      * @param request - AnswerKnowledgeBaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1786,7 +1786,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Performs a single-round knowledge base question answering.
+     * Performs a single-turn knowledge base question answering.
      *
      * @param request - AnswerKnowledgeBaseRequest
      *
@@ -7575,6 +7575,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->tenantId) {
             @$query['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->userAccessToken) {
+            @$query['UserAccessToken'] = $request->userAccessToken;
         }
 
         if (null !== $request->userId) {
@@ -22534,7 +22538,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the result of a single-turn Q&A task in a knowledge base.
+     * Queries the result of a single-round knowledge base question answering task.
      *
      * @param request - DescribeKnowledgeBaseAnswerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22581,7 +22585,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the result of a single-turn Q&A task in a knowledge base.
+     * Queries the result of a single-round knowledge base question answering task.
      *
      * @param request - DescribeKnowledgeBaseAnswerRequest
      *
@@ -29925,7 +29929,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the model or the customer-facing invocation name of an AI cluster.
+     * Changes the model or the client-facing invocation name of an AI cluster.
      *
      * @param request - ModifyAIDBClusterModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29961,6 +29965,14 @@ class Polardb extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->restartMode) {
+            @$query['RestartMode'] = $request->restartMode;
+        }
+
+        if (null !== $request->workerBatchSize) {
+            @$query['WorkerBatchSize'] = $request->workerBatchSize;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -29980,7 +29992,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the model or the customer-facing invocation name of an AI cluster.
+     * Changes the model or the client-facing invocation name of an AI cluster.
      *
      * @param request - ModifyAIDBClusterModelRequest
      *
@@ -39857,6 +39869,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->syncIntervalMinutes) {
             @$query['SyncIntervalMinutes'] = $request->syncIntervalMinutes;
+        }
+
+        if (null !== $request->userAccessToken) {
+            @$query['UserAccessToken'] = $request->userAccessToken;
         }
 
         if (null !== $request->userId) {
