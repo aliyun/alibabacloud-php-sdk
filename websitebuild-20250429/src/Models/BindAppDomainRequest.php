@@ -16,6 +16,11 @@ class BindAppDomainRequest extends Model
     /**
      * @var string
      */
+    public $deployType;
+
+    /**
+     * @var string
+     */
     public $domainName;
 
     /**
@@ -34,6 +39,7 @@ class BindAppDomainRequest extends Model
     public $operateType;
     protected $_name = [
         'bizId' => 'BizId',
+        'deployType' => 'DeployType',
         'domainName' => 'DomainName',
         'domainType' => 'DomainType',
         'extend' => 'Extend',
@@ -50,6 +56,10 @@ class BindAppDomainRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->deployType) {
+            $res['DeployType'] = $this->deployType;
         }
 
         if (null !== $this->domainName) {
@@ -81,6 +91,10 @@ class BindAppDomainRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['DeployType'])) {
+            $model->deployType = $map['DeployType'];
         }
 
         if (isset($map['DomainName'])) {

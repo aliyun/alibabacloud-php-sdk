@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AppInstanceProfile\independentDeployment;
 
 class AppInstanceProfile extends Model
 {
@@ -52,6 +53,11 @@ class AppInstanceProfile extends Model
      * @var string
      */
     public $icpbaNo;
+
+    /**
+     * @var independentDeployment
+     */
+    public $independentDeployment;
 
     /**
      * @var string
@@ -127,6 +133,7 @@ class AppInstanceProfile extends Model
         'customerService' => 'CustomerService',
         'deployArea' => 'DeployArea',
         'icpbaNo' => 'IcpbaNo',
+        'independentDeployment' => 'IndependentDeployment',
         'instanceId' => 'InstanceId',
         'openChatBi' => 'OpenChatBi',
         'ordTime' => 'OrdTime',
@@ -144,6 +151,9 @@ class AppInstanceProfile extends Model
 
     public function validate()
     {
+        if (null !== $this->independentDeployment) {
+            $this->independentDeployment->validate();
+        }
         parent::validate();
     }
 
@@ -184,6 +194,10 @@ class AppInstanceProfile extends Model
 
         if (null !== $this->icpbaNo) {
             $res['IcpbaNo'] = $this->icpbaNo;
+        }
+
+        if (null !== $this->independentDeployment) {
+            $res['IndependentDeployment'] = null !== $this->independentDeployment ? $this->independentDeployment->toArray($noStream) : $this->independentDeployment;
         }
 
         if (null !== $this->instanceId) {
@@ -283,6 +297,10 @@ class AppInstanceProfile extends Model
 
         if (isset($map['IcpbaNo'])) {
             $model->icpbaNo = $map['IcpbaNo'];
+        }
+
+        if (isset($map['IndependentDeployment'])) {
+            $model->independentDeployment = independentDeployment::fromMap($map['IndependentDeployment']);
         }
 
         if (isset($map['InstanceId'])) {

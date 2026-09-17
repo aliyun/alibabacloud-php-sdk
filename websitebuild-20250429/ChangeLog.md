@@ -1,3 +1,7 @@
+2026-09-17 Version: 2.38.3
+- Update API BindAppDomain: add request parameters DeployType.
+
+
 2026-09-09 Version: 2.38.2
 - Generated php 2025-04-29 for WebsiteBuild.
 
