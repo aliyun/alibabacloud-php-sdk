@@ -31,6 +31,11 @@ class CredentialSubmitIntlRequest extends Model
     /**
      * @var string
      */
+    public $fileInputType;
+
+    /**
+     * @var string
+     */
     public $fraudCheck;
 
     /**
@@ -72,6 +77,7 @@ class CredentialSubmitIntlRequest extends Model
         'credentialOcrPictureBase64' => 'CredentialOcrPictureBase64',
         'credentialOcrPictureUrl' => 'CredentialOcrPictureUrl',
         'docType' => 'DocType',
+        'fileInputType' => 'FileInputType',
         'fraudCheck' => 'FraudCheck',
         'idQuality' => 'IdQuality',
         'merchantBizId' => 'MerchantBizId',
@@ -104,6 +110,10 @@ class CredentialSubmitIntlRequest extends Model
 
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
+        }
+
+        if (null !== $this->fileInputType) {
+            $res['FileInputType'] = $this->fileInputType;
         }
 
         if (null !== $this->fraudCheck) {
@@ -163,6 +173,10 @@ class CredentialSubmitIntlRequest extends Model
 
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
+        }
+
+        if (isset($map['FileInputType'])) {
+            $model->fileInputType = $map['FileInputType'];
         }
 
         if (isset($map['FraudCheck'])) {

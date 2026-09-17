@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CredentialRecognitionIntlRequest extends Model
+class CredentialSubmitIntlV2Request extends Model
 {
     /**
      * @var string
@@ -17,6 +17,11 @@ class CredentialRecognitionIntlRequest extends Model
      * @var string
      */
     public $credentialOcrPictureBase64;
+
+    /**
+     * @var string
+     */
+    public $credentialOcrPictureFile;
 
     /**
      * @var string
@@ -46,6 +51,11 @@ class CredentialRecognitionIntlRequest extends Model
     /**
      * @var string
      */
+    public $merchantBizId;
+
+    /**
+     * @var string
+     */
     public $ocrArea;
 
     /**
@@ -62,18 +72,26 @@ class CredentialRecognitionIntlRequest extends Model
      * @var string
      */
     public $productCode;
+
+    /**
+     * @var string
+     */
+    public $sceneCode;
     protected $_name = [
         'checkRuleConfig' => 'CheckRuleConfig',
         'credentialOcrPictureBase64' => 'CredentialOcrPictureBase64',
+        'credentialOcrPictureFile' => 'CredentialOcrPictureFile',
         'credentialOcrPictureUrl' => 'CredentialOcrPictureUrl',
         'docType' => 'DocType',
         'fileInputType' => 'FileInputType',
         'fraudCheck' => 'FraudCheck',
         'idQuality' => 'IdQuality',
+        'merchantBizId' => 'MerchantBizId',
         'ocrArea' => 'OcrArea',
         'ocrTranslation' => 'OcrTranslation',
         'ocrValueStandard' => 'OcrValueStandard',
         'productCode' => 'ProductCode',
+        'sceneCode' => 'SceneCode',
     ];
 
     public function validate()
@@ -90,6 +108,10 @@ class CredentialRecognitionIntlRequest extends Model
 
         if (null !== $this->credentialOcrPictureBase64) {
             $res['CredentialOcrPictureBase64'] = $this->credentialOcrPictureBase64;
+        }
+
+        if (null !== $this->credentialOcrPictureFile) {
+            $res['CredentialOcrPictureFile'] = $this->credentialOcrPictureFile;
         }
 
         if (null !== $this->credentialOcrPictureUrl) {
@@ -112,6 +134,10 @@ class CredentialRecognitionIntlRequest extends Model
             $res['IdQuality'] = $this->idQuality;
         }
 
+        if (null !== $this->merchantBizId) {
+            $res['MerchantBizId'] = $this->merchantBizId;
+        }
+
         if (null !== $this->ocrArea) {
             $res['OcrArea'] = $this->ocrArea;
         }
@@ -126,6 +152,10 @@ class CredentialRecognitionIntlRequest extends Model
 
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+
+        if (null !== $this->sceneCode) {
+            $res['SceneCode'] = $this->sceneCode;
         }
 
         return $res;
@@ -145,6 +175,10 @@ class CredentialRecognitionIntlRequest extends Model
 
         if (isset($map['CredentialOcrPictureBase64'])) {
             $model->credentialOcrPictureBase64 = $map['CredentialOcrPictureBase64'];
+        }
+
+        if (isset($map['CredentialOcrPictureFile'])) {
+            $model->credentialOcrPictureFile = $map['CredentialOcrPictureFile'];
         }
 
         if (isset($map['CredentialOcrPictureUrl'])) {
@@ -167,6 +201,10 @@ class CredentialRecognitionIntlRequest extends Model
             $model->idQuality = $map['IdQuality'];
         }
 
+        if (isset($map['MerchantBizId'])) {
+            $model->merchantBizId = $map['MerchantBizId'];
+        }
+
         if (isset($map['OcrArea'])) {
             $model->ocrArea = $map['OcrArea'];
         }
@@ -181,6 +219,10 @@ class CredentialRecognitionIntlRequest extends Model
 
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+
+        if (isset($map['SceneCode'])) {
+            $model->sceneCode = $map['SceneCode'];
         }
 
         return $model;

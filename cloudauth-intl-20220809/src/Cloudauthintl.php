@@ -35,8 +35,14 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialGetResultIntlReque
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialGetResultIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialRecognitionIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialRecognitionIntlResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialRecognitionIntlV2AdvanceRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialRecognitionIntlV2Request;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialRecognitionIntlV2Response;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialSubmitIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialSubmitIntlResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialSubmitIntlV2AdvanceRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialSubmitIntlV2Request;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialSubmitIntlV2Response;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlAdvanceRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlResponse;
@@ -135,12 +141,6 @@ class Cloudauthintl extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-hongkong' => 'cloudauth-intl.cn-hongkong.aliyuncs.com',
-            'ap-southeast-5' => 'cloudauth-intl.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-3' => 'cloudauth-intl.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'cloudauth-intl.ap-southeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloudauth-intl', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -1088,10 +1088,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
+     * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
      *
      * @remarks
-     * Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
+     * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
      *
      * @param Request - CredentialRecognitionIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1109,6 +1109,10 @@ class Cloudauthintl extends OpenApiClient
         $query = [];
         if (null !== $request->docType) {
             @$query['DocType'] = $request->docType;
+        }
+
+        if (null !== $request->fileInputType) {
+            @$query['FileInputType'] = $request->fileInputType;
         }
 
         if (null !== $request->fraudCheck) {
@@ -1168,10 +1172,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
+     * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
      *
      * @remarks
-     * Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
+     * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
      *
      * @param Request - CredentialRecognitionIntlRequest
      *
@@ -1189,10 +1193,211 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+     *
+     * @remarks
+     * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+     *
+     * @param Request - CredentialRecognitionIntlV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CredentialRecognitionIntlV2Response
+     *
+     * @param CredentialRecognitionIntlV2Request $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CredentialRecognitionIntlV2Response
+     */
+    public function credentialRecognitionIntlV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credentialOcrPictureFile) {
+            @$query['CredentialOcrPictureFile'] = $request->credentialOcrPictureFile;
+        }
+
+        if (null !== $request->docType) {
+            @$query['DocType'] = $request->docType;
+        }
+
+        if (null !== $request->fileInputType) {
+            @$query['FileInputType'] = $request->fileInputType;
+        }
+
+        if (null !== $request->fraudCheck) {
+            @$query['FraudCheck'] = $request->fraudCheck;
+        }
+
+        if (null !== $request->idQuality) {
+            @$query['IdQuality'] = $request->idQuality;
+        }
+
+        if (null !== $request->ocrArea) {
+            @$query['OcrArea'] = $request->ocrArea;
+        }
+
+        if (null !== $request->ocrTranslation) {
+            @$query['OcrTranslation'] = $request->ocrTranslation;
+        }
+
+        if (null !== $request->ocrValueStandard) {
+            @$query['OcrValueStandard'] = $request->ocrValueStandard;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        $body = [];
+        if (null !== $request->checkRuleConfig) {
+            @$body['CheckRuleConfig'] = $request->checkRuleConfig;
+        }
+
+        if (null !== $request->credentialOcrPictureBase64) {
+            @$body['CredentialOcrPictureBase64'] = $request->credentialOcrPictureBase64;
+        }
+
+        if (null !== $request->credentialOcrPictureUrl) {
+            @$body['CredentialOcrPictureUrl'] = $request->credentialOcrPictureUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CredentialRecognitionIntlV2',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CredentialRecognitionIntlV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+     *
+     * @remarks
+     * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+     *
+     * @param Request - CredentialRecognitionIntlV2Request
+     *
+     * @returns CredentialRecognitionIntlV2Response
+     *
+     * @param CredentialRecognitionIntlV2Request $request
+     *
+     * @return CredentialRecognitionIntlV2Response
+     */
+    public function credentialRecognitionIntlV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->credentialRecognitionIntlV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CredentialRecognitionIntlV2AdvanceRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CredentialRecognitionIntlV2Response
+     */
+    public function credentialRecognitionIntlV2Advance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth-intl',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $credentialRecognitionIntlV2Req = new CredentialRecognitionIntlV2Request([]);
+        Utils::convert($request, $credentialRecognitionIntlV2Req);
+        if (null !== $request->credentialOcrPictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->credentialOcrPictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $credentialRecognitionIntlV2Req->credentialOcrPictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->credentialRecognitionIntlV2WithOptions($credentialRecognitionIntlV2Req, $runtime);
+    }
+
+    /**
      * Submits credential recognition information.
      *
      * @remarks
-     * Initializes the credential recognition OCR operation and returns a transactionId.
+     * Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
      *
      * @param Request - CredentialSubmitIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1210,6 +1415,10 @@ class Cloudauthintl extends OpenApiClient
         $query = [];
         if (null !== $request->docType) {
             @$query['DocType'] = $request->docType;
+        }
+
+        if (null !== $request->fileInputType) {
+            @$query['FileInputType'] = $request->fileInputType;
         }
 
         if (null !== $request->fraudCheck) {
@@ -1280,7 +1489,7 @@ class Cloudauthintl extends OpenApiClient
      * Submits credential recognition information.
      *
      * @remarks
-     * Initializes the credential recognition OCR operation and returns a transactionId.
+     * Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
      *
      * @param Request - CredentialSubmitIntlRequest
      *
@@ -1295,6 +1504,215 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->credentialSubmitIntlWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a credential recognition request.
+     *
+     * @remarks
+     * Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+     *
+     * @param Request - CredentialSubmitIntlV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CredentialSubmitIntlV2Response
+     *
+     * @param CredentialSubmitIntlV2Request $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CredentialSubmitIntlV2Response
+     */
+    public function credentialSubmitIntlV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credentialOcrPictureFile) {
+            @$query['CredentialOcrPictureFile'] = $request->credentialOcrPictureFile;
+        }
+
+        if (null !== $request->docType) {
+            @$query['DocType'] = $request->docType;
+        }
+
+        if (null !== $request->fileInputType) {
+            @$query['FileInputType'] = $request->fileInputType;
+        }
+
+        if (null !== $request->fraudCheck) {
+            @$query['FraudCheck'] = $request->fraudCheck;
+        }
+
+        if (null !== $request->idQuality) {
+            @$query['IdQuality'] = $request->idQuality;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->ocrArea) {
+            @$query['OcrArea'] = $request->ocrArea;
+        }
+
+        if (null !== $request->ocrTranslation) {
+            @$query['OcrTranslation'] = $request->ocrTranslation;
+        }
+
+        if (null !== $request->ocrValueStandard) {
+            @$query['OcrValueStandard'] = $request->ocrValueStandard;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
+        }
+
+        $body = [];
+        if (null !== $request->checkRuleConfig) {
+            @$body['CheckRuleConfig'] = $request->checkRuleConfig;
+        }
+
+        if (null !== $request->credentialOcrPictureBase64) {
+            @$body['CredentialOcrPictureBase64'] = $request->credentialOcrPictureBase64;
+        }
+
+        if (null !== $request->credentialOcrPictureUrl) {
+            @$body['CredentialOcrPictureUrl'] = $request->credentialOcrPictureUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CredentialSubmitIntlV2',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CredentialSubmitIntlV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits a credential recognition request.
+     *
+     * @remarks
+     * Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+     *
+     * @param Request - CredentialSubmitIntlV2Request
+     *
+     * @returns CredentialSubmitIntlV2Response
+     *
+     * @param CredentialSubmitIntlV2Request $request
+     *
+     * @return CredentialSubmitIntlV2Response
+     */
+    public function credentialSubmitIntlV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->credentialSubmitIntlV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CredentialSubmitIntlV2AdvanceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CredentialSubmitIntlV2Response
+     */
+    public function credentialSubmitIntlV2Advance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth-intl',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $credentialSubmitIntlV2Req = new CredentialSubmitIntlV2Request([]);
+        Utils::convert($request, $credentialSubmitIntlV2Req);
+        if (null !== $request->credentialOcrPictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->credentialOcrPictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $credentialSubmitIntlV2Req->credentialOcrPictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->credentialSubmitIntlV2WithOptions($credentialSubmitIntlV2Req, $runtime);
     }
 
     /**

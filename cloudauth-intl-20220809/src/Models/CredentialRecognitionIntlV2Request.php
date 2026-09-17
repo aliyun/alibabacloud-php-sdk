@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CredentialRecognitionIntlRequest extends Model
+class CredentialRecognitionIntlV2Request extends Model
 {
     /**
      * @var string
@@ -17,6 +17,11 @@ class CredentialRecognitionIntlRequest extends Model
      * @var string
      */
     public $credentialOcrPictureBase64;
+
+    /**
+     * @var string
+     */
+    public $credentialOcrPictureFile;
 
     /**
      * @var string
@@ -65,6 +70,7 @@ class CredentialRecognitionIntlRequest extends Model
     protected $_name = [
         'checkRuleConfig' => 'CheckRuleConfig',
         'credentialOcrPictureBase64' => 'CredentialOcrPictureBase64',
+        'credentialOcrPictureFile' => 'CredentialOcrPictureFile',
         'credentialOcrPictureUrl' => 'CredentialOcrPictureUrl',
         'docType' => 'DocType',
         'fileInputType' => 'FileInputType',
@@ -90,6 +96,10 @@ class CredentialRecognitionIntlRequest extends Model
 
         if (null !== $this->credentialOcrPictureBase64) {
             $res['CredentialOcrPictureBase64'] = $this->credentialOcrPictureBase64;
+        }
+
+        if (null !== $this->credentialOcrPictureFile) {
+            $res['CredentialOcrPictureFile'] = $this->credentialOcrPictureFile;
         }
 
         if (null !== $this->credentialOcrPictureUrl) {
@@ -145,6 +155,10 @@ class CredentialRecognitionIntlRequest extends Model
 
         if (isset($map['CredentialOcrPictureBase64'])) {
             $model->credentialOcrPictureBase64 = $map['CredentialOcrPictureBase64'];
+        }
+
+        if (isset($map['CredentialOcrPictureFile'])) {
+            $model->credentialOcrPictureFile = $map['CredentialOcrPictureFile'];
         }
 
         if (isset($map['CredentialOcrPictureUrl'])) {
