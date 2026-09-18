@@ -120,6 +120,8 @@ use AlibabaCloud\SDK\LHM\V20250116\Models\PostInnerReaderRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\PostInnerReaderResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\PostInnerUploadConvertPackageRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\PostInnerUploadConvertPackageResponse;
+use AlibabaCloud\SDK\LHM\V20250116\Models\SaveSkillAuditRecordRequest;
+use AlibabaCloud\SDK\LHM\V20250116\Models\SaveSkillAuditRecordResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\SingleSqlDryRunRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\SingleSqlDryRunResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\SyntaxCheckAndTransformSqlConversionTaskRequest;
@@ -5412,6 +5414,103 @@ class LHM extends OpenApiClient
         $headers = [];
 
         return $this->postInnerUploadConvertPackageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retains SQL audit records.
+     *
+     * @param request - SaveSkillAuditRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSkillAuditRecordResponse
+     *
+     * @param SaveSkillAuditRecordRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SaveSkillAuditRecordResponse
+     */
+    public function saveSkillAuditRecordWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->batchId) {
+            @$body['batchId'] = $request->batchId;
+        }
+
+        if (null !== $request->cid) {
+            @$body['cid'] = $request->cid;
+        }
+
+        if (null !== $request->dryRunStatus) {
+            @$body['dryRunStatus'] = $request->dryRunStatus;
+        }
+
+        if (null !== $request->extInfo) {
+            @$body['extInfo'] = $request->extInfo;
+        }
+
+        if (null !== $request->recordType) {
+            @$body['recordType'] = $request->recordType;
+        }
+
+        if (null !== $request->scriptTransformResult) {
+            @$body['scriptTransformResult'] = $request->scriptTransformResult;
+        }
+
+        if (null !== $request->scriptTransformStatus) {
+            @$body['scriptTransformStatus'] = $request->scriptTransformStatus;
+        }
+
+        if (null !== $request->sourceDialect) {
+            @$body['sourceDialect'] = $request->sourceDialect;
+        }
+
+        if (null !== $request->sourceSqlScript) {
+            @$body['sourceSqlScript'] = $request->sourceSqlScript;
+        }
+
+        if (null !== $request->targetDialect) {
+            @$body['targetDialect'] = $request->targetDialect;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SaveSkillAuditRecord',
+            'version' => '2025-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/bigdata/sql-translator/open/skill-audit/save',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveSkillAuditRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retains SQL audit records.
+     *
+     * @param request - SaveSkillAuditRecordRequest
+     *
+     * @returns SaveSkillAuditRecordResponse
+     *
+     * @param SaveSkillAuditRecordRequest $request
+     *
+     * @return SaveSkillAuditRecordResponse
+     */
+    public function saveSkillAuditRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->saveSkillAuditRecordWithOptions($request, $headers, $runtime);
     }
 
     /**
