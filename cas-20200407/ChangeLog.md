@@ -1,3 +1,8 @@
+2026-09-18 Version: 3.9.2
+- Update API GetCertificateDetail: add response parameters Body.DeploymentDesc.
+- Update API ListCertificates: add response parameters Body.CertificateList.$.DeploymentDesc.
+
+
 2026-09-07 Version: 3.9.1
 - Update API GetInstanceDetail: add response parameters Body.AutoReissueFlag.
 - Update API GetInstanceDetail: add response parameters Body.DeploymentResourceCount.

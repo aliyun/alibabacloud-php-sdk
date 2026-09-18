@@ -46,6 +46,11 @@ class certificateList extends Model
     /**
      * @var string
      */
+    public $deploymentDesc;
+
+    /**
+     * @var string
+     */
     public $domain;
 
     /**
@@ -105,6 +110,7 @@ class certificateList extends Model
         'certificateSource' => 'CertificateSource',
         'certificateStatus' => 'CertificateStatus',
         'commonName' => 'CommonName',
+        'deploymentDesc' => 'DeploymentDesc',
         'domain' => 'Domain',
         'existPrivateKey' => 'ExistPrivateKey',
         'fingerPrint' => 'FingerPrint',
@@ -158,6 +164,10 @@ class certificateList extends Model
 
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
+        }
+
+        if (null !== $this->deploymentDesc) {
+            $res['DeploymentDesc'] = $this->deploymentDesc;
         }
 
         if (null !== $this->domain) {
@@ -255,6 +265,10 @@ class certificateList extends Model
 
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];
+        }
+
+        if (isset($map['DeploymentDesc'])) {
+            $model->deploymentDesc = $map['DeploymentDesc'];
         }
 
         if (isset($map['Domain'])) {
