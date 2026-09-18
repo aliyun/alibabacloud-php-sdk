@@ -22,10 +22,16 @@ class ModifyMessagesFeedbacksRequest extends Model
      * @var string
      */
     public $rating;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'content' => 'Content',
         'messageId' => 'MessageId',
         'rating' => 'Rating',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ModifyMessagesFeedbacksRequest extends Model
 
         if (null !== $this->rating) {
             $res['Rating'] = $this->rating;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ModifyMessagesFeedbacksRequest extends Model
 
         if (isset($map['Rating'])) {
             $model->rating = $map['Rating'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

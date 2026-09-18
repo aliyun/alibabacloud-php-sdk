@@ -5641,6 +5641,10 @@ class RdsAi extends OpenApiClient
             @$query['Rating'] = $request->rating;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
