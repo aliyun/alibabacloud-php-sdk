@@ -18,6 +18,11 @@ class properties extends Model
     /**
      * @var bool
      */
+    public $enableDataMasking;
+
+    /**
+     * @var bool
+     */
     public $enableDecimal2;
 
     /**
@@ -66,6 +71,7 @@ class properties extends Model
     public $typeSystem;
     protected $_name = [
         'allowFullScan' => 'allowFullScan',
+        'enableDataMasking' => 'enableDataMasking',
         'enableDecimal2' => 'enableDecimal2',
         'enableDr' => 'enableDr',
         'enableTunnelQuotaRoute' => 'enableTunnelQuotaRoute',
@@ -94,6 +100,10 @@ class properties extends Model
         $res = [];
         if (null !== $this->allowFullScan) {
             $res['allowFullScan'] = $this->allowFullScan;
+        }
+
+        if (null !== $this->enableDataMasking) {
+            $res['enableDataMasking'] = $this->enableDataMasking;
         }
 
         if (null !== $this->enableDecimal2) {
@@ -149,6 +159,10 @@ class properties extends Model
         $model = new self();
         if (isset($map['allowFullScan'])) {
             $model->allowFullScan = $map['allowFullScan'];
+        }
+
+        if (isset($map['enableDataMasking'])) {
+            $model->enableDataMasking = $map['enableDataMasking'];
         }
 
         if (isset($map['enableDecimal2'])) {

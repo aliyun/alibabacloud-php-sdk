@@ -36,6 +36,11 @@ class properties extends Model
     /**
      * @var bool
      */
+    public $enableDataMasking;
+
+    /**
+     * @var bool
+     */
     public $enableDecimal2;
 
     /**
@@ -117,6 +122,7 @@ class properties extends Model
         'autoMvQuotaGb' => 'autoMvQuotaGb',
         'elderTunnelQuota' => 'elderTunnelQuota',
         'enableAutoMv' => 'enableAutoMv',
+        'enableDataMasking' => 'enableDataMasking',
         'enableDecimal2' => 'enableDecimal2',
         'enableDr' => 'enableDr',
         'enableFdcCacheForce' => 'enableFdcCacheForce',
@@ -172,6 +178,10 @@ class properties extends Model
 
         if (null !== $this->enableAutoMv) {
             $res['enableAutoMv'] = $this->enableAutoMv;
+        }
+
+        if (null !== $this->enableDataMasking) {
+            $res['enableDataMasking'] = $this->enableDataMasking;
         }
 
         if (null !== $this->enableDecimal2) {
@@ -263,6 +273,10 @@ class properties extends Model
 
         if (isset($map['enableAutoMv'])) {
             $model->enableAutoMv = $map['enableAutoMv'];
+        }
+
+        if (isset($map['enableDataMasking'])) {
+            $model->enableDataMasking = $map['enableDataMasking'];
         }
 
         if (isset($map['enableDecimal2'])) {

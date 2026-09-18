@@ -51,6 +51,16 @@ class ListProjectsRequest extends Model
     /**
      * @var string
      */
+    public $sortBy;
+
+    /**
+     * @var string
+     */
+    public $sortOrder;
+
+    /**
+     * @var string
+     */
     public $tenantId;
 
     /**
@@ -66,6 +76,8 @@ class ListProjectsRequest extends Model
         'quotaNickName' => 'quotaNickName',
         'region' => 'region',
         'saleTags' => 'saleTags',
+        'sortBy' => 'sortBy',
+        'sortOrder' => 'sortOrder',
         'tenantId' => 'tenantId',
         'type' => 'type',
     ];
@@ -108,6 +120,14 @@ class ListProjectsRequest extends Model
 
         if (null !== $this->saleTags) {
             $res['saleTags'] = $this->saleTags;
+        }
+
+        if (null !== $this->sortBy) {
+            $res['sortBy'] = $this->sortBy;
+        }
+
+        if (null !== $this->sortOrder) {
+            $res['sortOrder'] = $this->sortOrder;
         }
 
         if (null !== $this->tenantId) {
@@ -159,6 +179,14 @@ class ListProjectsRequest extends Model
 
         if (isset($map['saleTags'])) {
             $model->saleTags = $map['saleTags'];
+        }
+
+        if (isset($map['sortBy'])) {
+            $model->sortBy = $map['sortBy'];
+        }
+
+        if (isset($map['sortOrder'])) {
+            $model->sortOrder = $map['sortOrder'];
         }
 
         if (isset($map['tenantId'])) {

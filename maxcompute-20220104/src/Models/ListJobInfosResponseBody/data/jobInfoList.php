@@ -110,6 +110,11 @@ class jobInfoList extends Model
     public $region;
 
     /**
+     * @var string
+     */
+    public $roleSessionName;
+
+    /**
      * @var int
      */
     public $runningAtTime;
@@ -189,6 +194,7 @@ class jobInfoList extends Model
         'quotaNickname' => 'quotaNickname',
         'quotaType' => 'quotaType',
         'region' => 'region',
+        'roleSessionName' => 'roleSessionName',
         'runningAtTime' => 'runningAtTime',
         'runningTime' => 'runningTime',
         'sceneResults' => 'sceneResults',
@@ -292,6 +298,10 @@ class jobInfoList extends Model
 
         if (null !== $this->region) {
             $res['region'] = $this->region;
+        }
+
+        if (null !== $this->roleSessionName) {
+            $res['roleSessionName'] = $this->roleSessionName;
         }
 
         if (null !== $this->runningAtTime) {
@@ -438,6 +448,10 @@ class jobInfoList extends Model
 
         if (isset($map['region'])) {
             $model->region = $map['region'];
+        }
+
+        if (isset($map['roleSessionName'])) {
+            $model->roleSessionName = $map['roleSessionName'];
         }
 
         if (isset($map['runningAtTime'])) {

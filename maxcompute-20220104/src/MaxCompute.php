@@ -445,7 +445,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a data source and uses MaxCompute Migration Assist (MMA) to migrate data from the data source to MaxCompute.
+     * Creates a data source to perform data migration from the data source to MaxCompute through Migration Service (MMA 4.0).
      *
      * @param request - CreateMmsDataSourceRequest
      * @param headers - map
@@ -499,7 +499,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a data source and uses MaxCompute Migration Assist (MMA) to migrate data from the data source to MaxCompute.
+     * Creates a data source to perform data migration from the data source to MaxCompute through Migration Service (MMA 4.0).
      *
      * @param request - CreateMmsDataSourceRequest
      *
@@ -518,7 +518,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a MaxCompute Migration Assist (MMA) job to pull the metadata from a data source.
+     * Creates a job to pull metadata from a data source.
      *
      * @param request - CreateMmsFetchMetadataJobRequest
      * @param headers - map
@@ -565,7 +565,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a MaxCompute Migration Assist (MMA) job to pull the metadata from a data source.
+     * Creates a job to pull metadata from a data source.
      *
      * @param request - CreateMmsFetchMetadataJobRequest
      *
@@ -734,6 +734,9 @@ class MaxCompute extends OpenApiClient
     /**
      * CreateMmsTimer.
      *
+     * @remarks
+     * Before you call this API, make sure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for dedicated resource groups and elastic reserved computing resources in the Data Transmission Service.
+     *
      * @param request - CreateMmsTimerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -836,6 +839,9 @@ class MaxCompute extends OpenApiClient
 
     /**
      * CreateMmsTimer.
+     *
+     * @remarks
+     * Before you call this API, make sure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for dedicated resource groups and elastic reserved computing resources in the Data Transmission Service.
      *
      * @param request - CreateMmsTimerRequest
      *
@@ -975,7 +981,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * CreateQuota.
+     * Creates a quota. When you activate MaxCompute for the first time, you must first create a pay-as-you-go quota. If you create a subscription quota, automatic payment is deducted.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0) of MaxCompute.**
      *
      * @param request - CreateQuotaRequest
      * @param headers - map
@@ -1029,7 +1038,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * CreateQuota.
+     * Creates a quota. When you activate MaxCompute for the first time, you must first create a pay-as-you-go quota. If you create a subscription quota, automatic payment is deducted.
+     *
+     * @remarks
+     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0) of MaxCompute.**
      *
      * @param request - CreateQuotaRequest
      *
@@ -1227,7 +1239,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute Migration Assist (MMA) data source. For example, you can call this operation to delete the migration plan or metadata of a data source.
+     * Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1261,7 +1273,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute Migration Assist (MMA) data source. For example, you can call this operation to delete the migration plan or metadata of a data source.
+     * Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
      *
      * @returns DeleteMmsDataSourceResponse
      *
@@ -1278,7 +1290,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute Migration Assist (MMA) migration job.
+     * Deletes a MaxCompute Migration Assist (MMA) data migration plan.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1313,7 +1325,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute Migration Assist (MMA) migration job.
+     * Deletes a MaxCompute Migration Assist (MMA) data migration plan.
      *
      * @returns DeleteMmsJobResponse
      *
@@ -1331,7 +1343,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * DeleteMmsTimer.
+     * Deletes a timer from a specified data source.
+     *
+     * @remarks
+     * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive resource groups and elastic reserved computing resources of the Data Transfer Service.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1366,7 +1382,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * DeleteMmsTimer.
+     * Deletes a timer from a specified data source.
+     *
+     * @remarks
+     * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive resource groups and elastic reserved computing resources of the Data Transfer Service.
      *
      * @returns DeleteMmsTimerResponse
      *
@@ -1384,7 +1404,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute project.
+     * Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
      *
      * @param request - DeleteProjectRequest
      * @param headers - map
@@ -1427,7 +1447,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute project.
+     * Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
      *
      * @param request - DeleteProjectRequest
      *
@@ -1516,6 +1536,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Deletes a project-level role in MaxCompute.
+     *
      * @param request - DeleteRoleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1552,6 +1574,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Deletes a project-level role in MaxCompute.
+     *
      * @param request - DeleteRoleRequest
      *
      * @returns DeleteRoleResponse
@@ -1738,7 +1762,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about a job.
+     * Queries basic information about a job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1772,7 +1796,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about a job.
+     * Queries basic information about a job.
      *
      * @returns GetJobInfoResponse
      *
@@ -1876,7 +1900,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a MaxCompute Migration Assist (MMA) asynchronous task.
+     * Retrieves a single MMA asynchronous task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1911,7 +1935,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a MaxCompute Migration Assist (MMA) asynchronous task.
+     * Retrieves a single MMA asynchronous task.
      *
      * @returns GetMmsAsyncTaskResponse
      *
@@ -1929,7 +1953,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the information about a MaxCompute Migration Assist (MMA) data source.
+     * Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - GetMmsDataSourceRequest
      * @param headers - map
@@ -1976,7 +2000,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the information about a MaxCompute Migration Assist (MMA) data source.
+     * Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - GetMmsDataSourceRequest
      *
@@ -1996,7 +2020,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a database in a MaxCompute Migration Assist (MMA) data source.
+     * Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2031,7 +2055,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a database in a MaxCompute Migration Assist (MMA) data source.
+     * Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
      *
      * @returns GetMmsDbResponse
      *
@@ -2049,7 +2073,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the details of a MaxCompute Migration Assist (MMA) job that is used to query the metadata of a data source.
+     * Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2084,7 +2108,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the details of a MaxCompute Migration Assist (MMA) job that is used to query the metadata of a data source.
+     * Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
      *
      * @returns GetMmsFetchMetadataJobResponse
      *
@@ -2102,7 +2126,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the details of a MaxCompute Migration Assist (MMA) migration job.
+     * Retrieves the details of a single MMA migration plan.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2137,7 +2161,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the details of a MaxCompute Migration Assist (MMA) migration job.
+     * Retrieves the details of a single MMA migration plan.
      *
      * @returns GetMmsJobResponse
      *
@@ -2155,7 +2179,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a partition from a MaxCompute Migration Assist (MMA) data source.
+     * Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2190,7 +2214,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a partition from a MaxCompute Migration Assist (MMA) data source.
+     * Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
      *
      * @returns GetMmsPartitionResponse
      *
@@ -2208,7 +2232,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a table in a MaxCompute Migration Assist (MMA) data source.
+     * Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2243,7 +2267,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a table in a MaxCompute Migration Assist (MMA) data source.
+     * Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
      *
      * @returns GetMmsTableResponse
      *
@@ -2261,7 +2285,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the details of a migration task.
+     * Retrieves the details of a specific migration task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2296,7 +2320,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the details of a migration task.
+     * Retrieves the details of a specific migration task.
      *
      * @returns GetMmsTaskResponse
      *
@@ -2315,6 +2339,9 @@ class MaxCompute extends OpenApiClient
 
     /**
      * GetMmsTimer.
+     *
+     * @remarks
+     * Before using this API, review the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for dedicated resource groups and elastic reserved computing resources used for data transfer.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2350,6 +2377,9 @@ class MaxCompute extends OpenApiClient
 
     /**
      * GetMmsTimer.
+     *
+     * @remarks
+     * Before using this API, review the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for dedicated resource groups and elastic reserved computing resources used for data transfer.
      *
      * @returns GetMmsTimerResponse
      *
@@ -2432,7 +2462,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the information about a MaxCompute project.
+     * Queries the basic information of a MaxCompute project.
      *
      * @param request - GetProjectRequest
      * @param headers - map
@@ -2483,7 +2513,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the information about a MaxCompute project.
+     * Queries the basic information of a MaxCompute project.
      *
      * @param request - GetProjectRequest
      *
@@ -2503,7 +2533,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a specified level-1 quota.
+     * Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
      *
      * @param request - GetQuotaRequest
      * @param headers - map
@@ -2558,7 +2588,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a specified level-1 quota.
+     * Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
      *
      * @param request - GetQuotaRequest
      *
@@ -3089,6 +3119,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Retrieves the total storage information.
+     *
      * @param request - GetStorageAmountSummaryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3137,6 +3169,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Retrieves the total storage information.
+     *
      * @param request - GetStorageAmountSummaryRequest
      *
      * @returns GetStorageAmountSummaryResponse
@@ -3154,6 +3188,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Retrieves a summary of storage usage.
+     *
      * @param request - GetStorageSizeSummaryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3202,6 +3238,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Retrieves a summary of storage usage.
+     *
      * @param request - GetStorageSizeSummaryRequest
      *
      * @returns GetStorageSizeSummaryResponse
@@ -3219,6 +3257,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Retrieves the year-on-year (YoY) change in storage usage.
+     *
      * @param tmpReq - GetStorageSummaryComparedRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3282,6 +3322,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Retrieves the year-on-year (YoY) change in storage usage.
+     *
      * @param request - GetStorageSummaryComparedRequest
      *
      * @returns GetStorageSummaryComparedResponse
@@ -3486,7 +3528,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of computing resources used by a pay-as-you-go job.
+     * Lists job compute usage at the instance level.
      *
      * @param request - ListComputeMetricsByInstanceRequest
      * @param headers - map
@@ -3564,7 +3606,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of computing resources used by a pay-as-you-go job.
+     * Lists job compute usage at the instance level.
      *
      * @param request - ListComputeMetricsByInstanceRequest
      *
@@ -3583,7 +3625,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按Signature查看作业计算使用量明细.
+     * View detailed compute usage for jobs by Signature.
+     *
+     * @remarks
+     * Gets job details by signature.
      *
      * @param request - ListComputeMetricsBySignatureRequest
      * @param headers - map
@@ -3657,7 +3702,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按Signature查看作业计算使用量明细.
+     * View detailed compute usage for jobs by Signature.
+     *
+     * @remarks
+     * Gets job details by signature.
      *
      * @param request - ListComputeMetricsBySignatureRequest
      *
@@ -3676,7 +3724,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Get computeQuotaPlan list.
+     * Lists compute quota plans.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3710,7 +3758,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Get computeQuotaPlan list.
+     * Lists compute quota plans.
      *
      * @returns ListComputeQuotaPlanResponse
      *
@@ -3802,7 +3850,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 获取需要进行成本分析的项目或者实例.
+     * Retrieves a list of projects for cost analysis over a specified time period.
+     *
+     * @remarks
+     * Retrieves the projects for which cost analysis is required.
      *
      * @param request - ListInstancesRequest
      * @param headers - map
@@ -3848,7 +3899,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 获取需要进行成本分析的项目或者实例.
+     * Retrieves a list of projects for cost analysis over a specified time period.
+     *
+     * @remarks
+     * Retrieves the projects for which cost analysis is required.
      *
      * @param request - ListInstancesRequest
      *
@@ -3867,7 +3921,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Views a list of jobs.
+     * Queries the list of jobs.
      *
      * @param request - ListJobInfosRequest
      * @param headers - map
@@ -3995,7 +4049,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Views a list of jobs.
+     * Queries the list of jobs.
      *
      * @param request - ListJobInfosRequest
      *
@@ -4105,7 +4159,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Views a list of job snapshot data at a specific point in time.
+     * Retrieves job snapshot data at a specific point in time.
      *
      * @param request - ListJobSnapshotInfosRequest
      * @param headers - map
@@ -4221,7 +4275,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Views a list of job snapshot data at a specific point in time.
+     * Retrieves job snapshot data at a specific point in time.
      *
      * @param request - ListJobSnapshotInfosRequest
      *
@@ -4240,7 +4294,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsDataSourceConfigItems.
+     * Lists the configuration items for a specified data source type.
+     *
+     * @remarks
+     * Before calling this operation, ensure you understand the <props="china">[billing methods and price](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * <props="intl">[billing methods and price](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) for MaxCompute Reserved CUs.
      *
      * @param request - ListMmsDataSourceConfigItemsRequest
      * @param headers - map
@@ -4286,7 +4344,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsDataSourceConfigItems.
+     * Lists the configuration items for a specified data source type.
+     *
+     * @remarks
+     * Before calling this operation, ensure you understand the <props="china">[billing methods and price](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * <props="intl">[billing methods and price](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) for MaxCompute Reserved CUs.
      *
      * @param request - ListMmsDataSourceConfigItemsRequest
      *
@@ -4305,7 +4367,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of MaxCompute Migration Assist (MMA) data sources.
+     * MaxCompute Migration Assist (MMA) data sources.
      *
      * @param request - ListMmsDataSourcesRequest
      * @param headers - map
@@ -4363,7 +4425,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of MaxCompute Migration Assist (MMA) data sources.
+     * MaxCompute Migration Assist (MMA) data sources.
      *
      * @param request - ListMmsDataSourcesRequest
      *
@@ -4382,7 +4444,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of databases in a MaxCompute Migration Assist (MMA) data source.
+     * List databases in the MMA data source.
      *
      * @param tmpReq - ListMmsDbsRequest
      * @param headers - map
@@ -4447,7 +4509,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of databases in a MaxCompute Migration Assist (MMA) data source.
+     * List databases in the MMA data source.
      *
      * @param request - ListMmsDbsRequest
      *
@@ -4467,7 +4529,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of migration jobs.
+     * Lists migration jobs.
      *
      * @param request - ListMmsJobsRequest
      * @param headers - map
@@ -4550,7 +4612,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of migration jobs.
+     * Lists migration jobs.
      *
      * @param request - ListMmsJobsRequest
      *
@@ -4570,7 +4632,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of partitions in a MaxCompute Migration Assist (MMA) data source.
+     * Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param tmpReq - ListMmsPartitionsRequest
      * @param headers - map
@@ -4663,7 +4725,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of partitions in a MaxCompute Migration Assist (MMA) data source.
+     * Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - ListMmsPartitionsRequest
      *
@@ -4683,7 +4745,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of tables in a MaxCompute Migration Assist (MMA) data source.
+     * Lists the tables in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param tmpReq - ListMmsTablesRequest
      * @param headers - map
@@ -4788,7 +4850,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of tables in a MaxCompute Migration Assist (MMA) data source.
+     * Lists the tables in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - ListMmsTablesRequest
      *
@@ -4808,7 +4870,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of the execution logs of a single migration task.
+     * Lists the execution logs for a specific migration task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4843,7 +4905,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of the execution logs of a single migration task.
+     * Lists the execution logs for a specific migration task.
      *
      * @returns ListMmsTaskLogsResponse
      *
@@ -4861,7 +4923,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of migration tasks.
+     * Retrieves a list of data migration tasks.
      *
      * @param request - ListMmsTasksRequest
      * @param headers - map
@@ -4944,7 +5006,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of migration tasks.
+     * Retrieves a list of data migration tasks.
      *
      * @param request - ListMmsTasksRequest
      *
@@ -4964,7 +5026,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsTimerLogs.
+     * Lists the logs of a scheduled task for a specific data source.
+     *
+     * @remarks
+     * Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for the data transfer service, exclusive resource groups, and elastic reserved computing resources.
      *
      * @param request - ListMmsTimerLogsRequest
      * @param headers - map
@@ -5012,7 +5078,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsTimerLogs.
+     * Lists the logs of a scheduled task for a specific data source.
+     *
+     * @remarks
+     * Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for the data transfer service, exclusive resource groups, and elastic reserved computing resources.
      *
      * @param request - ListMmsTimerLogsRequest
      *
@@ -5033,7 +5103,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsTimers.
+     * Lists the timers for a specified data source.
+     *
+     * @remarks
+     * Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive resource groups and elastic reserved computing resources for Data Transmission Service.
      *
      * @param request - ListMmsTimersRequest
      * @param headers - map
@@ -5096,7 +5170,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsTimers.
+     * Lists the timers for a specified data source.
+     *
+     * @remarks
+     * Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive resource groups and elastic reserved computing resources for Data Transmission Service.
      *
      * @param request - ListMmsTimersRequest
      *
@@ -5218,7 +5296,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of MaxCompute projects.
+     * Retrieves a list of MaxCompute projects.
      *
      * @param request - ListProjectsRequest
      * @param headers - map
@@ -5268,6 +5346,14 @@ class MaxCompute extends OpenApiClient
             @$query['saleTags'] = $request->saleTags;
         }
 
+        if (null !== $request->sortBy) {
+            @$query['sortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['sortOrder'] = $request->sortOrder;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -5296,7 +5382,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of MaxCompute projects.
+     * Retrieves a list of MaxCompute projects.
      *
      * @param request - ListProjectsRequest
      *
@@ -5315,7 +5401,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries quotas.
+     * Retrieves a list of quotas.
      *
      * @param request - ListQuotasRequest
      * @param headers - map
@@ -5381,7 +5467,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries quotas.
+     * Retrieves a list of quotas.
      *
      * @param request - ListQuotasRequest
      *
@@ -5593,7 +5679,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+     * Retrieves storage details for the partitions of a partitioned table in a MaxCompute project.
      *
      * @param tmpReq - ListStoragePartitionsInfoRequest
      * @param headers - map
@@ -5679,7 +5765,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+     * Retrieves storage details for the partitions of a partitioned table in a MaxCompute project.
      *
      * @param request - ListStoragePartitionsInfoRequest
      *
@@ -5700,6 +5786,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Retrieves the storage details of projects.
+     *
      * @param request - ListStorageProjectsInfoRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5772,6 +5860,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Retrieves the storage details of projects.
+     *
      * @param request - ListStorageProjectsInfoRequest
      *
      * @returns ListStorageProjectsInfoResponse
@@ -6221,7 +6311,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 查询quota的资源使用信息.
+     * Queries the time series data of resource consumption for a quota.
      *
      * @param request - QueryQuotaMetricRequest
      * @param headers - map
@@ -6290,7 +6380,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 查询quota的资源使用信息.
+     * Queries the time series data of resource consumption for a quota.
      *
      * @param request - QueryQuotaMetricRequest
      *
@@ -6310,7 +6400,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries time series metrics of stored data.
+     * Queries time-series metrics of data storage.
      *
      * @param request - QueryStorageMetricRequest
      * @param headers - map
@@ -6367,7 +6457,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries time series metrics of stored data.
+     * Queries time-series metrics of data storage.
      *
      * @param request - QueryStorageMetricRequest
      *
@@ -6387,7 +6477,16 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the metrics of the Tunnel service within a specified time range.
+     * Queries metric data for the Tunnel Data Transmission Service within a specified time range.
+     *
+     * @remarks
+     * - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
+     * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
+     * - The `metric` parameter is also required. It specifies the type of metric to query.
+     * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
+     * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
+     * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
+     * - Ensure all parameters meet the requirements in this document to prevent request failures.
      *
      * @param request - QueryTunnelMetricRequest
      * @param headers - map
@@ -6468,7 +6567,16 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the metrics of the Tunnel service within a specified time range.
+     * Queries metric data for the Tunnel Data Transmission Service within a specified time range.
+     *
+     * @remarks
+     * - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
+     * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
+     * - The `metric` parameter is also required. It specifies the type of metric to query.
+     * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
+     * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
+     * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
+     * - Ensure all parameters meet the requirements in this document to prevent request failures.
      *
      * @param request - QueryTunnelMetricRequest
      *
@@ -6488,7 +6596,16 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the metrics of the Tunnel service within a specified time range.
+     * Queries details about the Tunnel Data Transmission Service for a specified time range.
+     *
+     * @remarks
+     * ## Usage notes
+     * - You can use this API to query Tunnel metrics, including slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
+     * - The `quotaNickname` and `project` parameters cannot both be empty.
+     * - If the `groupList` parameter includes `table` or `ip`, the `project` parameter is required. If groupList includes `ip`, the `tableList` parameter is also required.
+     * - The `orderColumn` parameter supports `maxValue`, `minValue`, `avgValue`, and `sumValue` (only for `throughput_summary`). If this parameter is omitted, the results are not sorted.
+     * - The `ascOrder` parameter defaults to `false` (descending order).
+     * - The `limit` parameter specifies the number of results to return, with a default of 10 and a maximum of 100.
      *
      * @param request - QueryTunnelMetricDetailRequest
      * @param headers - map
@@ -6573,7 +6690,16 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the metrics of the Tunnel service within a specified time range.
+     * Queries details about the Tunnel Data Transmission Service for a specified time range.
+     *
+     * @remarks
+     * ## Usage notes
+     * - You can use this API to query Tunnel metrics, including slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
+     * - The `quotaNickname` and `project` parameters cannot both be empty.
+     * - If the `groupList` parameter includes `table` or `ip`, the `project` parameter is required. If groupList includes `ip`, the `tableList` parameter is also required.
+     * - The `orderColumn` parameter supports `maxValue`, `minValue`, `avgValue`, and `sumValue` (only for `throughput_summary`). If this parameter is omitted, the results are not sorted.
+     * - The `ascOrder` parameter defaults to `false` (descending order).
+     * - The `limit` parameter specifies the number of results to return, with a default of 10 and a maximum of 100.
      *
      * @param request - QueryTunnelMetricDetailRequest
      *
@@ -6593,7 +6719,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retries a migration job.
+     * Retries a data migration job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6628,7 +6754,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retries a migration job.
+     * Retries a data migration job.
      *
      * @returns RetryMmsJobResponse
      *
@@ -6646,7 +6772,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * RetryMmsTask.
+     * Retries a migration task.
+     *
+     * @remarks
+     * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for the data transfer service, dedicated resource groups, and elastic reserved compute resources.
      *
      * @param request - RetryMmsTaskRequest
      * @param headers - map
@@ -6684,7 +6814,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * RetryMmsTask.
+     * Retries a migration task.
+     *
+     * @remarks
+     * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for the data transfer service, dedicated resource groups, and elastic reserved compute resources.
      *
      * @param request - RetryMmsTaskRequest
      *
@@ -6705,7 +6839,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Starts a migration job.
+     * Starts a data migration job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6740,7 +6874,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Starts a migration job.
+     * Starts a data migration job.
      *
      * @returns StartMmsJobResponse
      *
@@ -6758,7 +6892,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Stops a migration job.
+     * Stops a data migration job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6793,7 +6927,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Stops a migration job.
+     * Stops a data migration job.
      *
      * @returns StopMmsJobResponse
      *
@@ -6811,7 +6945,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按实例统计或者按计费项统计费用信息.
+     * Summarizes cost information by instance or billable item.
+     *
+     * @remarks
+     * Summarizes cost information by instance or billable item.
      *
      * @param request - SumBillsRequest
      * @param headers - map
@@ -6869,7 +7006,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按实例统计或者按计费项统计费用信息.
+     * Summarizes cost information by instance or billable item.
+     *
+     * @remarks
+     * Summarizes cost information by instance or billable item.
      *
      * @param request - SumBillsRequest
      *
@@ -6888,7 +7028,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按实例统计或者按计费项逐日进行费用统计
+     * Retrieves a daily summary of costs, grouped by instance or billable item.
+     *
+     * @remarks
+     * Retrieves a daily summary of costs, grouped by instance or billable item.
      *
      * @param request - SumBillsByDateRequest
      * @param headers - map
@@ -6946,7 +7089,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按实例统计或者按计费项逐日进行费用统计
+     * Retrieves a daily summary of costs, grouped by instance or billable item.
+     *
+     * @remarks
+     * Retrieves a daily summary of costs, grouped by instance or billable item.
      *
      * @param request - SumBillsByDateRequest
      *
@@ -6965,7 +7111,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按项目或者实例统计计算用量.
+     * Calculates the total number of usage records.
+     *
+     * @remarks
+     * Calculates the total number of usage records over a specified time range.
      *
      * @param request - SumComputeMetricsByRecordRequest
      * @param headers - map
@@ -7015,7 +7164,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按项目或者实例统计计算用量.
+     * Calculates the total number of usage records.
+     *
+     * @remarks
+     * Calculates the total number of usage records over a specified time range.
      *
      * @param request - SumComputeMetricsByRecordRequest
      *
@@ -7034,7 +7186,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 统计扫描量计算类的使用量或者CU时计算类使用量.
+     * Aggregates compute usage by scanned data volume or CU usage.
+     *
+     * @remarks
+     * Aggregates compute usage by scanned data volume or CU usage.
      *
      * @param request - SumComputeMetricsByUsageRequest
      * @param headers - map
@@ -7088,7 +7243,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 统计扫描量计算类的使用量或者CU时计算类使用量.
+     * Aggregates compute usage by scanned data volume or CU usage.
+     *
+     * @remarks
+     * Aggregates compute usage by scanned data volume or CU usage.
      *
      * @param request - SumComputeMetricsByUsageRequest
      *
@@ -7107,7 +7265,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按实例统或者按计费项统计的明细信息.
+     * View a daily breakdown of costs by instance or billable item.
      *
      * @param request - SumDailyBillsByItemRequest
      * @param headers - map
@@ -7173,7 +7331,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按实例统或者按计费项统计的明细信息.
+     * View a daily breakdown of costs by instance or billable item.
      *
      * @param request - SumDailyBillsByItemRequest
      *
@@ -7192,7 +7350,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按照project或者存储类型按天统计存储用量.
+     * Retrieves aggregated storage metrics over a specified date range, grouped by project or storage class.
      *
      * @param request - SumStorageMetricsByDateRequest
      * @param headers - map
@@ -7246,7 +7404,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按照project或者存储类型按天统计存储用量.
+     * Retrieves aggregated storage metrics over a specified date range, grouped by project or storage class.
      *
      * @param request - SumStorageMetricsByDateRequest
      *
@@ -7265,7 +7423,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按项目统计各种类型存储使用量统计
+     * Aggregates storage usage by storage type.
+     *
+     * @remarks
+     * Aggregates storage usage by storage type.
      *
      * @param request - SumStorageMetricsByTypeRequest
      * @param headers - map
@@ -7319,7 +7480,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 按项目统计各种类型存储使用量统计
+     * Aggregates storage usage by storage type.
+     *
+     * @remarks
+     * Aggregates storage usage by storage type.
      *
      * @param request - SumStorageMetricsByTypeRequest
      *
@@ -7338,7 +7502,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * TriggerMmsTimer.
+     * Triggers a timer for a specific datasource.
      *
      * @param request - TriggerMmsTimerRequest
      * @param headers - map
@@ -7376,7 +7540,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * TriggerMmsTimer.
+     * Triggers a timer for a specific datasource.
      *
      * @param request - TriggerMmsTimerRequest
      *
@@ -7472,11 +7636,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update the time-based plan for computing quota.
+     * Updates the time-based schedule for a computing quota.
      *
      * @remarks
-     * Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
-     * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+     * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
      *
      * @param request - UpdateComputeQuotaScheduleRequest
      * @param headers - map
@@ -7520,11 +7683,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update the time-based plan for computing quota.
+     * Updates the time-based schedule for a computing quota.
      *
      * @remarks
-     * Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
-     * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+     * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
      *
      * @param request - UpdateComputeQuotaScheduleRequest
      *
@@ -7544,7 +7706,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the basic configuration of a MaxCompute quota. For example, you can call this operation to add or delete a level-2 quota, define the basic attributes of a level-2 quota, and define the configuration of compute units (CUs) for a quota plan that is in effect.
+     * Updates the basic configuration of a MaxCompute quota, including adding or deleting level-2 quotas, defining the basic attributes of a level-2 quota, and configuring compute units (CUs) for a quota plan that is in effect.
      *
      * @param request - UpdateComputeSubQuotaRequest
      * @param headers - map
@@ -7587,7 +7749,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the basic configuration of a MaxCompute quota. For example, you can call this operation to add or delete a level-2 quota, define the basic attributes of a level-2 quota, and define the configuration of compute units (CUs) for a quota plan that is in effect.
+     * Updates the basic configuration of a MaxCompute quota, including adding or deleting level-2 quotas, defining the basic attributes of a level-2 quota, and configuring compute units (CUs) for a quota plan that is in effect.
      *
      * @param request - UpdateComputeSubQuotaRequest
      *
@@ -7607,7 +7769,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the metadata of a MaxCompute Migration Assist (MMA) data source.
+     * Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - UpdateMmsDataSourceRequest
      * @param headers - map
@@ -7662,7 +7824,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the metadata of a MaxCompute Migration Assist (MMA) data source.
+     * Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - UpdateMmsDataSourceRequest
      *
@@ -7682,7 +7844,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 功能：.
+     * Updates the metadata of a specified database.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Data Transmission Service dedicated resource groups and elastic reserved computing resources.
      *
      * @param request - UpdateMmsDbRequest
      * @param headers - map
@@ -7734,7 +7899,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 功能：.
+     * Updates the metadata of a specified database.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Data Transmission Service dedicated resource groups and elastic reserved computing resources.
      *
      * @param request - UpdateMmsDbRequest
      *
@@ -7755,7 +7923,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 更新表元数据.
+     * Updates table metadata.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups for data transmission and elastic reserved computing resources.
      *
      * @param request - UpdateMmsTableRequest
      * @param headers - map
@@ -7811,7 +7983,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 更新表元数据.
+     * Updates table metadata.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups for data transmission and elastic reserved computing resources.
      *
      * @param request - UpdateMmsTableRequest
      *
@@ -7832,7 +8008,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 更新表元数据.
+     * Updates table metadata.
+     *
+     * @remarks
+     * Before you call this API, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for Data Transmission Service exclusive resource groups and elastic reserved computing resources.
      *
      * @param request - UpdateMmsTablesRequest
      * @param headers - map
@@ -7895,7 +8075,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 更新表元数据.
+     * Updates table metadata.
+     *
+     * @remarks
+     * Before you call this API, make sure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
+     * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for Data Transmission Service exclusive resource groups and elastic reserved computing resources.
      *
      * @param request - UpdateMmsTablesRequest
      *
@@ -7915,7 +8099,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * UpdateMmsTimer.
+     * Updates a scheduled task.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you fully understand the <props="china">[billing methods and pricing](https://www.alibabacloud.com/help/en/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of dedicated resource groups and elastic reserved compute resources for Data Transmission Service.
      *
      * @param request - UpdateMmsTimerRequest
      * @param headers - map
@@ -7943,6 +8130,14 @@ class MaxCompute extends OpenApiClient
             @$body['stopped'] = $request->stopped;
         }
 
+        if (null !== $request->tableBlackList) {
+            @$body['tableBlackList'] = $request->tableBlackList;
+        }
+
+        if (null !== $request->tableWhiteList) {
+            @$body['tableWhiteList'] = $request->tableWhiteList;
+        }
+
         if (null !== $request->value) {
             @$body['value'] = $request->value;
         }
@@ -7967,7 +8162,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * UpdateMmsTimer.
+     * Updates a scheduled task.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you fully understand the <props="china">[billing methods and pricing](https://www.alibabacloud.com/help/en/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of dedicated resource groups and elastic reserved compute resources for Data Transmission Service.
      *
      * @param request - UpdateMmsTimerRequest
      *
@@ -8048,7 +8246,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update Project Basic Information.
+     * Modifies the basic information of a project.
      *
      * @param request - UpdateProjectBasicMetaRequest
      * @param headers - map
@@ -8095,7 +8293,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update Project Basic Information.
+     * Modifies the basic information of a project.
      *
      * @param request - UpdateProjectBasicMetaRequest
      *
@@ -8236,7 +8434,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 将project的二层模型升级为三层模型.
+     * Upgrades a project\\"s Layer 2 model to a Layer 3 model.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8270,7 +8468,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 将project的二层模型升级为三层模型.
+     * Upgrades a project\\"s Layer 2 model to a Layer 3 model.
      *
      * @returns UpdateProjectModelTierResponse
      *
@@ -8425,10 +8623,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+     * Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
+     * Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
      *
      * @param request - UpdateTunnelQuotaTimerRequest
      * @param headers - map
@@ -8472,10 +8670,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+     * Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
+     * Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
      *
      * @param request - UpdateTunnelQuotaTimerRequest
      *
@@ -8495,7 +8693,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Add or remove users from a project role.
+     * Adds or removes users from a project role.
      *
      * @param request - UpdateUsersToRoleRequest
      * @param headers - map
@@ -8543,7 +8741,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Add or remove users from a project role.
+     * Adds or removes users from a project role.
      *
      * @param request - UpdateUsersToRoleRequest
      *
