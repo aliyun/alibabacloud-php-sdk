@@ -150,9 +150,24 @@ class GetJobResponseBody extends Model
     public $reasonMessage;
 
     /**
+     * @var int
+     */
+    public $requestCPU;
+
+    /**
+     * @var float
+     */
+    public $requestGPU;
+
+    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var float
+     */
+    public $requestMemory;
 
     /**
      * @var string
@@ -281,7 +296,10 @@ class GetJobResponseBody extends Model
         'priority' => 'Priority',
         'reasonCode' => 'ReasonCode',
         'reasonMessage' => 'ReasonMessage',
+        'requestCPU' => 'RequestCPU',
+        'requestGPU' => 'RequestGPU',
         'requestId' => 'RequestId',
+        'requestMemory' => 'RequestMemory',
         'resourceId' => 'ResourceId',
         'resourceLevel' => 'ResourceLevel',
         'resourceType' => 'ResourceType',
@@ -505,8 +523,20 @@ class GetJobResponseBody extends Model
             $res['ReasonMessage'] = $this->reasonMessage;
         }
 
+        if (null !== $this->requestCPU) {
+            $res['RequestCPU'] = $this->requestCPU;
+        }
+
+        if (null !== $this->requestGPU) {
+            $res['RequestGPU'] = $this->requestGPU;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->requestMemory) {
+            $res['RequestMemory'] = $this->requestMemory;
         }
 
         if (null !== $this->resourceId) {
@@ -774,8 +804,20 @@ class GetJobResponseBody extends Model
             $model->reasonMessage = $map['ReasonMessage'];
         }
 
+        if (isset($map['RequestCPU'])) {
+            $model->requestCPU = $map['RequestCPU'];
+        }
+
+        if (isset($map['RequestGPU'])) {
+            $model->requestGPU = $map['RequestGPU'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['RequestMemory'])) {
+            $model->requestMemory = $map['RequestMemory'];
         }
 
         if (isset($map['ResourceId'])) {
