@@ -6,22 +6,17 @@ namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetSourceUploadSignatureRequest extends Model
+class CreateGroupPublicUrlRequest extends Model
 {
     /**
      * @var string
      */
-    public $contentType;
-
-    /**
-     * @var int
-     */
-    public $expires;
+    public $description;
 
     /**
      * @var string
      */
-    public $filename;
+    public $directoryId;
 
     /**
      * @var string
@@ -31,24 +26,41 @@ class GetSourceUploadSignatureRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $notes;
+
+    /**
+     * @var string
+     */
     public $operatingObjectName;
 
     /**
      * @var string
      */
-    public $scope;
+    public $originalUrl;
+
+    /**
+     * @var string
+     */
+    public $sourceTags;
 
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
-        'contentType' => 'contentType',
-        'expires' => 'expires',
-        'filename' => 'filename',
+        'description' => 'description',
+        'directoryId' => 'directoryId',
         'groupId' => 'groupId',
+        'name' => 'name',
+        'notes' => 'notes',
         'operatingObjectName' => 'operatingObjectName',
-        'scope' => 'scope',
+        'originalUrl' => 'originalUrl',
+        'sourceTags' => 'sourceTags',
         'tenantId' => 'tenantId',
     ];
 
@@ -60,28 +72,36 @@ class GetSourceUploadSignatureRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->contentType) {
-            $res['contentType'] = $this->contentType;
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
 
-        if (null !== $this->expires) {
-            $res['expires'] = $this->expires;
-        }
-
-        if (null !== $this->filename) {
-            $res['filename'] = $this->filename;
+        if (null !== $this->directoryId) {
+            $res['directoryId'] = $this->directoryId;
         }
 
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
         }
 
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+
+        if (null !== $this->notes) {
+            $res['notes'] = $this->notes;
+        }
+
         if (null !== $this->operatingObjectName) {
             $res['operatingObjectName'] = $this->operatingObjectName;
         }
 
-        if (null !== $this->scope) {
-            $res['scope'] = $this->scope;
+        if (null !== $this->originalUrl) {
+            $res['originalUrl'] = $this->originalUrl;
+        }
+
+        if (null !== $this->sourceTags) {
+            $res['sourceTags'] = $this->sourceTags;
         }
 
         if (null !== $this->tenantId) {
@@ -99,28 +119,36 @@ class GetSourceUploadSignatureRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['contentType'])) {
-            $model->contentType = $map['contentType'];
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
 
-        if (isset($map['expires'])) {
-            $model->expires = $map['expires'];
-        }
-
-        if (isset($map['filename'])) {
-            $model->filename = $map['filename'];
+        if (isset($map['directoryId'])) {
+            $model->directoryId = $map['directoryId'];
         }
 
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
         }
 
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+
+        if (isset($map['notes'])) {
+            $model->notes = $map['notes'];
+        }
+
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
         }
 
-        if (isset($map['scope'])) {
-            $model->scope = $map['scope'];
+        if (isset($map['originalUrl'])) {
+            $model->originalUrl = $map['originalUrl'];
+        }
+
+        if (isset($map['sourceTags'])) {
+            $model->sourceTags = $map['sourceTags'];
         }
 
         if (isset($map['tenantId'])) {

@@ -5,8 +5,9 @@
 namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGroupDirectoriesResponseBody\directories;
 
-class SendChatMessageResponseBody extends Model
+class ListGroupDirectoriesResponseBody extends Model
 {
     /**
      * @var string
@@ -14,14 +15,9 @@ class SendChatMessageResponseBody extends Model
     public $code;
 
     /**
-     * @var string
+     * @var directories[]
      */
-    public $content;
-
-    /**
-     * @var mixed
-     */
-    public $data;
+    public $directories;
 
     /**
      * @var string
@@ -34,26 +30,22 @@ class SendChatMessageResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $workMode;
+    public $totalCount;
     protected $_name = [
         'code' => 'code',
-        'content' => 'content',
-        'data' => 'data',
+        'directories' => 'directories',
         'message' => 'message',
         'requestId' => 'requestId',
-        'type' => 'type',
-        'workMode' => 'workMode',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->directories)) {
+            Model::validateArray($this->directories);
+        }
         parent::validate();
     }
 
@@ -64,12 +56,15 @@ class SendChatMessageResponseBody extends Model
             $res['code'] = $this->code;
         }
 
-        if (null !== $this->content) {
-            $res['content'] = $this->content;
-        }
-
-        if (null !== $this->data) {
-            $res['data'] = $this->data;
+        if (null !== $this->directories) {
+            if (\is_array($this->directories)) {
+                $res['directories'] = [];
+                $n1 = 0;
+                foreach ($this->directories as $item1) {
+                    $res['directories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->message) {
@@ -80,12 +75,8 @@ class SendChatMessageResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
-        }
-
-        if (null !== $this->workMode) {
-            $res['workMode'] = $this->workMode;
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -103,12 +94,15 @@ class SendChatMessageResponseBody extends Model
             $model->code = $map['code'];
         }
 
-        if (isset($map['content'])) {
-            $model->content = $map['content'];
-        }
-
-        if (isset($map['data'])) {
-            $model->data = $map['data'];
+        if (isset($map['directories'])) {
+            if (!empty($map['directories'])) {
+                $model->directories = [];
+                $n1 = 0;
+                foreach ($map['directories'] as $item1) {
+                    $model->directories[$n1] = directories::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['message'])) {
@@ -119,12 +113,8 @@ class SendChatMessageResponseBody extends Model
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
-        }
-
-        if (isset($map['workMode'])) {
-            $model->workMode = $map['workMode'];
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

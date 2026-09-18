@@ -67,6 +67,11 @@ class SendChatMessageShrinkRequest extends Model
      * @var string
      */
     public $tenantId;
+
+    /**
+     * @var string
+     */
+    public $workMode;
     protected $_name = [
         'content' => 'content',
         'contentType' => 'contentType',
@@ -80,6 +85,7 @@ class SendChatMessageShrinkRequest extends Model
         'stream' => 'stream',
         'taskExecutionShrink' => 'taskExecution',
         'tenantId' => 'tenantId',
+        'workMode' => 'workMode',
     ];
 
     public function validate()
@@ -136,6 +142,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
+        }
+
+        if (null !== $this->workMode) {
+            $res['workMode'] = $this->workMode;
         }
 
         return $res;
@@ -195,6 +205,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
+        }
+
+        if (isset($map['workMode'])) {
+            $model->workMode = $map['workMode'];
         }
 
         return $model;

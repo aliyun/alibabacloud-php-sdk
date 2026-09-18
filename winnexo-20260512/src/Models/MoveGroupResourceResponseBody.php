@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SendChatMessageResponseBody extends Model
+class MoveGroupResourceResponseBody extends Model
 {
     /**
      * @var string
@@ -16,12 +16,7 @@ class SendChatMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $content;
-
-    /**
-     * @var mixed
-     */
-    public $data;
+    public $groupId;
 
     /**
      * @var string
@@ -36,20 +31,25 @@ class SendChatMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $type;
+    public $sourceDirectoryId;
 
     /**
      * @var string
      */
-    public $workMode;
+    public $sourceId;
+
+    /**
+     * @var string
+     */
+    public $targetDirectoryId;
     protected $_name = [
         'code' => 'code',
-        'content' => 'content',
-        'data' => 'data',
+        'groupId' => 'groupId',
         'message' => 'message',
         'requestId' => 'requestId',
-        'type' => 'type',
-        'workMode' => 'workMode',
+        'sourceDirectoryId' => 'sourceDirectoryId',
+        'sourceId' => 'sourceId',
+        'targetDirectoryId' => 'targetDirectoryId',
     ];
 
     public function validate()
@@ -64,12 +64,8 @@ class SendChatMessageResponseBody extends Model
             $res['code'] = $this->code;
         }
 
-        if (null !== $this->content) {
-            $res['content'] = $this->content;
-        }
-
-        if (null !== $this->data) {
-            $res['data'] = $this->data;
+        if (null !== $this->groupId) {
+            $res['groupId'] = $this->groupId;
         }
 
         if (null !== $this->message) {
@@ -80,12 +76,16 @@ class SendChatMessageResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->sourceDirectoryId) {
+            $res['sourceDirectoryId'] = $this->sourceDirectoryId;
         }
 
-        if (null !== $this->workMode) {
-            $res['workMode'] = $this->workMode;
+        if (null !== $this->sourceId) {
+            $res['sourceId'] = $this->sourceId;
+        }
+
+        if (null !== $this->targetDirectoryId) {
+            $res['targetDirectoryId'] = $this->targetDirectoryId;
         }
 
         return $res;
@@ -103,12 +103,8 @@ class SendChatMessageResponseBody extends Model
             $model->code = $map['code'];
         }
 
-        if (isset($map['content'])) {
-            $model->content = $map['content'];
-        }
-
-        if (isset($map['data'])) {
-            $model->data = $map['data'];
+        if (isset($map['groupId'])) {
+            $model->groupId = $map['groupId'];
         }
 
         if (isset($map['message'])) {
@@ -119,12 +115,16 @@ class SendChatMessageResponseBody extends Model
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['sourceDirectoryId'])) {
+            $model->sourceDirectoryId = $map['sourceDirectoryId'];
         }
 
-        if (isset($map['workMode'])) {
-            $model->workMode = $map['workMode'];
+        if (isset($map['sourceId'])) {
+            $model->sourceId = $map['sourceId'];
+        }
+
+        if (isset($map['targetDirectoryId'])) {
+            $model->targetDirectoryId = $map['targetDirectoryId'];
         }
 
         return $model;

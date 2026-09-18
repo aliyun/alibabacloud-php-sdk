@@ -69,6 +69,11 @@ class SendChatMessageRequest extends Model
      * @var string
      */
     public $tenantId;
+
+    /**
+     * @var string
+     */
+    public $workMode;
     protected $_name = [
         'content' => 'content',
         'contentType' => 'contentType',
@@ -82,6 +87,7 @@ class SendChatMessageRequest extends Model
         'stream' => 'stream',
         'taskExecution' => 'taskExecution',
         'tenantId' => 'tenantId',
+        'workMode' => 'workMode',
     ];
 
     public function validate()
@@ -163,6 +169,10 @@ class SendChatMessageRequest extends Model
             $res['tenantId'] = $this->tenantId;
         }
 
+        if (null !== $this->workMode) {
+            $res['workMode'] = $this->workMode;
+        }
+
         return $res;
     }
 
@@ -234,6 +244,10 @@ class SendChatMessageRequest extends Model
 
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
+        }
+
+        if (isset($map['workMode'])) {
+            $model->workMode = $map['workMode'];
         }
 
         return $model;

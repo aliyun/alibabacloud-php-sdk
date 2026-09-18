@@ -38,12 +38,25 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGraphResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupAliDingChatRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupAliDingChatResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupAliDingChatShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupAliDingDocRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupAliDingDocResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupDingtalkChatRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupDingtalkChatResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupDingtalkChatShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupDirectoryRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupFeishuChatRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupFeishuChatResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupFeishuChatShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupFeishuDocRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupFeishuDocResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupFeishuDocShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupFileRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupFileResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupPublicUrlRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupPublicUrlResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupTextRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupTextResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseAliDingDocRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseAliDingDocResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseDirectoryRequest;
@@ -53,6 +66,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseFeishuDocRespon
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseFeishuDocShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseFileResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBasePublicUrlRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBasePublicUrlResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseTextRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseTextResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalAliDingChatRequest;
@@ -84,6 +99,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFeishuMinuteRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFeishuMinuteResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalFileResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalPublicUrlRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalPublicUrlResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalTextRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalTextResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalVoiceMeetingHeaders;
@@ -122,6 +139,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetGraphSchemaDetailRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetGraphSchemaDetailResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetGraphSchemaRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetGraphSchemaResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetGroupSourceRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetGroupSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetInstanceExpireTimeRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetInstanceExpireTimeResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetKnowledgeBaseSourceRequest;
@@ -186,6 +205,11 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGraphSchemasResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGraphSchemasShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGraphsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGraphsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGroupDirectoriesRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGroupDirectoriesResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGroupDirectoryRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGroupDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGroupDirectoryShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListKnowledgeBaseDirectoriesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListKnowledgeBaseDirectoriesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListOperatingObjectFavoritesRequest;
@@ -220,12 +244,16 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListVisibleKnowledgeBaseContentsSh
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListVisibleKnowledgeBasesHeaders;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListVisibleKnowledgeBasesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListVisibleKnowledgeBasesResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveGroupResourceRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveGroupResourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveKnowledgeBaseResourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveKnowledgeBaseResourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveResourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveResourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\OfflineAnnouncementRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\OfflineAnnouncementResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewGroupSourceRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewGroupSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewKnowledgeBaseSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewKnowledgeBaseSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewPersonalSourceHeaders;
@@ -248,8 +276,12 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\RenameKnowledgeBaseSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RenameKnowledgeBaseSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RenameSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RenameSourceResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReparseGroupSourceRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReparseGroupSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReparseSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReparseSourceResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceGroupSourceFileRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceGroupSourceFileResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseSourceFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseSourceFileResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceObjectBindingsRequest;
@@ -273,6 +305,9 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\RevokeAgentUsersShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RunSkillRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RunSkillResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RunSkillShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGraphDraftBatchDefineRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGraphDraftBatchDefineResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGraphDraftBatchDefineShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGraphDraftResourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGraphDraftResourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGroupOutputFileToGroupResourceRequest;
@@ -313,6 +348,10 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateDirectoryResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateGraphInfoRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateGraphInfoResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateGroupDirectoryRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateGroupDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateGroupSourceContentRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateGroupSourceContentResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseDirectoryResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseSourceContentRequest;
@@ -1337,6 +1376,99 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Collects an Alibaba DingTalk online document to a collaborative share.
+     *
+     * @remarks
+     * An authorized member collects a document to a physical folder in the collaborative share. Uses the fixed ALI_DING/Vacuum channel and processes the request asynchronously. Query the resource status after submission.
+     *
+     * @param Request - CreateGroupAliDingDocRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupAliDingDocResponse
+     *
+     * @param CreateGroupAliDingDocRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateGroupAliDingDocResponse
+     */
+    public function createGroupAliDingDocWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->filePublicUrl) {
+            @$body['filePublicUrl'] = $request->filePublicUrl;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGroupAliDingDoc',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createGroupAliDingDoc',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGroupAliDingDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Collects an Alibaba DingTalk online document to a collaborative share.
+     *
+     * @remarks
+     * An authorized member collects a document to a physical folder in the collaborative share. Uses the fixed ALI_DING/Vacuum channel and processes the request asynchronously. Query the resource status after submission.
+     *
+     * @param Request - CreateGroupAliDingDocRequest
+     *
+     * @returns CreateGroupAliDingDocResponse
+     *
+     * @param CreateGroupAliDingDocRequest $request
+     *
+     * @return CreateGroupAliDingDocResponse
+     */
+    public function createGroupAliDingDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGroupAliDingDocWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates knowledge from a standard DingTalk group chat for a group.
      *
      * @remarks
@@ -1462,6 +1594,202 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Creates a folder in the collaborative share resource directory.
+     *
+     * @remarks
+     * Active space members can create physical subdirectories. If the parent folder is omitted or set to root, the internal root is used and lazily created on first access. The parent folder must belong to the current space.
+     *
+     * @param Request - CreateGroupDirectoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupDirectoryResponse
+     *
+     * @param CreateGroupDirectoryRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateGroupDirectoryResponse
+     */
+    public function createGroupDirectoryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->parentDirectoryId) {
+            @$body['parentDirectoryId'] = $request->parentDirectoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGroupDirectory',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createGroupDirectory',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGroupDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a folder in the collaborative share resource directory.
+     *
+     * @remarks
+     * Active space members can create physical subdirectories. If the parent folder is omitted or set to root, the internal root is used and lazily created on first access. The parent folder must belong to the current space.
+     *
+     * @param Request - CreateGroupDirectoryRequest
+     *
+     * @returns CreateGroupDirectoryResponse
+     *
+     * @param CreateGroupDirectoryRequest $request
+     *
+     * @return CreateGroupDirectoryResponse
+     */
+    public function createGroupDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGroupDirectoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 采集飞书群聊到协作空间.
+     *
+     * @remarks
+     * 可信平台用户作为飞书连接器用户；空间鉴权通过后异步采集，前端通过详情查询实际状态。
+     *
+     * @param tmpReq - CreateGroupFeishuChatRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupFeishuChatResponse
+     *
+     * @param CreateGroupFeishuChatRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateGroupFeishuChatResponse
+     */
+    public function createGroupFeishuChatWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateGroupFeishuChatShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateFrequency) {
+            $request->updateFrequencyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateFrequency, 'updateFrequency', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->chatId) {
+            @$body['chatId'] = $request->chatId;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->historyStartTime) {
+            @$body['historyStartTime'] = $request->historyStartTime;
+        }
+
+        if (null !== $request->notes) {
+            @$body['notes'] = $request->notes;
+        }
+
+        if (null !== $request->operatingObjectName) {
+            @$body['operatingObjectName'] = $request->operatingObjectName;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        if (null !== $request->updateFrequencyShrink) {
+            @$body['updateFrequency'] = $request->updateFrequencyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGroupFeishuChat',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createGroupFeishuChat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGroupFeishuChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 采集飞书群聊到协作空间.
+     *
+     * @remarks
+     * 可信平台用户作为飞书连接器用户；空间鉴权通过后异步采集，前端通过详情查询实际状态。
+     *
+     * @param Request - CreateGroupFeishuChatRequest
+     *
+     * @returns CreateGroupFeishuChatResponse
+     *
+     * @param CreateGroupFeishuChatRequest $request
+     *
+     * @return CreateGroupFeishuChatResponse
+     */
+    public function createGroupFeishuChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGroupFeishuChatWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates a group knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
      *
      * @remarks
@@ -1578,6 +1906,293 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->createGroupFeishuDocWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 上传本地文件到协作空间.
+     *
+     * @remarks
+     * 先使用getSourceUploadSignature完成本地文件PUT，再提交当前租户本人SOURCE/OSS的fileRecordId。文件路径和名称由服务端读取，固定FILE/LOCAL/GROUP。有效成员可写空间物理目录，省略directoryId或root时使用空间根。返回创建结果，后续解析状态需查询。
+     *
+     * @param Request - CreateGroupFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupFileResponse
+     *
+     * @param CreateGroupFileRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateGroupFileResponse
+     */
+    public function createGroupFileWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->fileRecordId) {
+            @$body['fileRecordId'] = $request->fileRecordId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGroupFile',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createGroupFile',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGroupFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传本地文件到协作空间.
+     *
+     * @remarks
+     * 先使用getSourceUploadSignature完成本地文件PUT，再提交当前租户本人SOURCE/OSS的fileRecordId。文件路径和名称由服务端读取，固定FILE/LOCAL/GROUP。有效成员可写空间物理目录，省略directoryId或root时使用空间根。返回创建结果，后续解析状态需查询。
+     *
+     * @param Request - CreateGroupFileRequest
+     *
+     * @returns CreateGroupFileResponse
+     *
+     * @param CreateGroupFileRequest $request
+     *
+     * @return CreateGroupFileResponse
+     */
+    public function createGroupFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGroupFileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Collects public web pages to a collaborative share.
+     *
+     * @remarks
+     * An active member collects web pages to a physical directory in the collaborative share. The type is fixed to PUBLIC_URL/GROUP. Use getGroupSource to query the background status.
+     *
+     * @param Request - CreateGroupPublicUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupPublicUrlResponse
+     *
+     * @param CreateGroupPublicUrlRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateGroupPublicUrlResponse
+     */
+    public function createGroupPublicUrlWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->notes) {
+            @$body['notes'] = $request->notes;
+        }
+
+        if (null !== $request->operatingObjectName) {
+            @$body['operatingObjectName'] = $request->operatingObjectName;
+        }
+
+        if (null !== $request->originalUrl) {
+            @$body['originalUrl'] = $request->originalUrl;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGroupPublicUrl',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createGroupPublicUrl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGroupPublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Collects public web pages to a collaborative share.
+     *
+     * @remarks
+     * An active member collects web pages to a physical directory in the collaborative share. The type is fixed to PUBLIC_URL/GROUP. Use getGroupSource to query the background status.
+     *
+     * @param Request - CreateGroupPublicUrlRequest
+     *
+     * @returns CreateGroupPublicUrlResponse
+     *
+     * @param CreateGroupPublicUrlRequest $request
+     *
+     * @return CreateGroupPublicUrlResponse
+     */
+    public function createGroupPublicUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGroupPublicUrlWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 上传纯文本到协作空间.
+     *
+     * @remarks
+     * 有效空间成员上传纯文本到物理目录。固定TEXT/GROUP，省略directoryId或root时解析空间根。正文与最终名称沿用Provider处理规则，返回实际状态和真实目录，不代表解析完成。
+     *
+     * @param Request - CreateGroupTextRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupTextResponse
+     *
+     * @param CreateGroupTextRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateGroupTextResponse
+     */
+    public function createGroupTextWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        if (null !== $request->textContent) {
+            @$body['textContent'] = $request->textContent;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGroupText',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createGroupText',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGroupTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传纯文本到协作空间.
+     *
+     * @remarks
+     * 有效空间成员上传纯文本到物理目录。固定TEXT/GROUP，省略directoryId或root时解析空间根。正文与最终名称沿用Provider处理规则，返回实际状态和真实目录，不代表解析完成。
+     *
+     * @param Request - CreateGroupTextRequest
+     *
+     * @returns CreateGroupTextResponse
+     *
+     * @param CreateGroupTextRequest $request
+     *
+     * @return CreateGroupTextResponse
+     */
+    public function createGroupText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGroupTextWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2022,6 +2637,103 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->createKnowledgeBaseFileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Collects a single public web page into the enterprise knowledge base of the current user.
+     *
+     * @remarks
+     * ## Operation description\\n\\nFixed to `PUBLIC_URL + TENANT`. The user is determined by the trusted OpenAPI identity. Creation only indicates acceptance. Invoke getKnowledgeBaseSource to query the background collection status. `directoryId` is required. The caller must have knowledge base management permissions on the destination knowledge base.
+     *
+     * @param Request - CreateKnowledgeBasePublicUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeBasePublicUrlResponse
+     *
+     * @param CreateKnowledgeBasePublicUrlRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateKnowledgeBasePublicUrlResponse
+     */
+    public function createKnowledgeBasePublicUrlWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->notes) {
+            @$body['notes'] = $request->notes;
+        }
+
+        if (null !== $request->operatingObjectName) {
+            @$body['operatingObjectName'] = $request->operatingObjectName;
+        }
+
+        if (null !== $request->originalUrl) {
+            @$body['originalUrl'] = $request->originalUrl;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeBasePublicUrl',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createKnowledgeBasePublicUrl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeBasePublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Collects a single public web page into the enterprise knowledge base of the current user.
+     *
+     * @remarks
+     * ## Operation description\\n\\nFixed to `PUBLIC_URL + TENANT`. The user is determined by the trusted OpenAPI identity. Creation only indicates acceptance. Invoke getKnowledgeBaseSource to query the background collection status. `directoryId` is required. The caller must have knowledge base management permissions on the destination knowledge base.
+     *
+     * @param Request - CreateKnowledgeBasePublicUrlRequest
+     *
+     * @returns CreateKnowledgeBasePublicUrlResponse
+     *
+     * @param CreateKnowledgeBasePublicUrlRequest $request
+     *
+     * @return CreateKnowledgeBasePublicUrlResponse
+     */
+    public function createKnowledgeBasePublicUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createKnowledgeBasePublicUrlWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3389,10 +4101,9 @@ class WinNexo extends OpenApiClient
      * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
      * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
      * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
-     * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the caller.
-     * - Security authentication is supported through multiple authentication methods (AK, BearerToken, and APP) to authenticate requests.
+     * - If the target folder ID (`directoryId`) is not specified, the file is automatically bound to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the caller.
+     * - Security authentication is supported through multiple methods (AK, BearerToken, and APP).
      * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
-     * To invoke this operation, you can use AK, BearerToken, or APP authentication.
      *
      * @param Request - CreatePersonalFileRequest
      * @param headers - map
@@ -3483,10 +4194,9 @@ class WinNexo extends OpenApiClient
      * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
      * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
      * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
-     * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the caller.
-     * - Security authentication is supported through multiple authentication methods (AK, BearerToken, and APP) to authenticate requests.
+     * - If the target folder ID (`directoryId`) is not specified, the file is automatically bound to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the caller.
+     * - Security authentication is supported through multiple methods (AK, BearerToken, and APP).
      * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
-     * To invoke this operation, you can use AK, BearerToken, or APP authentication.
      *
      * @param Request - CreatePersonalFileRequest
      *
@@ -3505,6 +4215,103 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Collects a single public web page into the current user\\"s personal knowledge base.
+     *
+     * @remarks
+     * ## Request description\\n\\nFixed to `PUBLIC_URL + PERSONAL`. The user is determined by the trusted OpenAPI identity. Creation only indicates acceptance. Use getSource to query the background collection status. If `directoryId` is omitted, the current user\\"s default personal root directory is used.
+     *
+     * @param Request - CreatePersonalPublicUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePersonalPublicUrlResponse
+     *
+     * @param CreatePersonalPublicUrlRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreatePersonalPublicUrlResponse
+     */
+    public function createPersonalPublicUrlWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->notes) {
+            @$body['notes'] = $request->notes;
+        }
+
+        if (null !== $request->operatingObjectName) {
+            @$body['operatingObjectName'] = $request->operatingObjectName;
+        }
+
+        if (null !== $request->originalUrl) {
+            @$body['originalUrl'] = $request->originalUrl;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePersonalPublicUrl',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createPersonalPublicUrl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePersonalPublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Collects a single public web page into the current user\\"s personal knowledge base.
+     *
+     * @remarks
+     * ## Request description\\n\\nFixed to `PUBLIC_URL + PERSONAL`. The user is determined by the trusted OpenAPI identity. Creation only indicates acceptance. Use getSource to query the background collection status. If `directoryId` is omitted, the current user\\"s default personal root directory is used.
+     *
+     * @param Request - CreatePersonalPublicUrlRequest
+     *
+     * @returns CreatePersonalPublicUrlResponse
+     *
+     * @param CreatePersonalPublicUrlRequest $request
+     *
+     * @return CreatePersonalPublicUrlResponse
+     */
+    public function createPersonalPublicUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPersonalPublicUrlWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Uploads plain text content to the personal resource library of the current digital employee.
      *
      * @remarks
@@ -3512,8 +4319,8 @@ class WinNexo extends OpenApiClient
      * - This API is used to add plain text content to the personal resources of a specified digital employee.
      * - `source_type` is fixed to `TEXT`, and `scope` is fixed to `PERSONAL`.
      * - If `directoryId` is not provided, the content is bound to the root directory of the current digital employee by default. If provided, it must be an existing personal directory of the caller under the digital employee.
-     * - `tenant_id` and `user_id` can only be obtained from the authentication identity information. These parameters are ignored if passed in the request body.
-     * - The call initiates metering and generates a corresponding `billing_id`.
+     * - `tenant_id` and `user_id` can only be obtained from the authentication identity information. These parameters are ignored if passed through the request body.
+     * - A metering process is initiated during the call, and a corresponding `billing_id` is generated.
      * - The text content is written to `unstructured_docs`, and an initial resource record is generated.
      * - Any validation or execution failure throws a `RobjectException`, which is converted to a POP error code by the global middleware and returned to the caller.
      *
@@ -3590,8 +4397,8 @@ class WinNexo extends OpenApiClient
      * - This API is used to add plain text content to the personal resources of a specified digital employee.
      * - `source_type` is fixed to `TEXT`, and `scope` is fixed to `PERSONAL`.
      * - If `directoryId` is not provided, the content is bound to the root directory of the current digital employee by default. If provided, it must be an existing personal directory of the caller under the digital employee.
-     * - `tenant_id` and `user_id` can only be obtained from the authentication identity information. These parameters are ignored if passed in the request body.
-     * - The call initiates metering and generates a corresponding `billing_id`.
+     * - `tenant_id` and `user_id` can only be obtained from the authentication identity information. These parameters are ignored if passed through the request body.
+     * - A metering process is initiated during the call, and a corresponding `billing_id` is generated.
      * - The text content is written to `unstructured_docs`, and an initial resource record is generated.
      * - Any validation or execution failure throws a `RobjectException`, which is converted to a POP error code by the global middleware and returned to the caller.
      *
@@ -5111,6 +5918,83 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * 获取协作空间资料详情.
+     *
+     * @remarks
+     * 只读查询指定空间可见资料；未授权和无效引用拒绝读取，不初始化空间目录。
+     *
+     * @param Request - GetGroupSourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGroupSourceResponse
+     *
+     * @param GetGroupSourceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetGroupSourceResponse
+     */
+    public function getGroupSourceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['sourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetGroupSource',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getGroupSource',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGroupSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取协作空间资料详情.
+     *
+     * @remarks
+     * 只读查询指定空间可见资料；未授权和无效引用拒绝读取，不初始化空间目录。
+     *
+     * @param Request - GetGroupSourceRequest
+     *
+     * @returns GetGroupSourceResponse
+     *
+     * @param GetGroupSourceRequest $request
+     *
+     * @return GetGroupSourceResponse
+     */
+    public function getGroupSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGroupSourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the expiration time of the most recently created standard package instance for a tenant.
      *
      * @remarks
@@ -5278,14 +6162,14 @@ class WinNexo extends OpenApiClient
      * Retrieves the execution details of a scheduled task.
      *
      * @remarks
-     * ## Operation description
+     * ## Description
      * - This operation uploads a file to an enterprise knowledge base.
-     * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this API operation.
+     * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
      * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
-     * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
-     * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
-     * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
-     * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure your account balance is sufficient.
+     * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of file information.
+     * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee by default.
+     * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+     * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
      *
      * @param Request - GetScheduledTaskExecutionDetailRequest
      * @param headers - map
@@ -5334,14 +6218,14 @@ class WinNexo extends OpenApiClient
      * Retrieves the execution details of a scheduled task.
      *
      * @remarks
-     * ## Operation description
+     * ## Description
      * - This operation uploads a file to an enterprise knowledge base.
-     * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this API operation.
+     * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
      * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
-     * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
-     * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
-     * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
-     * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure your account balance is sufficient.
+     * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of file information.
+     * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee by default.
+     * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+     * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
      *
      * @param Request - GetScheduledTaskExecutionDetailRequest
      *
@@ -5654,15 +6538,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Retrieves skill details.
+     * Retrieves the details of a skill.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Queries skill details by SkillCode or SkillName, including metadata, input parameter schema, and SKILL.md summary.
      * - **TenantId**: Optional common parameter passed through by the gateway to the backend header. If not specified, the default tenant of the current caller is used.
      * - **SkillCode**: Mutually exclusive with SkillName. If both are specified, SkillCode takes precedence.
      * - **SkillName**: Mutually exclusive with SkillCode. If the name is not unique within the tenant, `ERR.SkillHub.SkillNameAmbiguous` is returned.
-     * - **ViewMode**: Optional. Valid values: `draft` (draft/editing view) or `published` (published view, default).
+     * - **ViewMode**: Optional. Set to `draft` (draft/editing view) or `published` (published view, default).
      * - **IncludeSkillFiles**: Optional. Specifies whether to return the complete skill file tree (SKILL.md / scripts / templates). Default value: `false`.
      *
      * @param Request - GetSkillRequest
@@ -5723,15 +6607,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Retrieves skill details.
+     * Retrieves the details of a skill.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Queries skill details by SkillCode or SkillName, including metadata, input parameter schema, and SKILL.md summary.
      * - **TenantId**: Optional common parameter passed through by the gateway to the backend header. If not specified, the default tenant of the current caller is used.
      * - **SkillCode**: Mutually exclusive with SkillName. If both are specified, SkillCode takes precedence.
      * - **SkillName**: Mutually exclusive with SkillCode. If the name is not unique within the tenant, `ERR.SkillHub.SkillNameAmbiguous` is returned.
-     * - **ViewMode**: Optional. Valid values: `draft` (draft/editing view) or `published` (published view, default).
+     * - **ViewMode**: Optional. Set to `draft` (draft/editing view) or `published` (published view, default).
      * - **IncludeSkillFiles**: Optional. Specifies whether to return the complete skill file tree (SKILL.md / scripts / templates). Default value: `false`.
      *
      * @param Request - GetSkillRequest
@@ -5842,9 +6726,9 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - `tenant_id` is derived from the authenticated identity only. Any value passed in the body is ignored.
-     * - Response parameters do not expose audit fields such as `creator` or `modifier`. The `unstructured_docs[ ].content` field is not returned by default to avoid large responses.
-     * - Set the `includeDetails` parameter to `True` to retrieve additional details including `settings`, `notes`, `structuredTables`, and `unstructuredDocs`.
+     * - `tenant_id` is derived from the authenticated identity only. Any value passed in the request body is ignored.
+     * - Response elements do not expose audit fields such as `creator` or `modifier`. The `unstructured_docs[ ].content` field is not returned by default to avoid large responses.
+     * - Set the `includeDetails` parameter to `True` to retrieve additional details, including `settings`, `notes`, `structuredTables`, and `unstructuredDocs`.
      *
      * @param Request - GetSourceRequest
      * @param headers - map
@@ -5900,9 +6784,9 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - `tenant_id` is derived from the authenticated identity only. Any value passed in the body is ignored.
-     * - Response parameters do not expose audit fields such as `creator` or `modifier`. The `unstructured_docs[ ].content` field is not returned by default to avoid large responses.
-     * - Set the `includeDetails` parameter to `True` to retrieve additional details including `settings`, `notes`, `structuredTables`, and `unstructuredDocs`.
+     * - `tenant_id` is derived from the authenticated identity only. Any value passed in the request body is ignored.
+     * - Response elements do not expose audit fields such as `creator` or `modifier`. The `unstructured_docs[ ].content` field is not returned by default to avoid large responses.
+     * - Set the `includeDetails` parameter to `True` to retrieve additional details, including `settings`, `notes`, `structuredTables`, and `unstructuredDocs`.
      *
      * @param Request - GetSourceRequest
      *
@@ -5929,7 +6813,7 @@ class WinNexo extends OpenApiClient
      * - **Security constraint**: `tenant_id`/`user_id` are derived only from the authenticated identity. Values provided in the request body are ignored.
      * - **Default value**: If the `expires` parameter is not specified, the default expiration time is 3600 seconds (1 hour).
      * - **Content-Type**: If `contentType` is not provided, the system attempts to automatically infer the file type.
-     * - **Scope**: The `scope` parameter defines whether the data source belongs to a personal or enterprise knowledge base. In most cases, this does not need to be set.
+     * - **Scope**: The `scope` parameter defines whether the data source belongs to a personal or enterprise knowledge base. By default, this parameter may not need to be set.
      *
      * @param Request - GetSourceUploadSignatureRequest
      * @param headers - map
@@ -5962,6 +6846,10 @@ class WinNexo extends OpenApiClient
 
         if (null !== $request->filename) {
             @$body['filename'] = $request->filename;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
         }
 
         if (null !== $request->operatingObjectName) {
@@ -6001,7 +6889,7 @@ class WinNexo extends OpenApiClient
      * - **Security constraint**: `tenant_id`/`user_id` are derived only from the authenticated identity. Values provided in the request body are ignored.
      * - **Default value**: If the `expires` parameter is not specified, the default expiration time is 3600 seconds (1 hour).
      * - **Content-Type**: If `contentType` is not provided, the system attempts to automatically infer the file type.
-     * - **Scope**: The `scope` parameter defines whether the data source belongs to a personal or enterprise knowledge base. In most cases, this does not need to be set.
+     * - **Scope**: The `scope` parameter defines whether the data source belongs to a personal or enterprise knowledge base. By default, this parameter may not need to be set.
      *
      * @param Request - GetSourceUploadSignatureRequest
      *
@@ -6200,7 +7088,7 @@ class WinNexo extends OpenApiClient
      * Queries user details through OpenAPI.
      *     Business orchestration:
      *     1. Locate the user by wnUserId or accountId.
-     *     2. Query the user mapping information in the current tenant (status, join time, and last logon time).
+     *     2. Query the mapping information of the user in the current tenant, including status, join time, and last logon time.
      *     3. Query the role list of the user in the current tenant.
      *     4. Query the user group list of the user in the current tenant.
      *     5. Assemble the response.
@@ -6262,7 +7150,7 @@ class WinNexo extends OpenApiClient
      * Queries user details through OpenAPI.
      *     Business orchestration:
      *     1. Locate the user by wnUserId or accountId.
-     *     2. Query the user mapping information in the current tenant (status, join time, and last logon time).
+     *     2. Query the mapping information of the user in the current tenant, including status, join time, and last logon time.
      *     3. Query the role list of the user in the current tenant.
      *     4. Query the user group list of the user in the current tenant.
      *     5. Assemble the response.
@@ -6367,11 +7255,11 @@ class WinNexo extends OpenApiClient
      * @remarks
      * ## Operation description
      * - This operation retrieves the details of a specified user group, including the basic information of the user group, parent user group information, direct child user group list, and direct member list.
-     * - `userGroupId` is a required parameter that must be provided in the request body.
+     * - `userGroupId` is a required parameter and must be provided in the request body.
      * - `tenantId` is an optional parameter that can be passed through the query string.
      * - The operation supports multiple authentication methods, including AK, BearerToken, and APP authentication.
      * - The content type for both requests and responses is `application/json`.
-     * - Ensure that you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
+     * - Make sure you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
      *
      * @param Request - GetUserGroupRequest
      * @param headers - map
@@ -6424,11 +7312,11 @@ class WinNexo extends OpenApiClient
      * @remarks
      * ## Operation description
      * - This operation retrieves the details of a specified user group, including the basic information of the user group, parent user group information, direct child user group list, and direct member list.
-     * - `userGroupId` is a required parameter that must be provided in the request body.
+     * - `userGroupId` is a required parameter and must be provided in the request body.
      * - `tenantId` is an optional parameter that can be passed through the query string.
      * - The operation supports multiple authentication methods, including AK, BearerToken, and APP authentication.
      * - The content type for both requests and responses is `application/json`.
-     * - Ensure that you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
+     * - Make sure you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
      *
      * @param Request - GetUserGroupRequest
      *
@@ -6645,7 +7533,7 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * Performs a paging query for published platform announcements that are effective within the current database time window. The caller must be a real user in the system O&M tenant who has the permission to view announcements.
+     * Performs a paging query for published platform announcements that are effective within the current database time window. The caller must be a real user who has the announcement viewing permission in the system O&M tenant.
      *
      * @param Request - ListActiveAnnouncementsRequest
      * @param headers - map
@@ -6701,7 +7589,7 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * Performs a paging query for published platform announcements that are effective within the current database time window. The caller must be a real user in the system O&M tenant who has the permission to view announcements.
+     * Performs a paging query for published platform announcements that are effective within the current database time window. The caller must be a real user who has the announcement viewing permission in the system O&M tenant.
      *
      * @param Request - ListActiveAnnouncementsRequest
      *
@@ -7096,14 +7984,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the list of digital human names for which the caller has specified permissions.
+     * Queries the list of digital human names for which the caller has the specified permission.
      *
      * @remarks
-     * Queries the list of digital human names for which the current caller (or a specified target user) has specified permissions (USE/MANAGE).
+     * Queries the list of digital human names for which the current caller (or a specified target user) has the specified permission (USE/MANAGE).
      *     Business logic:
      *     1. Constructs an AuthContext from the identity.
      *     2. Delegates to AgentAuthorizationAuthorizedService.list_authorized_agents to execute the query.
-     *     3. When skip_permission=True, returns all active agents for the tenant.
+     *     3. When skip_permission=True, returns all active agents of the tenant.
      *     4. Regular users are filtered based on authorization records and auth_mode.
      *     5. When targetUserId is specified (querying on behalf of another user), the APPLICATION_AGENT_VIEW gate is required, and the query is restricted to the current tenant. If the target user is not a member of the current tenant, a USER_NOT_IN_TENANT error is thrown (an empty list is not silently returned).
      *
@@ -7157,14 +8045,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the list of digital human names for which the caller has specified permissions.
+     * Queries the list of digital human names for which the caller has the specified permission.
      *
      * @remarks
-     * Queries the list of digital human names for which the current caller (or a specified target user) has specified permissions (USE/MANAGE).
+     * Queries the list of digital human names for which the current caller (or a specified target user) has the specified permission (USE/MANAGE).
      *     Business logic:
      *     1. Constructs an AuthContext from the identity.
      *     2. Delegates to AgentAuthorizationAuthorizedService.list_authorized_agents to execute the query.
-     *     3. When skip_permission=True, returns all active agents for the tenant.
+     *     3. When skip_permission=True, returns all active agents of the tenant.
      *     4. Regular users are filtered based on authorization records and auth_mode.
      *     5. When targetUserId is specified (querying on behalf of another user), the APPLICATION_AGENT_VIEW gate is required, and the query is restricted to the current tenant. If the target user is not a member of the current tenant, a USER_NOT_IN_TENANT error is thrown (an empty list is not silently returned).
      *
@@ -7193,7 +8081,7 @@ class WinNexo extends OpenApiClient
      *     1. Constructs an AuthContext from the identity.
      *     2. Delegates to AgentAuthorizationAuthorizedService.list_authorized_users to execute the query.
      *     3. Permission verification is performed at the AuthorizedService layer by @require_permission(APPLICATION_AGENT_VIEW).
-     *     4. When auth_mode=ALL_USERS, only records with MANAGE permissions are displayed.
+     *     4. When auth_mode is set to ALL_USERS, only records with the MANAGE permission are displayed.
      *
      * @param Request - ListAuthorizedUsersRequest
      * @param headers - map
@@ -7261,7 +8149,7 @@ class WinNexo extends OpenApiClient
      *     1. Constructs an AuthContext from the identity.
      *     2. Delegates to AgentAuthorizationAuthorizedService.list_authorized_users to execute the query.
      *     3. Permission verification is performed at the AuthorizedService layer by @require_permission(APPLICATION_AGENT_VIEW).
-     *     4. When auth_mode=ALL_USERS, only records with MANAGE permissions are displayed.
+     *     4. When auth_mode is set to ALL_USERS, only records with the MANAGE permission are displayed.
      *
      * @param Request - ListAuthorizedUsersRequest
      *
@@ -7482,9 +8370,9 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - This API supports filtering and sorting by multiple parameters, including tenant ID, page size, pagination token, keyword search, digital employee name, and update time range.
+     * - This API operation supports filtering and sorting by multiple parameters, including tenant ID, page size, pagination token, keyword search, digital employee name, and update time range.
      * - By default, results are sorted in descending order by the `UpdatedAt` field.
-     * - If an invalid `NextToken` is provided or `PageSize` exceeds the allowed range (1-100), the API returns a 400 error.
+     * - If an invalid `NextToken` is provided or `PageSize` exceeds the allowed range (1-100), the API operation returns a 400 error.
      *
      * @param Request - ListChatSessionsRequest
      * @param headers - map
@@ -7546,9 +8434,9 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - This API supports filtering and sorting by multiple parameters, including tenant ID, page size, pagination token, keyword search, digital employee name, and update time range.
+     * - This API operation supports filtering and sorting by multiple parameters, including tenant ID, page size, pagination token, keyword search, digital employee name, and update time range.
      * - By default, results are sorted in descending order by the `UpdatedAt` field.
-     * - If an invalid `NextToken` is provided or `PageSize` exceeds the allowed range (1-100), the API returns a 400 error.
+     * - If an invalid `NextToken` is provided or `PageSize` exceeds the allowed range (1-100), the API operation returns a 400 error.
      *
      * @param Request - ListChatSessionsRequest
      *
@@ -7658,13 +8546,13 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 管理视角图谱列表.
+     * Queries the list of semantic graphs from the management perspective.
      *
      * @remarks
-     * OpenAPI 管理视角图谱列表（含草稿/发布中状态）。
-     *     返回租户级 active 图谱；graphStatus 三态：PUBLISHED / DEVELOPING（当前用户有活动草稿）/
-     *     PUBLISHING（当前用户发布中）；部署/系统级 Token 无个人身份，hasDraft 恒 false。
-     *     keyword 匹配 graphName / displayName（忽略大小写）；semanticTags 命中任一标签即保留。
+     * Queries the list of semantic graphs from the management perspective through OpenAPI, including graphs in draft or publishing status.
+     *     Returns tenant-level active graphs. graphStatus has three states: PUBLISHED, DEVELOPING (the current user has an active draft), and
+     *     PUBLISHING (the current user is publishing). Deploy-level or system-level tokens have no personal identity, so hasDraft is always false.
+     *     keyword matches graphName or displayName (case-insensitive). semanticTags retains a graph if any tag matches.
      *
      * @param tmpReq - ListGraphSchemasRequest
      * @param headers - map
@@ -7722,13 +8610,13 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 管理视角图谱列表.
+     * Queries the list of semantic graphs from the management perspective.
      *
      * @remarks
-     * OpenAPI 管理视角图谱列表（含草稿/发布中状态）。
-     *     返回租户级 active 图谱；graphStatus 三态：PUBLISHED / DEVELOPING（当前用户有活动草稿）/
-     *     PUBLISHING（当前用户发布中）；部署/系统级 Token 无个人身份，hasDraft 恒 false。
-     *     keyword 匹配 graphName / displayName（忽略大小写）；semanticTags 命中任一标签即保留。
+     * Queries the list of semantic graphs from the management perspective through OpenAPI, including graphs in draft or publishing status.
+     *     Returns tenant-level active graphs. graphStatus has three states: PUBLISHED, DEVELOPING (the current user has an active draft), and
+     *     PUBLISHING (the current user is publishing). Deploy-level or system-level tokens have no personal identity, so hasDraft is always false.
+     *     keyword matches graphName or displayName (case-insensitive). semanticTags retains a graph if any tag matches.
      *
      * @param Request - ListGraphSchemasRequest
      *
@@ -7820,14 +8708,206 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the category directory tree of an enterprise knowledge base, with support for sorting by a specified field.
+     * Lists the resource directories of a collaborative share.
      *
      * @remarks
-     * ## Request description
-     * - This API retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
-     * - If the `directoryId` parameter is not provided, the API returns all category trees under the root directory of the enterprise knowledge base. If `directoryId` is provided, the API returns the subdirectory tree rooted at the specified directory.
-     * - You can sort results by using the `sortField` and `sortOrder` parameters. By default, results are sorted by creation time in descending order.
-     * - Security constraints: `tenant_id` and `user_id` are derived only from the authenticated identity, and the caller must have the `DEVELOPMENT_KB_VIEW` feature permission.
+     * Valid members can list the query root itself and all its descendant directories, including visible referenced directories marked as readOnly. The results are not paginated and do not return resources. The first query reuses the existing service-initialized internal root.
+     *
+     * @param Request - ListGroupDirectoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGroupDirectoriesResponse
+     *
+     * @param ListGroupDirectoriesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListGroupDirectoriesResponse
+     */
+    public function listGroupDirectoriesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->sortField) {
+            @$body['sortField'] = $request->sortField;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$body['sortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListGroupDirectories',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listGroupDirectories',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGroupDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the resource directories of a collaborative share.
+     *
+     * @remarks
+     * Valid members can list the query root itself and all its descendant directories, including visible referenced directories marked as readOnly. The results are not paginated and do not return resources. The first query reuses the existing service-initialized internal root.
+     *
+     * @param Request - ListGroupDirectoriesRequest
+     *
+     * @returns ListGroupDirectoriesResponse
+     *
+     * @param ListGroupDirectoriesRequest $request
+     *
+     * @return ListGroupDirectoriesResponse
+     */
+    public function listGroupDirectories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGroupDirectoriesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query on the contents of a collaboration space folder.
+     *
+     * @remarks
+     * Corresponds to the space list-resources operation. Active members can query immediate subdirectories and resources based on directory visibility scope. Results are paginated with directories listed first and include read-only references. If the directory is omitted or set to root, the existing root initialization is used. If sourceTypes has values, only resources are returned. sourceStatus follows the existing behavior where physical directories are retained and immediate reference directories are not returned.
+     *
+     * @param tmpReq - ListGroupDirectoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGroupDirectoryResponse
+     *
+     * @param ListGroupDirectoryRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListGroupDirectoryResponse
+     */
+    public function listGroupDirectoryWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListGroupDirectoryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sourceTypes) {
+            $request->sourceTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceTypes, 'sourceTypes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortField) {
+            @$body['sortField'] = $request->sortField;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$body['sortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->sourceStatus) {
+            @$body['sourceStatus'] = $request->sourceStatus;
+        }
+
+        if (null !== $request->sourceTypesShrink) {
+            @$body['sourceTypes'] = $request->sourceTypesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListGroupDirectory',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listGroupDirectory',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGroupDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on the contents of a collaboration space folder.
+     *
+     * @remarks
+     * Corresponds to the space list-resources operation. Active members can query immediate subdirectories and resources based on directory visibility scope. Results are paginated with directories listed first and include read-only references. If the directory is omitted or set to root, the existing root initialization is used. If sourceTypes has values, only resources are returned. sourceStatus follows the existing behavior where physical directories are retained and immediate reference directories are not returned.
+     *
+     * @param Request - ListGroupDirectoryRequest
+     *
+     * @returns ListGroupDirectoryResponse
+     *
+     * @param ListGroupDirectoryRequest $request
+     *
+     * @return ListGroupDirectoryResponse
+     */
+    public function listGroupDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGroupDirectoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the category directory tree of an enterprise knowledge base. Sorting by a specified field is supported.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API operation retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
+     * - If the `directoryId` parameter is not specified, all category trees under the root directory of the enterprise knowledge base are returned. If `directoryId` is specified, the subdirectory tree rooted at the specified directory is returned.
+     * - You can use the `sortField` and `sortOrder` parameters to sort the results. By default, results are sorted by creation time in descending order.
+     * - Security constraint: `tenant_id` and `user_id` are derived only from the authenticated identity, and the caller must have the `DEVELOPMENT_KB_VIEW` feature permission.
      *
      * @param Request - ListKnowledgeBaseDirectoriesRequest
      * @param headers - map
@@ -7883,14 +8963,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the category directory tree of an enterprise knowledge base, with support for sorting by a specified field.
+     * Queries the category directory tree of an enterprise knowledge base. Sorting by a specified field is supported.
      *
      * @remarks
-     * ## Request description
-     * - This API retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
-     * - If the `directoryId` parameter is not provided, the API returns all category trees under the root directory of the enterprise knowledge base. If `directoryId` is provided, the API returns the subdirectory tree rooted at the specified directory.
-     * - You can sort results by using the `sortField` and `sortOrder` parameters. By default, results are sorted by creation time in descending order.
-     * - Security constraints: `tenant_id` and `user_id` are derived only from the authenticated identity, and the caller must have the `DEVELOPMENT_KB_VIEW` feature permission.
+     * ## Operation description
+     * - This API operation retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
+     * - If the `directoryId` parameter is not specified, all category trees under the root directory of the enterprise knowledge base are returned. If `directoryId` is specified, the subdirectory tree rooted at the specified directory is returned.
+     * - You can use the `sortField` and `sortOrder` parameters to sort the results. By default, results are sorted by creation time in descending order.
+     * - Security constraint: `tenant_id` and `user_id` are derived only from the authenticated identity, and the caller must have the `DEVELOPMENT_KB_VIEW` feature permission.
      *
      * @param Request - ListKnowledgeBaseDirectoriesRequest
      *
@@ -7998,17 +9078,17 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the output list of the current user, with support for conditional filtering and pagination.
+     * Queries the output list of the current user. Filtering by conditions and pagination are supported.
      *
      * @remarks
      * ## Operation description
      * - This API operation queries the output list of the current logged-in user.
      * - `tenantId` is a common parameter. If not specified, the default tenant of the caller is used.
-     * - Supports filtering by parameters such as `operatingObjectName`, `itemType`, and `keyword`.
+     * - Filtering is supported through parameters such as `operatingObjectName`, `itemType`, and `keyword`.
      * - Set `sharedOnly` to `true` to display only outputs with sharing enabled.
-     * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, results start from page 1 with 20 records per page.
+     * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, the first page is returned with 20 records per page.
      * - Results are sorted by update time in descending order by default.
-     * - The `tenant_id` or `user_id` passed in the request body by the caller is ignored. This information is derived only from the authenticated identity.
+     * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
      *
      * @param Request - ListOutputFilesRequest
      * @param headers - map
@@ -8076,17 +9156,17 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the output list of the current user, with support for conditional filtering and pagination.
+     * Queries the output list of the current user. Filtering by conditions and pagination are supported.
      *
      * @remarks
      * ## Operation description
      * - This API operation queries the output list of the current logged-in user.
      * - `tenantId` is a common parameter. If not specified, the default tenant of the caller is used.
-     * - Supports filtering by parameters such as `operatingObjectName`, `itemType`, and `keyword`.
+     * - Filtering is supported through parameters such as `operatingObjectName`, `itemType`, and `keyword`.
      * - Set `sharedOnly` to `true` to display only outputs with sharing enabled.
-     * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, results start from page 1 with 20 records per page.
+     * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, the first page is returned with 20 records per page.
      * - Results are sorted by update time in descending order by default.
-     * - The `tenant_id` or `user_id` passed in the request body by the caller is ignored. This information is derived only from the authenticated identity.
+     * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
      *
      * @param Request - ListOutputFilesRequest
      *
@@ -8225,8 +9305,8 @@ class WinNexo extends OpenApiClient
      * @remarks
      * Queries the list of system built-in roles.
      *     Business logic:
-     *     1. Constructs AuthContext from identity.
-     *     2. Delegates to UserManagementAuthorizedService.list_system_roles for permission verification (PLATFORM_USER_VIEW).
+     *     1. Constructs an AuthContext from the identity.
+     *     2. Delegates to UserManagementAuthorizedService.list_system_roles to perform permission verification (PLATFORM_USER_VIEW).
      *     3. Renders role names and descriptions based on the request Accept-Language header.
      *     4. Returns a fixed set of 7 system built-in roles.
      *     The returned roleCode field can be directly used as the roleCodes parameter for createUser or updateUser.
@@ -8276,8 +9356,8 @@ class WinNexo extends OpenApiClient
      * @remarks
      * Queries the list of system built-in roles.
      *     Business logic:
-     *     1. Constructs AuthContext from identity.
-     *     2. Delegates to UserManagementAuthorizedService.list_system_roles for permission verification (PLATFORM_USER_VIEW).
+     *     1. Constructs an AuthContext from the identity.
+     *     2. Delegates to UserManagementAuthorizedService.list_system_roles to perform permission verification (PLATFORM_USER_VIEW).
      *     3. Renders role names and descriptions based on the request Accept-Language header.
      *     4. Returns a fixed set of 7 system built-in roles.
      *     The returned roleCode field can be directly used as the roleCodes parameter for createUser or updateUser.
@@ -8303,12 +9383,12 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - This operation uploads a file to an enterprise knowledge base.
-     * - The DEVELOPMENT_KB_MANAGE permission is required to call this operation.
-     * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
+     * - This operation is used to upload files to an enterprise knowledge base.
+     * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
+     * - Provide the OSS persistent address (`filePath`) of the file when uploading.
      * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
      * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
-     * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
+     * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
      * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure your account balance is sufficient.
      *
      * @param tmpReq - ListScheduledTasksRequest
@@ -8393,12 +9473,12 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - This operation uploads a file to an enterprise knowledge base.
-     * - The DEVELOPMENT_KB_MANAGE permission is required to call this operation.
-     * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
+     * - This operation is used to upload files to an enterprise knowledge base.
+     * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
+     * - Provide the OSS persistent address (`filePath`) of the file when uploading.
      * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
      * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
-     * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
+     * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
      * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure your account balance is sufficient.
      *
      * @param Request - ListScheduledTasksRequest
@@ -8548,11 +9628,11 @@ class WinNexo extends OpenApiClient
      * Retrieves the list of knowledge bases.
      *
      * @remarks
-     * ## Request description
-     * - This API is used to perform a paging query on the folder content and resources in an enterprise knowledge base.
-     * - Multiple parameters are supported for filtering and sorting, such as `directoryId`, `page`, `pageSize`, `sortField`, `sortOrder`, and others.
+     * ## Operation description
+     * - This API is used for paging query of folder content and resources in an enterprise knowledge base.
+     * - Multiple parameters are supported for filtering and sorting, such as `directoryId`, `page`, `pageSize`, `sortField`, `sortOrder`, and more.
      * - The `sourceTypes` parameter allows you to filter by resource type. Separate multiple types with commas.
-     * - When `directoryId` is not specified or set to `root`, the root folder list of the knowledge base is queried by default.
+     * - If `directoryId` is not specified or is set to `root`, the root folder list of the knowledge base is queried by default.
      * - The default sort field is `name`, and the default sort order is ascending (`asc`).
      *
      * @param Request - ListTenantDirectoryRequest
@@ -8624,11 +9704,11 @@ class WinNexo extends OpenApiClient
      * Retrieves the list of knowledge bases.
      *
      * @remarks
-     * ## Request description
-     * - This API is used to perform a paging query on the folder content and resources in an enterprise knowledge base.
-     * - Multiple parameters are supported for filtering and sorting, such as `directoryId`, `page`, `pageSize`, `sortField`, `sortOrder`, and others.
+     * ## Operation description
+     * - This API is used for paging query of folder content and resources in an enterprise knowledge base.
+     * - Multiple parameters are supported for filtering and sorting, such as `directoryId`, `page`, `pageSize`, `sortField`, `sortOrder`, and more.
      * - The `sourceTypes` parameter allows you to filter by resource type. Separate multiple types with commas.
-     * - When `directoryId` is not specified or set to `root`, the root folder list of the knowledge base is queried by default.
+     * - If `directoryId` is not specified or is set to `root`, the root folder list of the knowledge base is queried by default.
      * - The default sort field is `name`, and the default sort order is ascending (`asc`).
      *
      * @param Request - ListTenantDirectoryRequest
@@ -9219,6 +10299,91 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * 移动协作空间资料.
+     *
+     * @remarks
+     * 有效成员且为资料创建者或空间管理员才能在同一空间物理目录树内移动资料。源目标必须是真实且不同的目录ID，资料必须在源目录。引用资料只读。保持sourceId，不重新解析；本地绑定成功不保证下游路径已同步。重复请求可能报资料不在源目录，请先查询位置。
+     *
+     * @param Request - MoveGroupResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveGroupResourceResponse
+     *
+     * @param MoveGroupResourceRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveGroupResourceResponse
+     */
+    public function moveGroupResourceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->sourceDirectoryId) {
+            @$body['sourceDirectoryId'] = $request->sourceDirectoryId;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['sourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->targetDirectoryId) {
+            @$body['targetDirectoryId'] = $request->targetDirectoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MoveGroupResource',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/moveGroupResource',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MoveGroupResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移动协作空间资料.
+     *
+     * @remarks
+     * 有效成员且为资料创建者或空间管理员才能在同一空间物理目录树内移动资料。源目标必须是真实且不同的目录ID，资料必须在源目录。引用资料只读。保持sourceId，不重新解析；本地绑定成功不保证下游路径已同步。重复请求可能报资料不在源目录，请先查询位置。
+     *
+     * @param Request - MoveGroupResourceRequest
+     *
+     * @returns MoveGroupResourceResponse
+     *
+     * @param MoveGroupResourceRequest $request
+     *
+     * @return MoveGroupResourceResponse
+     */
+    public function moveGroupResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->moveGroupResourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Moves a specified resource between enterprise knowledge base directories. Management permissions are required.
      *
      * @remarks
@@ -9495,6 +10660,83 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->offlineAnnouncementWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Previews a resource in a collaborative workspace.
+     *
+     * @remarks
+     * Active members can preview physical or referenced resources in a specified workspace. Requests to read resources that are cross-workspace, de-referenced, or invisible are rejected.
+     *
+     * @param Request - PreviewGroupSourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreviewGroupSourceResponse
+     *
+     * @param PreviewGroupSourceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PreviewGroupSourceResponse
+     */
+    public function previewGroupSourceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['sourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PreviewGroupSource',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/previewGroupSource',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PreviewGroupSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Previews a resource in a collaborative workspace.
+     *
+     * @remarks
+     * Active members can preview physical or referenced resources in a specified workspace. Requests to read resources that are cross-workspace, de-referenced, or invisible are rejected.
+     *
+     * @param Request - PreviewGroupSourceRequest
+     *
+     * @returns PreviewGroupSourceResponse
+     *
+     * @param PreviewGroupSourceRequest $request
+     *
+     * @return PreviewGroupSourceResponse
+     */
+    public function previewGroupSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->previewGroupSourceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10395,6 +11637,87 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * 重新解析协作空间资料.
+     *
+     * @remarks
+     * 有效成员且为创建者或空间管理员可重新解析物理资料；引用只读。默认异步；forceSync仅等待不等于强制重抓，在线文档未变化可能直接返回。
+     *
+     * @param Request - ReparseGroupSourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReparseGroupSourceResponse
+     *
+     * @param ReparseGroupSourceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ReparseGroupSourceResponse
+     */
+    public function reparseGroupSourceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->forceSync) {
+            @$body['forceSync'] = $request->forceSync;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['sourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReparseGroupSource',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/reparseGroupSource',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReparseGroupSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重新解析协作空间资料.
+     *
+     * @remarks
+     * 有效成员且为创建者或空间管理员可重新解析物理资料；引用只读。默认异步；forceSync仅等待不等于强制重抓，在线文档未变化可能直接返回。
+     *
+     * @param Request - ReparseGroupSourceRequest
+     *
+     * @returns ReparseGroupSourceResponse
+     *
+     * @param ReparseGroupSourceRequest $request
+     *
+     * @return ReparseGroupSourceResponse
+     */
+    public function reparseGroupSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->reparseGroupSourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Re-parses a resource.
      *
      * @remarks
@@ -10475,6 +11798,103 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->reparseSourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 替换协作空间资料文件.
+     *
+     * @remarks
+     * 有效成员且为创建者或空间管理员可替换物理GROUP资料；引用只读。先上传新文件再提交上传结果，仅FILE。保留SourceID并触发解析，默认异步。空操作结果可能发生在写入之后，返回执行错误而非不存在。
+     *
+     * @param Request - ReplaceGroupSourceFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReplaceGroupSourceFileResponse
+     *
+     * @param ReplaceGroupSourceFileRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ReplaceGroupSourceFileResponse
+     */
+    public function replaceGroupSourceFileWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->fileName) {
+            @$body['fileName'] = $request->fileName;
+        }
+
+        if (null !== $request->filePath) {
+            @$body['filePath'] = $request->filePath;
+        }
+
+        if (null !== $request->filePublicUrl) {
+            @$body['filePublicUrl'] = $request->filePublicUrl;
+        }
+
+        if (null !== $request->fileRecordId) {
+            @$body['fileRecordId'] = $request->fileRecordId;
+        }
+
+        if (null !== $request->forceSync) {
+            @$body['forceSync'] = $request->forceSync;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['sourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReplaceGroupSourceFile',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/replaceGroupSourceFile',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReplaceGroupSourceFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 替换协作空间资料文件.
+     *
+     * @remarks
+     * 有效成员且为创建者或空间管理员可替换物理GROUP资料；引用只读。先上传新文件再提交上传结果，仅FILE。保留SourceID并触发解析，默认异步。空操作结果可能发生在写入之后，返回执行错误而非不存在。
+     *
+     * @param Request - ReplaceGroupSourceFileRequest
+     *
+     * @returns ReplaceGroupSourceFileResponse
+     *
+     * @param ReplaceGroupSourceFileRequest $request
+     *
+     * @return ReplaceGroupSourceFileResponse
+     */
+    public function replaceGroupSourceFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->replaceGroupSourceFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -11438,20 +12858,137 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 保存单个语义资源草稿
+     * Batch saves personal semantic drafts.
      *
      * @remarks
-     * OpenAPI 保存单个语义资源草稿（仅个人 Token）。
-     *     业务编排：
-     *     1. 草稿域身份校验（仅个人 Token；部署/系统级 Token 被拒绝）
-     *        与语义管理权限校验
-     *     2. 委托个人草稿服务保存（来源固定 YAML），底层含资源级写权限校验；
-     *        内容与在线完全一致时跳过落库，摘要字段返回 null
-     *     错误码：
-     *     - ERR.User.TokenUserOnly: 个人草稿仅支持用户 Token
-     *     - ERR.Robject.Global.InvalidParameter: resourceType/elementType 组合不合法
-     *     - ERR.GraphSchema.*: 图谱不存在 / 资源命名与归属校验失败
-     *     - ERR.Robject.Global.ResourceNotFound: 资源不存在等底层校验失败
+     * Batch saves personal semantic drafts through OpenAPI (personal token only).
+     *     Business orchestration:
+     *     1. Draft domain identity verification (personal token only; deployment/system-level tokens are rejected)
+     *        and semantic management permission verification.
+     *     2. saveMode dispatch: FULL_YAML (default) performs full-graph YAML differential save,
+     *        including invalidated draft discard and order collection write permission verification.
+     *        PARTIAL_YAML performs partial YAML save scoped by draftChangeIds.
+     *     3. The diff baseline is always read from the online active version by the backend (the base input parameter is not trusted).
+     *     Error codes:
+     *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+     *     - ERR.Robject.Global.InvalidParameter: Invalid saveMode / draftChangeIds not provided for PARTIAL_YAML.
+     *     - ERR.GraphSchema.*: Graph does not exist / YAML structure validation failed / Custom physical table contract is invalid.
+     *     - ERR.Robject.Global.BusinessStateConflict: Related resources are being published.
+     *     - ERR.Robject.Permission.*: Order collection write permission verification failed.
+     *
+     * @param tmpReq - SaveGraphDraftBatchDefineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveGraphDraftBatchDefineResponse
+     *
+     * @param SaveGraphDraftBatchDefineRequest $tmpReq
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SaveGraphDraftBatchDefineResponse
+     */
+    public function saveGraphDraftBatchDefineWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SaveGraphDraftBatchDefineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->draftChangeIds) {
+            $request->draftChangeIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->draftChangeIds, 'draftChangeIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->draftChangeIdsShrink) {
+            @$body['draftChangeIds'] = $request->draftChangeIdsShrink;
+        }
+
+        if (null !== $request->graphName) {
+            @$body['graphName'] = $request->graphName;
+        }
+
+        if (null !== $request->saveMode) {
+            @$body['saveMode'] = $request->saveMode;
+        }
+
+        if (null !== $request->yamlEdit) {
+            @$body['yamlEdit'] = $request->yamlEdit;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SaveGraphDraftBatchDefine',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/saveGraphDraftBatchDefine',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveGraphDraftBatchDefineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Batch saves personal semantic drafts.
+     *
+     * @remarks
+     * Batch saves personal semantic drafts through OpenAPI (personal token only).
+     *     Business orchestration:
+     *     1. Draft domain identity verification (personal token only; deployment/system-level tokens are rejected)
+     *        and semantic management permission verification.
+     *     2. saveMode dispatch: FULL_YAML (default) performs full-graph YAML differential save,
+     *        including invalidated draft discard and order collection write permission verification.
+     *        PARTIAL_YAML performs partial YAML save scoped by draftChangeIds.
+     *     3. The diff baseline is always read from the online active version by the backend (the base input parameter is not trusted).
+     *     Error codes:
+     *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+     *     - ERR.Robject.Global.InvalidParameter: Invalid saveMode / draftChangeIds not provided for PARTIAL_YAML.
+     *     - ERR.GraphSchema.*: Graph does not exist / YAML structure validation failed / Custom physical table contract is invalid.
+     *     - ERR.Robject.Global.BusinessStateConflict: Related resources are being published.
+     *     - ERR.Robject.Permission.*: Order collection write permission verification failed.
+     *
+     * @param Request - SaveGraphDraftBatchDefineRequest
+     *
+     * @returns SaveGraphDraftBatchDefineResponse
+     *
+     * @param SaveGraphDraftBatchDefineRequest $request
+     *
+     * @return SaveGraphDraftBatchDefineResponse
+     */
+    public function saveGraphDraftBatchDefine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->saveGraphDraftBatchDefineWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Saves a single semantic resource draft.
+     *
+     * @remarks
+     * Saves a single semantic resource draft through OpenAPI (personal token only).
+     *     Business orchestration:
+     *     1. Draft domain identity verification (personal token only; deployment/system-level tokens are rejected)
+     *        and semantic management permission verification.
+     *     2. Delegates to the personal draft service for saving (source is fixed YAML). The underlying layer includes resource-level write permission verification.
+     *        If the content is identical to the online version, the database write is skipped and the summary field returns null.
+     *     Error codes:
+     *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+     *     - ERR.Robject.Global.InvalidParameter: The resourceType/elementType combination is invalid.
+     *     - ERR.GraphSchema.*: The graph does not exist, or resource naming and ownership verification failed.
+     *     - ERR.Robject.Global.ResourceNotFound: The resource does not exist or other underlying verification failed.
      *
      * @param Request - SaveGraphDraftResourceRequest
      * @param headers - map
@@ -11515,20 +13052,20 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 保存单个语义资源草稿
+     * Saves a single semantic resource draft.
      *
      * @remarks
-     * OpenAPI 保存单个语义资源草稿（仅个人 Token）。
-     *     业务编排：
-     *     1. 草稿域身份校验（仅个人 Token；部署/系统级 Token 被拒绝）
-     *        与语义管理权限校验
-     *     2. 委托个人草稿服务保存（来源固定 YAML），底层含资源级写权限校验；
-     *        内容与在线完全一致时跳过落库，摘要字段返回 null
-     *     错误码：
-     *     - ERR.User.TokenUserOnly: 个人草稿仅支持用户 Token
-     *     - ERR.Robject.Global.InvalidParameter: resourceType/elementType 组合不合法
-     *     - ERR.GraphSchema.*: 图谱不存在 / 资源命名与归属校验失败
-     *     - ERR.Robject.Global.ResourceNotFound: 资源不存在等底层校验失败
+     * Saves a single semantic resource draft through OpenAPI (personal token only).
+     *     Business orchestration:
+     *     1. Draft domain identity verification (personal token only; deployment/system-level tokens are rejected)
+     *        and semantic management permission verification.
+     *     2. Delegates to the personal draft service for saving (source is fixed YAML). The underlying layer includes resource-level write permission verification.
+     *        If the content is identical to the online version, the database write is skipped and the summary field returns null.
+     *     Error codes:
+     *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+     *     - ERR.Robject.Global.InvalidParameter: The resourceType/elementType combination is invalid.
+     *     - ERR.GraphSchema.*: The graph does not exist, or resource naming and ownership verification failed.
+     *     - ERR.Robject.Global.ResourceNotFound: The resource does not exist or other underlying verification failed.
      *
      * @param Request - SaveGraphDraftResourceRequest
      *
@@ -11650,15 +13187,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Batch saves group outputs to the current operator\\"s personal knowledge base.
+     * Batch saves group outputs to the personal knowledge base of the current operator.
      *
      * @remarks
-     * ## Request description
-     * - Saves specified group outputs to the current operator\\"s personal knowledge base.
-     * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
-     * - The caller must be a member of the target group who is associated with a platform user. Regular members can only archive outputs they created, while group administrators can archive visible outputs from other members. Personal ownership is always derived from the gateway authentication identity.
-     * - If `directoryId` is not specified, the current operator\\"s default personal directory is used.
-     * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. The entire batch fails if any entry does not exist, is not visible, or cannot be operated on.
+     * ## Operation description
+     * - Saves specified group outputs to the personal knowledge base of the current operator.
+     * - Two modes are supported: `link` (maintains the association with the output) and `copy` (creates an independent snapshot).
+     * - The caller must be a member of the target group who is associated with a platform user. Regular members can archive only outputs they created. Group administrators can archive visible outputs of other members. The personal ownership is always derived from the gateway authentication identity.
+     * - If `directoryId` is not specified, the default personal directory of the current operator is used.
+     * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. If any entry does not exist, is not visible, or cannot be operated on, the entire batch fails.
      * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure to save a single entry does not affect other entries.
      *
      * @param tmpReq - SaveGroupOutputFileToPersonalResourceRequest
@@ -11725,15 +13262,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Batch saves group outputs to the current operator\\"s personal knowledge base.
+     * Batch saves group outputs to the personal knowledge base of the current operator.
      *
      * @remarks
-     * ## Request description
-     * - Saves specified group outputs to the current operator\\"s personal knowledge base.
-     * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
-     * - The caller must be a member of the target group who is associated with a platform user. Regular members can only archive outputs they created, while group administrators can archive visible outputs from other members. Personal ownership is always derived from the gateway authentication identity.
-     * - If `directoryId` is not specified, the current operator\\"s default personal directory is used.
-     * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. The entire batch fails if any entry does not exist, is not visible, or cannot be operated on.
+     * ## Operation description
+     * - Saves specified group outputs to the personal knowledge base of the current operator.
+     * - Two modes are supported: `link` (maintains the association with the output) and `copy` (creates an independent snapshot).
+     * - The caller must be a member of the target group who is associated with a platform user. Regular members can archive only outputs they created. Group administrators can archive visible outputs of other members. The personal ownership is always derived from the gateway authentication identity.
+     * - If `directoryId` is not specified, the default personal directory of the current operator is used.
+     * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. If any entry does not exist, is not visible, or cannot be operated on, the entire batch fails.
      * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure to save a single entry does not affect other entries.
      *
      * @param Request - SaveGroupOutputFileToPersonalResourceRequest
@@ -11753,14 +13290,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Saves output details in batch as personal resources. Supports link or copy mode.
+     * Saves output details in batches as personal resources. Supports link or copy mode.
      *
      * @remarks
      * ## Operation description
-     * - This API saves a batch of output details as personal resources for the user.
+     * - This API saves a batch of output details as personal resources for a user.
      * - Two save modes are supported: `link` and `copy`. When `link` is selected, edits to the output are synchronized to the resource. When `copy` is selected, a snapshot is created with no limit on the number of copies.
      * - `tenant_id` and `user_id` are derived only from the authenticated identity.
-     * - If `operating_object` values are inconsistent within the batch and `directoryId` is not specified, the entire batch fails with a pre-check error.
+     * - If the `operating_object` values within the batch are inconsistent and `directoryId` is not specified, the entire batch fails with a pre-check error.
      * - The processing result of a single record does not affect other records. Failure information for individual records is returned in the response.
      * - A maximum of 50 records are supported per batch operation.
      * - Batch-level pre-check failures are returned in a POP-compatible error format by the global exception middleware.
@@ -11825,14 +13362,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Saves output details in batch as personal resources. Supports link or copy mode.
+     * Saves output details in batches as personal resources. Supports link or copy mode.
      *
      * @remarks
      * ## Operation description
-     * - This API saves a batch of output details as personal resources for the user.
+     * - This API saves a batch of output details as personal resources for a user.
      * - Two save modes are supported: `link` and `copy`. When `link` is selected, edits to the output are synchronized to the resource. When `copy` is selected, a snapshot is created with no limit on the number of copies.
      * - `tenant_id` and `user_id` are derived only from the authenticated identity.
-     * - If `operating_object` values are inconsistent within the batch and `directoryId` is not specified, the entire batch fails with a pre-check error.
+     * - If the `operating_object` values within the batch are inconsistent and `directoryId` is not specified, the entire batch fails with a pre-check error.
      * - The processing result of a single record does not affect other records. Failure information for individual records is returned in the response.
      * - A maximum of 50 records are supported per batch operation.
      * - Batch-level pre-check failures are returned in a POP-compatible error format by the global exception middleware.
@@ -11945,10 +13482,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Asynchronously sends a session message.
+     * Sends a session message asynchronously.
      *
      * @remarks
-     * Asynchronously sends a session message.
+     * Sends a session message asynchronously.
      *
      * @param tmpReq - SendAsyncChatMessageRequest
      * @param headers - map
@@ -12029,6 +13566,10 @@ class WinNexo extends OpenApiClient
             @$body['taskExecution'] = $request->taskExecutionShrink;
         }
 
+        if (null !== $request->workMode) {
+            @$body['workMode'] = $request->workMode;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -12050,10 +13591,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Asynchronously sends a session message.
+     * Sends a session message asynchronously.
      *
      * @remarks
-     * Asynchronously sends a session message.
+     * Sends a session message asynchronously.
      *
      * @param Request - SendAsyncChatMessageRequest
      *
@@ -12076,12 +13617,12 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - This API operation is used to upload a file to the "My Resources" section of a specified digital employee.
+     * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
      * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-     * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
-     * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the invoker.
-     * - Multiple authentication methods (AK, BearerToken, APP) are supported for security authentication.
-     * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
+     * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
+     * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
+     * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+     * - The operation type is write, and operation logs are recorded for subsequent auditing.
      *
      * @param tmpReq - SendChatMessageRequest
      * @param headers - map
@@ -12162,6 +13703,10 @@ class WinNexo extends OpenApiClient
             @$body['taskExecution'] = $request->taskExecutionShrink;
         }
 
+        if (null !== $request->workMode) {
+            @$body['workMode'] = $request->workMode;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -12200,12 +13745,12 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - This API operation is used to upload a file to the "My Resources" section of a specified digital employee.
+     * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
      * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-     * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
-     * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the invoker.
-     * - Multiple authentication methods (AK, BearerToken, APP) are supported for security authentication.
-     * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
+     * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
+     * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
+     * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+     * - The operation type is write, and operation logs are recorded for subsequent auditing.
      *
      * @param tmpReq - SendChatMessageRequest
      * @param headers - map
@@ -12286,6 +13831,10 @@ class WinNexo extends OpenApiClient
             @$body['taskExecution'] = $request->taskExecutionShrink;
         }
 
+        if (null !== $request->workMode) {
+            @$body['workMode'] = $request->workMode;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -12311,12 +13860,12 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Operation description
-     * - This API operation is used to upload a file to the "My Resources" section of a specified digital employee.
+     * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
      * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-     * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
-     * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the invoker.
-     * - Multiple authentication methods (AK, BearerToken, APP) are supported for security authentication.
-     * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
+     * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
+     * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
+     * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+     * - The operation type is write, and operation logs are recorded for subsequent auditing.
      *
      * @param Request - SendChatMessageRequest
      *
@@ -13241,16 +14790,16 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 快更图谱元信息.
+     * Updates the basic information of a knowledge graph.
      *
      * @remarks
-     * OpenAPI 快更图谱元信息（displayName / businessProfile），同步更新 active 记录。
-     *     displayName 与 businessProfile 至少传其一，否则返回 ERR.GraphSchema.QuickUpdateNoFieldsToUpdate。
-     *     错误码：
-     *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: 未传任何可更新字段
-     *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
-     *     - ERR.GraphSchema.GraphSchemaNotFound: 图谱不存在
-     *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
+     * Updates the metadata of a knowledge graph (displayName / businessProfile) through OpenAPI and synchronously updates the active record.
+     *     At least one of displayName and businessProfile must be specified. Otherwise, ERR.GraphSchema.QuickUpdateNoFieldsToUpdate is returned.
+     *     Error codes:
+     *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: No updatable fields are specified.
+     *     - ERR.GraphSchema.GraphNameInvalid: The graph name is invalid.
+     *     - ERR.GraphSchema.GraphSchemaNotFound: The graph does not exist.
+     *     - ERR.GraphSchema.DisplayNameInvalid: The display name is invalid or duplicate.
      *
      * @param Request - UpdateGraphInfoRequest
      * @param headers - map
@@ -13306,16 +14855,16 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 快更图谱元信息.
+     * Updates the basic information of a knowledge graph.
      *
      * @remarks
-     * OpenAPI 快更图谱元信息（displayName / businessProfile），同步更新 active 记录。
-     *     displayName 与 businessProfile 至少传其一，否则返回 ERR.GraphSchema.QuickUpdateNoFieldsToUpdate。
-     *     错误码：
-     *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: 未传任何可更新字段
-     *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
-     *     - ERR.GraphSchema.GraphSchemaNotFound: 图谱不存在
-     *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
+     * Updates the metadata of a knowledge graph (displayName / businessProfile) through OpenAPI and synchronously updates the active record.
+     *     At least one of displayName and businessProfile must be specified. Otherwise, ERR.GraphSchema.QuickUpdateNoFieldsToUpdate is returned.
+     *     Error codes:
+     *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: No updatable fields are specified.
+     *     - ERR.GraphSchema.GraphNameInvalid: The graph name is invalid.
+     *     - ERR.GraphSchema.GraphSchemaNotFound: The graph does not exist.
+     *     - ERR.GraphSchema.DisplayNameInvalid: The display name is invalid or duplicate.
      *
      * @param Request - UpdateGraphInfoRequest
      *
@@ -13331,6 +14880,176 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->updateGraphInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Modifies a folder in the materials section of a collaborative share.
+     *
+     * @remarks
+     * The folder creator or a storage management administrator who is an active member can modify the folder. Modifying the internal root folder or reference folders is prohibited. If description is set to an empty character string, the description is cleared. If description is set to null or omitted, the description remains unchanged. At least one of name or description must be non-null.
+     *
+     * @param Request - UpdateGroupDirectoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGroupDirectoryResponse
+     *
+     * @param UpdateGroupDirectoryRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateGroupDirectoryResponse
+     */
+    public function updateGroupDirectoryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGroupDirectory',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/updateGroupDirectory',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGroupDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a folder in the materials section of a collaborative share.
+     *
+     * @remarks
+     * The folder creator or a storage management administrator who is an active member can modify the folder. Modifying the internal root folder or reference folders is prohibited. If description is set to an empty character string, the description is cleared. If description is set to null or omitted, the description remains unchanged. At least one of name or description must be non-null.
+     *
+     * @param Request - UpdateGroupDirectoryRequest
+     *
+     * @returns UpdateGroupDirectoryResponse
+     *
+     * @param UpdateGroupDirectoryRequest $request
+     *
+     * @return UpdateGroupDirectoryResponse
+     */
+    public function updateGroupDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGroupDirectoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 修改协作空间资料正文.
+     *
+     * @remarks
+     * 有效成员且为创建者或空间管理员可编辑物理资料；引用只读。通常支持TEXT及本地txt/md；TEXT去首尾空白，已有skip_parse资料沿用免解析和本地文件扩展名规则。
+     *
+     * @param Request - UpdateGroupSourceContentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGroupSourceContentResponse
+     *
+     * @param UpdateGroupSourceContentRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateGroupSourceContentResponse
+     */
+    public function updateGroupSourceContentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        if (null !== $request->forceSync) {
+            @$body['forceSync'] = $request->forceSync;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['sourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGroupSourceContent',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/updateGroupSourceContent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGroupSourceContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改协作空间资料正文.
+     *
+     * @remarks
+     * 有效成员且为创建者或空间管理员可编辑物理资料；引用只读。通常支持TEXT及本地txt/md；TEXT去首尾空白，已有skip_parse资料沿用免解析和本地文件扩展名规则。
+     *
+     * @param Request - UpdateGroupSourceContentRequest
+     *
+     * @returns UpdateGroupSourceContentResponse
+     *
+     * @param UpdateGroupSourceContentRequest $request
+     *
+     * @return UpdateGroupSourceContentResponse
+     */
+    public function updateGroupSourceContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGroupSourceContentWithOptions($request, $headers, $runtime);
     }
 
     /**
