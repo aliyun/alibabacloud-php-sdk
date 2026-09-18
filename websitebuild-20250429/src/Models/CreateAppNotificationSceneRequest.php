@@ -16,6 +16,16 @@ class CreateAppNotificationSceneRequest extends Model
     /**
      * @var string
      */
+    public $butlerChannelTypesJson;
+
+    /**
+     * @var string
+     */
+    public $butlerFieldsJson;
+
+    /**
+     * @var string
+     */
     public $channelsJson;
 
     /**
@@ -69,6 +79,8 @@ class CreateAppNotificationSceneRequest extends Model
     public $triggerEventsJson;
     protected $_name = [
         'bizId' => 'BizId',
+        'butlerChannelTypesJson' => 'ButlerChannelTypesJson',
+        'butlerFieldsJson' => 'ButlerFieldsJson',
         'channelsJson' => 'ChannelsJson',
         'description' => 'Description',
         'emailFieldsJson' => 'EmailFieldsJson',
@@ -92,6 +104,14 @@ class CreateAppNotificationSceneRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->butlerChannelTypesJson) {
+            $res['ButlerChannelTypesJson'] = $this->butlerChannelTypesJson;
+        }
+
+        if (null !== $this->butlerFieldsJson) {
+            $res['ButlerFieldsJson'] = $this->butlerFieldsJson;
         }
 
         if (null !== $this->channelsJson) {
@@ -151,6 +171,14 @@ class CreateAppNotificationSceneRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['ButlerChannelTypesJson'])) {
+            $model->butlerChannelTypesJson = $map['ButlerChannelTypesJson'];
+        }
+
+        if (isset($map['ButlerFieldsJson'])) {
+            $model->butlerFieldsJson = $map['ButlerFieldsJson'];
         }
 
         if (isset($map['ChannelsJson'])) {

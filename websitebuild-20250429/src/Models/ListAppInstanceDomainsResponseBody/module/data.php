@@ -76,6 +76,11 @@ class data extends Model
     public $qualification;
 
     /**
+     * @var string
+     */
+    public $redirectDomain;
+
+    /**
      * @var resolution
      */
     public $resolution;
@@ -97,6 +102,7 @@ class data extends Model
         'overallStatus' => 'OverallStatus',
         'ownership' => 'Ownership',
         'qualification' => 'Qualification',
+        'redirectDomain' => 'RedirectDomain',
         'resolution' => 'Resolution',
         'verification' => 'Verification',
     ];
@@ -178,6 +184,10 @@ class data extends Model
             $res['Qualification'] = null !== $this->qualification ? $this->qualification->toArray($noStream) : $this->qualification;
         }
 
+        if (null !== $this->redirectDomain) {
+            $res['RedirectDomain'] = $this->redirectDomain;
+        }
+
         if (null !== $this->resolution) {
             $res['Resolution'] = null !== $this->resolution ? $this->resolution->toArray($noStream) : $this->resolution;
         }
@@ -243,6 +253,10 @@ class data extends Model
 
         if (isset($map['Qualification'])) {
             $model->qualification = qualification::fromMap($map['Qualification']);
+        }
+
+        if (isset($map['RedirectDomain'])) {
+            $model->redirectDomain = $map['RedirectDomain'];
         }
 
         if (isset($map['Resolution'])) {

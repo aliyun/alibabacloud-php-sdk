@@ -27,6 +27,16 @@ class AppInstanceProfile extends Model
     /**
      * @var string
      */
+    public $caseAuditStatus;
+
+    /**
+     * @var string
+     */
+    public $caseShelfStatus;
+
+    /**
+     * @var string
+     */
     public $chatbiTaskId;
 
     /**
@@ -127,6 +137,8 @@ class AppInstanceProfile extends Model
         'applicationType' => 'ApplicationType',
         'applicationTypeText' => 'ApplicationTypeText',
         'bizId' => 'BizId',
+        'caseAuditStatus' => 'CaseAuditStatus',
+        'caseShelfStatus' => 'CaseShelfStatus',
         'chatbiTaskId' => 'ChatbiTaskId',
         'chatbiTaskStatus' => 'ChatbiTaskStatus',
         'commodityCode' => 'CommodityCode',
@@ -170,6 +182,14 @@ class AppInstanceProfile extends Model
 
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->caseAuditStatus) {
+            $res['CaseAuditStatus'] = $this->caseAuditStatus;
+        }
+
+        if (null !== $this->caseShelfStatus) {
+            $res['CaseShelfStatus'] = $this->caseShelfStatus;
         }
 
         if (null !== $this->chatbiTaskId) {
@@ -273,6 +293,14 @@ class AppInstanceProfile extends Model
 
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['CaseAuditStatus'])) {
+            $model->caseAuditStatus = $map['CaseAuditStatus'];
+        }
+
+        if (isset($map['CaseShelfStatus'])) {
+            $model->caseShelfStatus = $map['CaseShelfStatus'];
         }
 
         if (isset($map['ChatbiTaskId'])) {

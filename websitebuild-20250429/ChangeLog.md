@@ -1,3 +1,10 @@
+2026-09-18 Version: 2.38.4
+- Update API CreateAppNotificationScene: add request parameters ButlerChannelTypesJson.
+- Update API CreateAppNotificationScene: add request parameters ButlerFieldsJson.
+- Update API DeleteAppDomainRedirect: add request parameters DomainName.
+- Update API ListAppInstanceDomains: add response parameters Body.Module.Data.$.RedirectDomain.
+
+
 2026-09-17 Version: 2.38.3
 - Update API BindAppDomain: add request parameters DeployType.
 

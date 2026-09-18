@@ -14,11 +14,17 @@ class DeleteAppDomainRedirectRequest extends Model
     public $bizId;
 
     /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var int
      */
     public $recordId;
     protected $_name = [
         'bizId' => 'BizId',
+        'domainName' => 'DomainName',
         'recordId' => 'RecordId',
     ];
 
@@ -32,6 +38,10 @@ class DeleteAppDomainRedirectRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
 
         if (null !== $this->recordId) {
@@ -51,6 +61,10 @@ class DeleteAppDomainRedirectRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
 
         if (isset($map['RecordId'])) {

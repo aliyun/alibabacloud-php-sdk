@@ -1943,6 +1943,14 @@ class WebsiteBuild extends OpenApiClient
             @$query['BizId'] = $request->bizId;
         }
 
+        if (null !== $request->butlerChannelTypesJson) {
+            @$query['ButlerChannelTypesJson'] = $request->butlerChannelTypesJson;
+        }
+
+        if (null !== $request->butlerFieldsJson) {
+            @$query['ButlerFieldsJson'] = $request->butlerFieldsJson;
+        }
+
         if (null !== $request->channelsJson) {
             @$query['ChannelsJson'] = $request->channelsJson;
         }
@@ -2743,7 +2751,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Deletes 301 redirect records bound to a website.
+     * Deletes an HTTP 301 status code redirect record bound to a website.
      *
      * @param request - DeleteAppDomainRedirectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2761,6 +2769,10 @@ class WebsiteBuild extends OpenApiClient
         $query = [];
         if (null !== $request->bizId) {
             @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
 
         if (null !== $request->recordId) {
@@ -2786,7 +2798,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Deletes 301 redirect records bound to a website.
+     * Deletes an HTTP 301 status code redirect record bound to a website.
      *
      * @param request - DeleteAppDomainRedirectRequest
      *
