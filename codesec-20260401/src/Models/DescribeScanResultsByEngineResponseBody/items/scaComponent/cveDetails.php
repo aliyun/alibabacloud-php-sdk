@@ -26,7 +26,17 @@ class cveDetails extends Model
     /**
      * @var string
      */
+    public $cweId;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $fixedVersion;
 
     /**
      * @var string[]
@@ -41,7 +51,9 @@ class cveDetails extends Model
         'cveId' => 'cveId',
         'cvss' => 'cvss',
         'cvssVersion' => 'cvssVersion',
+        'cweId' => 'cweId',
         'description' => 'description',
+        'fixedVersion' => 'fixedVersion',
         'references' => 'references',
         'severity' => 'severity',
     ];
@@ -69,8 +81,16 @@ class cveDetails extends Model
             $res['cvssVersion'] = $this->cvssVersion;
         }
 
+        if (null !== $this->cweId) {
+            $res['cweId'] = $this->cweId;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->fixedVersion) {
+            $res['fixedVersion'] = $this->fixedVersion;
         }
 
         if (null !== $this->references) {
@@ -111,8 +131,16 @@ class cveDetails extends Model
             $model->cvssVersion = $map['cvssVersion'];
         }
 
+        if (isset($map['cweId'])) {
+            $model->cweId = $map['cweId'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['fixedVersion'])) {
+            $model->fixedVersion = $map['fixedVersion'];
         }
 
         if (isset($map['references'])) {

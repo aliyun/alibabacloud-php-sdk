@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CodeSec\V20260401\Models\DescribeProjectsResponseBody\items;
+namespace AlibabaCloud\SDK\CodeSec\V20260401\Models\CreateProjectRequest;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\CodeSec\V20260401\Models\DescribeProjectsResponseBody\items\engines\sastConfig;
-use AlibabaCloud\SDK\CodeSec\V20260401\Models\DescribeProjectsResponseBody\items\engines\scaConfig;
+use AlibabaCloud\SDK\CodeSec\V20260401\Models\CreateProjectRequest\engines\sastConfig;
+use AlibabaCloud\SDK\CodeSec\V20260401\Models\CreateProjectRequest\engines\scaConfig;
 
 class engines extends Model
 {
