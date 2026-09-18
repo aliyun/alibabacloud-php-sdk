@@ -69,6 +69,11 @@ class ListAIAgentEventRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $riskLevel;
@@ -110,6 +115,7 @@ class ListAIAgentEventRequest extends Model
         'order' => 'Order',
         'orderBy' => 'OrderBy',
         'pageSize' => 'PageSize',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'riskLevel' => 'RiskLevel',
         'riskName' => 'RiskName',
         'source' => 'Source',
@@ -175,6 +181,10 @@ class ListAIAgentEventRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->riskLevel) {
@@ -265,6 +275,10 @@ class ListAIAgentEventRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['RiskLevel'])) {
