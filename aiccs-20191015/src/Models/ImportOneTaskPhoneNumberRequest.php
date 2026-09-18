@@ -16,6 +16,11 @@ class ImportOneTaskPhoneNumberRequest extends Model
     /**
      * @var string
      */
+    public $extension;
+
+    /**
+     * @var string
+     */
     public $outId;
 
     /**
@@ -49,6 +54,7 @@ class ImportOneTaskPhoneNumberRequest extends Model
     public $variables;
     protected $_name = [
         'encryptionType' => 'EncryptionType',
+        'extension' => 'Extension',
         'outId' => 'OutId',
         'ownerId' => 'OwnerId',
         'phoneNumber' => 'PhoneNumber',
@@ -71,6 +77,10 @@ class ImportOneTaskPhoneNumberRequest extends Model
         $res = [];
         if (null !== $this->encryptionType) {
             $res['EncryptionType'] = $this->encryptionType;
+        }
+
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
         }
 
         if (null !== $this->outId) {
@@ -119,6 +129,10 @@ class ImportOneTaskPhoneNumberRequest extends Model
         $model = new self();
         if (isset($map['EncryptionType'])) {
             $model->encryptionType = $map['EncryptionType'];
+        }
+
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
         }
 
         if (isset($map['OutId'])) {
