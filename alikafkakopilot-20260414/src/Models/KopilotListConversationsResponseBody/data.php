@@ -5,9 +5,17 @@
 namespace AlibabaCloud\SDK\AlikafkaKopilot\V20260414\Models\KopilotListConversationsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AlikafkaKopilot\V20260414\Models\DataScheduledTaskInfoBySessionIdValue;
+use AlibabaCloud\SDK\AlikafkaKopilot\V20260414\Models\KopilotListConversationsResponseBody\data\automationOverview;
+use AlibabaCloud\SDK\AlikafkaKopilot\V20260414\Models\KopilotListConversationsResponseBody\data\scheduledTaskQuota;
 
 class data extends Model
 {
+    /**
+     * @var automationOverview
+     */
+    public $automationOverview;
+
     /**
      * @var string[]
      */
@@ -22,6 +30,16 @@ class data extends Model
      * @var int
      */
     public $page;
+
+    /**
+     * @var DataScheduledTaskInfoBySessionIdValue[]
+     */
+    public $scheduledTaskInfoBySessionId;
+
+    /**
+     * @var scheduledTaskQuota
+     */
+    public $scheduledTaskQuota;
 
     /**
      * @var int
@@ -43,9 +61,12 @@ class data extends Model
      */
     public $userId;
     protected $_name = [
+        'automationOverview' => 'AutomationOverview',
         'conversationIds' => 'ConversationIds',
         'count' => 'Count',
         'page' => 'Page',
+        'scheduledTaskInfoBySessionId' => 'ScheduledTaskInfoBySessionId',
+        'scheduledTaskQuota' => 'ScheduledTaskQuota',
         'size' => 'Size',
         'total' => 'Total',
         'totalPages' => 'TotalPages',
@@ -54,8 +75,17 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->automationOverview) {
+            $this->automationOverview->validate();
+        }
         if (\is_array($this->conversationIds)) {
             Model::validateArray($this->conversationIds);
+        }
+        if (\is_array($this->scheduledTaskInfoBySessionId)) {
+            Model::validateArray($this->scheduledTaskInfoBySessionId);
+        }
+        if (null !== $this->scheduledTaskQuota) {
+            $this->scheduledTaskQuota->validate();
         }
         parent::validate();
     }
@@ -63,6 +93,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->automationOverview) {
+            $res['AutomationOverview'] = null !== $this->automationOverview ? $this->automationOverview->toArray($noStream) : $this->automationOverview;
+        }
+
         if (null !== $this->conversationIds) {
             if (\is_array($this->conversationIds)) {
                 $res['ConversationIds'] = [];
@@ -80,6 +114,19 @@ class data extends Model
 
         if (null !== $this->page) {
             $res['Page'] = $this->page;
+        }
+
+        if (null !== $this->scheduledTaskInfoBySessionId) {
+            if (\is_array($this->scheduledTaskInfoBySessionId)) {
+                $res['ScheduledTaskInfoBySessionId'] = [];
+                foreach ($this->scheduledTaskInfoBySessionId as $key1 => $value1) {
+                    $res['ScheduledTaskInfoBySessionId'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
+        }
+
+        if (null !== $this->scheduledTaskQuota) {
+            $res['ScheduledTaskQuota'] = null !== $this->scheduledTaskQuota ? $this->scheduledTaskQuota->toArray($noStream) : $this->scheduledTaskQuota;
         }
 
         if (null !== $this->size) {
@@ -109,6 +156,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutomationOverview'])) {
+            $model->automationOverview = automationOverview::fromMap($map['AutomationOverview']);
+        }
+
         if (isset($map['ConversationIds'])) {
             if (!empty($map['ConversationIds'])) {
                 $model->conversationIds = [];
@@ -126,6 +177,19 @@ class data extends Model
 
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
+        }
+
+        if (isset($map['ScheduledTaskInfoBySessionId'])) {
+            if (!empty($map['ScheduledTaskInfoBySessionId'])) {
+                $model->scheduledTaskInfoBySessionId = [];
+                foreach ($map['ScheduledTaskInfoBySessionId'] as $key1 => $value1) {
+                    $model->scheduledTaskInfoBySessionId[$key1] = DataScheduledTaskInfoBySessionIdValue::fromMap($value1);
+                }
+            }
+        }
+
+        if (isset($map['ScheduledTaskQuota'])) {
+            $model->scheduledTaskQuota = scheduledTaskQuota::fromMap($map['ScheduledTaskQuota']);
         }
 
         if (isset($map['Size'])) {

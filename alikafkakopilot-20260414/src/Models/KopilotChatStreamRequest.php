@@ -11,6 +11,11 @@ class KopilotChatStreamRequest extends Model
     /**
      * @var string
      */
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -23,6 +28,7 @@ class KopilotChatStreamRequest extends Model
      */
     public $sessionId;
     protected $_name = [
+        'acceptLanguage' => 'AcceptLanguage',
         'message' => 'Message',
         'regionId' => 'RegionId',
         'sessionId' => 'SessionId',
@@ -36,6 +42,10 @@ class KopilotChatStreamRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -59,6 +69,10 @@ class KopilotChatStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

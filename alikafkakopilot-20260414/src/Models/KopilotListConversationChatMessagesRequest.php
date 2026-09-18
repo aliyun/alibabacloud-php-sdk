@@ -27,11 +27,23 @@ class KopilotListConversationChatMessagesRequest extends Model
      * @var string
      */
     public $sessionId;
+
+    /**
+     * @var string
+     */
+    public $taskCursor;
+
+    /**
+     * @var int
+     */
+    public $taskPageSize;
     protected $_name = [
         'beforeTurnId' => 'BeforeTurnId',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'sessionId' => 'SessionId',
+        'taskCursor' => 'TaskCursor',
+        'taskPageSize' => 'TaskPageSize',
     ];
 
     public function validate()
@@ -56,6 +68,14 @@ class KopilotListConversationChatMessagesRequest extends Model
 
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->taskCursor) {
+            $res['TaskCursor'] = $this->taskCursor;
+        }
+
+        if (null !== $this->taskPageSize) {
+            $res['TaskPageSize'] = $this->taskPageSize;
         }
 
         return $res;
@@ -83,6 +103,14 @@ class KopilotListConversationChatMessagesRequest extends Model
 
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+
+        if (isset($map['TaskCursor'])) {
+            $model->taskCursor = $map['TaskCursor'];
+        }
+
+        if (isset($map['TaskPageSize'])) {
+            $model->taskPageSize = $map['TaskPageSize'];
         }
 
         return $model;

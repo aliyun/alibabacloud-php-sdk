@@ -25,7 +25,7 @@ class AlikafkaKopilot extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('alikafkakopilot', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -55,7 +55,7 @@ class AlikafkaKopilot extends OpenApiClient
     }
 
     /**
-     * 智能体 stream chat.
+     * Initiates a streaming chat session with an agent.
      *
      * @param request - KopilotChatStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -71,6 +71,10 @@ class AlikafkaKopilot extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
         if (null !== $request->message) {
             @$query['Message'] = $request->message;
         }
@@ -115,7 +119,7 @@ class AlikafkaKopilot extends OpenApiClient
     }
 
     /**
-     * 智能体 stream chat.
+     * Initiates a streaming chat session with an agent.
      *
      * @param request - KopilotChatStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -131,6 +135,10 @@ class AlikafkaKopilot extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
         if (null !== $request->message) {
             @$query['Message'] = $request->message;
         }
@@ -162,7 +170,7 @@ class AlikafkaKopilot extends OpenApiClient
     }
 
     /**
-     * 智能体 stream chat.
+     * Initiates a streaming chat session with an agent.
      *
      * @param request - KopilotChatStreamRequest
      *
@@ -180,7 +188,7 @@ class AlikafkaKopilot extends OpenApiClient
     }
 
     /**
-     * 评价.
+     * Evaluates a user session.
      *
      * @param request - KopilotFeedbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -235,7 +243,7 @@ class AlikafkaKopilot extends OpenApiClient
     }
 
     /**
-     * 评价.
+     * Evaluates a user session.
      *
      * @param request - KopilotFeedbackRequest
      *
@@ -253,7 +261,7 @@ class AlikafkaKopilot extends OpenApiClient
     }
 
     /**
-     * 历史会话.
+     * Queries historical conversations.
      *
      * @param request - KopilotListConversationChatMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -285,6 +293,14 @@ class AlikafkaKopilot extends OpenApiClient
             @$query['SessionId'] = $request->sessionId;
         }
 
+        if (null !== $request->taskCursor) {
+            @$query['TaskCursor'] = $request->taskCursor;
+        }
+
+        if (null !== $request->taskPageSize) {
+            @$query['TaskPageSize'] = $request->taskPageSize;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -304,7 +320,7 @@ class AlikafkaKopilot extends OpenApiClient
     }
 
     /**
-     * 历史会话.
+     * Queries historical conversations.
      *
      * @param request - KopilotListConversationChatMessagesRequest
      *
@@ -322,7 +338,7 @@ class AlikafkaKopilot extends OpenApiClient
     }
 
     /**
-     * 智能体.
+     * Queries the session IDs of the current user in the Console channel, sorted by creation time in descending order. Pagination is supported.
      *
      * @param request - KopilotListConversationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -338,6 +354,18 @@ class AlikafkaKopilot extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->destinationCursor) {
+            @$query['DestinationCursor'] = $request->destinationCursor;
+        }
+
+        if (null !== $request->destinationPageSize) {
+            @$query['DestinationPageSize'] = $request->destinationPageSize;
+        }
+
+        if (null !== $request->includeAutomationOverview) {
+            @$query['IncludeAutomationOverview'] = $request->includeAutomationOverview;
+        }
+
         if (null !== $request->page) {
             @$query['Page'] = $request->page;
         }
@@ -348,6 +376,14 @@ class AlikafkaKopilot extends OpenApiClient
 
         if (null !== $request->size) {
             @$query['Size'] = $request->size;
+        }
+
+        if (null !== $request->taskCursor) {
+            @$query['TaskCursor'] = $request->taskCursor;
+        }
+
+        if (null !== $request->taskPageSize) {
+            @$query['TaskPageSize'] = $request->taskPageSize;
         }
 
         $req = new OpenApiRequest([
@@ -369,7 +405,7 @@ class AlikafkaKopilot extends OpenApiClient
     }
 
     /**
-     * 智能体.
+     * Queries the session IDs of the current user in the Console channel, sorted by creation time in descending order. Pagination is supported.
      *
      * @param request - KopilotListConversationsRequest
      *
@@ -387,7 +423,7 @@ class AlikafkaKopilot extends OpenApiClient
     }
 
     /**
-     * 状态
+     * Queries the enabling status of an instance.
      *
      * @param request - KopilotQueryStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -430,7 +466,7 @@ class AlikafkaKopilot extends OpenApiClient
     }
 
     /**
-     * 状态
+     * Queries the enabling status of an instance.
      *
      * @param request - KopilotQueryStatusRequest
      *

@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\AlikafkaKopilot\V20260414\Models\KopilotListConversat
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AlikafkaKopilot\V20260414\Models\KopilotListConversationChatMessagesResponseBody\data\messages;
+use AlibabaCloud\SDK\AlikafkaKopilot\V20260414\Models\KopilotListConversationChatMessagesResponseBody\data\scheduledTaskInfo;
+use AlibabaCloud\SDK\AlikafkaKopilot\V20260414\Models\KopilotListConversationChatMessagesResponseBody\data\scheduledTaskQuota;
 
 class data extends Model
 {
@@ -25,6 +27,16 @@ class data extends Model
     public $nextBeforeTurnId;
 
     /**
+     * @var scheduledTaskInfo
+     */
+    public $scheduledTaskInfo;
+
+    /**
+     * @var scheduledTaskQuota
+     */
+    public $scheduledTaskQuota;
+
+    /**
      * @var string
      */
     public $sessionId;
@@ -37,6 +49,8 @@ class data extends Model
         'hasMore' => 'HasMore',
         'messages' => 'Messages',
         'nextBeforeTurnId' => 'NextBeforeTurnId',
+        'scheduledTaskInfo' => 'ScheduledTaskInfo',
+        'scheduledTaskQuota' => 'ScheduledTaskQuota',
         'sessionId' => 'SessionId',
         'totalTurns' => 'TotalTurns',
     ];
@@ -45,6 +59,12 @@ class data extends Model
     {
         if (\is_array($this->messages)) {
             Model::validateArray($this->messages);
+        }
+        if (null !== $this->scheduledTaskInfo) {
+            $this->scheduledTaskInfo->validate();
+        }
+        if (null !== $this->scheduledTaskQuota) {
+            $this->scheduledTaskQuota->validate();
         }
         parent::validate();
     }
@@ -69,6 +89,14 @@ class data extends Model
 
         if (null !== $this->nextBeforeTurnId) {
             $res['NextBeforeTurnId'] = $this->nextBeforeTurnId;
+        }
+
+        if (null !== $this->scheduledTaskInfo) {
+            $res['ScheduledTaskInfo'] = null !== $this->scheduledTaskInfo ? $this->scheduledTaskInfo->toArray($noStream) : $this->scheduledTaskInfo;
+        }
+
+        if (null !== $this->scheduledTaskQuota) {
+            $res['ScheduledTaskQuota'] = null !== $this->scheduledTaskQuota ? $this->scheduledTaskQuota->toArray($noStream) : $this->scheduledTaskQuota;
         }
 
         if (null !== $this->sessionId) {
@@ -107,6 +135,14 @@ class data extends Model
 
         if (isset($map['NextBeforeTurnId'])) {
             $model->nextBeforeTurnId = $map['NextBeforeTurnId'];
+        }
+
+        if (isset($map['ScheduledTaskInfo'])) {
+            $model->scheduledTaskInfo = scheduledTaskInfo::fromMap($map['ScheduledTaskInfo']);
+        }
+
+        if (isset($map['ScheduledTaskQuota'])) {
+            $model->scheduledTaskQuota = scheduledTaskQuota::fromMap($map['ScheduledTaskQuota']);
         }
 
         if (isset($map['SessionId'])) {
