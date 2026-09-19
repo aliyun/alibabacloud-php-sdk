@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateApiKeyRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateApiKeyResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTeamRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTeamResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTemplateCacheRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTemplateCacheResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\CreateVolumeRequest;
@@ -20,6 +22,8 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteQuotaResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTeamRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTeamResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTemplateCacheRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTemplateCacheResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DeleteVolumeRequest;
@@ -28,6 +32,8 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeApiKeyRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeApiKeyResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeQuotaResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeTemplateCacheRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\DescribeTemplateCacheResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetTeamRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetTeamResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\GetTemplateRequest;
@@ -40,6 +46,8 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListQuotaResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTeamsRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTeamsResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTemplateCacheRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTemplateCacheResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTemplatesResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListVolumesRequest;
@@ -261,6 +269,62 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->createTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建模板缓存.
+     *
+     * @param request - CreateTemplateCacheRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTemplateCacheResponse
+     *
+     * @param CreateTemplateCacheRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateTemplateCacheResponse
+     */
+    public function createTemplateCacheWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTemplateCache',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/template-caches',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTemplateCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模板缓存.
+     *
+     * @param request - CreateTemplateCacheRequest
+     *
+     * @returns CreateTemplateCacheResponse
+     *
+     * @param CreateTemplateCacheRequest $request
+     *
+     * @return CreateTemplateCacheResponse
+     */
+    public function createTemplateCache($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTemplateCacheWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -558,6 +622,69 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
+     * 删除模板缓存.
+     *
+     * @param request - DeleteTemplateCacheRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTemplateCacheResponse
+     *
+     * @param string                     $templateID
+     * @param DeleteTemplateCacheRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteTemplateCacheResponse
+     */
+    public function deleteTemplateCacheWithOptions($templateID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTemplateCache',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/template-caches/' . Url::percentEncode($templateID) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTemplateCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除模板缓存.
+     *
+     * @param request - DeleteTemplateCacheRequest
+     *
+     * @returns DeleteTemplateCacheResponse
+     *
+     * @param string                     $templateID
+     * @param DeleteTemplateCacheRequest $request
+     *
+     * @return DeleteTemplateCacheResponse
+     */
+    public function deleteTemplateCache($templateID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTemplateCacheWithOptions($templateID, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a Volume.
      *
      * @param request - DeleteVolumeRequest
@@ -736,6 +863,69 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->describeQuotaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the template cache.
+     *
+     * @param request - DescribeTemplateCacheRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTemplateCacheResponse
+     *
+     * @param string                       $templateID
+     * @param DescribeTemplateCacheRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeTemplateCacheResponse
+     */
+    public function describeTemplateCacheWithOptions($templateID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTemplateCache',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/template-caches/' . Url::percentEncode($templateID) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTemplateCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the template cache.
+     *
+     * @param request - DescribeTemplateCacheRequest
+     *
+     * @returns DescribeTemplateCacheResponse
+     *
+     * @param string                       $templateID
+     * @param DescribeTemplateCacheRequest $request
+     *
+     * @return DescribeTemplateCacheResponse
+     */
+    public function describeTemplateCache($templateID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeTemplateCacheWithOptions($templateID, $request, $headers, $runtime);
     }
 
     /**
@@ -1146,6 +1336,83 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->listTeamsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries template caches by using paging.
+     *
+     * @param request - ListTemplateCacheRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTemplateCacheResponse
+     *
+     * @param ListTemplateCacheRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListTemplateCacheResponse
+     */
+    public function listTemplateCacheWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        if (null !== $request->templateID) {
+            @$query['templateID'] = $request->templateID;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTemplateCache',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/template-caches',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTemplateCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries template caches by using paging.
+     *
+     * @param request - ListTemplateCacheRequest
+     *
+     * @returns ListTemplateCacheResponse
+     *
+     * @param ListTemplateCacheRequest $request
+     *
+     * @return ListTemplateCacheResponse
+     */
+    public function listTemplateCache($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTemplateCacheWithOptions($request, $headers, $runtime);
     }
 
     /**
