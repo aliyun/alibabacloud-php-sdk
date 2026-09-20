@@ -27,9 +27,6 @@ class Tingwu extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-beijing' => 'tingwu.cn-beijing.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('tingwu', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -59,7 +56,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * Create offline transcription and real-time meeting tasks in Tingwu.
+     * Creates a Tingwu task, including offline transcription tasks and real-time meeting tasks.
      *
      * @param request - CreateTaskRequest
      * @param headers - map
@@ -119,7 +116,7 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * Create offline transcription and real-time meeting tasks in Tingwu.
+     * Creates a Tingwu task, including offline transcription tasks and real-time meeting tasks.
      *
      * @param request - CreateTaskRequest
      *

@@ -45,6 +45,11 @@ class transcription extends Model
     public $outputLevel;
 
     /**
+     * @var mixed[]
+     */
+    public $phrase;
+
+    /**
      * @var string
      */
     public $phraseId;
@@ -66,6 +71,7 @@ class transcription extends Model
         'disfluencyEnabled' => 'DisfluencyEnabled',
         'model' => 'Model',
         'outputLevel' => 'OutputLevel',
+        'phrase' => 'Phrase',
         'phraseId' => 'PhraseId',
         'profanityFilterEnabled' => 'ProfanityFilterEnabled',
         'realtimeDiarizationEnabled' => 'RealtimeDiarizationEnabled',
@@ -75,6 +81,9 @@ class transcription extends Model
     {
         if (null !== $this->diarization) {
             $this->diarization->validate();
+        }
+        if (\is_array($this->phrase)) {
+            Model::validateArray($this->phrase);
         }
         parent::validate();
     }
@@ -108,6 +117,15 @@ class transcription extends Model
 
         if (null !== $this->outputLevel) {
             $res['OutputLevel'] = $this->outputLevel;
+        }
+
+        if (null !== $this->phrase) {
+            if (\is_array($this->phrase)) {
+                $res['Phrase'] = [];
+                foreach ($this->phrase as $key1 => $value1) {
+                    $res['Phrase'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->phraseId) {
@@ -159,6 +177,15 @@ class transcription extends Model
 
         if (isset($map['OutputLevel'])) {
             $model->outputLevel = $map['OutputLevel'];
+        }
+
+        if (isset($map['Phrase'])) {
+            if (!empty($map['Phrase'])) {
+                $model->phrase = [];
+                foreach ($map['Phrase'] as $key1 => $value1) {
+                    $model->phrase[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['PhraseId'])) {
