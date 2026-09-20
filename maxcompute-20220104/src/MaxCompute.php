@@ -2462,7 +2462,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the basic information of a MaxCompute project.
+     * Queries the basic information about a MaxCompute project.
      *
      * @param request - GetProjectRequest
      * @param headers - map
@@ -2513,7 +2513,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the basic information of a MaxCompute project.
+     * Queries the basic information about a MaxCompute project.
      *
      * @param request - GetProjectRequest
      *

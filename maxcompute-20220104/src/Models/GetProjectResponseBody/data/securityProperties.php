@@ -17,6 +17,11 @@ class securityProperties extends Model
     /**
      * @var bool
      */
+    public $enableNamespacePrivilege;
+
+    /**
+     * @var bool
+     */
     public $labelSecurity;
 
     /**
@@ -45,6 +50,7 @@ class securityProperties extends Model
     public $usingPolicy;
     protected $_name = [
         'enableDownloadPrivilege' => 'enableDownloadPrivilege',
+        'enableNamespacePrivilege' => 'enableNamespacePrivilege',
         'labelSecurity' => 'labelSecurity',
         'objectCreatorHasAccessPermission' => 'objectCreatorHasAccessPermission',
         'objectCreatorHasGrantPermission' => 'objectCreatorHasGrantPermission',
@@ -66,6 +72,10 @@ class securityProperties extends Model
         $res = [];
         if (null !== $this->enableDownloadPrivilege) {
             $res['enableDownloadPrivilege'] = $this->enableDownloadPrivilege;
+        }
+
+        if (null !== $this->enableNamespacePrivilege) {
+            $res['enableNamespacePrivilege'] = $this->enableNamespacePrivilege;
         }
 
         if (null !== $this->labelSecurity) {
@@ -105,6 +115,10 @@ class securityProperties extends Model
         $model = new self();
         if (isset($map['enableDownloadPrivilege'])) {
             $model->enableDownloadPrivilege = $map['enableDownloadPrivilege'];
+        }
+
+        if (isset($map['enableNamespacePrivilege'])) {
+            $model->enableNamespacePrivilege = $map['enableNamespacePrivilege'];
         }
 
         if (isset($map['labelSecurity'])) {
