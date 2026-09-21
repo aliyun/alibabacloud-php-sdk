@@ -21,6 +21,11 @@ class initialConfigOptions extends Model
     /**
      * @var string
      */
+    public $projectId;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -30,6 +35,7 @@ class initialConfigOptions extends Model
     protected $_name = [
         'executionLane' => 'ExecutionLane',
         'mode' => 'Mode',
+        'projectId' => 'ProjectId',
         'resourceGroupId' => 'ResourceGroupId',
         'skills' => 'Skills',
     ];
@@ -48,6 +54,10 @@ class initialConfigOptions extends Model
 
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -75,6 +85,10 @@ class initialConfigOptions extends Model
 
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['ResourceGroupId'])) {
