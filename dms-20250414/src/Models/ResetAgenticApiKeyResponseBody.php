@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Dms\V20250414\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ResetAgenticApiKeyResponseBody\data;
 
-class CreateDataLakeFunctionResponseBody extends Model
+class ResetAgenticApiKeyResponseBody extends Model
 {
+    /**
+     * @var data
+     */
+    public $data;
+
     /**
      * @var string
      */
@@ -19,11 +25,6 @@ class CreateDataLakeFunctionResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var DLFunction
-     */
-    public $function;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -33,17 +34,17 @@ class CreateDataLakeFunctionResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'data' => 'Data',
         'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
-        'function' => 'Function',
         'requestId' => 'RequestId',
         'success' => 'Success',
     ];
 
     public function validate()
     {
-        if (null !== $this->function) {
-            $this->function->validate();
+        if (null !== $this->data) {
+            $this->data->validate();
         }
         parent::validate();
     }
@@ -51,16 +52,16 @@ class CreateDataLakeFunctionResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+        }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
 
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
-        }
-
-        if (null !== $this->function) {
-            $res['Function'] = null !== $this->function ? $this->function->toArray($noStream) : $this->function;
         }
 
         if (null !== $this->requestId) {
@@ -82,16 +83,16 @@ class CreateDataLakeFunctionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
 
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
-        }
-
-        if (isset($map['Function'])) {
-            $model->function = DLFunction::fromMap($map['Function']);
         }
 
         if (isset($map['RequestId'])) {

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dms\V20250414\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateDataLakeDatabaseResponse extends Model
+class ResetAgenticApiKeyResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UpdateDataLakeDatabaseResponse extends Model
     public $statusCode;
 
     /**
-     * @var UpdateDataLakeDatabaseResponseBody
+     * @var ResetAgenticApiKeyResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class UpdateDataLakeDatabaseResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = UpdateDataLakeDatabaseResponseBody::fromMap($map['body']);
+            $model->body = ResetAgenticApiKeyResponseBody::fromMap($map['body']);
         }
 
         return $model;

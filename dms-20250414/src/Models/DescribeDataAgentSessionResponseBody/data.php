@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponse
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\artifacts;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\capabilities;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\chatHistoryLocations;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\dataSources;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\recallResults;
@@ -27,6 +28,11 @@ class data extends Model
      * @var artifacts[]
      */
     public $artifacts;
+
+    /**
+     * @var capabilities[]
+     */
+    public $capabilities;
 
     /**
      * @var chatHistoryLocations[]
@@ -91,6 +97,7 @@ class data extends Model
         'agentId' => 'AgentId',
         'agentStatus' => 'AgentStatus',
         'artifacts' => 'Artifacts',
+        'capabilities' => 'Capabilities',
         'chatHistoryLocations' => 'ChatHistoryLocations',
         'createTime' => 'CreateTime',
         'dataSources' => 'DataSources',
@@ -109,6 +116,9 @@ class data extends Model
     {
         if (\is_array($this->artifacts)) {
             Model::validateArray($this->artifacts);
+        }
+        if (\is_array($this->capabilities)) {
+            Model::validateArray($this->capabilities);
         }
         if (\is_array($this->chatHistoryLocations)) {
             Model::validateArray($this->chatHistoryLocations);
@@ -142,6 +152,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->artifacts as $item1) {
                     $res['Artifacts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->capabilities) {
+            if (\is_array($this->capabilities)) {
+                $res['Capabilities'] = [];
+                $n1 = 0;
+                foreach ($this->capabilities as $item1) {
+                    $res['Capabilities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -241,6 +262,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['Artifacts'] as $item1) {
                     $model->artifacts[$n1] = artifacts::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Capabilities'])) {
+            if (!empty($map['Capabilities'])) {
+                $model->capabilities = [];
+                $n1 = 0;
+                foreach ($map['Capabilities'] as $item1) {
+                    $model->capabilities[$n1] = capabilities::fromMap($item1);
                     ++$n1;
                 }
             }
