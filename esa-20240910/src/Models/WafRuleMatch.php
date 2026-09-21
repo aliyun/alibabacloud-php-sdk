@@ -42,6 +42,11 @@ class WafRuleMatch extends Model
      * @var bool
      */
     public $negate;
+
+    /**
+     * @var string
+     */
+    public $parent;
     protected $_name = [
         'convertToLower' => 'ConvertToLower',
         'criteria' => 'Criteria',
@@ -50,6 +55,7 @@ class WafRuleMatch extends Model
         'matchType' => 'MatchType',
         'matchValue' => 'MatchValue',
         'negate' => 'Negate',
+        'parent' => 'Parent',
     ];
 
     public function validate()
@@ -98,6 +104,10 @@ class WafRuleMatch extends Model
             $res['Negate'] = $this->negate;
         }
 
+        if (null !== $this->parent) {
+            $res['Parent'] = $this->parent;
+        }
+
         return $res;
     }
 
@@ -142,6 +152,10 @@ class WafRuleMatch extends Model
 
         if (isset($map['Negate'])) {
             $model->negate = $map['Negate'];
+        }
+
+        if (isset($map['Parent'])) {
+            $model->parent = $map['Parent'];
         }
 
         return $model;

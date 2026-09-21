@@ -2,14 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponseBody\filter;
+namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponseBody\filter\fields;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponseBody\filter\fields\logics;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponseBody\filter\fields\selector;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponseBody\filter\fields\subs;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponseBody\filter\fields\subs\logics;
 
-class fields extends Model
+class subs extends Model
 {
     /**
      * @var bool
@@ -35,48 +33,18 @@ class fields extends Model
      * @var string
      */
     public $minPlan;
-
-    /**
-     * @var selector
-     */
-    public $selector;
-
-    /**
-     * @var bool
-     */
-    public $sub;
-
-    /**
-     * @var string
-     */
-    public $subTip;
-
-    /**
-     * @var subs[]
-     */
-    public $subs;
     protected $_name = [
         'enable' => 'Enable',
         'key' => 'Key',
         'label' => 'Label',
         'logics' => 'Logics',
         'minPlan' => 'MinPlan',
-        'selector' => 'Selector',
-        'sub' => 'Sub',
-        'subTip' => 'SubTip',
-        'subs' => 'Subs',
     ];
 
     public function validate()
     {
         if (\is_array($this->logics)) {
             Model::validateArray($this->logics);
-        }
-        if (null !== $this->selector) {
-            $this->selector->validate();
-        }
-        if (\is_array($this->subs)) {
-            Model::validateArray($this->subs);
         }
         parent::validate();
     }
@@ -109,29 +77,6 @@ class fields extends Model
 
         if (null !== $this->minPlan) {
             $res['MinPlan'] = $this->minPlan;
-        }
-
-        if (null !== $this->selector) {
-            $res['Selector'] = null !== $this->selector ? $this->selector->toArray($noStream) : $this->selector;
-        }
-
-        if (null !== $this->sub) {
-            $res['Sub'] = $this->sub;
-        }
-
-        if (null !== $this->subTip) {
-            $res['SubTip'] = $this->subTip;
-        }
-
-        if (null !== $this->subs) {
-            if (\is_array($this->subs)) {
-                $res['Subs'] = [];
-                $n1 = 0;
-                foreach ($this->subs as $item1) {
-                    $res['Subs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
         }
 
         return $res;
@@ -170,29 +115,6 @@ class fields extends Model
 
         if (isset($map['MinPlan'])) {
             $model->minPlan = $map['MinPlan'];
-        }
-
-        if (isset($map['Selector'])) {
-            $model->selector = selector::fromMap($map['Selector']);
-        }
-
-        if (isset($map['Sub'])) {
-            $model->sub = $map['Sub'];
-        }
-
-        if (isset($map['SubTip'])) {
-            $model->subTip = $map['SubTip'];
-        }
-
-        if (isset($map['Subs'])) {
-            if (!empty($map['Subs'])) {
-                $model->subs = [];
-                $n1 = 0;
-                foreach ($map['Subs'] as $item1) {
-                    $model->subs[$n1] = subs::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         return $model;
