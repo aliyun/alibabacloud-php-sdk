@@ -30,6 +30,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $agenticDBClusterId;
+
+    /**
+     * @var string
+     */
     public $applicationType;
 
     /**
@@ -239,6 +244,7 @@ class CreateApplicationRequest extends Model
     protected $_name = [
         'AIDBClusterId' => 'AIDBClusterId',
         'agenticDBBranchSpec' => 'AgenticDBBranchSpec',
+        'agenticDBClusterId' => 'AgenticDBClusterId',
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
         'authProvider' => 'AuthProvider',
@@ -324,6 +330,10 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->agenticDBBranchSpec) {
             $res['AgenticDBBranchSpec'] = null !== $this->agenticDBBranchSpec ? $this->agenticDBBranchSpec->toArray($noStream) : $this->agenticDBBranchSpec;
+        }
+
+        if (null !== $this->agenticDBClusterId) {
+            $res['AgenticDBClusterId'] = $this->agenticDBClusterId;
         }
 
         if (null !== $this->applicationType) {
@@ -553,6 +563,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['AgenticDBBranchSpec'])) {
             $model->agenticDBBranchSpec = agenticDBBranchSpec::fromMap($map['AgenticDBBranchSpec']);
+        }
+
+        if (isset($map['AgenticDBClusterId'])) {
+            $model->agenticDBClusterId = $map['AgenticDBClusterId'];
         }
 
         if (isset($map['ApplicationType'])) {

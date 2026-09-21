@@ -4544,7 +4544,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates an application associated with a PolarDB instance.
+     * Creates an application that is associated with a PolarDB instance.
      *
      * @param tmpReq - CreateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4600,6 +4600,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->agenticDBBranchSpecShrink) {
             @$query['AgenticDBBranchSpec'] = $request->agenticDBBranchSpecShrink;
+        }
+
+        if (null !== $request->agenticDBClusterId) {
+            @$query['AgenticDBClusterId'] = $request->agenticDBClusterId;
         }
 
         if (null !== $request->applicationType) {
@@ -4789,7 +4793,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates an application associated with a PolarDB instance.
+     * Creates an application that is associated with a PolarDB instance.
      *
      * @param request - CreateApplicationRequest
      *

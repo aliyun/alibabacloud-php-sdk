@@ -22,6 +22,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $agenticDBClusterId;
+
+    /**
+     * @var string
+     */
     public $applicationType;
 
     /**
@@ -231,6 +236,7 @@ class CreateApplicationShrinkRequest extends Model
     protected $_name = [
         'AIDBClusterId' => 'AIDBClusterId',
         'agenticDBBranchSpecShrink' => 'AgenticDBBranchSpec',
+        'agenticDBClusterId' => 'AgenticDBClusterId',
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
         'authProvider' => 'AuthProvider',
@@ -292,6 +298,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->agenticDBBranchSpecShrink) {
             $res['AgenticDBBranchSpec'] = $this->agenticDBBranchSpecShrink;
+        }
+
+        if (null !== $this->agenticDBClusterId) {
+            $res['AgenticDBClusterId'] = $this->agenticDBClusterId;
         }
 
         if (null !== $this->applicationType) {
@@ -486,6 +496,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['AgenticDBBranchSpec'])) {
             $model->agenticDBBranchSpecShrink = $map['AgenticDBBranchSpec'];
+        }
+
+        if (isset($map['AgenticDBClusterId'])) {
+            $model->agenticDBClusterId = $map['AgenticDBClusterId'];
         }
 
         if (isset($map['ApplicationType'])) {
