@@ -11,6 +11,11 @@ class details extends Model
     /**
      * @var string
      */
+    public $agentType;
+
+    /**
+     * @var string
+     */
     public $apiKeyName;
 
     /**
@@ -88,6 +93,7 @@ class details extends Model
      */
     public $ttftMs;
     protected $_name = [
+        'agentType' => 'AgentType',
         'apiKeyName' => 'ApiKeyName',
         'cachedTokens' => 'CachedTokens',
         'changeTime' => 'ChangeTime',
@@ -114,6 +120,10 @@ class details extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentType) {
+            $res['AgentType'] = $this->agentType;
+        }
+
         if (null !== $this->apiKeyName) {
             $res['ApiKeyName'] = $this->apiKeyName;
         }
@@ -189,6 +199,10 @@ class details extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentType'])) {
+            $model->agentType = $map['AgentType'];
+        }
+
         if (isset($map['ApiKeyName'])) {
             $model->apiKeyName = $map['ApiKeyName'];
         }

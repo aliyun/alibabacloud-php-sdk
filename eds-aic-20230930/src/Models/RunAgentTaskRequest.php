@@ -31,6 +31,11 @@ class RunAgentTaskRequest extends Model
     public $runConfig;
 
     /**
+     * @var bool
+     */
+    public $saveArtifacts;
+
+    /**
      * @var string
      */
     public $scheduleId;
@@ -59,6 +64,7 @@ class RunAgentTaskRequest extends Model
         'instanceIds' => 'InstanceIds',
         'maxSteps' => 'MaxSteps',
         'runConfig' => 'RunConfig',
+        'saveArtifacts' => 'SaveArtifacts',
         'scheduleId' => 'ScheduleId',
         'targets' => 'Targets',
         'taskConfigId' => 'TaskConfigId',
@@ -104,6 +110,10 @@ class RunAgentTaskRequest extends Model
 
         if (null !== $this->runConfig) {
             $res['RunConfig'] = null !== $this->runConfig ? $this->runConfig->toArray($noStream) : $this->runConfig;
+        }
+
+        if (null !== $this->saveArtifacts) {
+            $res['SaveArtifacts'] = $this->saveArtifacts;
         }
 
         if (null !== $this->scheduleId) {
@@ -165,6 +175,10 @@ class RunAgentTaskRequest extends Model
 
         if (isset($map['RunConfig'])) {
             $model->runConfig = runConfig::fromMap($map['RunConfig']);
+        }
+
+        if (isset($map['SaveArtifacts'])) {
+            $model->saveArtifacts = $map['SaveArtifacts'];
         }
 
         if (isset($map['ScheduleId'])) {

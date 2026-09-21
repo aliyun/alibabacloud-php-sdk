@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMobileAgentPackageResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMobileAgentPackageResponseBody\packageList\tags;
 
 class packageList extends Model
 {
@@ -54,6 +55,11 @@ class packageList extends Model
     public $periodStartTime;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $usedCredit;
@@ -67,6 +73,7 @@ class packageList extends Model
         'packageStatus' => 'PackageStatus',
         'periodEndTime' => 'PeriodEndTime',
         'periodStartTime' => 'PeriodStartTime',
+        'tags' => 'Tags',
         'usedCredit' => 'UsedCredit',
     ];
 
@@ -74,6 +81,9 @@ class packageList extends Model
     {
         if (\is_array($this->instanceIds)) {
             Model::validateArray($this->instanceIds);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -122,6 +132,17 @@ class packageList extends Model
 
         if (null !== $this->periodStartTime) {
             $res['PeriodStartTime'] = $this->periodStartTime;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->usedCredit) {
@@ -180,6 +201,17 @@ class packageList extends Model
 
         if (isset($map['PeriodStartTime'])) {
             $model->periodStartTime = $map['PeriodStartTime'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UsedCredit'])) {

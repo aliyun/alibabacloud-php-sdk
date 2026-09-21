@@ -16,7 +16,17 @@ class ResetAndroidInstancesInGroupRequest extends Model
     /**
      * @var bool
      */
+    public $autoPay;
+
+    /**
+     * @var bool
+     */
     public $ignoreParamValidation;
+
+    /**
+     * @var string
+     */
+    public $promotionId;
 
     /**
      * @var string
@@ -27,11 +37,19 @@ class ResetAndroidInstancesInGroupRequest extends Model
      * @var int
      */
     public $settingResetType;
+
+    /**
+     * @var int
+     */
+    public $targetDataDiskSize;
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
+        'autoPay' => 'AutoPay',
         'ignoreParamValidation' => 'IgnoreParamValidation',
+        'promotionId' => 'PromotionId',
         'saleMode' => 'SaleMode',
         'settingResetType' => 'SettingResetType',
+        'targetDataDiskSize' => 'TargetDataDiskSize',
     ];
 
     public function validate()
@@ -56,8 +74,16 @@ class ResetAndroidInstancesInGroupRequest extends Model
             }
         }
 
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+
         if (null !== $this->ignoreParamValidation) {
             $res['IgnoreParamValidation'] = $this->ignoreParamValidation;
+        }
+
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
         }
 
         if (null !== $this->saleMode) {
@@ -66,6 +92,10 @@ class ResetAndroidInstancesInGroupRequest extends Model
 
         if (null !== $this->settingResetType) {
             $res['SettingResetType'] = $this->settingResetType;
+        }
+
+        if (null !== $this->targetDataDiskSize) {
+            $res['TargetDataDiskSize'] = $this->targetDataDiskSize;
         }
 
         return $res;
@@ -90,8 +120,16 @@ class ResetAndroidInstancesInGroupRequest extends Model
             }
         }
 
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+
         if (isset($map['IgnoreParamValidation'])) {
             $model->ignoreParamValidation = $map['IgnoreParamValidation'];
+        }
+
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
         }
 
         if (isset($map['SaleMode'])) {
@@ -100,6 +138,10 @@ class ResetAndroidInstancesInGroupRequest extends Model
 
         if (isset($map['SettingResetType'])) {
             $model->settingResetType = $map['SettingResetType'];
+        }
+
+        if (isset($map['TargetDataDiskSize'])) {
+            $model->targetDataDiskSize = $map['TargetDataDiskSize'];
         }
 
         return $model;

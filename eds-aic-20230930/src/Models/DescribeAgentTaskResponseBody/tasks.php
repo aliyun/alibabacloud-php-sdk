@@ -5,9 +5,20 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAgentTaskResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAgentTaskResponseBody\tasks\artifacts;
 
 class tasks extends Model
 {
+    /**
+     * @var int
+     */
+    public $artifactCount;
+
+    /**
+     * @var artifacts[]
+     */
+    public $artifacts;
+
     /**
      * @var string
      */
@@ -63,6 +74,8 @@ class tasks extends Model
      */
     public $userPrompt;
     protected $_name = [
+        'artifactCount' => 'ArtifactCount',
+        'artifacts' => 'Artifacts',
         'currentStatus' => 'CurrentStatus',
         'digestSource' => 'DigestSource',
         'instanceId' => 'InstanceId',
@@ -78,12 +91,30 @@ class tasks extends Model
 
     public function validate()
     {
+        if (\is_array($this->artifacts)) {
+            Model::validateArray($this->artifacts);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->artifactCount) {
+            $res['ArtifactCount'] = $this->artifactCount;
+        }
+
+        if (null !== $this->artifacts) {
+            if (\is_array($this->artifacts)) {
+                $res['Artifacts'] = [];
+                $n1 = 0;
+                foreach ($this->artifacts as $item1) {
+                    $res['Artifacts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->currentStatus) {
             $res['CurrentStatus'] = $this->currentStatus;
         }
@@ -139,6 +170,21 @@ class tasks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArtifactCount'])) {
+            $model->artifactCount = $map['ArtifactCount'];
+        }
+
+        if (isset($map['Artifacts'])) {
+            if (!empty($map['Artifacts'])) {
+                $model->artifacts = [];
+                $n1 = 0;
+                foreach ($map['Artifacts'] as $item1) {
+                    $model->artifacts[$n1] = artifacts::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['CurrentStatus'])) {
             $model->currentStatus = $map['CurrentStatus'];
         }

@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ChangeCloudPhoneNodeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ChangeCloudPhoneNodeResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAgentSkillRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAgentSkillResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAICloudPhoneRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAICloudPhoneResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupRequest;
@@ -57,6 +59,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateScreenshotResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateSystemPropertyTemplateRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateSystemPropertyTemplateResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateSystemPropertyTemplateShrinkRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAgentSkillRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAgentSkillResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAndroidInstanceGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAppsRequest;
@@ -122,6 +126,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeScheduledTaskExecutionsRequ
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeScheduledTaskExecutionsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeScheduledTasksRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeScheduledTasksResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSkillsRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSkillsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSystemPropertyTemplatesRequest;
@@ -158,6 +164,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallMonitorAgentRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallMonitorAgentResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallSkillsRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallSkillsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstanceHealerRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstanceHealerResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListInstanceAdbAttributesRequest;
@@ -247,8 +255,12 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallMonitorAgentRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallMonitorAgentResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallSkillsRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallSkillsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCloudPhoneNodeSystemImageRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCloudPhoneNodeSystemImageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCustomImageNameRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCustomImageNameResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateInstanceGroupImageRequest;
@@ -268,10 +280,6 @@ class Edsaic extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'ap-southeast-1' => 'eds-aic.ap-southeast-1.aliyuncs.com',
-            'cn-shanghai' => 'eds-aic.cn-shanghai.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eds-aic', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -1196,6 +1204,83 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * Creates a custom skill.
+     *
+     * @param request - CreateAgentSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentSkillResponse
+     *
+     * @param CreateAgentSkillRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAgentSkillResponse
+     */
+    public function createAgentSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileList) {
+            @$query['FileList'] = $request->fileList;
+        }
+
+        if (null !== $request->iconKey) {
+            @$query['IconKey'] = $request->iconKey;
+        }
+
+        if (null !== $request->packageOssKey) {
+            @$query['PackageOssKey'] = $request->packageOssKey;
+        }
+
+        if (null !== $request->skillDescription) {
+            @$query['SkillDescription'] = $request->skillDescription;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['SkillName'] = $request->skillName;
+        }
+
+        if (null !== $request->skillPackageUrl) {
+            @$query['SkillPackageUrl'] = $request->skillPackageUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgentSkill',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a custom skill.
+     *
+     * @param request - CreateAgentSkillRequest
+     *
+     * @returns CreateAgentSkillResponse
+     *
+     * @param CreateAgentSkillRequest $request
+     *
+     * @return CreateAgentSkillResponse
+     */
+    public function createAgentSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgentSkillWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can organize instances with the same functional purpose into the same instance group for unified management.
      *
      * @remarks
@@ -2027,10 +2112,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Purchases a resource plan.
+     * Purchases a resource plan by placing an order.
      *
      * @remarks
-     * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Alibaba Cloud CloudPhone.
+     * This operation involves billing. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
      *
      * @param request - CreateMobileAgentPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2106,6 +2191,10 @@ class Edsaic extends OpenApiClient
             @$query['PromotionId'] = $request->promotionId;
         }
 
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2125,10 +2214,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Purchases a resource plan.
+     * Purchases a resource plan by placing an order.
      *
      * @remarks
-     * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Alibaba Cloud CloudPhone.
+     * This operation involves billing. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
      *
      * @param request - CreateMobileAgentPackageRequest
      *
@@ -2486,6 +2575,63 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * Deletes custom skills.
+     *
+     * @param request - DeleteAgentSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentSkillResponse
+     *
+     * @param DeleteAgentSkillRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteAgentSkillResponse
+     */
+    public function deleteAgentSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->skillIds) {
+            @$query['SkillIds'] = $request->skillIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgentSkill',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes custom skills.
+     *
+     * @param request - DeleteAgentSkillRequest
+     *
+     * @returns DeleteAgentSkillResponse
+     *
+     * @param DeleteAgentSkillRequest $request
+     *
+     * @return DeleteAgentSkillResponse
+     */
+    public function deleteAgentSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgentSkillWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an Android instance group. All instances in the group are also deleted. This operation cannot be undone. Proceed with caution.
      *
      * @remarks
@@ -2608,7 +2754,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Deletes a batch of backup files.
+     * Deletes backup files in batches.
      *
      * @param request - DeleteBackupFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2647,7 +2793,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Deletes a batch of backup files.
+     * Deletes backup files in batches.
      *
      * @param request - DeleteBackupFileRequest
      *
@@ -3681,7 +3827,7 @@ class Edsaic extends OpenApiClient
 
     /**
      * Queries the details of a cloud phone matrix.
-     * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
+     * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
      *
      * @param request - DescribeCloudPhoneNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3769,7 +3915,7 @@ class Edsaic extends OpenApiClient
 
     /**
      * Queries the details of a cloud phone matrix.
-     * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
+     * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
      *
      * @param request - DescribeCloudPhoneNodesRequest
      *
@@ -3787,7 +3933,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries all change records of credits.
+     * Queries all credit change records.
      *
      * @param request - DescribeCreditDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3803,6 +3949,10 @@ class Edsaic extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentTypes) {
+            @$query['AgentTypes'] = $request->agentTypes;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
         }
@@ -3854,7 +4004,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries all change records of credits.
+     * Queries all credit change records.
      *
      * @param request - DescribeCreditDetailRequest
      *
@@ -4762,7 +4912,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries the execution records of agent scheduled tasks.
+     * Queries the execution records of an agent scheduled task.
      *
      * @param request - DescribeScheduledTaskExecutionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4825,7 +4975,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries the execution records of agent scheduled tasks.
+     * Queries the execution records of an agent scheduled task.
      *
      * @param request - DescribeScheduledTaskExecutionsRequest
      *
@@ -4925,6 +5075,87 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeScheduledTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries skill information.
+     *
+     * @param request - DescribeSkillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSkillsResponse
+     *
+     * @param DescribeSkillsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeSkillsResponse
+     */
+    public function describeSkillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
+        if (null !== $request->statusFilter) {
+            @$query['StatusFilter'] = $request->statusFilter;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSkills',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries skill information.
+     *
+     * @param request - DescribeSkillsRequest
+     *
+     * @returns DescribeSkillsResponse
+     *
+     * @param DescribeSkillsRequest $request
+     *
+     * @return DescribeSkillsResponse
+     */
+    public function describeSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSkillsWithOptions($request, $runtime);
     }
 
     /**
@@ -5987,10 +6218,10 @@ class Edsaic extends OpenApiClient
      * Imports a custom image.
      *
      * @remarks
-     * 1. You can import a custom image to develop custom features or services.
-     * 2. First, obtain the required Android Open Source Project (AOSP) image baseline from the platform. Then, create a custom build. After the build is complete, import the image to the platform. For detailed instructions, contact Wuying technical support.
-     * 3. Ensure the image tar package is smaller than 2 GB. Otherwise, image parsing may fail.
-     * 4. Ensure the Object Storage Service (OSS) address is in mainland China. If the address is outside mainland China or in the Hong Kong region, the image file download may time out.
+     * 1. Importing a custom image is applicable to scenarios where you need to develop customized features or services.
+     * 2. Obtain the required AOSP base image from the platform, perform a custom build, and then import the built image to the platform for use. For detailed steps, contact Wuying technical support.
+     * 3. Ensure that the image TAR package is smaller than 2 GB. Otherwise, image parsing may fail.
+     * 4. Ensure that your OSS address is in the Chinese mainland. Addresses outside the Chinese mainland or in Hong Kong (China) may cause image file download timeouts.
      *
      * @param request - ImportImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6006,6 +6237,10 @@ class Edsaic extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->baseImageId) {
+            @$query['BaseImageId'] = $request->baseImageId;
+        }
+
         if (null !== $request->imageDescription) {
             @$query['ImageDescription'] = $request->imageDescription;
         }
@@ -6040,10 +6275,10 @@ class Edsaic extends OpenApiClient
      * Imports a custom image.
      *
      * @remarks
-     * 1. You can import a custom image to develop custom features or services.
-     * 2. First, obtain the required Android Open Source Project (AOSP) image baseline from the platform. Then, create a custom build. After the build is complete, import the image to the platform. For detailed instructions, contact Wuying technical support.
-     * 3. Ensure the image tar package is smaller than 2 GB. Otherwise, image parsing may fail.
-     * 4. Ensure the Object Storage Service (OSS) address is in mainland China. If the address is outside mainland China or in the Hong Kong region, the image file download may time out.
+     * 1. Importing a custom image is applicable to scenarios where you need to develop customized features or services.
+     * 2. Obtain the required AOSP base image from the platform, perform a custom build, and then import the built image to the platform for use. For detailed steps, contact Wuying technical support.
+     * 3. Ensure that the image TAR package is smaller than 2 GB. Otherwise, image parsing may fail.
+     * 4. Ensure that your OSS address is in the Chinese mainland. Addresses outside the Chinese mainland or in Hong Kong (China) may cause image file download timeouts.
      *
      * @param request - ImportImageRequest
      *
@@ -6257,6 +6492,67 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installMonitorAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Installs skills to instances.
+     *
+     * @param request - InstallSkillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallSkillsResponse
+     *
+     * @param InstallSkillsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InstallSkillsResponse
+     */
+    public function installSkillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->skillIds) {
+            @$query['SkillIds'] = $request->skillIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InstallSkills',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Installs skills to instances.
+     *
+     * @param request - InstallSkillsRequest
+     *
+     * @returns InstallSkillsResponse
+     *
+     * @param InstallSkillsRequest $request
+     *
+     * @return InstallSkillsResponse
+     */
+    public function installSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installSkillsWithOptions($request, $runtime);
     }
 
     /**
@@ -8242,10 +8538,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Resets the instance by reinstalling the operating system using its original image. Note: The reset operation will fail if the image that was used to create the Cloud Phone has since been deleted.
+     * Resets cloud phone instances. A reset reinstalls the system using the image of the cloud phone. For example, the reset fails if the image used when the cloud phone was created has been deleted.
      *
      * @remarks
-     * You can reset an instance (initialize its system) only when the instance is Active, Stopped, Abnormal, Backup Failed, or **Recover Failed**.
+     * Resetting (initializing the system) is supported only when the instance is in the **Available, Stopped, Abnormal, Backup Failed, or Restore Failed** state.
      *
      * @param request - ResetAndroidInstancesInGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8265,8 +8561,16 @@ class Edsaic extends OpenApiClient
             @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
 
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
         if (null !== $request->ignoreParamValidation) {
             @$query['IgnoreParamValidation'] = $request->ignoreParamValidation;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
         }
 
         if (null !== $request->saleMode) {
@@ -8275,6 +8579,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->settingResetType) {
             @$query['SettingResetType'] = $request->settingResetType;
+        }
+
+        if (null !== $request->targetDataDiskSize) {
+            @$query['TargetDataDiskSize'] = $request->targetDataDiskSize;
         }
 
         $req = new OpenApiRequest([
@@ -8296,10 +8604,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Resets the instance by reinstalling the operating system using its original image. Note: The reset operation will fail if the image that was used to create the Cloud Phone has since been deleted.
+     * Resets cloud phone instances. A reset reinstalls the system using the image of the cloud phone. For example, the reset fails if the image used when the cloud phone was created has been deleted.
      *
      * @remarks
-     * You can reset an instance (initialize its system) only when the instance is Active, Stopped, Abnormal, Backup Failed, or **Recover Failed**.
+     * Resetting (initializing the system) is supported only when the instance is in the **Available, Stopped, Abnormal, Backup Failed, or Restore Failed** state.
      *
      * @param request - ResetAndroidInstancesInGroupRequest
      *
@@ -8422,6 +8730,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->runConfigShrink) {
             @$query['RunConfig'] = $request->runConfigShrink;
+        }
+
+        if (null !== $request->saveArtifacts) {
+            @$query['SaveArtifacts'] = $request->saveArtifacts;
         }
 
         if (null !== $request->scheduleId) {
@@ -9388,6 +9700,67 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * Uninstalls skills from instances.
+     *
+     * @param request - UninstallSkillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallSkillsResponse
+     *
+     * @param UninstallSkillsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UninstallSkillsResponse
+     */
+    public function uninstallSkillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->skillIds) {
+            @$query['SkillIds'] = $request->skillIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UninstallSkills',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UninstallSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Uninstalls skills from instances.
+     *
+     * @param request - UninstallSkillsRequest
+     *
+     * @returns UninstallSkillsResponse
+     *
+     * @param UninstallSkillsRequest $request
+     *
+     * @return UninstallSkillsResponse
+     */
+    public function uninstallSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uninstallSkillsWithOptions($request, $runtime);
+    }
+
+    /**
      * Removes tags from cloud phones. If a tag is no longer associated with any cloud phone after it is removed, the tag is automatically deleted.
      *
      * @param request - UntagResourcesRequest
@@ -9454,6 +9827,73 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Changes the system cloud disk image of a normal matrix node.
+     *
+     * @remarks
+     * After changing the system cloud disk image, the instance may have compatibility issues. Verify compatibility before making the change.
+     *
+     * @param request - UpdateCloudPhoneNodeSystemImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCloudPhoneNodeSystemImageResponse
+     *
+     * @param UpdateCloudPhoneNodeSystemImageRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateCloudPhoneNodeSystemImageResponse
+     */
+    public function updateCloudPhoneNodeSystemImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->nodeIds) {
+            @$query['NodeIds'] = $request->nodeIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCloudPhoneNodeSystemImage',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCloudPhoneNodeSystemImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Changes the system cloud disk image of a normal matrix node.
+     *
+     * @remarks
+     * After changing the system cloud disk image, the instance may have compatibility issues. Verify compatibility before making the change.
+     *
+     * @param request - UpdateCloudPhoneNodeSystemImageRequest
+     *
+     * @returns UpdateCloudPhoneNodeSystemImageResponse
+     *
+     * @param UpdateCloudPhoneNodeSystemImageRequest $request
+     *
+     * @return UpdateCloudPhoneNodeSystemImageResponse
+     */
+    public function updateCloudPhoneNodeSystemImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudPhoneNodeSystemImageWithOptions($request, $runtime);
     }
 
     /**

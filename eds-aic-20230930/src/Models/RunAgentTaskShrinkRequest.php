@@ -30,6 +30,11 @@ class RunAgentTaskShrinkRequest extends Model
     public $runConfigShrink;
 
     /**
+     * @var bool
+     */
+    public $saveArtifacts;
+
+    /**
      * @var string
      */
     public $scheduleId;
@@ -58,6 +63,7 @@ class RunAgentTaskShrinkRequest extends Model
         'instanceIds' => 'InstanceIds',
         'maxSteps' => 'MaxSteps',
         'runConfigShrink' => 'RunConfig',
+        'saveArtifacts' => 'SaveArtifacts',
         'scheduleId' => 'ScheduleId',
         'targets' => 'Targets',
         'taskConfigId' => 'TaskConfigId',
@@ -100,6 +106,10 @@ class RunAgentTaskShrinkRequest extends Model
 
         if (null !== $this->runConfigShrink) {
             $res['RunConfig'] = $this->runConfigShrink;
+        }
+
+        if (null !== $this->saveArtifacts) {
+            $res['SaveArtifacts'] = $this->saveArtifacts;
         }
 
         if (null !== $this->scheduleId) {
@@ -161,6 +171,10 @@ class RunAgentTaskShrinkRequest extends Model
 
         if (isset($map['RunConfig'])) {
             $model->runConfigShrink = $map['RunConfig'];
+        }
+
+        if (isset($map['SaveArtifacts'])) {
+            $model->saveArtifacts = $map['SaveArtifacts'];
         }
 
         if (isset($map['ScheduleId'])) {

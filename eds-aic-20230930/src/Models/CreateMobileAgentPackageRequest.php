@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateMobileAgentPackageRequest\tag;
 
 class CreateMobileAgentPackageRequest extends Model
 {
@@ -82,6 +83,11 @@ class CreateMobileAgentPackageRequest extends Model
      * @var string
      */
     public $promotionId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'amount' => 'Amount',
         'autoPay' => 'AutoPay',
@@ -98,10 +104,14 @@ class CreateMobileAgentPackageRequest extends Model
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -166,6 +176,17 @@ class CreateMobileAgentPackageRequest extends Model
 
         if (null !== $this->promotionId) {
             $res['PromotionId'] = $this->promotionId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -237,6 +258,17 @@ class CreateMobileAgentPackageRequest extends Model
 
         if (isset($map['PromotionId'])) {
             $model->promotionId = $map['PromotionId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

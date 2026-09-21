@@ -5,27 +5,27 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResetAndroidInstancesInGroupResponseBody\tasks;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCloudPhoneNodeSystemImageResponseBody\tasks;
 
-class ResetAndroidInstancesInGroupResponseBody extends Model
+class UpdateCloudPhoneNodeSystemImageResponseBody extends Model
 {
-    /**
-     * @var string
-     */
-    public $orderId;
-
     /**
      * @var string
      */
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
      * @var tasks
      */
     public $tasks;
     protected $_name = [
-        'orderId' => 'OrderId',
         'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
         'tasks' => 'Tasks',
     ];
 
@@ -40,12 +40,12 @@ class ResetAndroidInstancesInGroupResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         if (null !== $this->tasks) {
@@ -63,12 +63,12 @@ class ResetAndroidInstancesInGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         if (isset($map['Tasks'])) {

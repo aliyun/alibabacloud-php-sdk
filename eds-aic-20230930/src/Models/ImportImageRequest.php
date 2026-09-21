@@ -11,6 +11,11 @@ class ImportImageRequest extends Model
     /**
      * @var string
      */
+    public $baseImageId;
+
+    /**
+     * @var string
+     */
     public $imageDescription;
 
     /**
@@ -23,6 +28,7 @@ class ImportImageRequest extends Model
      */
     public $imageName;
     protected $_name = [
+        'baseImageId' => 'BaseImageId',
         'imageDescription' => 'ImageDescription',
         'imageFileURL' => 'ImageFileURL',
         'imageName' => 'ImageName',
@@ -36,6 +42,10 @@ class ImportImageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->baseImageId) {
+            $res['BaseImageId'] = $this->baseImageId;
+        }
+
         if (null !== $this->imageDescription) {
             $res['ImageDescription'] = $this->imageDescription;
         }
@@ -59,6 +69,10 @@ class ImportImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseImageId'])) {
+            $model->baseImageId = $map['BaseImageId'];
+        }
+
         if (isset($map['ImageDescription'])) {
             $model->imageDescription = $map['ImageDescription'];
         }

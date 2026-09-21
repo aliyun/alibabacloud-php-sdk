@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeCreditDetailRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $agentTypes;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -48,6 +53,7 @@ class DescribeCreditDetailRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'agentTypes' => 'AgentTypes',
         'endTime' => 'EndTime',
         'instanceIds' => 'InstanceIds',
         'maxResults' => 'MaxResults',
@@ -60,6 +66,9 @@ class DescribeCreditDetailRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->agentTypes)) {
+            Model::validateArray($this->agentTypes);
+        }
         if (\is_array($this->instanceIds)) {
             Model::validateArray($this->instanceIds);
         }
@@ -72,6 +81,17 @@ class DescribeCreditDetailRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentTypes) {
+            if (\is_array($this->agentTypes)) {
+                $res['AgentTypes'] = [];
+                $n1 = 0;
+                foreach ($this->agentTypes as $item1) {
+                    $res['AgentTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -129,6 +149,17 @@ class DescribeCreditDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentTypes'])) {
+            if (!empty($map['AgentTypes'])) {
+                $model->agentTypes = [];
+                $n1 = 0;
+                foreach ($map['AgentTypes'] as $item1) {
+                    $model->agentTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
