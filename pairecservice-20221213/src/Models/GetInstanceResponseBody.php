@@ -6,7 +6,9 @@ namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetInstanceResponseBody\config;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetInstanceResponseBody\featureStoreInfo;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetInstanceResponseBody\operatingTool;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetInstanceResponseBody\recommendCustomization;
 
 class GetInstanceResponseBody extends Model
 {
@@ -31,6 +33,11 @@ class GetInstanceResponseBody extends Model
     public $expiredTime;
 
     /**
+     * @var featureStoreInfo
+     */
+    public $featureStoreInfo;
+
+    /**
      * @var string
      */
     public $gmtCreateTime;
@@ -49,6 +56,11 @@ class GetInstanceResponseBody extends Model
      * @var operatingTool
      */
     public $operatingTool;
+
+    /**
+     * @var recommendCustomization
+     */
+    public $recommendCustomization;
 
     /**
      * @var string
@@ -74,10 +86,12 @@ class GetInstanceResponseBody extends Model
         'commodityCode' => 'CommodityCode',
         'config' => 'Config',
         'expiredTime' => 'ExpiredTime',
+        'featureStoreInfo' => 'FeatureStoreInfo',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'instanceId' => 'InstanceId',
         'operatingTool' => 'OperatingTool',
+        'recommendCustomization' => 'RecommendCustomization',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
         'status' => 'Status',
@@ -89,8 +103,14 @@ class GetInstanceResponseBody extends Model
         if (null !== $this->config) {
             $this->config->validate();
         }
+        if (null !== $this->featureStoreInfo) {
+            $this->featureStoreInfo->validate();
+        }
         if (null !== $this->operatingTool) {
             $this->operatingTool->validate();
+        }
+        if (null !== $this->recommendCustomization) {
+            $this->recommendCustomization->validate();
         }
         parent::validate();
     }
@@ -114,6 +134,10 @@ class GetInstanceResponseBody extends Model
             $res['ExpiredTime'] = $this->expiredTime;
         }
 
+        if (null !== $this->featureStoreInfo) {
+            $res['FeatureStoreInfo'] = null !== $this->featureStoreInfo ? $this->featureStoreInfo->toArray($noStream) : $this->featureStoreInfo;
+        }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
@@ -128,6 +152,10 @@ class GetInstanceResponseBody extends Model
 
         if (null !== $this->operatingTool) {
             $res['OperatingTool'] = null !== $this->operatingTool ? $this->operatingTool->toArray($noStream) : $this->operatingTool;
+        }
+
+        if (null !== $this->recommendCustomization) {
+            $res['RecommendCustomization'] = null !== $this->recommendCustomization ? $this->recommendCustomization->toArray($noStream) : $this->recommendCustomization;
         }
 
         if (null !== $this->regionId) {
@@ -173,6 +201,10 @@ class GetInstanceResponseBody extends Model
             $model->expiredTime = $map['ExpiredTime'];
         }
 
+        if (isset($map['FeatureStoreInfo'])) {
+            $model->featureStoreInfo = featureStoreInfo::fromMap($map['FeatureStoreInfo']);
+        }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
@@ -187,6 +219,10 @@ class GetInstanceResponseBody extends Model
 
         if (isset($map['OperatingTool'])) {
             $model->operatingTool = operatingTool::fromMap($map['OperatingTool']);
+        }
+
+        if (isset($map['RecommendCustomization'])) {
+            $model->recommendCustomization = recommendCustomization::fromMap($map['RecommendCustomization']);
         }
 
         if (isset($map['RegionId'])) {

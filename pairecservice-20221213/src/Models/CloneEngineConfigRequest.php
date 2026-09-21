@@ -27,11 +27,17 @@ class CloneEngineConfigRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $sceneId;
     protected $_name = [
         'configValue' => 'ConfigValue',
         'description' => 'Description',
         'environment' => 'Environment',
         'instanceId' => 'InstanceId',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class CloneEngineConfigRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class CloneEngineConfigRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;

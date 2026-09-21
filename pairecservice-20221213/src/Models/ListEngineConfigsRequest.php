@@ -36,6 +36,11 @@ class ListEngineConfigsRequest extends Model
     /**
      * @var string
      */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -48,6 +53,7 @@ class ListEngineConfigsRequest extends Model
         'name' => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'sceneId' => 'SceneId',
         'status' => 'Status',
         'version' => 'Version',
     ];
@@ -78,6 +84,10 @@ class ListEngineConfigsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         if (null !== $this->status) {
@@ -117,6 +127,10 @@ class ListEngineConfigsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         if (isset($map['Status'])) {

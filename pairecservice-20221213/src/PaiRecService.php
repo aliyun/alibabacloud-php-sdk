@@ -396,18 +396,6 @@ class PaiRecService extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shenzhen' => 'pairecservice.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai' => 'pairecservice.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'pairecservice.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'pairecservice.cn-hangzhou.aliyuncs.com',
-            'cn-beijing' => 'pairecservice.cn-beijing.aliyuncs.com',
-            'ap-southeast-5' => 'pairecservice.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-1' => 'pairecservice.ap-southeast-1.aliyuncs.com',
-            'eu-central-1' => 'pairecservice.eu-central-1.aliyuncs.com',
-            'us-east-1' => 'pairecservice.us-east-1.aliyuncs.com',
-            'us-west-1' => 'pairecservice.us-west-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('pairecservice', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -993,7 +981,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Clones an engine configuration.
+     * Clones a DPI engine configuration.
      *
      * @param request - CloneEngineConfigRequest
      * @param headers - map
@@ -1028,6 +1016,10 @@ class PaiRecService extends OpenApiClient
             @$body['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -1048,7 +1040,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Clones an engine configuration.
+     * Clones a DPI engine configuration.
      *
      * @param request - CloneEngineConfigRequest
      *
@@ -2072,6 +2064,10 @@ class PaiRecService extends OpenApiClient
 
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
         }
 
         if (null !== $request->type) {
@@ -6890,7 +6886,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified PAI-REC instance.
+     * Retrieves the details of a specified PAIRec instance.
      *
      * @param request - GetInstanceRequest
      * @param headers - map
@@ -6927,7 +6923,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified PAI-REC instance.
+     * Retrieves the details of a specified PAIRec instance.
      *
      * @param request - GetInstanceRequest
      *
@@ -8904,7 +8900,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of engine configurations.
+     * Retrieves a list of engine configurations.
      *
      * @param request - ListEngineConfigsRequest
      * @param headers - map
@@ -8942,6 +8938,10 @@ class PaiRecService extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
         }
@@ -8970,7 +8970,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of engine configurations.
+     * Retrieves a list of engine configurations.
      *
      * @param request - ListEngineConfigsRequest
      *
@@ -9139,7 +9139,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of feature consistency check task configurations.
+     * Retrieves the list of feature consistency check task configurations.
      *
      * @param request - ListFeatureConsistencyCheckJobConfigsRequest
      * @param headers - map
@@ -9173,6 +9173,10 @@ class PaiRecService extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
         if (null !== $request->sortBy) {
             @$query['SortBy'] = $request->sortBy;
         }
@@ -9197,7 +9201,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of feature consistency check task configurations.
+     * Retrieves the list of feature consistency check task configurations.
      *
      * @param request - ListFeatureConsistencyCheckJobConfigsRequest
      *
@@ -10594,6 +10598,10 @@ class PaiRecService extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
 
         if (null !== $request->sortBy) {
@@ -12560,13 +12568,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+     * Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
      *
      * @remarks
      * ## Operation description
-     * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
-     * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
-     * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+     * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+     * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+     * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
      * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
      * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
      *
@@ -12663,13 +12671,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+     * Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
      *
      * @remarks
      * ## Operation description
-     * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
-     * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
-     * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+     * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+     * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+     * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
      * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
      * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
      *
@@ -12753,13 +12761,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+     * Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
      *
      * @remarks
      * ## Operation description
-     * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
-     * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
-     * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+     * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+     * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+     * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
      * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
      * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
      *
@@ -13938,6 +13946,10 @@ class PaiRecService extends OpenApiClient
 
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
         }
 
         if (null !== $request->type) {

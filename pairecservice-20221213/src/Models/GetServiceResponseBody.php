@@ -67,6 +67,11 @@ class GetServiceResponseBody extends Model
     /**
      * @var string
      */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
     public $serviceConfig;
 
     /**
@@ -85,6 +90,7 @@ class GetServiceResponseBody extends Model
         'region' => 'Region',
         'repositoryId' => 'RepositoryId',
         'requestId' => 'RequestId',
+        'sceneId' => 'SceneId',
         'serviceConfig' => 'ServiceConfig',
         'serviceResourceUri' => 'ServiceResourceUri',
     ];
@@ -142,6 +148,10 @@ class GetServiceResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         if (null !== $this->serviceConfig) {
@@ -205,6 +215,10 @@ class GetServiceResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         if (isset($map['ServiceConfig'])) {

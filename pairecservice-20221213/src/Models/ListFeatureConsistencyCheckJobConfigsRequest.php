@@ -31,12 +31,18 @@ class ListFeatureConsistencyCheckJobConfigsRequest extends Model
     /**
      * @var string
      */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
     public $sortBy;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'sceneId' => 'SceneId',
         'sortBy' => 'SortBy',
     ];
 
@@ -62,6 +68,10 @@ class ListFeatureConsistencyCheckJobConfigsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         if (null !== $this->sortBy) {
@@ -93,6 +103,10 @@ class ListFeatureConsistencyCheckJobConfigsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         if (isset($map['SortBy'])) {

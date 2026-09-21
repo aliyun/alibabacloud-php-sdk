@@ -26,6 +26,11 @@ class ShoppingAssistantResponseBody extends Model
     public $conversationId;
 
     /**
+     * @var bool
+     */
+    public $enableSuggestion;
+
+    /**
      * @var string
      */
     public $errorCode;
@@ -58,6 +63,7 @@ class ShoppingAssistantResponseBody extends Model
         'citation' => 'Citation',
         'content' => 'Content',
         'conversationId' => 'ConversationId',
+        'enableSuggestion' => 'EnableSuggestion',
         'errorCode' => 'ErrorCode',
         'event' => 'Event',
         'requestId' => 'RequestId',
@@ -90,6 +96,10 @@ class ShoppingAssistantResponseBody extends Model
 
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
+        }
+
+        if (null !== $this->enableSuggestion) {
+            $res['EnableSuggestion'] = $this->enableSuggestion;
         }
 
         if (null !== $this->errorCode) {
@@ -137,6 +147,10 @@ class ShoppingAssistantResponseBody extends Model
 
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
+        }
+
+        if (isset($map['EnableSuggestion'])) {
+            $model->enableSuggestion = $map['EnableSuggestion'];
         }
 
         if (isset($map['ErrorCode'])) {

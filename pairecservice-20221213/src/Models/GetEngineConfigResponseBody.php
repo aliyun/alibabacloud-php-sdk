@@ -51,6 +51,11 @@ class GetEngineConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -66,6 +71,7 @@ class GetEngineConfigResponseBody extends Model
         'gmtReleasedTime' => 'GmtReleasedTime',
         'name' => 'Name',
         'requestId' => 'RequestId',
+        'sceneId' => 'SceneId',
         'status' => 'Status',
         'type' => 'Type',
     ];
@@ -108,6 +114,10 @@ class GetEngineConfigResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         if (null !== $this->status) {
@@ -159,6 +169,10 @@ class GetEngineConfigResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         if (isset($map['Status'])) {

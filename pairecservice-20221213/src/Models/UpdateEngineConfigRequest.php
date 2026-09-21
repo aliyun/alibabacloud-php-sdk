@@ -36,6 +36,11 @@ class UpdateEngineConfigRequest extends Model
     /**
      * @var string
      */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'configValue' => 'ConfigValue',
@@ -43,6 +48,7 @@ class UpdateEngineConfigRequest extends Model
         'environment' => 'Environment',
         'instanceId' => 'InstanceId',
         'name' => 'Name',
+        'sceneId' => 'SceneId',
         'type' => 'Type',
     ];
 
@@ -72,6 +78,10 @@ class UpdateEngineConfigRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         if (null !== $this->type) {
@@ -107,6 +117,10 @@ class UpdateEngineConfigRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         if (isset($map['Type'])) {

@@ -51,6 +51,11 @@ class engineConfigs extends Model
     /**
      * @var string
      */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -71,6 +76,7 @@ class engineConfigs extends Model
         'gmtModifiedTime' => 'GmtModifiedTime',
         'gmtReleasedTime' => 'GmtReleasedTime',
         'name' => 'Name',
+        'sceneId' => 'SceneId',
         'status' => 'Status',
         'type' => 'Type',
         'version' => 'Version',
@@ -114,6 +120,10 @@ class engineConfigs extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         if (null !== $this->status) {
@@ -169,6 +179,10 @@ class engineConfigs extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         if (isset($map['Status'])) {
