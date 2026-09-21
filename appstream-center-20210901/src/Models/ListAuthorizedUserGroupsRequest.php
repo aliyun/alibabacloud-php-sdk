@@ -16,6 +16,11 @@ class ListAuthorizedUserGroupsRequest extends Model
     /**
      * @var string
      */
+    public $appInstanceGroupSetId;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -39,6 +44,7 @@ class ListAuthorizedUserGroupsRequest extends Model
     public $productType;
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
+        'appInstanceGroupSetId' => 'AppInstanceGroupSetId',
         'groupId' => 'GroupId',
         'groupName' => 'GroupName',
         'pageNumber' => 'PageNumber',
@@ -56,6 +62,10 @@ class ListAuthorizedUserGroupsRequest extends Model
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
+        }
+
+        if (null !== $this->appInstanceGroupSetId) {
+            $res['AppInstanceGroupSetId'] = $this->appInstanceGroupSetId;
         }
 
         if (null !== $this->groupId) {
@@ -91,6 +101,10 @@ class ListAuthorizedUserGroupsRequest extends Model
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
+        }
+
+        if (isset($map['AppInstanceGroupSetId'])) {
+            $model->appInstanceGroupSetId = $map['AppInstanceGroupSetId'];
         }
 
         if (isset($map['GroupId'])) {

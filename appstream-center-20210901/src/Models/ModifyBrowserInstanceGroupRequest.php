@@ -14,6 +14,11 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroup
 class ModifyBrowserInstanceGroupRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $authNotificationEnabled;
+
+    /**
      * @var browserConfig
      */
     public $browserConfig;
@@ -53,6 +58,7 @@ class ModifyBrowserInstanceGroupRequest extends Model
      */
     public $timers;
     protected $_name = [
+        'authNotificationEnabled' => 'AuthNotificationEnabled',
         'browserConfig' => 'BrowserConfig',
         'browserInstanceGroupId' => 'BrowserInstanceGroupId',
         'cloudBrowserName' => 'CloudBrowserName',
@@ -86,6 +92,10 @@ class ModifyBrowserInstanceGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authNotificationEnabled) {
+            $res['AuthNotificationEnabled'] = $this->authNotificationEnabled;
+        }
+
         if (null !== $this->browserConfig) {
             $res['BrowserConfig'] = null !== $this->browserConfig ? $this->browserConfig->toArray($noStream) : $this->browserConfig;
         }
@@ -136,6 +146,10 @@ class ModifyBrowserInstanceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthNotificationEnabled'])) {
+            $model->authNotificationEnabled = $map['AuthNotificationEnabled'];
+        }
+
         if (isset($map['BrowserConfig'])) {
             $model->browserConfig = browserConfig::fromMap($map['BrowserConfig']);
         }

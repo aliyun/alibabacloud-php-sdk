@@ -16,6 +16,11 @@ class AuthorizeInstanceGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appInstanceGroupSetId;
+
+    /**
+     * @var string
+     */
     public $appInstancePersistentId;
 
     /**
@@ -54,6 +59,7 @@ class AuthorizeInstanceGroupShrinkRequest extends Model
     public $userMetaShrink;
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
+        'appInstanceGroupSetId' => 'AppInstanceGroupSetId',
         'appInstancePersistentId' => 'AppInstancePersistentId',
         'authorizeUserGroupIds' => 'AuthorizeUserGroupIds',
         'authorizeUserIds' => 'AuthorizeUserIds',
@@ -86,6 +92,10 @@ class AuthorizeInstanceGroupShrinkRequest extends Model
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
+        }
+
+        if (null !== $this->appInstanceGroupSetId) {
+            $res['AppInstanceGroupSetId'] = $this->appInstanceGroupSetId;
         }
 
         if (null !== $this->appInstancePersistentId) {
@@ -161,6 +171,10 @@ class AuthorizeInstanceGroupShrinkRequest extends Model
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
+        }
+
+        if (isset($map['AppInstanceGroupSetId'])) {
+            $model->appInstanceGroupSetId = $map['AppInstanceGroupSetId'];
         }
 
         if (isset($map['AppInstancePersistentId'])) {

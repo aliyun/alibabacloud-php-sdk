@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyWuyingServerAttributeRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $erdmaEnabled;
+
+    /**
      * @var string
      */
     public $password;
@@ -28,6 +33,7 @@ class ModifyWuyingServerAttributeRequest extends Model
      */
     public $wuyingServerName;
     protected $_name = [
+        'erdmaEnabled' => 'ErdmaEnabled',
         'password' => 'Password',
         'productType' => 'ProductType',
         'wuyingServerId' => 'WuyingServerId',
@@ -42,6 +48,10 @@ class ModifyWuyingServerAttributeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->erdmaEnabled) {
+            $res['ErdmaEnabled'] = $this->erdmaEnabled;
+        }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
@@ -69,6 +79,10 @@ class ModifyWuyingServerAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErdmaEnabled'])) {
+            $model->erdmaEnabled = $map['ErdmaEnabled'];
+        }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }

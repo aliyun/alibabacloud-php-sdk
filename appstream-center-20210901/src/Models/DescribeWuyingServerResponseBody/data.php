@@ -85,6 +85,11 @@ class data extends Model
     public $status;
 
     /**
+     * @var bool
+     */
+    public $supportASP;
+
+    /**
      * @var string
      */
     public $systemDiskCategory;
@@ -119,6 +124,7 @@ class data extends Model
         'osType' => 'OsType',
         'privateIpSets' => 'PrivateIpSets',
         'status' => 'Status',
+        'supportASP' => 'SupportASP',
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskSize' => 'SystemDiskSize',
         'wuyingServerId' => 'WuyingServerId',
@@ -201,6 +207,10 @@ class data extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->supportASP) {
+            $res['SupportASP'] = $this->supportASP;
         }
 
         if (null !== $this->systemDiskCategory) {
@@ -295,6 +305,10 @@ class data extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SupportASP'])) {
+            $model->supportASP = $map['SupportASP'];
         }
 
         if (isset($map['SystemDiskCategory'])) {

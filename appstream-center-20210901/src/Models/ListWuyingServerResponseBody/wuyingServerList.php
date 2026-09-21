@@ -56,6 +56,11 @@ class wuyingServerList extends Model
     /**
      * @var string
      */
+    public $erdmaStatus;
+
+    /**
+     * @var string
+     */
     public $expiredTime;
 
     /**
@@ -149,6 +154,11 @@ class wuyingServerList extends Model
     public $subPayType;
 
     /**
+     * @var bool
+     */
+    public $supportASP;
+
+    /**
      * @var string
      */
     public $systemDiskCategory;
@@ -221,6 +231,7 @@ class wuyingServerList extends Model
         'createTime' => 'CreateTime',
         'dataDisk' => 'DataDisk',
         'eniPrivateIpAddressQuantity' => 'EniPrivateIpAddressQuantity',
+        'erdmaStatus' => 'ErdmaStatus',
         'expiredTime' => 'ExpiredTime',
         'fotaVersion' => 'FotaVersion',
         'imageId' => 'ImageId',
@@ -240,6 +251,7 @@ class wuyingServerList extends Model
         'sessions' => 'Sessions',
         'status' => 'Status',
         'subPayType' => 'SubPayType',
+        'supportASP' => 'SupportASP',
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskId' => 'SystemDiskId',
         'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
@@ -324,6 +336,10 @@ class wuyingServerList extends Model
 
         if (null !== $this->eniPrivateIpAddressQuantity) {
             $res['EniPrivateIpAddressQuantity'] = $this->eniPrivateIpAddressQuantity;
+        }
+
+        if (null !== $this->erdmaStatus) {
+            $res['ErdmaStatus'] = $this->erdmaStatus;
         }
 
         if (null !== $this->expiredTime) {
@@ -437,6 +453,10 @@ class wuyingServerList extends Model
             $res['SubPayType'] = $this->subPayType;
         }
 
+        if (null !== $this->supportASP) {
+            $res['SupportASP'] = $this->supportASP;
+        }
+
         if (null !== $this->systemDiskCategory) {
             $res['SystemDiskCategory'] = $this->systemDiskCategory;
         }
@@ -544,6 +564,10 @@ class wuyingServerList extends Model
 
         if (isset($map['EniPrivateIpAddressQuantity'])) {
             $model->eniPrivateIpAddressQuantity = $map['EniPrivateIpAddressQuantity'];
+        }
+
+        if (isset($map['ErdmaStatus'])) {
+            $model->erdmaStatus = $map['ErdmaStatus'];
         }
 
         if (isset($map['ExpiredTime'])) {
@@ -655,6 +679,10 @@ class wuyingServerList extends Model
 
         if (isset($map['SubPayType'])) {
             $model->subPayType = $map['SubPayType'];
+        }
+
+        if (isset($map['SupportASP'])) {
+            $model->supportASP = $map['SupportASP'];
         }
 
         if (isset($map['SystemDiskCategory'])) {

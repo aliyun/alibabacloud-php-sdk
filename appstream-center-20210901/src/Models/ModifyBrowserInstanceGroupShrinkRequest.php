@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyBrowserInstanceGroupShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $authNotificationEnabled;
+
+    /**
      * @var string
      */
     public $browserConfigShrink;
@@ -48,6 +53,7 @@ class ModifyBrowserInstanceGroupShrinkRequest extends Model
      */
     public $timersShrink;
     protected $_name = [
+        'authNotificationEnabled' => 'AuthNotificationEnabled',
         'browserConfigShrink' => 'BrowserConfig',
         'browserInstanceGroupId' => 'BrowserInstanceGroupId',
         'cloudBrowserName' => 'CloudBrowserName',
@@ -66,6 +72,10 @@ class ModifyBrowserInstanceGroupShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authNotificationEnabled) {
+            $res['AuthNotificationEnabled'] = $this->authNotificationEnabled;
+        }
+
         if (null !== $this->browserConfigShrink) {
             $res['BrowserConfig'] = $this->browserConfigShrink;
         }
@@ -109,6 +119,10 @@ class ModifyBrowserInstanceGroupShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthNotificationEnabled'])) {
+            $model->authNotificationEnabled = $map['AuthNotificationEnabled'];
+        }
+
         if (isset($map['BrowserConfig'])) {
             $model->browserConfigShrink = $map['BrowserConfig'];
         }

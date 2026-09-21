@@ -16,6 +16,11 @@ class userGroups extends Model
     /**
      * @var string
      */
+    public $appInstanceGroupSetId;
+
+    /**
+     * @var string
+     */
     public $authMode;
 
     /**
@@ -29,6 +34,7 @@ class userGroups extends Model
     public $groupName;
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
+        'appInstanceGroupSetId' => 'AppInstanceGroupSetId',
         'authMode' => 'AuthMode',
         'groupId' => 'GroupId',
         'groupName' => 'GroupName',
@@ -44,6 +50,10 @@ class userGroups extends Model
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
+        }
+
+        if (null !== $this->appInstanceGroupSetId) {
+            $res['AppInstanceGroupSetId'] = $this->appInstanceGroupSetId;
         }
 
         if (null !== $this->authMode) {
@@ -71,6 +81,10 @@ class userGroups extends Model
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
+        }
+
+        if (isset($map['AppInstanceGroupSetId'])) {
+            $model->appInstanceGroupSetId = $map['AppInstanceGroupSetId'];
         }
 
         if (isset($map['AuthMode'])) {

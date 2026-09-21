@@ -17,6 +17,11 @@ class AuthorizeInstanceGroupRequest extends Model
     /**
      * @var string
      */
+    public $appInstanceGroupSetId;
+
+    /**
+     * @var string
+     */
     public $appInstancePersistentId;
 
     /**
@@ -55,6 +60,7 @@ class AuthorizeInstanceGroupRequest extends Model
     public $userMeta;
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
+        'appInstanceGroupSetId' => 'AppInstanceGroupSetId',
         'appInstancePersistentId' => 'AppInstancePersistentId',
         'authorizeUserGroupIds' => 'AuthorizeUserGroupIds',
         'authorizeUserIds' => 'AuthorizeUserIds',
@@ -90,6 +96,10 @@ class AuthorizeInstanceGroupRequest extends Model
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
+        }
+
+        if (null !== $this->appInstanceGroupSetId) {
+            $res['AppInstanceGroupSetId'] = $this->appInstanceGroupSetId;
         }
 
         if (null !== $this->appInstancePersistentId) {
@@ -165,6 +175,10 @@ class AuthorizeInstanceGroupRequest extends Model
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
+        }
+
+        if (isset($map['AppInstanceGroupSetId'])) {
+            $model->appInstanceGroupSetId = $map['AppInstanceGroupSetId'];
         }
 
         if (isset($map['AppInstancePersistentId'])) {

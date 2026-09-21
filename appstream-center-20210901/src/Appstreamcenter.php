@@ -12,6 +12,9 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AssignWuyingServerPrivateA
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeUsersForAppRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeUsersForAppResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeUsersForAppShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BatchCreateLlmTemplatesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BatchCreateLlmTemplatesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigResourceGroupModelTemplateRequest;
@@ -23,6 +26,9 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigRuntimeModelTemplate
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateBrowserInstanceGroupRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateBrowserInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateBrowserInstanceGroupShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageByInstanceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageByInstanceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupRequest;
@@ -55,6 +61,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerReques
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetBrowserInstanceGroupRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetBrowserInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetDebugAppInstanceRequest;
@@ -77,10 +85,16 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupReques
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedAppInstanceGroupByUserRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedAppInstanceGroupByUserResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUserGroupsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUserGroupsResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUsersRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUsersResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBindInfoRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBindInfoResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBrowserInstanceGroupRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBrowserInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListDesktopAgentRuntimeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListDesktopAgentRuntimeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageRequest;
@@ -183,10 +197,6 @@ class Appstreamcenter extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shanghai' => 'appstream-center.cn-shanghai.aliyuncs.com',
-            'ap-southeast-1' => 'appstream-center.ap-southeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('appstream-center', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -216,7 +226,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Sets the execution time for an over-the-air update.
+     * Sets the execution time for an OTA upgrade.
      *
      * @param request - ApproveOtaTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -271,7 +281,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Sets the execution time for an over-the-air update.
+     * Sets the execution time for an OTA upgrade.
      *
      * @param request - ApproveOtaTaskRequest
      *
@@ -350,10 +360,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 為交付群組新增或移除指派使用者。只有新增至指派使用者的使用者才可存取雲端應用程式。
+     * Adds or removes assigned users for a delivery group. Only users added as assigned users can access cloud applications.
      *
      * @remarks
-     * > 變更指派使用者後，選取的使用者將收到相應的通知電子郵件。一般需要等待約 2 分鐘，變更才會在終端機生效。
+     * > After you change assigned users, the selected users receive notification emails. Changes typically take about 2 minutes to take effect on the client.
      *
      * @param tmpReq - AuthorizeInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -377,6 +387,10 @@ class Appstreamcenter extends OpenApiClient
         $body = [];
         if (null !== $request->appInstanceGroupId) {
             @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->appInstanceGroupSetId) {
+            @$body['AppInstanceGroupSetId'] = $request->appInstanceGroupSetId;
         }
 
         if (null !== $request->appInstancePersistentId) {
@@ -433,10 +447,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 為交付群組新增或移除指派使用者。只有新增至指派使用者的使用者才可存取雲端應用程式。
+     * Adds or removes assigned users for a delivery group. Only users added as assigned users can access cloud applications.
      *
      * @remarks
-     * > 變更指派使用者後，選取的使用者將收到相應的通知電子郵件。一般需要等待約 2 分鐘，變更才會在終端機生效。
+     * > After you change assigned users, the selected users receive notification emails. Changes typically take about 2 minutes to take effect on the client.
      *
      * @param request - AuthorizeInstanceGroupRequest
      *
@@ -451,6 +465,125 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->authorizeInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Adds or removes authorized users for a specified application deployed in a delivery group. Only authorized users can access the application.
+     *
+     * @remarks
+     * ## Operation description
+     * This operation manages user authorization for a delivery group at the application level. The authorization result applies only to the application specified by AppId and does not affect the authorization of other applications in the delivery group. To authorize users for an entire delivery group, call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation.
+     * ## Before you begin
+     * - The delivery group is created, and **the application specified by AppId is deployed in the image used by the delivery group**. Otherwise, the error code `InvalidAppId.NotFound` is returned.
+     * - The delivery group **has not been added to a delivery group set that is in effect**. A delivery group that has been added to a set cannot be authorized individually. You must authorize it through the set. Otherwise, the error code `InvalidAppInstanceGroup.AuthorizeBlockedBySet` is returned.
+     * - If the workspace to which the delivery group belongs is an Active Directory (AD) workspace, **you must specify UserMeta**, with `UserMeta.Type` set to `ad` and `UserMeta.AdDomain` matching the AD domain bound to the workspace.
+     * - If the delivery group has been authorized through user groups and mixed authorization of users and user groups is not supported, you cannot authorize by user. Otherwise, the error code `AuthAppInstanceGroup.MixNotSupported` is returned.
+     * ## Parameter description
+     * - **At least one of AuthorizeUserIds and UnAuthorizeUserIds must be specified.** You can also specify both. If both are empty, this invocation does not change any authorization.
+     * - When adding authorizations, the sum of the currently authorized users for the application and the users to be added cannot exceed the authorized user quota for the application. If the quota is exceeded, the error code `ExceedAppAuthUserQuota` is returned. Removing authorizations is not subject to quota limits.
+     * ## Call sequence
+     * 1. Call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) or [GetAppInstanceGroup](https://help.aliyun.com/document_detail/600836.html) operation to obtain the delivery group ID (AppInstanceGroupId) and the application IDs of deployed applications in the delivery group (AppId in the Apps list).
+     * 2. Call the [DescribeUsers](https://help.aliyun.com/document_detail/436936.html) operation to obtain the usernames of the users to be authorized or unauthorized.
+     * 3. Call this operation to complete the authorization change.
+     * > After the authorization is changed, the selected users receive a notification email. It typically takes about 2 minutes for the change to take effect on the client.
+     *
+     * @param tmpReq - AuthorizeUsersForAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeUsersForAppResponse
+     *
+     * @param AuthorizeUsersForAppRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AuthorizeUsersForAppResponse
+     */
+    public function authorizeUsersForAppWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AuthorizeUsersForAppShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userMeta) {
+            $request->userMetaShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userMeta, 'UserMeta', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->authorizeUserIds) {
+            @$body['AuthorizeUserIds'] = $request->authorizeUserIds;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->unAuthorizeUserIds) {
+            @$body['UnAuthorizeUserIds'] = $request->unAuthorizeUserIds;
+        }
+
+        if (null !== $request->userMetaShrink) {
+            @$body['UserMeta'] = $request->userMetaShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AuthorizeUsersForApp',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AuthorizeUsersForAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds or removes authorized users for a specified application deployed in a delivery group. Only authorized users can access the application.
+     *
+     * @remarks
+     * ## Operation description
+     * This operation manages user authorization for a delivery group at the application level. The authorization result applies only to the application specified by AppId and does not affect the authorization of other applications in the delivery group. To authorize users for an entire delivery group, call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation.
+     * ## Before you begin
+     * - The delivery group is created, and **the application specified by AppId is deployed in the image used by the delivery group**. Otherwise, the error code `InvalidAppId.NotFound` is returned.
+     * - The delivery group **has not been added to a delivery group set that is in effect**. A delivery group that has been added to a set cannot be authorized individually. You must authorize it through the set. Otherwise, the error code `InvalidAppInstanceGroup.AuthorizeBlockedBySet` is returned.
+     * - If the workspace to which the delivery group belongs is an Active Directory (AD) workspace, **you must specify UserMeta**, with `UserMeta.Type` set to `ad` and `UserMeta.AdDomain` matching the AD domain bound to the workspace.
+     * - If the delivery group has been authorized through user groups and mixed authorization of users and user groups is not supported, you cannot authorize by user. Otherwise, the error code `AuthAppInstanceGroup.MixNotSupported` is returned.
+     * ## Parameter description
+     * - **At least one of AuthorizeUserIds and UnAuthorizeUserIds must be specified.** You can also specify both. If both are empty, this invocation does not change any authorization.
+     * - When adding authorizations, the sum of the currently authorized users for the application and the users to be added cannot exceed the authorized user quota for the application. If the quota is exceeded, the error code `ExceedAppAuthUserQuota` is returned. Removing authorizations is not subject to quota limits.
+     * ## Call sequence
+     * 1. Call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) or [GetAppInstanceGroup](https://help.aliyun.com/document_detail/600836.html) operation to obtain the delivery group ID (AppInstanceGroupId) and the application IDs of deployed applications in the delivery group (AppId in the Apps list).
+     * 2. Call the [DescribeUsers](https://help.aliyun.com/document_detail/436936.html) operation to obtain the usernames of the users to be authorized or unauthorized.
+     * 3. Call this operation to complete the authorization change.
+     * > After the authorization is changed, the selected users receive a notification email. It typically takes about 2 minutes for the change to take effect on the client.
+     *
+     * @param request - AuthorizeUsersForAppRequest
+     *
+     * @returns AuthorizeUsersForAppResponse
+     *
+     * @param AuthorizeUsersForAppRequest $request
+     *
+     * @return AuthorizeUsersForAppResponse
+     */
+    public function authorizeUsersForApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->authorizeUsersForAppWithOptions($request, $runtime);
     }
 
     /**
@@ -767,8 +900,8 @@ class Appstreamcenter extends OpenApiClient
      * Creates a delivery group.
      *
      * @remarks
-     * Make sure that you are familiar with the [billing methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING CloudApp before you call this operation.
-     * A delivery group is a logical grouping for delivering cloud applications to end users. It includes underlying cloud application resources, images that contain cloud applications, resource management policies, and user allocation settings. For details, see [Publish a delivery group](https://help.aliyun.com/document_detail/426046.html).
+     * Before you call this operation, make sure that you fully understand the [billing and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING CloudApp.
+     * A delivery group is a logical grouping for delivering cloud applications to end users. It includes the underlying cloud application resources, images that contain cloud applications, resource management policies, and user allocation settings. For details, see [Publish a delivery group](https://help.aliyun.com/document_detail/426046.html).
      *
      * @param tmpReq - CreateAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -954,8 +1087,8 @@ class Appstreamcenter extends OpenApiClient
      * Creates a delivery group.
      *
      * @remarks
-     * Make sure that you are familiar with the [billing methods and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING CloudApp before you call this operation.
-     * A delivery group is a logical grouping for delivering cloud applications to end users. It includes underlying cloud application resources, images that contain cloud applications, resource management policies, and user allocation settings. For details, see [Publish a delivery group](https://help.aliyun.com/document_detail/426046.html).
+     * Before you call this operation, make sure that you fully understand the [billing and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING CloudApp.
+     * A delivery group is a logical grouping for delivering cloud applications to end users. It includes the underlying cloud application resources, images that contain cloud applications, resource management policies, and user allocation settings. For details, see [Publish a delivery group](https://help.aliyun.com/document_detail/426046.html).
      *
      * @param request - CreateAppInstanceGroupRequest
      *
@@ -973,7 +1106,246 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Creates a custom image from a deployed WUYING instance to quickly create more instances with the same configuration, avoiding repetitive environment setup each time.
+     * Creates a cloud browser group that is billed by monthly active users (MAU).
+     *
+     * @remarks
+     * ## Before you begin
+     * - Prepare an available office network, image, and instance type in the target business region. Make sure that the account has the required browser configurations and resource quotas.
+     * - Specify `CloudBrowserName` and `BizRegionId`. Set `OsType` to `Windows`.
+     * - Authorized users must be created in advance and must match the account type. Authorized user groups must belong to the current account and match the account type of the office network.
+     * - **`Users` and `UserGroupIds` cannot both be non-empty.**
+     * ## MAU billing parameters
+     * - Set `ChargeType` to `PostPaid`.
+     * - **Set `SubPayType` to `mau` explicitly. Omitting this field does not enable MAU billing.**
+     * - Set `ChargeResourceMode` to `AppInstance`.
+     * - Do not specify `Period`, `PeriodUnit`, `AppPackageType`, `AutoPay`, `AutoRenew`, or `NodePool`.
+     * ## Post-call processing
+     * **A successful response does not indicate that the browser resources are ready.** After creation, query the browser group status and confirm that the group is connectable before use.
+     * This operation creates a new cloud browser group. You do not need to create a delivery group in advance.
+     * ## Example description
+     * The example values of fields are provided to demonstrate how to specify the fields. Replace resource identifiers with actual values under your account. Capacity examples do not represent default values or upper limits.
+     * An example value of `-` indicates that the field does not need to be specified. Omit the corresponding parameter when you call the operation. Do not pass the character `-`.
+     *
+     * @param tmpReq - CreateBrowserInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBrowserInstanceGroupResponse
+     *
+     * @param CreateBrowserInstanceGroupRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateBrowserInstanceGroupResponse
+     */
+    public function createBrowserInstanceGroupWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateBrowserInstanceGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->browserConfig) {
+            $request->browserConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->browserConfig, 'BrowserConfig', 'json');
+        }
+
+        if (null !== $tmpReq->network) {
+            $request->networkShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->network, 'Network', 'json');
+        }
+
+        if (null !== $tmpReq->nodePool) {
+            $request->nodePoolShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodePool, 'NodePool', 'json');
+        }
+
+        if (null !== $tmpReq->policy) {
+            $request->policyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
+        }
+
+        if (null !== $tmpReq->securityPolicy) {
+            $request->securityPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->securityPolicy, 'SecurityPolicy', 'json');
+        }
+
+        if (null !== $tmpReq->storagePolicy) {
+            $request->storagePolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->storagePolicy, 'StoragePolicy', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        if (null !== $tmpReq->timers) {
+            $request->timersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->timers, 'Timers', 'json');
+        }
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        }
+
+        if (null !== $tmpReq->users) {
+            $request->usersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->users, 'Users', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appPackageType) {
+            @$body['AppPackageType'] = $request->appPackageType;
+        }
+
+        if (null !== $request->authNotificationEnabled) {
+            @$body['AuthNotificationEnabled'] = $request->authNotificationEnabled;
+        }
+
+        if (null !== $request->autoPay) {
+            @$body['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$body['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->browserConfigShrink) {
+            @$body['BrowserConfig'] = $request->browserConfigShrink;
+        }
+
+        if (null !== $request->chargeResourceMode) {
+            @$body['ChargeResourceMode'] = $request->chargeResourceMode;
+        }
+
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
+        }
+
+        if (null !== $request->cloudBrowserName) {
+            @$body['CloudBrowserName'] = $request->cloudBrowserName;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->instanceType) {
+            @$body['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->maxAmount) {
+            @$body['MaxAmount'] = $request->maxAmount;
+        }
+
+        if (null !== $request->networkShrink) {
+            @$body['Network'] = $request->networkShrink;
+        }
+
+        if (null !== $request->nodePoolShrink) {
+            @$body['NodePool'] = $request->nodePoolShrink;
+        }
+
+        if (null !== $request->osType) {
+            @$body['OsType'] = $request->osType;
+        }
+
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$body['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->policyShrink) {
+            @$body['Policy'] = $request->policyShrink;
+        }
+
+        if (null !== $request->promotionId) {
+            @$body['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->securityPolicyShrink) {
+            @$body['SecurityPolicy'] = $request->securityPolicyShrink;
+        }
+
+        if (null !== $request->storagePolicyShrink) {
+            @$body['StoragePolicy'] = $request->storagePolicyShrink;
+        }
+
+        if (null !== $request->subPayType) {
+            @$body['SubPayType'] = $request->subPayType;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$body['Tag'] = $request->tagShrink;
+        }
+
+        if (null !== $request->timersShrink) {
+            @$body['Timers'] = $request->timersShrink;
+        }
+
+        if (null !== $request->userGroupIds) {
+            @$body['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        if (null !== $request->userInfoShrink) {
+            @$body['UserInfo'] = $request->userInfoShrink;
+        }
+
+        if (null !== $request->usersShrink) {
+            @$body['Users'] = $request->usersShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBrowserInstanceGroup',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBrowserInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a cloud browser group that is billed by monthly active users (MAU).
+     *
+     * @remarks
+     * ## Before you begin
+     * - Prepare an available office network, image, and instance type in the target business region. Make sure that the account has the required browser configurations and resource quotas.
+     * - Specify `CloudBrowserName` and `BizRegionId`. Set `OsType` to `Windows`.
+     * - Authorized users must be created in advance and must match the account type. Authorized user groups must belong to the current account and match the account type of the office network.
+     * - **`Users` and `UserGroupIds` cannot both be non-empty.**
+     * ## MAU billing parameters
+     * - Set `ChargeType` to `PostPaid`.
+     * - **Set `SubPayType` to `mau` explicitly. Omitting this field does not enable MAU billing.**
+     * - Set `ChargeResourceMode` to `AppInstance`.
+     * - Do not specify `Period`, `PeriodUnit`, `AppPackageType`, `AutoPay`, `AutoRenew`, or `NodePool`.
+     * ## Post-call processing
+     * **A successful response does not indicate that the browser resources are ready.** After creation, query the browser group status and confirm that the group is connectable before use.
+     * This operation creates a new cloud browser group. You do not need to create a delivery group in advance.
+     * ## Example description
+     * The example values of fields are provided to demonstrate how to specify the fields. Replace resource identifiers with actual values under your account. Capacity examples do not represent default values or upper limits.
+     * An example value of `-` indicates that the field does not need to be specified. Omit the corresponding parameter when you call the operation. Do not pass the character `-`.
+     *
+     * @param request - CreateBrowserInstanceGroupRequest
+     *
+     * @returns CreateBrowserInstanceGroupResponse
+     *
+     * @param CreateBrowserInstanceGroupRequest $request
+     *
+     * @return CreateBrowserInstanceGroupResponse
+     */
+    public function createBrowserInstanceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBrowserInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a custom image from a deployed WUYING instance. You can use the custom image to quickly create more WUYING instances with the same configurations, without having to repeatedly configure the instance environment each time.
      *
      * @param request - CreateImageByInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1054,7 +1426,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Creates a custom image from a deployed WUYING instance to quickly create more instances with the same configuration, avoiding repetitive environment setup each time.
+     * Creates a custom image from a deployed WUYING instance. You can use the custom image to quickly create more WUYING instances with the same configurations, without having to repeatedly configure the instance environment each time.
      *
      * @param request - CreateImageByInstanceRequest
      *
@@ -1238,11 +1610,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Creates a model creation template.
+     * Creates a model template.
      *
      * @remarks
-     * You can create a model group in the WUYING Agent Management Center to manage the model providers and model scope that an Agent can invoke. After creation, you can attach the model group to a cloud computer as the inference engine configuration for Agent task execution.
-     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before invoking this operation.
+     * You can create a model group in the Wuying Agent Management Center to manage the model providers and model scope that an Agent can invoke. After model creation, you can attach the model group to a cloud computer as the inference engine configuration for Agent task execution.
+     * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before invoking this operation.
      *
      * @param request - CreateModelTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1301,11 +1673,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Creates a model creation template.
+     * Creates a model template.
      *
      * @remarks
-     * You can create a model group in the WUYING Agent Management Center to manage the model providers and model scope that an Agent can invoke. After creation, you can attach the model group to a cloud computer as the inference engine configuration for Agent task execution.
-     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before invoking this operation.
+     * You can create a model group in the Wuying Agent Management Center to manage the model providers and model scope that an Agent can invoke. After model creation, you can attach the model group to a cloud computer as the inference engine configuration for Agent task execution.
+     * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before invoking this operation.
      *
      * @param request - CreateModelTemplateRequest
      *
@@ -1327,7 +1699,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * 1. A project corresponds to the resource configuration module in the CloudFlow console.
-     * 2. When the ContentId input parameter has multiple versions, this API <notice>uses the default version</notice> for binding.
+     * 2. When the ContentId input parameter has multiple versions, this API <notice>uses the default version</notice> and bindss it at the same time.
      * 3. This operation succeeds only when the default version of the Content is in an available state.
      *
      * @param request - CreateWuyingServerRequest
@@ -1371,6 +1743,14 @@ class Appstreamcenter extends OpenApiClient
         $bodyFlat = [];
         if (null !== $request->dataDisk) {
             @$bodyFlat['DataDisk'] = $request->dataDisk;
+        }
+
+        if (null !== $request->erdmaEnabled) {
+            @$body['ErdmaEnabled'] = $request->erdmaEnabled;
+        }
+
+        if (null !== $request->gpuDriverVersion) {
+            @$body['GpuDriverVersion'] = $request->gpuDriverVersion;
         }
 
         if (null !== $request->hostName) {
@@ -1478,7 +1858,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * 1. A project corresponds to the resource configuration module in the CloudFlow console.
-     * 2. When the ContentId input parameter has multiple versions, this API <notice>uses the default version</notice> for binding.
+     * 2. When the ContentId input parameter has multiple versions, this API <notice>uses the default version</notice> and bindss it at the same time.
      * 3. This operation succeeds only when the default version of the Content is in an available state.
      *
      * @param request - CreateWuyingServerRequest
@@ -1640,8 +2020,8 @@ class Appstreamcenter extends OpenApiClient
      * @remarks
      * - You can delete only custom images that belong to your account.
      * - For images associated with WUYING Cloud Computer Pool, WUYING Cloud Application, or WUYING Workspace product lines, ensure that no WUYING instances are using the image before you delete it.
-     * - If a WUYING Cloud Desktop template references the image, the template is also deleted when the image is deleted.
-     * - For images that span multiple regions, deleting the image removes it from all regions.
+     * - If a WUYING Cloud Desktop template references an image, the template is also deleted when the image is deleted.
+     * - For images that span multiple regions, deleting the image removes the image from all regions.
      *
      * @param request - DeleteImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1685,8 +2065,8 @@ class Appstreamcenter extends OpenApiClient
      * @remarks
      * - You can delete only custom images that belong to your account.
      * - For images associated with WUYING Cloud Computer Pool, WUYING Cloud Application, or WUYING Workspace product lines, ensure that no WUYING instances are using the image before you delete it.
-     * - If a WUYING Cloud Desktop template references the image, the template is also deleted when the image is deleted.
-     * - For images that span multiple regions, deleting the image removes it from all regions.
+     * - If a WUYING Cloud Desktop template references an image, the template is also deleted when the image is deleted.
+     * - For images that span multiple regions, deleting the image removes the image from all regions.
      *
      * @param request - DeleteImageRequest
      *
@@ -2042,7 +2422,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of a development workstation.
+     * Queries the details of a development host.
      *
      * @param request - DescribeWuyingServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2081,7 +2461,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of a development workstation.
+     * Queries the details of a development host.
      *
      * @param request - DescribeWuyingServerRequest
      *
@@ -2221,12 +2601,93 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Retrieves connection credentials for a cloud application.
+     * Queries the configuration, status, and authorization statistics of a specified cloud browser group.
      *
      * @remarks
-     * This operation requires multiple calls (at least two) to obtain the connection credentials.
-     * On the first call, an application instance is allocated to the specified convenience account and the application is started. A startup task ID (`TaskID`) is returned.
-     * On subsequent calls, pass the `TaskID` request parameter to query whether the task is complete. When the returned task status (`TaskStatus`) is completed (`Finished`), the connection credentials (`Ticket`) are also returned.
+     * This topic describes the query usage for the monthly active user (MAU) billing scenario.
+     * ## Before you begin
+     * Obtain the cloud browser group ID under the current account. Call `ListBrowserInstanceGroup` to retrieve the ID.
+     * ## Response
+     * The response includes the current configuration, status, and authorization statistics of the browser group. The details return up to 20 bookmarks and 20 website access entries. To retrieve the complete lists, call `ListBrowserBookmarks` and `ListBrowserRestrictedURLs`.
+     * ## What to do next
+     * This operation only queries configurations and does not modify resources. After you read the returned status, perform the connection or management operation that corresponds to the status.
+     * ## Example description
+     * The `-` value in the examples indicates that the field is not applicable or not returned in the current scenario. It is not an actual string returned by the operation. Sample resource IDs are masked. Use the actual query results when you call this operation.
+     *
+     * @param request - GetBrowserInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBrowserInstanceGroupResponse
+     *
+     * @param GetBrowserInstanceGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetBrowserInstanceGroupResponse
+     */
+    public function getBrowserInstanceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBrowserInstanceGroup',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBrowserInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the configuration, status, and authorization statistics of a specified cloud browser group.
+     *
+     * @remarks
+     * This topic describes the query usage for the monthly active user (MAU) billing scenario.
+     * ## Before you begin
+     * Obtain the cloud browser group ID under the current account. Call `ListBrowserInstanceGroup` to retrieve the ID.
+     * ## Response
+     * The response includes the current configuration, status, and authorization statistics of the browser group. The details return up to 20 bookmarks and 20 website access entries. To retrieve the complete lists, call `ListBrowserBookmarks` and `ListBrowserRestrictedURLs`.
+     * ## What to do next
+     * This operation only queries configurations and does not modify resources. After you read the returned status, perform the connection or management operation that corresponds to the status.
+     * ## Example description
+     * The `-` value in the examples indicates that the field is not applicable or not returned in the current scenario. It is not an actual string returned by the operation. Sample resource IDs are masked. Use the actual query results when you call this operation.
+     *
+     * @param request - GetBrowserInstanceGroupRequest
+     *
+     * @returns GetBrowserInstanceGroupResponse
+     *
+     * @param GetBrowserInstanceGroupRequest $request
+     *
+     * @return GetBrowserInstanceGroupResponse
+     */
+    public function getBrowserInstanceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBrowserInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the connection credential for a cloud application.
+     *
+     * @remarks
+     * Call protocol description: operation_type: polling, required_steps: 1.
+     * This operation may require multiple calls (at least one) to obtain the connection credential.
+     * On the first call, an application instance is allocated to the specified convenience account and the application is started. If a Ticket is returned, the result is obtained synchronously. If a startup task ID (`TaskId`) is returned, subsequent calls are required.
+     * On subsequent calls, include the `TaskId` request parameter to invoke the operation and query whether the node is complete. When the returned node status (`TaskStatus`) is completed (`Finished`), the connection credential (`Ticket`) is also returned.
+     * > Prerequisites
+     * > - Before calling this operation, make sure that you have created a delivery group and authorized users for the delivery group:
+     * > - 1. The API for creating a delivery group is CreateAppInstanceGroup. For more information about the parameters, see the corresponding API documentation.
+     * > - 2. You can call the ListAppInstanceGroup operation to query the list of delivery groups. If the corresponding delivery group is not found, verify that the delivery group has been created and that the authentication credentials belong to the correct tenant.
+     * > - 3. The API for authorizing users for a delivery group is AuthorizeInstanceGroup. For more information about the parameters, see the corresponding API documentation.
      *
      * @param request - GetConnectionTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2252,6 +2713,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->appInstanceGroupIdList) {
             @$body['AppInstanceGroupIdList'] = $request->appInstanceGroupIdList;
+        }
+
+        if (null !== $request->appInstanceGroupSetId) {
+            @$body['AppInstanceGroupSetId'] = $request->appInstanceGroupSetId;
         }
 
         if (null !== $request->appInstanceId) {
@@ -2313,12 +2778,18 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Retrieves connection credentials for a cloud application.
+     * Retrieves the connection credential for a cloud application.
      *
      * @remarks
-     * This operation requires multiple calls (at least two) to obtain the connection credentials.
-     * On the first call, an application instance is allocated to the specified convenience account and the application is started. A startup task ID (`TaskID`) is returned.
-     * On subsequent calls, pass the `TaskID` request parameter to query whether the task is complete. When the returned task status (`TaskStatus`) is completed (`Finished`), the connection credentials (`Ticket`) are also returned.
+     * Call protocol description: operation_type: polling, required_steps: 1.
+     * This operation may require multiple calls (at least one) to obtain the connection credential.
+     * On the first call, an application instance is allocated to the specified convenience account and the application is started. If a Ticket is returned, the result is obtained synchronously. If a startup task ID (`TaskId`) is returned, subsequent calls are required.
+     * On subsequent calls, include the `TaskId` request parameter to invoke the operation and query whether the node is complete. When the returned node status (`TaskStatus`) is completed (`Finished`), the connection credential (`Ticket`) is also returned.
+     * > Prerequisites
+     * > - Before calling this operation, make sure that you have created a delivery group and authorized users for the delivery group:
+     * > - 1. The API for creating a delivery group is CreateAppInstanceGroup. For more information about the parameters, see the corresponding API documentation.
+     * > - 2. You can call the ListAppInstanceGroup operation to query the list of delivery groups. If the corresponding delivery group is not found, verify that the delivery group has been created and that the authentication credentials belong to the correct tenant.
+     * > - 3. The API for authorizing users for a delivery group is AuthorizeInstanceGroup. For more information about the parameters, see the corresponding API documentation.
      *
      * @param request - GetConnectionTicketRequest
      *
@@ -2820,7 +3291,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the model configuration details of a cloud computer.
      *
      * @remarks
-     * You can query the model configuration details currently bound to a specified cloud computer in the Wuying Agent Management Center, including model groups, model provider lists, and associated model information. After enabling the risk information mode, you can also identify differences between the end user\\"s actual configuration and the configuration delivered by the administrator.
+     * You can query the model configuration details currently bound to a specified cloud computer in the Wuying Agent Management Center, including model groups, model provider lists, and associated model information. After you enable the risk information mode, you can also identify differences between the end user\\"s actual configuration and the configuration delivered by the administrator.
      *
      * @param request - GetRuntimeModelConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2878,7 +3349,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the model configuration details of a cloud computer.
      *
      * @remarks
-     * You can query the model configuration details currently bound to a specified cloud computer in the Wuying Agent Management Center, including model groups, model provider lists, and associated model information. After enabling the risk information mode, you can also identify differences between the end user\\"s actual configuration and the configuration delivered by the administrator.
+     * You can query the model configuration details currently bound to a specified cloud computer in the Wuying Agent Management Center, including model groups, model provider lists, and associated model information. After you enable the risk information mode, you can also identify differences between the end user\\"s actual configuration and the configuration delivered by the administrator.
      *
      * @param request - GetRuntimeModelConfigRequest
      *
@@ -2896,7 +3367,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of multiple delivery groups that meet specified conditions, without specifying a particular delivery group.
+     * Queries the details of multiple delivery groups. This operation queries all delivery groups that meet the specified conditions instead of a specific delivery group.
      *
      * @param request - ListAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2989,7 +3460,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of multiple delivery groups that meet specified conditions, without specifying a particular delivery group.
+     * Queries the details of multiple delivery groups. This operation queries all delivery groups that meet the specified conditions instead of a specific delivery group.
      *
      * @param request - ListAppInstanceGroupRequest
      *
@@ -3007,7 +3478,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of session instances in a delivery group, including instance ID, instance status, creation time, update time, session status, and public IP address of the primary network interface.
+     * Queries the details of session instances in a delivery group, including instance IDs, instance statuses, creation time, update time, session statuses, and public IP addresses of primary network interface controllers (NICs).
      *
      * @param request - ListAppInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3076,7 +3547,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of session instances in a delivery group, including instance ID, instance status, creation time, update time, session status, and public IP address of the primary network interface.
+     * Queries the details of session instances in a delivery group, including instance IDs, instance statuses, creation time, update time, session statuses, and public IP addresses of primary network interface controllers (NICs).
      *
      * @param request - ListAppInstancesRequest
      *
@@ -3091,6 +3562,129 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization by paging, with support for fuzzy filtering by delivery group ID, delivery group name, application ID, or application name.
+     *
+     * @remarks
+     * ## Operation description
+     * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. The response includes basic information about each delivery group (ID, name, status, region, creation time, expiration time, and more) and the list of applications deployed in the delivery group.
+     * Scope of returned results:
+     * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records authorized on a per-application basis through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
+     * - Only delivery groups whose product type matches the ProductType parameter and that have not been deleted are returned. A delivery group is not returned if its image contains no deployed applications.
+     * - Results are sorted in reverse chronological order by the update time of the authorization record. The most recently authorized or modified delivery groups appear first.
+     * ## Before you begin
+     * - Call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
+     * ## Parameter description
+     * - **ProductType and EndUserId are required**. If ProductType is not specified, the error code `InvalidParameter.ProductType` is returned. If EndUserId is not specified, the error code `InvalidParameter.UserId` is returned.
+     * - EndUserId performs an **exact match** on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName all perform **fuzzy matching** (a hit occurs if the value is contained). When multiple filter conditions are specified, all conditions must be met simultaneously.
+     * - PageNumber starts from 1. Valid values of PageSize: 1 to 100.
+     * - If the user has no authorized delivery groups that match the conditions, the operation returns normally: AppInstanceGroupModels is an empty list and TotalCount is 0.
+     * ## Call sequence
+     * 1. Call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
+     * 2. Call this operation to query the delivery groups authorized to the user and the applications deployed in each delivery group.
+     * 3. To obtain an application connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation with the AppInstanceGroupId and the AppId from the Apps list in the response.
+     *
+     * @param request - ListAuthorizedAppInstanceGroupByUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizedAppInstanceGroupByUserResponse
+     *
+     * @param ListAuthorizedAppInstanceGroupByUserRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListAuthorizedAppInstanceGroupByUserResponse
+     */
+    public function listAuthorizedAppInstanceGroupByUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appInstanceGroupId) {
+            @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->appInstanceGroupName) {
+            @$query['AppInstanceGroupName'] = $request->appInstanceGroupName;
+        }
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizedAppInstanceGroupByUser',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizedAppInstanceGroupByUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization by paging, with support for fuzzy filtering by delivery group ID, delivery group name, application ID, or application name.
+     *
+     * @remarks
+     * ## Operation description
+     * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. The response includes basic information about each delivery group (ID, name, status, region, creation time, expiration time, and more) and the list of applications deployed in the delivery group.
+     * Scope of returned results:
+     * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records authorized on a per-application basis through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
+     * - Only delivery groups whose product type matches the ProductType parameter and that have not been deleted are returned. A delivery group is not returned if its image contains no deployed applications.
+     * - Results are sorted in reverse chronological order by the update time of the authorization record. The most recently authorized or modified delivery groups appear first.
+     * ## Before you begin
+     * - Call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
+     * ## Parameter description
+     * - **ProductType and EndUserId are required**. If ProductType is not specified, the error code `InvalidParameter.ProductType` is returned. If EndUserId is not specified, the error code `InvalidParameter.UserId` is returned.
+     * - EndUserId performs an **exact match** on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName all perform **fuzzy matching** (a hit occurs if the value is contained). When multiple filter conditions are specified, all conditions must be met simultaneously.
+     * - PageNumber starts from 1. Valid values of PageSize: 1 to 100.
+     * - If the user has no authorized delivery groups that match the conditions, the operation returns normally: AppInstanceGroupModels is an empty list and TotalCount is 0.
+     * ## Call sequence
+     * 1. Call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
+     * 2. Call this operation to query the delivery groups authorized to the user and the applications deployed in each delivery group.
+     * 3. To obtain an application connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation with the AppInstanceGroupId and the AppId from the Apps list in the response.
+     *
+     * @param request - ListAuthorizedAppInstanceGroupByUserRequest
+     *
+     * @returns ListAuthorizedAppInstanceGroupByUserResponse
+     *
+     * @param ListAuthorizedAppInstanceGroupByUserRequest $request
+     *
+     * @return ListAuthorizedAppInstanceGroupByUserResponse
+     */
+    public function listAuthorizedAppInstanceGroupByUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizedAppInstanceGroupByUserWithOptions($request, $runtime);
     }
 
     /**
@@ -3112,6 +3706,10 @@ class Appstreamcenter extends OpenApiClient
         $body = [];
         if (null !== $request->appInstanceGroupId) {
             @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->appInstanceGroupSetId) {
+            @$body['AppInstanceGroupSetId'] = $request->appInstanceGroupSetId;
         }
 
         if (null !== $request->groupId) {
@@ -3168,6 +3766,123 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAuthorizedUserGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries authorized users of a cloud browser group with paging.
+     *
+     * @remarks
+     * ## Before you begin
+     * - The target cloud browser group or delivery group set must be created, belong to the current account, and match the specified `ProductType`.
+     * - When querying authorized users of cloud browsers, set `ProductType` to `CloudBrowser`.
+     * - **Specify either `AppInstanceGroupId` or `AppInstanceGroupSetId`, but not both.**
+     * ## Query notes
+     * - This operation returns authorization relationships and does not indicate whether users are currently online or sessions are connected.
+     * - When querying by set, omit `AppId` and `AppInstancePersistentId`.
+     * - Use `PageNumber` and `PageSize` for pagination and check `TotalCount` to determine whether to continue querying.
+     * ## Example notes
+     * The examples show how to set the fields. Replace resource identifiers with actual values in your account.
+     * An example value of `-` indicates that the parameter does not need to be set. Omit the corresponding parameter when calling the operation. Do not pass the character `-`.
+     *
+     * @param request - ListAuthorizedUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizedUsersResponse
+     *
+     * @param ListAuthorizedUsersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAuthorizedUsersResponse
+     */
+    public function listAuthorizedUsersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->userIdFuzzy) {
+            @$query['UserIdFuzzy'] = $request->userIdFuzzy;
+        }
+
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->appInstanceGroupSetId) {
+            @$body['AppInstanceGroupSetId'] = $request->appInstanceGroupSetId;
+        }
+
+        if (null !== $request->appInstancePersistentId) {
+            @$body['AppInstancePersistentId'] = $request->appInstancePersistentId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizedUsers',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizedUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries authorized users of a cloud browser group with paging.
+     *
+     * @remarks
+     * ## Before you begin
+     * - The target cloud browser group or delivery group set must be created, belong to the current account, and match the specified `ProductType`.
+     * - When querying authorized users of cloud browsers, set `ProductType` to `CloudBrowser`.
+     * - **Specify either `AppInstanceGroupId` or `AppInstanceGroupSetId`, but not both.**
+     * ## Query notes
+     * - This operation returns authorization relationships and does not indicate whether users are currently online or sessions are connected.
+     * - When querying by set, omit `AppId` and `AppInstancePersistentId`.
+     * - Use `PageNumber` and `PageSize` for pagination and check `TotalCount` to determine whether to continue querying.
+     * ## Example notes
+     * The examples show how to set the fields. Replace resource identifiers with actual values in your account.
+     * An example value of `-` indicates that the parameter does not need to be set. Omit the corresponding parameter when calling the operation. Do not pass the character `-`.
+     *
+     * @param request - ListAuthorizedUsersRequest
+     *
+     * @returns ListAuthorizedUsersResponse
+     *
+     * @param ListAuthorizedUsersRequest $request
+     *
+     * @return ListAuthorizedUsersResponse
+     */
+    public function listAuthorizedUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizedUsersWithOptions($request, $runtime);
     }
 
     /**
@@ -3249,6 +3964,138 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBindInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries cloud browser groups and their current status by paging.
+     *
+     * @remarks
+     * This topic describes how to use this operation in the monthly active user (MAU) billing scenario.
+     * ## Query conditions
+     * You can filter by browser group identity, name, business region, office network, set, authorized user group, and status. Only one status value can be specified at a time.
+     * ## Paging
+     * Use `PageNumber` and `PageSize` for paging. Use the returned `TotalCount` to determine whether to continue querying the next page.
+     * ## What to do next
+     * To view the detailed configuration of a single browser group, invoke `GetBrowserInstanceGroup` with the returned identity.
+     * ## Example notes
+     * The `-` in the examples indicates that the field is not applicable or not returned in the current scenario. It is not an actual character string returned by the operation. Resource identities in the examples are masked. Use the actual query results in your environment.
+     *
+     * @param request - ListBrowserInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBrowserInstanceGroupResponse
+     *
+     * @param ListBrowserInstanceGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListBrowserInstanceGroupResponse
+     */
+    public function listBrowserInstanceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appInstanceGroupSetId) {
+            @$query['AppInstanceGroupSetId'] = $request->appInstanceGroupSetId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->browserInstanceGroupId) {
+            @$query['BrowserInstanceGroupId'] = $request->browserInstanceGroupId;
+        }
+
+        if (null !== $request->browserInstanceGroupName) {
+            @$query['BrowserInstanceGroupName'] = $request->browserInstanceGroupName;
+        }
+
+        if (null !== $request->cloudBrowserName) {
+            @$query['CloudBrowserName'] = $request->cloudBrowserName;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->tier) {
+            @$query['Tier'] = $request->tier;
+        }
+
+        $body = [];
+        if (null !== $request->excludedUserGroupIds) {
+            @$body['ExcludedUserGroupIds'] = $request->excludedUserGroupIds;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->status) {
+            @$bodyFlat['Status'] = $request->status;
+        }
+
+        if (null !== $request->userGroupIds) {
+            @$body['UserGroupIds'] = $request->userGroupIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListBrowserInstanceGroup',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBrowserInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries cloud browser groups and their current status by paging.
+     *
+     * @remarks
+     * This topic describes how to use this operation in the monthly active user (MAU) billing scenario.
+     * ## Query conditions
+     * You can filter by browser group identity, name, business region, office network, set, authorized user group, and status. Only one status value can be specified at a time.
+     * ## Paging
+     * Use `PageNumber` and `PageSize` for paging. Use the returned `TotalCount` to determine whether to continue querying the next page.
+     * ## What to do next
+     * To view the detailed configuration of a single browser group, invoke `GetBrowserInstanceGroup` with the returned identity.
+     * ## Example notes
+     * The `-` in the examples indicates that the field is not applicable or not returned in the current scenario. It is not an actual character string returned by the operation. Resource identities in the examples are masked. Use the actual query results in your environment.
+     *
+     * @param request - ListBrowserInstanceGroupRequest
+     *
+     * @returns ListBrowserInstanceGroupResponse
+     *
+     * @param ListBrowserInstanceGroupRequest $request
+     *
+     * @return ListBrowserInstanceGroupResponse
+     */
+    public function listBrowserInstanceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBrowserInstanceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -3559,8 +4406,8 @@ class Appstreamcenter extends OpenApiClient
      * Queries the list of LLM templates.
      *
      * @remarks
-     * You can query the list of model templates under a model provider template in the Wuying Agent Management Center with paging. Filtering by model group ID, model provider template ID, model template ID, and model encoding is supported. When querying by model group dimension, the default model is automatically placed at the top.
-     * Before using this operation, make sure you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can query the list of model templates under a model provider template in the WUYING Agent Management Center with paging. Filtering by model group ID, model provider template ID, model template ID, and model encoding is supported. When querying by model group dimension, the default model is automatically pinned to the top.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param tmpReq - ListLlmTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3636,8 +4483,8 @@ class Appstreamcenter extends OpenApiClient
      * Queries the list of LLM templates.
      *
      * @remarks
-     * You can query the list of model templates under a model provider template in the Wuying Agent Management Center with paging. Filtering by model group ID, model provider template ID, model template ID, and model encoding is supported. When querying by model group dimension, the default model is automatically placed at the top.
-     * Before using this operation, make sure you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can query the list of model templates under a model provider template in the WUYING Agent Management Center with paging. Filtering by model group ID, model provider template ID, model template ID, and model encoding is supported. When querying by model group dimension, the default model is automatically pinned to the top.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - ListLlmTemplatesRequest
      *
@@ -3727,8 +4574,8 @@ class Appstreamcenter extends OpenApiClient
      * Queries the list of model provider templates.
      *
      * @remarks
-     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Use the paging parameters to control the number of results returned per page.
-     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. You can filter results by provider name, model group ID, and provider template ID. Paging is supported.
+     * Before you call this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param tmpReq - ListModelProviderTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3804,8 +4651,8 @@ class Appstreamcenter extends OpenApiClient
      * Queries the list of model provider templates.
      *
      * @remarks
-     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. Filtering by provider name, model group ID, and provider template ID is supported. Use the paging parameters to control the number of results returned per page.
-     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * You can perform a paged query to retrieve the list of model provider templates under a specified model group in the WUYING Agent Management Center. You can filter results by provider name, model group ID, and provider template ID. Paging is supported.
+     * Before you call this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - ListModelProviderTemplatesRequest
      *
@@ -3900,11 +4747,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the list of model templates.
+     * Queries a list of model templates.
      *
      * @remarks
-     * You can query the model groups created in the WUYING Agent Management Center with paging. Filtering is supported by Agent provider, Agent platform, template group ID, and whether models have been configured.
-     * Before using this operation, make sure you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * You can use paged query to retrieve the list of model groups created in the Wuying Agent Management Center. You can filter results by Agent provider, Agent platform, template group ID, and whether models have been configured. Paging is supported.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param tmpReq - ListModelTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3993,11 +4840,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the list of model templates.
+     * Queries a list of model templates.
      *
      * @remarks
-     * You can query the model groups created in the WUYING Agent Management Center with paging. Filtering is supported by Agent provider, Agent platform, template group ID, and whether models have been configured.
-     * Before using this operation, make sure you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * You can use paged query to retrieve the list of model groups created in the Wuying Agent Management Center. You can filter results by Agent provider, Agent platform, template group ID, and whether models have been configured. Paging is supported.
+     * Before using this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - ListModelTemplatesRequest
      *
@@ -4530,10 +5377,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the list of workstations.
+     * Queries a list of workstations.
      *
      * @remarks
-     * Retrieves the list of WUYING workstations.
+     * Retrieves a list of WUYING workstations.
      *
      * @param request - ListWuyingServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4655,10 +5502,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the list of workstations.
+     * Queries a list of workstations.
      *
      * @remarks
-     * Retrieves the list of WUYING workstations.
+     * Retrieves a list of WUYING workstations.
      *
      * @param request - ListWuyingServerRequest
      *
@@ -4743,7 +5590,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the general policy of a delivery group, including the number of concurrent sessions and the session disconnection retention duration.
+     * Modifies the General Policy of a delivery group, including the number of concurrent sessions and the session retention duration after disconnection.
      *
      * @param tmpReq - ModifyAppInstanceGroupAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4842,7 +5689,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the general policy of a delivery group, including the number of concurrent sessions and the session disconnection retention duration.
+     * Modifies the General Policy of a delivery group, including the number of concurrent sessions and the session retention duration after disconnection.
      *
      * @param request - ModifyAppInstanceGroupAttributeRequest
      *
@@ -4989,6 +5836,10 @@ class Appstreamcenter extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->authNotificationEnabled) {
+            @$body['AuthNotificationEnabled'] = $request->authNotificationEnabled;
+        }
+
         if (null !== $request->cloudBrowserName) {
             @$body['CloudBrowserName'] = $request->cloudBrowserName;
         }
@@ -5283,6 +6134,10 @@ class Appstreamcenter extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->erdmaEnabled) {
+            @$body['ErdmaEnabled'] = $request->erdmaEnabled;
+        }
+
         if (null !== $request->password) {
             @$body['Password'] = $request->password;
         }
@@ -5636,6 +6491,8 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, make sure that you fully understand the [billing and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Workspace.
+     * > Prerequisites:
+     * > - The delivery group must be in the PUBLISHED state, and ChargeType must be set to PrePaid.
      *
      * @param tmpReq - RenewAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5716,6 +6573,8 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, make sure that you fully understand the [billing and pricing](https://help.aliyun.com/document_detail/426039.html) of WUYING Workspace.
+     * > Prerequisites:
+     * > - The delivery group must be in the PUBLISHED state, and ChargeType must be set to PrePaid.
      *
      * @param request - RenewAppInstanceGroupRequest
      *
@@ -5806,7 +6665,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Restarts a cloud graphics workstation.
+     * Restarts a workstation.
      *
      * @param request - RestartWuyingServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5852,7 +6711,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Restarts a cloud graphics workstation.
+     * Restarts a workstation.
      *
      * @param request - RestartWuyingServerRequest
      *
@@ -6346,8 +7205,9 @@ class Appstreamcenter extends OpenApiClient
      * Updates the image of a delivery group.
      *
      * @remarks
-     * >Warning: After the image update starts, sessions of end users accessing cloud applications will be disconnected. Proceed with caution to avoid data loss for end users.
-     * > After the update is published, changes typically take about 2 minutes to take effect on the client.
+     * >Warning: After the image update starts, sessions of end users who are accessing cloud applications will be disconnected. Proceed with caution to avoid data loss for end users.
+     * > Before calling this API, the delivery group must be in the PUBLISHED, DEPLOYED, or MAINTAIN_FAILED state. You can call GetAppInstanceGroup to query the current state of the delivery group.
+     * > After the update is published, you typically need to wait about 2 minutes for the changes to take effect on the client.
      *
      * @param request - UpdateAppInstanceGroupImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6401,8 +7261,9 @@ class Appstreamcenter extends OpenApiClient
      * Updates the image of a delivery group.
      *
      * @remarks
-     * >Warning: After the image update starts, sessions of end users accessing cloud applications will be disconnected. Proceed with caution to avoid data loss for end users.
-     * > After the update is published, changes typically take about 2 minutes to take effect on the client.
+     * >Warning: After the image update starts, sessions of end users who are accessing cloud applications will be disconnected. Proceed with caution to avoid data loss for end users.
+     * > Before calling this API, the delivery group must be in the PUBLISHED, DEPLOYED, or MAINTAIN_FAILED state. You can call GetAppInstanceGroup to query the current state of the delivery group.
+     * > After the update is published, you typically need to wait about 2 minutes for the changes to take effect on the client.
      *
      * @param request - UpdateAppInstanceGroupImageRequest
      *
@@ -6512,8 +7373,8 @@ class Appstreamcenter extends OpenApiClient
      * Updates a model template.
      *
      * @remarks
-     * You can update a model group that has been created in the WUYING Agent Management Center, including the group name, description, and model configuration information. You can modify the default model of a model group by updating the Config field. The updated configuration automatically takes effect on associated cloud desktops.
-     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * You can update a model group that has been created in the Wuying Agent Management Center, including the group name, description, and model configuration information. You can modify the default model of a model group by updating the Config field. The updated configuration automatically takes effect on associated cloud desktops.
+     * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - UpdateModelTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6571,8 +7432,8 @@ class Appstreamcenter extends OpenApiClient
      * Updates a model template.
      *
      * @remarks
-     * You can update a model group that has been created in the WUYING Agent Management Center, including the group name, description, and model configuration information. You can modify the default model of a model group by updating the Config field. The updated configuration automatically takes effect on associated cloud desktops.
-     * Before using this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
+     * You can update a model group that has been created in the Wuying Agent Management Center, including the group name, description, and model configuration information. You can modify the default model of a model group by updating the Config field. The updated configuration automatically takes effect on associated cloud desktops.
+     * Before you call this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - UpdateModelTemplateRequest
      *

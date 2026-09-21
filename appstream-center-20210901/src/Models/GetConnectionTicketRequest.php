@@ -26,6 +26,11 @@ class GetConnectionTicketRequest extends Model
     /**
      * @var string
      */
+    public $appInstanceGroupSetId;
+
+    /**
+     * @var string
+     */
     public $appInstanceId;
 
     /**
@@ -76,6 +81,7 @@ class GetConnectionTicketRequest extends Model
         'accessType' => 'AccessType',
         'appId' => 'AppId',
         'appInstanceGroupIdList' => 'AppInstanceGroupIdList',
+        'appInstanceGroupSetId' => 'AppInstanceGroupSetId',
         'appInstanceId' => 'AppInstanceId',
         'appInstancePersistentId' => 'AppInstancePersistentId',
         'appPolicyId' => 'AppPolicyId',
@@ -116,6 +122,10 @@ class GetConnectionTicketRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->appInstanceGroupSetId) {
+            $res['AppInstanceGroupSetId'] = $this->appInstanceGroupSetId;
         }
 
         if (null !== $this->appInstanceId) {
@@ -186,6 +196,10 @@ class GetConnectionTicketRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['AppInstanceGroupSetId'])) {
+            $model->appInstanceGroupSetId = $map['AppInstanceGroupSetId'];
         }
 
         if (isset($map['AppInstanceId'])) {

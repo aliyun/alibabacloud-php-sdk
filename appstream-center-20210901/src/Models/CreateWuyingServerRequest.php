@@ -45,6 +45,16 @@ class CreateWuyingServerRequest extends Model
     public $dataDisk;
 
     /**
+     * @var bool
+     */
+    public $erdmaEnabled;
+
+    /**
+     * @var string
+     */
+    public $gpuDriverVersion;
+
+    /**
      * @var string
      */
     public $hostName;
@@ -151,6 +161,8 @@ class CreateWuyingServerRequest extends Model
         'bizRegionId' => 'BizRegionId',
         'chargeType' => 'ChargeType',
         'dataDisk' => 'DataDisk',
+        'erdmaEnabled' => 'ErdmaEnabled',
+        'gpuDriverVersion' => 'GpuDriverVersion',
         'hostName' => 'HostName',
         'idempotenceToken' => 'IdempotenceToken',
         'imageId' => 'ImageId',
@@ -220,6 +232,14 @@ class CreateWuyingServerRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->erdmaEnabled) {
+            $res['ErdmaEnabled'] = $this->erdmaEnabled;
+        }
+
+        if (null !== $this->gpuDriverVersion) {
+            $res['GpuDriverVersion'] = $this->gpuDriverVersion;
         }
 
         if (null !== $this->hostName) {
@@ -353,6 +373,14 @@ class CreateWuyingServerRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ErdmaEnabled'])) {
+            $model->erdmaEnabled = $map['ErdmaEnabled'];
+        }
+
+        if (isset($map['GpuDriverVersion'])) {
+            $model->gpuDriverVersion = $map['GpuDriverVersion'];
         }
 
         if (isset($map['HostName'])) {
