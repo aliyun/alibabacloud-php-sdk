@@ -16,6 +16,11 @@ class Quota extends Model
     /**
      * @var int
      */
+    public $instanceCount;
+
+    /**
+     * @var int
+     */
     public $memoryGB;
 
     /**
@@ -24,6 +29,7 @@ class Quota extends Model
     public $tagValue;
     protected $_name = [
         'cpuCores' => 'cpuCores',
+        'instanceCount' => 'instanceCount',
         'memoryGB' => 'memoryGB',
         'tagValue' => 'tagValue',
     ];
@@ -38,6 +44,10 @@ class Quota extends Model
         $res = [];
         if (null !== $this->cpuCores) {
             $res['cpuCores'] = $this->cpuCores;
+        }
+
+        if (null !== $this->instanceCount) {
+            $res['instanceCount'] = $this->instanceCount;
         }
 
         if (null !== $this->memoryGB) {
@@ -61,6 +71,10 @@ class Quota extends Model
         $model = new self();
         if (isset($map['cpuCores'])) {
             $model->cpuCores = $map['cpuCores'];
+        }
+
+        if (isset($map['instanceCount'])) {
+            $model->instanceCount = $map['instanceCount'];
         }
 
         if (isset($map['memoryGB'])) {
