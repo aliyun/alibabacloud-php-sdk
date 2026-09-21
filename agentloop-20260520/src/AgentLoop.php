@@ -4506,6 +4506,10 @@ class AgentLoop extends OpenApiClient
             @$body['description'] = $request->description;
         }
 
+        if (null !== $request->renames) {
+            @$body['renames'] = $request->renames;
+        }
+
         if (null !== $request->schema) {
             @$body['schema'] = $request->schema;
         }

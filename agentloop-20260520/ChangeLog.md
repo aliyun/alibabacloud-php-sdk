@@ -1,3 +1,7 @@
+2026-09-21 Version: 2.0.8
+- Update API UpdateDataset: add request parameters body.renames.
+
+
 2026-09-17 Version: 2.0.7
 - Generated php 2026-05-20 for AgentLoop.
 
