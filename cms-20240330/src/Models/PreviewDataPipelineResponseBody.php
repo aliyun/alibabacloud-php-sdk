@@ -15,6 +15,11 @@ class PreviewDataPipelineResponseBody extends Model
     public $datasets;
 
     /**
+     * @var mixed[]
+     */
+    public $diagnostics;
+
+    /**
      * @var string
      */
     public $effectiveScript;
@@ -25,6 +30,7 @@ class PreviewDataPipelineResponseBody extends Model
     public $requestId;
     protected $_name = [
         'datasets' => 'datasets',
+        'diagnostics' => 'diagnostics',
         'effectiveScript' => 'effectiveScript',
         'requestId' => 'requestId',
     ];
@@ -33,6 +39,9 @@ class PreviewDataPipelineResponseBody extends Model
     {
         if (\is_array($this->datasets)) {
             Model::validateArray($this->datasets);
+        }
+        if (\is_array($this->diagnostics)) {
+            Model::validateArray($this->diagnostics);
         }
         parent::validate();
     }
@@ -47,6 +56,15 @@ class PreviewDataPipelineResponseBody extends Model
                 foreach ($this->datasets as $item1) {
                     $res['datasets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->diagnostics) {
+            if (\is_array($this->diagnostics)) {
+                $res['diagnostics'] = [];
+                foreach ($this->diagnostics as $key1 => $value1) {
+                    $res['diagnostics'][$key1] = $value1;
                 }
             }
         }
@@ -77,6 +95,15 @@ class PreviewDataPipelineResponseBody extends Model
                 foreach ($map['datasets'] as $item1) {
                     $model->datasets[$n1] = datasets::fromMap($item1);
                     ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['diagnostics'])) {
+            if (!empty($map['diagnostics'])) {
+                $model->diagnostics = [];
+                foreach ($map['diagnostics'] as $key1 => $value1) {
+                    $model->diagnostics[$key1] = $value1;
                 }
             }
         }

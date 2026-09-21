@@ -5,7 +5,10 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\GetDataPipelineResponseBody\pipeline\outputs\processors;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDataPipelineResponseBody\pipeline\outputs\processors\config\assignments;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDataPipelineResponseBody\pipeline\outputs\processors\config\projections;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDataPipelineResponseBody\pipeline\outputs\processors\config\rules;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDataPipelineResponseBody\pipeline\outputs\processors\config\scope;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDataPipelineResponseBody\pipeline\outputs\processors\config\selector;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDataPipelineResponseBody\pipeline\outputs\processors\config\target;
 
@@ -15,6 +18,11 @@ class config extends Model
      * @var string[]
      */
     public $applications;
+
+    /**
+     * @var assignments[]
+     */
+    public $assignments;
 
     /**
      * @var string
@@ -27,9 +35,24 @@ class config extends Model
     public $fields;
 
     /**
+     * @var mixed[]
+     */
+    public $parameters;
+
+    /**
+     * @var projections[]
+     */
+    public $projections;
+
+    /**
      * @var rules[]
      */
     public $rules;
+
+    /**
+     * @var scope
+     */
+    public $scope;
 
     /**
      * @var string
@@ -47,9 +70,13 @@ class config extends Model
     public $target;
     protected $_name = [
         'applications' => 'applications',
+        'assignments' => 'assignments',
         'expression' => 'expression',
         'fields' => 'fields',
+        'parameters' => 'parameters',
+        'projections' => 'projections',
         'rules' => 'rules',
+        'scope' => 'scope',
         'script' => 'script',
         'selector' => 'selector',
         'target' => 'target',
@@ -60,11 +87,23 @@ class config extends Model
         if (\is_array($this->applications)) {
             Model::validateArray($this->applications);
         }
+        if (\is_array($this->assignments)) {
+            Model::validateArray($this->assignments);
+        }
         if (\is_array($this->fields)) {
             Model::validateArray($this->fields);
         }
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        if (\is_array($this->projections)) {
+            Model::validateArray($this->projections);
+        }
         if (\is_array($this->rules)) {
             Model::validateArray($this->rules);
+        }
+        if (null !== $this->scope) {
+            $this->scope->validate();
         }
         if (null !== $this->selector) {
             $this->selector->validate();
@@ -89,6 +128,17 @@ class config extends Model
             }
         }
 
+        if (null !== $this->assignments) {
+            if (\is_array($this->assignments)) {
+                $res['assignments'] = [];
+                $n1 = 0;
+                foreach ($this->assignments as $item1) {
+                    $res['assignments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->expression) {
             $res['expression'] = $this->expression;
         }
@@ -104,6 +154,26 @@ class config extends Model
             }
         }
 
+        if (null !== $this->parameters) {
+            if (\is_array($this->parameters)) {
+                $res['parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['parameters'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->projections) {
+            if (\is_array($this->projections)) {
+                $res['projections'] = [];
+                $n1 = 0;
+                foreach ($this->projections as $item1) {
+                    $res['projections'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->rules) {
             if (\is_array($this->rules)) {
                 $res['rules'] = [];
@@ -113,6 +183,10 @@ class config extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->scope) {
+            $res['scope'] = null !== $this->scope ? $this->scope->toArray($noStream) : $this->scope;
         }
 
         if (null !== $this->script) {
@@ -149,6 +223,17 @@ class config extends Model
             }
         }
 
+        if (isset($map['assignments'])) {
+            if (!empty($map['assignments'])) {
+                $model->assignments = [];
+                $n1 = 0;
+                foreach ($map['assignments'] as $item1) {
+                    $model->assignments[$n1] = assignments::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['expression'])) {
             $model->expression = $map['expression'];
         }
@@ -164,6 +249,26 @@ class config extends Model
             }
         }
 
+        if (isset($map['parameters'])) {
+            if (!empty($map['parameters'])) {
+                $model->parameters = [];
+                foreach ($map['parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['projections'])) {
+            if (!empty($map['projections'])) {
+                $model->projections = [];
+                $n1 = 0;
+                foreach ($map['projections'] as $item1) {
+                    $model->projections[$n1] = projections::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['rules'])) {
             if (!empty($map['rules'])) {
                 $model->rules = [];
@@ -173,6 +278,10 @@ class config extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['scope'])) {
+            $model->scope = scope::fromMap($map['scope']);
         }
 
         if (isset($map['script'])) {

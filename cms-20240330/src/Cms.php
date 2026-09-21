@@ -8619,10 +8619,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of DataPipelines.
+     * Queries a list of DataPipelines.
      *
      * @remarks
-     * Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+     * Queries data pipelines in a specified workspace by using paging.
      *
      * @param request - ListDataPipelinesRequest
      * @param headers - map
@@ -8669,10 +8669,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of DataPipelines.
+     * Queries a list of DataPipelines.
      *
      * @remarks
-     * Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+     * Queries data pipelines in a specified workspace by using paging.
      *
      * @param request - ListDataPipelinesRequest
      *
@@ -12989,10 +12989,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates the information about a Prometheus view instance.
+     * Updates the information of a Prometheus view instance.
      *
      * @remarks
-     * Updates the information about a Prometheus view instance.
+     * Updates the information of a Prometheus view instance.
      *
      * @param request - UpdatePrometheusViewRequest
      * @param headers - map
@@ -13059,10 +13059,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates the information about a Prometheus view instance.
+     * Updates the information of a Prometheus view instance.
      *
      * @remarks
-     * Updates the information about a Prometheus view instance.
+     * Updates the information of a Prometheus view instance.
      *
      * @param request - UpdatePrometheusViewRequest
      *
