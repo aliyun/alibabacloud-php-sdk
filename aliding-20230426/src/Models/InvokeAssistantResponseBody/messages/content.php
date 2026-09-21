@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content\a2uiMessages;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content\aguiContent;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content\cardCallback;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content\dingCard;
@@ -15,6 +16,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messag
 
 class content extends Model
 {
+    /**
+     * @var a2uiMessages[]
+     */
+    public $a2uiMessages;
+
     /**
      * @var aguiContent
      */
@@ -55,6 +61,7 @@ class content extends Model
      */
     public $type;
     protected $_name = [
+        'a2uiMessages' => 'a2uiMessages',
         'aguiContent' => 'aguiContent',
         'cardCallback' => 'cardCallback',
         'dingCard' => 'dingCard',
@@ -67,6 +74,9 @@ class content extends Model
 
     public function validate()
     {
+        if (\is_array($this->a2uiMessages)) {
+            Model::validateArray($this->a2uiMessages);
+        }
         if (null !== $this->aguiContent) {
             $this->aguiContent->validate();
         }
@@ -94,6 +104,17 @@ class content extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->a2uiMessages) {
+            if (\is_array($this->a2uiMessages)) {
+                $res['a2uiMessages'] = [];
+                $n1 = 0;
+                foreach ($this->a2uiMessages as $item1) {
+                    $res['a2uiMessages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->aguiContent) {
             $res['aguiContent'] = null !== $this->aguiContent ? $this->aguiContent->toArray($noStream) : $this->aguiContent;
         }
@@ -137,6 +158,17 @@ class content extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['a2uiMessages'])) {
+            if (!empty($map['a2uiMessages'])) {
+                $model->a2uiMessages = [];
+                $n1 = 0;
+                foreach ($map['a2uiMessages'] as $item1) {
+                    $model->a2uiMessages[$n1] = a2uiMessages::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['aguiContent'])) {
             $model->aguiContent = aguiContent::fromMap($map['aguiContent']);
         }

@@ -1,3 +1,10 @@
+2026-09-21 Version: 2.50.0
+- Support API GenerateAuthCode.
+- Support API GetUserDocumentPermission.
+- Support API InvokeContainer.
+- Update API InvokeAssistant: add response parameters Body.messages.$.content.a2uiMessages.
+
+
 2026-07-16 Version: 2.49.0
 - Support API EnableSceneGroupTemplate.
 

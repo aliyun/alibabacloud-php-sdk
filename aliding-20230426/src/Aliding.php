@@ -432,6 +432,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\FinishTicketRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\FinishTicketResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\FinishTicketShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\FinishTicketShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GenerateAuthCodeHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GenerateAuthCodeRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GenerateAuthCodeResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GenerateAuthCodeShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GenerateAuthCodeShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListResponse;
@@ -748,6 +753,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserDocumentPermissionHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserDocumentPermissionRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserDocumentPermissionResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserDocumentPermissionShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserDocumentPermissionShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOpenDingtalkIdHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOpenDingtalkIdRequest;
@@ -826,6 +836,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\InviteUsersShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeContainerHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeContainerRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeContainerResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeContainerShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeSkillHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeSkillRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeSkillResponse;
@@ -10403,6 +10417,96 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param tmpReq - GenerateAuthCodeRequest
+     * @param tmpHeader - GenerateAuthCodeHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateAuthCodeResponse
+     *
+     * @param GenerateAuthCodeRequest $tmpReq
+     * @param GenerateAuthCodeHeaders $tmpHeader
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GenerateAuthCodeResponse
+     */
+    public function generateAuthCodeWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GenerateAuthCodeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GenerateAuthCodeShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bucAppName) {
+            @$body['BucAppName'] = $request->bucAppName;
+        }
+
+        if (null !== $request->ssoTicket) {
+            @$body['SsoTicket'] = $request->ssoTicket;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->validRedirectUri) {
+            @$body['ValidRedirectUri'] = $request->validRedirectUri;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateAuthCode',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/auth/generateAuthCode',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateAuthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - GenerateAuthCodeRequest
+     *
+     * @returns GenerateAuthCodeResponse
+     *
+     * @param GenerateAuthCodeRequest $request
+     *
+     * @return GenerateAuthCodeResponse
+     */
+    public function generateAuthCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GenerateAuthCodeHeaders([]);
+
+        return $this->generateAuthCodeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取流程设计的节点信息.
      *
      * @param request - GetActivityListRequest
@@ -16943,6 +17047,104 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * 获取用户对钉钉文档的权限情况.
+     *
+     * @param tmpReq - GetUserDocumentPermissionRequest
+     * @param tmpHeader - GetUserDocumentPermissionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserDocumentPermissionResponse
+     *
+     * @param GetUserDocumentPermissionRequest $tmpReq
+     * @param GetUserDocumentPermissionHeaders $tmpHeader
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetUserDocumentPermissionResponse
+     */
+    public function getUserDocumentPermissionWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetUserDocumentPermissionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetUserDocumentPermissionShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->dentryId) {
+            @$body['DentryId'] = $request->dentryId;
+        }
+
+        if (null !== $request->dentryUuid) {
+            @$body['DentryUuid'] = $request->dentryUuid;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->spaceId) {
+            @$body['SpaceId'] = $request->spaceId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserDocumentPermission',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/getUserDocumentPermission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserDocumentPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户对钉钉文档的权限情况.
+     *
+     * @param request - GetUserDocumentPermissionRequest
+     *
+     * @returns GetUserDocumentPermissionResponse
+     *
+     * @param GetUserDocumentPermissionRequest $request
+     *
+     * @return GetUserDocumentPermissionResponse
+     */
+    public function getUserDocumentPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetUserDocumentPermissionHeaders([]);
+
+        return $this->getUserDocumentPermissionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 根据unionId获取用户userId.
      *
      * @param tmpReq - GetUserIdRequest
@@ -18534,6 +18736,86 @@ class Aliding extends OpenApiClient
         $headers = new InvokeAssistantHeaders([]);
 
         return $this->invokeAssistantWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 调用容器操作.
+     *
+     * @param request - InvokeContainerRequest
+     * @param tmpHeader - InvokeContainerHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokeContainerResponse
+     *
+     * @param InvokeContainerRequest $request
+     * @param InvokeContainerHeaders $tmpHeader
+     * @param RuntimeOptions         $runtime
+     *
+     * @return InvokeContainerResponse
+     */
+    public function invokeContainerWithOptions($request, $tmpHeader, $runtime)
+    {
+        $request->validate();
+        $headers = new InvokeContainerShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'accountContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->operationId) {
+            @$body['operationId'] = $request->operationId;
+        }
+
+        if (null !== $request->params) {
+            @$body['params'] = $request->params;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['accountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InvokeContainer',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/spi/ai/v1/container/invoke',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InvokeContainerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 调用容器操作.
+     *
+     * @param request - InvokeContainerRequest
+     *
+     * @returns InvokeContainerResponse
+     *
+     * @param InvokeContainerRequest $request
+     *
+     * @return InvokeContainerResponse
+     */
+    public function invokeContainer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InvokeContainerHeaders([]);
+
+        return $this->invokeContainerWithOptions($request, $headers, $runtime);
     }
 
     /**
