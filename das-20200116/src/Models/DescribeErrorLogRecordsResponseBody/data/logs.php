@@ -32,12 +32,30 @@ class logs extends Model
      * @var string
      */
     public $DBInstanceName;
+
+    /**
+     * @var string
+     */
+    public $db;
+
+    /**
+     * @var string
+     */
+    public $user;
+
+    /**
+     * @var string
+     */
+    public $userIp;
     protected $_name = [
         'category' => 'Category',
         'connInfo' => 'ConnInfo',
         'content' => 'Content',
         'createTime' => 'CreateTime',
         'DBInstanceName' => 'DBInstanceName',
+        'db' => 'Db',
+        'user' => 'User',
+        'userIp' => 'UserIp',
     ];
 
     public function validate()
@@ -66,6 +84,18 @@ class logs extends Model
 
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+
+        if (null !== $this->db) {
+            $res['Db'] = $this->db;
+        }
+
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
+        }
+
+        if (null !== $this->userIp) {
+            $res['UserIp'] = $this->userIp;
         }
 
         return $res;
@@ -97,6 +127,18 @@ class logs extends Model
 
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
+        }
+
+        if (isset($map['Db'])) {
+            $model->db = $map['Db'];
+        }
+
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
+        }
+
+        if (isset($map['UserIp'])) {
+            $model->userIp = $map['UserIp'];
         }
 
         return $model;

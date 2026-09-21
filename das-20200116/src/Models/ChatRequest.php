@@ -21,6 +21,11 @@ class ChatRequest extends Model
     /**
      * @var string
      */
+    public $resume;
+
+    /**
+     * @var string
+     */
     public $sessionId;
 
     /**
@@ -30,6 +35,7 @@ class ChatRequest extends Model
     protected $_name = [
         'agentId' => 'AgentId',
         'message' => 'Message',
+        'resume' => 'Resume',
         'sessionId' => 'SessionId',
         'summary' => 'Summary',
     ];
@@ -48,6 +54,10 @@ class ChatRequest extends Model
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->resume) {
+            $res['Resume'] = $this->resume;
         }
 
         if (null !== $this->sessionId) {
@@ -75,6 +85,10 @@ class ChatRequest extends Model
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['Resume'])) {
+            $model->resume = $map['Resume'];
         }
 
         if (isset($map['SessionId'])) {

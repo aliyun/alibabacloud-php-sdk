@@ -32,18 +32,12 @@ class GetFullRequestSampleByInstanceIdRequest extends Model
      * @var int
      */
     public $start;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'end' => 'End',
         'instanceId' => 'InstanceId',
         'role' => 'Role',
         'sqlId' => 'SqlId',
         'start' => 'Start',
-        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -72,10 +66,6 @@ class GetFullRequestSampleByInstanceIdRequest extends Model
 
         if (null !== $this->start) {
             $res['Start'] = $this->start;
-        }
-
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -107,10 +97,6 @@ class GetFullRequestSampleByInstanceIdRequest extends Model
 
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
-        }
-
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
 
         return $model;
