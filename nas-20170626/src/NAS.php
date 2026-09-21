@@ -9689,11 +9689,19 @@ class NAS extends OpenApiClient
         $tmpReq->validate();
         $request = new ModifyFileSystemShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->autoUpgradeConfig) {
+            $request->autoUpgradeConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->autoUpgradeConfig, 'AutoUpgradeConfig', 'json');
+        }
+
         if (null !== $tmpReq->options) {
             $request->optionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->options, 'Options', 'json');
         }
 
         $query = [];
+        if (null !== $request->autoUpgradeConfigShrink) {
+            @$query['AutoUpgradeConfig'] = $request->autoUpgradeConfigShrink;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
         }

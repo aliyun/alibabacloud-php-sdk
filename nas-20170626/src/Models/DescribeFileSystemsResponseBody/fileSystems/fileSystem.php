@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\autoUpgradeConfig;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\ldap;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\mountTargets;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\options;
@@ -25,6 +26,11 @@ class fileSystem extends Model
      * @var string
      */
     public $autoSnapshotPolicyId;
+
+    /**
+     * @var autoUpgradeConfig
+     */
+    public $autoUpgradeConfig;
 
     /**
      * @var int
@@ -188,6 +194,7 @@ class fileSystem extends Model
     protected $_name = [
         'accessPointCount' => 'AccessPointCount',
         'autoSnapshotPolicyId' => 'AutoSnapshotPolicyId',
+        'autoUpgradeConfig' => 'AutoUpgradeConfig',
         'bandwidth' => 'Bandwidth',
         'capacity' => 'Capacity',
         'chargeType' => 'ChargeType',
@@ -224,6 +231,9 @@ class fileSystem extends Model
 
     public function validate()
     {
+        if (null !== $this->autoUpgradeConfig) {
+            $this->autoUpgradeConfig->validate();
+        }
         if (null !== $this->ldap) {
             $this->ldap->validate();
         }
@@ -260,6 +270,10 @@ class fileSystem extends Model
 
         if (null !== $this->autoSnapshotPolicyId) {
             $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
+        }
+
+        if (null !== $this->autoUpgradeConfig) {
+            $res['AutoUpgradeConfig'] = null !== $this->autoUpgradeConfig ? $this->autoUpgradeConfig->toArray($noStream) : $this->autoUpgradeConfig;
         }
 
         if (null !== $this->bandwidth) {
@@ -407,6 +421,10 @@ class fileSystem extends Model
 
         if (isset($map['AutoSnapshotPolicyId'])) {
             $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
+        }
+
+        if (isset($map['AutoUpgradeConfig'])) {
+            $model->autoUpgradeConfig = autoUpgradeConfig::fromMap($map['AutoUpgradeConfig']);
         }
 
         if (isset($map['Bandwidth'])) {

@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyFileSystemRequest\autoUpgradeConfig;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ModifyFileSystemRequest\options;
 
 class ModifyFileSystemRequest extends Model
 {
+    /**
+     * @var autoUpgradeConfig
+     */
+    public $autoUpgradeConfig;
+
     /**
      * @var string
      */
@@ -24,6 +30,7 @@ class ModifyFileSystemRequest extends Model
      */
     public $options;
     protected $_name = [
+        'autoUpgradeConfig' => 'AutoUpgradeConfig',
         'description' => 'Description',
         'fileSystemId' => 'FileSystemId',
         'options' => 'Options',
@@ -31,6 +38,9 @@ class ModifyFileSystemRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->autoUpgradeConfig) {
+            $this->autoUpgradeConfig->validate();
+        }
         if (null !== $this->options) {
             $this->options->validate();
         }
@@ -40,6 +50,10 @@ class ModifyFileSystemRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoUpgradeConfig) {
+            $res['AutoUpgradeConfig'] = null !== $this->autoUpgradeConfig ? $this->autoUpgradeConfig->toArray($noStream) : $this->autoUpgradeConfig;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -63,6 +77,10 @@ class ModifyFileSystemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoUpgradeConfig'])) {
+            $model->autoUpgradeConfig = autoUpgradeConfig::fromMap($map['AutoUpgradeConfig']);
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

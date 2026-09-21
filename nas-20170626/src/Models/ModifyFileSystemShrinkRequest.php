@@ -11,6 +11,11 @@ class ModifyFileSystemShrinkRequest extends Model
     /**
      * @var string
      */
+    public $autoUpgradeConfigShrink;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -23,6 +28,7 @@ class ModifyFileSystemShrinkRequest extends Model
      */
     public $optionsShrink;
     protected $_name = [
+        'autoUpgradeConfigShrink' => 'AutoUpgradeConfig',
         'description' => 'Description',
         'fileSystemId' => 'FileSystemId',
         'optionsShrink' => 'Options',
@@ -36,6 +42,10 @@ class ModifyFileSystemShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoUpgradeConfigShrink) {
+            $res['AutoUpgradeConfig'] = $this->autoUpgradeConfigShrink;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -59,6 +69,10 @@ class ModifyFileSystemShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoUpgradeConfig'])) {
+            $model->autoUpgradeConfigShrink = $map['AutoUpgradeConfig'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
