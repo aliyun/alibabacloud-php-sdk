@@ -1,3 +1,9 @@
+2026-09-22 Version: 1.12.3
+- Update API ExportCipStats: add request parameters Query.
+- Update API ListAppConfigs: add response parameters Body.Data.$.CustomOrderNum.
+- Update API ModifyAppInfo: add request parameters CustomOrderNum.
+
+
 2026-09-15 Version: 1.12.2
 - Update API UpdateServiceConfig: add request parameters ClientToken.
 - Update API UpdateServiceConfig: add request parameters DryRun.

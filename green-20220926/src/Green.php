@@ -2665,7 +2665,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Exports call usage statistics.
+     * Exports call volume.
      *
      * @param request - ExportCipStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2700,6 +2700,10 @@ class Green extends OpenApiClient
 
         if (null !== $request->label) {
             @$body['Label'] = $request->label;
+        }
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
         }
 
         if (null !== $request->resourceType) {
@@ -2742,7 +2746,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Exports call usage statistics.
+     * Exports call volume.
      *
      * @param request - ExportCipStatsRequest
      *
@@ -7609,6 +7613,10 @@ class Green extends OpenApiClient
         $query = [];
         if (null !== $request->appId) {
             @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->customOrderNum) {
+            @$query['CustomOrderNum'] = $request->customOrderNum;
         }
 
         if (null !== $request->name) {

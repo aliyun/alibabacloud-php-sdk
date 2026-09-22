@@ -24,6 +24,11 @@ class data extends Model
     public $customConfig;
 
     /**
+     * @var int
+     */
+    public $customOrderNum;
+
+    /**
      * @var string
      */
     public $deployStatus;
@@ -61,6 +66,7 @@ class data extends Model
         'appId' => 'AppId',
         'classify' => 'Classify',
         'customConfig' => 'CustomConfig',
+        'customOrderNum' => 'CustomOrderNum',
         'deployStatus' => 'DeployStatus',
         'gmtModified' => 'GmtModified',
         'name' => 'Name',
@@ -99,6 +105,10 @@ class data extends Model
                     $res['CustomConfig'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->customOrderNum) {
+            $res['CustomOrderNum'] = $this->customOrderNum;
         }
 
         if (null !== $this->deployStatus) {
@@ -160,6 +170,10 @@ class data extends Model
                     $model->customConfig[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['CustomOrderNum'])) {
+            $model->customOrderNum = $map['CustomOrderNum'];
         }
 
         if (isset($map['DeployStatus'])) {

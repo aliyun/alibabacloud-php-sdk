@@ -31,6 +31,11 @@ class ExportCipStatsRequest extends Model
     /**
      * @var string
      */
+    public $query;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -62,6 +67,7 @@ class ExportCipStatsRequest extends Model
         'endDate' => 'EndDate',
         'exportType' => 'ExportType',
         'label' => 'Label',
+        'query' => 'Query',
         'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
         'serviceCode' => 'ServiceCode',
@@ -92,6 +98,10 @@ class ExportCipStatsRequest extends Model
 
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+
+        if (null !== $this->query) {
+            $res['Query'] = $this->query;
         }
 
         if (null !== $this->regionId) {
@@ -143,6 +153,10 @@ class ExportCipStatsRequest extends Model
 
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+
+        if (isset($map['Query'])) {
+            $model->query = $map['Query'];
         }
 
         if (isset($map['RegionId'])) {

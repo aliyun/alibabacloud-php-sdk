@@ -14,6 +14,11 @@ class ModifyAppInfoRequest extends Model
     public $appId;
 
     /**
+     * @var int
+     */
+    public $customOrderNum;
+
+    /**
      * @var string
      */
     public $name;
@@ -29,6 +34,7 @@ class ModifyAppInfoRequest extends Model
     public $resourceType;
     protected $_name = [
         'appId' => 'AppId',
+        'customOrderNum' => 'CustomOrderNum',
         'name' => 'Name',
         'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
@@ -44,6 +50,10 @@ class ModifyAppInfoRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+
+        if (null !== $this->customOrderNum) {
+            $res['CustomOrderNum'] = $this->customOrderNum;
         }
 
         if (null !== $this->name) {
@@ -71,6 +81,10 @@ class ModifyAppInfoRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+
+        if (isset($map['CustomOrderNum'])) {
+            $model->customOrderNum = $map['CustomOrderNum'];
         }
 
         if (isset($map['Name'])) {
