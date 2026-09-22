@@ -1,3 +1,59 @@
+2026-09-22 Version: 4.26.0
+- Support API CreateAICloudPhone.
+- Support API CreateAgentSkill.
+- Support API CreateScheduledTask.
+- Support API DeleteAgentSkill.
+- Support API DeleteScheduledTask.
+- Support API DescribeScheduledTaskExecutions.
+- Support API DescribeScheduledTasks.
+- Support API DescribeSkills.
+- Support API InstallSkills.
+- Support API ModifyInstanceGroupSpec.
+- Support API ModifyScheduledTask.
+- Support API UninstallSkills.
+- Support API UpdateCloudPhoneNodeSystemImage.
+- Update API CreateMobileAgentPackage: add request parameters Tag.
+- Update API DescribeAgentTask: add response parameters Body.Tasks.$.ArtifactCount.
+- Update API DescribeAgentTask: add response parameters Body.Tasks.$.Artifacts.
+- Update API DescribeAndroidInstanceGroups: add request parameters SortKey.
+- Update API DescribeAndroidInstanceGroups: add request parameters SortType.
+- Update API DescribeCloudPhoneNodes: add request parameters SortKey.
+- Update API DescribeCloudPhoneNodes: add request parameters SortType.
+- Update API DescribeCloudPhoneNodes: add response parameters Body.NodeModel.$.Channel.
+- Update API DescribeCloudPhoneNodes: add response parameters Body.NodeModel.$.PackageId.
+- Update API DescribeCreditDetail: add request parameters AgentTypes.
+- Update API DescribeCreditDetail: add request parameters MaxResults.
+- Update API DescribeCreditDetail: add request parameters NextToken.
+- Update API DescribeCreditDetail: add response parameters Body.Data.NextToken.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.AgentType.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.ApiKeyName.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.CachedTokens.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.DurationMs.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.InputTokens.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.InstanceName.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.ModelId.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.OutputTokens.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.RequestId.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.TotalTokens.
+- Update API DescribeCreditDetail: add response parameters Body.Data.Details.$.TtftMs.
+- Update API DescribeJVSInstance: add response parameters Body.PendingUpgradeCount.
+- Update API DescribeJVSInstance: add response parameters Body.Data.$.AgentVersion.
+- Update API DescribeJVSInstance: add response parameters Body.Data.$.InstalledSkills.
+- Update API DescribeMobileAgentPackage: add response parameters Body.PackageList.$.PeriodEndTime.
+- Update API DescribeMobileAgentPackage: add response parameters Body.PackageList.$.PeriodStartTime.
+- Update API DescribeMobileAgentPackage: add response parameters Body.PackageList.$.Tags.
+- Update API ImportImage: add request parameters BaseImageId.
+- Update API ModifyJVSInstance: add request parameters AgentVersion.
+- Update API ModifyJVSInstance: add request parameters ImageId.
+- Update API RenewMobileAgentPackage: add request parameters ClientToken.
+- Update API ResetAndroidInstancesInGroup: add request parameters AutoPay.
+- Update API ResetAndroidInstancesInGroup: add request parameters PromotionId.
+- Update API ResetAndroidInstancesInGroup: add request parameters TargetDataDiskSize.
+- Update API ResetAndroidInstancesInGroup: add response parameters Body.OrderId.
+- Update API RunAgentTask: add request parameters RunConfig.
+- Update API RunAgentTask: add request parameters SaveArtifacts.
+
+
 2026-09-21 Version: 4.26.0
 - Support API CreateAICloudPhone.
 - Support API CreateAgentSkill.
