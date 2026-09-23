@@ -8,6 +8,8 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCreditSeatsRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCreditSeatsResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AllocateCostCenterResourceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AllocateCostCenterResourceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AllocateCostCenterResourceShrinkRequest;
@@ -15,17 +17,14 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CancelFundAccountLowAvailableAm
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CancelFundAccountLowAvailableAmountAlarmResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CheckAccountExistRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CheckAccountExistResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CheckBudgetNameExistsRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CheckBudgetNameExistsResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateBudgetRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateBudgetResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateBudgetShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterRuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterRuleShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCreditSeatRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCreditSeatResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateFundAccountPayRelationRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateFundAccountPayRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateFundAccountPayRelationShrinkRequest;
@@ -37,8 +36,6 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateInvoiceShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateReportDefinitionRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateReportDefinitionResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateReportDefinitionShrinkRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteBudgetRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteBudgetResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCostCenterRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCostCenterResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCostCenterRuleRequest;
@@ -49,10 +46,6 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCouponDeductTagResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCouponDeductTagShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteReportDefinitionRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteReportDefinitionResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeBudgetRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeBudgetResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeBudgetsRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeBudgetsResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListShrinkRequest;
@@ -130,6 +123,10 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterShareRuleRespons
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryMonthlySlaListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryMonthlySlaListResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ReduceCreditSeatsRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ReduceCreditSeatsResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\RenewCreditSeatRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\RenewCreditSeatResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SaveCostCenterShareRuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SaveCostCenterShareRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SaveCostCenterShareRuleShrinkRequest;
@@ -142,9 +139,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleResp
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SubmitSlaCouponApplyRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SubmitSlaCouponApplyResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpdateBudgetRequest;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpdateBudgetResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpdateBudgetShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpgradeCreditSeatRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpgradeCreditSeatResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -321,6 +317,83 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addCouponDeductTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 席位新增.
+     *
+     * @param request - AddCreditSeatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCreditSeatsResponse
+     *
+     * @param AddCreditSeatsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddCreditSeatsResponse
+     */
+    public function addCreditSeatsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->configs) {
+            @$query['Configs'] = $request->configs;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->seats) {
+            @$query['Seats'] = $request->seats;
+        }
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddCreditSeats',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddCreditSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 席位新增.
+     *
+     * @param request - AddCreditSeatsRequest
+     *
+     * @returns AddCreditSeatsResponse
+     *
+     * @param AddCreditSeatsRequest $request
+     *
+     * @return AddCreditSeatsResponse
+     */
+    public function addCreditSeats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCreditSeatsWithOptions($request, $runtime);
     }
 
     /**
@@ -539,199 +612,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Checks whether a specified budgetName exists.
-     *
-     * @param request - CheckBudgetNameExistsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckBudgetNameExistsResponse
-     *
-     * @param CheckBudgetNameExistsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CheckBudgetNameExistsResponse
-     */
-    public function checkBudgetNameExistsWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->nbid) {
-            @$query['Nbid'] = $request->nbid;
-        }
-
-        $body = [];
-        if (null !== $request->budgetName) {
-            @$body['BudgetName'] = $request->budgetName;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'CheckBudgetNameExists',
-            'version' => '2023-09-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CheckBudgetNameExistsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Checks whether a specified budgetName exists.
-     *
-     * @param request - CheckBudgetNameExistsRequest
-     *
-     * @returns CheckBudgetNameExistsResponse
-     *
-     * @param CheckBudgetNameExistsRequest $request
-     *
-     * @return CheckBudgetNameExistsResponse
-     */
-    public function checkBudgetNameExists($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkBudgetNameExistsWithOptions($request, $runtime);
-    }
-
-    /**
-     * Creates a budget.
-     *
-     * @param tmpReq - CreateBudgetRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateBudgetResponse
-     *
-     * @param CreateBudgetRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateBudgetResponse
-     */
-    public function createBudgetWithOptions($tmpReq, $runtime)
-    {
-        $tmpReq->validate();
-        $request = new CreateBudgetShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->cycleQuota) {
-            $request->cycleQuotaShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cycleQuota, 'CycleQuota', 'json');
-        }
-
-        if (null !== $tmpReq->ecIdAccountIds) {
-            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
-        }
-
-        if (null !== $tmpReq->queryFilter) {
-            $request->queryFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryFilter, 'QueryFilter', 'json');
-        }
-
-        if (null !== $tmpReq->warnConfs) {
-            $request->warnConfsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->warnConfs, 'WarnConfs', 'json');
-        }
-
-        $query = [];
-        if (null !== $request->ecIdAccountIdsShrink) {
-            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
-        }
-
-        if (null !== $request->nbid) {
-            @$query['Nbid'] = $request->nbid;
-        }
-
-        $body = [];
-        if (null !== $request->budgetName) {
-            @$body['BudgetName'] = $request->budgetName;
-        }
-
-        if (null !== $request->budgetType) {
-            @$body['BudgetType'] = $request->budgetType;
-        }
-
-        if (null !== $request->comment) {
-            @$body['Comment'] = $request->comment;
-        }
-
-        if (null !== $request->cycleEndPeriod) {
-            @$body['CycleEndPeriod'] = $request->cycleEndPeriod;
-        }
-
-        if (null !== $request->cycleQuotaShrink) {
-            @$body['CycleQuota'] = $request->cycleQuotaShrink;
-        }
-
-        if (null !== $request->cycleStartPeriod) {
-            @$body['CycleStartPeriod'] = $request->cycleStartPeriod;
-        }
-
-        if (null !== $request->cycleType) {
-            @$body['CycleType'] = $request->cycleType;
-        }
-
-        if (null !== $request->metric) {
-            @$body['Metric'] = $request->metric;
-        }
-
-        if (null !== $request->queryFilterShrink) {
-            @$body['QueryFilter'] = $request->queryFilterShrink;
-        }
-
-        if (null !== $request->quota) {
-            @$body['Quota'] = $request->quota;
-        }
-
-        if (null !== $request->quotaType) {
-            @$body['QuotaType'] = $request->quotaType;
-        }
-
-        if (null !== $request->warnConfsShrink) {
-            @$body['WarnConfs'] = $request->warnConfsShrink;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'CreateBudget',
-            'version' => '2023-09-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CreateBudgetResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Creates a budget.
-     *
-     * @param request - CreateBudgetRequest
-     *
-     * @returns CreateBudgetResponse
-     *
-     * @param CreateBudgetRequest $request
-     *
-     * @return CreateBudgetResponse
-     */
-    public function createBudget($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createBudgetWithOptions($request, $runtime);
-    }
-
-    /**
-     * Create Cost Center.
+     * Creates cost centers.
      *
      * @remarks
      * Creates one or more cost centers.
@@ -783,7 +664,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Create Cost Center.
+     * Creates cost centers.
      *
      * @remarks
      * Creates one or more cost centers.
@@ -804,7 +685,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Create a financial unit auto-allocation rule.
+     * Creates an automatic allocation rule for a financial unit.
      *
      * @param tmpReq - CreateCostCenterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -859,7 +740,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Create a financial unit auto-allocation rule.
+     * Creates an automatic allocation rule for a financial unit.
      *
      * @param request - CreateCostCenterRuleRequest
      *
@@ -874,6 +755,91 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCostCenterRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建坐席.
+     *
+     * @param request - CreateCreditSeatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCreditSeatResponse
+     *
+     * @param CreateCreditSeatRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateCreditSeatResponse
+     */
+    public function createCreditSeatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->subscriptionConfigs) {
+            @$query['SubscriptionConfigs'] = $request->subscriptionConfigs;
+        }
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCreditSeat',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCreditSeatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建坐席.
+     *
+     * @param request - CreateCreditSeatRequest
+     *
+     * @returns CreateCreditSeatResponse
+     *
+     * @param CreateCreditSeatRequest $request
+     *
+     * @return CreateCreditSeatResponse
+     */
+    public function createCreditSeat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCreditSeatWithOptions($request, $runtime);
     }
 
     /**
@@ -1137,16 +1103,16 @@ class BssOpenApi extends OpenApiClient
      * Creates a bill report subscription.
      *
      * @remarks
-     * When calling this operation, note the following:
-     * - A user can subscribe to one type of bill file at a time.
-     * - Except for monthly bill PDFs, after subscription, starting from the next day, the system pushes a bill file that contains full detailed data from the beginning of the current month to date. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
+     * When you call this operation, note the following items:
+     * - You can subscribe to one type of bill file at a time.
+     * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
      * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
-     * - Bill files generated on a daily basis may have latency. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. Pull the full file for the previous month at the beginning of each month.
-     * > Apply for permissions as described in the documentation: [Bill subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription)
-     * - This subscription is the same feature as Expenses and Costs - Bill Subscription. Subscriptions are shared between the two.
-     * - When subscribing to a directory under a bucket, ensure the directory name complies with the naming conventions:
+     * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
+     * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+     * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
+     * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
      *     - Emojis are not allowed. Use valid UTF-8 characters.
-     *     - / is used to separate paths and can quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+     *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
      *     - Subdirectories named .. are not allowed.
      *     - The total length must be 1 to 254 characters.
      * - File names:
@@ -1155,7 +1121,7 @@ class BssOpenApi extends OpenApiClient
      *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
      *
      *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
-     * - Monthly bill PDF type files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format is the same.
+     * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
      *
      * @param tmpReq - CreateReportDefinitionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1257,16 +1223,16 @@ class BssOpenApi extends OpenApiClient
      * Creates a bill report subscription.
      *
      * @remarks
-     * When calling this operation, note the following:
-     * - A user can subscribe to one type of bill file at a time.
-     * - Except for monthly bill PDFs, after subscription, starting from the next day, the system pushes a bill file that contains full detailed data from the beginning of the current month to date. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
+     * When you call this operation, note the following items:
+     * - You can subscribe to one type of bill file at a time.
+     * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
      * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
-     * - Bill files generated on a daily basis may have latency. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. Pull the full file for the previous month at the beginning of each month.
-     * > Apply for permissions as described in the documentation: [Bill subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription)
-     * - This subscription is the same feature as Expenses and Costs - Bill Subscription. Subscriptions are shared between the two.
-     * - When subscribing to a directory under a bucket, ensure the directory name complies with the naming conventions:
+     * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
+     * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+     * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
+     * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
      *     - Emojis are not allowed. Use valid UTF-8 characters.
-     *     - / is used to separate paths and can quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+     *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
      *     - Subdirectories named .. are not allowed.
      *     - The total length must be 1 to 254 characters.
      * - File names:
@@ -1275,7 +1241,7 @@ class BssOpenApi extends OpenApiClient
      *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
      *
      *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
-     * - Monthly bill PDF type files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format is the same.
+     * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
      *
      * @param request - CreateReportDefinitionRequest
      *
@@ -1293,73 +1259,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Deletes a budget.
-     *
-     * @param request - DeleteBudgetRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteBudgetResponse
-     *
-     * @param DeleteBudgetRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteBudgetResponse
-     */
-    public function deleteBudgetWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->nbid) {
-            @$query['Nbid'] = $request->nbid;
-        }
-
-        $body = [];
-        if (null !== $request->budgetName) {
-            @$body['BudgetName'] = $request->budgetName;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'DeleteBudget',
-            'version' => '2023-09-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DeleteBudgetResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Deletes a budget.
-     *
-     * @param request - DeleteBudgetRequest
-     *
-     * @returns DeleteBudgetResponse
-     *
-     * @param DeleteBudgetRequest $request
-     *
-     * @return DeleteBudgetResponse
-     */
-    public function deleteBudget($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteBudgetWithOptions($request, $runtime);
-    }
-
-    /**
-     * Delete Cost Center.
+     * Deletes a cost center.
      *
      * @remarks
-     * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+     * This operation is in canary release and is available only to specific whitelisted users. Calling this operation too frequently may cause performance issues such as response timeouts.
      *
      * @param request - DeleteCostCenterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1406,10 +1309,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Delete Cost Center.
+     * Deletes a cost center.
      *
      * @remarks
-     * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+     * This operation is in canary release and is available only to specific whitelisted users. Calling this operation too frequently may cause performance issues such as response timeouts.
      *
      * @param request - DeleteCostCenterRequest
      *
@@ -1427,10 +1330,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Delete financial unit automatic allocation rule.
+     * Deletes an automatic allocation rule for a cost center.
      *
      * @remarks
-     * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+     * This API is in canary release and is available only to specific whitelisted users. Calling this API too frequently may cause performance issues such as response timeouts.
      *
      * @param tmpReq - DeleteCostCenterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1485,10 +1388,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Delete financial unit automatic allocation rule.
+     * Deletes an automatic allocation rule for a cost center.
      *
      * @remarks
-     * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+     * This API is in canary release and is available only to specific whitelisted users. Calling this API too frequently may cause performance issues such as response timeouts.
      *
      * @param request - DeleteCostCenterRuleRequest
      *
@@ -1643,148 +1546,6 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteReportDefinitionWithOptions($request, $runtime);
-    }
-
-    /**
-     * Query a Single Budget.
-     *
-     * @param request - DescribeBudgetRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBudgetResponse
-     *
-     * @param DescribeBudgetRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeBudgetResponse
-     */
-    public function describeBudgetWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->nbid) {
-            @$query['Nbid'] = $request->nbid;
-        }
-
-        $body = [];
-        if (null !== $request->budgetName) {
-            @$body['BudgetName'] = $request->budgetName;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'DescribeBudget',
-            'version' => '2023-09-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeBudgetResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Query a Single Budget.
-     *
-     * @param request - DescribeBudgetRequest
-     *
-     * @returns DescribeBudgetResponse
-     *
-     * @param DescribeBudgetRequest $request
-     *
-     * @return DescribeBudgetResponse
-     */
-    public function describeBudget($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBudgetWithOptions($request, $runtime);
-    }
-
-    /**
-     * Queries a list of budgets.
-     *
-     * @param request - DescribeBudgetsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBudgetsResponse
-     *
-     * @param DescribeBudgetsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeBudgetsResponse
-     */
-    public function describeBudgetsWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->nbid) {
-            @$query['Nbid'] = $request->nbid;
-        }
-
-        $body = [];
-        if (null !== $request->budgetName) {
-            @$body['BudgetName'] = $request->budgetName;
-        }
-
-        if (null !== $request->budgetType) {
-            @$body['BudgetType'] = $request->budgetType;
-        }
-
-        if (null !== $request->expireStatus) {
-            @$body['ExpireStatus'] = $request->expireStatus;
-        }
-
-        if (null !== $request->pageNo) {
-            @$body['PageNo'] = $request->pageNo;
-        }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'DescribeBudgets',
-            'version' => '2023-09-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeBudgetsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Queries a list of budgets.
-     *
-     * @param request - DescribeBudgetsRequest
-     *
-     * @returns DescribeBudgetsResponse
-     *
-     * @param DescribeBudgetsRequest $request
-     *
-     * @return DescribeBudgetsResponse
-     */
-    public function describeBudgets($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBudgetsWithOptions($request, $runtime);
     }
 
     /**
@@ -2778,7 +2539,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specific order for a user or a reseller\\"s customer.
+     * Queries the details of a specific order for a user or a reseller customer.
      *
      * @param request - GetOrderDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2825,7 +2586,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specific order for a user or a reseller\\"s customer.
+     * Queries the details of a specific order for a user or a reseller customer.
      *
      * @param request - GetOrderDetailRequest
      *
@@ -2843,7 +2604,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+     * Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
      *
      * @param request - GetOrdersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2922,7 +2683,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+     * Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
      *
      * @param request - GetOrdersRequest
      *
@@ -3601,7 +3362,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Modify cost centers.
+     * Modifies one or more cost centers.
      *
      * @remarks
      * Modifies one or more cost centers.
@@ -3653,7 +3414,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Modify cost centers.
+     * Modifies one or more cost centers.
      *
      * @remarks
      * Modifies one or more cost centers.
@@ -3674,10 +3435,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Modify financial unit rules.
+     * Modifies the automatic allocation rule of a financial unit.
      *
      * @remarks
-     * Modify one or more financial units
+     * Modifies one or more financial units.
      *
      * @param tmpReq - ModifyCostCenterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3736,10 +3497,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Modify financial unit rules.
+     * Modifies the automatic allocation rule of a financial unit.
      *
      * @remarks
-     * Modify one or more financial units
+     * Modifies one or more financial units.
      *
      * @param request - ModifyCostCenterRuleRequest
      *
@@ -3838,10 +3599,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query cost center expense overview.
+     * Queries the cost overview of financial units.
      *
      * @remarks
-     * Query cost center expense overview results for a specified billing period
+     * Queries the cost overview results of a financial unit for a specified billing cycle.
      *
      * @param request - QueryCostByCostCenterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3896,10 +3657,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query cost center expense overview.
+     * Queries the cost overview of financial units.
      *
      * @remarks
-     * Query cost center expense overview results for a specified billing period
+     * Queries the cost overview results of a financial unit for a specified billing cycle.
      *
      * @param request - QueryCostByCostCenterRequest
      *
@@ -3917,10 +3678,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries financial units.
+     * Queries cost centers.
      *
      * @remarks
-     * Queries a parent financial unit and its child financial units.
+     * Queries a parent cost center and its child cost centers.
      *
      * @param tmpReq - QueryCostCenterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3985,10 +3746,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries financial units.
+     * Queries cost centers.
      *
      * @remarks
-     * Queries a parent financial unit and its child financial units.
+     * Queries a parent cost center and its child cost centers.
      *
      * @param request - QueryCostCenterRequest
      *
@@ -4006,7 +3767,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
+     * Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
      *
      * @param request - QueryCostCenterResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4067,7 +3828,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
+     * Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
      *
      * @param request - QueryCostCenterResourceRequest
      *
@@ -4085,10 +3846,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query cost center rules.
+     * Queries the automatic allocation rules of a cost center.
      *
      * @remarks
-     * Query parent cost center and its child cost centers.
+     * Queries a parent cost center and its child cost centers.
      *
      * @param request - QueryCostCenterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4137,10 +3898,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query cost center rules.
+     * Queries the automatic allocation rules of a cost center.
      *
      * @remarks
-     * Query parent cost center and its child cost centers.
+     * Queries a parent cost center and its child cost centers.
      *
      * @param request - QueryCostCenterRuleRequest
      *
@@ -4240,7 +4001,7 @@ class BssOpenApi extends OpenApiClient
      * Queries the SLA compensation list for a user.
      *
      * @remarks
-     * Provides the SLA compensation details list for a user. Only data from the last two months is available.
+     * Queries the SLA compensation details list for a user. Only data from the last two months is available.
      *
      * @param request - QueryMonthlySlaListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4312,7 +4073,7 @@ class BssOpenApi extends OpenApiClient
      * Queries the SLA compensation list for a user.
      *
      * @remarks
-     * Provides the SLA compensation details list for a user. Only data from the last two months is available.
+     * Queries the SLA compensation details list for a user. Only data from the last two months is available.
      *
      * @param request - QueryMonthlySlaListRequest
      *
@@ -4330,7 +4091,161 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
+     * 减席位.
+     *
+     * @param request - ReduceCreditSeatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReduceCreditSeatsResponse
+     *
+     * @param ReduceCreditSeatsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ReduceCreditSeatsResponse
+     */
+    public function reduceCreditSeatsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReduceCreditSeats',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReduceCreditSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 减席位.
+     *
+     * @param request - ReduceCreditSeatsRequest
+     *
+     * @returns ReduceCreditSeatsResponse
+     *
+     * @param ReduceCreditSeatsRequest $request
+     *
+     * @return ReduceCreditSeatsResponse
+     */
+    public function reduceCreditSeats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reduceCreditSeatsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 整体续费席位.
+     *
+     * @param request - RenewCreditSeatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewCreditSeatResponse
+     *
+     * @param RenewCreditSeatRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RenewCreditSeatResponse
+     */
+    public function renewCreditSeatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RenewCreditSeat',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RenewCreditSeatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 整体续费席位.
+     *
+     * @param request - RenewCreditSeatRequest
+     *
+     * @returns RenewCreditSeatResponse
+     *
+     * @param RenewCreditSeatRequest $request
+     *
+     * @return RenewCreditSeatResponse
+     */
+    public function renewCreditSeat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewCreditSeatWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies cost allocation rules for financial units, including creating, updating, and deleting allocation rules.
      *
      * @param tmpReq - SaveCostCenterShareRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4399,7 +4314,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
+     * Modifies cost allocation rules for financial units, including creating, updating, and deleting allocation rules.
      *
      * @param request - SaveCostCenterShareRuleRequest
      *
@@ -4628,10 +4543,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * User claims coupons for the last two months.
+     * Claims SLA compensation coupons for the last two months.
      *
      * @remarks
-     * 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+     * 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
      * 2. Claim by month or by record.
      * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
      *
@@ -4686,10 +4601,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * User claims coupons for the last two months.
+     * Claims SLA compensation coupons for the last two months.
      *
      * @remarks
-     * 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+     * 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
      * 2. Claim by month or by record.
      * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
      *
@@ -4709,107 +4624,51 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Updates a budget.
+     * 升级席位.
      *
-     * @param tmpReq - UpdateBudgetRequest
+     * @param request - UpgradeCreditSeatRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @returns UpdateBudgetResponse
+     * @returns UpgradeCreditSeatResponse
      *
-     * @param UpdateBudgetRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @param UpgradeCreditSeatRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return UpdateBudgetResponse
+     * @return UpgradeCreditSeatResponse
      */
-    public function updateBudgetWithOptions($tmpReq, $runtime)
+    public function upgradeCreditSeatWithOptions($request, $runtime)
     {
-        $tmpReq->validate();
-        $request = new UpdateBudgetShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->cycleQuota) {
-            $request->cycleQuotaShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cycleQuota, 'CycleQuota', 'json');
-        }
-
-        if (null !== $tmpReq->ecIdAccountIds) {
-            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
-        }
-
-        if (null !== $tmpReq->queryFilter) {
-            $request->queryFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryFilter, 'QueryFilter', 'json');
-        }
-
-        if (null !== $tmpReq->warnConfs) {
-            $request->warnConfsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->warnConfs, 'WarnConfs', 'json');
-        }
-
+        $request->validate();
         $query = [];
-        if (null !== $request->ecIdAccountIdsShrink) {
-            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
-        if (null !== $request->nbid) {
-            @$query['Nbid'] = $request->nbid;
+        if (null !== $request->configs) {
+            @$query['Configs'] = $request->configs;
         }
 
-        $body = [];
-        if (null !== $request->budgetName) {
-            @$body['BudgetName'] = $request->budgetName;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
 
-        if (null !== $request->budgetType) {
-            @$body['BudgetType'] = $request->budgetType;
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
 
-        if (null !== $request->comment) {
-            @$body['Comment'] = $request->comment;
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
 
-        if (null !== $request->cycleEndPeriod) {
-            @$body['CycleEndPeriod'] = $request->cycleEndPeriod;
-        }
-
-        if (null !== $request->cycleQuotaShrink) {
-            @$body['CycleQuota'] = $request->cycleQuotaShrink;
-        }
-
-        if (null !== $request->cycleStartPeriod) {
-            @$body['CycleStartPeriod'] = $request->cycleStartPeriod;
-        }
-
-        if (null !== $request->cycleType) {
-            @$body['CycleType'] = $request->cycleType;
-        }
-
-        if (null !== $request->metric) {
-            @$body['Metric'] = $request->metric;
-        }
-
-        if (null !== $request->originalBudgetName) {
-            @$body['OriginalBudgetName'] = $request->originalBudgetName;
-        }
-
-        if (null !== $request->queryFilterShrink) {
-            @$body['QueryFilter'] = $request->queryFilterShrink;
-        }
-
-        if (null !== $request->quota) {
-            @$body['Quota'] = $request->quota;
-        }
-
-        if (null !== $request->quotaType) {
-            @$body['QuotaType'] = $request->quotaType;
-        }
-
-        if (null !== $request->warnConfsShrink) {
-            @$body['WarnConfs'] = $request->warnConfsShrink;
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action' => 'UpdateBudget',
+            'action' => 'UpgradeCreditSeat',
             'version' => '2023-09-30',
             'protocol' => 'HTTPS',
             'pathname' => '/',
@@ -4820,24 +4679,24 @@ class BssOpenApi extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return UpdateBudgetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeCreditSeatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Updates a budget.
+     * 升级席位.
      *
-     * @param request - UpdateBudgetRequest
+     * @param request - UpgradeCreditSeatRequest
      *
-     * @returns UpdateBudgetResponse
+     * @returns UpgradeCreditSeatResponse
      *
-     * @param UpdateBudgetRequest $request
+     * @param UpgradeCreditSeatRequest $request
      *
-     * @return UpdateBudgetResponse
+     * @return UpgradeCreditSeatResponse
      */
-    public function updateBudget($request)
+    public function upgradeCreditSeat($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateBudgetWithOptions($request, $runtime);
+        return $this->upgradeCreditSeatWithOptions($request, $runtime);
     }
 }
