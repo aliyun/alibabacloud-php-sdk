@@ -17,12 +17,22 @@ class applicationProvisionInfo extends Model
     /**
      * @var string
      */
+    public $appCategory;
+
+    /**
+     * @var string
+     */
     public $appId;
 
     /**
      * @var string
      */
     public $appName;
+
+    /**
+     * @var string
+     */
+    public $assignmentType;
 
     /**
      * @var string
@@ -40,16 +50,24 @@ class applicationProvisionInfo extends Model
     public $displayName;
 
     /**
+     * @var bool
+     */
+    public $needPrincipalConsent;
+
+    /**
      * @var string
      */
     public $updateDate;
     protected $_name = [
         'accountId' => 'AccountId',
+        'appCategory' => 'AppCategory',
         'appId' => 'AppId',
         'appName' => 'AppName',
+        'assignmentType' => 'AssignmentType',
         'createDate' => 'CreateDate',
         'delegatedScope' => 'DelegatedScope',
         'displayName' => 'DisplayName',
+        'needPrincipalConsent' => 'NeedPrincipalConsent',
         'updateDate' => 'UpdateDate',
     ];
 
@@ -68,12 +86,20 @@ class applicationProvisionInfo extends Model
             $res['AccountId'] = $this->accountId;
         }
 
+        if (null !== $this->appCategory) {
+            $res['AppCategory'] = $this->appCategory;
+        }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
 
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+
+        if (null !== $this->assignmentType) {
+            $res['AssignmentType'] = $this->assignmentType;
         }
 
         if (null !== $this->createDate) {
@@ -86,6 +112,10 @@ class applicationProvisionInfo extends Model
 
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+
+        if (null !== $this->needPrincipalConsent) {
+            $res['NeedPrincipalConsent'] = $this->needPrincipalConsent;
         }
 
         if (null !== $this->updateDate) {
@@ -107,12 +137,20 @@ class applicationProvisionInfo extends Model
             $model->accountId = $map['AccountId'];
         }
 
+        if (isset($map['AppCategory'])) {
+            $model->appCategory = $map['AppCategory'];
+        }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
 
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+
+        if (isset($map['AssignmentType'])) {
+            $model->assignmentType = $map['AssignmentType'];
         }
 
         if (isset($map['CreateDate'])) {
@@ -125,6 +163,10 @@ class applicationProvisionInfo extends Model
 
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+
+        if (isset($map['NeedPrincipalConsent'])) {
+            $model->needPrincipalConsent = $map['NeedPrincipalConsent'];
         }
 
         if (isset($map['UpdateDate'])) {
