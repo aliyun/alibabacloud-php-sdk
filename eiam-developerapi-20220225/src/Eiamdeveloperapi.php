@@ -120,6 +120,9 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchOrganizationalUnitHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchOrganizationalUnitParentIdHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchOrganizationalUnitParentIdRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchOrganizationalUnitParentIdResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchUserHeaders;
@@ -164,14 +167,6 @@ class Eiamdeveloperapi extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'eu-central-1' => 'eiam-developerapi.eu-central-1.aliyuncs.com',
-            'cn-hongkong' => 'eiam-developerapi.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou' => 'eiam-developerapi.cn-hangzhou.aliyuncs.com',
-            'ap-southeast-5' => 'eiam-developerapi.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-1' => 'eiam-developerapi.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2' => 'eiam-developerapi.ap-northeast-2.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eiam-developerapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -643,7 +638,7 @@ class Eiamdeveloperapi extends OpenApiClient
      *
      * @remarks
      * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
-     * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+     * Ensure that the Access Token you pass in has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
      * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
      *
      * @param request - CreateUserExclusiveCredentialRequest
@@ -728,7 +723,7 @@ class Eiamdeveloperapi extends OpenApiClient
      *
      * @remarks
      * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
-     * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+     * Ensure that the Access Token you pass in has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
      * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
      *
      * @param request - CreateUserExclusiveCredentialRequest
@@ -3180,7 +3175,7 @@ class Eiamdeveloperapi extends OpenApiClient
      *
      * @remarks
      * This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
-     * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+     * Ensure that the Access Token you provide has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
      * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
      *
      * @param request - ObtainCloudAccountRoleAccessCredentialRequest
@@ -3241,7 +3236,7 @@ class Eiamdeveloperapi extends OpenApiClient
      *
      * @remarks
      * This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
-     * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+     * Ensure that the Access Token you provide has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
      * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
      *
      * @param request - ObtainCloudAccountRoleAccessCredentialRequest
@@ -3262,12 +3257,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the plaintext of a secret.
+     * Queries credential information and retrieves the credential plaintext.
      *
      * @remarks
-     * This API uses an access token from IDaaS for authentication and authorization.
-     * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
-     * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
+     * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+     * Ensure that the Access Token you pass in has the "Obtain Static Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+     * > The corresponding scope is `urn:cloud:idaas:pam|credential:obtain`.
      *
      * @param request - ObtainCredentialRequest
      * @param headers - ObtainCredentialHeaders
@@ -3319,12 +3314,12 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the plaintext of a secret.
+     * Queries credential information and retrieves the credential plaintext.
      *
      * @remarks
-     * This API uses an access token from IDaaS for authentication and authorization.
-     * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
-     * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
+     * This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+     * Ensure that the Access Token you pass in has the "Obtain Static Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+     * > The corresponding scope is `urn:cloud:idaas:pam|credential:obtain`.
      *
      * @param request - ObtainCredentialRequest
      *
@@ -3652,6 +3647,82 @@ class Eiamdeveloperapi extends OpenApiClient
         $headers = new PatchOrganizationalUnitHeaders([]);
 
         return $this->patchOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Moves an organizational unit.
+     *
+     * @param request - PatchOrganizationalUnitParentIdRequest
+     * @param headers - PatchOrganizationalUnitParentIdHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PatchOrganizationalUnitParentIdResponse
+     *
+     * @param string                                 $instanceId
+     * @param string                                 $applicationId
+     * @param string                                 $organizationalUnitId
+     * @param PatchOrganizationalUnitParentIdRequest $request
+     * @param PatchOrganizationalUnitParentIdHeaders $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return PatchOrganizationalUnitParentIdResponse
+     */
+    public function patchOrganizationalUnitParentIdWithOptions($instanceId, $applicationId, $organizationalUnitId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->parentId) {
+            @$body['parentId'] = $request->parentId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PatchOrganizationalUnitParentId',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/' . Url::percentEncode($applicationId) . '/organizationalUnits/' . Url::percentEncode($organizationalUnitId) . '/parentId',
+            'method' => 'PATCH',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return PatchOrganizationalUnitParentIdResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * Moves an organizational unit.
+     *
+     * @param request - PatchOrganizationalUnitParentIdRequest
+     *
+     * @returns PatchOrganizationalUnitParentIdResponse
+     *
+     * @param string                                 $instanceId
+     * @param string                                 $applicationId
+     * @param string                                 $organizationalUnitId
+     * @param PatchOrganizationalUnitParentIdRequest $request
+     *
+     * @return PatchOrganizationalUnitParentIdResponse
+     */
+    public function patchOrganizationalUnitParentId($instanceId, $applicationId, $organizationalUnitId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new PatchOrganizationalUnitParentIdHeaders([]);
+
+        return $this->patchOrganizationalUnitParentIdWithOptions($instanceId, $applicationId, $organizationalUnitId, $request, $headers, $runtime);
     }
 
     /**
