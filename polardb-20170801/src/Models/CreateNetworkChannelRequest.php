@@ -61,6 +61,11 @@ class CreateNetworkChannelRequest extends Model
     /**
      * @var string
      */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
     public $targetDBClusterId;
 
     /**
@@ -88,6 +93,7 @@ class CreateNetworkChannelRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'securityGroupId' => 'SecurityGroupId',
         'targetDBClusterId' => 'TargetDBClusterId',
         'targetIp' => 'TargetIp',
         'targetPort' => 'TargetPort',
@@ -140,6 +146,10 @@ class CreateNetworkChannelRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         if (null !== $this->targetDBClusterId) {
@@ -207,6 +217,10 @@ class CreateNetworkChannelRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         if (isset($map['TargetDBClusterId'])) {

@@ -21,6 +21,11 @@ class channelInfos extends Model
     /**
      * @var string
      */
+    public $eniId;
+
+    /**
+     * @var string
+     */
     public $notes;
 
     /**
@@ -55,6 +60,7 @@ class channelInfos extends Model
     protected $_name = [
         'channelName' => 'ChannelName',
         'DBClusterId' => 'DBClusterId',
+        'eniId' => 'EniId',
         'notes' => 'Notes',
         'regionId' => 'RegionId',
         'targetDBClusterId' => 'TargetDBClusterId',
@@ -78,6 +84,10 @@ class channelInfos extends Model
 
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->eniId) {
+            $res['EniId'] = $this->eniId;
         }
 
         if (null !== $this->notes) {
@@ -125,6 +135,10 @@ class channelInfos extends Model
 
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['EniId'])) {
+            $model->eniId = $map['EniId'];
         }
 
         if (isset($map['Notes'])) {
