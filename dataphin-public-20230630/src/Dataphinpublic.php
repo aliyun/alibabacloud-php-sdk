@@ -488,6 +488,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecurityLevelRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecurityLevelResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecuritySecretKeyRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecuritySecretKeyResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetServerVersionRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetServerVersionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSparkLocalClientInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSparkLocalClientInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardLookupTableRequest;
@@ -987,13 +989,6 @@ class Dataphinpublic extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-beijing' => 'dataphin-public.cn-beijing.aliyuncs.com',
-            'cn-chengdu' => 'dataphin-public.cn-chengdu.aliyuncs.com',
-            'cn-hangzhou' => 'dataphin-public.cn-hangzhou.aliyuncs.com',
-            'cn-shanghai' => 'dataphin-public.cn-shanghai.aliyuncs.com',
-            'cn-shenzhen' => 'dataphin-public.cn-shenzhen.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dataphin-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -3284,14 +3279,14 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a new dataset under a specified project. Available since v6.2.0.
+     * Creates a dataset in a specified project. Online version: v6.2.0.
      *
      * @remarks
      * ## Operation description
-     * - This API creates a new dataset in a specified project.
+     * - This API operation creates a dataset in a specified project.
      * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
      * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-     * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+     * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
      * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
      * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
      * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
@@ -3353,14 +3348,14 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a new dataset under a specified project. Available since v6.2.0.
+     * Creates a dataset in a specified project. Online version: v6.2.0.
      *
      * @remarks
      * ## Operation description
-     * - This API creates a new dataset in a specified project.
+     * - This API operation creates a dataset in a specified project.
      * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
      * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-     * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+     * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
      * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
      * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
      * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
@@ -5623,7 +5618,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除集群。
+     * Deletes a cluster. Online version: v6.3.0.
      *
      * @param request - DeleteComputeClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5670,7 +5665,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除集群。
+     * Deletes a cluster. Online version: v6.3.0.
      *
      * @param request - DeleteComputeClusterRequest
      *
@@ -12203,7 +12198,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询所有大模型服务供应商和可用模型列表.
+     * Queries all large language model service providers and available models. Available since v6.3.0.
      *
      * @param request - GetLlmModelProvidersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12246,7 +12241,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询所有大模型服务供应商和可用模型列表.
+     * Queries all large language model service providers and available models. Available since v6.3.0.
      *
      * @param request - GetLlmModelProvidersRequest
      *
@@ -14976,6 +14971,77 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSecuritySecretKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the Dataphin server version.
+     *
+     * @remarks
+     * Queries the details of a published API based on the AppKey.
+     *
+     * @param request - GetServerVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServerVersionResponse
+     *
+     * @param GetServerVersionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetServerVersionResponse
+     */
+    public function getServerVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetServerVersion',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the Dataphin server version.
+     *
+     * @remarks
+     * Queries the details of a published API based on the AppKey.
+     *
+     * @param request - GetServerVersionRequest
+     *
+     * @returns GetServerVersionResponse
+     *
+     * @param GetServerVersionRequest $request
+     *
+     * @return GetServerVersionResponse
+     */
+    public function getServerVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServerVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -22247,7 +22313,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Removes a tenant member. Only superusers and system administrators can call this API operation.
+     * Removes a tenant member. Only super administrators and system administrators can invoke this API operation.
      *
      * @param tmpReq - RemoveTenantMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22302,7 +22368,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Removes a tenant member. Only superusers and system administrators can call this API operation.
+     * Removes a tenant member. Only super administrators and system administrators can invoke this API operation.
      *
      * @param request - RemoveTenantMemberRequest
      *
@@ -24244,7 +24310,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 修改集群。
+     * Modifies a cluster. Online version: v6.3.0.
      *
      * @param tmpReq - UpdateComputeClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24303,7 +24369,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 修改集群。
+     * Modifies a cluster. Online version: v6.3.0.
      *
      * @param request - UpdateComputeClusterRequest
      *
@@ -24394,11 +24460,11 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据治理项id，批量修改问题清单对象的状态。
+     * Batch updates the status of issue checklist objects by governance item ID. Online since v6.3.0.
      *
      * @remarks
-     * ## 请求说明
-     * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+     * ## Operation description
+     * - This API operation updates the status of existing issue checklists under a specific project.
      *
      * @param tmpReq - UpdateDataAssetsGovernObjectStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24453,11 +24519,11 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据治理项id，批量修改问题清单对象的状态。
+     * Batch updates the status of issue checklist objects by governance item ID. Online since v6.3.0.
      *
      * @remarks
-     * ## 请求说明
-     * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+     * ## Operation description
+     * - This API operation updates the status of existing issue checklists under a specific project.
      *
      * @param request - UpdateDataAssetsGovernObjectStatusRequest
      *

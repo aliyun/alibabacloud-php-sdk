@@ -16,9 +16,15 @@ class deptUserMapping extends Model
     /**
      * @var string
      */
+    public $sourceType;
+
+    /**
+     * @var string
+     */
     public $sourceUserId;
     protected $_name = [
         'departmentIdList' => 'DepartmentIdList',
+        'sourceType' => 'SourceType',
         'sourceUserId' => 'SourceUserId',
     ];
 
@@ -42,6 +48,10 @@ class deptUserMapping extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
 
         if (null !== $this->sourceUserId) {
@@ -68,6 +78,10 @@ class deptUserMapping extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
 
         if (isset($map['SourceUserId'])) {
