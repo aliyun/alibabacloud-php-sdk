@@ -19,6 +19,11 @@ class CreateDefenseRuleRequest extends Model
     public $defenseType;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -50,6 +55,7 @@ class CreateDefenseRuleRequest extends Model
     protected $_name = [
         'defenseScene' => 'DefenseScene',
         'defenseType' => 'DefenseType',
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resource' => 'Resource',
@@ -72,6 +78,10 @@ class CreateDefenseRuleRequest extends Model
 
         if (null !== $this->defenseType) {
             $res['DefenseType'] = $this->defenseType;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->instanceId) {
@@ -115,6 +125,10 @@ class CreateDefenseRuleRequest extends Model
 
         if (isset($map['DefenseType'])) {
             $model->defenseType = $map['DefenseType'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['InstanceId'])) {

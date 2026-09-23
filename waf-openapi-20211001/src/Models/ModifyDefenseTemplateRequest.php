@@ -16,6 +16,16 @@ class ModifyDefenseTemplateRequest extends Model
     /**
      * @var string
      */
+    public $detail;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -39,6 +49,8 @@ class ModifyDefenseTemplateRequest extends Model
     public $templateName;
     protected $_name = [
         'description' => 'Description',
+        'detail' => 'Detail',
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
@@ -56,6 +68,14 @@ class ModifyDefenseTemplateRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->detail) {
+            $res['Detail'] = $this->detail;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->instanceId) {
@@ -91,6 +111,14 @@ class ModifyDefenseTemplateRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Detail'])) {
+            $model->detail = $map['Detail'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['InstanceId'])) {

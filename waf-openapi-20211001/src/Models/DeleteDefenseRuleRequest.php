@@ -14,6 +14,11 @@ class DeleteDefenseRuleRequest extends Model
     public $defenseType;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -44,6 +49,7 @@ class DeleteDefenseRuleRequest extends Model
     public $templateId;
     protected $_name = [
         'defenseType' => 'DefenseType',
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resource' => 'Resource',
@@ -62,6 +68,10 @@ class DeleteDefenseRuleRequest extends Model
         $res = [];
         if (null !== $this->defenseType) {
             $res['DefenseType'] = $this->defenseType;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->instanceId) {
@@ -101,6 +111,10 @@ class DeleteDefenseRuleRequest extends Model
         $model = new self();
         if (isset($map['DefenseType'])) {
             $model->defenseType = $map['DefenseType'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['InstanceId'])) {

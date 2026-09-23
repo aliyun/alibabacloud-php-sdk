@@ -19,6 +19,11 @@ class DescribeApisecApiResourcesRequest extends Model
     public $apiId;
 
     /**
+     * @var string[]
+     */
+    public $apiIds;
+
+    /**
      * @var string
      */
     public $apiMethod;
@@ -125,6 +130,7 @@ class DescribeApisecApiResourcesRequest extends Model
     protected $_name = [
         'apiFormat' => 'ApiFormat',
         'apiId' => 'ApiId',
+        'apiIds' => 'ApiIds',
         'apiMethod' => 'ApiMethod',
         'apiStatus' => 'ApiStatus',
         'apiTag' => 'ApiTag',
@@ -150,6 +156,9 @@ class DescribeApisecApiResourcesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->apiIds)) {
+            Model::validateArray($this->apiIds);
+        }
         parent::validate();
     }
 
@@ -162,6 +171,17 @@ class DescribeApisecApiResourcesRequest extends Model
 
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
+        }
+
+        if (null !== $this->apiIds) {
+            if (\is_array($this->apiIds)) {
+                $res['ApiIds'] = [];
+                $n1 = 0;
+                foreach ($this->apiIds as $item1) {
+                    $res['ApiIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->apiMethod) {
@@ -265,6 +285,17 @@ class DescribeApisecApiResourcesRequest extends Model
 
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
+        }
+
+        if (isset($map['ApiIds'])) {
+            if (!empty($map['ApiIds'])) {
+                $model->apiIds = [];
+                $n1 = 0;
+                foreach ($map['ApiIds'] as $item1) {
+                    $model->apiIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ApiMethod'])) {

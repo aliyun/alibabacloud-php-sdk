@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyDefenseTemplateStatusRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -33,6 +38,7 @@ class ModifyDefenseTemplateStatusRequest extends Model
      */
     public $templateStatus;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
@@ -48,6 +54,10 @@ class ModifyDefenseTemplateStatusRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -79,6 +89,10 @@ class ModifyDefenseTemplateStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

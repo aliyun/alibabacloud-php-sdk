@@ -24,6 +24,11 @@ class ModifyTemplateResourcesRequest extends Model
     public $bindResources;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -61,6 +66,7 @@ class ModifyTemplateResourcesRequest extends Model
         'bindAssets' => 'BindAssets',
         'bindResourceGroups' => 'BindResourceGroups',
         'bindResources' => 'BindResources',
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
@@ -127,6 +133,10 @@ class ModifyTemplateResourcesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->instanceId) {
@@ -220,6 +230,10 @@ class ModifyTemplateResourcesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['InstanceId'])) {

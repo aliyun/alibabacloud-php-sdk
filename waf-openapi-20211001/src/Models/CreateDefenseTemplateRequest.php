@@ -26,6 +26,16 @@ class CreateDefenseTemplateRequest extends Model
     /**
      * @var string
      */
+    public $detail;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -71,6 +81,8 @@ class CreateDefenseTemplateRequest extends Model
         'defenseScene' => 'DefenseScene',
         'defenseSubScene' => 'DefenseSubScene',
         'description' => 'Description',
+        'detail' => 'Detail',
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
@@ -106,6 +118,14 @@ class CreateDefenseTemplateRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->detail) {
+            $res['Detail'] = $this->detail;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->instanceId) {
@@ -179,6 +199,14 @@ class CreateDefenseTemplateRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Detail'])) {
+            $model->detail = $map['Detail'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['InstanceId'])) {

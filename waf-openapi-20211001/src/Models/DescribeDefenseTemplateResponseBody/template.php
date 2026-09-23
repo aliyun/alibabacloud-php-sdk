@@ -24,6 +24,11 @@ class template extends Model
     public $description;
 
     /**
+     * @var mixed[]
+     */
+    public $detail;
+
+    /**
      * @var int
      */
     public $gmtModified;
@@ -56,6 +61,7 @@ class template extends Model
         'defenseScene' => 'DefenseScene',
         'defenseSubScene' => 'DefenseSubScene',
         'description' => 'Description',
+        'detail' => 'Detail',
         'gmtModified' => 'GmtModified',
         'templateId' => 'TemplateId',
         'templateName' => 'TemplateName',
@@ -66,6 +72,9 @@ class template extends Model
 
     public function validate()
     {
+        if (\is_array($this->detail)) {
+            Model::validateArray($this->detail);
+        }
         parent::validate();
     }
 
@@ -82,6 +91,15 @@ class template extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->detail) {
+            if (\is_array($this->detail)) {
+                $res['Detail'] = [];
+                foreach ($this->detail as $key1 => $value1) {
+                    $res['Detail'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->gmtModified) {
@@ -129,6 +147,15 @@ class template extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Detail'])) {
+            if (!empty($map['Detail'])) {
+                $model->detail = [];
+                foreach ($map['Detail'] as $key1 => $value1) {
+                    $model->detail[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['GmtModified'])) {

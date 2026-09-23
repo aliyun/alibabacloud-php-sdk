@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyResourceLogStatusShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -43,6 +48,7 @@ class ModifyResourceLogStatusShrinkRequest extends Model
      */
     public $traceStatus;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resource' => 'Resource',
@@ -60,6 +66,10 @@ class ModifyResourceLogStatusShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -99,6 +109,10 @@ class ModifyResourceLogStatusShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

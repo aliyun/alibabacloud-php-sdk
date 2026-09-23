@@ -851,7 +851,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Copies a protection template.
+     * Copies the current mitigation template and generates a new mitigation template.
      *
      * @param request - CopyDefenseTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -867,6 +867,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -902,7 +906,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Copies a protection template.
+     * Copies the current mitigation template and generates a new mitigation template.
      *
      * @param request - CopyDefenseTemplateRequest
      *
@@ -1450,7 +1454,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Creates a web core protection rule.
+     * Creates a Web core protection rule.
      *
      * @param request - CreateDefenseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1472,6 +1476,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->defenseType) {
             @$query['DefenseType'] = $request->defenseType;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->instanceId) {
@@ -1519,7 +1527,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Creates a web core protection rule.
+     * Creates a Web core protection rule.
      *
      * @param request - CreateDefenseRuleRequest
      *
@@ -1563,6 +1571,14 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->detail) {
+            @$query['Detail'] = $request->detail;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->instanceId) {
@@ -3045,6 +3061,10 @@ class Wafopenapi extends OpenApiClient
             @$query['DefenseType'] = $request->defenseType;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -3179,7 +3199,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes a protection rule template.
+     * Deletes a protection template.
      *
      * @param request - DeleteDefenseTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3195,6 +3215,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -3230,7 +3254,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes a protection rule template.
+     * Deletes a protection template.
      *
      * @param request - DeleteDefenseTemplateRequest
      *
@@ -4364,6 +4388,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->apiId) {
             @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->apiIds) {
+            @$query['ApiIds'] = $request->apiIds;
         }
 
         if (null !== $request->apiMethod) {
@@ -7719,7 +7747,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the protection templates of a protected object or a protected object group.
+     * Queries the protection templates of a protected object or protected object group.
      *
      * @param request - DescribeDefenseResourceTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7790,7 +7818,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the protection templates of a protected object or a protected object group.
+     * Queries the protection templates of a protected object or protected object group.
      *
      * @param request - DescribeDefenseResourceTemplatesRequest
      *
@@ -8219,7 +8247,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific protection template.
+     * Queries a single protection template.
      *
      * @param request - DescribeDefenseTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8270,7 +8298,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific protection template.
+     * Queries a single protection template.
      *
      * @param request - DescribeDefenseTemplateRequest
      *
@@ -17185,6 +17213,10 @@ class Wafopenapi extends OpenApiClient
             @$query['DefenseType'] = $request->defenseType;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -17344,6 +17376,10 @@ class Wafopenapi extends OpenApiClient
             @$query['DefenseType'] = $request->defenseType;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -17485,7 +17521,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies a defense template.
+     * Modifies a protection template.
      *
      * @param request - ModifyDefenseTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17503,6 +17539,14 @@ class Wafopenapi extends OpenApiClient
         $query = [];
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->detail) {
+            @$query['Detail'] = $request->detail;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->instanceId) {
@@ -17544,7 +17588,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies a defense template.
+     * Modifies a protection template.
      *
      * @param request - ModifyDefenseTemplateRequest
      *
@@ -17562,7 +17606,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Changes the status of a protection rule template.
+     * Modifies the status of a protection template.
      *
      * @param request - ModifyDefenseTemplateStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17578,6 +17622,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -17617,7 +17665,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Changes the status of a protection rule template.
+     * Modifies the status of a protection template.
      *
      * @param request - ModifyDefenseTemplateStatusRequest
      *
@@ -19114,6 +19162,10 @@ class Wafopenapi extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -19179,7 +19231,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Attaches protected objects to or detaches protected objects from a protection template.
+     * Associates or disassociates protected resources with or from a protection template.
      *
      * @param request - ModifyTemplateResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19205,6 +19257,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->bindResources) {
             @$query['BindResources'] = $request->bindResources;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->instanceId) {
@@ -19254,7 +19310,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Attaches protected objects to or detaches protected objects from a protection template.
+     * Associates or disassociates protected resources with or from a protection template.
      *
      * @param request - ModifyTemplateResourcesRequest
      *
