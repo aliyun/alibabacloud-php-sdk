@@ -26,11 +26,17 @@ class MerchandisePlacementDetectionRequest extends Model
     /**
      * @var string
      */
+    public $rule;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'apiId' => 'ApiId',
         'imageUrl' => 'ImageUrl',
         'ragId' => 'RagId',
+        'rule' => 'Rule',
         'type' => 'Type',
     ];
 
@@ -52,6 +58,10 @@ class MerchandisePlacementDetectionRequest extends Model
 
         if (null !== $this->ragId) {
             $res['RagId'] = $this->ragId;
+        }
+
+        if (null !== $this->rule) {
+            $res['Rule'] = $this->rule;
         }
 
         if (null !== $this->type) {
@@ -79,6 +89,10 @@ class MerchandisePlacementDetectionRequest extends Model
 
         if (isset($map['RagId'])) {
             $model->ragId = $map['RagId'];
+        }
+
+        if (isset($map['Rule'])) {
+            $model->rule = $map['Rule'];
         }
 
         if (isset($map['Type'])) {
