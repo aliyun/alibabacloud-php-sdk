@@ -17,9 +17,15 @@ class ListDiagnosisItemsRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $level;
     protected $_name = [
         'instanceId' => 'instanceId',
         'lang' => 'lang',
+        'level' => 'level',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class ListDiagnosisItemsRequest extends Model
 
         if (null !== $this->lang) {
             $res['lang'] = $this->lang;
+        }
+
+        if (null !== $this->level) {
+            $res['level'] = $this->level;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class ListDiagnosisItemsRequest extends Model
 
         if (isset($map['lang'])) {
             $model->lang = $map['lang'];
+        }
+
+        if (isset($map['level'])) {
+            $model->level = $map['level'];
         }
 
         return $model;

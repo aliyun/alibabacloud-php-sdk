@@ -14,16 +14,25 @@ class result extends Model
     public $enable;
 
     /**
+     * @var string[]
+     */
+    public $indices;
+
+    /**
      * @var string
      */
     public $quartzRegex;
     protected $_name = [
         'enable' => 'enable',
+        'indices' => 'indices',
         'quartzRegex' => 'quartzRegex',
     ];
 
     public function validate()
     {
+        if (\is_array($this->indices)) {
+            Model::validateArray($this->indices);
+        }
         parent::validate();
     }
 
@@ -32,6 +41,17 @@ class result extends Model
         $res = [];
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
+        }
+
+        if (null !== $this->indices) {
+            if (\is_array($this->indices)) {
+                $res['indices'] = [];
+                $n1 = 0;
+                foreach ($this->indices as $item1) {
+                    $res['indices'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->quartzRegex) {
@@ -51,6 +71,17 @@ class result extends Model
         $model = new self();
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
+        }
+
+        if (isset($map['indices'])) {
+            if (!empty($map['indices'])) {
+                $model->indices = [];
+                $n1 = 0;
+                foreach ($map['indices'] as $item1) {
+                    $model->indices[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['quartzRegex'])) {
