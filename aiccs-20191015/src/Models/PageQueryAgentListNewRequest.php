@@ -21,6 +21,11 @@ class PageQueryAgentListNewRequest extends Model
     /**
      * @var bool
      */
+    public $inboundConfigurableOnly;
+
+    /**
+     * @var bool
+     */
     public $isAvailable;
 
     /**
@@ -37,13 +42,26 @@ class PageQueryAgentListNewRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $serviceDirection;
+
+    /**
+     * @var int
+     */
+    public $templateId;
     protected $_name = [
         'agentId' => 'AgentId',
         'agentName' => 'AgentName',
+        'inboundConfigurableOnly' => 'InboundConfigurableOnly',
         'isAvailable' => 'IsAvailable',
         'pageIndex' => 'PageIndex',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
+        'serviceDirection' => 'ServiceDirection',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -62,6 +80,10 @@ class PageQueryAgentListNewRequest extends Model
             $res['AgentName'] = $this->agentName;
         }
 
+        if (null !== $this->inboundConfigurableOnly) {
+            $res['InboundConfigurableOnly'] = $this->inboundConfigurableOnly;
+        }
+
         if (null !== $this->isAvailable) {
             $res['IsAvailable'] = $this->isAvailable;
         }
@@ -76,6 +98,14 @@ class PageQueryAgentListNewRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->serviceDirection) {
+            $res['ServiceDirection'] = $this->serviceDirection;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -97,6 +127,10 @@ class PageQueryAgentListNewRequest extends Model
             $model->agentName = $map['AgentName'];
         }
 
+        if (isset($map['InboundConfigurableOnly'])) {
+            $model->inboundConfigurableOnly = $map['InboundConfigurableOnly'];
+        }
+
         if (isset($map['IsAvailable'])) {
             $model->isAvailable = $map['IsAvailable'];
         }
@@ -111,6 +145,14 @@ class PageQueryAgentListNewRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ServiceDirection'])) {
+            $model->serviceDirection = $map['ServiceDirection'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

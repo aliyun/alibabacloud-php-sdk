@@ -77,6 +77,21 @@ class list_ extends Model
      * @var string
      */
     public $scene;
+
+    /**
+     * @var string
+     */
+    public $serviceDirection;
+
+    /**
+     * @var int
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateName;
     protected $_name = [
         'agentId' => 'AgentId',
         'agentMode' => 'AgentMode',
@@ -92,6 +107,9 @@ class list_ extends Model
         'latestPublishTime' => 'LatestPublishTime',
         'modifyTime' => 'ModifyTime',
         'scene' => 'Scene',
+        'serviceDirection' => 'ServiceDirection',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
@@ -156,6 +174,18 @@ class list_ extends Model
 
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
+        }
+
+        if (null !== $this->serviceDirection) {
+            $res['ServiceDirection'] = $this->serviceDirection;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         return $res;
@@ -223,6 +253,18 @@ class list_ extends Model
 
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
+        }
+
+        if (isset($map['ServiceDirection'])) {
+            $model->serviceDirection = $map['ServiceDirection'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

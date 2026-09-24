@@ -79,6 +79,11 @@ class data extends Model
     public $scene;
 
     /**
+     * @var string
+     */
+    public $serviceDirection;
+
+    /**
      * @var summaryConfig
      */
     public $summaryConfig;
@@ -121,6 +126,7 @@ class data extends Model
         'knowledgeConfig' => 'KnowledgeConfig',
         'phoneTagConfig' => 'PhoneTagConfig',
         'scene' => 'Scene',
+        'serviceDirection' => 'ServiceDirection',
         'summaryConfig' => 'SummaryConfig',
         'versionDesc' => 'VersionDesc',
         'versionId' => 'VersionId',
@@ -209,6 +215,10 @@ class data extends Model
 
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
+        }
+
+        if (null !== $this->serviceDirection) {
+            $res['ServiceDirection'] = $this->serviceDirection;
         }
 
         if (null !== $this->summaryConfig) {
@@ -303,6 +313,10 @@ class data extends Model
 
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
+        }
+
+        if (isset($map['ServiceDirection'])) {
+            $model->serviceDirection = $map['ServiceDirection'];
         }
 
         if (isset($map['SummaryConfig'])) {
