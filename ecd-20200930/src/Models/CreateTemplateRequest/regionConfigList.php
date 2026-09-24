@@ -34,6 +34,11 @@ class regionConfigList extends Model
     public $subnetId;
 
     /**
+     * @var string
+     */
+    public $virtualNodePoolId;
+
+    /**
      * @var bool
      */
     public $volumeEncryptionEnable;
@@ -48,6 +53,7 @@ class regionConfigList extends Model
         'resourceInstanceType' => 'ResourceInstanceType',
         'snapshotPolicyId' => 'SnapshotPolicyId',
         'subnetId' => 'SubnetId',
+        'virtualNodePoolId' => 'VirtualNodePoolId',
         'volumeEncryptionEnable' => 'VolumeEncryptionEnable',
         'volumeEncryptionKey' => 'VolumeEncryptionKey',
     ];
@@ -78,6 +84,10 @@ class regionConfigList extends Model
 
         if (null !== $this->subnetId) {
             $res['SubnetId'] = $this->subnetId;
+        }
+
+        if (null !== $this->virtualNodePoolId) {
+            $res['VirtualNodePoolId'] = $this->virtualNodePoolId;
         }
 
         if (null !== $this->volumeEncryptionEnable) {
@@ -117,6 +127,10 @@ class regionConfigList extends Model
 
         if (isset($map['SubnetId'])) {
             $model->subnetId = $map['SubnetId'];
+        }
+
+        if (isset($map['VirtualNodePoolId'])) {
+            $model->virtualNodePoolId = $map['VirtualNodePoolId'];
         }
 
         if (isset($map['VolumeEncryptionEnable'])) {

@@ -11,6 +11,11 @@ class cloudDriveGroups extends Model
     /**
      * @var string
      */
+    public $authDimension;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -53,6 +58,7 @@ class cloudDriveGroups extends Model
      */
     public $usedSize;
     protected $_name = [
+        'authDimension' => 'AuthDimension',
         'createTime' => 'CreateTime',
         'directoryId' => 'DirectoryId',
         'driveId' => 'DriveId',
@@ -72,6 +78,10 @@ class cloudDriveGroups extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authDimension) {
+            $res['AuthDimension'] = $this->authDimension;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -119,6 +129,10 @@ class cloudDriveGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthDimension'])) {
+            $model->authDimension = $map['AuthDimension'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

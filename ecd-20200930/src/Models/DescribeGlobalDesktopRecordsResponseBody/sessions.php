@@ -70,6 +70,11 @@ class sessions extends Model
     public $latestConnectionTime;
 
     /**
+     * @var string
+     */
+    public $latestSessionEndTime;
+
+    /**
      * @var int
      */
     public $memory;
@@ -156,6 +161,7 @@ class sessions extends Model
         'endUserIds' => 'EndUserIds',
         'gpuSpec' => 'GpuSpec',
         'latestConnectionTime' => 'LatestConnectionTime',
+        'latestSessionEndTime' => 'LatestSessionEndTime',
         'memory' => 'Memory',
         'officeSiteId' => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
@@ -243,6 +249,10 @@ class sessions extends Model
 
         if (null !== $this->latestConnectionTime) {
             $res['LatestConnectionTime'] = $this->latestConnectionTime;
+        }
+
+        if (null !== $this->latestSessionEndTime) {
+            $res['LatestSessionEndTime'] = $this->latestSessionEndTime;
         }
 
         if (null !== $this->memory) {
@@ -383,6 +393,10 @@ class sessions extends Model
 
         if (isset($map['LatestConnectionTime'])) {
             $model->latestConnectionTime = $map['LatestConnectionTime'];
+        }
+
+        if (isset($map['LatestSessionEndTime'])) {
+            $model->latestSessionEndTime = $map['LatestSessionEndTime'];
         }
 
         if (isset($map['Memory'])) {

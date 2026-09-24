@@ -381,6 +381,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopGroupInfoRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopGroupInfoResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopListInfoRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopListInfoResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GetAggregatedDesktopsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GetAggregatedDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetAsyncTaskRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetAsyncTaskResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetConnectionTicketRequest;
@@ -524,6 +526,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryActiveUserStatisticRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryActiveUserStatisticResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryAuthUserConnectDurationListRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryAuthUserConnectDurationListResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryEndUserHistoryUsageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryEndUserHistoryUsageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryActiveUserCountRequest;
@@ -4999,17 +5003,17 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
+     * Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
      *
      * @remarks
-     * Before creating cloud computers, complete the following preparations:
-     * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
-     *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-     *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+     * Before creating cloud desktops, complete the following preparations:
+     * - Create an office network (formerly workspace) and users. For more information about the related API operations or documentation, see:
+     *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+     *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
      * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
      * **Call examples:**
      * <details>
-     * <summary>Example of creating with a template</summary>
+     * <summary>Example of creating a cloud desktop by using a template</summary>
      * ```
      * {
      *   "RegionId": "cn-hangzhou",
@@ -5023,7 +5027,7 @@ class Ecd extends OpenApiClient
      * ```
      * </details>
      * <details>
-     * <summary>Example of creating without a template</summary>
+     * <summary>Example of creating a cloud desktop without a template</summary>
      * ```
      * {
      *   "RegionId": "cn-hangzhou",
@@ -5043,7 +5047,7 @@ class Ecd extends OpenApiClient
      * ```
      * </details>
      * <details>
-     * <summary>Example of creating a monthly hourly package</summary>
+     * <summary>Example of creating a cloud desktop with a monthly hourly package</summary>
      * ```
      * {
      *   "RegionId": "cn-hangzhou",
@@ -5068,7 +5072,7 @@ class Ecd extends OpenApiClient
      * ```
      * </details>
      * <details>
-     * <summary>Example of creating an Agent resource</summary>
+     * <summary>Example of creating an agent resource</summary>
      * ```
      * {
      *   "RegionId": "cn-hangzhou",
@@ -5088,7 +5092,7 @@ class Ecd extends OpenApiClient
      * }
      * ```
      * </details>
-     * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
+     * To have the cloud desktop automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
      *
      * @param tmpReq - CreateDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5238,6 +5242,10 @@ class Ecd extends OpenApiClient
             @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
         }
 
+        if (null !== $request->reservePoolId) {
+            @$query['ReservePoolId'] = $request->reservePoolId;
+        }
+
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -5309,17 +5317,17 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
+     * Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
      *
      * @remarks
-     * Before creating cloud computers, complete the following preparations:
-     * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
-     *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-     *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+     * Before creating cloud desktops, complete the following preparations:
+     * - Create an office network (formerly workspace) and users. For more information about the related API operations or documentation, see:
+     *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+     *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
      * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
      * **Call examples:**
      * <details>
-     * <summary>Example of creating with a template</summary>
+     * <summary>Example of creating a cloud desktop by using a template</summary>
      * ```
      * {
      *   "RegionId": "cn-hangzhou",
@@ -5333,7 +5341,7 @@ class Ecd extends OpenApiClient
      * ```
      * </details>
      * <details>
-     * <summary>Example of creating without a template</summary>
+     * <summary>Example of creating a cloud desktop without a template</summary>
      * ```
      * {
      *   "RegionId": "cn-hangzhou",
@@ -5353,7 +5361,7 @@ class Ecd extends OpenApiClient
      * ```
      * </details>
      * <details>
-     * <summary>Example of creating a monthly hourly package</summary>
+     * <summary>Example of creating a cloud desktop with a monthly hourly package</summary>
      * ```
      * {
      *   "RegionId": "cn-hangzhou",
@@ -5378,7 +5386,7 @@ class Ecd extends OpenApiClient
      * ```
      * </details>
      * <details>
-     * <summary>Example of creating an Agent resource</summary>
+     * <summary>Example of creating an agent resource</summary>
      * ```
      * {
      *   "RegionId": "cn-hangzhou",
@@ -5398,7 +5406,7 @@ class Ecd extends OpenApiClient
      * }
      * ```
      * </details>
-     * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
+     * To have the cloud desktop automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
      *
      * @param request - CreateDesktopsRequest
      *
@@ -5843,12 +5851,20 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->capacity) {
+            @$query['Capacity'] = $request->capacity;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
         }
 
         if (null !== $request->encryptType) {
             @$query['EncryptType'] = $request->encryptType;
+        }
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
 
         if (null !== $request->name) {
@@ -7151,9 +7167,9 @@ class Ecd extends OpenApiClient
      * Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
      *
      * @remarks
-     * When you call this operation, note the following items:
+     * When you call this operation, take note of the following items:
      * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
-     * - For parameters that have region attributes in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+     * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
      *
      * @param request - CreateTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7200,6 +7216,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->imageId) {
             @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
         }
 
         if (null !== $request->period) {
@@ -7282,9 +7302,9 @@ class Ecd extends OpenApiClient
      * Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
      *
      * @remarks
-     * When you call this operation, note the following items:
+     * When you call this operation, take note of the following items:
      * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
-     * - For parameters that have region attributes in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+     * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
      *
      * @param request - CreateTemplateRequest
      *
@@ -9177,7 +9197,7 @@ class Ecd extends OpenApiClient
      * Deletes a custom cloud computer template.
      *
      * @remarks
-     * After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+     * After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
      *
      * @param request - DeleteTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9223,7 +9243,7 @@ class Ecd extends OpenApiClient
      * Deletes a custom cloud computer template.
      *
      * @remarks
-     * After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+     * After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
      *
      * @param request - DeleteTemplatesRequest
      *
@@ -10021,7 +10041,7 @@ class Ecd extends OpenApiClient
      * Queries the list of cloud disk team spaces.
      *
      * @remarks
-     * The cloud disk team list is synchronized from the Wuying client > User Management > Organization Structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
+     * The cloud disk team list is obtained through synchronization from the Wuying client > User Management > organization structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
      *
      * @param request - DescribeCloudDiskGroupDrivesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10079,7 +10099,7 @@ class Ecd extends OpenApiClient
      * Queries the list of cloud disk team spaces.
      *
      * @remarks
-     * The cloud disk team list is synchronized from the Wuying client > User Management > Organization Structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
+     * The cloud disk team list is obtained through synchronization from the Wuying client > User Management > organization structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
      *
      * @param request - DescribeCloudDiskGroupDrivesRequest
      *
@@ -11630,6 +11650,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->reservePoolId) {
+            @$query['ReservePoolId'] = $request->reservePoolId;
+        }
+
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -12420,10 +12444,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the basic information of all recent cloud desktops and their corresponding usage duration records.
+     * Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
      *
      * @remarks
-     * - China site users should select Shanghai as the site. International site users should select Singapore.
+     * - China site users must select Shanghai as the site. International site users must select Singapore.
      * - By default, both deleted and non-deleted cloud desktops are queried.
      * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
      * - Sort conditions cannot be used together with other conditions.
@@ -12537,10 +12561,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the basic information of all recent cloud desktops and their corresponding usage duration records.
+     * Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
      *
      * @remarks
-     * - China site users should select Shanghai as the site. International site users should select Singapore.
+     * - China site users must select Shanghai as the site. International site users must select Singapore.
      * - By default, both deleted and non-deleted cloud desktops are queried.
      * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
      * - Sort conditions cannot be used together with other conditions.
@@ -13074,7 +13098,7 @@ class Ecd extends OpenApiClient
      * Queries the execution list and status of Cloud Assistant scripts.
      *
      * @remarks
-     * - After you run a command, it does not necessarily succeed or produce the expected results. Check the actual execution results based on the response values returned by this operation.
+     * - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
      * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
      *
      * @param request - DescribeInvocationsRequest
@@ -13161,7 +13185,7 @@ class Ecd extends OpenApiClient
      * Queries the execution list and status of Cloud Assistant scripts.
      *
      * @remarks
-     * - After you run a command, it does not necessarily succeed or produce the expected results. Check the actual execution results based on the response values returned by this operation.
+     * - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
      * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
      *
      * @param request - DescribeInvocationsRequest
@@ -14721,6 +14745,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->auditStatus) {
+            @$query['AuditStatus'] = $request->auditStatus;
+        }
+
         if (null !== $request->desktopId) {
             @$query['DesktopId'] = $request->desktopId;
         }
@@ -15037,7 +15065,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the renewal price of a Wuying product.
+     * Queries the renewal price of an Elastic Desktop Service product.
      *
      * @param request - DescribeRenewalPriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15104,7 +15132,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the renewal price of a Wuying product.
+     * Queries the renewal price of an Elastic Desktop Service product.
      *
      * @param request - DescribeRenewalPriceRequest
      *
@@ -16390,11 +16418,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves cloud computer information for a vulnerability.
+     * Retrieves cloud desktop information for a vulnerability.
      *
      * @remarks
-     * - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
-     * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+     * - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
+     * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
      *
      * @param request - DescribeVulDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16410,12 +16438,20 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->connectionStatus) {
+            @$query['ConnectionStatus'] = $request->connectionStatus;
+        }
+
         if (null !== $request->cveId) {
             @$query['CveId'] = $request->cveId;
         }
 
         if (null !== $request->desktopIdList) {
             @$query['DesktopIdList'] = $request->desktopIdList;
+        }
+
+        if (null !== $request->desktopStatus) {
+            @$query['DesktopStatus'] = $request->desktopStatus;
         }
 
         if (null !== $request->includeFixResult) {
@@ -16489,11 +16525,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves cloud computer information for a vulnerability.
+     * Retrieves cloud desktop information for a vulnerability.
      *
      * @remarks
-     * - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
-     * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+     * - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
+     * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
      *
      * @param request - DescribeVulDesktopsRequest
      *
@@ -17481,6 +17517,71 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries desktop data statistics by different dimensions.
+     *
+     * @param request - GetAggregatedDesktopsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAggregatedDesktopsResponse
+     *
+     * @param GetAggregatedDesktopsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAggregatedDesktopsResponse
+     */
+    public function getAggregatedDesktopsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aggregationFactor) {
+            @$query['AggregationFactor'] = $request->aggregationFactor;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchRegionId) {
+            @$query['SearchRegionId'] = $request->searchRegionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAggregatedDesktops',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAggregatedDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries desktop data statistics by different dimensions.
+     *
+     * @param request - GetAggregatedDesktopsRequest
+     *
+     * @returns GetAggregatedDesktopsResponse
+     *
+     * @param GetAggregatedDesktopsRequest $request
+     *
+     * @return GetAggregatedDesktopsResponse
+     */
+    public function getAggregatedDesktops($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregatedDesktopsWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of a folder copy asynchronous node based on the AsyncTaskId parameter returned by the CopyCdsFile operation.
      *
      * @param request - GetAsyncTaskRequest
@@ -17545,7 +17646,7 @@ class Ecd extends OpenApiClient
      * Retrieves the connection credential for a cloud computer.
      *
      * @remarks
-     * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires in 10 minutes.
+     * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
      *
      * @param request - GetConnectionTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17561,6 +17662,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
+        }
+
         if (null !== $request->commandContent) {
             @$query['CommandContent'] = $request->commandContent;
         }
@@ -17623,7 +17728,7 @@ class Ecd extends OpenApiClient
      * Retrieves the connection credential for a cloud computer.
      *
      * @remarks
-     * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires in 10 minutes.
+     * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
      *
      * @param request - GetConnectionTicketRequest
      *
@@ -23194,7 +23299,7 @@ class Ecd extends OpenApiClient
      * Modifies all parameters of a custom cloud computer template.
      *
      * @remarks
-     * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in the template, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
+     * >Warning: To ensure compatibility with unset parameters and default upgrade logic in the template, this operation uses full parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
      *
      * @param request - ModifyTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23237,6 +23342,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->imageId) {
             @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
         }
 
         if (null !== $request->period) {
@@ -23319,7 +23428,7 @@ class Ecd extends OpenApiClient
      * Modifies all parameters of a custom cloud computer template.
      *
      * @remarks
-     * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in the template, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
+     * >Warning: To ensure compatibility with unset parameters and default upgrade logic in the template, this operation uses full parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
      *
      * @param request - ModifyTemplateRequest
      *
@@ -23337,10 +23446,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information of a custom cloud computer template, including the template name and description.
+     * Modifies the basic information of a custom cloud computer template, including the template name and template description.
      *
      * @remarks
-     * This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
+     * This operation is used only to modify the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
      *
      * @param request - ModifyTemplateBaseInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23358,6 +23467,10 @@ class Ecd extends OpenApiClient
         $body = [];
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
         }
 
         if (null !== $request->templateId) {
@@ -23387,10 +23500,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information of a custom cloud computer template, including the template name and description.
+     * Modifies the basic information of a custom cloud computer template, including the template name and template description.
      *
      * @remarks
-     * This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
+     * This operation is used only to modify the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
      *
      * @param request - ModifyTemplateBaseInfoRequest
      *
@@ -23942,6 +24055,99 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryActiveUserStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the connection duration statistics of authorized users based on specified conditions. Statistics can be collected by daily cumulative duration or by individual session details.
+     *
+     * @param request - QueryAuthUserConnectDurationListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAuthUserConnectDurationListResponse
+     *
+     * @param QueryAuthUserConnectDurationListRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return QueryAuthUserConnectDurationListResponse
+     */
+    public function queryAuthUserConnectDurationListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->comparisonOperator) {
+            @$query['ComparisonOperator'] = $request->comparisonOperator;
+        }
+
+        if (null !== $request->dataDate) {
+            @$query['DataDate'] = $request->dataDate;
+        }
+
+        if (null !== $request->isAdUser) {
+            @$query['IsAdUser'] = $request->isAdUser;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->statisticType) {
+            @$query['StatisticType'] = $request->statisticType;
+        }
+
+        if (null !== $request->threshold) {
+            @$query['Threshold'] = $request->threshold;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->withDetail) {
+            @$query['WithDetail'] = $request->withDetail;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAuthUserConnectDurationList',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAuthUserConnectDurationListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the connection duration statistics of authorized users based on specified conditions. Statistics can be collected by daily cumulative duration or by individual session details.
+     *
+     * @param request - QueryAuthUserConnectDurationListRequest
+     *
+     * @returns QueryAuthUserConnectDurationListResponse
+     *
+     * @param QueryAuthUserConnectDurationListRequest $request
+     *
+     * @return QueryAuthUserConnectDurationListResponse
+     */
+    public function queryAuthUserConnectDurationList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAuthUserConnectDurationListWithOptions($request, $runtime);
     }
 
     /**

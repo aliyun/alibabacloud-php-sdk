@@ -187,6 +187,11 @@ class DescribeDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $reservePoolId;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -244,6 +249,7 @@ class DescribeDesktopsRequest extends Model
         'qosRuleId' => 'QosRuleId',
         'queryFotaUpdate' => 'QueryFotaUpdate',
         'regionId' => 'RegionId',
+        'reservePoolId' => 'ReservePoolId',
         'resourceGroupId' => 'ResourceGroupId',
         'snapshotPolicyId' => 'SnapshotPolicyId',
         'subPayType' => 'SubPayType',
@@ -460,6 +466,10 @@ class DescribeDesktopsRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->reservePoolId) {
+            $res['ReservePoolId'] = $this->reservePoolId;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -680,6 +690,10 @@ class DescribeDesktopsRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ReservePoolId'])) {
+            $model->reservePoolId = $map['ReservePoolId'];
         }
 
         if (isset($map['ResourceGroupId'])) {

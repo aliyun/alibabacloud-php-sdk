@@ -169,6 +169,11 @@ class CreateDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $reservePoolId;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -261,6 +266,7 @@ class CreateDesktopsRequest extends Model
         'qosRuleId' => 'QosRuleId',
         'regionId' => 'RegionId',
         'resellerOwnerUid' => 'ResellerOwnerUid',
+        'reservePoolId' => 'ReservePoolId',
         'resourceGroupId' => 'ResourceGroupId',
         'savingPlanId' => 'SavingPlanId',
         'snapshotPolicyId' => 'SnapshotPolicyId',
@@ -450,6 +456,10 @@ class CreateDesktopsRequest extends Model
 
         if (null !== $this->resellerOwnerUid) {
             $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
+        }
+
+        if (null !== $this->reservePoolId) {
+            $res['ReservePoolId'] = $this->reservePoolId;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -668,6 +678,10 @@ class CreateDesktopsRequest extends Model
 
         if (isset($map['ResellerOwnerUid'])) {
             $model->resellerOwnerUid = $map['ResellerOwnerUid'];
+        }
+
+        if (isset($map['ReservePoolId'])) {
+            $model->reservePoolId = $map['ReservePoolId'];
         }
 
         if (isset($map['ResourceGroupId'])) {

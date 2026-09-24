@@ -31,12 +31,18 @@ class CreateNASFileSystemResponseBody extends Model
     /**
      * @var string
      */
+    public $protocolType;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'fileSystemId' => 'FileSystemId',
         'fileSystemName' => 'FileSystemName',
         'mountTargetDomain' => 'MountTargetDomain',
         'officeSiteId' => 'OfficeSiteId',
+        'protocolType' => 'ProtocolType',
         'requestId' => 'RequestId',
     ];
 
@@ -62,6 +68,10 @@ class CreateNASFileSystemResponseBody extends Model
 
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
         }
 
         if (null !== $this->requestId) {
@@ -93,6 +103,10 @@ class CreateNASFileSystemResponseBody extends Model
 
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
+        }
+
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
         }
 
         if (isset($map['RequestId'])) {

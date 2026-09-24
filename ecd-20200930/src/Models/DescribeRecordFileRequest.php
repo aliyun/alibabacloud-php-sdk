@@ -11,6 +11,11 @@ class DescribeRecordFileRequest extends Model
     /**
      * @var string
      */
+    public $auditStatus;
+
+    /**
+     * @var string
+     */
     public $desktopId;
 
     /**
@@ -73,6 +78,7 @@ class DescribeRecordFileRequest extends Model
      */
     public $status;
     protected $_name = [
+        'auditStatus' => 'AuditStatus',
         'desktopId' => 'DesktopId',
         'endTime' => 'EndTime',
         'endUserId' => 'EndUserId',
@@ -96,6 +102,10 @@ class DescribeRecordFileRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->auditStatus) {
+            $res['AuditStatus'] = $this->auditStatus;
+        }
+
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
@@ -159,6 +169,10 @@ class DescribeRecordFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuditStatus'])) {
+            $model->auditStatus = $map['AuditStatus'];
+        }
+
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }

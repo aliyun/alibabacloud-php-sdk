@@ -63,6 +63,11 @@ class data extends Model
     public $imageType;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @var int
      */
     public $period;
@@ -157,6 +162,7 @@ class data extends Model
         'gmtModified' => 'GmtModified',
         'imageId' => 'ImageId',
         'imageType' => 'ImageType',
+        'instanceName' => 'InstanceName',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'policyGroupId' => 'PolicyGroupId',
@@ -241,6 +247,10 @@ class data extends Model
 
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->period) {
@@ -388,6 +398,10 @@ class data extends Model
 
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['Period'])) {

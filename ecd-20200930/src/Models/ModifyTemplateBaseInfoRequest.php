@@ -16,6 +16,11 @@ class ModifyTemplateBaseInfoRequest extends Model
     /**
      * @var string
      */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
     public $templateId;
 
     /**
@@ -24,6 +29,7 @@ class ModifyTemplateBaseInfoRequest extends Model
     public $templateName;
     protected $_name = [
         'description' => 'Description',
+        'instanceName' => 'InstanceName',
         'templateId' => 'TemplateId',
         'templateName' => 'TemplateName',
     ];
@@ -38,6 +44,10 @@ class ModifyTemplateBaseInfoRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->templateId) {
@@ -61,6 +71,10 @@ class ModifyTemplateBaseInfoRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['TemplateId'])) {

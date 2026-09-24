@@ -16,6 +16,11 @@ class vulDesktops extends Model
     public $configGroupId;
 
     /**
+     * @var string
+     */
+    public $connectionStatus;
+
+    /**
      * @var int
      */
     public $cveCount;
@@ -29,6 +34,11 @@ class vulDesktops extends Model
      * @var string
      */
     public $desktopId;
+
+    /**
+     * @var string
+     */
+    public $desktopStatus;
 
     /**
      * @var bool
@@ -71,9 +81,11 @@ class vulDesktops extends Model
     public $vulLevel;
     protected $_name = [
         'configGroupId' => 'ConfigGroupId',
+        'connectionStatus' => 'ConnectionStatus',
         'cveCount' => 'CveCount',
         'cves' => 'Cves',
         'desktopId' => 'DesktopId',
+        'desktopStatus' => 'DesktopStatus',
         'disabled' => 'Disabled',
         'firstFoundTime' => 'FirstFoundTime',
         'fixRecords' => 'FixRecords',
@@ -105,6 +117,10 @@ class vulDesktops extends Model
             $res['ConfigGroupId'] = $this->configGroupId;
         }
 
+        if (null !== $this->connectionStatus) {
+            $res['ConnectionStatus'] = $this->connectionStatus;
+        }
+
         if (null !== $this->cveCount) {
             $res['CveCount'] = $this->cveCount;
         }
@@ -122,6 +138,10 @@ class vulDesktops extends Model
 
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
+        }
+
+        if (null !== $this->desktopStatus) {
+            $res['DesktopStatus'] = $this->desktopStatus;
         }
 
         if (null !== $this->disabled) {
@@ -185,6 +205,10 @@ class vulDesktops extends Model
             $model->configGroupId = $map['ConfigGroupId'];
         }
 
+        if (isset($map['ConnectionStatus'])) {
+            $model->connectionStatus = $map['ConnectionStatus'];
+        }
+
         if (isset($map['CveCount'])) {
             $model->cveCount = $map['CveCount'];
         }
@@ -202,6 +226,10 @@ class vulDesktops extends Model
 
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
+        }
+
+        if (isset($map['DesktopStatus'])) {
+            $model->desktopStatus = $map['DesktopStatus'];
         }
 
         if (isset($map['Disabled'])) {

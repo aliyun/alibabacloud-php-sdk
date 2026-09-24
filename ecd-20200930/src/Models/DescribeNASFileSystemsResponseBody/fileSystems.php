@@ -24,6 +24,11 @@ class fileSystems extends Model
     /**
      * @var int
      */
+    public $bandwidth;
+
+    /**
+     * @var int
+     */
     public $capacity;
 
     /**
@@ -143,6 +148,7 @@ class fileSystems extends Model
     protected $_name = [
         'allowOperateUserDrive' => 'AllowOperateUserDrive',
         'appInstanceGroups' => 'AppInstanceGroups',
+        'bandwidth' => 'Bandwidth',
         'capacity' => 'Capacity',
         'createTime' => 'CreateTime',
         'description' => 'Description',
@@ -199,6 +205,10 @@ class fileSystems extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
         }
 
         if (null !== $this->capacity) {
@@ -335,6 +345,10 @@ class fileSystems extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
         }
 
         if (isset($map['Capacity'])) {

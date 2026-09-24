@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateNASFileSystemRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $capacity;
+
+    /**
      * @var string
      */
     public $description;
@@ -17,6 +22,11 @@ class CreateNASFileSystemRequest extends Model
      * @var string
      */
     public $encryptType;
+
+    /**
+     * @var string
+     */
+    public $fileSystemType;
 
     /**
      * @var string
@@ -43,8 +53,10 @@ class CreateNASFileSystemRequest extends Model
      */
     public $storageType;
     protected $_name = [
+        'capacity' => 'Capacity',
         'description' => 'Description',
         'encryptType' => 'EncryptType',
+        'fileSystemType' => 'FileSystemType',
         'name' => 'Name',
         'officeSiteId' => 'OfficeSiteId',
         'protocolType' => 'ProtocolType',
@@ -60,12 +72,20 @@ class CreateNASFileSystemRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->capacity) {
+            $res['Capacity'] = $this->capacity;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
 
         if (null !== $this->encryptType) {
             $res['EncryptType'] = $this->encryptType;
+        }
+
+        if (null !== $this->fileSystemType) {
+            $res['FileSystemType'] = $this->fileSystemType;
         }
 
         if (null !== $this->name) {
@@ -99,12 +119,20 @@ class CreateNASFileSystemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Capacity'])) {
+            $model->capacity = $map['Capacity'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
 
         if (isset($map['EncryptType'])) {
             $model->encryptType = $map['EncryptType'];
+        }
+
+        if (isset($map['FileSystemType'])) {
+            $model->fileSystemType = $map['FileSystemType'];
         }
 
         if (isset($map['Name'])) {

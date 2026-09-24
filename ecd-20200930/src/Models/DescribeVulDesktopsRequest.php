@@ -11,12 +11,22 @@ class DescribeVulDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $connectionStatus;
+
+    /**
+     * @var string
+     */
     public $cveId;
 
     /**
      * @var string[]
      */
     public $desktopIdList;
+
+    /**
+     * @var string
+     */
+    public $desktopStatus;
 
     /**
      * @var bool
@@ -83,8 +93,10 @@ class DescribeVulDesktopsRequest extends Model
      */
     public $vulLevel;
     protected $_name = [
+        'connectionStatus' => 'ConnectionStatus',
         'cveId' => 'CveId',
         'desktopIdList' => 'DesktopIdList',
+        'desktopStatus' => 'DesktopStatus',
         'includeFixResult' => 'IncludeFixResult',
         'language' => 'Language',
         'maxResults' => 'MaxResults',
@@ -114,6 +126,10 @@ class DescribeVulDesktopsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->connectionStatus) {
+            $res['ConnectionStatus'] = $this->connectionStatus;
+        }
+
         if (null !== $this->cveId) {
             $res['CveId'] = $this->cveId;
         }
@@ -127,6 +143,10 @@ class DescribeVulDesktopsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->desktopStatus) {
+            $res['DesktopStatus'] = $this->desktopStatus;
         }
 
         if (null !== $this->includeFixResult) {
@@ -199,6 +219,10 @@ class DescribeVulDesktopsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionStatus'])) {
+            $model->connectionStatus = $map['ConnectionStatus'];
+        }
+
         if (isset($map['CveId'])) {
             $model->cveId = $map['CveId'];
         }
@@ -212,6 +236,10 @@ class DescribeVulDesktopsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DesktopStatus'])) {
+            $model->desktopStatus = $map['DesktopStatus'];
         }
 
         if (isset($map['IncludeFixResult'])) {

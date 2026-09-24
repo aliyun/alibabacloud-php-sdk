@@ -301,6 +301,16 @@ class desktops extends Model
     public $protocolType;
 
     /**
+     * @var string
+     */
+    public $reservePoolId;
+
+    /**
+     * @var string
+     */
+    public $reservePoolName;
+
+    /**
      * @var resourceGroups[]
      */
     public $resourceGroups;
@@ -378,6 +388,11 @@ class desktops extends Model
     /**
      * @var string
      */
+    public $zoneId;
+
+    /**
+     * @var string
+     */
     public $zoneType;
     protected $_name = [
         'accountType' => 'AccountType',
@@ -437,6 +452,8 @@ class desktops extends Model
         'policyGroupNameList' => 'PolicyGroupNameList',
         'progress' => 'Progress',
         'protocolType' => 'ProtocolType',
+        'reservePoolId' => 'ReservePoolId',
+        'reservePoolName' => 'ReservePoolName',
         'resourceGroups' => 'ResourceGroups',
         'serialNumber' => 'SerialNumber',
         'sessionType' => 'SessionType',
@@ -452,6 +469,7 @@ class desktops extends Model
         'tags' => 'Tags',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
         'volumeEncryptionKey' => 'VolumeEncryptionKey',
+        'zoneId' => 'ZoneId',
         'zoneType' => 'ZoneType',
     ];
 
@@ -776,6 +794,14 @@ class desktops extends Model
             $res['ProtocolType'] = $this->protocolType;
         }
 
+        if (null !== $this->reservePoolId) {
+            $res['ReservePoolId'] = $this->reservePoolId;
+        }
+
+        if (null !== $this->reservePoolName) {
+            $res['ReservePoolName'] = $this->reservePoolName;
+        }
+
         if (null !== $this->resourceGroups) {
             if (\is_array($this->resourceGroups)) {
                 $res['ResourceGroups'] = [];
@@ -855,6 +881,10 @@ class desktops extends Model
 
         if (null !== $this->volumeEncryptionKey) {
             $res['VolumeEncryptionKey'] = $this->volumeEncryptionKey;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         if (null !== $this->zoneType) {
@@ -1149,6 +1179,14 @@ class desktops extends Model
             $model->protocolType = $map['ProtocolType'];
         }
 
+        if (isset($map['ReservePoolId'])) {
+            $model->reservePoolId = $map['ReservePoolId'];
+        }
+
+        if (isset($map['ReservePoolName'])) {
+            $model->reservePoolName = $map['ReservePoolName'];
+        }
+
         if (isset($map['ResourceGroups'])) {
             if (!empty($map['ResourceGroups'])) {
                 $model->resourceGroups = [];
@@ -1228,6 +1266,10 @@ class desktops extends Model
 
         if (isset($map['VolumeEncryptionKey'])) {
             $model->volumeEncryptionKey = $map['VolumeEncryptionKey'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         if (isset($map['ZoneType'])) {

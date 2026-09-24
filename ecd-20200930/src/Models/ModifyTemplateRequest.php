@@ -48,6 +48,11 @@ class ModifyTemplateRequest extends Model
     public $imageId;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @var int
      */
     public $period;
@@ -124,6 +129,7 @@ class ModifyTemplateRequest extends Model
         'defaultLanguage' => 'DefaultLanguage',
         'description' => 'Description',
         'imageId' => 'ImageId',
+        'instanceName' => 'InstanceName',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'policyGroupId' => 'PolicyGroupId',
@@ -193,6 +199,10 @@ class ModifyTemplateRequest extends Model
 
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->period) {
@@ -316,6 +326,10 @@ class ModifyTemplateRequest extends Model
 
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['Period'])) {

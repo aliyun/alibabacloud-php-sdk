@@ -11,6 +11,11 @@ class GetConnectionTicketRequest extends Model
     /**
      * @var string
      */
+    public $clientType;
+
+    /**
+     * @var string
+     */
     public $commandContent;
 
     /**
@@ -58,6 +63,7 @@ class GetConnectionTicketRequest extends Model
      */
     public $uuid;
     protected $_name = [
+        'clientType' => 'ClientType',
         'commandContent' => 'CommandContent',
         'desktopId' => 'DesktopId',
         'endUserId' => 'EndUserId',
@@ -78,6 +84,10 @@ class GetConnectionTicketRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientType) {
+            $res['ClientType'] = $this->clientType;
+        }
+
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
         }
@@ -129,6 +139,10 @@ class GetConnectionTicketRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientType'])) {
+            $model->clientType = $map['ClientType'];
+        }
+
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
         }

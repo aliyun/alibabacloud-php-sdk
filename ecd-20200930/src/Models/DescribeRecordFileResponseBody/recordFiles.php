@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordFileResponseBody\recordF
 class recordFiles extends Model
 {
     /**
+     * @var string[]
+     */
+    public $auditStatus;
+
+    /**
      * @var string
      */
     public $desktopId;
@@ -84,6 +89,7 @@ class recordFiles extends Model
      */
     public $status;
     protected $_name = [
+        'auditStatus' => 'AuditStatus',
         'desktopId' => 'DesktopId',
         'desktopName' => 'DesktopName',
         'endUserId' => 'EndUserId',
@@ -103,6 +109,9 @@ class recordFiles extends Model
 
     public function validate()
     {
+        if (\is_array($this->auditStatus)) {
+            Model::validateArray($this->auditStatus);
+        }
         if (\is_array($this->eventDetails)) {
             Model::validateArray($this->eventDetails);
         }
@@ -112,6 +121,17 @@ class recordFiles extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->auditStatus) {
+            if (\is_array($this->auditStatus)) {
+                $res['AuditStatus'] = [];
+                $n1 = 0;
+                foreach ($this->auditStatus as $item1) {
+                    $res['AuditStatus'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
@@ -190,6 +210,17 @@ class recordFiles extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuditStatus'])) {
+            if (!empty($map['AuditStatus'])) {
+                $model->auditStatus = [];
+                $n1 = 0;
+                foreach ($map['AuditStatus'] as $item1) {
+                    $model->auditStatus[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }

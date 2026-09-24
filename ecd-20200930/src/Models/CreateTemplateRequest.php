@@ -53,6 +53,11 @@ class CreateTemplateRequest extends Model
     public $imageId;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @var int
      */
     public $period;
@@ -130,6 +135,7 @@ class CreateTemplateRequest extends Model
         'defaultLanguage' => 'DefaultLanguage',
         'description' => 'Description',
         'imageId' => 'ImageId',
+        'instanceName' => 'InstanceName',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'policyGroupId' => 'PolicyGroupId',
@@ -203,6 +209,10 @@ class CreateTemplateRequest extends Model
 
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->period) {
@@ -330,6 +340,10 @@ class CreateTemplateRequest extends Model
 
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['Period'])) {
