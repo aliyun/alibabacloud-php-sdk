@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPageQueryProductResponseBody\data\products\buyRule;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPageQueryProductResponseBody\data\products\refundRule;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPageQueryProductResponseBody\data\products\region;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPageQueryProductResponseBody\data\products\sellerAgent;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPageQueryProductResponseBody\data\products\session;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPageQueryProductResponseBody\data\products\spu;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketPageQueryProductResponseBody\data\products\ticketKind;
@@ -76,6 +77,11 @@ class products extends Model
     public $scenicId;
 
     /**
+     * @var sellerAgent
+     */
+    public $sellerAgent;
+
+    /**
      * @var session
      */
     public $session;
@@ -89,11 +95,6 @@ class products extends Model
      * @var spu
      */
     public $spu;
-
-    /**
-     * @var string
-     */
-    public $supplierName;
 
     /**
      * @var ticketKind
@@ -117,10 +118,10 @@ class products extends Model
         'refundRule' => 'RefundRule',
         'region' => 'Region',
         'scenicId' => 'ScenicId',
+        'sellerAgent' => 'SellerAgent',
         'session' => 'Session',
         'settlePriceCalculateType' => 'SettlePriceCalculateType',
         'spu' => 'Spu',
-        'supplierName' => 'SupplierName',
         'ticketKind' => 'TicketKind',
         'useRule' => 'UseRule',
     ];
@@ -138,6 +139,9 @@ class products extends Model
         }
         if (null !== $this->region) {
             $this->region->validate();
+        }
+        if (null !== $this->sellerAgent) {
+            $this->sellerAgent->validate();
         }
         if (null !== $this->session) {
             $this->session->validate();
@@ -212,6 +216,10 @@ class products extends Model
             $res['ScenicId'] = $this->scenicId;
         }
 
+        if (null !== $this->sellerAgent) {
+            $res['SellerAgent'] = null !== $this->sellerAgent ? $this->sellerAgent->toArray($noStream) : $this->sellerAgent;
+        }
+
         if (null !== $this->session) {
             $res['Session'] = null !== $this->session ? $this->session->toArray($noStream) : $this->session;
         }
@@ -222,10 +230,6 @@ class products extends Model
 
         if (null !== $this->spu) {
             $res['Spu'] = null !== $this->spu ? $this->spu->toArray($noStream) : $this->spu;
-        }
-
-        if (null !== $this->supplierName) {
-            $res['SupplierName'] = $this->supplierName;
         }
 
         if (null !== $this->ticketKind) {
@@ -302,6 +306,10 @@ class products extends Model
             $model->scenicId = $map['ScenicId'];
         }
 
+        if (isset($map['SellerAgent'])) {
+            $model->sellerAgent = sellerAgent::fromMap($map['SellerAgent']);
+        }
+
         if (isset($map['Session'])) {
             $model->session = session::fromMap($map['Session']);
         }
@@ -312,10 +320,6 @@ class products extends Model
 
         if (isset($map['Spu'])) {
             $model->spu = spu::fromMap($map['Spu']);
-        }
-
-        if (isset($map['SupplierName'])) {
-            $model->supplierName = $map['SupplierName'];
         }
 
         if (isset($map['TicketKind'])) {
