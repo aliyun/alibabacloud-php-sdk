@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Governance\V20210120\Models\BatchEnrollAccountsRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\BatchEnrollAccountsResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\CreateAccountFactoryBaselineRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\CreateAccountFactoryBaselineResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\DecommissionGovernanceRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\DecommissionGovernanceResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\DeleteAccountFactoryBaselineRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\DeleteAccountFactoryBaselineResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\EnrollAccountRequest;
@@ -35,6 +37,8 @@ use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationScoreHistoryRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationScoreHistoryResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\OpenGovernanceServiceRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\OpenGovernanceServiceResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\RunEvaluationRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\RunEvaluationResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\RunEvaluationShrinkRequest;
@@ -51,12 +55,6 @@ class Governance extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'eu-central-1' => 'governance.eu-central-1.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'governance.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-hangzhou' => 'governance.cn-hangzhou.aliyuncs.com',
-            'ap-southeast-1' => 'governance.ap-southeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('governance', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -229,6 +227,63 @@ class Governance extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAccountFactoryBaselineWithOptions($request, $runtime);
+    }
+
+    /**
+     * Disables and unsubscribes from Cloud Governance Center.
+     *
+     * @param request - DecommissionGovernanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DecommissionGovernanceResponse
+     *
+     * @param DecommissionGovernanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DecommissionGovernanceResponse
+     */
+    public function decommissionGovernanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DecommissionGovernance',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DecommissionGovernanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables and unsubscribes from Cloud Governance Center.
+     *
+     * @param request - DecommissionGovernanceRequest
+     *
+     * @returns DecommissionGovernanceResponse
+     *
+     * @param DecommissionGovernanceRequest $request
+     *
+     * @return DecommissionGovernanceResponse
+     */
+    public function decommissionGovernance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->decommissionGovernanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1135,6 +1190,63 @@ class Governance extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEvaluationScoreHistoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Activates Cloud Governance Center.
+     *
+     * @param request - OpenGovernanceServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenGovernanceServiceResponse
+     *
+     * @param OpenGovernanceServiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return OpenGovernanceServiceResponse
+     */
+    public function openGovernanceServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OpenGovernanceService',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OpenGovernanceServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Activates Cloud Governance Center.
+     *
+     * @param request - OpenGovernanceServiceRequest
+     *
+     * @returns OpenGovernanceServiceResponse
+     *
+     * @param OpenGovernanceServiceRequest $request
+     *
+     * @return OpenGovernanceServiceResponse
+     */
+    public function openGovernanceService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openGovernanceServiceWithOptions($request, $runtime);
     }
 
     /**
