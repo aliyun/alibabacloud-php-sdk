@@ -172,6 +172,11 @@ class GetInstanceDetailResponseBody extends Model
     public $orderEndTime;
 
     /**
+     * @var string
+     */
+    public $orderProgress;
+
+    /**
      * @var int
      */
     public $orderStartTime;
@@ -273,6 +278,7 @@ class GetInstanceDetailResponseBody extends Model
         'monitorExpandFlag' => 'MonitorExpandFlag',
         'monitorUseCount' => 'MonitorUseCount',
         'orderEndTime' => 'OrderEndTime',
+        'orderProgress' => 'OrderProgress',
         'orderStartTime' => 'OrderStartTime',
         'pendingResult' => 'PendingResult',
         'province' => 'Province',
@@ -456,6 +462,10 @@ class GetInstanceDetailResponseBody extends Model
 
         if (null !== $this->orderEndTime) {
             $res['OrderEndTime'] = $this->orderEndTime;
+        }
+
+        if (null !== $this->orderProgress) {
+            $res['OrderProgress'] = $this->orderProgress;
         }
 
         if (null !== $this->orderStartTime) {
@@ -679,6 +689,10 @@ class GetInstanceDetailResponseBody extends Model
 
         if (isset($map['OrderEndTime'])) {
             $model->orderEndTime = $map['OrderEndTime'];
+        }
+
+        if (isset($map['OrderProgress'])) {
+            $model->orderProgress = $map['OrderProgress'];
         }
 
         if (isset($map['OrderStartTime'])) {

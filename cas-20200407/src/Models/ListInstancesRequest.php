@@ -62,6 +62,11 @@ class ListInstancesRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $versionType;
     protected $_name = [
         'autoReissueFlag' => 'AutoReissueFlag',
         'brand' => 'Brand',
@@ -74,6 +79,7 @@ class ListInstancesRequest extends Model
         'serverDeployFlag' => 'ServerDeployFlag',
         'showSize' => 'ShowSize',
         'status' => 'Status',
+        'versionType' => 'VersionType',
     ];
 
     public function validate()
@@ -126,6 +132,10 @@ class ListInstancesRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->versionType) {
+            $res['VersionType'] = $this->versionType;
         }
 
         return $res;
@@ -181,6 +191,10 @@ class ListInstancesRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['VersionType'])) {
+            $model->versionType = $map['VersionType'];
         }
 
         return $model;
