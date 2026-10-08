@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\conditionScheduleParamList;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\contextParamList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\customScheduleConfig;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\paramList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\sparkClientInfo;
@@ -13,9 +15,34 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\upda
 class updateCommand extends Model
 {
     /**
+     * @var int
+     */
+    public $baseScheduleTemplateId;
+
+    /**
      * @var string
      */
     public $code;
+
+    /**
+     * @var bool
+     */
+    public $conditionScheduleEnable;
+
+    /**
+     * @var conditionScheduleParamList[]
+     */
+    public $conditionScheduleParamList;
+
+    /**
+     * @var int
+     */
+    public $conditionScheduleTemplateId;
+
+    /**
+     * @var contextParamList[]
+     */
+    public $contextParamList;
 
     /**
      * @var string
@@ -41,6 +68,16 @@ class updateCommand extends Model
      * @var string
      */
     public $dataSourceSchema;
+
+    /**
+     * @var string
+     */
+    public $devHttpPath;
+
+    /**
+     * @var string
+     */
+    public $devResourceGroupId;
 
     /**
      * @var string[]
@@ -78,6 +115,11 @@ class updateCommand extends Model
     public $nodeStatus;
 
     /**
+     * @var string[]
+     */
+    public $opsOwnerIdList;
+
+    /**
      * @var paramList[]
      */
     public $paramList;
@@ -86,6 +128,11 @@ class updateCommand extends Model
      * @var int
      */
     public $priority;
+
+    /**
+     * @var string
+     */
+    public $prodHttpPath;
 
     /**
      * @var int
@@ -100,12 +147,22 @@ class updateCommand extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $schedulePeriod;
 
     /**
      * @var sparkClientInfo
      */
     public $sparkClientInfo;
+
+    /**
+     * @var string[]
+     */
+    public $taskTagList;
 
     /**
      * @var int
@@ -116,13 +173,30 @@ class updateCommand extends Model
      * @var upStreamList[]
      */
     public $upStreamList;
+
+    /**
+     * @var string
+     */
+    public $validEndDate;
+
+    /**
+     * @var string
+     */
+    public $validStartDate;
     protected $_name = [
+        'baseScheduleTemplateId' => 'BaseScheduleTemplateId',
         'code' => 'Code',
+        'conditionScheduleEnable' => 'ConditionScheduleEnable',
+        'conditionScheduleParamList' => 'ConditionScheduleParamList',
+        'conditionScheduleTemplateId' => 'ConditionScheduleTemplateId',
+        'contextParamList' => 'ContextParamList',
         'cronExpression' => 'CronExpression',
         'customScheduleConfig' => 'CustomScheduleConfig',
         'dataSourceCatalog' => 'DataSourceCatalog',
         'dataSourceId' => 'DataSourceId',
         'dataSourceSchema' => 'DataSourceSchema',
+        'devHttpPath' => 'DevHttpPath',
+        'devResourceGroupId' => 'DevResourceGroupId',
         'developOwnerIdList' => 'DevelopOwnerIdList',
         'engine' => 'Engine',
         'fileId' => 'FileId',
@@ -130,18 +204,30 @@ class updateCommand extends Model
         'nodeDescription' => 'NodeDescription',
         'nodeOutputNameList' => 'NodeOutputNameList',
         'nodeStatus' => 'NodeStatus',
+        'opsOwnerIdList' => 'OpsOwnerIdList',
         'paramList' => 'ParamList',
         'priority' => 'Priority',
+        'prodHttpPath' => 'ProdHttpPath',
         'projectId' => 'ProjectId',
         'pythonModuleList' => 'PythonModuleList',
+        'resourceGroupId' => 'ResourceGroupId',
         'schedulePeriod' => 'SchedulePeriod',
         'sparkClientInfo' => 'SparkClientInfo',
+        'taskTagList' => 'TaskTagList',
         'taskType' => 'TaskType',
         'upStreamList' => 'UpStreamList',
+        'validEndDate' => 'ValidEndDate',
+        'validStartDate' => 'ValidStartDate',
     ];
 
     public function validate()
     {
+        if (\is_array($this->conditionScheduleParamList)) {
+            Model::validateArray($this->conditionScheduleParamList);
+        }
+        if (\is_array($this->contextParamList)) {
+            Model::validateArray($this->contextParamList);
+        }
         if (null !== $this->customScheduleConfig) {
             $this->customScheduleConfig->validate();
         }
@@ -150,6 +236,9 @@ class updateCommand extends Model
         }
         if (\is_array($this->nodeOutputNameList)) {
             Model::validateArray($this->nodeOutputNameList);
+        }
+        if (\is_array($this->opsOwnerIdList)) {
+            Model::validateArray($this->opsOwnerIdList);
         }
         if (\is_array($this->paramList)) {
             Model::validateArray($this->paramList);
@@ -160,6 +249,9 @@ class updateCommand extends Model
         if (null !== $this->sparkClientInfo) {
             $this->sparkClientInfo->validate();
         }
+        if (\is_array($this->taskTagList)) {
+            Model::validateArray($this->taskTagList);
+        }
         if (\is_array($this->upStreamList)) {
             Model::validateArray($this->upStreamList);
         }
@@ -169,8 +261,42 @@ class updateCommand extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->baseScheduleTemplateId) {
+            $res['BaseScheduleTemplateId'] = $this->baseScheduleTemplateId;
+        }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->conditionScheduleEnable) {
+            $res['ConditionScheduleEnable'] = $this->conditionScheduleEnable;
+        }
+
+        if (null !== $this->conditionScheduleParamList) {
+            if (\is_array($this->conditionScheduleParamList)) {
+                $res['ConditionScheduleParamList'] = [];
+                $n1 = 0;
+                foreach ($this->conditionScheduleParamList as $item1) {
+                    $res['ConditionScheduleParamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->conditionScheduleTemplateId) {
+            $res['ConditionScheduleTemplateId'] = $this->conditionScheduleTemplateId;
+        }
+
+        if (null !== $this->contextParamList) {
+            if (\is_array($this->contextParamList)) {
+                $res['ContextParamList'] = [];
+                $n1 = 0;
+                foreach ($this->contextParamList as $item1) {
+                    $res['ContextParamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->cronExpression) {
@@ -191,6 +317,14 @@ class updateCommand extends Model
 
         if (null !== $this->dataSourceSchema) {
             $res['DataSourceSchema'] = $this->dataSourceSchema;
+        }
+
+        if (null !== $this->devHttpPath) {
+            $res['DevHttpPath'] = $this->devHttpPath;
+        }
+
+        if (null !== $this->devResourceGroupId) {
+            $res['DevResourceGroupId'] = $this->devResourceGroupId;
         }
 
         if (null !== $this->developOwnerIdList) {
@@ -235,6 +369,17 @@ class updateCommand extends Model
             $res['NodeStatus'] = $this->nodeStatus;
         }
 
+        if (null !== $this->opsOwnerIdList) {
+            if (\is_array($this->opsOwnerIdList)) {
+                $res['OpsOwnerIdList'] = [];
+                $n1 = 0;
+                foreach ($this->opsOwnerIdList as $item1) {
+                    $res['OpsOwnerIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->paramList) {
             if (\is_array($this->paramList)) {
                 $res['ParamList'] = [];
@@ -248,6 +393,10 @@ class updateCommand extends Model
 
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
+        }
+
+        if (null !== $this->prodHttpPath) {
+            $res['ProdHttpPath'] = $this->prodHttpPath;
         }
 
         if (null !== $this->projectId) {
@@ -265,12 +414,27 @@ class updateCommand extends Model
             }
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->schedulePeriod) {
             $res['SchedulePeriod'] = $this->schedulePeriod;
         }
 
         if (null !== $this->sparkClientInfo) {
             $res['SparkClientInfo'] = null !== $this->sparkClientInfo ? $this->sparkClientInfo->toArray($noStream) : $this->sparkClientInfo;
+        }
+
+        if (null !== $this->taskTagList) {
+            if (\is_array($this->taskTagList)) {
+                $res['TaskTagList'] = [];
+                $n1 = 0;
+                foreach ($this->taskTagList as $item1) {
+                    $res['TaskTagList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->taskType) {
@@ -288,6 +452,14 @@ class updateCommand extends Model
             }
         }
 
+        if (null !== $this->validEndDate) {
+            $res['ValidEndDate'] = $this->validEndDate;
+        }
+
+        if (null !== $this->validStartDate) {
+            $res['ValidStartDate'] = $this->validStartDate;
+        }
+
         return $res;
     }
 
@@ -299,8 +471,42 @@ class updateCommand extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseScheduleTemplateId'])) {
+            $model->baseScheduleTemplateId = $map['BaseScheduleTemplateId'];
+        }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+
+        if (isset($map['ConditionScheduleEnable'])) {
+            $model->conditionScheduleEnable = $map['ConditionScheduleEnable'];
+        }
+
+        if (isset($map['ConditionScheduleParamList'])) {
+            if (!empty($map['ConditionScheduleParamList'])) {
+                $model->conditionScheduleParamList = [];
+                $n1 = 0;
+                foreach ($map['ConditionScheduleParamList'] as $item1) {
+                    $model->conditionScheduleParamList[$n1] = conditionScheduleParamList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ConditionScheduleTemplateId'])) {
+            $model->conditionScheduleTemplateId = $map['ConditionScheduleTemplateId'];
+        }
+
+        if (isset($map['ContextParamList'])) {
+            if (!empty($map['ContextParamList'])) {
+                $model->contextParamList = [];
+                $n1 = 0;
+                foreach ($map['ContextParamList'] as $item1) {
+                    $model->contextParamList[$n1] = contextParamList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['CronExpression'])) {
@@ -321,6 +527,14 @@ class updateCommand extends Model
 
         if (isset($map['DataSourceSchema'])) {
             $model->dataSourceSchema = $map['DataSourceSchema'];
+        }
+
+        if (isset($map['DevHttpPath'])) {
+            $model->devHttpPath = $map['DevHttpPath'];
+        }
+
+        if (isset($map['DevResourceGroupId'])) {
+            $model->devResourceGroupId = $map['DevResourceGroupId'];
         }
 
         if (isset($map['DevelopOwnerIdList'])) {
@@ -365,6 +579,17 @@ class updateCommand extends Model
             $model->nodeStatus = $map['NodeStatus'];
         }
 
+        if (isset($map['OpsOwnerIdList'])) {
+            if (!empty($map['OpsOwnerIdList'])) {
+                $model->opsOwnerIdList = [];
+                $n1 = 0;
+                foreach ($map['OpsOwnerIdList'] as $item1) {
+                    $model->opsOwnerIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ParamList'])) {
             if (!empty($map['ParamList'])) {
                 $model->paramList = [];
@@ -378,6 +603,10 @@ class updateCommand extends Model
 
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+
+        if (isset($map['ProdHttpPath'])) {
+            $model->prodHttpPath = $map['ProdHttpPath'];
         }
 
         if (isset($map['ProjectId'])) {
@@ -395,12 +624,27 @@ class updateCommand extends Model
             }
         }
 
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
         if (isset($map['SchedulePeriod'])) {
             $model->schedulePeriod = $map['SchedulePeriod'];
         }
 
         if (isset($map['SparkClientInfo'])) {
             $model->sparkClientInfo = sparkClientInfo::fromMap($map['SparkClientInfo']);
+        }
+
+        if (isset($map['TaskTagList'])) {
+            if (!empty($map['TaskTagList'])) {
+                $model->taskTagList = [];
+                $n1 = 0;
+                foreach ($map['TaskTagList'] as $item1) {
+                    $model->taskTagList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TaskType'])) {
@@ -416,6 +660,14 @@ class updateCommand extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ValidEndDate'])) {
+            $model->validEndDate = $map['ValidEndDate'];
+        }
+
+        if (isset($map['ValidStartDate'])) {
+            $model->validStartDate = $map['ValidStartDate'];
         }
 
         return $model;

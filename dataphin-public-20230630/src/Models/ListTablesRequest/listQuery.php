@@ -19,6 +19,11 @@ class listQuery extends Model
     public $keyword;
 
     /**
+     * @var string
+     */
+    public $ownerId;
+
+    /**
      * @var int
      */
     public $pageNo;
@@ -27,15 +32,25 @@ class listQuery extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string[]
+     */
+    public $subTypes;
     protected $_name = [
         'catalog' => 'Catalog',
         'keyword' => 'Keyword',
+        'ownerId' => 'OwnerId',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
+        'subTypes' => 'SubTypes',
     ];
 
     public function validate()
     {
+        if (\is_array($this->subTypes)) {
+            Model::validateArray($this->subTypes);
+        }
         parent::validate();
     }
 
@@ -50,12 +65,27 @@ class listQuery extends Model
             $res['Keyword'] = $this->keyword;
         }
 
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->subTypes) {
+            if (\is_array($this->subTypes)) {
+                $res['SubTypes'] = [];
+                $n1 = 0;
+                foreach ($this->subTypes as $item1) {
+                    $res['SubTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -77,12 +107,27 @@ class listQuery extends Model
             $model->keyword = $map['Keyword'];
         }
 
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SubTypes'])) {
+            if (!empty($map['SubTypes'])) {
+                $model->subTypes = [];
+                $n1 = 0;
+                foreach ($map['SubTypes'] as $item1) {
+                    $model->subTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

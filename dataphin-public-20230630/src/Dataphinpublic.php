@@ -41,6 +41,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchCreateKgEntityShrinkRe
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchCreateKgRelationRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchCreateKgRelationResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchCreateKgRelationShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchHandoverAssetRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchHandoverAssetResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchHandoverAssetShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityByIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityByIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityRequest;
@@ -48,6 +51,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectiv
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckDataSourceConnectivityByIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckDataSourceConnectivityByIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckDataSourceConnectivityOnResourceGroupRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckDataSourceConnectivityOnResourceGroupResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckDataSourceConnectivityOnResourceGroupShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckDataSourceConnectivityRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckDataSourceConnectivityResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckDataSourceConnectivityShrinkRequest;
@@ -327,6 +333,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizUnitInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCheckConnectivityJobByJobIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCheckConnectivityJobByJobIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCheckConnectivityJobsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCheckConnectivityJobsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetClusterQueueInfoByEnvRequest;
@@ -490,6 +498,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecuritySecretKeyRequest
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecuritySecretKeyResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetServerVersionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetServerVersionResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSourceTableMetaRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSourceTableMetaResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSourceTableMetaShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSparkLocalClientInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSparkLocalClientInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardLookupTableRequest;
@@ -527,6 +538,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineageByTaskIdShri
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineagesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineagesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineagesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTransferInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTransferInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUdfByVersionRequest;
@@ -577,6 +590,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAssetTopicsShrinkReques
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBatchTasksRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBatchTasksResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBatchTasksShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBatchTemplatesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBatchTemplatesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBatchTemplatesShrinkRequest;
@@ -657,6 +673,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPipelinesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectMembersRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectMembersResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectMembersShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectRolesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectRolesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectsShrinkRequest;
@@ -693,6 +711,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionByUserIdSh
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListScheduleTemplatesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListScheduleTemplatesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListScheduleTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityClassifyRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityClassifyResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityClassifyShrinkRequest;
@@ -714,6 +735,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTablesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantRolesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantRolesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupMembersRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupMembersResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupMembersShrinkRequest;
@@ -793,8 +816,14 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeResourcePermissionShr
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SearchKgBySemanticRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SearchKgBySemanticResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SearchKgBySemanticShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StartPipelineIntegratedTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StartPipelineIntegratedTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StartPipelineIntegratedTaskShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopPipelineIntegratedTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopPipelineIntegratedTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopPipelineIntegratedTaskShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitAssetsOffShelveRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitAssetsOffShelveResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitAssetsOffShelveShrinkRequest;
@@ -1918,6 +1947,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 批量交接资产。
+     *
+     * @param tmpReq - BatchHandoverAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchHandoverAssetResponse
+     *
+     * @param BatchHandoverAssetRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BatchHandoverAssetResponse
+     */
+    public function batchHandoverAssetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchHandoverAssetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->handoverCommand) {
+            $request->handoverCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->handoverCommand, 'HandoverCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->handoverCommandShrink) {
+            @$body['HandoverCommand'] = $request->handoverCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchHandoverAsset',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchHandoverAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量交接资产。
+     *
+     * @param request - BatchHandoverAssetRequest
+     *
+     * @returns BatchHandoverAssetResponse
+     *
+     * @param BatchHandoverAssetRequest $request
+     *
+     * @return BatchHandoverAssetResponse
+     */
+    public function batchHandoverAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchHandoverAssetWithOptions($request, $runtime);
+    }
+
+    /**
      * Checks the connectivity of a compute source.
      *
      * @param tmpReq - CheckComputeSourceConnectivityRequest
@@ -2191,6 +2293,85 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkDataSourceConnectivityByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 在指定调度资源组上检查数据源连通性.
+     *
+     * @remarks
+     * 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+     *
+     * @param tmpReq - CheckDataSourceConnectivityOnResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDataSourceConnectivityOnResourceGroupResponse
+     *
+     * @param CheckDataSourceConnectivityOnResourceGroupRequest $tmpReq
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return CheckDataSourceConnectivityOnResourceGroupResponse
+     */
+    public function checkDataSourceConnectivityOnResourceGroupWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CheckDataSourceConnectivityOnResourceGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->checkCommand) {
+            $request->checkCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->checkCommand, 'CheckCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->checkCommandShrink) {
+            @$body['CheckCommand'] = $request->checkCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckDataSourceConnectivityOnResourceGroup',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckDataSourceConnectivityOnResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 在指定调度资源组上检查数据源连通性.
+     *
+     * @remarks
+     * 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+     *
+     * @param request - CheckDataSourceConnectivityOnResourceGroupRequest
+     *
+     * @returns CheckDataSourceConnectivityOnResourceGroupResponse
+     *
+     * @param CheckDataSourceConnectivityOnResourceGroupRequest $request
+     *
+     * @return CheckDataSourceConnectivityOnResourceGroupResponse
+     */
+    public function checkDataSourceConnectivityOnResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkDataSourceConnectivityOnResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -3279,17 +3460,17 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a dataset in a specified project. Online version: v6.2.0.
+     * Creates a new dataset in the specified project. Available since v6.2.0.
      *
      * @remarks
-     * ## Operation description
-     * - This API operation creates a dataset in a specified project.
+     * ## Request description
+     * - This API creates a new dataset in the specified project.
      * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
      * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
      * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
      * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-     * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
-     * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+     * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
+     * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
      *
      * @param tmpReq - CreateDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3348,17 +3529,17 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a dataset in a specified project. Online version: v6.2.0.
+     * Creates a new dataset in the specified project. Available since v6.2.0.
      *
      * @remarks
-     * ## Operation description
-     * - This API operation creates a dataset in a specified project.
+     * ## Request description
+     * - This API creates a new dataset in the specified project.
      * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
      * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
      * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
      * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-     * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
-     * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+     * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
+     * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
      *
      * @param request - CreateDatasetRequest
      *
@@ -4068,7 +4249,7 @@ class Dataphinpublic extends OpenApiClient
      * Creates a row-level permission.
      *
      * @remarks
-     * Queries the details of published APIs by appKey.
+     * Queries the details of published APIs based on the appKey.
      *
      * @param tmpReq - CreateRowPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4126,7 +4307,7 @@ class Dataphinpublic extends OpenApiClient
      * Creates a row-level permission.
      *
      * @remarks
-     * Queries the details of published APIs by appKey.
+     * Queries the details of published APIs based on the appKey.
      *
      * @param request - CreateRowPermissionRequest
      *
@@ -9794,6 +9975,77 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 按任务ID查询数据源连通性检查任务
+     *
+     * @remarks
+     * 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+     *
+     * @param request - GetCheckConnectivityJobByJobIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCheckConnectivityJobByJobIdResponse
+     *
+     * @param GetCheckConnectivityJobByJobIdRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetCheckConnectivityJobByJobIdResponse
+     */
+    public function getCheckConnectivityJobByJobIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCheckConnectivityJobByJobId',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCheckConnectivityJobByJobIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按任务ID查询数据源连通性检查任务
+     *
+     * @remarks
+     * 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+     *
+     * @param request - GetCheckConnectivityJobByJobIdRequest
+     *
+     * @returns GetCheckConnectivityJobByJobIdResponse
+     *
+     * @param GetCheckConnectivityJobByJobIdRequest $request
+     *
+     * @return GetCheckConnectivityJobByJobIdResponse
+     */
+    public function getCheckConnectivityJobByJobId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCheckConnectivityJobByJobIdWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
      * Release version: v5.5.0.
      *
@@ -15045,6 +15297,87 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+     *
+     * @param tmpReq - GetSourceTableMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSourceTableMetaResponse
+     *
+     * @param GetSourceTableMetaRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetSourceTableMetaResponse
+     */
+    public function getSourceTableMetaWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetSourceTableMetaShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->query) {
+            $request->queryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->queryShrink) {
+            @$body['Query'] = $request->queryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetSourceTableMeta',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSourceTableMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+     *
+     * @param request - GetSourceTableMetaRequest
+     *
+     * @returns GetSourceTableMetaResponse
+     *
+     * @param GetSourceTableMetaRequest $request
+     *
+     * @return GetSourceTableMetaResponse
+     */
+    public function getSourceTableMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSourceTableMetaWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the Spark client information of the cluster associated with a compute source.
      *
      * @param request - GetSparkLocalClientInfoRequest
@@ -15764,6 +16097,71 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSupplementDagrunInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询表资产清单详情。
+     *
+     * @param request - GetTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableResponse
+     *
+     * @param GetTableRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTableResponse
+     */
+    public function getTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->tableGuid) {
+            @$query['TableGuid'] = $request->tableGuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTable',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询表资产清单详情。
+     *
+     * @param request - GetTableRequest
+     *
+     * @returns GetTableResponse
+     *
+     * @param GetTableRequest $request
+     *
+     * @return GetTableResponse
+     */
+    public function getTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableWithOptions($request, $runtime);
     }
 
     /**
@@ -17496,6 +17894,79 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAuthorizedDataServiceApiDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID.
+     *
+     * @param tmpReq - ListBatchTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBatchTasksResponse
+     *
+     * @param ListBatchTasksRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListBatchTasksResponse
+     */
+    public function listBatchTasksWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListBatchTasksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->batchTaskQuery) {
+            $request->batchTaskQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->batchTaskQuery, 'BatchTaskQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->batchTaskQueryShrink) {
+            @$body['BatchTaskQuery'] = $request->batchTaskQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListBatchTasks',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBatchTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID.
+     *
+     * @param request - ListBatchTasksRequest
+     *
+     * @returns ListBatchTasksResponse
+     *
+     * @param ListBatchTasksRequest $request
+     *
+     * @return ListBatchTasksResponse
+     */
+    public function listBatchTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBatchTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -19566,6 +20037,83 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 获取项目角色列表.
+     *
+     * @remarks
+     * 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
+     * - BUILD_IN：内置角色
+     * - CUSTOM：自定义角色
+     * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+     *
+     * @param request - ListProjectRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectRolesResponse
+     *
+     * @param ListProjectRolesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListProjectRolesResponse
+     */
+    public function listProjectRolesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectType) {
+            @$query['ProjectType'] = $request->projectType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProjectRoles',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取项目角色列表.
+     *
+     * @remarks
+     * 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
+     * - BUILD_IN：内置角色
+     * - CUSTOM：自定义角色
+     * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+     *
+     * @param request - ListProjectRolesRequest
+     *
+     * @returns ListProjectRolesResponse
+     *
+     * @param ListProjectRolesRequest $request
+     *
+     * @return ListProjectRolesResponse
+     */
+    public function listProjectRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectRolesWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves a list of projects.
      *
      * @param tmpReq - ListProjectsRequest
@@ -20444,6 +20992,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 查询租户下的调度模板列表.
+     *
+     * @param tmpReq - ListScheduleTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScheduleTemplatesResponse
+     *
+     * @param ListScheduleTemplatesRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListScheduleTemplatesResponse
+     */
+    public function listScheduleTemplatesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListScheduleTemplatesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listScheduleTemplatesCommand) {
+            $request->listScheduleTemplatesCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listScheduleTemplatesCommand, 'ListScheduleTemplatesCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listScheduleTemplatesCommandShrink) {
+            @$body['ListScheduleTemplatesCommand'] = $request->listScheduleTemplatesCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListScheduleTemplates',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListScheduleTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询租户下的调度模板列表.
+     *
+     * @param request - ListScheduleTemplatesRequest
+     *
+     * @returns ListScheduleTemplatesResponse
+     *
+     * @param ListScheduleTemplatesRequest $request
+     *
+     * @return ListScheduleTemplatesResponse
+     */
+    public function listScheduleTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listScheduleTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the data classification list by paging.
      *
      * @param tmpReq - ListSecurityClassifyRequest
@@ -20956,6 +21577,79 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTenantMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取租户角色列表.
+     *
+     * @remarks
+     * 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
+     * - BUILD_IN：内置角色
+     * - CUSTOM：自定义角色（即租户自定义创建的角色）
+     * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+     *
+     * @param request - ListTenantRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTenantRolesResponse
+     *
+     * @param ListTenantRolesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListTenantRolesResponse
+     */
+    public function listTenantRolesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTenantRoles',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTenantRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取租户角色列表.
+     *
+     * @remarks
+     * 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
+     * - BUILD_IN：内置角色
+     * - CUSTOM：自定义角色（即租户自定义创建的角色）
+     * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+     *
+     * @param request - ListTenantRolesRequest
+     *
+     * @returns ListTenantRolesResponse
+     *
+     * @param ListTenantRolesRequest $request
+     *
+     * @return ListTenantRolesResponse
+     */
+    public function listTenantRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTenantRolesWithOptions($request, $runtime);
     }
 
     /**
@@ -22984,6 +23678,87 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 启动增全量一体化实例。
+     *
+     * @param tmpReq - StartPipelineIntegratedTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartPipelineIntegratedTaskResponse
+     *
+     * @param StartPipelineIntegratedTaskRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return StartPipelineIntegratedTaskResponse
+     */
+    public function startPipelineIntegratedTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new StartPipelineIntegratedTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->startCommand) {
+            $request->startCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->startCommand, 'StartCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->startCommandShrink) {
+            @$body['StartCommand'] = $request->startCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StartPipelineIntegratedTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartPipelineIntegratedTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动增全量一体化实例。
+     *
+     * @param request - StartPipelineIntegratedTaskRequest
+     *
+     * @returns StartPipelineIntegratedTaskResponse
+     *
+     * @param StartPipelineIntegratedTaskRequest $request
+     *
+     * @return StartPipelineIntegratedTaskResponse
+     */
+    public function startPipelineIntegratedTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startPipelineIntegratedTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Stops an ad hoc query task.
      *
      * @param request - StopAdHocTaskRequest
@@ -23050,6 +23825,87 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopAdHocTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量停止增全量一体化实例。
+     *
+     * @param tmpReq - StopPipelineIntegratedTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopPipelineIntegratedTaskResponse
+     *
+     * @param StopPipelineIntegratedTaskRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return StopPipelineIntegratedTaskResponse
+     */
+    public function stopPipelineIntegratedTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new StopPipelineIntegratedTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->stopCommand) {
+            $request->stopCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->stopCommand, 'StopCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->stopCommandShrink) {
+            @$body['StopCommand'] = $request->stopCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StopPipelineIntegratedTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopPipelineIntegratedTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量停止增全量一体化实例。
+     *
+     * @param request - StopPipelineIntegratedTaskRequest
+     *
+     * @returns StopPipelineIntegratedTaskResponse
+     *
+     * @param StopPipelineIntegratedTaskRequest $request
+     *
+     * @return StopPipelineIntegratedTaskResponse
+     */
+    public function stopPipelineIntegratedTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopPipelineIntegratedTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -23580,6 +24436,13 @@ class Dataphinpublic extends OpenApiClient
     /**
      * Synchronizes department member information.
      *
+     * @remarks
+     * 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
+     * 使用说明：
+     * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
+     * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
+     * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
+     *
      * @param tmpReq - SyncDepartmentUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -23634,6 +24497,13 @@ class Dataphinpublic extends OpenApiClient
 
     /**
      * Synchronizes department member information.
+     *
+     * @remarks
+     * 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
+     * 使用说明：
+     * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
+     * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
+     * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
      *
      * @param request - SyncDepartmentUserRequest
      *

@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\conditionScheduleParamList;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\contextParamList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\customScheduleConfig;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\paramList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\sparkClientInfo;
@@ -13,9 +15,44 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBod
 class taskInfo extends Model
 {
     /**
+     * @var int
+     */
+    public $baseScheduleTemplateId;
+
+    /**
+     * @var string
+     */
+    public $baseScheduleTemplateName;
+
+    /**
      * @var string
      */
     public $code;
+
+    /**
+     * @var bool
+     */
+    public $conditionScheduleEnable;
+
+    /**
+     * @var conditionScheduleParamList[]
+     */
+    public $conditionScheduleParamList;
+
+    /**
+     * @var int
+     */
+    public $conditionScheduleTemplateId;
+
+    /**
+     * @var string
+     */
+    public $conditionScheduleTemplateName;
+
+    /**
+     * @var contextParamList[]
+     */
+    public $contextParamList;
 
     /**
      * @var string
@@ -46,6 +83,21 @@ class taskInfo extends Model
      * @var string
      */
     public $dataSourceSchema;
+
+    /**
+     * @var string
+     */
+    public $devHttpPath;
+
+    /**
+     * @var string
+     */
+    public $devResourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $devResourceGroupName;
 
     /**
      * @var string
@@ -168,6 +220,11 @@ class taskInfo extends Model
     public $priority;
 
     /**
+     * @var string
+     */
+    public $prodHttpPath;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -190,6 +247,16 @@ class taskInfo extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupName;
+
+    /**
+     * @var string
+     */
     public $schedulePeriod;
 
     /**
@@ -208,6 +275,11 @@ class taskInfo extends Model
     public $status;
 
     /**
+     * @var string[]
+     */
+    public $taskTagList;
+
+    /**
      * @var int
      */
     public $taskType;
@@ -216,14 +288,34 @@ class taskInfo extends Model
      * @var upStreamList[]
      */
     public $upStreamList;
+
+    /**
+     * @var string
+     */
+    public $validEndDate;
+
+    /**
+     * @var string
+     */
+    public $validStartDate;
     protected $_name = [
+        'baseScheduleTemplateId' => 'BaseScheduleTemplateId',
+        'baseScheduleTemplateName' => 'BaseScheduleTemplateName',
         'code' => 'Code',
+        'conditionScheduleEnable' => 'ConditionScheduleEnable',
+        'conditionScheduleParamList' => 'ConditionScheduleParamList',
+        'conditionScheduleTemplateId' => 'ConditionScheduleTemplateId',
+        'conditionScheduleTemplateName' => 'ConditionScheduleTemplateName',
+        'contextParamList' => 'ContextParamList',
         'cronExpression' => 'CronExpression',
         'customScheduleConfig' => 'CustomScheduleConfig',
         'dagId' => 'DagId',
         'dataSourceCatalog' => 'DataSourceCatalog',
         'dataSourceId' => 'DataSourceId',
         'dataSourceSchema' => 'DataSourceSchema',
+        'devHttpPath' => 'DevHttpPath',
+        'devResourceGroupId' => 'DevResourceGroupId',
+        'devResourceGroupName' => 'DevResourceGroupName',
         'developOwnerId' => 'DevelopOwnerId',
         'developOwnerIdList' => 'DevelopOwnerIdList',
         'developOwnerName' => 'DevelopOwnerName',
@@ -248,20 +340,32 @@ class taskInfo extends Model
         'paramList' => 'ParamList',
         'paused' => 'Paused',
         'priority' => 'Priority',
+        'prodHttpPath' => 'ProdHttpPath',
         'projectId' => 'ProjectId',
         'published' => 'Published',
         'remark' => 'Remark',
         'rerunable' => 'Rerunable',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceGroupName' => 'ResourceGroupName',
         'schedulePeriod' => 'SchedulePeriod',
         'scheduleType' => 'ScheduleType',
         'sparkClientInfo' => 'SparkClientInfo',
         'status' => 'Status',
+        'taskTagList' => 'TaskTagList',
         'taskType' => 'TaskType',
         'upStreamList' => 'UpStreamList',
+        'validEndDate' => 'ValidEndDate',
+        'validStartDate' => 'ValidStartDate',
     ];
 
     public function validate()
     {
+        if (\is_array($this->conditionScheduleParamList)) {
+            Model::validateArray($this->conditionScheduleParamList);
+        }
+        if (\is_array($this->contextParamList)) {
+            Model::validateArray($this->contextParamList);
+        }
         if (null !== $this->customScheduleConfig) {
             $this->customScheduleConfig->validate();
         }
@@ -286,6 +390,9 @@ class taskInfo extends Model
         if (null !== $this->sparkClientInfo) {
             $this->sparkClientInfo->validate();
         }
+        if (\is_array($this->taskTagList)) {
+            Model::validateArray($this->taskTagList);
+        }
         if (\is_array($this->upStreamList)) {
             Model::validateArray($this->upStreamList);
         }
@@ -295,8 +402,50 @@ class taskInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->baseScheduleTemplateId) {
+            $res['BaseScheduleTemplateId'] = $this->baseScheduleTemplateId;
+        }
+
+        if (null !== $this->baseScheduleTemplateName) {
+            $res['BaseScheduleTemplateName'] = $this->baseScheduleTemplateName;
+        }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->conditionScheduleEnable) {
+            $res['ConditionScheduleEnable'] = $this->conditionScheduleEnable;
+        }
+
+        if (null !== $this->conditionScheduleParamList) {
+            if (\is_array($this->conditionScheduleParamList)) {
+                $res['ConditionScheduleParamList'] = [];
+                $n1 = 0;
+                foreach ($this->conditionScheduleParamList as $item1) {
+                    $res['ConditionScheduleParamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->conditionScheduleTemplateId) {
+            $res['ConditionScheduleTemplateId'] = $this->conditionScheduleTemplateId;
+        }
+
+        if (null !== $this->conditionScheduleTemplateName) {
+            $res['ConditionScheduleTemplateName'] = $this->conditionScheduleTemplateName;
+        }
+
+        if (null !== $this->contextParamList) {
+            if (\is_array($this->contextParamList)) {
+                $res['ContextParamList'] = [];
+                $n1 = 0;
+                foreach ($this->contextParamList as $item1) {
+                    $res['ContextParamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->cronExpression) {
@@ -321,6 +470,18 @@ class taskInfo extends Model
 
         if (null !== $this->dataSourceSchema) {
             $res['DataSourceSchema'] = $this->dataSourceSchema;
+        }
+
+        if (null !== $this->devHttpPath) {
+            $res['DevHttpPath'] = $this->devHttpPath;
+        }
+
+        if (null !== $this->devResourceGroupId) {
+            $res['DevResourceGroupId'] = $this->devResourceGroupId;
+        }
+
+        if (null !== $this->devResourceGroupName) {
+            $res['DevResourceGroupName'] = $this->devResourceGroupName;
         }
 
         if (null !== $this->developOwnerId) {
@@ -461,6 +622,10 @@ class taskInfo extends Model
             $res['Priority'] = $this->priority;
         }
 
+        if (null !== $this->prodHttpPath) {
+            $res['ProdHttpPath'] = $this->prodHttpPath;
+        }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -475,6 +640,14 @@ class taskInfo extends Model
 
         if (null !== $this->rerunable) {
             $res['Rerunable'] = $this->rerunable;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->resourceGroupName) {
+            $res['ResourceGroupName'] = $this->resourceGroupName;
         }
 
         if (null !== $this->schedulePeriod) {
@@ -493,6 +666,17 @@ class taskInfo extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->taskTagList) {
+            if (\is_array($this->taskTagList)) {
+                $res['TaskTagList'] = [];
+                $n1 = 0;
+                foreach ($this->taskTagList as $item1) {
+                    $res['TaskTagList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -508,6 +692,14 @@ class taskInfo extends Model
             }
         }
 
+        if (null !== $this->validEndDate) {
+            $res['ValidEndDate'] = $this->validEndDate;
+        }
+
+        if (null !== $this->validStartDate) {
+            $res['ValidStartDate'] = $this->validStartDate;
+        }
+
         return $res;
     }
 
@@ -519,8 +711,50 @@ class taskInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseScheduleTemplateId'])) {
+            $model->baseScheduleTemplateId = $map['BaseScheduleTemplateId'];
+        }
+
+        if (isset($map['BaseScheduleTemplateName'])) {
+            $model->baseScheduleTemplateName = $map['BaseScheduleTemplateName'];
+        }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+
+        if (isset($map['ConditionScheduleEnable'])) {
+            $model->conditionScheduleEnable = $map['ConditionScheduleEnable'];
+        }
+
+        if (isset($map['ConditionScheduleParamList'])) {
+            if (!empty($map['ConditionScheduleParamList'])) {
+                $model->conditionScheduleParamList = [];
+                $n1 = 0;
+                foreach ($map['ConditionScheduleParamList'] as $item1) {
+                    $model->conditionScheduleParamList[$n1] = conditionScheduleParamList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ConditionScheduleTemplateId'])) {
+            $model->conditionScheduleTemplateId = $map['ConditionScheduleTemplateId'];
+        }
+
+        if (isset($map['ConditionScheduleTemplateName'])) {
+            $model->conditionScheduleTemplateName = $map['ConditionScheduleTemplateName'];
+        }
+
+        if (isset($map['ContextParamList'])) {
+            if (!empty($map['ContextParamList'])) {
+                $model->contextParamList = [];
+                $n1 = 0;
+                foreach ($map['ContextParamList'] as $item1) {
+                    $model->contextParamList[$n1] = contextParamList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['CronExpression'])) {
@@ -545,6 +779,18 @@ class taskInfo extends Model
 
         if (isset($map['DataSourceSchema'])) {
             $model->dataSourceSchema = $map['DataSourceSchema'];
+        }
+
+        if (isset($map['DevHttpPath'])) {
+            $model->devHttpPath = $map['DevHttpPath'];
+        }
+
+        if (isset($map['DevResourceGroupId'])) {
+            $model->devResourceGroupId = $map['DevResourceGroupId'];
+        }
+
+        if (isset($map['DevResourceGroupName'])) {
+            $model->devResourceGroupName = $map['DevResourceGroupName'];
         }
 
         if (isset($map['DevelopOwnerId'])) {
@@ -685,6 +931,10 @@ class taskInfo extends Model
             $model->priority = $map['Priority'];
         }
 
+        if (isset($map['ProdHttpPath'])) {
+            $model->prodHttpPath = $map['ProdHttpPath'];
+        }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
@@ -699,6 +949,14 @@ class taskInfo extends Model
 
         if (isset($map['Rerunable'])) {
             $model->rerunable = $map['Rerunable'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ResourceGroupName'])) {
+            $model->resourceGroupName = $map['ResourceGroupName'];
         }
 
         if (isset($map['SchedulePeriod'])) {
@@ -717,6 +975,17 @@ class taskInfo extends Model
             $model->status = $map['Status'];
         }
 
+        if (isset($map['TaskTagList'])) {
+            if (!empty($map['TaskTagList'])) {
+                $model->taskTagList = [];
+                $n1 = 0;
+                foreach ($map['TaskTagList'] as $item1) {
+                    $model->taskTagList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
@@ -730,6 +999,14 @@ class taskInfo extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ValidEndDate'])) {
+            $model->validEndDate = $map['ValidEndDate'];
+        }
+
+        if (isset($map['ValidStartDate'])) {
+            $model->validStartDate = $map['ValidStartDate'];
         }
 
         return $model;
