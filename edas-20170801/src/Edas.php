@@ -211,6 +211,8 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListUserDefineRegionRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListUserDefineRegionResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListVpcResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\MigrateApplicationRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\MigrateApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\MigrateEcuRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\MigrateEcuResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ModifyScalingRuleRequest;
@@ -397,7 +399,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Terminates a change process and rolls back the application. This operation is applicable to applications that are deployed in Container Service for Kubernetes (ACK) clusters.
+     * You can call the AbortAndRollbackChangeOrder operation to stop and roll back a change order for applications in Container Service for Kubernetes (ACK) clusters.
      *
      * @param request - AbortAndRollbackChangeOrderRequest
      * @param headers - map
@@ -439,7 +441,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Terminates a change process and rolls back the application. This operation is applicable to applications that are deployed in Container Service for Kubernetes (ACK) clusters.
+     * You can call the AbortAndRollbackChangeOrder operation to stop and roll back a change order for applications in Container Service for Kubernetes (ACK) clusters.
      *
      * @param request - AbortAndRollbackChangeOrderRequest
      *
@@ -714,7 +716,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Assigns one or more roles to a RAM user.
+     * Grant permissions to RAM roles.
      *
      * @param request - AuthorizeRoleRequest
      * @param headers - map
@@ -760,7 +762,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Assigns one or more roles to a RAM user.
+     * Grant permissions to RAM roles.
      *
      * @param request - AuthorizeRoleRequest
      *
@@ -872,7 +874,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Binds a Server Load Balancer (SLB) instance to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+     * Attaches a Server Load Balancer (SLB) instance to an application in a Container Service for Kubernetes cluster.
      *
      * @param request - BindK8sSlbRequest
      * @param headers - map
@@ -950,7 +952,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Binds a Server Load Balancer (SLB) instance to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+     * Attaches a Server Load Balancer (SLB) instance to an application in a Container Service for Kubernetes cluster.
      *
      * @param request - BindK8sSlbRequest
      *
@@ -969,7 +971,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Binds a Server Load Balancer (SLB) instance to an application in Enterprise Distributed Application Service (EDAS).
+     * Calls the BindSlb operation to attach a Server Load Balancer (SLB) instance to a specified application.
      *
      * @param request - BindSlbRequest
      * @param headers - map
@@ -1031,7 +1033,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Binds a Server Load Balancer (SLB) instance to an application in Enterprise Distributed Application Service (EDAS).
+     * Calls the BindSlb operation to attach a Server Load Balancer (SLB) instance to a specified application.
      *
      * @param request - BindSlbRequest
      *
@@ -1050,7 +1052,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Changes the application instance group for an Elastic Compute Service (ECS) instance in an ECS cluster.
+     * Call the ChangeDeployGroup operation to change the group of an ECS instance in an application deployed in an ECS cluster.
      *
      * @param request - ChangeDeployGroupRequest
      * @param headers - map
@@ -1104,7 +1106,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Changes the application instance group for an Elastic Compute Service (ECS) instance in an ECS cluster.
+     * Call the ChangeDeployGroup operation to change the group of an ECS instance in an application deployed in an ECS cluster.
      *
      * @param request - ChangeDeployGroupRequest
      *
@@ -1188,7 +1190,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Converts a Deployment into an application.
+     * Converts a Deployment resource into an application.
      *
      * @param request - ConvertK8sResourceRequest
      * @param headers - map
@@ -1242,7 +1244,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Converts a Deployment into an application.
+     * Converts a Deployment resource into an application.
      *
      * @param request - ConvertK8sResourceRequest
      *
@@ -1261,7 +1263,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Creates an auto scaling policy for an application.
+     * Call the CreateApplicationScalingRule operation to create an Auto Scaling rule for an application.
      *
      * @param request - CreateApplicationScalingRuleRequest
      * @param headers - map
@@ -1331,7 +1333,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Creates an auto scaling policy for an application.
+     * Call the CreateApplicationScalingRule operation to create an Auto Scaling rule for an application.
      *
      * @param request - CreateApplicationScalingRuleRequest
      *
@@ -1812,7 +1814,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
+     * Call the DeleteApplication operation to delete an application instance.
      *
      * @param request - DeleteApplicationRequest
      * @param headers - map
@@ -1854,7 +1856,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
+     * Call the DeleteApplication operation to delete an application instance.
      *
      * @param request - DeleteApplicationRequest
      *
@@ -1873,7 +1875,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Deletes an auto scaling policy for an application.
+     * Deletes an Auto Scaling rule for an application.
      *
      * @param request - DeleteApplicationScalingRuleRequest
      * @param headers - map
@@ -1919,7 +1921,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Deletes an auto scaling policy for an application.
+     * Deletes an Auto Scaling rule for an application.
      *
      * @param request - DeleteApplicationScalingRuleRequest
      *
@@ -2592,7 +2594,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Removes a log directory from an application. This operation is applicable to applications that are deployed in Alibaba Cloud Elastic Compute Service (ECS) clusters and hybrid cloud ECS clusters.
+     * Deletes resources associated with a log directory. This operation is suitable for applications deployed on Alibaba Cloud Elastic Compute Service (ECS) instances or container orchestration clusters from other cloud providers.
      *
      * @param request - DeleteLogPathRequest
      * @param headers - map
@@ -2638,7 +2640,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Removes a log directory from an application. This operation is applicable to applications that are deployed in Alibaba Cloud Elastic Compute Service (ECS) clusters and hybrid cloud ECS clusters.
+     * Deletes resources associated with a log directory. This operation is suitable for applications deployed on Alibaba Cloud Elastic Compute Service (ECS) instances or container orchestration clusters from other cloud providers.
      *
      * @param request - DeleteLogPathRequest
      *
@@ -3028,7 +3030,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Deploys an application in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+     * Deploys an application in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
      *
      * @param request - DeployK8sApplicationRequest
      * @param headers - map
@@ -3342,7 +3344,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Deploys an application in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+     * Deploys an application in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
      *
      * @param request - DeployK8sApplicationRequest
      *
@@ -3426,7 +3428,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the auto scaling policies of an application.
+     * Call the DescribeApplicationScalingRules operation to query the scaling rules for an application.
      *
      * @param request - DescribeApplicationScalingRulesRequest
      * @param headers - map
@@ -3468,7 +3470,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the auto scaling policies of an application.
+     * Call the DescribeApplicationScalingRules operation to query the scaling rules for an application.
      *
      * @param request - DescribeApplicationScalingRulesRequest
      *
@@ -3487,6 +3489,11 @@ class Edas extends OpenApiClient
     }
 
     /**
+     * Queries the locality configuration.
+     *
+     * @remarks
+     * > Currently, only deployment resources can be modified.
+     *
      * @param request - DescribeLocalitySettingRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3535,6 +3542,11 @@ class Edas extends OpenApiClient
     }
 
     /**
+     * Queries the locality configuration.
+     *
+     * @remarks
+     * > Currently, only deployment resources can be modified.
+     *
      * @param request - DescribeLocalitySettingRequest
      *
      * @returns DescribeLocalitySettingResponse
@@ -3743,7 +3755,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the details about a specified application in an Elastic Compute Service (ECS) cluster.
+     * Retrieves information about a specified application in an ECS cluster.
      *
      * @param request - GetApplicationRequest
      * @param headers - map
@@ -3785,7 +3797,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the details about a specified application in an Elastic Compute Service (ECS) cluster.
+     * Retrieves information about a specified application in an ECS cluster.
      *
      * @param request - GetApplicationRequest
      *
@@ -3804,7 +3816,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the details about a change process.
+     * You can call the GetChangeOrderInfo operation to view the details of a change process.
      *
      * @param request - GetChangeOrderInfoRequest
      * @param headers - map
@@ -3846,7 +3858,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the details about a change process.
+     * You can call the GetChangeOrderInfo operation to view the details of a change process.
      *
      * @param request - GetChangeOrderInfoRequest
      *
@@ -4186,7 +4198,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the information about applications deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+     * Retrieves information about an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
      *
      * @param request - GetK8sApplicationRequest
      * @param headers - map
@@ -4232,7 +4244,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the information about applications deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+     * Retrieves information about an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
      *
      * @param request - GetK8sApplicationRequest
      *
@@ -4251,7 +4263,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes clusters in a specified region.
+     * Gets a list of Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes (ASK) clusters.
      *
      * @param request - GetK8sClusterRequest
      * @param headers - map
@@ -4309,7 +4321,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes clusters in a specified region.
+     * Gets a list of Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes (ASK) clusters.
      *
      * @param request - GetK8sClusterRequest
      *
@@ -4328,7 +4340,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries application services that are deployed in a Kubernetes cluster.
+     * Gets a list of Services for an application in a Kubernetes cluster.
      *
      * @param request - GetK8sServicesRequest
      * @param headers - map
@@ -4370,7 +4382,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries application services that are deployed in a Kubernetes cluster.
+     * Gets a list of Services for an application in a Kubernetes cluster.
      *
      * @param request - GetK8sServicesRequest
      *
@@ -5254,10 +5266,10 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Creates an application in an Elastic Compute Service (ECS) cluster.
+     * Creates an application in an ECS cluster.
      *
      * @remarks
-     * > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation provided by Enterprise Distributed Application Service (EDAS).
+     * > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation.
      *
      * @param request - InsertApplicationRequest
      * @param headers - map
@@ -5383,10 +5395,10 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Creates an application in an Elastic Compute Service (ECS) cluster.
+     * Creates an application in an ECS cluster.
      *
      * @remarks
-     * > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation provided by Enterprise Distributed Application Service (EDAS).
+     * > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation.
      *
      * @param request - InsertApplicationRequest
      *
@@ -5638,7 +5650,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Creates an application in a Container Service for Kubernetes (ACK) cluster or serverless Kubernetes cluster.
+     * Creates an application in a Kubernetes cluster or a Serverless Kubernetes cluster.
      *
      * @param request - InsertK8sApplicationRequest
      * @param headers - map
@@ -6020,7 +6032,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Creates an application in a Container Service for Kubernetes (ACK) cluster or serverless Kubernetes cluster.
+     * Creates an application in a Kubernetes cluster or a Serverless Kubernetes cluster.
      *
      * @param request - InsertK8sApplicationRequest
      *
@@ -6531,7 +6543,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries a list of applications.
+     * Retrieves the list of applications.
      *
      * @param request - ListApplicationRequest
      * @param headers - map
@@ -6601,7 +6613,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries a list of applications.
+     * Retrieves the list of applications.
      *
      * @param request - ListApplicationRequest
      *
@@ -6733,7 +6745,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries Enterprise Distributed Application Service (EDAS) Container versions.
+     * Calls the ListBuildPack operation to retrieve the list of container versions.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6766,7 +6778,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries Enterprise Distributed Application Service (EDAS) Container versions.
+     * Calls the ListBuildPack operation to retrieve the list of container versions.
      *
      * @returns ListBuildPackResponse
      *
@@ -7040,7 +7052,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the services that are consumed by an application.
+     * Queries consumed services.
      *
      * @param request - ListConsumedServicesRequest
      * @param headers - map
@@ -7082,7 +7094,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the services that are consumed by an application.
+     * Queries consumed services.
      *
      * @param request - ListConsumedServicesRequest
      *
@@ -7162,7 +7174,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the instance groups to which an application is deployed.
+     * Call the ListDeployGroup operation to obtain a list of deployment groups.
      *
      * @param request - ListDeployGroupRequest
      * @param headers - map
@@ -7204,7 +7216,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the instance groups to which an application is deployed.
+     * Call the ListDeployGroup operation to obtain a list of deployment groups.
      *
      * @param request - ListDeployGroupRequest
      *
@@ -7292,9 +7304,9 @@ class Edas extends OpenApiClient
      *
      * @remarks
      * ## Terms
-     * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
-     * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-     * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+     * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+     * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
      *
      * @param request - ListEcuByRegionRequest
      * @param headers - map
@@ -7344,9 +7356,9 @@ class Edas extends OpenApiClient
      *
      * @remarks
      * ## Terms
-     * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
-     * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-     * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+     * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+     * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
      *
      * @param request - ListEcuByRegionRequest
      *
@@ -7730,7 +7742,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries service methods.
+     * You can call the ListMethods operation to query a list of service methods.
      *
      * @param request - ListMethodsRequest
      * @param headers - map
@@ -7776,7 +7788,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries service methods.
+     * You can call the ListMethods operation to query a list of service methods.
      *
      * @param request - ListMethodsRequest
      *
@@ -7795,7 +7807,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the services that are published by an application.
+     * Queries published services.
      *
      * @param request - ListPublishedServicesRequest
      * @param headers - map
@@ -7837,7 +7849,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the services that are published by an application.
+     * Queries published services.
      *
      * @param request - ListPublishedServicesRequest
      *
@@ -7965,7 +7977,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries roles.
+     * Queries a list of roles.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7998,7 +8010,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries roles.
+     * Queries a list of roles.
      *
      * @returns ListRoleResponse
      *
@@ -8017,9 +8029,9 @@ class Edas extends OpenApiClient
      *
      * @remarks
      * ## Terms
-     * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
-     * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-     * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+     * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+     * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
      *
      * @param request - ListScaleOutEcuRequest
      * @param headers - map
@@ -8089,9 +8101,9 @@ class Edas extends OpenApiClient
      *
      * @remarks
      * ## Terms
-     * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
-     * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-     * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+     * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+     * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
      *
      * @param request - ListScaleOutEcuRequest
      *
@@ -8158,7 +8170,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries Server Load Balancer (SLB) instances.
+     * Retrieves a list of SLB instances.
      *
      * @param request - ListSlbRequest
      * @param headers - map
@@ -8208,7 +8220,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries Server Load Balancer (SLB) instances.
+     * Retrieves a list of SLB instances.
      *
      * @param request - ListSlbRequest
      *
@@ -8227,7 +8239,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the Resource Access Management (RAM) users.
+     * Queries a list of Resource Access Management (RAM) users.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8260,7 +8272,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the Resource Access Management (RAM) users.
+     * Queries a list of Resource Access Management (RAM) users.
      *
      * @returns ListSubAccountResponse
      *
@@ -8474,7 +8486,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries custom namespaces.
+     * Queries a list of user-defined namespaces.
      *
      * @param request - ListUserDefineRegionRequest
      * @param headers - map
@@ -8516,7 +8528,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries custom namespaces.
+     * Queries a list of user-defined namespaces.
      *
      * @param request - ListUserDefineRegionRequest
      *
@@ -8535,7 +8547,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * The HTTP status code returned.
+     * Queries virtual private clouds (VPCs). This operation is applicable to Elastic Compute Service (ECS) clusters and Kubernetes clusters.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8568,7 +8580,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * The HTTP status code returned.
+     * Queries virtual private clouds (VPCs). This operation is applicable to Elastic Compute Service (ECS) clusters and Kubernetes clusters.
      *
      * @returns ListVpcResponse
      *
@@ -8583,16 +8595,99 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Migrates an elastic compute unit (ECU) to the default cluster in a specified namespace.
+     * Migrates an application.
      *
      * @remarks
-     * ## Limits
-     * We recommend that you do not call this operation. Instead, we recommend that you call the TransformClusterMember operation. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
-     * When you call this operation to import an Elastic Compute Service (ECS) instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+     * > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
+     *
+     * @param request - MigrateApplicationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MigrateApplicationResponse
+     *
+     * @param MigrateApplicationRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return MigrateApplicationResponse
+     */
+    public function migrateApplicationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appIds) {
+            @$query['appIds'] = $request->appIds;
+        }
+
+        if (null !== $request->cmd) {
+            @$query['cmd'] = $request->cmd;
+        }
+
+        if (null !== $request->config) {
+            @$query['config'] = $request->config;
+        }
+
+        if (null !== $request->rawData) {
+            @$query['rawData'] = $request->rawData;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MigrateApplication',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v5/k8s/migrateK8sApp',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return MigrateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Migrates an application.
+     *
+     * @remarks
+     * > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
+     *
+     * @param request - MigrateApplicationRequest
+     *
+     * @returns MigrateApplicationResponse
+     *
+     * @param MigrateApplicationRequest $request
+     *
+     * @return MigrateApplicationResponse
+     */
+    public function migrateApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->migrateApplicationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Transfers an ECU to the default cluster in a specified namespace.
+     *
+     * @remarks
+     * ## Usage notes
+     * This API operation is deprecated. Use the TransformClusterMember operation instead. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
+     * This operation imports an Elastic Compute Service (ECS) instance and reinstalls its operating system. This process deletes all data on the instance. You must also reset the logon password. Before you import an instance, back up its data or make sure it contains no important data.
      * ## Terms
-     * *   **Namespace**: the logical concept that is used to isolate resources and microservices in Enterprise Distributed Application Service (EDAS). The resources include clusters, ECS instances, and applications. You can use a default or custom namespace. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources or microservices.
-     * *   **ECU**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-     * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     * - **Namespace**: A logical concept in Enterprise Distributed Application Service (EDAS) used to isolate resources and microservices. Resources include clusters, ECS instances, and applications. Namespaces can be default or custom. Each region has one default namespace and can have multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+     * - **ECU**: An ECS instance becomes an Elastic Compute Unit (ECU) after it is imported into a cluster.
+     * - **ECC**: An ECU in a cluster becomes an Elastic Compute Container (ECC) after it is deployed in an application.
      *
      * @param request - MigrateEcuRequest
      * @param headers - map
@@ -8638,16 +8733,16 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Migrates an elastic compute unit (ECU) to the default cluster in a specified namespace.
+     * Transfers an ECU to the default cluster in a specified namespace.
      *
      * @remarks
-     * ## Limits
-     * We recommend that you do not call this operation. Instead, we recommend that you call the TransformClusterMember operation. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
-     * When you call this operation to import an Elastic Compute Service (ECS) instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+     * ## Usage notes
+     * This API operation is deprecated. Use the TransformClusterMember operation instead. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
+     * This operation imports an Elastic Compute Service (ECS) instance and reinstalls its operating system. This process deletes all data on the instance. You must also reset the logon password. Before you import an instance, back up its data or make sure it contains no important data.
      * ## Terms
-     * *   **Namespace**: the logical concept that is used to isolate resources and microservices in Enterprise Distributed Application Service (EDAS). The resources include clusters, ECS instances, and applications. You can use a default or custom namespace. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources or microservices.
-     * *   **ECU**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-     * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+     * - **Namespace**: A logical concept in Enterprise Distributed Application Service (EDAS) used to isolate resources and microservices. Resources include clusters, ECS instances, and applications. Namespaces can be default or custom. Each region has one default namespace and can have multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+     * - **ECU**: An ECS instance becomes an Elastic Compute Unit (ECU) after it is imported into a cluster.
+     * - **ECC**: An ECU in a cluster becomes an Elastic Compute Container (ECC) after it is deployed in an application.
      *
      * @param request - MigrateEcuRequest
      *
@@ -9273,7 +9368,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Restarts an application. This operation is applicable to applications that are deployed in Elastic Compute Service (ECS) clusters.
+     * Restarts an application. This operation is suitable for applications that are deployed on Elastic Compute Service (ECS) instances.
      *
      * @param request - RestartApplicationRequest
      * @param headers - map
@@ -9319,7 +9414,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Restarts an application. This operation is applicable to applications that are deployed in Elastic Compute Service (ECS) clusters.
+     * Restarts an application. This operation is suitable for applications that are deployed on Elastic Compute Service (ECS) instances.
      *
      * @param request - RestartApplicationRequest
      *
@@ -9338,7 +9433,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Restarts an application that is deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+     * Call the RestartK8sApplication operation to restart an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
      *
      * @param request - RestartK8sApplicationRequest
      * @param headers - map
@@ -9384,7 +9479,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Restarts an application that is deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+     * Call the RestartK8sApplication operation to restart an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
      *
      * @param request - RestartK8sApplicationRequest
      *
@@ -9403,7 +9498,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Retries a failed process.
+     * Call the RetryChangeOrderTask operation to retry a failed change order task.
      *
      * @param request - RetryChangeOrderTaskRequest
      * @param headers - map
@@ -9449,7 +9544,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Retries a failed process.
+     * Call the RetryChangeOrderTask operation to retry a failed change order task.
      *
      * @param request - RetryChangeOrderTaskRequest
      *
@@ -9606,7 +9701,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Scales in an application.
+     * Scales in the instances of an application.
      *
      * @param request - ScaleInApplicationRequest
      * @param headers - map
@@ -9656,7 +9751,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Scales in an application.
+     * Scales in the instances of an application.
      *
      * @param request - ScaleInApplicationRequest
      *
@@ -9675,7 +9770,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Scales out or in an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+     * Scales out or scales down application instances in a Container Service for Kubernetes (K8s) cluster.
      *
      * @param request - ScaleK8sApplicationRequest
      * @param headers - map
@@ -9725,7 +9820,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Scales out or in an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+     * Scales out or scales down application instances in a Container Service for Kubernetes (K8s) cluster.
      *
      * @param request - ScaleK8sApplicationRequest
      *
@@ -10148,7 +10243,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Starts an application in a Container Service for Kubernetes (ACK) cluster or Serverless Kubernetes cluster.
+     * Starts an application in a Container Service for Kubernetes (ACK) or Serverless Kubernetes (ASK) cluster.
      *
      * @param request - StartK8sApplicationRequest
      * @param headers - map
@@ -10198,7 +10293,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Starts an application in a Container Service for Kubernetes (ACK) cluster or Serverless Kubernetes cluster.
+     * Starts an application in a Container Service for Kubernetes (ACK) or Serverless Kubernetes (ASK) cluster.
      *
      * @param request - StartK8sApplicationRequest
      *
@@ -10562,11 +10657,11 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Imports or migrates one or more Elastic Compute Service (ECS) instances to a cluster.
+     * Imports or transfers ECS instances.
      *
      * @remarks
-     * ## Limits
-     * When you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+     * ## Limitations
+     * Calling this API to import an ECS instance reinstalls its operating system. This process deletes all data on the instance and requires you to reset the logon password. Before you import the instance, back up any important data.
      *
      * @param request - TransformClusterMemberRequest
      * @param headers - map
@@ -10616,11 +10711,11 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Imports or migrates one or more Elastic Compute Service (ECS) instances to a cluster.
+     * Imports or transfers ECS instances.
      *
      * @remarks
-     * ## Limits
-     * When you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+     * ## Limitations
+     * Calling this API to import an ECS instance reinstalls its operating system. This process deletes all data on the instance and requires you to reset the logon password. Before you import the instance, back up any important data.
      *
      * @param request - TransformClusterMemberRequest
      *
@@ -10712,7 +10807,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Unbinds a Server Load Balancer (SLB) instance from an application.
+     * Call the UnbindSlb operation to detach a Server Load Balancer (SLB) instance.
      *
      * @param request - UnbindSlbRequest
      * @param headers - map
@@ -10766,7 +10861,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Unbinds a Server Load Balancer (SLB) instance from an application.
+     * Call the UnbindSlb operation to detach a Server Load Balancer (SLB) instance.
      *
      * @param request - UnbindSlbRequest
      *
@@ -10862,7 +10957,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Modifies the information about an account.
+     * Modifies information about an account.
      *
      * @param request - UpdateAccountInfoRequest
      * @param headers - map
@@ -10912,7 +11007,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Modifies the information about an account.
+     * Modifies information about an account.
      *
      * @param request - UpdateAccountInfoRequest
      *
@@ -10931,7 +11026,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Modifies the name, description, and owner of an application.
+     * Updates the basic information such as the description and owner of an application.
      *
      * @param request - UpdateApplicationBaseInfoRequest
      * @param headers - map
@@ -10985,7 +11080,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Modifies the name, description, and owner of an application.
+     * Updates the basic information such as the description and owner of an application.
      *
      * @param request - UpdateApplicationBaseInfoRequest
      *
@@ -11004,7 +11099,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Modifies an auto scaling policy for an application.
+     * Calls the UpdateApplicationScalingRule operation to update the Auto Scaling rule for an application.
      *
      * @param request - UpdateApplicationScalingRuleRequest
      * @param headers - map
@@ -11074,7 +11169,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Modifies an auto scaling policy for an application.
+     * Calls the UpdateApplicationScalingRule operation to update the Auto Scaling rule for an application.
      *
      * @param request - UpdateApplicationScalingRuleRequest
      *
@@ -11867,7 +11962,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Updates a specified resource in a Kubernetes cluster.
+     * Update Kubernetes resources.
      *
      * @remarks
      * > You can update only Deployments.
@@ -11920,7 +12015,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Updates a specified resource in a Kubernetes cluster.
+     * Update Kubernetes resources.
      *
      * @remarks
      * > You can update only Deployments.
@@ -12108,7 +12203,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Updates the Server Load Balancer (SLB) instance bound to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+     * Call UpdateK8sSlb to update the Server Load Balancer (SLB) instance attached to a Container Service for Kubernetes application.
      *
      * @param request - UpdateK8sSlbRequest
      * @param headers - map
@@ -12190,7 +12285,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Updates the Server Load Balancer (SLB) instance bound to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+     * Call UpdateK8sSlb to update the Server Load Balancer (SLB) instance attached to a Container Service for Kubernetes application.
      *
      * @param request - UpdateK8sSlbRequest
      *
@@ -12209,7 +12304,10 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * 更新本地设置.
+     * Updates a localization configuration.
+     *
+     * @remarks
+     * > This operation modifies only Deployment resources.
      *
      * @param request - UpdateLocalitySettingRequest
      * @param headers - map
@@ -12267,7 +12365,10 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * 更新本地设置.
+     * Updates a localization configuration.
+     *
+     * @remarks
+     * > This operation modifies only Deployment resources.
      *
      * @param request - UpdateLocalitySettingRequest
      *
@@ -12416,7 +12517,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * 更新泳道.
+     * Updates a swimming lane.
      *
      * @param request - UpdateSwimmingLaneRequest
      * @param headers - map
@@ -12474,7 +12575,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * 更新泳道.
+     * Updates a swimming lane.
      *
      * @param request - UpdateSwimmingLaneRequest
      *
