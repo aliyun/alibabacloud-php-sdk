@@ -840,6 +840,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeContainerHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeContainerRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeContainerResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeContainerShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokePageHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokePageRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokePageResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokePageShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeSkillHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeSkillRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeSkillResponse;
@@ -927,6 +931,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTicketOperateRecordRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTicketOperateRecordResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTicketOperateRecordShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTicketOperateRecordShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListUserAuthorizedResourcesHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListUserAuthorizedResourcesRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListUserAuthorizedResourcesResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListUserAuthorizedResourcesShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesResponse;
@@ -18819,6 +18827,86 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * 调用页面操作.
+     *
+     * @param request - InvokePageRequest
+     * @param tmpHeader - InvokePageHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokePageResponse
+     *
+     * @param InvokePageRequest $request
+     * @param InvokePageHeaders $tmpHeader
+     * @param RuntimeOptions    $runtime
+     *
+     * @return InvokePageResponse
+     */
+    public function invokePageWithOptions($request, $tmpHeader, $runtime)
+    {
+        $request->validate();
+        $headers = new InvokePageShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'accountContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->operationId) {
+            @$body['operationId'] = $request->operationId;
+        }
+
+        if (null !== $request->params) {
+            @$body['params'] = $request->params;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['accountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InvokePage',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/spi/ai/v1/page/invoke',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InvokePageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 调用页面操作.
+     *
+     * @param request - InvokePageRequest
+     *
+     * @returns InvokePageResponse
+     *
+     * @param InvokePageRequest $request
+     *
+     * @return InvokePageResponse
+     */
+    public function invokePage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new InvokePageHeaders([]);
+
+        return $this->invokePageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 调用AI技能.
      *
      * @param tmpReq - InvokeSkillRequest
@@ -20730,6 +20818,90 @@ class Aliding extends OpenApiClient
         $headers = new ListTicketOperateRecordHeaders([]);
 
         return $this->listTicketOperateRecordWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询当前登录用户在指定权限点、指定资源类型下已授权的资源列表.
+     *
+     * @param request - ListUserAuthorizedResourcesRequest
+     * @param tmpHeader - ListUserAuthorizedResourcesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserAuthorizedResourcesResponse
+     *
+     * @param ListUserAuthorizedResourcesRequest $request
+     * @param ListUserAuthorizedResourcesHeaders $tmpHeader
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListUserAuthorizedResourcesResponse
+     */
+    public function listUserAuthorizedResourcesWithOptions($request, $tmpHeader, $runtime)
+    {
+        $request->validate();
+        $headers = new ListUserAuthorizedResourcesShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->permissionCode) {
+            @$body['PermissionCode'] = $request->permissionCode;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserAuthorizedResources',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/skill/listUserAuthorizedResources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserAuthorizedResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询当前登录用户在指定权限点、指定资源类型下已授权的资源列表.
+     *
+     * @param request - ListUserAuthorizedResourcesRequest
+     *
+     * @returns ListUserAuthorizedResourcesResponse
+     *
+     * @param ListUserAuthorizedResourcesRequest $request
+     *
+     * @return ListUserAuthorizedResourcesResponse
+     */
+    public function listUserAuthorizedResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListUserAuthorizedResourcesHeaders([]);
+
+        return $this->listUserAuthorizedResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**

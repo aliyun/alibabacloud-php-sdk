@@ -1,3 +1,11 @@
+2026-10-08 Version: 2.51.0
+- Support API InvokePage.
+- Support API ListUserAuthorizedResources.
+- Update API InvokeAssistant: add request parameters body.messages.$.content.extensions.
+- Update API InvokeAssistant: add request parameters body.messages.$.content.metadata.
+- Update API InvokeAssistant: add request parameters body.messages.$.content.parts.
+
+
 2026-09-21 Version: 2.50.0
 - Support API GenerateAuthCode.
 - Support API GetUserDocumentPermission.
