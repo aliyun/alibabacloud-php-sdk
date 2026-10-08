@@ -37,6 +37,11 @@ class output extends Model
     public $speed;
 
     /**
+     * @var float
+     */
+    public $targetDuration;
+
+    /**
      * @var string
      */
     public $URI;
@@ -51,6 +56,7 @@ class output extends Model
         'maxDuration' => 'MaxDuration',
         'segment' => 'Segment',
         'speed' => 'Speed',
+        'targetDuration' => 'TargetDuration',
         'URI' => 'URI',
         'video' => 'Video',
     ];
@@ -92,6 +98,10 @@ class output extends Model
             $res['Speed'] = $this->speed;
         }
 
+        if (null !== $this->targetDuration) {
+            $res['TargetDuration'] = $this->targetDuration;
+        }
+
         if (null !== $this->URI) {
             $res['URI'] = $this->URI;
         }
@@ -129,6 +139,10 @@ class output extends Model
 
         if (isset($map['Speed'])) {
             $model->speed = $map['Speed'];
+        }
+
+        if (isset($map['TargetDuration'])) {
+            $model->targetDuration = $map['TargetDuration'];
         }
 
         if (isset($map['URI'])) {

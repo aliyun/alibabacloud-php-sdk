@@ -17,13 +17,22 @@ class ImageInsight extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var MultilingualContentEntry[]
+     */
+    public $multilingualContent;
     protected $_name = [
         'caption' => 'Caption',
         'description' => 'Description',
+        'multilingualContent' => 'MultilingualContent',
     ];
 
     public function validate()
     {
+        if (\is_array($this->multilingualContent)) {
+            Model::validateArray($this->multilingualContent);
+        }
         parent::validate();
     }
 
@@ -36,6 +45,15 @@ class ImageInsight extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->multilingualContent) {
+            if (\is_array($this->multilingualContent)) {
+                $res['MultilingualContent'] = [];
+                foreach ($this->multilingualContent as $key1 => $value1) {
+                    $res['MultilingualContent'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
         }
 
         return $res;
@@ -55,6 +73,15 @@ class ImageInsight extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['MultilingualContent'])) {
+            if (!empty($map['MultilingualContent'])) {
+                $model->multilingualContent = [];
+                foreach ($map['MultilingualContent'] as $key1 => $value1) {
+                    $model->multilingualContent[$key1] = MultilingualContentEntry::fromMap($value1);
+                }
+            }
         }
 
         return $model;
