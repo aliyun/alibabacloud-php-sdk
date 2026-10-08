@@ -46,6 +46,11 @@ class dataSources extends Model
     /**
      * @var string
      */
+    public $roleArn;
+
+    /**
+     * @var string
+     */
     public $roleChain;
 
     /**
@@ -60,6 +65,7 @@ class dataSources extends Model
         'mountAccess' => 'MountAccess',
         'mountPath' => 'MountPath',
         'options' => 'Options',
+        'roleArn' => 'RoleArn',
         'roleChain' => 'RoleChain',
         'uri' => 'Uri',
     ];
@@ -98,6 +104,10 @@ class dataSources extends Model
 
         if (null !== $this->options) {
             $res['Options'] = $this->options;
+        }
+
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
         }
 
         if (null !== $this->roleChain) {
@@ -145,6 +155,10 @@ class dataSources extends Model
 
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
+        }
+
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
         }
 
         if (isset($map['RoleChain'])) {
