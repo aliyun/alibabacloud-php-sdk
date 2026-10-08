@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Marketing_event\V20210101\Models\FindGuestCredentialsRecord
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\FindGuestCredentialsRecordResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\FindGuestTicketRecordRequest;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\FindGuestTicketRecordResponse;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\MosCheckInRequest;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\MosCheckInResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryAllActivityInfoRequest;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryAllActivityInfoResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryOrderSessionListPopRequest;
@@ -599,6 +601,71 @@ class Marketing_event extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->findGuestTicketRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * MOS活动签到.
+     *
+     * @param request - MosCheckInRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MosCheckInResponse
+     *
+     * @param MosCheckInRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return MosCheckInResponse
+     */
+    public function mosCheckInWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->activityId) {
+            @$body['ActivityId'] = $request->activityId;
+        }
+
+        if (null !== $request->extParam) {
+            @$body['ExtParam'] = $request->extParam;
+        }
+
+        if (null !== $request->qrCode) {
+            @$body['QrCode'] = $request->qrCode;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MosCheckIn',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MosCheckInResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * MOS活动签到.
+     *
+     * @param request - MosCheckInRequest
+     *
+     * @returns MosCheckInResponse
+     *
+     * @param MosCheckInRequest $request
+     *
+     * @return MosCheckInResponse
+     */
+    public function mosCheckIn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mosCheckInWithOptions($request, $runtime);
     }
 
     /**
