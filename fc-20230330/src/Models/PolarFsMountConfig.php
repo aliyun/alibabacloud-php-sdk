@@ -11,6 +11,11 @@ class PolarFsMountConfig extends Model
     /**
      * @var string
      */
+    public $extraOptions;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -28,6 +33,7 @@ class PolarFsMountConfig extends Model
      */
     public $remoteDir;
     protected $_name = [
+        'extraOptions' => 'extraOptions',
         'instanceId' => 'instanceId',
         'mountDir' => 'mountDir',
         'readOnly' => 'readOnly',
@@ -42,6 +48,10 @@ class PolarFsMountConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->extraOptions) {
+            $res['extraOptions'] = $this->extraOptions;
+        }
+
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
@@ -69,6 +79,10 @@ class PolarFsMountConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['extraOptions'])) {
+            $model->extraOptions = $map['extraOptions'];
+        }
+
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
