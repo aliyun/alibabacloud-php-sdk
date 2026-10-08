@@ -42,6 +42,11 @@ class ListHistoricalSkillGroupReportRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var bool
+     */
+    public $summarizeByInstanceId;
     protected $_name = [
         'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
@@ -50,6 +55,7 @@ class ListHistoricalSkillGroupReportRequest extends Model
         'pageSize' => 'PageSize',
         'skillGroupIdList' => 'SkillGroupIdList',
         'startTime' => 'StartTime',
+        'summarizeByInstanceId' => 'SummarizeByInstanceId',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class ListHistoricalSkillGroupReportRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->summarizeByInstanceId) {
+            $res['SummarizeByInstanceId'] = $this->summarizeByInstanceId;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class ListHistoricalSkillGroupReportRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['SummarizeByInstanceId'])) {
+            $model->summarizeByInstanceId = $map['SummarizeByInstanceId'];
         }
 
         return $model;
