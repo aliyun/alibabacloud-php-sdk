@@ -283,9 +283,8 @@ class Domain extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
+        $this->_endpointRule = 'central';
         $this->_endpointMap = [
-            'cn-hangzhou' => 'domain.aliyuncs.com',
             'ap-southeast-1' => 'domain-intl.aliyuncs.com',
         ];
         $this->checkConfig($config);
@@ -1616,7 +1615,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 域名知识库检索.
+     * Retrieves information from the domain name knowledge base.
      *
      * @param request - DomainKnowledgeRetrieveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1663,7 +1662,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 域名知识库检索.
+     * Retrieves information from the domain name knowledge base.
      *
      * @param request - DomainKnowledgeRetrieveRequest
      *
@@ -4394,12 +4393,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Call the QueryRegistrantProfiles API to query the domain information templates in your account.
+     * Queries the domain name registrant profiles under the current account.
      *
      * @remarks
-     * You can use optional parameters to refine your search for information templates. For example:
-     * - If you know the information template ID, you can provide it to retrieve its details.
-     * - If you do not know the information template ID, you can provide other parameters, such as the registrant name, to retrieve template details.
+     * You can pass in optional parameters to help you find registrant profiles more precisely. For example:
+     * - If you already know the ID of a registrant profile, you can pass in the registrant profile ID to query detailed profile information.
+     * - If you do not know the ID of a registrant profile, you can pass in parameters such as the domain name registrant name to query detailed profile information.
      *
      * @param request - QueryRegistrantProfilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4486,12 +4485,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Call the QueryRegistrantProfiles API to query the domain information templates in your account.
+     * Queries the domain name registrant profiles under the current account.
      *
      * @remarks
-     * You can use optional parameters to refine your search for information templates. For example:
-     * - If you know the information template ID, you can provide it to retrieve its details.
-     * - If you do not know the information template ID, you can provide other parameters, such as the registrant name, to retrieve template details.
+     * You can pass in optional parameters to help you find registrant profiles more precisely. For example:
+     * - If you already know the ID of a registrant profile, you can pass in the registrant profile ID to query detailed profile information.
+     * - If you do not know the ID of a registrant profile, you can pass in parameters such as the domain name registrant name to query detailed profile information.
      *
      * @param request - QueryRegistrantProfilesRequest
      *
@@ -4659,7 +4658,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Call `QueryTaskDetailList` to retrieve a paginated list of task details for a specified domain name.
+     * Queries the details list of a specified domain name task by paging.
      *
      * @param request - QueryTaskDetailListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4726,7 +4725,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Call `QueryTaskDetailList` to retrieve a paginated list of task details for a specified domain name.
+     * Queries the details list of a specified domain name task by paging.
      *
      * @param request - QueryTaskDetailListRequest
      *
@@ -5476,15 +5475,15 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Submit a batch domain name registration job.
+     * Submits a batch domain name registration task.
      *
      * @remarks
-     * Starting March 1, 2022, you can register domain names only by using an identity-verified domain name registrant profile. Passing in registrant information directly during registration is no longer supported.
-     * To register a domain name, you must provide the domain name you want to register, the registrant information, and DNS settings. You must associate the registrant information with a verified domain name registrant profile ID. For DNS, you can either use the default Alibaba Cloud DNS or specify a custom DNS.
+     * Starting from March 1, 2022, domain names can only be registered by using real-name verified domain name registrant profiles. Passing registrant information directly to register domain names is no longer supported.
+     * To register a domain name, you must specify associated domain name to be registered, associated domain name registrant information, and the DNS servers. You must associate associated domain name registrant information by using the ID of a real-name verified domain name registrant profile. For DNS servers, you can use the default Alibaba Cloud DNS or specify custom DNS servers.
      * > - The total number of domain names registered per week cannot exceed 100,000.
-     * > - Payment for registration can only be made using the cash balance in your account; credit is not supported.
-     * > - The format of request parameters for the **SaveBatchTaskForCreatingOrderActivate** API is OrderActivateParam.N.*, where N represents the index of the domain name being passed in.
-     * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+     * > - Registration payments can only be made by using the account cash balance. Credit limits are not supported.
+     * - The request parameter format for the **SaveBatchTaskForCreatingOrderActivate** operation is OrderActivateParam.N.*, where N represents the sequence number of associated domain name.
+     * To query the task execution result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
      *
      * @param request - SaveBatchTaskForCreatingOrderActivateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5547,15 +5546,15 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Submit a batch domain name registration job.
+     * Submits a batch domain name registration task.
      *
      * @remarks
-     * Starting March 1, 2022, you can register domain names only by using an identity-verified domain name registrant profile. Passing in registrant information directly during registration is no longer supported.
-     * To register a domain name, you must provide the domain name you want to register, the registrant information, and DNS settings. You must associate the registrant information with a verified domain name registrant profile ID. For DNS, you can either use the default Alibaba Cloud DNS or specify a custom DNS.
+     * Starting from March 1, 2022, domain names can only be registered by using real-name verified domain name registrant profiles. Passing registrant information directly to register domain names is no longer supported.
+     * To register a domain name, you must specify associated domain name to be registered, associated domain name registrant information, and the DNS servers. You must associate associated domain name registrant information by using the ID of a real-name verified domain name registrant profile. For DNS servers, you can use the default Alibaba Cloud DNS or specify custom DNS servers.
      * > - The total number of domain names registered per week cannot exceed 100,000.
-     * > - Payment for registration can only be made using the cash balance in your account; credit is not supported.
-     * > - The format of request parameters for the **SaveBatchTaskForCreatingOrderActivate** API is OrderActivateParam.N.*, where N represents the index of the domain name being passed in.
-     * You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+     * > - Registration payments can only be made by using the account cash balance. Credit limits are not supported.
+     * - The request parameter format for the **SaveBatchTaskForCreatingOrderActivate** operation is OrderActivateParam.N.*, where N represents the sequence number of associated domain name.
+     * To query the task execution result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
      *
      * @param request - SaveBatchTaskForCreatingOrderActivateRequest
      *
@@ -7457,12 +7456,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Submit a domain name registration job.
+     * Submits a domain name registration task.
      *
      * @remarks
-     * Starting March 1, 2022, you can register a domain name only by using a domain name registrant profile that has passed identity verification. Submitting registrant information directly during registration is no longer supported.
-     * To register a domain name, you must provide the domain name you want to register, the registrant information, and DNS settings. You must associate the registrant information with a verified domain name registrant profile by specifying its ID. For DNS, you can either use Alibaba Cloud DNS by default or specify a Custom DNS.
-     * You can query the job execution result by calling the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+     * Starting from March 1, 2022, you can associated domain names only by using real-name verified domain name registrant profiles. Passing registrant information directly to associated domain names is no longer supported.
+     * To register a domain name, you must specify the domain name, registrant information, and DNS servers. You must associate the registrant information with a real-name verified domain name registrant profile by specifying the profile ID. You can use the default Alibaba Cloud DNS servers or specify custom DNS servers.
+     * You can call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation to query the task execution result.
      *
      * @param request - SaveSingleTaskForCreatingOrderActivateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7516,6 +7515,10 @@ class Domain extends OpenApiClient
 
         if (null !== $request->enableDomainProxy) {
             @$query['EnableDomainProxy'] = $request->enableDomainProxy;
+        }
+
+        if (null !== $request->expectedPunycode) {
+            @$query['ExpectedPunycode'] = $request->expectedPunycode;
         }
 
         if (null !== $request->lang) {
@@ -7629,12 +7632,12 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Submit a domain name registration job.
+     * Submits a domain name registration task.
      *
      * @remarks
-     * Starting March 1, 2022, you can register a domain name only by using a domain name registrant profile that has passed identity verification. Submitting registrant information directly during registration is no longer supported.
-     * To register a domain name, you must provide the domain name you want to register, the registrant information, and DNS settings. You must associate the registrant information with a verified domain name registrant profile by specifying its ID. For DNS, you can either use Alibaba Cloud DNS by default or specify a Custom DNS.
-     * You can query the job execution result by calling the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+     * Starting from March 1, 2022, you can associated domain names only by using real-name verified domain name registrant profiles. Passing registrant information directly to associated domain names is no longer supported.
+     * To register a domain name, you must specify the domain name, registrant information, and DNS servers. You must associate the registrant information with a real-name verified domain name registrant profile by specifying the profile ID. You can use the default Alibaba Cloud DNS servers or specify custom DNS servers.
+     * You can call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation to query the task execution result.
      *
      * @param request - SaveSingleTaskForCreatingOrderActivateRequest
      *
@@ -9832,11 +9835,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Use this operation to enable or disable auto-renewal for a domain.
+     * Sets or cancels auto-renewal for a domain name.
      *
      * @remarks
-     * This operation currently supports only domains on the Mainland China site.
-     * **Before you call this operation, review the billing methods and [price](https://wanwang.aliyun.com/help/price.html?spm=5176.22941859.J_9989412330.10.68a51838KnzTeD) for the domain product.**
+     * This operation currently supports only domain names registered on the China site (aliyun.com).
+     * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://wanwang.aliyun.com/help/price.html?spm=5176.22941859.J_9989412330.10.68a51838KnzTeD) of domain name services.**
      *
      * @param request - SetupDomainAutoRenewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9879,11 +9882,11 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Use this operation to enable or disable auto-renewal for a domain.
+     * Sets or cancels auto-renewal for a domain name.
      *
      * @remarks
-     * This operation currently supports only domains on the Mainland China site.
-     * **Before you call this operation, review the billing methods and [price](https://wanwang.aliyun.com/help/price.html?spm=5176.22941859.J_9989412330.10.68a51838KnzTeD) for the domain product.**
+     * This operation currently supports only domain names registered on the China site (aliyun.com).
+     * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://wanwang.aliyun.com/help/price.html?spm=5176.22941859.J_9989412330.10.68a51838KnzTeD) of domain name services.**
      *
      * @param request - SetupDomainAutoRenewRequest
      *

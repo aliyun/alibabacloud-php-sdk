@@ -1,3 +1,8 @@
+2026-10-08 Version: 5.1.1
+- Update API SaveBatchTaskForCreatingOrderActivate: add request parameters OrderActivateParam.$.ExpectedPunycode.
+- Update API SaveSingleTaskForCreatingOrderActivate: add request parameters ExpectedPunycode.
+
+
 2026-07-30 Version: 5.1.0
 - Support API DomainKnowledgeRetrieve.
 

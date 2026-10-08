@@ -54,6 +54,11 @@ class orderActivateParam extends Model
     public $enableDomainProxy;
 
     /**
+     * @var string
+     */
+    public $expectedPunycode;
+
+    /**
      * @var bool
      */
     public $permitPremiumActivation;
@@ -152,6 +157,7 @@ class orderActivateParam extends Model
         'domainName' => 'DomainName',
         'email' => 'Email',
         'enableDomainProxy' => 'EnableDomainProxy',
+        'expectedPunycode' => 'ExpectedPunycode',
         'permitPremiumActivation' => 'PermitPremiumActivation',
         'postalCode' => 'PostalCode',
         'province' => 'Province',
@@ -214,6 +220,10 @@ class orderActivateParam extends Model
 
         if (null !== $this->enableDomainProxy) {
             $res['EnableDomainProxy'] = $this->enableDomainProxy;
+        }
+
+        if (null !== $this->expectedPunycode) {
+            $res['ExpectedPunycode'] = $this->expectedPunycode;
         }
 
         if (null !== $this->permitPremiumActivation) {
@@ -333,6 +343,10 @@ class orderActivateParam extends Model
 
         if (isset($map['EnableDomainProxy'])) {
             $model->enableDomainProxy = $map['EnableDomainProxy'];
+        }
+
+        if (isset($map['ExpectedPunycode'])) {
+            $model->expectedPunycode = $map['ExpectedPunycode'];
         }
 
         if (isset($map['PermitPremiumActivation'])) {

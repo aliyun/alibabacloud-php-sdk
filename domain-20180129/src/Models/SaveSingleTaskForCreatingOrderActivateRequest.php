@@ -61,6 +61,11 @@ class SaveSingleTaskForCreatingOrderActivateRequest extends Model
     /**
      * @var string
      */
+    public $expectedPunycode;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -183,6 +188,7 @@ class SaveSingleTaskForCreatingOrderActivateRequest extends Model
         'domainName' => 'DomainName',
         'email' => 'Email',
         'enableDomainProxy' => 'EnableDomainProxy',
+        'expectedPunycode' => 'ExpectedPunycode',
         'lang' => 'Lang',
         'permitPremiumActivation' => 'PermitPremiumActivation',
         'postalCode' => 'PostalCode',
@@ -254,6 +260,10 @@ class SaveSingleTaskForCreatingOrderActivateRequest extends Model
 
         if (null !== $this->enableDomainProxy) {
             $res['EnableDomainProxy'] = $this->enableDomainProxy;
+        }
+
+        if (null !== $this->expectedPunycode) {
+            $res['ExpectedPunycode'] = $this->expectedPunycode;
         }
 
         if (null !== $this->lang) {
@@ -397,6 +407,10 @@ class SaveSingleTaskForCreatingOrderActivateRequest extends Model
 
         if (isset($map['EnableDomainProxy'])) {
             $model->enableDomainProxy = $map['EnableDomainProxy'];
+        }
+
+        if (isset($map['ExpectedPunycode'])) {
+            $model->expectedPunycode = $map['ExpectedPunycode'];
         }
 
         if (isset($map['Lang'])) {
