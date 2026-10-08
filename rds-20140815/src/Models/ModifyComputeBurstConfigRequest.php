@@ -79,6 +79,16 @@ class ModifyComputeBurstConfigRequest extends Model
     public $scaleMaxMemory;
 
     /**
+     * @var float
+     */
+    public $scaleMaxRcu;
+
+    /**
+     * @var float
+     */
+    public $scaleMinRcu;
+
+    /**
      * @var string
      */
     public $switchTime;
@@ -107,6 +117,8 @@ class ModifyComputeBurstConfigRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'scaleMaxCpus' => 'ScaleMaxCpus',
         'scaleMaxMemory' => 'ScaleMaxMemory',
+        'scaleMaxRcu' => 'ScaleMaxRcu',
+        'scaleMinRcu' => 'ScaleMinRcu',
         'switchTime' => 'SwitchTime',
         'switchTimeMode' => 'SwitchTimeMode',
         'taskId' => 'TaskId',
@@ -174,6 +186,14 @@ class ModifyComputeBurstConfigRequest extends Model
 
         if (null !== $this->scaleMaxMemory) {
             $res['ScaleMaxMemory'] = $this->scaleMaxMemory;
+        }
+
+        if (null !== $this->scaleMaxRcu) {
+            $res['ScaleMaxRcu'] = $this->scaleMaxRcu;
+        }
+
+        if (null !== $this->scaleMinRcu) {
+            $res['ScaleMinRcu'] = $this->scaleMinRcu;
         }
 
         if (null !== $this->switchTime) {
@@ -253,6 +273,14 @@ class ModifyComputeBurstConfigRequest extends Model
 
         if (isset($map['ScaleMaxMemory'])) {
             $model->scaleMaxMemory = $map['ScaleMaxMemory'];
+        }
+
+        if (isset($map['ScaleMaxRcu'])) {
+            $model->scaleMaxRcu = $map['ScaleMaxRcu'];
+        }
+
+        if (isset($map['ScaleMinRcu'])) {
+            $model->scaleMinRcu = $map['ScaleMinRcu'];
         }
 
         if (isset($map['SwitchTime'])) {

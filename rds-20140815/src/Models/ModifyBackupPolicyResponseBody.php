@@ -24,9 +24,24 @@ class ModifyBackupPolicyResponseBody extends Model
     public $enableBackupLog;
 
     /**
+     * @var bool
+     */
+    public $enableIncrementDataBackup;
+
+    /**
+     * @var bool
+     */
+    public $enablePitrProtection;
+
+    /**
      * @var string
      */
     public $highSpaceUsageProtection;
+
+    /**
+     * @var int
+     */
+    public $incBackupInterval;
 
     /**
      * @var int
@@ -51,7 +66,10 @@ class ModifyBackupPolicyResponseBody extends Model
         'compressType' => 'CompressType',
         'DBInstanceID' => 'DBInstanceID',
         'enableBackupLog' => 'EnableBackupLog',
+        'enableIncrementDataBackup' => 'EnableIncrementDataBackup',
+        'enablePitrProtection' => 'EnablePitrProtection',
         'highSpaceUsageProtection' => 'HighSpaceUsageProtection',
+        'incBackupInterval' => 'IncBackupInterval',
         'localLogRetentionHours' => 'LocalLogRetentionHours',
         'localLogRetentionSpace' => 'LocalLogRetentionSpace',
         'logBackupLocalRetentionNumber' => 'LogBackupLocalRetentionNumber',
@@ -78,8 +96,20 @@ class ModifyBackupPolicyResponseBody extends Model
             $res['EnableBackupLog'] = $this->enableBackupLog;
         }
 
+        if (null !== $this->enableIncrementDataBackup) {
+            $res['EnableIncrementDataBackup'] = $this->enableIncrementDataBackup;
+        }
+
+        if (null !== $this->enablePitrProtection) {
+            $res['EnablePitrProtection'] = $this->enablePitrProtection;
+        }
+
         if (null !== $this->highSpaceUsageProtection) {
             $res['HighSpaceUsageProtection'] = $this->highSpaceUsageProtection;
+        }
+
+        if (null !== $this->incBackupInterval) {
+            $res['IncBackupInterval'] = $this->incBackupInterval;
         }
 
         if (null !== $this->localLogRetentionHours) {
@@ -121,8 +151,20 @@ class ModifyBackupPolicyResponseBody extends Model
             $model->enableBackupLog = $map['EnableBackupLog'];
         }
 
+        if (isset($map['EnableIncrementDataBackup'])) {
+            $model->enableIncrementDataBackup = $map['EnableIncrementDataBackup'];
+        }
+
+        if (isset($map['EnablePitrProtection'])) {
+            $model->enablePitrProtection = $map['EnablePitrProtection'];
+        }
+
         if (isset($map['HighSpaceUsageProtection'])) {
             $model->highSpaceUsageProtection = $map['HighSpaceUsageProtection'];
+        }
+
+        if (isset($map['IncBackupInterval'])) {
+            $model->incBackupInterval = $map['IncBackupInterval'];
         }
 
         if (isset($map['LocalLogRetentionHours'])) {

@@ -81,6 +81,11 @@ class DescribeRCAvailableResourceRequest extends Model
     /**
      * @var string
      */
+    public $supportCase;
+
+    /**
+     * @var string
+     */
     public $systemDiskCategory;
 
     /**
@@ -102,6 +107,7 @@ class DescribeRCAvailableResourceRequest extends Model
         'scope' => 'Scope',
         'spotDuration' => 'SpotDuration',
         'spotStrategy' => 'SpotStrategy',
+        'supportCase' => 'SupportCase',
         'systemDiskCategory' => 'SystemDiskCategory',
         'zoneId' => 'ZoneId',
     ];
@@ -168,6 +174,10 @@ class DescribeRCAvailableResourceRequest extends Model
 
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
+        }
+
+        if (null !== $this->supportCase) {
+            $res['SupportCase'] = $this->supportCase;
         }
 
         if (null !== $this->systemDiskCategory) {
@@ -243,6 +253,10 @@ class DescribeRCAvailableResourceRequest extends Model
 
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
+        }
+
+        if (isset($map['SupportCase'])) {
+            $model->supportCase = $map['SupportCase'];
         }
 
         if (isset($map['SystemDiskCategory'])) {

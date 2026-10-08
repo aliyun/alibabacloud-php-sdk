@@ -96,9 +96,19 @@ class ModifyBackupPolicyRequest extends Model
     public $enableIncrementDataBackup;
 
     /**
+     * @var bool
+     */
+    public $enablePitrProtection;
+
+    /**
      * @var string
      */
     public $highSpaceUsageProtection;
+
+    /**
+     * @var int
+     */
+    public $incBackupInterval;
 
     /**
      * @var string
@@ -177,7 +187,9 @@ class ModifyBackupPolicyRequest extends Model
         'enableAdvancedBackupPolicy' => 'EnableAdvancedBackupPolicy',
         'enableBackupLog' => 'EnableBackupLog',
         'enableIncrementDataBackup' => 'EnableIncrementDataBackup',
+        'enablePitrProtection' => 'EnablePitrProtection',
         'highSpaceUsageProtection' => 'HighSpaceUsageProtection',
+        'incBackupInterval' => 'IncBackupInterval',
         'localLogRetentionHours' => 'LocalLogRetentionHours',
         'localLogRetentionSpace' => 'LocalLogRetentionSpace',
         'logBackupFrequency' => 'LogBackupFrequency',
@@ -288,8 +300,16 @@ class ModifyBackupPolicyRequest extends Model
             $res['EnableIncrementDataBackup'] = $this->enableIncrementDataBackup;
         }
 
+        if (null !== $this->enablePitrProtection) {
+            $res['EnablePitrProtection'] = $this->enablePitrProtection;
+        }
+
         if (null !== $this->highSpaceUsageProtection) {
             $res['HighSpaceUsageProtection'] = $this->highSpaceUsageProtection;
+        }
+
+        if (null !== $this->incBackupInterval) {
+            $res['IncBackupInterval'] = $this->incBackupInterval;
         }
 
         if (null !== $this->localLogRetentionHours) {
@@ -433,8 +453,16 @@ class ModifyBackupPolicyRequest extends Model
             $model->enableIncrementDataBackup = $map['EnableIncrementDataBackup'];
         }
 
+        if (isset($map['EnablePitrProtection'])) {
+            $model->enablePitrProtection = $map['EnablePitrProtection'];
+        }
+
         if (isset($map['HighSpaceUsageProtection'])) {
             $model->highSpaceUsageProtection = $map['HighSpaceUsageProtection'];
+        }
+
+        if (isset($map['IncBackupInterval'])) {
+            $model->incBackupInterval = $map['IncBackupInterval'];
         }
 
         if (isset($map['LocalLogRetentionHours'])) {

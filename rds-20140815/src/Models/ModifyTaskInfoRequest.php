@@ -19,7 +19,7 @@ class ModifyTaskInfoRequest extends Model
     public $regionId;
 
     /**
-     * @var int
+     * @var string
      */
     public $resourceOwnerAccount;
 

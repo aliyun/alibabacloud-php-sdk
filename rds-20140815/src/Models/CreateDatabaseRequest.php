@@ -11,7 +11,22 @@ class CreateDatabaseRequest extends Model
     /**
      * @var string
      */
+    public $accountName;
+
+    /**
+     * @var string
+     */
+    public $accountPrivilege;
+
+    /**
+     * @var string
+     */
     public $characterSetName;
+
+    /**
+     * @var string
+     */
+    public $collationName;
 
     /**
      * @var string
@@ -48,7 +63,10 @@ class CreateDatabaseRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'accountName' => 'AccountName',
+        'accountPrivilege' => 'AccountPrivilege',
         'characterSetName' => 'CharacterSetName',
+        'collationName' => 'CollationName',
         'DBDescription' => 'DBDescription',
         'DBInstanceId' => 'DBInstanceId',
         'DBName' => 'DBName',
@@ -66,8 +84,20 @@ class CreateDatabaseRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
+
+        if (null !== $this->accountPrivilege) {
+            $res['AccountPrivilege'] = $this->accountPrivilege;
+        }
+
         if (null !== $this->characterSetName) {
             $res['CharacterSetName'] = $this->characterSetName;
+        }
+
+        if (null !== $this->collationName) {
+            $res['CollationName'] = $this->collationName;
         }
 
         if (null !== $this->DBDescription) {
@@ -109,8 +139,20 @@ class CreateDatabaseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
+
+        if (isset($map['AccountPrivilege'])) {
+            $model->accountPrivilege = $map['AccountPrivilege'];
+        }
+
         if (isset($map['CharacterSetName'])) {
             $model->characterSetName = $map['CharacterSetName'];
+        }
+
+        if (isset($map['CollationName'])) {
+            $model->collationName = $map['CollationName'];
         }
 
         if (isset($map['DBDescription'])) {

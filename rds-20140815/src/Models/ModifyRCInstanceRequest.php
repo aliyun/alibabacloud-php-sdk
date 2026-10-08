@@ -21,6 +21,11 @@ class ModifyRCInstanceRequest extends Model
     /**
      * @var string
      */
+    public $businessInfo;
+
+    /**
+     * @var string
+     */
     public $direction;
 
     /**
@@ -60,6 +65,7 @@ class ModifyRCInstanceRequest extends Model
     protected $_name = [
         'autoPay' => 'AutoPay',
         'autoUseCoupon' => 'AutoUseCoupon',
+        'businessInfo' => 'BusinessInfo',
         'direction' => 'Direction',
         'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
@@ -84,6 +90,10 @@ class ModifyRCInstanceRequest extends Model
 
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
+        if (null !== $this->businessInfo) {
+            $res['BusinessInfo'] = $this->businessInfo;
         }
 
         if (null !== $this->direction) {
@@ -135,6 +145,10 @@ class ModifyRCInstanceRequest extends Model
 
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
+        if (isset($map['BusinessInfo'])) {
+            $model->businessInfo = $map['BusinessInfo'];
         }
 
         if (isset($map['Direction'])) {

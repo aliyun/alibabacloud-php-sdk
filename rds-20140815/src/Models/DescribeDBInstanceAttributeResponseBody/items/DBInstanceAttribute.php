@@ -7,10 +7,12 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeRespo
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\babelfishConfig;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\DBClusterNodes;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\drReplicaInfo;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\extra;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\readOnlyDBInstanceIds;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\serverlessConfig;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\slaveZones;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\warmStandbyInfo;
 
 class DBInstanceAttribute extends Model
 {
@@ -210,6 +212,11 @@ class DBInstanceAttribute extends Model
     public $disasterRecoveryInstances;
 
     /**
+     * @var drReplicaInfo
+     */
+    public $drReplicaInfo;
+
+    /**
      * @var string
      */
     public $engine;
@@ -328,6 +335,11 @@ class DBInstanceAttribute extends Model
      * @var bool
      */
     public $multipleTempUpgrade;
+
+    /**
+     * @var string
+     */
+    public $nodePerformance;
 
     /**
      * @var string
@@ -460,6 +472,11 @@ class DBInstanceAttribute extends Model
     public $vpcId;
 
     /**
+     * @var warmStandbyInfo
+     */
+    public $warmStandbyInfo;
+
+    /**
      * @var string
      */
     public $zoneId;
@@ -508,6 +525,7 @@ class DBInstanceAttribute extends Model
         'deletionProtection' => 'DeletionProtection',
         'disasterRecoveryInfo' => 'DisasterRecoveryInfo',
         'disasterRecoveryInstances' => 'DisasterRecoveryInstances',
+        'drReplicaInfo' => 'DrReplicaInfo',
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
         'expireTime' => 'ExpireTime',
@@ -532,6 +550,7 @@ class DBInstanceAttribute extends Model
         'maxIOMBPS' => 'MaxIOMBPS',
         'maxIOPS' => 'MaxIOPS',
         'multipleTempUpgrade' => 'MultipleTempUpgrade',
+        'nodePerformance' => 'NodePerformance',
         'optimizedWritesInfo' => 'OptimizedWritesInfo',
         'PGBouncerEnabled' => 'PGBouncerEnabled',
         'payType' => 'PayType',
@@ -558,6 +577,7 @@ class DBInstanceAttribute extends Model
         'vectorSupportStatus' => 'VectorSupportStatus',
         'vpcCloudInstanceId' => 'VpcCloudInstanceId',
         'vpcId' => 'VpcId',
+        'warmStandbyInfo' => 'WarmStandbyInfo',
         'zoneId' => 'ZoneId',
         'kindCode' => 'kindCode',
     ];
@@ -570,6 +590,9 @@ class DBInstanceAttribute extends Model
         if (null !== $this->DBClusterNodes) {
             $this->DBClusterNodes->validate();
         }
+        if (null !== $this->drReplicaInfo) {
+            $this->drReplicaInfo->validate();
+        }
         if (null !== $this->extra) {
             $this->extra->validate();
         }
@@ -581,6 +604,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->slaveZones) {
             $this->slaveZones->validate();
+        }
+        if (null !== $this->warmStandbyInfo) {
+            $this->warmStandbyInfo->validate();
         }
         parent::validate();
     }
@@ -744,6 +770,10 @@ class DBInstanceAttribute extends Model
             $res['DisasterRecoveryInstances'] = $this->disasterRecoveryInstances;
         }
 
+        if (null !== $this->drReplicaInfo) {
+            $res['DrReplicaInfo'] = null !== $this->drReplicaInfo ? $this->drReplicaInfo->toArray($noStream) : $this->drReplicaInfo;
+        }
+
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
@@ -838,6 +868,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->multipleTempUpgrade) {
             $res['MultipleTempUpgrade'] = $this->multipleTempUpgrade;
+        }
+
+        if (null !== $this->nodePerformance) {
+            $res['NodePerformance'] = $this->nodePerformance;
         }
 
         if (null !== $this->optimizedWritesInfo) {
@@ -942,6 +976,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->warmStandbyInfo) {
+            $res['WarmStandbyInfo'] = null !== $this->warmStandbyInfo ? $this->warmStandbyInfo->toArray($noStream) : $this->warmStandbyInfo;
         }
 
         if (null !== $this->zoneId) {
@@ -1119,6 +1157,10 @@ class DBInstanceAttribute extends Model
             $model->disasterRecoveryInstances = $map['DisasterRecoveryInstances'];
         }
 
+        if (isset($map['DrReplicaInfo'])) {
+            $model->drReplicaInfo = drReplicaInfo::fromMap($map['DrReplicaInfo']);
+        }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
@@ -1213,6 +1255,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['MultipleTempUpgrade'])) {
             $model->multipleTempUpgrade = $map['MultipleTempUpgrade'];
+        }
+
+        if (isset($map['NodePerformance'])) {
+            $model->nodePerformance = $map['NodePerformance'];
         }
 
         if (isset($map['OptimizedWritesInfo'])) {
@@ -1317,6 +1363,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['WarmStandbyInfo'])) {
+            $model->warmStandbyInfo = warmStandbyInfo::fromMap($map['WarmStandbyInfo']);
         }
 
         if (isset($map['ZoneId'])) {

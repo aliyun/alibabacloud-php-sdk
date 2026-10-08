@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CloneDBInstanceShrinkRequest\tag;
 
 class CloneDBInstanceShrinkRequest extends Model
 {
@@ -144,6 +145,11 @@ class CloneDBInstanceShrinkRequest extends Model
     public $tableMeta;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var int
      */
     public $usedTime;
@@ -200,6 +206,7 @@ class CloneDBInstanceShrinkRequest extends Model
         'restoreTime' => 'RestoreTime',
         'serverlessConfigShrink' => 'ServerlessConfig',
         'tableMeta' => 'TableMeta',
+        'tag' => 'Tag',
         'usedTime' => 'UsedTime',
         'VPCId' => 'VPCId',
         'vSwitchId' => 'VSwitchId',
@@ -210,6 +217,9 @@ class CloneDBInstanceShrinkRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -322,6 +332,17 @@ class CloneDBInstanceShrinkRequest extends Model
 
         if (null !== $this->tableMeta) {
             $res['TableMeta'] = $this->tableMeta;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->usedTime) {
@@ -465,6 +486,17 @@ class CloneDBInstanceShrinkRequest extends Model
 
         if (isset($map['TableMeta'])) {
             $model->tableMeta = $map['TableMeta'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UsedTime'])) {

@@ -98,6 +98,11 @@ class DescribeBackupPolicyResponseBody extends Model
     /**
      * @var int
      */
+    public $incBackupInterval;
+
+    /**
+     * @var int
+     */
     public $localLogRetentionHours;
 
     /**
@@ -187,6 +192,7 @@ class DescribeBackupPolicyResponseBody extends Model
         'enableIncrementDataBackup' => 'EnableIncrementDataBackup',
         'enablePitrProtection' => 'EnablePitrProtection',
         'highSpaceUsageProtection' => 'HighSpaceUsageProtection',
+        'incBackupInterval' => 'IncBackupInterval',
         'localLogRetentionHours' => 'LocalLogRetentionHours',
         'localLogRetentionSpace' => 'LocalLogRetentionSpace',
         'logBackupFrequency' => 'LogBackupFrequency',
@@ -284,6 +290,10 @@ class DescribeBackupPolicyResponseBody extends Model
 
         if (null !== $this->highSpaceUsageProtection) {
             $res['HighSpaceUsageProtection'] = $this->highSpaceUsageProtection;
+        }
+
+        if (null !== $this->incBackupInterval) {
+            $res['IncBackupInterval'] = $this->incBackupInterval;
         }
 
         if (null !== $this->localLogRetentionHours) {
@@ -423,6 +433,10 @@ class DescribeBackupPolicyResponseBody extends Model
 
         if (isset($map['HighSpaceUsageProtection'])) {
             $model->highSpaceUsageProtection = $map['HighSpaceUsageProtection'];
+        }
+
+        if (isset($map['IncBackupInterval'])) {
+            $model->incBackupInterval = $map['IncBackupInterval'];
         }
 
         if (isset($map['LocalLogRetentionHours'])) {

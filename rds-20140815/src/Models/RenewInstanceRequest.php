@@ -31,6 +31,11 @@ class RenewInstanceRequest extends Model
     /**
      * @var string
      */
+    public $compressionMode;
+
+    /**
+     * @var string
+     */
     public $DBInstanceId;
 
     /**
@@ -62,6 +67,7 @@ class RenewInstanceRequest extends Model
         'autoRenew' => 'AutoRenew',
         'autoUseCoupon' => 'AutoUseCoupon',
         'clientToken' => 'ClientToken',
+        'compressionMode' => 'CompressionMode',
         'DBInstanceId' => 'DBInstanceId',
         'ownerId' => 'OwnerId',
         'period' => 'Period',
@@ -92,6 +98,10 @@ class RenewInstanceRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->compressionMode) {
+            $res['CompressionMode'] = $this->compressionMode;
         }
 
         if (null !== $this->DBInstanceId) {
@@ -143,6 +153,10 @@ class RenewInstanceRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['CompressionMode'])) {
+            $model->compressionMode = $map['CompressionMode'];
         }
 
         if (isset($map['DBInstanceId'])) {

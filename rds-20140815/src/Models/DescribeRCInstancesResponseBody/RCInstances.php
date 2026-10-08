@@ -19,6 +19,11 @@ class RCInstances extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $clusterName;
 
     /**
@@ -182,6 +187,7 @@ class RCInstances extends Model
     public $zoneId;
     protected $_name = [
         'autoRenew' => 'AutoRenew',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
         'cpu' => 'Cpu',
         'createMode' => 'CreateMode',
@@ -236,6 +242,10 @@ class RCInstances extends Model
         $res = [];
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
 
         if (null !== $this->clusterName) {
@@ -397,6 +407,10 @@ class RCInstances extends Model
         $model = new self();
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
 
         if (isset($map['ClusterName'])) {

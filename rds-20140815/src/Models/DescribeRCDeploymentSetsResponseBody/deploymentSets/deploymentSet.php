@@ -12,6 +12,11 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponseBody\d
 class deploymentSet extends Model
 {
     /**
+     * @var string
+     */
+    public $accountId;
+
+    /**
      * @var capacities
      */
     public $capacities;
@@ -76,6 +81,7 @@ class deploymentSet extends Model
      */
     public $tags;
     protected $_name = [
+        'accountId' => 'AccountId',
         'capacities' => 'Capacities',
         'createTime' => 'CreateTime',
         'deploymentSetDescription' => 'DeploymentSetDescription',
@@ -108,6 +114,10 @@ class deploymentSet extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+
         if (null !== $this->capacities) {
             $res['Capacities'] = null !== $this->capacities ? $this->capacities->toArray($noStream) : $this->capacities;
         }
@@ -171,6 +181,10 @@ class deploymentSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+
         if (isset($map['Capacities'])) {
             $model->capacities = capacities::fromMap($map['Capacities']);
         }
