@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponseBody\executePolicy\continuous;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponseBody\executePolicy\runOnce;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponseBody\executePolicy\scheduled;
 
 class executePolicy extends Model
 {
+    /**
+     * @var continuous
+     */
+    public $continuous;
+
     /**
      * @var string
      */
@@ -25,6 +31,7 @@ class executePolicy extends Model
      */
     public $scheduled;
     protected $_name = [
+        'continuous' => 'continuous',
         'mode' => 'mode',
         'runOnce' => 'runOnce',
         'scheduled' => 'scheduled',
@@ -32,6 +39,9 @@ class executePolicy extends Model
 
     public function validate()
     {
+        if (null !== $this->continuous) {
+            $this->continuous->validate();
+        }
         if (null !== $this->runOnce) {
             $this->runOnce->validate();
         }
@@ -44,6 +54,10 @@ class executePolicy extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->continuous) {
+            $res['continuous'] = null !== $this->continuous ? $this->continuous->toArray($noStream) : $this->continuous;
+        }
+
         if (null !== $this->mode) {
             $res['mode'] = $this->mode;
         }
@@ -67,6 +81,10 @@ class executePolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['continuous'])) {
+            $model->continuous = continuous::fromMap($map['continuous']);
+        }
+
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
         }

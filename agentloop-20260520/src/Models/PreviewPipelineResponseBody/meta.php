@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\PreviewPipelineResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\MetaSchemaValue;
 
 class meta extends Model
 {
@@ -84,6 +85,11 @@ class meta extends Model
     public $scanBytes;
 
     /**
+     * @var MetaSchemaValue[]
+     */
+    public $schema;
+
+    /**
      * @var mixed[][]
      */
     public $terms;
@@ -108,6 +114,7 @@ class meta extends Model
         'processedRows' => 'processedRows',
         'progress' => 'progress',
         'scanBytes' => 'scanBytes',
+        'schema' => 'schema',
         'terms' => 'terms',
         'whereQuery' => 'whereQuery',
     ];
@@ -119,6 +126,9 @@ class meta extends Model
         }
         if (\is_array($this->keys)) {
             Model::validateArray($this->keys);
+        }
+        if (\is_array($this->schema)) {
+            Model::validateArray($this->schema);
         }
         if (\is_array($this->terms)) {
             Model::validateArray($this->terms);
@@ -201,6 +211,15 @@ class meta extends Model
 
         if (null !== $this->scanBytes) {
             $res['scanBytes'] = $this->scanBytes;
+        }
+
+        if (null !== $this->schema) {
+            if (\is_array($this->schema)) {
+                $res['schema'] = [];
+                foreach ($this->schema as $key1 => $value1) {
+                    $res['schema'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
         }
 
         if (null !== $this->terms) {
@@ -306,6 +325,15 @@ class meta extends Model
 
         if (isset($map['scanBytes'])) {
             $model->scanBytes = $map['scanBytes'];
+        }
+
+        if (isset($map['schema'])) {
+            if (!empty($map['schema'])) {
+                $model->schema = [];
+                foreach ($map['schema'] as $key1 => $value1) {
+                    $model->schema[$key1] = MetaSchemaValue::fromMap($value1);
+                }
+            }
         }
 
         if (isset($map['terms'])) {

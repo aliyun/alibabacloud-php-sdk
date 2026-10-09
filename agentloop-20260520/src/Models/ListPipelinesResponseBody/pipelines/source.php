@@ -6,7 +6,9 @@ namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\pipelines\source\dataset;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\pipelines\source\inputFields;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\pipelines\source\logstore;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\pipelines\source\trajectory;
 
 class source extends Model
 {
@@ -16,9 +18,19 @@ class source extends Model
     public $dataset;
 
     /**
+     * @var inputFields[]
+     */
+    public $inputFields;
+
+    /**
      * @var logstore
      */
     public $logstore;
+
+    /**
+     * @var trajectory
+     */
+    public $trajectory;
 
     /**
      * @var string
@@ -26,7 +38,9 @@ class source extends Model
     public $type;
     protected $_name = [
         'dataset' => 'dataset',
+        'inputFields' => 'inputFields',
         'logstore' => 'logstore',
+        'trajectory' => 'trajectory',
         'type' => 'type',
     ];
 
@@ -35,8 +49,14 @@ class source extends Model
         if (null !== $this->dataset) {
             $this->dataset->validate();
         }
+        if (\is_array($this->inputFields)) {
+            Model::validateArray($this->inputFields);
+        }
         if (null !== $this->logstore) {
             $this->logstore->validate();
+        }
+        if (null !== $this->trajectory) {
+            $this->trajectory->validate();
         }
         parent::validate();
     }
@@ -48,8 +68,23 @@ class source extends Model
             $res['dataset'] = null !== $this->dataset ? $this->dataset->toArray($noStream) : $this->dataset;
         }
 
+        if (null !== $this->inputFields) {
+            if (\is_array($this->inputFields)) {
+                $res['inputFields'] = [];
+                $n1 = 0;
+                foreach ($this->inputFields as $item1) {
+                    $res['inputFields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->logstore) {
             $res['logstore'] = null !== $this->logstore ? $this->logstore->toArray($noStream) : $this->logstore;
+        }
+
+        if (null !== $this->trajectory) {
+            $res['trajectory'] = null !== $this->trajectory ? $this->trajectory->toArray($noStream) : $this->trajectory;
         }
 
         if (null !== $this->type) {
@@ -71,8 +106,23 @@ class source extends Model
             $model->dataset = dataset::fromMap($map['dataset']);
         }
 
+        if (isset($map['inputFields'])) {
+            if (!empty($map['inputFields'])) {
+                $model->inputFields = [];
+                $n1 = 0;
+                foreach ($map['inputFields'] as $item1) {
+                    $model->inputFields[$n1] = inputFields::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['logstore'])) {
             $model->logstore = logstore::fromMap($map['logstore']);
+        }
+
+        if (isset($map['trajectory'])) {
+            $model->trajectory = trajectory::fromMap($map['trajectory']);
         }
 
         if (isset($map['type'])) {

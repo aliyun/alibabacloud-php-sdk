@@ -63,6 +63,11 @@ class GetPipelineResponseBody extends Model
     public $scheduleStatus;
 
     /**
+     * @var string
+     */
+    public $scheduleType;
+
+    /**
      * @var sink
      */
     public $sink;
@@ -92,6 +97,7 @@ class GetPipelineResponseBody extends Model
         'regionId' => 'regionId',
         'requestId' => 'requestId',
         'scheduleStatus' => 'scheduleStatus',
+        'scheduleType' => 'scheduleType',
         'sink' => 'sink',
         'source' => 'source',
         'updateTime' => 'updateTime',
@@ -156,6 +162,10 @@ class GetPipelineResponseBody extends Model
 
         if (null !== $this->scheduleStatus) {
             $res['scheduleStatus'] = $this->scheduleStatus;
+        }
+
+        if (null !== $this->scheduleType) {
+            $res['scheduleType'] = $this->scheduleType;
         }
 
         if (null !== $this->sink) {
@@ -223,6 +233,10 @@ class GetPipelineResponseBody extends Model
 
         if (isset($map['scheduleStatus'])) {
             $model->scheduleStatus = $map['scheduleStatus'];
+        }
+
+        if (isset($map['scheduleType'])) {
+            $model->scheduleType = $map['scheduleType'];
         }
 
         if (isset($map['sink'])) {

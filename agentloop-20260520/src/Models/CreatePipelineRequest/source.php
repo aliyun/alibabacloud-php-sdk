@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreatePipelineRequest\source\dataset;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreatePipelineRequest\source\inputFields;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreatePipelineRequest\source\logstore;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreatePipelineRequest\source\trajectory;
 
 class source extends Model
 {
@@ -27,6 +28,11 @@ class source extends Model
     public $logstore;
 
     /**
+     * @var trajectory
+     */
+    public $trajectory;
+
+    /**
      * @var string
      */
     public $type;
@@ -34,6 +40,7 @@ class source extends Model
         'dataset' => 'dataset',
         'inputFields' => 'inputFields',
         'logstore' => 'logstore',
+        'trajectory' => 'trajectory',
         'type' => 'type',
     ];
 
@@ -47,6 +54,9 @@ class source extends Model
         }
         if (null !== $this->logstore) {
             $this->logstore->validate();
+        }
+        if (null !== $this->trajectory) {
+            $this->trajectory->validate();
         }
         parent::validate();
     }
@@ -71,6 +81,10 @@ class source extends Model
 
         if (null !== $this->logstore) {
             $res['logstore'] = null !== $this->logstore ? $this->logstore->toArray($noStream) : $this->logstore;
+        }
+
+        if (null !== $this->trajectory) {
+            $res['trajectory'] = null !== $this->trajectory ? $this->trajectory->toArray($noStream) : $this->trajectory;
         }
 
         if (null !== $this->type) {
@@ -105,6 +119,10 @@ class source extends Model
 
         if (isset($map['logstore'])) {
             $model->logstore = logstore::fromMap($map['logstore']);
+        }
+
+        if (isset($map['trajectory'])) {
+            $model->trajectory = trajectory::fromMap($map['trajectory']);
         }
 
         if (isset($map['type'])) {
