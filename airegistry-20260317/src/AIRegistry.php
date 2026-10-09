@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\AIRegistry\V20260317\Models\OnlineSkillRequest;
 use AlibabaCloud\SDK\AIRegistry\V20260317\Models\OnlineSkillResponse;
 use AlibabaCloud\SDK\AIRegistry\V20260317\Models\PublishSkillVersionRequest;
 use AlibabaCloud\SDK\AIRegistry\V20260317\Models\PublishSkillVersionResponse;
+use AlibabaCloud\SDK\AIRegistry\V20260317\Models\RedraftSkillVersionRequest;
+use AlibabaCloud\SDK\AIRegistry\V20260317\Models\RedraftSkillVersionResponse;
 use AlibabaCloud\SDK\AIRegistry\V20260317\Models\SubmitPromptVersionRequest;
 use AlibabaCloud\SDK\AIRegistry\V20260317\Models\SubmitPromptVersionResponse;
 use AlibabaCloud\SDK\AIRegistry\V20260317\Models\SubmitSkillVersionRequest;
@@ -979,7 +981,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * Retrieves a URL for uploading a Skill to OSS. The client uses the returned URL to upload the Skill by performing a PUT request.
+     * Retrieves a pre-signed URL for uploading a Skill to OSS. The client uses the returned URL to perform a PUT request to upload the Skill.
      *
      * @param request - GetSkillImportFileUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1022,7 +1024,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * Retrieves a URL for uploading a Skill to OSS. The client uses the returned URL to upload the Skill by performing a PUT request.
+     * Retrieves a pre-signed URL for uploading a Skill to OSS. The client uses the returned URL to perform a PUT request to upload the Skill.
      *
      * @param request - GetSkillImportFileUrlRequest
      *
@@ -1474,7 +1476,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * Brings online a Skill or a specific version of a Skill.
+     * Publishes a skill or a specific version of a skill.
      *
      * @param request - OnlineSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1525,7 +1527,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * Brings online a Skill or a specific version of a Skill.
+     * Publishes a skill or a specific version of a skill.
      *
      * @param request - OnlineSkillRequest
      *
@@ -1609,6 +1611,71 @@ class AIRegistry extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->publishSkillVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重新编辑版本.
+     *
+     * @param request - RedraftSkillVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RedraftSkillVersionResponse
+     *
+     * @param RedraftSkillVersionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RedraftSkillVersionResponse
+     */
+    public function redraftSkillVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['SkillName'] = $request->skillName;
+        }
+
+        if (null !== $request->skillVersion) {
+            @$query['SkillVersion'] = $request->skillVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RedraftSkillVersion',
+            'version' => '2026-03-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RedraftSkillVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重新编辑版本.
+     *
+     * @param request - RedraftSkillVersionRequest
+     *
+     * @returns RedraftSkillVersionResponse
+     *
+     * @param RedraftSkillVersionRequest $request
+     *
+     * @return RedraftSkillVersionResponse
+     */
+    public function redraftSkillVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->redraftSkillVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -1971,7 +2038,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * Updates business labels.
+     * Updates business tags for a skill.
      *
      * @param request - UpdateSkillBizTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2018,7 +2085,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * Updates business labels.
+     * Updates business tags for a skill.
      *
      * @param request - UpdateSkillBizTagsRequest
      *
@@ -2235,7 +2302,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * Uploads a skill (ZIP) from OSS. Retrieves file content from OSS and uploads it to Nacos.
+     * Uploads a skill (ZIP) from OSS by pulling the file content from OSS and uploading it to Nacos.
      *
      * @param request - UploadSkillViaOssRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2290,7 +2357,7 @@ class AIRegistry extends OpenApiClient
     }
 
     /**
-     * Uploads a skill (ZIP) from OSS. Retrieves file content from OSS and uploads it to Nacos.
+     * Uploads a skill (ZIP) from OSS by pulling the file content from OSS and uploading it to Nacos.
      *
      * @param request - UploadSkillViaOssRequest
      *

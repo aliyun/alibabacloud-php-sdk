@@ -26,6 +26,11 @@ class pageItems extends Model
     /**
      * @var string
      */
+    public $draftMode;
+
+    /**
+     * @var string
+     */
     public $editingVersion;
 
     /**
@@ -86,6 +91,7 @@ class pageItems extends Model
         'bizTags' => 'BizTags',
         'description' => 'Description',
         'downloadCount' => 'DownloadCount',
+        'draftMode' => 'DraftMode',
         'editingVersion' => 'EditingVersion',
         'enable' => 'Enable',
         'from' => 'From',
@@ -121,6 +127,10 @@ class pageItems extends Model
 
         if (null !== $this->downloadCount) {
             $res['DownloadCount'] = $this->downloadCount;
+        }
+
+        if (null !== $this->draftMode) {
+            $res['DraftMode'] = $this->draftMode;
         }
 
         if (null !== $this->editingVersion) {
@@ -197,6 +207,10 @@ class pageItems extends Model
 
         if (isset($map['DownloadCount'])) {
             $model->downloadCount = $map['DownloadCount'];
+        }
+
+        if (isset($map['DraftMode'])) {
+            $model->draftMode = $map['DraftMode'];
         }
 
         if (isset($map['EditingVersion'])) {
