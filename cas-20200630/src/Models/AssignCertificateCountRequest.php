@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class AssignCertificateCountRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $caIdentifier;
+
+    /**
      * @var int
      */
     public $certTotalCount;
@@ -18,6 +23,7 @@ class AssignCertificateCountRequest extends Model
      */
     public $id;
     protected $_name = [
+        'caIdentifier' => 'CaIdentifier',
         'certTotalCount' => 'CertTotalCount',
         'id' => 'Id',
     ];
@@ -30,6 +36,10 @@ class AssignCertificateCountRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->caIdentifier) {
+            $res['CaIdentifier'] = $this->caIdentifier;
+        }
+
         if (null !== $this->certTotalCount) {
             $res['CertTotalCount'] = $this->certTotalCount;
         }
@@ -49,6 +59,10 @@ class AssignCertificateCountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CaIdentifier'])) {
+            $model->caIdentifier = $map['CaIdentifier'];
+        }
+
         if (isset($map['CertTotalCount'])) {
             $model->certTotalCount = $map['CertTotalCount'];
         }
