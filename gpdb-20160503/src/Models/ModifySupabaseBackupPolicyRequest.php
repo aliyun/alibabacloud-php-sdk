@@ -1,0 +1,132 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class ModifySupabaseBackupPolicyRequest extends Model
+{
+    /**
+     * @var int
+     */
+    public $backupRetentionPeriod;
+
+    /**
+     * @var bool
+     */
+    public $enableRecoveryPoint;
+
+    /**
+     * @var string
+     */
+    public $preferredBackupPeriod;
+
+    /**
+     * @var string
+     */
+    public $preferredBackupTime;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $recoveryPointPeriod;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+    protected $_name = [
+        'backupRetentionPeriod' => 'BackupRetentionPeriod',
+        'enableRecoveryPoint' => 'EnableRecoveryPoint',
+        'preferredBackupPeriod' => 'PreferredBackupPeriod',
+        'preferredBackupTime' => 'PreferredBackupTime',
+        'projectId' => 'ProjectId',
+        'recoveryPointPeriod' => 'RecoveryPointPeriod',
+        'regionId' => 'RegionId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->backupRetentionPeriod) {
+            $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
+        }
+
+        if (null !== $this->enableRecoveryPoint) {
+            $res['EnableRecoveryPoint'] = $this->enableRecoveryPoint;
+        }
+
+        if (null !== $this->preferredBackupPeriod) {
+            $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
+        }
+
+        if (null !== $this->preferredBackupTime) {
+            $res['PreferredBackupTime'] = $this->preferredBackupTime;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+
+        if (null !== $this->recoveryPointPeriod) {
+            $res['RecoveryPointPeriod'] = $this->recoveryPointPeriod;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['BackupRetentionPeriod'])) {
+            $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
+        }
+
+        if (isset($map['EnableRecoveryPoint'])) {
+            $model->enableRecoveryPoint = $map['EnableRecoveryPoint'];
+        }
+
+        if (isset($map['PreferredBackupPeriod'])) {
+            $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
+        }
+
+        if (isset($map['PreferredBackupTime'])) {
+            $model->preferredBackupTime = $map['PreferredBackupTime'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['RecoveryPointPeriod'])) {
+            $model->recoveryPointPeriod = $map['RecoveryPointPeriod'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        return $model;
+    }
+}

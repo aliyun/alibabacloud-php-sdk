@@ -22,7 +22,17 @@ class CreateSupabaseProjectRequest extends Model
     /**
      * @var string
      */
+    public $backupId;
+
+    /**
+     * @var string
+     */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $createOptions;
 
     /**
      * @var string
@@ -70,6 +80,11 @@ class CreateSupabaseProjectRequest extends Model
     public $securityIPList;
 
     /**
+     * @var string
+     */
+    public $srcProjectId;
+
+    /**
      * @var int
      */
     public $storageSize;
@@ -101,7 +116,9 @@ class CreateSupabaseProjectRequest extends Model
     protected $_name = [
         'accountPassword' => 'AccountPassword',
         'autoScale' => 'AutoScale',
+        'backupId' => 'BackupId',
         'clientToken' => 'ClientToken',
+        'createOptions' => 'CreateOptions',
         'diskPerformanceLevel' => 'DiskPerformanceLevel',
         'engineVersion' => 'EngineVersion',
         'lightweight' => 'Lightweight',
@@ -111,6 +128,7 @@ class CreateSupabaseProjectRequest extends Model
         'projectSpec' => 'ProjectSpec',
         'regionId' => 'RegionId',
         'securityIPList' => 'SecurityIPList',
+        'srcProjectId' => 'SrcProjectId',
         'storageSize' => 'StorageSize',
         'tags' => 'Tags',
         'usedTime' => 'UsedTime',
@@ -138,8 +156,16 @@ class CreateSupabaseProjectRequest extends Model
             $res['AutoScale'] = $this->autoScale;
         }
 
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->createOptions) {
+            $res['CreateOptions'] = $this->createOptions;
         }
 
         if (null !== $this->diskPerformanceLevel) {
@@ -176,6 +202,10 @@ class CreateSupabaseProjectRequest extends Model
 
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
+        }
+
+        if (null !== $this->srcProjectId) {
+            $res['SrcProjectId'] = $this->srcProjectId;
         }
 
         if (null !== $this->storageSize) {
@@ -228,8 +258,16 @@ class CreateSupabaseProjectRequest extends Model
             $model->autoScale = $map['AutoScale'];
         }
 
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['CreateOptions'])) {
+            $model->createOptions = $map['CreateOptions'];
         }
 
         if (isset($map['DiskPerformanceLevel'])) {
@@ -266,6 +304,10 @@ class CreateSupabaseProjectRequest extends Model
 
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
+        }
+
+        if (isset($map['SrcProjectId'])) {
+            $model->srcProjectId = $map['SrcProjectId'];
         }
 
         if (isset($map['StorageSize'])) {

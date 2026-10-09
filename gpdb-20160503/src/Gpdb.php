@@ -109,6 +109,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingJobShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSupabaseBackupRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSupabaseBackupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSupabaseProjectRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSupabaseProjectResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexRequest;
@@ -326,6 +328,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingJobResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupabaseBackupPolicyRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupabaseBackupPolicyResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupportFeaturesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupportFeaturesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTableRequest;
@@ -380,6 +384,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectDashboardAccountReq
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectDashboardAccountResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectSpecRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectSpecResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseUpdateVersionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseUpdateVersionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUpsertCollectionDataJobRequest;
@@ -451,6 +459,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataSourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataSourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseBackupJobsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseBackupJobsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseDataBackupsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseDataBackupsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseProjectsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseProjectsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseProjectTagsRequest;
@@ -519,6 +531,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseAutoScalePolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseAutoScalePolicyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseBackupPolicyRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseBackupPolicyResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectDescriptionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectDescriptionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectResourceRequest;
@@ -613,6 +627,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateSaasServiceVersionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateSaasServiceVersionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateSupabaseVersionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateSupabaseVersionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBVersionRequest;
@@ -4830,10 +4846,77 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Creates a backup job for a specified Supabase instance and returns the backup job ID.
+     *
+     * @remarks
+     * The instance must be in the Running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query backup sets.
+     *
+     * @param Request - CreateSupabaseBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSupabaseBackupResponse
+     *
+     * @param CreateSupabaseBackupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateSupabaseBackupResponse
+     */
+    public function createSupabaseBackupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSupabaseBackup',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSupabaseBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a backup job for a specified Supabase instance and returns the backup job ID.
+     *
+     * @remarks
+     * The instance must be in the Running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query backup sets.
+     *
+     * @param Request - CreateSupabaseBackupRequest
+     *
+     * @returns CreateSupabaseBackupResponse
+     *
+     * @param CreateSupabaseBackupRequest $request
+     *
+     * @return CreateSupabaseBackupResponse
+     */
+    public function createSupabaseBackup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSupabaseBackupWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a Supabase project.
      *
      * @remarks
-     * Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+     * Creates a Supabase project in a specified region and active zone. This operation supports the free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access whitelist, DPI engine version, and auto-start and auto-stop configurations.
      *
      * @param Request - CreateSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4857,8 +4940,16 @@ class Gpdb extends OpenApiClient
             @$query['AutoScale'] = $request->autoScale;
         }
 
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->createOptions) {
+            @$query['CreateOptions'] = $request->createOptions;
         }
 
         if (null !== $request->diskPerformanceLevel) {
@@ -4895,6 +4986,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->securityIPList) {
             @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        if (null !== $request->srcProjectId) {
+            @$query['SrcProjectId'] = $request->srcProjectId;
         }
 
         if (null !== $request->storageSize) {
@@ -4943,7 +5038,7 @@ class Gpdb extends OpenApiClient
      * Creates a Supabase project.
      *
      * @remarks
-     * Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+     * Creates a Supabase project in a specified region and active zone. This operation supports the free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access whitelist, DPI engine version, and auto-start and auto-stop configurations.
      *
      * @param Request - CreateSupabaseProjectRequest
      *
@@ -12865,6 +12960,73 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Queries the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+     *
+     * @remarks
+     * To modify the policy, call ModifySupabaseBackupPolicy.
+     *
+     * @param Request - DescribeSupabaseBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSupabaseBackupPolicyResponse
+     *
+     * @param DescribeSupabaseBackupPolicyRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeSupabaseBackupPolicyResponse
+     */
+    public function describeSupabaseBackupPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSupabaseBackupPolicy',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSupabaseBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+     *
+     * @remarks
+     * To modify the policy, call ModifySupabaseBackupPolicy.
+     *
+     * @param Request - DescribeSupabaseBackupPolicyRequest
+     *
+     * @returns DescribeSupabaseBackupPolicyResponse
+     *
+     * @param DescribeSupabaseBackupPolicyRequest $request
+     *
+     * @return DescribeSupabaseBackupPolicyResponse
+     */
+    public function describeSupabaseBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSupabaseBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeSupportFeaturesRequest
@@ -14920,6 +15082,136 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSupabaseProjectDashboardAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the available specifications for Supabase projects.
+     *
+     * @remarks
+     * Queries the specifications and zones available for creating Supabase projects in a specified region.
+     *
+     * @param Request - GetSupabaseProjectSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSupabaseProjectSpecResponse
+     *
+     * @param GetSupabaseProjectSpecRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetSupabaseProjectSpecResponse
+     */
+    public function getSupabaseProjectSpecWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSupabaseProjectSpec',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSupabaseProjectSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the available specifications for Supabase projects.
+     *
+     * @remarks
+     * Queries the specifications and zones available for creating Supabase projects in a specified region.
+     *
+     * @param Request - GetSupabaseProjectSpecRequest
+     *
+     * @returns GetSupabaseProjectSpecResponse
+     *
+     * @param GetSupabaseProjectSpecRequest $request
+     *
+     * @return GetSupabaseProjectSpecResponse
+     */
+    public function getSupabaseProjectSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSupabaseProjectSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the upgradable versions for a Supabase project.
+     *
+     * @remarks
+     * This operation queries the currently recommended stable version and the latest upgradable version for a specified Supabase project.
+     *
+     * @param Request - GetSupabaseUpdateVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSupabaseUpdateVersionResponse
+     *
+     * @param GetSupabaseUpdateVersionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetSupabaseUpdateVersionResponse
+     */
+    public function getSupabaseUpdateVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSupabaseUpdateVersion',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSupabaseUpdateVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the upgradable versions for a Supabase project.
+     *
+     * @remarks
+     * This operation queries the currently recommended stable version and the latest upgradable version for a specified Supabase project.
+     *
+     * @param Request - GetSupabaseUpdateVersionRequest
+     *
+     * @returns GetSupabaseUpdateVersionResponse
+     *
+     * @param GetSupabaseUpdateVersionRequest $request
+     *
+     * @return GetSupabaseUpdateVersionResponse
+     */
+    public function getSupabaseUpdateVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSupabaseUpdateVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -17582,6 +17874,180 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Queries the backup tasks and task progress of a specified Supabase instance.
+     *
+     * @param Request - ListSupabaseBackupJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSupabaseBackupJobsResponse
+     *
+     * @param ListSupabaseBackupJobsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListSupabaseBackupJobsResponse
+     */
+    public function listSupabaseBackupJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupMode) {
+            @$query['BackupMode'] = $request->backupMode;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSupabaseBackupJobs',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSupabaseBackupJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the backup tasks and task progress of a specified Supabase instance.
+     *
+     * @param Request - ListSupabaseBackupJobsRequest
+     *
+     * @returns ListSupabaseBackupJobsResponse
+     *
+     * @param ListSupabaseBackupJobsRequest $request
+     *
+     * @return ListSupabaseBackupJobsResponse
+     */
+    public function listSupabaseBackupJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSupabaseBackupJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of Supabase data backups.
+     *
+     * @param Request - ListSupabaseDataBackupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSupabaseDataBackupsResponse
+     *
+     * @param ListSupabaseDataBackupsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListSupabaseDataBackupsResponse
+     */
+    public function listSupabaseDataBackupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
+        if (null !== $request->backupMode) {
+            @$query['BackupMode'] = $request->backupMode;
+        }
+
+        if (null !== $request->backupStatus) {
+            @$query['BackupStatus'] = $request->backupStatus;
+        }
+
+        if (null !== $request->dataType) {
+            @$query['DataType'] = $request->dataType;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSupabaseDataBackups',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSupabaseDataBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of Supabase data backups.
+     *
+     * @param Request - ListSupabaseDataBackupsRequest
+     *
+     * @returns ListSupabaseDataBackupsResponse
+     *
+     * @param ListSupabaseDataBackupsRequest $request
+     *
+     * @return ListSupabaseDataBackupsResponse
+     */
+    public function listSupabaseDataBackups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSupabaseDataBackupsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the tags of a Supabase instance.
      *
      * @remarks
@@ -20223,6 +20689,93 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+     *
+     * @remarks
+     * You can call DescribeSupabaseBackupPolicy to query the current backup policy, and then call this operation again to confirm the configurations after the modification.
+     *
+     * @param Request - ModifySupabaseBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySupabaseBackupPolicyResponse
+     *
+     * @param ModifySupabaseBackupPolicyRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifySupabaseBackupPolicyResponse
+     */
+    public function modifySupabaseBackupPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupRetentionPeriod) {
+            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        }
+
+        if (null !== $request->enableRecoveryPoint) {
+            @$query['EnableRecoveryPoint'] = $request->enableRecoveryPoint;
+        }
+
+        if (null !== $request->preferredBackupPeriod) {
+            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+        }
+
+        if (null !== $request->preferredBackupTime) {
+            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->recoveryPointPeriod) {
+            @$query['RecoveryPointPeriod'] = $request->recoveryPointPeriod;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySupabaseBackupPolicy',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySupabaseBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+     *
+     * @remarks
+     * You can call DescribeSupabaseBackupPolicy to query the current backup policy, and then call this operation again to confirm the configurations after the modification.
+     *
+     * @param Request - ModifySupabaseBackupPolicyRequest
+     *
+     * @returns ModifySupabaseBackupPolicyResponse
+     *
+     * @param ModifySupabaseBackupPolicyRequest $request
+     *
+     * @return ModifySupabaseBackupPolicyResponse
+     */
+    public function modifySupabaseBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySupabaseBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the description of a Supabase project.
      *
      * @remarks
@@ -20944,7 +21497,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves vectors and metadata from a specified document collection using natural language queries.
+     * Retrieves vectors and metadata from a specified document collection by using natural language.
      *
      * @param tmpReq - QueryContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20992,10 +21545,6 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->fileUrl) {
             @$query['FileUrl'] = $request->fileUrl;
-        }
-
-        if (null !== $request->filter) {
-            @$query['Filter'] = $request->filter;
         }
 
         if (null !== $request->graphEnhance) {
@@ -21083,6 +21632,10 @@ class Gpdb extends OpenApiClient
             @$body['Content'] = $request->content;
         }
 
+        if (null !== $request->filter) {
+            @$body['Filter'] = $request->filter;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
@@ -21103,7 +21656,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves vectors and metadata from a specified document collection using natural language queries.
+     * Retrieves vectors and metadata from a specified document collection by using natural language.
      *
      * @param Request - QueryContentRequest
      *
@@ -23704,6 +24257,77 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSaasServiceVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Upgrades the version of a Supabase project.
+     *
+     * @remarks
+     * Upgrades a specified Supabase project to a target minor version. You can query the supported target versions by calling GetSupabaseUpdateVersion.
+     *
+     * @param Request - UpdateSupabaseVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSupabaseVersionResponse
+     *
+     * @param UpdateSupabaseVersionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateSupabaseVersionResponse
+     */
+    public function updateSupabaseVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->minorVersion) {
+            @$query['MinorVersion'] = $request->minorVersion;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSupabaseVersion',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSupabaseVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Upgrades the version of a Supabase project.
+     *
+     * @remarks
+     * Upgrades a specified Supabase project to a target minor version. You can query the supported target versions by calling GetSupabaseUpdateVersion.
+     *
+     * @param Request - UpdateSupabaseVersionRequest
+     *
+     * @returns UpdateSupabaseVersionResponse
+     *
+     * @param UpdateSupabaseVersionRequest $request
+     *
+     * @return UpdateSupabaseVersionResponse
+     */
+    public function updateSupabaseVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSupabaseVersionWithOptions($request, $runtime);
     }
 
     /**
