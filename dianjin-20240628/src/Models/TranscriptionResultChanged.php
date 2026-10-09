@@ -11,15 +11,15 @@ class TranscriptionResultChanged extends Model
     /**
      * @var string
      */
-    public $messageId;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $messageId;
     protected $_name = [
-        'messageId' => 'messageId',
         'content' => 'content',
+        'messageId' => 'messageId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class TranscriptionResultChanged extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->messageId) {
-            $res['messageId'] = $this->messageId;
-        }
-
         if (null !== $this->content) {
             $res['content'] = $this->content;
+        }
+
+        if (null !== $this->messageId) {
+            $res['messageId'] = $this->messageId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class TranscriptionResultChanged extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['messageId'])) {
-            $model->messageId = $map['messageId'];
-        }
-
         if (isset($map['content'])) {
             $model->content = $map['content'];
+        }
+
+        if (isset($map['messageId'])) {
+            $model->messageId = $map['messageId'];
         }
 
         return $model;

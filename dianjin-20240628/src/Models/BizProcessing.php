@@ -10,11 +10,6 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\BizProcessing\choices;
 class BizProcessing extends Model
 {
     /**
-     * @var string
-     */
-    public $id;
-
-    /**
      * @var choices[]
      */
     public $choices;
@@ -25,20 +20,25 @@ class BizProcessing extends Model
     public $created;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $id;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'id' => 'id',
         'choices' => 'choices',
         'created' => 'created',
-        'success' => 'success',
+        'id' => 'id',
         'requestId' => 'requestId',
+        'success' => 'success',
     ];
 
     public function validate()
@@ -52,10 +52,6 @@ class BizProcessing extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-
         if (null !== $this->choices) {
             if (\is_array($this->choices)) {
                 $res['choices'] = [];
@@ -71,12 +67,16 @@ class BizProcessing extends Model
             $res['created'] = $this->created;
         }
 
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->success) {
+            $res['success'] = $this->success;
         }
 
         return $res;
@@ -90,10 +90,6 @@ class BizProcessing extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-
         if (isset($map['choices'])) {
             if (!empty($map['choices'])) {
                 $model->choices = [];
@@ -109,12 +105,16 @@ class BizProcessing extends Model
             $model->created = $map['created'];
         }
 
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['success'])) {
+            $model->success = $map['success'];
         }
 
         return $model;

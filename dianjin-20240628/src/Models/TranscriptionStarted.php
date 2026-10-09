@@ -11,15 +11,15 @@ class TranscriptionStarted extends Model
     /**
      * @var string
      */
-    public $sessionId;
+    public $openingRemarks;
 
     /**
      * @var string
      */
-    public $openingRemarks;
+    public $sessionId;
     protected $_name = [
-        'sessionId' => 'sessionId',
         'openingRemarks' => 'openingRemarks',
+        'sessionId' => 'sessionId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class TranscriptionStarted extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->sessionId) {
-            $res['sessionId'] = $this->sessionId;
-        }
-
         if (null !== $this->openingRemarks) {
             $res['openingRemarks'] = $this->openingRemarks;
+        }
+
+        if (null !== $this->sessionId) {
+            $res['sessionId'] = $this->sessionId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class TranscriptionStarted extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['sessionId'])) {
-            $model->sessionId = $map['sessionId'];
-        }
-
         if (isset($map['openingRemarks'])) {
             $model->openingRemarks = $map['openingRemarks'];
+        }
+
+        if (isset($map['sessionId'])) {
+            $model->sessionId = $map['sessionId'];
         }
 
         return $model;

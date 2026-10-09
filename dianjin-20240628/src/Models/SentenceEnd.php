@@ -9,17 +9,17 @@ use AlibabaCloud\Dara\Model;
 class SentenceEnd extends Model
 {
     /**
-     * @var string
-     */
-    public $messageId;
-
-    /**
      * @var int[]
      */
     public $data;
+
+    /**
+     * @var string
+     */
+    public $messageId;
     protected $_name = [
-        'messageId' => 'messageId',
         'data' => 'data',
+        'messageId' => 'messageId',
     ];
 
     public function validate()
@@ -33,10 +33,6 @@ class SentenceEnd extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->messageId) {
-            $res['messageId'] = $this->messageId;
-        }
-
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['data'] = [];
@@ -46,6 +42,10 @@ class SentenceEnd extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->messageId) {
+            $res['messageId'] = $this->messageId;
         }
 
         return $res;
@@ -59,10 +59,6 @@ class SentenceEnd extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['messageId'])) {
-            $model->messageId = $map['messageId'];
-        }
-
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
@@ -72,6 +68,10 @@ class SentenceEnd extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['messageId'])) {
+            $model->messageId = $map['messageId'];
         }
 
         return $model;

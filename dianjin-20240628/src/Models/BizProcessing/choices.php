@@ -11,14 +11,14 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\BizProcessing\choices\message;
 class choices extends Model
 {
     /**
-     * @var string
-     */
-    public $finishReason;
-
-    /**
      * @var delta
      */
     public $delta;
+
+    /**
+     * @var string
+     */
+    public $finishReason;
 
     /**
      * @var int
@@ -30,8 +30,8 @@ class choices extends Model
      */
     public $message;
     protected $_name = [
-        'finishReason' => 'finishReason',
         'delta' => 'delta',
+        'finishReason' => 'finishReason',
         'index' => 'index',
         'message' => 'message',
     ];
@@ -50,12 +50,12 @@ class choices extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->finishReason) {
-            $res['finishReason'] = $this->finishReason;
-        }
-
         if (null !== $this->delta) {
             $res['delta'] = null !== $this->delta ? $this->delta->toArray($noStream) : $this->delta;
+        }
+
+        if (null !== $this->finishReason) {
+            $res['finishReason'] = $this->finishReason;
         }
 
         if (null !== $this->index) {
@@ -77,12 +77,12 @@ class choices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['finishReason'])) {
-            $model->finishReason = $map['finishReason'];
-        }
-
         if (isset($map['delta'])) {
             $model->delta = delta::fromMap($map['delta']);
+        }
+
+        if (isset($map['finishReason'])) {
+            $model->finishReason = $map['finishReason'];
         }
 
         if (isset($map['index'])) {
