@@ -31,6 +31,11 @@ class certificates extends Model
     /**
      * @var int
      */
+    public $certChainExpirationTime;
+
+    /**
+     * @var int
+     */
     public $expirationTime;
 
     /**
@@ -57,6 +62,7 @@ class certificates extends Model
         'aliasName' => 'AliasName',
         'caCertId' => 'CaCertId',
         'caCertType' => 'CaCertType',
+        'certChainExpirationTime' => 'CertChainExpirationTime',
         'expirationTime' => 'ExpirationTime',
         'keySize' => 'KeySize',
         'parentCaCertId' => 'ParentCaCertId',
@@ -86,6 +92,10 @@ class certificates extends Model
 
         if (null !== $this->caCertType) {
             $res['CaCertType'] = $this->caCertType;
+        }
+
+        if (null !== $this->certChainExpirationTime) {
+            $res['CertChainExpirationTime'] = $this->certChainExpirationTime;
         }
 
         if (null !== $this->expirationTime) {
@@ -133,6 +143,10 @@ class certificates extends Model
 
         if (isset($map['CaCertType'])) {
             $model->caCertType = $map['CaCertType'];
+        }
+
+        if (isset($map['CertChainExpirationTime'])) {
+            $model->certChainExpirationTime = $map['CertChainExpirationTime'];
         }
 
         if (isset($map['ExpirationTime'])) {

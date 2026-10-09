@@ -16,7 +16,17 @@ class DeleteControlPolicyRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $direction;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var string
@@ -29,7 +39,9 @@ class DeleteControlPolicyRequest extends Model
     public $sourceIp;
     protected $_name = [
         'aclUuid' => 'AclUuid',
+        'clientToken' => 'ClientToken',
         'direction' => 'Direction',
+        'dryRun' => 'DryRun',
         'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
     ];
@@ -46,8 +58,16 @@ class DeleteControlPolicyRequest extends Model
             $res['AclUuid'] = $this->aclUuid;
         }
 
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->lang) {
@@ -73,8 +93,16 @@ class DeleteControlPolicyRequest extends Model
             $model->aclUuid = $map['AclUuid'];
         }
 
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Lang'])) {
