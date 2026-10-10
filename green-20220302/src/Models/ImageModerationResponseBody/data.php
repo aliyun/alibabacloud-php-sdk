@@ -28,6 +28,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $frame;
+
+    /**
+     * @var int
+     */
+    public $frameNum;
+
+    /**
+     * @var string
+     */
     public $manualTaskId;
 
     /**
@@ -43,6 +53,8 @@ class data extends Model
         'accountId' => 'AccountId',
         'dataId' => 'DataId',
         'ext' => 'Ext',
+        'frame' => 'Frame',
+        'frameNum' => 'FrameNum',
         'manualTaskId' => 'ManualTaskId',
         'result' => 'Result',
         'riskLevel' => 'RiskLevel',
@@ -72,6 +84,14 @@ class data extends Model
 
         if (null !== $this->ext) {
             $res['Ext'] = null !== $this->ext ? $this->ext->toArray($noStream) : $this->ext;
+        }
+
+        if (null !== $this->frame) {
+            $res['Frame'] = $this->frame;
+        }
+
+        if (null !== $this->frameNum) {
+            $res['FrameNum'] = $this->frameNum;
         }
 
         if (null !== $this->manualTaskId) {
@@ -114,6 +134,14 @@ class data extends Model
 
         if (isset($map['Ext'])) {
             $model->ext = ext::fromMap($map['Ext']);
+        }
+
+        if (isset($map['Frame'])) {
+            $model->frame = $map['Frame'];
+        }
+
+        if (isset($map['FrameNum'])) {
+            $model->frameNum = $map['FrameNum'];
         }
 
         if (isset($map['ManualTaskId'])) {
