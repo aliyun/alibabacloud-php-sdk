@@ -2713,12 +2713,20 @@ class OutboundBot extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->builderType) {
+            @$body['BuilderType'] = $request->builderType;
+        }
+
         if (null !== $request->instanceId) {
             @$body['InstanceId'] = $request->instanceId;
         }
 
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->nluEngine) {
+            @$body['NluEngine'] = $request->nluEngine;
         }
 
         if (null !== $request->pageNumber) {

@@ -11,12 +11,22 @@ class ListScriptsRequest extends Model
     /**
      * @var string
      */
+    public $builderType;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $nluEngine;
 
     /**
      * @var int
@@ -38,8 +48,10 @@ class ListScriptsRequest extends Model
      */
     public $scriptIds;
     protected $_name = [
+        'builderType' => 'BuilderType',
         'instanceId' => 'InstanceId',
         'name' => 'Name',
+        'nluEngine' => 'NluEngine',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'publishOnly' => 'PublishOnly',
@@ -57,12 +69,20 @@ class ListScriptsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->builderType) {
+            $res['BuilderType'] = $this->builderType;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->nluEngine) {
+            $res['NluEngine'] = $this->nluEngine;
         }
 
         if (null !== $this->pageNumber) {
@@ -99,12 +119,20 @@ class ListScriptsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuilderType'])) {
+            $model->builderType = $map['BuilderType'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['NluEngine'])) {
+            $model->nluEngine = $map['NluEngine'];
         }
 
         if (isset($map['PageNumber'])) {

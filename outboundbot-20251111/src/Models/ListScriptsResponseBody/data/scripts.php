@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class scripts extends Model
 {
     /**
+     * @var string
+     */
+    public $builderType;
+
+    /**
+     * @var string
+     */
+    public $chatbotId;
+
+    /**
      * @var int
      */
     public $concurrency;
@@ -68,6 +78,8 @@ class scripts extends Model
      */
     public $updatedTime;
     protected $_name = [
+        'builderType' => 'BuilderType',
+        'chatbotId' => 'ChatbotId',
         'concurrency' => 'Concurrency',
         'createdTime' => 'CreatedTime',
         'description' => 'Description',
@@ -90,6 +102,14 @@ class scripts extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->builderType) {
+            $res['BuilderType'] = $this->builderType;
+        }
+
+        if (null !== $this->chatbotId) {
+            $res['ChatbotId'] = $this->chatbotId;
+        }
+
         if (null !== $this->concurrency) {
             $res['Concurrency'] = $this->concurrency;
         }
@@ -149,6 +169,14 @@ class scripts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuilderType'])) {
+            $model->builderType = $map['BuilderType'];
+        }
+
+        if (isset($map['ChatbotId'])) {
+            $model->chatbotId = $map['ChatbotId'];
+        }
+
         if (isset($map['Concurrency'])) {
             $model->concurrency = $map['Concurrency'];
         }
