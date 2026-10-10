@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchCreateModelReque
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchCreateModelResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchDisableMemberApiKeysRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchDisableMemberApiKeysResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchRenewMemberApiKeysRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchRenewMemberApiKeysResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchResetMemberAuthorizationRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchResetMemberAuthorizationResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBatchSetMemberAuthorizationRequest;
@@ -218,6 +220,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUsageBreakdownRe
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUsageBreakdownResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUserListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUserListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterRenewApiKeyRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterRenewApiKeyResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterResetMemberAuthorizationRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterResetMemberAuthorizationResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSaveFlowConfigRequest;
@@ -3624,6 +3628,73 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterBatchDisableMemberApiKeysWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Renews member API keys in bulk in authorization management.
+     *
+     * @param request - ModelRouterBatchRenewMemberApiKeysRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterBatchRenewMemberApiKeysResponse
+     *
+     * @param string                                    $id
+     * @param ModelRouterBatchRenewMemberApiKeysRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModelRouterBatchRenewMemberApiKeysResponse
+     */
+    public function modelRouterBatchRenewMemberApiKeysWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->expireAt) {
+            @$body['expireAt'] = $request->expireAt;
+        }
+
+        if (null !== $request->userIds) {
+            @$body['userIds'] = $request->userIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterBatchRenewMemberApiKeys',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/member-apikeys/renew',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterBatchRenewMemberApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Renews member API keys in bulk in authorization management.
+     *
+     * @param request - ModelRouterBatchRenewMemberApiKeysRequest
+     *
+     * @returns ModelRouterBatchRenewMemberApiKeysResponse
+     *
+     * @param string                                    $id
+     * @param ModelRouterBatchRenewMemberApiKeysRequest $request
+     *
+     * @return ModelRouterBatchRenewMemberApiKeysResponse
+     */
+    public function modelRouterBatchRenewMemberApiKeys($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterBatchRenewMemberApiKeysWithOptions($id, $request, $headers, $runtime);
     }
 
     /**
@@ -9123,6 +9194,69 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterQueryUserListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Manages authorization and renews an API key.
+     *
+     * @param request - ModelRouterRenewApiKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterRenewApiKeyResponse
+     *
+     * @param string                        $id
+     * @param ModelRouterRenewApiKeyRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModelRouterRenewApiKeyResponse
+     */
+    public function modelRouterRenewApiKeyWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->expireAt) {
+            @$body['expireAt'] = $request->expireAt;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterRenewApiKey',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/apikeys/' . Url::percentEncode($id) . '/renew',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterRenewApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Manages authorization and renews an API key.
+     *
+     * @param request - ModelRouterRenewApiKeyRequest
+     *
+     * @returns ModelRouterRenewApiKeyResponse
+     *
+     * @param string                        $id
+     * @param ModelRouterRenewApiKeyRequest $request
+     *
+     * @return ModelRouterRenewApiKeyResponse
+     */
+    public function modelRouterRenewApiKey($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterRenewApiKeyWithOptions($id, $request, $headers, $runtime);
     }
 
     /**

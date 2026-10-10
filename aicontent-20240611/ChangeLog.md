@@ -1,3 +1,8 @@
+2026-10-10 Version: 6.12.0
+- Support API ModelRouterBatchRenewMemberApiKeys.
+- Support API ModelRouterRenewApiKey.
+
+
 2026-09-03 Version: 6.11.0
 - Support API ModelRouterUpdateApiKeyStatus.
 
