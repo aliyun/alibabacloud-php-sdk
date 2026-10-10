@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models;
+namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest\config\source\dataset;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteContextStoreRequest extends Model
+class filter extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $deleteOutputDataset;
+    public $where;
     protected $_name = [
-        'deleteOutputDataset' => 'deleteOutputDataset',
+        'where' => 'where',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class DeleteContextStoreRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->deleteOutputDataset) {
-            $res['deleteOutputDataset'] = $this->deleteOutputDataset;
+        if (null !== $this->where) {
+            $res['where'] = $this->where;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class DeleteContextStoreRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['deleteOutputDataset'])) {
-            $model->deleteOutputDataset = $map['deleteOutputDataset'];
+        if (isset($map['where'])) {
+            $model->where = $map['where'];
         }
 
         return $model;

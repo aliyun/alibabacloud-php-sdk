@@ -27,11 +27,17 @@ class ListContextStoresRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
     protected $_name = [
         'contextStoreName' => 'contextStoreName',
         'contextType' => 'contextType',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'sourceType' => 'sourceType',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ListContextStoresRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->sourceType) {
+            $res['sourceType'] = $this->sourceType;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ListContextStoresRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['sourceType'])) {
+            $model->sourceType = $map['sourceType'];
         }
 
         return $model;

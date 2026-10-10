@@ -12,8 +12,14 @@ class CreateContextStoreResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $strategyVersion;
     protected $_name = [
         'requestId' => 'requestId',
+        'strategyVersion' => 'strategyVersion',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class CreateContextStoreResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->strategyVersion) {
+            $res['strategyVersion'] = $this->strategyVersion;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class CreateContextStoreResponseBody extends Model
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['strategyVersion'])) {
+            $model->strategyVersion = $map['strategyVersion'];
         }
 
         return $model;

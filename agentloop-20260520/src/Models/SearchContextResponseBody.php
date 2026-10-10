@@ -11,6 +11,16 @@ class SearchContextResponseBody extends Model
     /**
      * @var string
      */
+    public $auditStatus;
+
+    /**
+     * @var string
+     */
+    public $recallEventId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -18,6 +28,8 @@ class SearchContextResponseBody extends Model
      */
     public $results;
     protected $_name = [
+        'auditStatus' => 'auditStatus',
+        'recallEventId' => 'recallEventId',
         'requestId' => 'requestId',
         'results' => 'results',
     ];
@@ -33,6 +45,14 @@ class SearchContextResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->auditStatus) {
+            $res['auditStatus'] = $this->auditStatus;
+        }
+
+        if (null !== $this->recallEventId) {
+            $res['recallEventId'] = $this->recallEventId;
+        }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -64,6 +84,14 @@ class SearchContextResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['auditStatus'])) {
+            $model->auditStatus = $map['auditStatus'];
+        }
+
+        if (isset($map['recallEventId'])) {
+            $model->recallEventId = $map['recallEventId'];
+        }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

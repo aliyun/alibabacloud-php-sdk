@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\SearchContextRequest\scope;
 
 class SearchContextRequest extends Model
 {
@@ -17,6 +18,11 @@ class SearchContextRequest extends Model
      * @var bool
      */
     public $formatted;
+
+    /**
+     * @var bool
+     */
+    public $includeInactive;
 
     /**
      * @var int
@@ -34,15 +40,22 @@ class SearchContextRequest extends Model
     public $retrievalOption;
 
     /**
+     * @var scope
+     */
+    public $scope;
+
+    /**
      * @var float
      */
     public $threshold;
     protected $_name = [
         'filter' => 'filter',
         'formatted' => 'formatted',
+        'includeInactive' => 'includeInactive',
         'limit' => 'limit',
         'query' => 'query',
         'retrievalOption' => 'retrievalOption',
+        'scope' => 'scope',
         'threshold' => 'threshold',
     ];
 
@@ -50,6 +63,9 @@ class SearchContextRequest extends Model
     {
         if (\is_array($this->filter)) {
             Model::validateArray($this->filter);
+        }
+        if (null !== $this->scope) {
+            $this->scope->validate();
         }
         parent::validate();
     }
@@ -70,6 +86,10 @@ class SearchContextRequest extends Model
             $res['formatted'] = $this->formatted;
         }
 
+        if (null !== $this->includeInactive) {
+            $res['includeInactive'] = $this->includeInactive;
+        }
+
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
         }
@@ -80,6 +100,10 @@ class SearchContextRequest extends Model
 
         if (null !== $this->retrievalOption) {
             $res['retrievalOption'] = $this->retrievalOption;
+        }
+
+        if (null !== $this->scope) {
+            $res['scope'] = null !== $this->scope ? $this->scope->toArray($noStream) : $this->scope;
         }
 
         if (null !== $this->threshold) {
@@ -110,6 +134,10 @@ class SearchContextRequest extends Model
             $model->formatted = $map['formatted'];
         }
 
+        if (isset($map['includeInactive'])) {
+            $model->includeInactive = $map['includeInactive'];
+        }
+
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
         }
@@ -120,6 +148,10 @@ class SearchContextRequest extends Model
 
         if (isset($map['retrievalOption'])) {
             $model->retrievalOption = $map['retrievalOption'];
+        }
+
+        if (isset($map['scope'])) {
+            $model->scope = scope::fromMap($map['scope']);
         }
 
         if (isset($map['threshold'])) {

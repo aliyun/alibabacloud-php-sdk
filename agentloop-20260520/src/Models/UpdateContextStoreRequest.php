@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest\config
 class UpdateContextStoreRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $changeNote;
+
+    /**
      * @var config
      */
     public $config;
@@ -34,6 +39,7 @@ class UpdateContextStoreRequest extends Model
      */
     public $clientToken;
     protected $_name = [
+        'changeNote' => 'changeNote',
         'config' => 'config',
         'contextType' => 'contextType',
         'description' => 'description',
@@ -52,6 +58,10 @@ class UpdateContextStoreRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->changeNote) {
+            $res['changeNote'] = $this->changeNote;
+        }
+
         if (null !== $this->config) {
             $res['config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
         }
@@ -83,6 +93,10 @@ class UpdateContextStoreRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['changeNote'])) {
+            $model->changeNote = $map['changeNote'];
+        }
+
         if (isset($map['config'])) {
             $model->config = config::fromMap($map['config']);
         }

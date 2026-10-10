@@ -46,7 +46,17 @@ class results extends Model
     /**
      * @var string
      */
+    public $sourceType;
+
+    /**
+     * @var string
+     */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $storageMode;
 
     /**
      * @var string
@@ -60,7 +70,9 @@ class results extends Model
         'description' => 'description',
         'regionId' => 'regionId',
         'serviceNames' => 'serviceNames',
+        'sourceType' => 'sourceType',
         'status' => 'status',
+        'storageMode' => 'storageMode',
         'updateTime' => 'updateTime',
     ];
 
@@ -110,8 +122,16 @@ class results extends Model
             }
         }
 
+        if (null !== $this->sourceType) {
+            $res['sourceType'] = $this->sourceType;
+        }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->storageMode) {
+            $res['storageMode'] = $this->storageMode;
         }
 
         if (null !== $this->updateTime) {
@@ -164,8 +184,16 @@ class results extends Model
             }
         }
 
+        if (isset($map['sourceType'])) {
+            $model->sourceType = $map['sourceType'];
+        }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['storageMode'])) {
+            $model->storageMode = $map['storageMode'];
         }
 
         if (isset($map['updateTime'])) {

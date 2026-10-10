@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateContextStoreRequest\config;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateContextStoreRequest\config\source\dataset;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateContextStoreRequest\config\source\trajectory;
 
 class source extends Model
 {
@@ -14,16 +16,40 @@ class source extends Model
     public $agentSpace;
 
     /**
+     * @var dataset
+     */
+    public $dataset;
+
+    /**
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var trajectory
+     */
+    public $trajectory;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'agentSpace' => 'agentSpace',
+        'dataset' => 'dataset',
         'startTime' => 'startTime',
+        'trajectory' => 'trajectory',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        if (null !== $this->dataset) {
+            $this->dataset->validate();
+        }
+        if (null !== $this->trajectory) {
+            $this->trajectory->validate();
+        }
         parent::validate();
     }
 
@@ -34,8 +60,20 @@ class source extends Model
             $res['agentSpace'] = $this->agentSpace;
         }
 
+        if (null !== $this->dataset) {
+            $res['dataset'] = null !== $this->dataset ? $this->dataset->toArray($noStream) : $this->dataset;
+        }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
+        }
+
+        if (null !== $this->trajectory) {
+            $res['trajectory'] = null !== $this->trajectory ? $this->trajectory->toArray($noStream) : $this->trajectory;
+        }
+
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -53,8 +91,20 @@ class source extends Model
             $model->agentSpace = $map['agentSpace'];
         }
 
+        if (isset($map['dataset'])) {
+            $model->dataset = dataset::fromMap($map['dataset']);
+        }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
+        }
+
+        if (isset($map['trajectory'])) {
+            $model->trajectory = trajectory::fromMap($map['trajectory']);
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

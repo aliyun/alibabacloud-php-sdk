@@ -1321,8 +1321,14 @@ class AgentLoop extends OpenApiClient
     public function deleteContextStoreWithOptions($agentSpace, $contextStoreName, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->deleteOutputDataset) {
+            @$query['deleteOutputDataset'] = $request->deleteOutputDataset;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteContextStore',
@@ -3090,6 +3096,10 @@ class AgentLoop extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->sourceType) {
+            @$query['sourceType'] = $request->sourceType;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -4199,6 +4209,10 @@ class AgentLoop extends OpenApiClient
             @$body['formatted'] = $request->formatted;
         }
 
+        if (null !== $request->includeInactive) {
+            @$body['includeInactive'] = $request->includeInactive;
+        }
+
         if (null !== $request->limit) {
             @$body['limit'] = $request->limit;
         }
@@ -4209,6 +4223,10 @@ class AgentLoop extends OpenApiClient
 
         if (null !== $request->retrievalOption) {
             @$body['retrievalOption'] = $request->retrievalOption;
+        }
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
 
         if (null !== $request->threshold) {
@@ -4394,7 +4412,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a context store.
+     * Updates the context store configuration.
      *
      * @param request - UpdateContextStoreRequest
      * @param headers - map
@@ -4419,6 +4437,10 @@ class AgentLoop extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->changeNote) {
+            @$body['changeNote'] = $request->changeNote;
+        }
+
         if (null !== $request->config) {
             @$body['config'] = $request->config;
         }
@@ -4456,7 +4478,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a context store.
+     * Updates the context store configuration.
      *
      * @param request - UpdateContextStoreRequest
      *
