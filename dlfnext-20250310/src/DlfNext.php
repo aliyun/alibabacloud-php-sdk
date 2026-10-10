@@ -137,6 +137,9 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\RollbackTableResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\SubmitQueryRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\SubmitQueryResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\SubscribeResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\UpdateRoleRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\UpdateRoleResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\UpdateRoleUsersRequest;
@@ -1382,7 +1385,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+     * Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1416,7 +1419,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+     * Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
      *
      * @returns DropCatalogResponse
      *
@@ -1643,7 +1646,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a catalog.
+     * Retrieves the details of a data catalog.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1677,7 +1680,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a catalog.
+     * Retrieves the details of a data catalog.
      *
      * @returns GetCatalogResponse
      *
@@ -1694,7 +1697,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a catalog.
+     * Retrieves the details of a data catalog.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1728,7 +1731,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a catalog.
+     * Retrieves the details of a data catalog.
      *
      * @returns GetCatalogByIdResponse
      *
@@ -2956,7 +2959,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * Lists catalogs.
+     * Queries the list of data catalogs.
      *
      * @param request - ListCatalogsRequest
      * @param headers - map
@@ -3006,7 +3009,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * Lists catalogs.
+     * Queries the list of data catalogs.
      *
      * @param request - ListCatalogsRequest
      *
@@ -5053,6 +5056,89 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->subscribeWithOptions($headers, $runtime);
+    }
+
+    /**
+     * Deletes tags from resources.
+     *
+     * @param tmpReq - UntagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UntagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        }
+
+        if (null !== $tmpReq->tagKey) {
+            $request->tagKeyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'tagKey', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->all) {
+            @$query['all'] = $request->all;
+        }
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['resourceId'] = $request->resourceIdShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKeyShrink) {
+            @$query['tagKey'] = $request->tagKeyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/tags',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes tags from resources.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
