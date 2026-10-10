@@ -296,6 +296,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsSettingsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsSettingsShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsTemplatesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsTemplatesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListFunctionMetasRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListFunctionMetasResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListGroupChatMessagesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListGroupChatMessagesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportRequest;
@@ -1192,6 +1194,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Adds a property to the schema of a specified instance.
+     *
      * @param tmpReq - AddSchemaPropertyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1247,6 +1251,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Adds a property to the schema of a specified instance.
+     *
      * @param request - AddSchemaPropertyRequest
      *
      * @returns AddSchemaPropertyResponse
@@ -1614,7 +1620,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Adds cases to a predictive campaign in a specified instance.
+     * Appends outbound call cases to a specified predictive outbound campaign under an instance.
      *
      * @param tmpReq - AppendCasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1669,7 +1675,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Adds cases to a predictive campaign in a specified instance.
+     * Appends outbound call cases to a specified predictive outbound campaign under an instance.
      *
      * @param request - AppendCasesRequest
      *
@@ -1687,10 +1693,10 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+     * Imports one or more RAM users into a specified instance. After a successful import, the RAM users exist as agents in the instance.
      *
      * @remarks
-     * Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
+     * Accounts with RAM permissions can query all Resource Access Management (RAM) users managed under the Alibaba Cloud account in the Resource Access Management (RAM) console. RAM console URL: https://ram.console.aliyun.com/users.
      *
      * @deprecated openAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead
      *
@@ -1752,10 +1758,10 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
-     * Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+     * Imports one or more RAM users into a specified instance. After a successful import, the RAM users exist as agents in the instance.
      *
      * @remarks
-     * Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
+     * Accounts with RAM permissions can query all Resource Access Management (RAM) users managed under the Alibaba Cloud account in the Resource Access Management (RAM) console. RAM console URL: https://ram.console.aliyun.com/users.
      *
      * @deprecated openAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead
      *
@@ -3043,6 +3049,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the upload URL for chat message media files.
+     *
      * @param request - CreateChatMediaUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3088,6 +3096,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the upload URL for chat message media files.
+     *
      * @param request - CreateChatMediaUrlRequest
      *
      * @returns CreateChatMediaUrlResponse
@@ -3316,6 +3326,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Creates a schema in a specified instance.
+     *
      * @param tmpReq - CreateSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3375,6 +3387,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Creates a schema in a specified instance.
+     *
      * @param request - CreateSchemaRequest
      *
      * @returns CreateSchemaResponse
@@ -3778,7 +3792,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Deletes the specified contact flow.
+     * Deletes a specified contact flow.
      *
      * @param request - DeleteContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3825,7 +3839,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Deletes the specified contact flow.
+     * Deletes a specified contact flow.
      *
      * @param request - DeleteContactFlowRequest
      *
@@ -3904,6 +3918,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a single document from a specified instance.
+     *
      * @param request - DeleteDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3953,6 +3969,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a single document from a specified instance.
+     *
      * @param request - DeleteDocumentRequest
      *
      * @returns DeleteDocumentResponse
@@ -3969,6 +3987,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes documents from a specified instance in batches.
+     *
      * @param tmpReq - DeleteDocumentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4024,6 +4044,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes documents from a specified instance in batches.
+     *
      * @param request - DeleteDocumentsRequest
      *
      * @returns DeleteDocumentsResponse
@@ -4040,6 +4062,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a specified Cloud Call Center instance.
+     *
      * @param request - DeleteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4077,6 +4101,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a specified Cloud Call Center instance.
+     *
      * @param request - DeleteInstanceRequest
      *
      * @returns DeleteInstanceResponse
@@ -4093,6 +4119,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a schema from the specified instance.
+     *
      * @param request - DeleteSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4138,6 +4166,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a schema from the specified instance.
+     *
      * @param request - DeleteSchemaRequest
      *
      * @returns DeleteSchemaResponse
@@ -4154,6 +4184,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a property in a specified schema.
+     *
      * @param request - DeleteSchemaPropertyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4203,6 +4235,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Deletes a property in a specified schema.
+     *
      * @param request - DeleteSchemaPropertyRequest
      *
      * @returns DeleteSchemaPropertyResponse
@@ -4406,6 +4440,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Disables a field in a specified schema.
+     *
      * @param request - DisableSchemaPropertyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4455,6 +4491,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Disables a field in a specified schema.
+     *
      * @param request - DisableSchemaPropertyRequest
      *
      * @returns DisableSchemaPropertyResponse
@@ -4597,6 +4635,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Enables a property in a specified schema.
+     *
      * @param request - EnableSchemaPropertyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4646,6 +4686,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Enables a property in a specified schema.
+     *
      * @param request - EnableSchemaPropertyRequest
      *
      * @returns EnableSchemaPropertyResponse
@@ -4788,6 +4830,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Exports the IVR contact flow of a specified instance.
+     *
      * @param request - ExportContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4833,6 +4877,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Exports the IVR contact flow of a specified instance.
+     *
      * @param request - ExportContactFlowRequest
      *
      * @returns ExportContactFlowResponse
@@ -4911,7 +4957,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
+     * Exports the list of do-not-call numbers filtered by the specified search conditions for a specified instance.
      *
      * @param request - ExportDoNotCallNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4958,7 +5004,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
+     * Exports the list of do-not-call numbers filtered by the specified search conditions for a specified instance.
      *
      * @param request - ExportDoNotCallNumbersRequest
      *
@@ -5098,7 +5144,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
+     * Retrieves the information about an audio file for a specified audio resource ID in a specified instance.
      *
      * @param request - GetAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5141,7 +5187,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
+     * Retrieves the information about an audio file for a specified audio resource ID in a specified instance.
      *
      * @param request - GetAudioFileRequest
      *
@@ -5281,7 +5327,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
+     * Retrieves the details of a call specified by call ID for a specified instance.
      *
      * @param request - GetCallDetailRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5324,7 +5370,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
+     * Retrieves the details of a call specified by call ID for a specified instance.
      *
      * @param request - GetCallDetailRecordRequest
      *
@@ -5464,6 +5510,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the access URL for a media file in a chat message.
+     *
      * @param request - GetChatMediaUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5509,6 +5557,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the access URL for a media file in a chat message.
+     *
      * @param request - GetChatMediaUrlRequest
      *
      * @returns GetChatMediaUrlResponse
@@ -5582,7 +5632,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Retrieve a specified contact flow.
+     * Retrieves a specified contact flow.
      *
      * @param request - GetContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5629,7 +5679,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Retrieve a specified contact flow.
+     * Retrieves a specified contact flow.
      *
      * @param request - GetContactFlowRequest
      *
@@ -5834,6 +5884,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the upload parameters required to import a document.
+     *
      * @param request - GetDocumentUploadParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5879,6 +5931,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the upload parameters required to import a document.
+     *
      * @param request - GetDocumentUploadParametersRequest
      *
      * @returns GetDocumentUploadParametersResponse
@@ -6147,7 +6201,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a Cloud Contact Center instance.
+     * Queries the details of a Cloud Call Center instance based on the specified instance ID.
      *
      * @param request - GetInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6186,7 +6240,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a Cloud Contact Center instance.
+     * Queries the details of a Cloud Call Center instance based on the specified instance ID.
      *
      * @param request - GetInstanceRequest
      *
@@ -6700,6 +6754,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the schema and its field definitions in a specified instance.
+     *
      * @param request - GetSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6745,6 +6801,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * Retrieves the schema and its field definitions in a specified instance.
+     *
      * @param request - GetSchemaRequest
      *
      * @returns GetSchemaResponse
@@ -6883,7 +6941,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a specific ticket.
+     * Queries the details of a specified ticket.
      *
      * @param request - GetTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6926,7 +6984,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a specific ticket.
+     * Queries the details of a specified ticket.
      *
      * @param request - GetTicketRequest
      *
@@ -10410,6 +10468,81 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFlashSmsTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询函数元数据.
+     *
+     * @remarks
+     * 若RAM子账号需要调用该接口，则需具有“管理云呼叫中心(CCC)的权限”（AliyunCCCFullAccess）。
+     *
+     * @param request - ListFunctionMetasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFunctionMetasResponse
+     *
+     * @param ListFunctionMetasRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListFunctionMetasResponse
+     */
+    public function listFunctionMetasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hasHttpTrigger) {
+            @$query['HasHttpTrigger'] = $request->hasHttpTrigger;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFunctionMetas',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFunctionMetasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询函数元数据.
+     *
+     * @remarks
+     * 若RAM子账号需要调用该接口，则需具有“管理云呼叫中心(CCC)的权限”（AliyunCCCFullAccess）。
+     *
+     * @param request - ListFunctionMetasRequest
+     *
+     * @returns ListFunctionMetasResponse
+     *
+     * @param ListFunctionMetasRequest $request
+     *
+     * @return ListFunctionMetasResponse
+     */
+    public function listFunctionMetas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFunctionMetasWithOptions($request, $runtime);
     }
 
     /**
