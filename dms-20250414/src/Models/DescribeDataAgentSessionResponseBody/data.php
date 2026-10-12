@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\d
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\capabilities;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\chatHistoryLocations;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\dataSources;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\messages;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\recallResults;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\sessionConfig;
 
@@ -60,6 +61,11 @@ class data extends Model
     public $file;
 
     /**
+     * @var messages[]
+     */
+    public $messages;
+
+    /**
      * @var recallResults[]
      */
     public $recallResults;
@@ -103,6 +109,7 @@ class data extends Model
         'dataSources' => 'DataSources',
         'favoriteInWorkspace' => 'FavoriteInWorkspace',
         'file' => 'File',
+        'messages' => 'Messages',
         'recallResults' => 'RecallResults',
         'saved' => 'Saved',
         'sessionConfig' => 'SessionConfig',
@@ -125,6 +132,9 @@ class data extends Model
         }
         if (\is_array($this->dataSources)) {
             Model::validateArray($this->dataSources);
+        }
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
         }
         if (\is_array($this->recallResults)) {
             Model::validateArray($this->recallResults);
@@ -200,6 +210,17 @@ class data extends Model
 
         if (null !== $this->file) {
             $res['File'] = $this->file;
+        }
+
+        if (null !== $this->messages) {
+            if (\is_array($this->messages)) {
+                $res['Messages'] = [];
+                $n1 = 0;
+                foreach ($this->messages as $item1) {
+                    $res['Messages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->recallResults) {
@@ -310,6 +331,17 @@ class data extends Model
 
         if (isset($map['File'])) {
             $model->file = $map['File'];
+        }
+
+        if (isset($map['Messages'])) {
+            if (!empty($map['Messages'])) {
+                $model->messages = [];
+                $n1 = 0;
+                foreach ($map['Messages'] as $item1) {
+                    $model->messages[$n1] = messages::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RecallResults'])) {

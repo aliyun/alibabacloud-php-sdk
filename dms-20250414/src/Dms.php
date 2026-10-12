@@ -75,6 +75,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteOneMetaSqlTemplateRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteOneMetaSqlTemplateResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteWorkspaceCodeRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteWorkspaceCodeResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentMonitorMetricsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentMonitorMetricsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentMetricsRequest;
@@ -141,6 +143,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowVersionsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowVersionsResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentMonitorSessionsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentMonitorSessionsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestInstancesRequest;
@@ -2655,7 +2659,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a custom agent by custom agent ID.
+     * Queries the details of a custom agent by custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2698,7 +2702,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a custom agent by custom agent ID.
+     * Queries the details of a custom agent by custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      *
@@ -2713,6 +2717,83 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * DescribeCustomAgentMonitorMetrics - Retrieves monitoring metrics data for custom agents, including trend data.
+     *
+     * @param request - DescribeCustomAgentMonitorMetricsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomAgentMonitorMetricsResponse
+     *
+     * @param DescribeCustomAgentMonitorMetricsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeCustomAgentMonitorMetricsResponse
+     */
+    public function describeCustomAgentMonitorMetricsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customAgentId) {
+            @$query['CustomAgentId'] = $request->customAgentId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
+        }
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCustomAgentMonitorMetrics',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCustomAgentMonitorMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeCustomAgentMonitorMetrics - Retrieves monitoring metrics data for custom agents, including trend data.
+     *
+     * @param request - DescribeCustomAgentMonitorMetricsRequest
+     *
+     * @returns DescribeCustomAgentMonitorMetricsResponse
+     *
+     * @param DescribeCustomAgentMonitorMetricsRequest $request
+     *
+     * @return DescribeCustomAgentMonitorMetricsResponse
+     */
+    public function describeCustomAgentMonitorMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomAgentMonitorMetricsWithOptions($request, $runtime);
     }
 
     /**
@@ -4906,7 +4987,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Lists all custom agents in a personal space or workspace.
+     * Lists all custom agents in personal spaces and workspaces.
      *
      * @param request - ListCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4965,7 +5046,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Lists all custom agents in a personal space or workspace.
+     * Lists all custom agents in personal spaces and workspaces.
      *
      * @param request - ListCustomAgentRequest
      *
@@ -4980,6 +5061,87 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * ListCustomAgentMonitorSessions - Retrieves the list of monitoring sessions for custom agents.
+     *
+     * @param request - ListCustomAgentMonitorSessionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomAgentMonitorSessionsResponse
+     *
+     * @param ListCustomAgentMonitorSessionsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListCustomAgentMonitorSessionsResponse
+     */
+    public function listCustomAgentMonitorSessionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customAgentId) {
+            @$query['CustomAgentId'] = $request->customAgentId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomAgentMonitorSessions',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomAgentMonitorSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListCustomAgentMonitorSessions - Retrieves the list of monitoring sessions for custom agents.
+     *
+     * @param request - ListCustomAgentMonitorSessionsRequest
+     *
+     * @returns ListCustomAgentMonitorSessionsResponse
+     *
+     * @param ListCustomAgentMonitorSessionsRequest $request
+     *
+     * @return ListCustomAgentMonitorSessionsResponse
+     */
+    public function listCustomAgentMonitorSessions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomAgentMonitorSessionsWithOptions($request, $runtime);
     }
 
     /**
@@ -5693,7 +5855,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the workspaces under the primary account with pagination.
+     * Retrieves a paginated list of collaborative workspaces under the primary account.
      *
      * @param request - ListDataAgentWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5768,7 +5930,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the workspaces under the primary account with pagination.
+     * Retrieves a paginated list of collaborative workspaces under the primary account.
      *
      * @param request - ListDataAgentWorkspaceRequest
      *
@@ -6610,7 +6772,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Modifies a custom agent in a personal space or workspace.
+     * Modifies a custom agent in a personal or shared workspace.
      *
      * @param tmpReq - ModifyCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6743,7 +6905,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Modifies a custom agent in a personal space or workspace.
+     * Modifies a custom agent in a personal or shared workspace.
      *
      * @param request - ModifyCustomAgentRequest
      *
