@@ -16,6 +16,11 @@ class ChatRequest extends Model
     /**
      * @var string
      */
+    public $forwardedProps;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -34,6 +39,7 @@ class ChatRequest extends Model
     public $summary;
     protected $_name = [
         'agentId' => 'AgentId',
+        'forwardedProps' => 'ForwardedProps',
         'message' => 'Message',
         'resume' => 'Resume',
         'sessionId' => 'SessionId',
@@ -50,6 +56,10 @@ class ChatRequest extends Model
         $res = [];
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
+        }
+
+        if (null !== $this->forwardedProps) {
+            $res['ForwardedProps'] = $this->forwardedProps;
         }
 
         if (null !== $this->message) {
@@ -81,6 +91,10 @@ class ChatRequest extends Model
         $model = new self();
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
+        }
+
+        if (isset($map['ForwardedProps'])) {
+            $model->forwardedProps = $map['ForwardedProps'];
         }
 
         if (isset($map['Message'])) {
