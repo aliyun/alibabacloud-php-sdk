@@ -317,27 +317,7 @@ class AIWorkSpace extends OpenApiClient
             'eu-west-1-oxs' => 'aiworkspace.aliyuncs.com',
             'me-east-1' => 'aiworkspace.aliyuncs.com',
             'rus-west-1-pop' => 'aiworkspace.aliyuncs.com',
-            'cn-wulanchabu' => 'aiworkspace.cn-wulanchabu.aliyuncs.com',
-            'cn-shenzhen' => 'aiworkspace.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai' => 'aiworkspace.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'aiworkspace.cn-hongkong.aliyuncs.com',
-            'cn-heyuan' => 'aiworkspace.cn-heyuan.aliyuncs.com',
-            'cn-hangzhou' => 'aiworkspace.cn-hangzhou.aliyuncs.com',
             'cn-guangzhou' => 'aiworkspace.cn-guangzhou.aliyuncs.com	',
-            'cn-beijing' => 'aiworkspace.cn-beijing.aliyuncs.com',
-            'ap-southeast-8' => 'aiworkspace.ap-southeast-8.aliyuncs.com',
-            'ap-southeast-7' => 'aiworkspace.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-3' => 'aiworkspace.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-1' => 'aiworkspace.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2' => 'aiworkspace.ap-northeast-2.aliyuncs.com',
-            'ap-northeast-1' => 'aiworkspace.ap-northeast-1.aliyuncs.com',
-            'eu-central-1' => 'aiworkspace.eu-central-1.aliyuncs.com',
-            'na-south-1' => 'aiworkspace.na-south-1.aliyuncs.com',
-            'us-east-1' => 'aiworkspace.us-east-1.aliyuncs.com',
-            'us-southeast-1' => 'aiworkspace.us-southeast-1.aliyuncs.com',
-            'us-west-1' => 'aiworkspace.us-west-1.aliyuncs.com',
-            'ap-south-1' => 'aiworkspace.ap-south-1.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'aiworkspace.cn-shanghai-finance-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aiworkspace', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -977,6 +957,10 @@ class AIWorkSpace extends OpenApiClient
             @$body['Description'] = $request->description;
         }
 
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->edition) {
             @$body['Edition'] = $request->edition;
         }
@@ -1396,6 +1380,9 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Creates a dataset version.
      *
+     * @remarks
+     * Creates a dataset version.
+     *
      * @param request - CreateDatasetVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1431,6 +1418,10 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->importInfo) {
@@ -1485,6 +1476,9 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * Creates a dataset version.
+     *
+     * @remarks
      * Creates a dataset version.
      *
      * @param request - CreateDatasetVersionRequest
@@ -2187,7 +2181,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
+     * Purchases products. Currently, only pay-as-you-go DataWorks, OSS, PAI, and MaxCompute are supported.
      *
      * @param request - CreateProductOrdersRequest
      * @param headers - map
@@ -2233,7 +2227,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
+     * Purchases products. Currently, only pay-as-you-go DataWorks, OSS, PAI, and MaxCompute are supported.
      *
      * @param request - CreateProductOrdersRequest
      *
@@ -2564,7 +2558,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Adds a workspace role.
+     * Adds a role to a workspace.
      *
      * @param request - CreateWorkspaceRoleRequest
      * @param headers - map
@@ -2619,7 +2613,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Adds a workspace role.
+     * Adds a role to a workspace.
      *
      * @param request - CreateWorkspaceRoleRequest
      *
@@ -4604,7 +4598,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves the configuration of a dataset job.
+     * Retrieves the configuration of a dataset task.
      *
      * @param request - GetDatasetJobConfigRequest
      * @param headers - map
@@ -4648,7 +4642,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves the configuration of a dataset job.
+     * Retrieves the configuration of a dataset task.
      *
      * @param request - GetDatasetJobConfigRequest
      *
@@ -4669,7 +4663,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of a specified dataset version.
+     * Retrieves the details of a specified dataset version.
+     *
+     * @remarks
+     * Retrieves the details of a specified dataset version.
      *
      * @param request - GetDatasetVersionRequest
      * @param headers - map
@@ -4707,7 +4704,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of a specified dataset version.
+     * Retrieves the details of a specified dataset version.
+     *
+     * @remarks
+     * Retrieves the details of a specified dataset version.
      *
      * @param request - GetDatasetVersionRequest
      *
@@ -4972,7 +4972,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves a member of a workspace.
+     * Retrieves the members of a workspace.
      *
      * @param request - GetMemberRequest
      * @param headers - map
@@ -5019,7 +5019,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves a member of a workspace.
+     * Retrieves the members of a workspace.
      *
      * @param request - GetMemberRequest
      *
@@ -5039,7 +5039,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified model.
+     * Retrieves the details of a specified model.
      *
      * @param request - GetModelRequest
      * @param headers - map
@@ -5076,7 +5076,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified model.
+     * Retrieves the details of a specified model.
      *
      * @param request - GetModelRequest
      *
@@ -6637,7 +6637,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of images.
+     * Retrieves a list of images.
      *
      * @param request - ListImagesRequest
      * @param headers - map
@@ -6723,7 +6723,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of images.
+     * Retrieves a list of images.
      *
      * @param request - ListImagesRequest
      *
@@ -6742,7 +6742,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists members in a workspace.
+     * Lists the members of a workspace.
      *
      * @param request - ListMembersRequest
      * @param headers - map
@@ -6801,7 +6801,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists members in a workspace.
+     * Lists the members of a workspace.
      *
      * @param request - ListMembersRequest
      *
@@ -7843,10 +7843,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of workspaces in a specified region.
+     * Retrieves the list of workspaces in a region.
      *
      * @remarks
-     * You can specify different query options by using the option parameter to retrieve different workspace-related information.
+     * Use the Option parameter to specify different query options and retrieve different workspace-related information.
      *
      * @param request - ListWorkspacesRequest
      * @param headers - map
@@ -7936,10 +7936,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of workspaces in a specified region.
+     * Retrieves the list of workspaces in a region.
      *
      * @remarks
-     * You can specify different query options by using the option parameter to retrieve different workspace-related information.
+     * Use the Option parameter to specify different query options and retrieve different workspace-related information.
      *
      * @param request - ListWorkspacesRequest
      *
@@ -9184,6 +9184,9 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Updates the information of a specified dataset version.
      *
+     * @remarks
+     * Updates the information of a specified dataset version.
+     *
      * @param request - UpdateDatasetVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9246,6 +9249,9 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * Updates the information of a specified dataset version.
+     *
+     * @remarks
      * Updates the information of a specified dataset version.
      *
      * @param request - UpdateDatasetVersionRequest

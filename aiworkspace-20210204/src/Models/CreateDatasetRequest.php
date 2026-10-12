@@ -49,6 +49,11 @@ class CreateDatasetRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $edition;
@@ -151,6 +156,7 @@ class CreateDatasetRequest extends Model
         'dataType' => 'DataType',
         'datasetTaskRamRole' => 'DatasetTaskRamRole',
         'description' => 'Description',
+        'dryRun' => 'DryRun',
         'edition' => 'Edition',
         'importInfo' => 'ImportInfo',
         'labels' => 'Labels',
@@ -232,6 +238,10 @@ class CreateDatasetRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->edition) {
@@ -386,6 +396,10 @@ class CreateDatasetRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Edition'])) {
