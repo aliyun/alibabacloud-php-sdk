@@ -1,3 +1,7 @@
+2026-10-12 Version: 2.0.6
+- Update API ListConversations: add response parameters Body.Conversations.$.Voice.
+
+
 2026-09-03 Version: 2.0.5
 - Update API AuditTTSVoice: add request parameters NlsServiceType.
 - Update API DescribeTTSConfig: add response parameters Body.TtsOverridesUuid.

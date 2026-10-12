@@ -77,6 +77,11 @@ class conversations extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $voice;
     protected $_name = [
         'abTestName' => 'AbTestName',
         'calledNumber' => 'CalledNumber',
@@ -92,6 +97,7 @@ class conversations extends Model
         'sandBox' => 'SandBox',
         'skillGroup' => 'SkillGroup',
         'startTime' => 'StartTime',
+        'voice' => 'Voice',
     ];
 
     public function validate()
@@ -168,6 +174,10 @@ class conversations extends Model
             $res['StartTime'] = $this->startTime;
         }
 
+        if (null !== $this->voice) {
+            $res['Voice'] = $this->voice;
+        }
+
         return $res;
     }
 
@@ -240,6 +250,10 @@ class conversations extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['Voice'])) {
+            $model->voice = $map['Voice'];
         }
 
         return $model;
