@@ -223,6 +223,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveUsersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeConfigGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeConfigGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeConsoleMessagesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeConsoleMessagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCustomizedListHeadersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCustomizedListHeadersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupSessionsRequest;
@@ -574,6 +576,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\RevokeCoordinatePrivilegeRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RevokeCoordinatePrivilegeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RunCommandResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SendConsoleMessageRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SendConsoleMessageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SendVerifyCodeRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SendVerifyCodeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDesktopGroupScaleTimerRequest;
@@ -7325,7 +7329,7 @@ class Ecd extends OpenApiClient
      * Creates a virtual bridge.
      *
      * @remarks
-     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device the next time they log on to a Cloud Desktop.
+     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a cloud desktop.
      *
      * @param request - CreateVirtualBridgeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7399,7 +7403,7 @@ class Ecd extends OpenApiClient
      * Creates a virtual bridge.
      *
      * @remarks
-     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device the next time they log on to a Cloud Desktop.
+     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a cloud desktop.
      *
      * @param request - CreateVirtualBridgeRequest
      *
@@ -9264,7 +9268,7 @@ class Ecd extends OpenApiClient
      * Modifies the status of a virtual bridge.
      *
      * @remarks
-     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to Cloud Desktop.
+     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting and disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
      *
      * @param request - DeleteVirtualBridgeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9310,7 +9314,7 @@ class Ecd extends OpenApiClient
      * Modifies the status of a virtual bridge.
      *
      * @remarks
-     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to Cloud Desktop.
+     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting and disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
      *
      * @param request - DeleteVirtualBridgeRequest
      *
@@ -10520,6 +10524,115 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries WUYING Workspace management messages.
+     *
+     * @remarks
+     * Queries console messages and their configurations under the current Alibaba Cloud account. You can filter messages by message ID, business channel, message type, client type, message level, title or body keyword, and target audience. Returns the list of messages on the current page and the total number of messages that match the query conditions.
+     * - When multiple filter conditions are provided, all conditions are applied together to limit the query results.
+     * - Uses PageNum and PageSize for pagination. The default value of PageNum is 1, and the default and maximum values of PageSize are both 200.
+     * - When querying by a specified convenience user, the results include messages targeted at all convenience users, the user themselves, and the organization to which the user belongs. When querying by a specified AD user, the results also include messages targeted at all AD users, the user themselves, and the AD organization to which the user belongs.
+     * - Query results may include messages in the initializing, pushing, published, expired, deleting, and failed states. The Published state does not indicate that all target terminals have successfully received the message.
+     * - Image download URLs are temporary links. If a link expires, you can query again to obtain a new one.
+     *
+     * @param request - DescribeConsoleMessagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeConsoleMessagesResponse
+     *
+     * @param DescribeConsoleMessagesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeConsoleMessagesResponse
+     */
+    public function describeConsoleMessagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
+        if (null !== $request->clientTypes) {
+            @$query['ClientTypes'] = $request->clientTypes;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->messageIds) {
+            @$query['MessageIds'] = $request->messageIds;
+        }
+
+        if (null !== $request->messageLevel) {
+            @$query['MessageLevel'] = $request->messageLevel;
+        }
+
+        if (null !== $request->messageType) {
+            @$query['MessageType'] = $request->messageType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->targetIds) {
+            @$query['TargetIds'] = $request->targetIds;
+        }
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeConsoleMessages',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeConsoleMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries WUYING Workspace management messages.
+     *
+     * @remarks
+     * Queries console messages and their configurations under the current Alibaba Cloud account. You can filter messages by message ID, business channel, message type, client type, message level, title or body keyword, and target audience. Returns the list of messages on the current page and the total number of messages that match the query conditions.
+     * - When multiple filter conditions are provided, all conditions are applied together to limit the query results.
+     * - Uses PageNum and PageSize for pagination. The default value of PageNum is 1, and the default and maximum values of PageSize are both 200.
+     * - When querying by a specified convenience user, the results include messages targeted at all convenience users, the user themselves, and the organization to which the user belongs. When querying by a specified AD user, the results also include messages targeted at all AD users, the user themselves, and the AD organization to which the user belongs.
+     * - Query results may include messages in the initializing, pushing, published, expired, deleting, and failed states. The Published state does not indicate that all target terminals have successfully received the message.
+     * - Image download URLs are temporary links. If a link expires, you can query again to obtain a new one.
+     *
+     * @param request - DescribeConsoleMessagesRequest
+     *
+     * @returns DescribeConsoleMessagesResponse
+     *
+     * @param DescribeConsoleMessagesRequest $request
+     *
+     * @return DescribeConsoleMessagesResponse
+     */
+    public function describeConsoleMessages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeConsoleMessagesWithOptions($request, $runtime);
+    }
+
+    /**
      * Obtain the table header information of the WUYING Workspace list page.
      *
      * @param request - DescribeCustomizedListHeadersRequest
@@ -11494,7 +11607,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of cloud computers.
+     * Queries the details of a cloud computer.
      *
      * @param request - DescribeDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11693,7 +11806,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of cloud computers.
+     * Queries the details of a cloud computer.
      *
      * @param request - DescribeDesktopsRequest
      *
@@ -17517,7 +17630,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries desktop data statistics by different dimensions.
+     * Queries desktop statistics by different dimensions.
      *
      * @param request - GetAggregatedDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17564,7 +17677,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries desktop data statistics by different dimensions.
+     * Queries desktop statistics by different dimensions.
      *
      * @param request - GetAggregatedDesktopsRequest
      *
@@ -18841,10 +18954,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries a list of virtual bridges.
+     * Queries virtual bridges.
      *
      * @remarks
-     * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+     * After an MFA device is locked, its status changes to LOCKED. The corresponding Active Directory (AD) account cannot log on to the Wuying terminal because it cannot authenticate the MFA device. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
      *
      * @param request - ListVirtualBridgesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18899,10 +19012,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries a list of virtual bridges.
+     * Queries virtual bridges.
      *
      * @remarks
-     * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+     * After an MFA device is locked, its status changes to LOCKED. The corresponding Active Directory (AD) account cannot log on to the Wuying terminal because it cannot authenticate the MFA device. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
      *
      * @param request - ListVirtualBridgesRequest
      *
@@ -23738,10 +23851,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of a virtual bridge.
+     * Upgrades or downgrades the specifications of a virtual bridge.
      *
      * @remarks
-     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a cloud desktop.
+     * Deleting an MFA device means unbinding the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a Cloud Desktop.
      *
      * @param request - ModifyVirtualBridgeLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23812,10 +23925,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of a virtual bridge.
+     * Upgrades or downgrades the specifications of a virtual bridge.
      *
      * @remarks
-     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a cloud desktop.
+     * Deleting an MFA device means unbinding the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a Cloud Desktop.
      *
      * @param request - ModifyVirtualBridgeLevelRequest
      *
@@ -23836,7 +23949,7 @@ class Ecd extends OpenApiClient
      * Modifies the status of a virtual bridge.
      *
      * @remarks
-     * Only custom images in the active (Available) state can be modified.
+     * Only custom images in the Available state can be modified.
      *
      * @param request - ModifyVirtualBridgeStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23886,7 +23999,7 @@ class Ecd extends OpenApiClient
      * Modifies the status of a virtual bridge.
      *
      * @remarks
-     * Only custom images in the active (Available) state can be modified.
+     * Only custom images in the Available state can be modified.
      *
      * @param request - ModifyVirtualBridgeStatusRequest
      *
@@ -25450,7 +25563,7 @@ class Ecd extends OpenApiClient
      * Renews a virtual bridge.
      *
      * @remarks
-     * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+     * After being locked, the status of the MFA device changes to Locked (LOCKED). The corresponding AD account cannot log on to the Wuying terminal because it cannot authenticate the MFA device. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock it.
      *
      * @param request - RenewVirtualBridgeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25520,7 +25633,7 @@ class Ecd extends OpenApiClient
      * Renews a virtual bridge.
      *
      * @remarks
-     * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+     * After being locked, the status of the MFA device changes to Locked (LOCKED). The corresponding AD account cannot log on to the Wuying terminal because it cannot authenticate the MFA device. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock it.
      *
      * @param request - RenewVirtualBridgeRequest
      *
@@ -25932,6 +26045,77 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runCommandWithOptions($request, $runtime);
+    }
+
+    /**
+     * Sends a created Elastic Desktop Service management message.
+     *
+     * @remarks
+     * This operation sends a created management message. The message body, client type, recipients, and business type all use the saved configurations. Each call processes only one MessageId.
+     * - The message must belong to the current Alibaba Cloud account. Messages in the Init, Pushing, Expired, Deleting, or Failed state cannot be sent. Only messages in the Published state can be sent.
+     * - Before the request is accepted, the system checks the number of Pushing messages of the same message type under the current account. If there are 5 or more such messages, the request is rejected. The count is not split by business channel.
+     * - Regular notifications and wallpaper messages are pushed through asynchronous tasks. For the OPERATIONAL type, only the publish status is updated. Messages configured for scheduled sending retain their original schedules and are not immediately triggered by this operation.
+     * - A Success value of true indicates that the request is accepted, but it does not mean that all recipients have received the message. Published indicates that the message is published or the server-side push processing is complete, and it is not a delivery confirmation for each individual target.
+     *
+     * @param request - SendConsoleMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendConsoleMessageResponse
+     *
+     * @param SendConsoleMessageRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SendConsoleMessageResponse
+     */
+    public function sendConsoleMessageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->messageId) {
+            @$query['MessageId'] = $request->messageId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SendConsoleMessage',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SendConsoleMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sends a created Elastic Desktop Service management message.
+     *
+     * @remarks
+     * This operation sends a created management message. The message body, client type, recipients, and business type all use the saved configurations. Each call processes only one MessageId.
+     * - The message must belong to the current Alibaba Cloud account. Messages in the Init, Pushing, Expired, Deleting, or Failed state cannot be sent. Only messages in the Published state can be sent.
+     * - Before the request is accepted, the system checks the number of Pushing messages of the same message type under the current account. If there are 5 or more such messages, the request is rejected. The count is not split by business channel.
+     * - Regular notifications and wallpaper messages are pushed through asynchronous tasks. For the OPERATIONAL type, only the publish status is updated. Messages configured for scheduled sending retain their original schedules and are not immediately triggered by this operation.
+     * - A Success value of true indicates that the request is accepted, but it does not mean that all recipients have received the message. Published indicates that the message is published or the server-side push processing is complete, and it is not a delivery confirmation for each individual target.
+     *
+     * @param request - SendConsoleMessageRequest
+     *
+     * @returns SendConsoleMessageResponse
+     *
+     * @param SendConsoleMessageRequest $request
+     *
+     * @return SendConsoleMessageResponse
+     */
+    public function sendConsoleMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendConsoleMessageWithOptions($request, $runtime);
     }
 
     /**
