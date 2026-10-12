@@ -24,12 +24,16 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\BatchUpdateHttpApiOperationRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchUpdateHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CheckCommodityStatusRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CheckCommodityStatusResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAiModelCardRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAiModelCardResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAiModelProviderRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAiModelProviderResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAndAttachPolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAndAttachPolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateChatSessionRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateChatSessionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRulesRequest;
@@ -38,6 +42,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateDeveloperRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateDeveloperResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateEnvironmentRequest;
@@ -66,6 +72,10 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateProductCategoryRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateProductCategoryResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateProductRefRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateProductRefResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateRiskCheckTaskRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateRiskCheckTaskResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateSecretRequest;
@@ -103,6 +113,14 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginClassRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginClassResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePortalRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePortalResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteProductCategoryRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteProductCategoryResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteProductRefRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteProductRefResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteProductRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteProductResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteSecretResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceVersionResponse;
@@ -120,6 +138,10 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelCardRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelCardResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelProviderRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelProviderResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetApiPathFieldConfigRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetApiPathFieldConfigResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetApiPathFieldTemplateRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetApiPathFieldTemplateResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetBatchExportTaskRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetBatchExportTaskResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetBatchImportTaskRequest;
@@ -131,6 +153,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDashboardRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDashboardResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDashboardShrinkRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetDeveloperRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetDeveloperResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentRequest;
@@ -144,6 +168,10 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleSubjectUsageRespon
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResourceQuotaUsageRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResourceQuotaUsageResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetHiMarketConsumerCredentialRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetHiMarketConsumerCredentialResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetHiMarketConsumerRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetHiMarketConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiResponse;
@@ -394,8 +422,8 @@ class APIG extends OpenApiClient
      * >  Recommended call sequence:
      * > - Step 1: Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
-     * > - - The response returns a conflict preview that contains conflictHash.
-     * > - Step 2: Submit the rule after confirmation.
+     * > - - The response returns a conflict preview that contains the conflictHash value.
+     * > - Step 2: Submit the request after confirmation.
      * > - - No conflicts: Set dryRun to false and overwrite to false.
      * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
@@ -496,8 +524,8 @@ class APIG extends OpenApiClient
      * >  Recommended call sequence:
      * > - Step 1: Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
-     * > - - The response returns a conflict preview that contains conflictHash.
-     * > - Step 2: Submit the rule after confirmation.
+     * > - - The response returns a conflict preview that contains the conflictHash value.
+     * > - Step 2: Submit the request after confirmation.
      * > - - No conflicts: Set dryRun to false and overwrite to false.
      * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
@@ -519,7 +547,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Authorizes a security group to allow gateway access to services.
+     * Authorizes a security group for gateway access to services.
      *
      * @param request - AddGatewaySecurityGroupRuleRequest
      * @param headers - map
@@ -570,7 +598,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Authorizes a security group to allow gateway access to services.
+     * Authorizes a security group for gateway access to services.
      *
      * @param request - AddGatewaySecurityGroupRuleRequest
      *
@@ -653,7 +681,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Revokes consumer authorization rules in batches.
+     * Revokes API consumer authorization rules in batches.
      *
      * @param request - BatchDeleteConsumerAuthorizationRuleRequest
      * @param headers - map
@@ -695,7 +723,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Revokes consumer authorization rules in batches.
+     * Revokes API consumer authorization rules in batches.
      *
      * @param request - BatchDeleteConsumerAuthorizationRuleRequest
      *
@@ -714,7 +742,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 批量导出HTTP API.
+     * Batch exports HTTP APIs.
      *
      * @param request - BatchExportHttpApisRequest
      * @param headers - map
@@ -772,7 +800,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 批量导出HTTP API.
+     * Batch exports HTTP APIs.
      *
      * @param request - BatchExportHttpApisRequest
      *
@@ -791,7 +819,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 批量导入HTTP API.
+     * Imports HTTP APIs in batches.
      *
      * @param request - BatchImportHttpApisRequest
      * @param headers - map
@@ -869,7 +897,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 批量导入HTTP API.
+     * Imports HTTP APIs in batches.
      *
      * @param request - BatchImportHttpApisRequest
      *
@@ -951,7 +979,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 批量更新消费者鉴权.
+     * Updates HTTP API operations in batches.
      *
      * @param request - BatchUpdateHttpApiOperationRequest
      * @param headers - map
@@ -1002,7 +1030,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 批量更新消费者鉴权.
+     * Updates HTTP API operations in batches.
      *
      * @param request - BatchUpdateHttpApiOperationRequest
      *
@@ -1095,11 +1123,66 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Queries the activation status of the API management service.
+     *
+     * @param request - CheckCommodityStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckCommodityStatusResponse
+     *
+     * @param CheckCommodityStatusRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CheckCommodityStatusResponse
+     */
+    public function checkCommodityStatusWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'CheckCommodityStatus',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/sales/commodity-status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckCommodityStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the activation status of the API management service.
+     *
+     * @param request - CheckCommodityStatusRequest
+     *
+     * @returns CheckCommodityStatusResponse
+     *
+     * @param CheckCommodityStatusRequest $request
+     *
+     * @return CheckCommodityStatusResponse
+     */
+    public function checkCommodityStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkCommodityStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates an AI model card.
      *
      * @remarks
-     * Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference an existing model provider in the gateway.
-     * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1000 model cards can be created per gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If not specified, type defaults to fixed and all cost values default to 0. Each item in availablePaths must include both path and type.
+     * Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference a model provider that already exists in the gateway.
+     * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1,000 model cards can be created for a single gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If this parameter is not specified, type defaults to fixed and all cost values default to 0. Each entry in availablePaths must include both path and type.
      *
      * @param request - CreateAiModelCardRequest
      * @param headers - map
@@ -1168,8 +1251,8 @@ class APIG extends OpenApiClient
      * Creates an AI model card.
      *
      * @remarks
-     * Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference an existing model provider in the gateway.
-     * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1000 model cards can be created per gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If not specified, type defaults to fixed and all cost values default to 0. Each item in availablePaths must include both path and type.
+     * Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference a model provider that already exists in the gateway.
+     * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1,000 model cards can be created for a single gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If this parameter is not specified, type defaults to fixed and all cost values default to 0. Each entry in availablePaths must include both path and type.
      *
      * @param request - CreateAiModelCardRequest
      *
@@ -1356,7 +1439,76 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a consumer.
+     * Creates a HiMarket chat session with a specified conversation type and associated products, and returns the ID of the newly created session.
+     *
+     * @param request - CreateChatSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChatSessionResponse
+     *
+     * @param CreateChatSessionRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateChatSessionResponse
+     */
+    public function createChatSessionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->products) {
+            @$body['products'] = $request->products;
+        }
+
+        if (null !== $request->talkType) {
+            @$body['talkType'] = $request->talkType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateChatSession',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/sessions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateChatSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a HiMarket chat session with a specified conversation type and associated products, and returns the ID of the newly created session.
+     *
+     * @param request - CreateChatSessionRequest
+     *
+     * @returns CreateChatSessionResponse
+     *
+     * @param CreateChatSessionRequest $request
+     *
+     * @return CreateChatSessionResponse
+     */
+    public function createChatSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createChatSessionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates an API consumer.
      *
      * @param request - CreateConsumerRequest
      * @param headers - map
@@ -1432,7 +1584,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a consumer.
+     * Creates an API consumer.
      *
      * @param request - CreateConsumerRequest
      *
@@ -1533,12 +1685,12 @@ class APIG extends OpenApiClient
      * Creates consumer authorization rules.
      *
      * @remarks
-     * Prerequisites: Before creating consumer authorization rules, prepare resources according to the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
+     * Prerequisites: Before creating consumer authorization rules, prepare resources in the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
      * Gateway instance (CreateGateway → gatewayId, gw- prefix)
-     * Environment (A default environment is automatically created with the gateway. You can also use CreateEnvironment → environmentId, env- prefix, which requires the gatewayId from step 1)
+     * Environment (A default environment is automatically created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix. The gatewayId from step 1 must be associated.)
      * HTTP API (CreateHttpApi → httpApiId, api- prefix)
-     * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belongs to the API in step 3. Then publish to the environment in step 2 by using DeployHttpApi. Unpublished routes cannot be authorized)
-     * Consumer (CreateConsumer → consumerId, cs- prefix. Or consumer group consumerGroupId, csg- prefix. Use either consumerId or consumerGroupId)
+     * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, which belongs to the API in step 3. Then call DeployHttpApi to publish the route to the environment in step 2. Unpublished routes cannot be authorized.)
+     * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Specify either consumerId or consumerGroupId.)
      *
      * @param request - CreateConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -1583,12 +1735,12 @@ class APIG extends OpenApiClient
      * Creates consumer authorization rules.
      *
      * @remarks
-     * Prerequisites: Before creating consumer authorization rules, prepare resources according to the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
+     * Prerequisites: Before creating consumer authorization rules, prepare resources in the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
      * Gateway instance (CreateGateway → gatewayId, gw- prefix)
-     * Environment (A default environment is automatically created with the gateway. You can also use CreateEnvironment → environmentId, env- prefix, which requires the gatewayId from step 1)
+     * Environment (A default environment is automatically created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix. The gatewayId from step 1 must be associated.)
      * HTTP API (CreateHttpApi → httpApiId, api- prefix)
-     * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belongs to the API in step 3. Then publish to the environment in step 2 by using DeployHttpApi. Unpublished routes cannot be authorized)
-     * Consumer (CreateConsumer → consumerId, cs- prefix. Or consumer group consumerGroupId, csg- prefix. Use either consumerId or consumerGroupId)
+     * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, which belongs to the API in step 3. Then call DeployHttpApi to publish the route to the environment in step 2. Unpublished routes cannot be authorized.)
+     * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Specify either consumerId or consumerGroupId.)
      *
      * @param request - CreateConsumerAuthorizationRulesRequest
      *
@@ -1677,6 +1829,71 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createConsumerGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Registers a HiMarket developer account and returns the ID of the new developer.
+     *
+     * @param request - CreateDeveloperRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDeveloperResponse
+     *
+     * @param CreateDeveloperRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateDeveloperResponse
+     */
+    public function createDeveloperWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->password) {
+            @$body['password'] = $request->password;
+        }
+
+        if (null !== $request->username) {
+            @$body['username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDeveloper',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/developers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDeveloperResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Registers a HiMarket developer account and returns the ID of the new developer.
+     *
+     * @param request - CreateDeveloperRequest
+     *
+     * @returns CreateDeveloperResponse
+     *
+     * @param CreateDeveloperRequest $request
+     *
+     * @return CreateDeveloperResponse
+     */
+    public function createDeveloper($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDeveloperWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2287,10 +2504,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建API版本.
+     * Creates an API version.
      *
      * @remarks
-     * 接口支持创建多个服务。
+     * The operation supports creating multiple services.
      *
      * @param request - CreateHttpApiVersionRequest
      * @param headers - map
@@ -2333,10 +2550,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建API版本.
+     * Creates an API version.
      *
      * @remarks
-     * 接口支持创建多个服务。
+     * The operation supports creating multiple services.
      *
      * @param request - CreateHttpApiVersionRequest
      *
@@ -2469,7 +2686,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建迁移任务
+     * Creates a migration task.
      *
      * @param request - CreateMigrationTaskRequest
      * @param headers - map
@@ -2539,7 +2756,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建迁移任务
+     * Creates a migration task.
      *
      * @param request - CreateMigrationTaskRequest
      *
@@ -2740,7 +2957,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建插件webide工作空间.
+     * Creates a WebIDE workspace for a plugin.
      *
      * @param request - CreatePluginWorkspaceRequest
      * @param headers - map
@@ -2794,7 +3011,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建插件webide工作空间.
+     * Creates a WebIDE workspace for a plugin.
      *
      * @param request - CreatePluginWorkspaceRequest
      *
@@ -2886,7 +3103,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a policy resource mount.
+     * Creates a policy attachment to a resource.
      *
      * @param request - CreatePolicyAttachmentRequest
      * @param headers - map
@@ -2944,7 +3161,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a policy resource mount.
+     * Creates a policy attachment to a resource.
      *
      * @param request - CreatePolicyAttachmentRequest
      *
@@ -2963,7 +3180,143 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建风险检查任务
+     * Creates a product category for an API product and returns the ID and name of the new category upon success.
+     *
+     * @param request - CreateProductCategoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProductCategoryResponse
+     *
+     * @param CreateProductCategoryRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateProductCategoryResponse
+     */
+    public function createProductCategoryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->icon) {
+            @$body['icon'] = $request->icon;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProductCategory',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/product-categories',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProductCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a product category for an API product and returns the ID and name of the new category upon success.
+     *
+     * @param request - CreateProductCategoryRequest
+     *
+     * @returns CreateProductCategoryResponse
+     *
+     * @param CreateProductCategoryRequest $request
+     *
+     * @return CreateProductCategoryResponse
+     */
+    public function createProductCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createProductCategoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. The association result can be queried by GetProductRef and removed by DeleteProductRef at the same path.
+     *
+     * @param request - CreateProductRefRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProductRefResponse
+     *
+     * @param string                  $productId
+     * @param CreateProductRefRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateProductRefResponse
+     */
+    public function createProductRefWithOptions($productId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apigRefConfig) {
+            @$body['apigRefConfig'] = $request->apigRefConfig;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProductRef',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products/' . Url::percentEncode($productId) . '/ref',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProductRefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. The association result can be queried by GetProductRef and removed by DeleteProductRef at the same path.
+     *
+     * @param request - CreateProductRefRequest
+     *
+     * @returns CreateProductRefResponse
+     *
+     * @param string                  $productId
+     * @param CreateProductRefRequest $request
+     *
+     * @return CreateProductRefResponse
+     */
+    public function createProductRef($productId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createProductRefWithOptions($productId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a risk check task.
      *
      * @param request - CreateRiskCheckTaskRequest
      * @param headers - map
@@ -3000,7 +3353,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建风险检查任务
+     * Creates a risk check task.
      *
      * @param request - CreateRiskCheckTaskRequest
      *
@@ -3255,6 +3608,9 @@ class APIG extends OpenApiClient
     /**
      * Creates a source.
      *
+     * @remarks
+     * Before creating a source, prepare the required dependency resources. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
+     *
      * @param request - CreateSourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3312,6 +3668,9 @@ class APIG extends OpenApiClient
 
     /**
      * Creates a source.
+     *
+     * @remarks
+     * Before creating a source, prepare the required dependency resources. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
      *
      * @param request - CreateSourceRequest
      *
@@ -3444,7 +3803,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes an API consumer.
+     * Deletes a consumer.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3478,7 +3837,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes an API consumer.
+     * Deletes a consumer.
      *
      * @returns DeleteConsumerResponse
      *
@@ -3763,10 +4122,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a quota throttling rule for a gateway.
+     * Deletes a quota throttling rule from a gateway.
      *
      * @remarks
-     * Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+     * This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      * @param headers - map
@@ -3804,10 +4163,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a quota throttling rule for a gateway.
+     * Deletes a quota throttling rule from a gateway.
      *
      * @remarks
-     * Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+     * This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      *
@@ -3828,7 +4187,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a security group rule from a gateway.
+     * Deletes a gateway security group rule.
      *
      * @param request - DeleteGatewaySecurityGroupRuleRequest
      * @param headers - map
@@ -3872,7 +4231,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a security group rule from a gateway.
+     * Deletes a gateway security group rule.
      *
      * @param request - DeleteGatewaySecurityGroupRuleRequest
      *
@@ -3960,7 +4319,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a specified operation.
+     * Deletes a specified API operation.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3995,7 +4354,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a specified operation.
+     * Deletes a specified API operation.
      *
      * @returns DeleteHttpApiOperationResponse
      *
@@ -4117,7 +4476,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除迁移任务
+     * Deletes a data migration task.
      *
      * @param request - DeleteMigrationTaskRequest
      * @param headers - map
@@ -4154,7 +4513,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除迁移任务
+     * Deletes a data migration task.
      *
      * @param request - DeleteMigrationTaskRequest
      *
@@ -4225,7 +4584,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * DeletePluginClass.
+     * Deletes a custom plugin class.
      *
      * @param request - DeletePluginClassRequest
      * @param headers - map
@@ -4262,7 +4621,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * DeletePluginClass.
+     * Deletes a custom plugin class.
      *
      * @param request - DeletePluginClassRequest
      *
@@ -4381,6 +4740,234 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->deletePolicyAttachmentWithOptions($policyAttachmentId, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a specified HiMarket developer portal by portal ID.
+     *
+     * @param request - DeletePortalRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePortalResponse
+     *
+     * @param string              $portalId
+     * @param DeletePortalRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeletePortalResponse
+     */
+    public function deletePortalWithOptions($portalId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeletePortal',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/portals/' . Url::percentEncode($portalId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePortalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified HiMarket developer portal by portal ID.
+     *
+     * @param request - DeletePortalRequest
+     *
+     * @returns DeletePortalResponse
+     *
+     * @param string              $portalId
+     * @param DeletePortalRequest $request
+     *
+     * @return DeletePortalResponse
+     */
+    public function deletePortal($portalId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deletePortalWithOptions($portalId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a specified API product by API product ID.
+     *
+     * @param request - DeleteProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProductResponse
+     *
+     * @param string               $productId
+     * @param DeleteProductRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProductResponse
+     */
+    public function deleteProductWithOptions($productId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProduct',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products/' . Url::percentEncode($productId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified API product by API product ID.
+     *
+     * @param request - DeleteProductRequest
+     *
+     * @returns DeleteProductResponse
+     *
+     * @param string               $productId
+     * @param DeleteProductRequest $request
+     *
+     * @return DeleteProductResponse
+     */
+    public function deleteProduct($productId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteProductWithOptions($productId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a specified product category by product category ID.
+     *
+     * @param request - DeleteProductCategoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProductCategoryResponse
+     *
+     * @param string                       $categoryId
+     * @param DeleteProductCategoryRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteProductCategoryResponse
+     */
+    public function deleteProductCategoryWithOptions($categoryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProductCategory',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/product-categories/' . Url::percentEncode($categoryId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProductCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified product category by product category ID.
+     *
+     * @param request - DeleteProductCategoryRequest
+     *
+     * @returns DeleteProductCategoryResponse
+     *
+     * @param string                       $categoryId
+     * @param DeleteProductCategoryRequest $request
+     *
+     * @return DeleteProductCategoryResponse
+     */
+    public function deleteProductCategory($categoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteProductCategoryWithOptions($categoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Dissociates an API product from an API by API product ID. This association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
+     *
+     * @param request - DeleteProductRefRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProductRefResponse
+     *
+     * @param string                  $productId
+     * @param DeleteProductRefRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteProductRefResponse
+     */
+    public function deleteProductRefWithOptions($productId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProductRef',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products/' . Url::percentEncode($productId) . '/ref',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProductRefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Dissociates an API product from an API by API product ID. This association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
+     *
+     * @param request - DeleteProductRefRequest
+     *
+     * @returns DeleteProductRefResponse
+     *
+     * @param string                  $productId
+     * @param DeleteProductRefRequest $request
+     *
+     * @return DeleteProductRefResponse
+     */
+    public function deleteProductRef($productId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteProductRefWithOptions($productId, $request, $headers, $runtime);
     }
 
     /**
@@ -4598,6 +5185,9 @@ class APIG extends OpenApiClient
     /**
      * Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
      *
+     * @remarks
+     * Before deployment, the following prerequisites must be met in order: (1) A gateway has been created. (2) An HTTP API has been created and associated with a gateway (belongGatewayId). (3) A route has been created and associated with an environment (environmentId). (4) The route has been associated with the default subdomain of the environment. Associating only a custom Dedicated domain name is not sufficient to trigger deployment. Call UpdateHttpApiRoute first to add the default subdomain of the environment to the route.
+     *
      * @param request - DeployHttpApiRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4649,6 +5239,9 @@ class APIG extends OpenApiClient
     /**
      * Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
      *
+     * @remarks
+     * Before deployment, the following prerequisites must be met in order: (1) A gateway has been created. (2) An HTTP API has been created and associated with a gateway (belongGatewayId). (3) A route has been created and associated with an environment (environmentId). (4) The route has been associated with the default subdomain of the environment. Associating only a custom Dedicated domain name is not sufficient to trigger deployment. Call UpdateHttpApiRoute first to add the default subdomain of the environment to the route.
+     *
      * @param request - DeployHttpApiRequest
      *
      * @returns DeployHttpApiResponse
@@ -4670,7 +5263,7 @@ class APIG extends OpenApiClient
      * Publishes an MCP server.
      *
      * @remarks
-     * Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+     * Before deployment, ensure that domainIds have been configured for the MCP server by calling CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4707,7 +5300,7 @@ class APIG extends OpenApiClient
      * Publishes an MCP server.
      *
      * @remarks
-     * Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+     * Before deployment, ensure that domainIds have been configured for the MCP server by calling CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
      *
      * @returns DeployMcpServerResponse
      *
@@ -4785,7 +5378,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Disassociates and deletes a policy.
+     * Detaches and deletes a policy.
      *
      * @param request - DetachAndDeletePolicyRequest
      * @param headers - map
@@ -4828,7 +5421,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Disassociates and deletes a policy.
+     * Detaches and deletes a policy.
      *
      * @param request - DetachAndDeletePolicyRequest
      *
@@ -5033,7 +5626,133 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询批量导出任务
+     * Queries the effective field collection configurations for an HTTP API across each URI of the request in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and whether the configuration is derived from a field template.
+     *
+     * @param request - GetApiPathFieldConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApiPathFieldConfigResponse
+     *
+     * @param GetApiPathFieldConfigRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetApiPathFieldConfigResponse
+     */
+    public function getApiPathFieldConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->httpApiId) {
+            @$query['httpApiId'] = $request->httpApiId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApiPathFieldConfig',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/api-path-fields/configs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApiPathFieldConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the effective field collection configurations for an HTTP API across each URI of the request in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and whether the configuration is derived from a field template.
+     *
+     * @param request - GetApiPathFieldConfigRequest
+     *
+     * @returns GetApiPathFieldConfigResponse
+     *
+     * @param GetApiPathFieldConfigRequest $request
+     *
+     * @return GetApiPathFieldConfigResponse
+     */
+    public function getApiPathFieldConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getApiPathFieldConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+     *
+     * @param request - GetApiPathFieldTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApiPathFieldTemplateResponse
+     *
+     * @param GetApiPathFieldTemplateRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetApiPathFieldTemplateResponse
+     */
+    public function getApiPathFieldTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->path) {
+            @$query['path'] = $request->path;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApiPathFieldTemplate',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/api-path-fields/template',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApiPathFieldTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+     *
+     * @param request - GetApiPathFieldTemplateRequest
+     *
+     * @returns GetApiPathFieldTemplateResponse
+     *
+     * @param GetApiPathFieldTemplateRequest $request
+     *
+     * @return GetApiPathFieldTemplateResponse
+     */
+    public function getApiPathFieldTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getApiPathFieldTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a batch export task.
      *
      * @param request - GetBatchExportTaskRequest
      * @param headers - map
@@ -5070,7 +5789,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询批量导出任务
+     * Queries a batch export task.
      *
      * @param request - GetBatchExportTaskRequest
      *
@@ -5090,7 +5809,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询批量操作任务
+     * Queries a batch import task. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
      *
      * @param request - GetBatchImportTaskRequest
      * @param headers - map
@@ -5127,7 +5846,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询批量操作任务
+     * Queries a batch import task. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
      *
      * @param request - GetBatchImportTaskRequest
      *
@@ -5409,6 +6128,61 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Queries the account information of the currently logged-on developer and returns the developer ID, portal ID, username, and status.
+     *
+     * @param request - GetDeveloperRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeveloperResponse
+     *
+     * @param GetDeveloperRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetDeveloperResponse
+     */
+    public function getDeveloperWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetDeveloper',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/developers/profile',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDeveloperResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the account information of the currently logged-on developer and returns the developer ID, portal ID, username, and status.
+     *
+     * @param request - GetDeveloperRequest
+     *
+     * @returns GetDeveloperResponse
+     *
+     * @param GetDeveloperRequest $request
+     *
+     * @return GetDeveloperResponse
+     */
+    public function getDeveloper($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDeveloperWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries a domain name.
      *
      * @param request - GetDomainRequest
@@ -5595,7 +6369,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取网关弹性策略.
+     * Retrieves the elastic scaling rule of a gateway.
      *
      * @param request - GetGatewayElasticPolicyRequest
      * @param headers - map
@@ -5632,7 +6406,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取网关弹性策略.
+     * Retrieves the elastic scaling rule of a gateway.
      *
      * @param request - GetGatewayElasticPolicyRequest
      *
@@ -5735,11 +6509,11 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
+     * Queries the usage details of a subject for a gateway quota throttling rule, including the used quota, total quota, over-limit status, usage details, and consumption records.
      *
      * @remarks
-     * Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
-     * Before you begin: Before calling this operation, make sure that Simple Log Service log delivery is enabled for the target gateway by calling UpdateGatewayFeature (name=log-config, value={"enable":true}). Otherwise, the error CloudProductInactive.LogDeliveryNotEnabled is returned.
+     * This operation retrieves the usage details of a consumer subject under a quota rule. Note that this operation applies only to AI gateways whose version is later than 2.1.19.
+     * Before you begin: Before calling this operation, ensure that the Simple Log Service (SLS) log delivery feature is enabled for the target gateway by using UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      * @param headers - map
@@ -5800,11 +6574,11 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
+     * Queries the usage details of a subject for a gateway quota throttling rule, including the used quota, total quota, over-limit status, usage details, and consumption records.
      *
      * @remarks
-     * Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
-     * Before you begin: Before calling this operation, make sure that Simple Log Service log delivery is enabled for the target gateway by calling UpdateGatewayFeature (name=log-config, value={"enable":true}). Otherwise, the error CloudProductInactive.LogDeliveryNotEnabled is returned.
+     * This operation retrieves the usage details of a consumer subject under a quota rule. Note that this operation applies only to AI gateways whose version is later than 2.1.19.
+     * Before you begin: Before calling this operation, ensure that the Simple Log Service (SLS) log delivery feature is enabled for the target gateway by using UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      *
@@ -5826,10 +6600,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询网关资源配额与用量.
+     * Queries the resource quotas and usage of a gateway.
      *
      * @remarks
-     * 查询指定 API 网关或 AI 网关的九项资源配额用量、有效上限及统计范围。接口只读，成功响应包含全部九项；自定义插件配额暂不展示数值。该结果是各来源独立读取的当前观测，不保证新增资源一定成功。
+     * Queries the usage, effective limits, and statistical scopes of nine resource quota items for a specified API gateway or AI gateway. This operation is read-only. A successful response contains all nine items. Custom plugin quotas do not display numerical values. The result represents the current observation read independently from each source and does not guarantee that new resources can be created successfully.
      *
      * @param request - GetGatewayResourceQuotaUsageRequest
      * @param headers - map
@@ -5866,10 +6640,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询网关资源配额与用量.
+     * Queries the resource quotas and usage of a gateway.
      *
      * @remarks
-     * 查询指定 API 网关或 AI 网关的九项资源配额用量、有效上限及统计范围。接口只读，成功响应包含全部九项；自定义插件配额暂不展示数值。该结果是各来源独立读取的当前观测，不保证新增资源一定成功。
+     * Queries the usage, effective limits, and statistical scopes of nine resource quota items for a specified API gateway or AI gateway. This operation is read-only. A successful response contains all nine items. Custom plugin quotas do not display numerical values. The result represents the current observation read independently from each source and does not guarantee that new resources can be created successfully.
      *
      * @param request - GetGatewayResourceQuotaUsageRequest
      *
@@ -5889,7 +6663,121 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of an HTTP API.
+     * Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is the primary consumer.
+     *
+     * @param request - GetHiMarketConsumerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHiMarketConsumerResponse
+     *
+     * @param string                     $consumerId
+     * @param GetHiMarketConsumerRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetHiMarketConsumerResponse
+     */
+    public function getHiMarketConsumerWithOptions($consumerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetHiMarketConsumer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/consumers/' . Url::percentEncode($consumerId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetHiMarketConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is the primary consumer.
+     *
+     * @param request - GetHiMarketConsumerRequest
+     *
+     * @returns GetHiMarketConsumerResponse
+     *
+     * @param string                     $consumerId
+     * @param GetHiMarketConsumerRequest $request
+     *
+     * @return GetHiMarketConsumerResponse
+     */
+    public function getHiMarketConsumer($consumerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getHiMarketConsumerWithOptions($consumerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the credential information of a HiMarket consumer by consumer ID. The response includes API key and HMAC credential configurations. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
+     *
+     * @param request - GetHiMarketConsumerCredentialRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHiMarketConsumerCredentialResponse
+     *
+     * @param string                               $consumerId
+     * @param GetHiMarketConsumerCredentialRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetHiMarketConsumerCredentialResponse
+     */
+    public function getHiMarketConsumerCredentialWithOptions($consumerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetHiMarketConsumerCredential',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/consumers/' . Url::percentEncode($consumerId) . '/credentials',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetHiMarketConsumerCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the credential information of a HiMarket consumer by consumer ID. The response includes API key and HMAC credential configurations. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
+     *
+     * @param request - GetHiMarketConsumerCredentialRequest
+     *
+     * @returns GetHiMarketConsumerCredentialResponse
+     *
+     * @param string                               $consumerId
+     * @param GetHiMarketConsumerCredentialRequest $request
+     *
+     * @return GetHiMarketConsumerCredentialResponse
+     */
+    public function getHiMarketConsumerCredential($consumerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getHiMarketConsumerCredentialWithOptions($consumerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves HTTP API information.
      *
      * @param request - GetHttpApiRequest
      * @param headers - map
@@ -5932,7 +6820,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of an HTTP API.
+     * Retrieves HTTP API information.
      *
      * @param request - GetHttpApiRequest
      *
@@ -6061,7 +6949,7 @@ class APIG extends OpenApiClient
      * Retrieves an MCP server.
      *
      * @remarks
-     * This operation supports creating multiple services.
+     * The operation supports creating multiple services.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6098,7 +6986,7 @@ class APIG extends OpenApiClient
      * Retrieves an MCP server.
      *
      * @remarks
-     * This operation supports creating multiple services.
+     * The operation supports creating multiple services.
      *
      * @returns GetMcpServerResponse
      *
@@ -6115,7 +7003,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取迁移任务中的命名空间和服务映射.
+     * Retrieves the namespaced services for a migration task.
      *
      * @param request - GetMigrationNamespacedServicesRequest
      * @param headers - map
@@ -6152,7 +7040,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取迁移任务中的命名空间和服务映射.
+     * Retrieves the namespaced services for a migration task.
      *
      * @param request - GetMigrationNamespacedServicesRequest
      *
@@ -6172,7 +7060,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取迁移任务详情.
+     * Retrieves a migration task.
      *
      * @param request - GetMigrationTaskRequest
      * @param headers - map
@@ -6209,7 +7097,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取迁移任务详情.
+     * Retrieves a migration task.
      *
      * @param request - GetMigrationTaskRequest
      *
@@ -6337,7 +7225,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询插件webide工作空间.
+     * Queries the WebIDE workspace of a plugin.
      *
      * @param request - GetPluginWorkspaceRequest
      * @param headers - map
@@ -6374,7 +7262,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询插件webide工作空间.
+     * Queries the WebIDE workspace of a plugin.
      *
      * @param request - GetPluginWorkspaceRequest
      *
@@ -6496,7 +7384,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves resource overview information.
+     * Retrieves the resource overview information.
      *
      * @param request - GetResourceOverviewRequest
      * @param headers - map
@@ -6538,7 +7426,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves resource overview information.
+     * Retrieves the resource overview information.
      *
      * @param request - GetResourceOverviewRequest
      *
@@ -6557,7 +7445,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取风险项通知配置.
+     * Retrieves the notification configuration for a risk item.
      *
      * @param request - GetRiskNotificationRequest
      * @param headers - map
@@ -6600,7 +7488,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取风险项通知配置.
+     * Retrieves the notification configuration for a risk item.
      *
      * @param request - GetRiskNotificationRequest
      *
@@ -6677,7 +7565,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the value of a key.
+     * Retrieves the value of a secret.
      *
      * @remarks
      * The operation supports creating multiple services.
@@ -6714,7 +7602,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the value of a key.
+     * Retrieves the value of a secret.
      *
      * @remarks
      * The operation supports creating multiple services.
@@ -6734,7 +7622,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Gets service details.
+     * Retrieves the details of a service.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6768,7 +7656,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Gets service details.
+     * Retrieves the details of a service.
      *
      * @returns GetServiceResponse
      *
@@ -6899,7 +7787,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+     * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
      *
      * @param request - ImportHttpApiRequest
      * @param headers - map
@@ -6993,7 +7881,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+     * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
      *
      * @param request - ImportHttpApiRequest
      *
@@ -7077,7 +7965,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 调用AIAgent.
+     * Calls an AI agent.
      *
      * @param request - InvokeAIAgentRequest
      * @param headers - map
@@ -7148,7 +8036,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 调用AIAgent.
+     * Calls an AI agent.
      *
      * @param request - InvokeAIAgentRequest
      * @param headers - map
@@ -7206,7 +8094,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 调用AIAgent.
+     * Calls an AI agent.
      *
      * @param request - InvokeAIAgentRequest
      *
@@ -7225,7 +8113,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of AI model cards.
+     * Queries a list of AI model cards.
      *
      * @param request - ListAiModelCardsRequest
      * @param headers - map
@@ -7279,7 +8167,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of AI model cards.
+     * Queries a list of AI model cards.
      *
      * @param request - ListAiModelCardsRequest
      *
@@ -7371,7 +8259,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询批量导出任务列表.
+     * Queries a list of batch export tasks.
      *
      * @param request - ListBatchExportTasksRequest
      * @param headers - map
@@ -7441,7 +8329,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询批量导出任务列表.
+     * Queries a list of batch export tasks.
      *
      * @param request - ListBatchExportTasksRequest
      *
@@ -7460,7 +8348,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of consumer authorization rules.
+     * Retrieves the list of consumer authorization rules.
      *
      * @param request - ListConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -7511,7 +8399,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of consumer authorization rules.
+     * Retrieves the list of consumer authorization rules.
      *
      * @param request - ListConsumerAuthorizationRulesRequest
      *
@@ -7602,10 +8490,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者组配额限流规则列表.
+     * Queries the list of quota throttling rules for a consumer group.
      *
      * @remarks
-     * 查询指定消费者组直接绑定的配额规则，不展开组内消费者个人绑定的规则；无直接绑定关系时返回空列表。
+     * Queries the quota rules directly bound to a specified consumer group. Rules individually bound to consumers within the group are not included. An empty list is returned if no rules are directly bound.
      *
      * @param request - ListConsumerGroupQuotaRulesRequest
      * @param headers - map
@@ -7660,10 +8548,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者组配额限流规则列表.
+     * Queries the list of quota throttling rules for a consumer group.
      *
      * @remarks
-     * 查询指定消费者组直接绑定的配额规则，不展开组内消费者个人绑定的规则；无直接绑定关系时返回空列表。
+     * Queries the quota rules directly bound to a specified consumer group. Rules individually bound to consumers within the group are not included. An empty list is returned if no rules are directly bound.
      *
      * @param request - ListConsumerGroupQuotaRulesRequest
      *
@@ -7831,7 +8719,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of consumers.
+     * Retrieves a list of API consumers.
      *
      * @param request - ListConsumersRequest
      * @param headers - map
@@ -7885,7 +8773,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of consumers.
+     * Retrieves a list of API consumers.
      *
      * @param request - ListConsumersRequest
      *
@@ -8168,7 +9056,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the security groups of an instance that can be used for authorization.
+     * Queries the list of security groups that can be authorized for a gateway.
      *
      * @param request - ListGatewayAuthorizableSecurityGroupsRequest
      * @param headers - map
@@ -8211,7 +9099,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the security groups of an instance that can be used for authorization.
+     * Queries the list of security groups that can be authorized for a gateway.
      *
      * @param request - ListGatewayAuthorizableSecurityGroupsRequest
      *
@@ -8231,7 +9119,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the security group rules of an instance that are in effect.
+     * Queries the list of security group rules authorized for a gateway.
      *
      * @param request - ListGatewayAuthorizedSecurityGroupRulesRequest
      * @param headers - map
@@ -8268,7 +9156,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the security group rules of an instance that are in effect.
+     * Queries the list of security group rules authorized for a gateway.
      *
      * @param request - ListGatewayAuthorizedSecurityGroupRulesRequest
      *
@@ -8288,7 +9176,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取网关的错误访问日志.
+     * Lists gateway error access logs.
      *
      * @param request - ListGatewayErrorAccessLogsRequest
      * @param headers - map
@@ -8355,7 +9243,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取网关的错误访问日志.
+     * Lists gateway error access logs.
      *
      * @param request - ListGatewayErrorAccessLogsRequest
      *
@@ -8426,7 +9314,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取网关负载均衡器列表.
+     * Retrieves the list of load balancers for a gateway.
      *
      * @param request - ListGatewayLoadBalancersRequest
      * @param headers - map
@@ -8489,7 +9377,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取网关负载均衡器列表.
+     * Retrieves the list of load balancers for a gateway.
      *
      * @param request - ListGatewayLoadBalancersRequest
      *
@@ -8693,7 +9581,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListGlobalPolicies.
+     * Retrieves global policies.
      *
      * @param request - ListGlobalPoliciesRequest
      * @param headers - map
@@ -8783,7 +9671,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListGlobalPolicies.
+     * Retrieves global policies.
      *
      * @param request - ListGlobalPoliciesRequest
      *
@@ -8802,7 +9690,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of API operations.
+     * Retrieves a list of API operations.
      *
      * @param request - ListHttpApiOperationsRequest
      * @param headers - map
@@ -8893,7 +9781,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of API operations.
+     * Retrieves a list of API operations.
      *
      * @param request - ListHttpApiOperationsRequest
      *
@@ -9157,7 +10045,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListInstallableGateways.
+     * Retrieves gateways on which a plugin can be installed.
      *
      * @param request - ListInstallableGatewaysRequest
      * @param headers - map
@@ -9208,7 +10096,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListInstallableGateways.
+     * Retrieves gateways on which a plugin can be installed.
      *
      * @param request - ListInstallableGatewaysRequest
      *
@@ -9228,7 +10116,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the Kubernetes (K8s) clusters that can be added as sources.
+     * Queries the list of clusters that can be added as Kubernetes sources.
      *
      * @param request - ListK8sClusterSourcesRequest
      * @param headers - map
@@ -9271,7 +10159,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the Kubernetes (K8s) clusters that can be added as sources.
+     * Queries the list of clusters that can be added as Kubernetes sources.
      *
      * @param request - ListK8sClusterSourcesRequest
      *
@@ -9291,7 +10179,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of MCP servers.
+     * Retrieves a list of MCP servers.
      *
      * @remarks
      * The operation supports creating multiple services.
@@ -9360,7 +10248,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of MCP servers.
+     * Retrieves a list of MCP servers.
      *
      * @remarks
      * The operation supports creating multiple services.
@@ -9382,7 +10270,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取迁移任务列表.
+     * Lists migration tasks.
      *
      * @param request - ListMigrationTasksRequest
      * @param headers - map
@@ -9428,7 +10316,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取迁移任务列表.
+     * Lists migration tasks.
      *
      * @param request - ListMigrationTasksRequest
      *
@@ -9447,7 +10335,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the MSE Nacos instances that can be added as sources.
+     * Queries the list of instances that can be added as Nacos sources.
      *
      * @param request - ListMseNacosSourcesRequest
      * @param headers - map
@@ -9484,7 +10372,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the MSE Nacos instances that can be added as sources.
+     * Queries the list of instances that can be added as Nacos sources.
      *
      * @param request - ListMseNacosSourcesRequest
      *
@@ -9504,7 +10392,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the plug-in mount list.
+     * Retrieves the list of plug-in mounts.
      *
      * @param request - ListPluginAttachmentsRequest
      * @param headers - map
@@ -9578,7 +10466,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the plug-in mount list.
+     * Retrieves the list of plug-in mounts.
      *
      * @param request - ListPluginAttachmentsRequest
      *
@@ -9704,7 +10592,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询自定义插件托管在云效上的仓库列表和组织信息.
+     * Queries the list of repositories and organization information for custom plugins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create organizations and repositories, and authorize API Gateway to access the Codeup account.
      *
      * @param request - ListPluginRepositoriesRequest
      * @param headers - map
@@ -9740,7 +10628,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询自定义插件托管在云效上的仓库列表和组织信息.
+     * Queries the list of repositories and organization information for custom plugins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create organizations and repositories, and authorize API Gateway to access the Codeup account.
      *
      * @param request - ListPluginRepositoriesRequest
      *
@@ -9759,7 +10647,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取用户插件webide工作空间列表.
+     * Retrieves the list of plugin WebIDE workspaces for the current user.
      *
      * @param request - ListPluginWorkspaceRequest
      * @param headers - map
@@ -9801,7 +10689,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取用户插件webide工作空间列表.
+     * Retrieves the list of plugin WebIDE workspaces for the current user.
      *
      * @param request - ListPluginWorkspaceRequest
      *
@@ -9820,7 +10708,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of plugins.
+     * Retrieves a list of plug-ins.
      *
      * @param request - ListPluginsRequest
      * @param headers - map
@@ -9898,7 +10786,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of plugins.
+     * Retrieves a list of plug-ins.
      *
      * @param request - ListPluginsRequest
      *
@@ -10083,7 +10971,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询风险检测结果.
+     * Queries risk detection results.
      *
      * @param request - ListRiskCheckResultsRequest
      * @param headers - map
@@ -10138,7 +11026,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询风险检测结果.
+     * Queries risk detection results.
      *
      * @param request - ListRiskCheckResultsRequest
      *
@@ -10161,7 +11049,7 @@ class APIG extends OpenApiClient
      * Lists secret references.
      *
      * @remarks
-     * This operation supports creating multiple services.
+     * The operation supports creating multiple services.
      *
      * @param request - ListSecretReferencesRequest
      * @param headers - map
@@ -10211,7 +11099,7 @@ class APIG extends OpenApiClient
      * Lists secret references.
      *
      * @remarks
-     * This operation supports creating multiple services.
+     * The operation supports creating multiple services.
      *
      * @param request - ListSecretReferencesRequest
      *
@@ -10395,7 +11283,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries sources.
+     * Retrieves a list of sources.
      *
      * @param request - ListSourcesRequest
      * @param headers - map
@@ -10453,7 +11341,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries sources.
+     * Retrieves a list of sources.
      *
      * @param request - ListSourcesRequest
      *
@@ -10545,7 +11433,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询已同步的MCP Server列表.
+     * Lists MCP servers that are pending synchronization.
      *
      * @param request - ListSyncMCPServerRequest
      * @param headers - map
@@ -10595,7 +11483,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询已同步的MCP Server列表.
+     * Lists MCP servers that are pending synchronization.
      *
      * @param request - ListSyncMCPServerRequest
      *
@@ -10614,7 +11502,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of resource labels.
+     * Retrieves a list of resource tags.
      *
      * @param tmpReq - ListTagResourcesRequest
      * @param headers - map
@@ -10678,7 +11566,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of resource labels.
+     * Retrieves a list of resource tags.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -10697,7 +11585,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the zones available for a cloud-native API gateway in a specific region.
+     * Retrieves the zones available for a cloud-native API gateway in a specified region.
      *
      * @param request - ListZonesRequest
      * @param headers - map
@@ -10739,7 +11627,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the zones available for a cloud-native API gateway in a specific region.
+     * Retrieves the zones available for a cloud-native API gateway in a specified region.
      *
      * @param request - ListZonesRequest
      *
@@ -10871,7 +11759,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 刷新插件托管仓库的oauth code.
+     * Refreshes the OAuth code for the plugin-managed repository.
      *
      * @param request - RefreshPluginOAuthCodeRequest
      * @param headers - map
@@ -10913,7 +11801,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 刷新插件托管仓库的oauth code.
+     * Refreshes the OAuth code for the plugin-managed repository.
      *
      * @param request - RefreshPluginOAuthCodeRequest
      *
@@ -10991,8 +11879,8 @@ class APIG extends OpenApiClient
      * >  Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
-     * > - - The response contains a conflict preview with a conflictHash value.
-     * > - 2. Confirm and submit the request.
+     * > - - The response contains a conflict preview with conflictHash.
+     * > - 2. Submit the request after confirmation.
      * > - - No conflicts: Set dryRun to false and overwrite to false.
      * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
@@ -11074,8 +11962,8 @@ class APIG extends OpenApiClient
      * >  Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
-     * > - - The response contains a conflict preview with a conflictHash value.
-     * > - 2. Confirm and submit the request.
+     * > - - The response contains a conflict preview with conflictHash.
+     * > - 2. Submit the request after confirmation.
      * > - - No conflicts: Set dryRun to false and overwrite to false.
      * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
@@ -11149,7 +12037,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 插件工作空间运行流水线
+     * Runs a pipeline in a plug-in workspace.
      *
      * @param request - RunPluginPipelineRequest
      * @param headers - map
@@ -11186,7 +12074,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 插件工作空间运行流水线
+     * Runs a pipeline in a plug-in workspace.
      *
      * @param request - RunPluginPipelineRequest
      *
@@ -11352,7 +12240,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Cancels the publication of an MCP server.
+     * Cancels the publishing of an MCP server.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11386,7 +12274,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Cancels the publication of an MCP server.
+     * Cancels the publishing of an MCP server.
      *
      * @returns UnDeployMcpServerResponse
      *
@@ -11849,7 +12737,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新消费者授权规则.
+     * Updates an authorization rule.
      *
      * @param request - UpdateAuthorizationRuleRequest
      * @param headers - map
@@ -11892,7 +12780,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新消费者授权规则.
+     * Updates an authorization rule.
      *
      * @param request - UpdateAuthorizationRuleRequest
      *
@@ -11994,7 +12882,7 @@ class APIG extends OpenApiClient
      * Updates a consumer authorization rule.
      *
      * @remarks
-     * This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+     * This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
      *
      * @param request - UpdateConsumerAuthorizationRuleRequest
      * @param headers - map
@@ -12049,7 +12937,7 @@ class APIG extends OpenApiClient
      * Updates a consumer authorization rule.
      *
      * @remarks
-     * This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+     * This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
      *
      * @param request - UpdateConsumerAuthorizationRuleRequest
      *
@@ -12140,7 +13028,7 @@ class APIG extends OpenApiClient
      * Updates a domain name.
      *
      * @remarks
-     * Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
+     * Only sources of the **Container Service** type can update the listener Ingress configuration.
      *
      * @param request - UpdateDomainRequest
      * @param headers - map
@@ -12226,7 +13114,7 @@ class APIG extends OpenApiClient
      * Updates a domain name.
      *
      * @remarks
-     * Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
+     * Only sources of the **Container Service** type can update the listener Ingress configuration.
      *
      * @param request - UpdateDomainRequest
      *
@@ -12318,7 +13206,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新网关弹性策略.
+     * Updates the elastic policy of a gateway.
      *
      * @param request - UpdateGatewayElasticPolicyRequest
      * @param headers - map
@@ -12361,7 +13249,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新网关弹性策略.
+     * Updates the elastic policy of a gateway.
      *
      * @param request - UpdateGatewayElasticPolicyRequest
      *
@@ -12446,7 +13334,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新网关负载均衡器.
+     * Updates a Gateway Load Balancer (GWLB).
      *
      * @param request - UpdateGatewayLoadBalancerRequest
      * @param headers - map
@@ -12497,7 +13385,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新网关负载均衡器.
+     * Updates a Gateway Load Balancer (GWLB).
      *
      * @param request - UpdateGatewayLoadBalancerRequest
      *
@@ -12517,7 +13405,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 修改网关运维时间.
+     * Modifies the O&M window of a gateway.
+     *
+     * @remarks
+     * Modifies the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
      *
      * @param request - UpdateGatewayMaintenancePeriodRequest
      * @param headers - map
@@ -12560,7 +13451,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 修改网关运维时间.
+     * Modifies the O&M window of a gateway.
+     *
+     * @remarks
+     * Modifies the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
      *
      * @param request - UpdateGatewayMaintenancePeriodRequest
      *
@@ -12652,13 +13546,13 @@ class APIG extends OpenApiClient
      *
      * @remarks
      * Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
-     * >  Recommended call sequence:
+     * >  Recommended call logic:
      * > - Step 1: Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
      * > - - The response contains a conflict preview with a conflictHash value.
-     * > - Step 2: Confirm and submit the changes.
-     * > - - No conflicts: Set dryRun to false and overwrite to false.
-     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * > - Step 2: Confirm and submit the request.
+     * > - - No conflict: Set dryRun to false and overwrite to false.
+     * > - - Conflict exists and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - UpdateGatewayQuotaRuleRequest
      * @param headers - map
@@ -12734,13 +13628,13 @@ class APIG extends OpenApiClient
      *
      * @remarks
      * Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
-     * >  Recommended call sequence:
+     * >  Recommended call logic:
      * > - Step 1: Perform a dry run to check for rule conflicts.
      * > - - Set dryRun to true.
      * > - - The response contains a conflict preview with a conflictHash value.
-     * > - Step 2: Confirm and submit the changes.
-     * > - - No conflicts: Set dryRun to false and overwrite to false.
-     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * > - Step 2: Confirm and submit the request.
+     * > - - No conflict: Set dryRun to false and overwrite to false.
+     * > - - Conflict exists and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - UpdateGatewayQuotaRuleRequest
      *
@@ -13114,7 +14008,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
+     * Only sources of the **Container Service** type can update the Ingress listener configuration.
      *
      * @param request - UpdateMcpServerRequest
      * @param headers - map
@@ -13204,7 +14098,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
+     * Only sources of the **Container Service** type can update the Ingress listener configuration.
      *
      * @param request - UpdateMcpServerRequest
      *
@@ -13224,7 +14118,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新迁移任务
+     * Updates a migration task.
      *
      * @param request - UpdateMigrationTaskRequest
      * @param headers - map
@@ -13295,7 +14189,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新迁移任务
+     * Updates a migration task.
      *
      * @param request - UpdateMigrationTaskRequest
      *
@@ -13315,7 +14209,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更改网关网络访问类型.
+     * Changes the network access type of a gateway.
      *
      * @param request - UpdateNetworkAccessRequest
      * @param headers - map
@@ -13358,7 +14252,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更改网关网络访问类型.
+     * Changes the network access type of a gateway.
      *
      * @param request - UpdateNetworkAccessRequest
      *
@@ -13520,7 +14414,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新风险项通知配置.
+     * Updates the notification configuration for risk items.
      *
      * @param request - UpdateRiskNotificationRequest
      * @param headers - map
@@ -13567,7 +14461,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新风险项通知配置.
+     * Updates the notification configuration for risk items.
      *
      * @param request - UpdateRiskNotificationRequest
      *
@@ -13587,10 +14481,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a key pair.
+     * Updates a secret.
      *
      * @remarks
-     * Only sources of the **container service** type allow you to update the configuration for listening to Ingress.
+     * Only sources of the **container service** type allow you to update the listener Ingress configuration.
      *
      * @param request - UpdateSecretRequest
      * @param headers - map
@@ -13633,10 +14527,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a key pair.
+     * Updates a secret.
      *
      * @remarks
-     * Only sources of the **container service** type allow you to update the configuration for listening to Ingress.
+     * Only sources of the **container service** type allow you to update the listener Ingress configuration.
      *
      * @param request - UpdateSecretRequest
      *
@@ -13883,7 +14777,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 检查迁移任务
+     * Validates a migration task.
      *
      * @param request - VerifyMigrationTaskRequest
      * @param headers - map
@@ -13920,7 +14814,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 检查迁移任务
+     * Validates a migration task.
      *
      * @param request - VerifyMigrationTaskRequest
      *
