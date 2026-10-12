@@ -1,3 +1,6 @@
+2026-10-12 Version: 8.6.3
+- Generated php 2024-05-18 for dataworks-public.
+
 2026-10-08 Version: 8.6.2
 - Update API ListTaskOperationLogs: add response parameters Body.PagingInfo.OperationLogs.$.ObjectType.
 - Update API ListTaskOperationLogs: add response parameters Body.PagingInfo.OperationLogs.$.TaskInstanceId.

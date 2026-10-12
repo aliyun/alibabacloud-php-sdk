@@ -2174,12 +2174,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Clones a new data source based on an existing data source.
+     * Clones an existing data source to create a new one.
      *
      * @remarks
-     * 1. You must have purchased DataWorks Basic Edition or a higher edition.
+     * 1. DataWorks Basic Edition or higher is required.
      * 2. You must have at least one of the following roles in the DataWorks workspace:
-     * - Tenant Owner, Workspace Administrator, Project Owner, or O&amp;M Engineer
+     * - Tenant owner, workspace administrator, project owner, or O&M engineer.
      *
      * @param Request - CloneDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2222,12 +2222,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Clones a new data source based on an existing data source.
+     * Clones an existing data source to create a new one.
      *
      * @remarks
-     * 1. You must have purchased DataWorks Basic Edition or a higher edition.
+     * 1. DataWorks Basic Edition or higher is required.
      * 2. You must have at least one of the following roles in the DataWorks workspace:
-     * - Tenant Owner, Workspace Administrator, Project Owner, or O&amp;M Engineer
+     * - Tenant owner, workspace administrator, project owner, or O&M engineer.
      *
      * @param Request - CloneDataSourceRequest
      *
@@ -2245,15 +2245,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates an Agent.
+     * Creates an agent.
      *
      * @remarks
-     * ## Operation description
+     * ## Request description
      * - **Agent name**: Must be unique within the current account.
-     * - **Model configuration**: An optional parameter that specifies the model used by the Agent and its related settings.
-     * - **Visibility level**: Defines who can access the Agent. The Agent can be visible within the account, to a specific project, or to specific users.
-     * - **Visibility scope**: When you set the visibility level to `PROJECT` or `USER`, you must specify the list of project IDs or user IDs.
-     * - **Other parameters**: Optional parameters such as display name and description. Set them as needed.
+     * - **Model configuration**: Optional. Specifies the model used by the agent and its related settings.
+     * - **Visibility level**: Defines who can access the agent. Supported values include account-wide, project-specific, or user-specific visibility.
+     * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must specify the specific project IDs or user IDs.
+     * - **Other parameters**: Parameters such as the display name and description are optional. Fill them in as needed.
      *
      * @param tmpReq - CreateAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2358,15 +2358,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates an Agent.
+     * Creates an agent.
      *
      * @remarks
-     * ## Operation description
+     * ## Request description
      * - **Agent name**: Must be unique within the current account.
-     * - **Model configuration**: An optional parameter that specifies the model used by the Agent and its related settings.
-     * - **Visibility level**: Defines who can access the Agent. The Agent can be visible within the account, to a specific project, or to specific users.
-     * - **Visibility scope**: When you set the visibility level to `PROJECT` or `USER`, you must specify the list of project IDs or user IDs.
-     * - **Other parameters**: Optional parameters such as display name and description. Set them as needed.
+     * - **Model configuration**: Optional. Specifies the model used by the agent and its related settings.
+     * - **Visibility level**: Defines who can access the agent. Supported values include account-wide, project-specific, or user-specific visibility.
+     * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must specify the specific project IDs or user IDs.
+     * - **Other parameters**: Parameters such as the display name and description are optional. Fill them in as needed.
      *
      * @param Request - CreateAgentRequest
      *
@@ -2706,12 +2706,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a compute resource in a specified workspace. The compute resource can be in the development environment or production environment.
+     * Creates a compute resource in a specified workspace. The compute resource can be used in the development or production environment.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-     * You must have at least one of the following roles in the DataWorks workspace:
-     * Tenant Owner, Workspace Administrator, Project Owner, or O&M.
+     * DataWorks Basic Edition or later is required.
+     * You must have at least one of the following roles in the DataWorks workspace: tenant owner, workspace administrator, project owner, or O&M engineer.
      *
      * @param Request - CreateComputeResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2770,12 +2769,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a compute resource in a specified workspace. The compute resource can be in the development environment or production environment.
+     * Creates a compute resource in a specified workspace. The compute resource can be used in the development or production environment.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-     * You must have at least one of the following roles in the DataWorks workspace:
-     * Tenant Owner, Workspace Administrator, Project Owner, or O&M.
+     * DataWorks Basic Edition or later is required.
+     * You must have at least one of the following roles in the DataWorks workspace: tenant owner, workspace administrator, project owner, or O&M engineer.
      *
      * @param Request - CreateComputeResourceRequest
      *
@@ -3318,10 +3316,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a label.
+     * Creates a tag.
      *
      * @remarks
-     * You must purchase DataWorks Enterprise Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Enterprise Edition or later to use this feature.
      *
      * @param tmpReq - CreateDataAssetTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3386,10 +3384,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a label.
+     * Creates a tag.
      *
      * @remarks
-     * You must purchase DataWorks Enterprise Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Enterprise Edition or later to use this feature.
      *
      * @param Request - CreateDataAssetTagRequest
      *
@@ -3410,7 +3408,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a data quality monitoring alert rule in a specified project.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * DataWorks Basic Edition or later is required.
      *
      * @param tmpReq - CreateDataQualityAlertRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3474,7 +3472,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a data quality monitoring alert rule in a specified project.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * DataWorks Basic Edition or later is required.
      *
      * @param Request - CreateDataQualityAlertRuleRequest
      *
@@ -3492,10 +3490,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a DataWorks data quality monitor.
+     * Creates a DataWorks data quality monitoring task.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @deprecated openAPI CreateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
      *
@@ -3595,10 +3593,10 @@ class Dataworkspublic extends OpenApiClient
 
     // Deprecated
     /**
-     * Creates a DataWorks data quality monitor.
+     * Creates a DataWorks data quality monitoring task.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @deprecated openAPI CreateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
      *
@@ -3704,10 +3702,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a data quality rule.
+     * Creates a quality rule.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or higher to use this feature.
+     * You must purchase DataWorks Basic Edition or a later edition to use this feature.
      *
      * @deprecated openAPI CreateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
      *
@@ -3803,10 +3801,10 @@ class Dataworkspublic extends OpenApiClient
 
     // Deprecated
     /**
-     * Creates a data quality rule.
+     * Creates a quality rule.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or higher to use this feature.
+     * You must purchase DataWorks Basic Edition or a later edition to use this feature.
      *
      * @deprecated openAPI CreateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
      *
@@ -4205,12 +4203,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a data source in a specified project workspace for the development or production environment.
+     * Creates a data source in a specified workspace for the development or production environment.
      *
      * @remarks
-     * 1. You must have purchased DataWorks Basic Edition or a higher edition.
-     * 2. You must have at least one of the following roles in the DataWorks project workspace:
-     * - Tenant Owner, workspace administrator, Project Owner, or O&amp;M
+     * 1. You must purchase DataWorks Basic Edition or a more advanced edition to use this API.
+     * 2. You must have at least one of the following roles in the DataWorks workspace:
+     * - tenant owner, workspace administrator, project owner, or operator.
      *
      * @param Request - CreateDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4269,12 +4267,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a data source in a specified project workspace for the development or production environment.
+     * Creates a data source in a specified workspace for the development or production environment.
      *
      * @remarks
-     * 1. You must have purchased DataWorks Basic Edition or a higher edition.
-     * 2. You must have at least one of the following roles in the DataWorks project workspace:
-     * - Tenant Owner, workspace administrator, Project Owner, or O&amp;M
+     * 1. You must purchase DataWorks Basic Edition or a more advanced edition to use this API.
+     * 2. You must have at least one of the following roles in the DataWorks workspace:
+     * - tenant owner, workspace administrator, project owner, or operator.
      *
      * @param Request - CreateDataSourceRequest
      *
@@ -4934,8 +4932,8 @@ class Dataworkspublic extends OpenApiClient
      * Creates an image.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     * 1. You must purchase DataWorks Basic Edition or a more advanced edition to use this feature.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
      *
      * @param tmpReq - CreateImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5039,8 +5037,8 @@ class Dataworkspublic extends OpenApiClient
      * Creates an image.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     * 1. You must purchase DataWorks Basic Edition or a more advanced edition to use this feature.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
      *
      * @param Request - CreateImageRequest
      *
@@ -5143,14 +5141,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates an MCP Server.
+     * Creates an MCP server.
      *
      * @remarks
-     * ## Operation description
-     * - After submission, the system verifies the availability of the MCP Server based on the provided connection information.
-     * - If the MCP Server connection is unavailable, the operation returns the corresponding error message.
-     * - The Name field must start with a lowercase letter and can contain only lowercase letters, digits, underscores (_), and hyphens (-). The name must be unique within the current account.
-     * - The Visibility field defines the visibility level of the MCP Server. Valid values: `TENANT` (visible within the account), `PROJECT` (visible to specified projects), and `USER` (visible to specified users). Depending on the selected value, provide the corresponding `VisibilityScope` parameter to further specify the visibility scope.
+     * ## Request description
+     * - After you submit the request, the system verifies the availability of the MCP server based on the connection information you provided.
+     * - If the connection to the MCP server is unavailable, the API returns an error message.
+     * - The `Name` field must start with a lowercase letter and can contain only lowercase letters, digits, underscores (_), and hyphens (-). The name must be unique within the current account.
+     * - The `Visibility` field defines the visibility level of the MCP server. Valid values: `TENANT` (visible within the account), `PROJECT` (visible to specified projects), and `USER` (visible to specified users). Specify the `VisibilityScope` parameter to further define the visibility scope based on the selected value.
      *
      * @param tmpReq - CreateMcpServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5211,14 +5209,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates an MCP Server.
+     * Creates an MCP server.
      *
      * @remarks
-     * ## Operation description
-     * - After submission, the system verifies the availability of the MCP Server based on the provided connection information.
-     * - If the MCP Server connection is unavailable, the operation returns the corresponding error message.
-     * - The Name field must start with a lowercase letter and can contain only lowercase letters, digits, underscores (_), and hyphens (-). The name must be unique within the current account.
-     * - The Visibility field defines the visibility level of the MCP Server. Valid values: `TENANT` (visible within the account), `PROJECT` (visible to specified projects), and `USER` (visible to specified users). Depending on the selected value, provide the corresponding `VisibilityScope` parameter to further specify the visibility scope.
+     * ## Request description
+     * - After you submit the request, the system verifies the availability of the MCP server based on the connection information you provided.
+     * - If the connection to the MCP server is unavailable, the API returns an error message.
+     * - The `Name` field must start with a lowercase letter and can contain only lowercase letters, digits, underscores (_), and hyphens (-). The name must be unique within the current account.
+     * - The `Visibility` field defines the visibility level of the MCP server. Valid values: `TENANT` (visible within the account), `PROJECT` (visible to specified projects), and `USER` (visible to specified users). Specify the `VisibilityScope` parameter to further define the visibility scope based on the selected value.
      *
      * @param Request - CreateMcpServerRequest
      *
@@ -5549,7 +5547,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a parameter.
      *
      * @remarks
-     * This operation requires DataWorks Professional Edition or a later edition.
+     * DataWorks Professional Edition or higher is required.
      *
      * @param tmpReq - CreateParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5621,7 +5619,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a parameter.
      *
      * @remarks
-     * This operation requires DataWorks Professional Edition or a later edition.
+     * DataWorks Professional Edition or higher is required.
      *
      * @param Request - CreateParameterRequest
      *
@@ -5639,11 +5637,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a deployment process for an entity in the new-version Data Studio.
+     * Creates a deployment process for an entity in Data Studio.
      *
      * @remarks
-     * > &lt;notice&gt;This operation does not support batch operations. If you specify multiple entities to deploy in the parameters, all entities except the first one are ignored.&gt;&lt;/notice&gt;
-     * > &lt;notice&gt;This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.&gt;&lt;/notice&gt;
+     * >Notice: This operation does not support batch operations. If you specify multiple entities to be deployed in the request parameters, only the first entity is processed and the rest are ignored.
+     * >Notice: This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation, which uses the same parameters as described in this document.
      *
      * @param tmpReq - CreatePipelineRunRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5708,11 +5706,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a deployment process for an entity in the new-version Data Studio.
+     * Creates a deployment process for an entity in Data Studio.
      *
      * @remarks
-     * > &lt;notice&gt;This operation does not support batch operations. If you specify multiple entities to deploy in the parameters, all entities except the first one are ignored.&gt;&lt;/notice&gt;
-     * > &lt;notice&gt;This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.&gt;&lt;/notice&gt;
+     * >Notice: This operation does not support batch operations. If you specify multiple entities to be deployed in the request parameters, only the first entity is processed and the rest are ignored.
+     * >Notice: This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation, which uses the same parameters as described in this document.
      *
      * @param Request - CreatePipelineRunRequest
      *
@@ -6461,8 +6459,8 @@ class Dataworkspublic extends OpenApiClient
      * Creates a resource group.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. **Before you call this operation, make sure that you fully understand the billing of DataWorks common resource groups and the [pricing](https://help.aliyun.com/document_detail/2680173.html).**
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
      * 3. **Before you call this operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
      *
      * @param tmpReq - CreateResourceGroupRequest
@@ -6555,8 +6553,8 @@ class Dataworkspublic extends OpenApiClient
      * Creates a resource group.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. **Before you call this operation, make sure that you fully understand the billing of DataWorks common resource groups and the [pricing](https://help.aliyun.com/document_detail/2680173.html).**
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
      * 3. **Before you call this operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
      *
      * @param Request - CreateResourceGroupRequest
@@ -6646,16 +6644,16 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a new security control policy to configure various modules and submodules. Requires both DataWorks tenant administrator and security administrator permissions.
+     * Creates a new security control policy and supports the configuration of multiple modules and submodules. Requires the permissions of a DataWorks tenant administrator and a security administrator.
      *
      * @remarks
-     * ## Request
-     * - **SchemaName**: Select a schema that fits your business needs.
-     * - **ControlModule** and **ControlSubModule**: Specify the module and submodule for the policy, ensuring they match the selected schema.
-     * - **ControlDwScope**: Set the policy scope to either the tenant or workspace level.
-     * - **Workspaces**: If `ControlDwScope` is set to `Workspace`, provide the corresponding workspace IDs.
-     * - **Content.Controllers**: The controllers must match the definitions in the selected schema.
-     * - This operation cannot create system default policies.
+     * ## Request description
+     * - **SchemaName**: Select an appropriate schema name based on your business requirements.
+     * - **ControlModule** and **ControlSubModule**: Specify the module and submodule to which the policy applies. Make sure that they match the selected schema.
+     * - **ControlDwScope**: Define the application scope of the policy, which can be the tenant level or the workspace level.
+     * - **Workspaces**: If `ControlDwScope` is set to `Workspace`, you must provide a list of associated workspace IDs.
+     * - **Content.Controllers**: The list of control items in the policy content must comply with the valid control item definitions of the selected schema.
+     * - System default policies cannot be created by calling this operation.
      *
      * @param tmpReq - CreateSecurityStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6736,16 +6734,16 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a new security control policy to configure various modules and submodules. Requires both DataWorks tenant administrator and security administrator permissions.
+     * Creates a new security control policy and supports the configuration of multiple modules and submodules. Requires the permissions of a DataWorks tenant administrator and a security administrator.
      *
      * @remarks
-     * ## Request
-     * - **SchemaName**: Select a schema that fits your business needs.
-     * - **ControlModule** and **ControlSubModule**: Specify the module and submodule for the policy, ensuring they match the selected schema.
-     * - **ControlDwScope**: Set the policy scope to either the tenant or workspace level.
-     * - **Workspaces**: If `ControlDwScope` is set to `Workspace`, provide the corresponding workspace IDs.
-     * - **Content.Controllers**: The controllers must match the definitions in the selected schema.
-     * - This operation cannot create system default policies.
+     * ## Request description
+     * - **SchemaName**: Select an appropriate schema name based on your business requirements.
+     * - **ControlModule** and **ControlSubModule**: Specify the module and submodule to which the policy applies. Make sure that they match the selected schema.
+     * - **ControlDwScope**: Define the application scope of the policy, which can be the tenant level or the workspace level.
+     * - **Workspaces**: If `ControlDwScope` is set to `Workspace`, you must provide a list of associated workspace IDs.
+     * - **Content.Controllers**: The list of control items in the policy content must comply with the valid control item definitions of the selected schema.
+     * - System default policies cannot be created by calling this operation.
      *
      * @param Request - CreateSecurityStrategyRequest
      *
@@ -6995,13 +6993,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a new Skill in DataWorks.
+     * Creates a skill in DataWorks.
      *
      * @remarks
      * ## Request description
-     * - You must provide either SkillMdOverride or BundleUrl. One of the two parameters is required.
-     * - Visibility can be set to `TENANT`, `PROJECT`, or `USER`, which indicate visibility within the account, visibility to specified projects, or visibility to specified users, respectively.
-     * - When Visibility is set to `PROJECT`, specify the list of visible project IDs by using VisibilityScope.ProjectIds. When Visibility is set to `USER`, specify the list of visible user IDs by using VisibilityScope.UserIds.
+     * - You must specify either the SkillMdOverride or BundleUrl parameter.
+     * - You can set Visibility to TENANT, PROJECT, or USER, which indicates that the skill is visible to the entire tenant, specific projects, or specific users.
+     * - If you set Visibility to PROJECT, you must use VisibilityScope.ProjectIds to specify the IDs of the visible projects. If you set Visibility to USER, you must use VisibilityScope.UserIds to specify the IDs of the visible users.
      *
      * @param tmpReq - CreateSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7078,13 +7076,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a new Skill in DataWorks.
+     * Creates a skill in DataWorks.
      *
      * @remarks
      * ## Request description
-     * - You must provide either SkillMdOverride or BundleUrl. One of the two parameters is required.
-     * - Visibility can be set to `TENANT`, `PROJECT`, or `USER`, which indicate visibility within the account, visibility to specified projects, or visibility to specified users, respectively.
-     * - When Visibility is set to `PROJECT`, specify the list of visible project IDs by using VisibilityScope.ProjectIds. When Visibility is set to `USER`, specify the list of visible user IDs by using VisibilityScope.UserIds.
+     * - You must specify either the SkillMdOverride or BundleUrl parameter.
+     * - You can set Visibility to TENANT, PROJECT, or USER, which indicates that the skill is visible to the entire tenant, specific projects, or specific users.
+     * - If you set Visibility to PROJECT, you must use VisibilityScope.ProjectIds to specify the IDs of the visible projects. If you set Visibility to USER, you must use VisibilityScope.UserIds to specify the IDs of the visible users.
      *
      * @param Request - CreateSkillRequest
      *
@@ -7274,10 +7272,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a workflow instance based on configurations, such as a data backfill workflow instance.
+     * Creates a workflow instance based on the specified configurations, such as a data backfill workflow instance.
      *
      * @remarks
-     * DataWorks Basic Edition or a higher edition is required.
+     * DataWorks Basic Edition or later is required.
      *
      * @param tmpReq - CreateWorkflowInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7378,10 +7376,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a workflow instance based on configurations, such as a data backfill workflow instance.
+     * Creates a workflow instance based on the specified configurations, such as a data backfill workflow instance.
      *
      * @remarks
-     * DataWorks Basic Edition or a higher edition is required.
+     * DataWorks Basic Edition or later is required.
      *
      * @param Request - CreateWorkflowInstancesRequest
      *
@@ -8593,12 +8591,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Deletes a data source sharing rule by rule ID.
+     * Deletes a data source sharing rule by its ID.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. To delete a sharing rule of a data source from Workspace A to Workspace B, you must have the data source sharing permissions in Workspace A or Workspace B. You must have one of the following roles in DataWorks:
-     * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
+     * 1. DataWorks Basic Edition or a later edition is required.
+     * 2. To delete a sharing rule that shares a data source from Workspace A to Workspace B, the operator must have the data source sharing permission in Workspace A or Workspace B. The operator must be assigned at least one of the following roles in the DataWorks workspace:
+     * - Tenant owner, tenant administrator, workspace administrator, or project owner
      *
      * @param Request - DeleteDataSourceSharedRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8637,12 +8635,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Deletes a data source sharing rule by rule ID.
+     * Deletes a data source sharing rule by its ID.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. To delete a sharing rule of a data source from Workspace A to Workspace B, you must have the data source sharing permissions in Workspace A or Workspace B. You must have one of the following roles in DataWorks:
-     * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
+     * 1. DataWorks Basic Edition or a later edition is required.
+     * 2. To delete a sharing rule that shares a data source from Workspace A to Workspace B, the operator must have the data source sharing permission in Workspace A or Workspace B. The operator must be assigned at least one of the following roles in the DataWorks workspace:
+     * - Tenant owner, tenant administrator, workspace administrator, or project owner
      *
      * @param Request - DeleteDataSourceSharedRuleRequest
      *
@@ -11302,10 +11300,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a temporary workflow instance based on the specified configuration.
+     * Creates a temporary workflow instance based on the specified configurations.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * DataWorks Basic Edition or later is required to use this operation.
      *
      * @param tmpReq - ExecuteAdhocWorkflowInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11370,10 +11368,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a temporary workflow instance based on the specified configuration.
+     * Creates a temporary workflow instance based on the specified configurations.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * DataWorks Basic Edition or later is required to use this operation.
      *
      * @param Request - ExecuteAdhocWorkflowInstanceRequest
      *
@@ -11870,7 +11868,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of a business process by calling GetBusiness.
+     * Queries the details of a business flow.
      *
      * @param Request - GetBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11917,7 +11915,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of a business process by calling GetBusiness.
+     * Queries the details of a business flow.
      *
      * @param Request - GetBusinessRequest
      *
@@ -11994,11 +11992,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * You can view authentication files.
+     * Retrieves a certificate file.
      *
      * @remarks
-     * 1. This feature is available only in DataWorks Basic Edition or a higher edition.
-     * 2. You must have at least one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O&amp;M.
+     * 1. You must purchase DataWorks Basic Edition or a more advanced edition to use this API.
+     * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, workspace administrator, deployer, developer, project owner, or operator.
      *
      * @param Request - GetCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12033,11 +12031,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * You can view authentication files.
+     * Retrieves a certificate file.
      *
      * @remarks
-     * 1. This feature is available only in DataWorks Basic Edition or a higher edition.
-     * 2. You must have at least one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O&amp;M.
+     * 1. You must purchase DataWorks Basic Edition or a more advanced edition to use this API.
+     * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, workspace administrator, deployer, developer, project owner, or operator.
      *
      * @param Request - GetCertificateRequest
      *
@@ -13971,8 +13969,8 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the details of a specified image by image ID.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. **Ensure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
      *
      * @param Request - GetImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14018,8 +14016,8 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the details of a specified image by image ID.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. **Ensure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
      *
      * @param Request - GetImageRequest
      *
@@ -14040,8 +14038,8 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the details of an image test result.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-     * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
      *
      * @param Request - GetImageTestResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14087,8 +14085,8 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the details of an image test result.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-     * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
      *
      * @param Request - GetImageTestResultRequest
      *
@@ -14462,10 +14460,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the information about a network resource.
+     * Retrieves the details of a network resource.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * You must purchase DataWorks Basic Edition or a later edition to use this API.
      *
      * @param Request - GetNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14500,10 +14498,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the information about a network resource.
+     * Retrieves the details of a network resource.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * You must purchase DataWorks Basic Edition or a later edition to use this API.
      *
      * @param Request - GetNetworkRequest
      *
@@ -15196,10 +15194,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of a specified resource group by ID.
+     * Retrieves the details of a specified resource group by ID.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Basic Edition or a later edition to use this feature.
      *
      * @param Request - GetResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15234,10 +15232,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of a specified resource group by ID.
+     * Retrieves the details of a specified resource group by ID.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Basic Edition or a later edition to use this feature.
      *
      * @param Request - GetResourceGroupRequest
      *
@@ -15918,7 +15916,7 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the details of a specified task instance.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @param Request - GetTaskInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15956,7 +15954,7 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the details of a specified task instance.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @param Request - GetTaskInstanceRequest
      *
@@ -18038,13 +18036,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of custom agents.
+     * Lists custom agents with pagination.
      *
      * @remarks
-     * ## Request
-     * - **Search keyword**: Use the `Q` parameter to perform a fuzzy search by agent name.
-     * - **Visibility level filtering**: Use the `Visibility` parameter to filter results by visibility level, such as `TENANT`, `PROJECT`, or `USER`.
-     * - **Paging information**: Use the `MaxResults` and `NextToken` parameters to implement paginated queries. `NextToken` retrieves the next page of results.
+     * ## Request description
+     * - **Search keyword**: Use the `Q` parameter to perform a fuzzy match on agent names.
+     * - **Visibility level filter**: Use the `Visibility` parameter to filter results by visibility level, such as `TENANT`, `PROJECT`, or `USER`.
+     * - **Paging information**: Use the `MaxResults` and `NextToken` parameters to implement a paged query. The `NextToken` parameter is used to retrieve the next page of data.
      *
      * @param tmpReq - ListCustomAgentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18103,13 +18101,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of custom agents.
+     * Lists custom agents with pagination.
      *
      * @remarks
-     * ## Request
-     * - **Search keyword**: Use the `Q` parameter to perform a fuzzy search by agent name.
-     * - **Visibility level filtering**: Use the `Visibility` parameter to filter results by visibility level, such as `TENANT`, `PROJECT`, or `USER`.
-     * - **Paging information**: Use the `MaxResults` and `NextToken` parameters to implement paginated queries. `NextToken` retrieves the next page of results.
+     * ## Request description
+     * - **Search keyword**: Use the `Q` parameter to perform a fuzzy match on agent names.
+     * - **Visibility level filter**: Use the `Visibility` parameter to filter results by visibility level, such as `TENANT`, `PROJECT`, or `USER`.
+     * - **Paging information**: Use the `MaxResults` and `NextToken` parameters to implement a paged query. The `NextToken` parameter is used to retrieve the next page of data.
      *
      * @param Request - ListCustomAgentsRequest
      *
@@ -18512,7 +18510,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of tags.
      *
      * @remarks
-     * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+     * DataWorks Enterprise Edition or a higher edition is required.
      *
      * @param Request - ListDataAssetTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18550,7 +18548,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of tags.
      *
      * @remarks
-     * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+     * DataWorks Enterprise Edition or a higher edition is required.
      *
      * @param Request - ListDataAssetTagsRequest
      *
@@ -18568,10 +18566,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries DataWorks data assets that are associated with tags by paging.
+     * Performs a paging query on DataWorks data assets associated with tags.
      *
      * @remarks
-     * You must purchase DataWorks Enterprise Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Enterprise Edition or a later edition to use this feature.
      *
      * @param tmpReq - ListDataAssetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18616,10 +18614,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries DataWorks data assets that are associated with tags by paging.
+     * Performs a paging query on DataWorks data assets associated with tags.
      *
      * @remarks
-     * You must purchase DataWorks Enterprise Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Enterprise Edition or a later edition to use this feature.
      *
      * @param Request - ListDataAssetsRequest
      *
@@ -19036,10 +19034,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the run history of data quality scans in a specified project.
+     * Queries the data quality scan run records of a specified project.
      *
      * @remarks
-     * This feature requires DataWorks basic edition or higher.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @param tmpReq - ListDataQualityScanRunsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19116,10 +19114,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the run history of data quality scans in a specified project.
+     * Queries the data quality scan run records of a specified project.
      *
      * @remarks
-     * This feature requires DataWorks basic edition or higher.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @param Request - ListDataQualityScanRunsRequest
      *
@@ -20430,11 +20428,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of image test results.
+     * Queries a list of image test results.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     * 1. You must purchase DataWorks Basic Edition or later to use this API operation.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this API operation.**
      *
      * @param Request - ListImageTestResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20481,11 +20479,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of image test results.
+     * Queries a list of image test results.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     * 1. You must purchase DataWorks Basic Edition or later to use this API operation.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this API operation.**
      *
      * @param Request - ListImageTestResultsRequest
      *
@@ -20579,8 +20577,8 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves a list of images.
      *
      * @remarks
-     * 1. You must have DataWorks Basic Edition or a later version to use this API.
-     * 2. **Before you use this API, make sure that the service-linked role AliyunServiceRoleForDataWorks is created.**
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. **Before you call this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks is created.**
      *
      * @param tmpReq - ListImagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20696,8 +20694,8 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves a list of images.
      *
      * @remarks
-     * 1. You must have DataWorks Basic Edition or a later version to use this API.
-     * 2. **Before you use this API, make sure that the service-linked role AliyunServiceRoleForDataWorks is created.**
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. **Before you call this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks is created.**
      *
      * @param Request - ListImagesRequest
      *
@@ -20715,10 +20713,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of data lineage relationships between two specified entities (tables, fields, OSS files, etc.) in DataWorks Data Map.
+     * Queries the list of data lineage relationships between two given entities (such as tables, fields, or OSS files) in DataWorks Data Map.
      *
      * @remarks
-     * 1. You must purchase DataWorks Standard Edition or a higher edition to use this feature.
+     * 1. DataWorks Standard Edition or later is required.
      *
      * @param Request - ListLineageRelationshipsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20753,10 +20751,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of data lineage relationships between two specified entities (tables, fields, OSS files, etc.) in DataWorks Data Map.
+     * Queries the list of data lineage relationships between two given entities (such as tables, fields, or OSS files) in DataWorks Data Map.
      *
      * @remarks
-     * 1. You must purchase DataWorks Standard Edition or a higher edition to use this feature.
+     * 1. DataWorks Standard Edition or later is required.
      *
      * @param Request - ListLineageRelationshipsRequest
      *
@@ -20774,11 +20772,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the upstream and downstream lineage entities for a specified entity in DataWorks Data Map, with an option to include detailed lineage relationship information.
+     * Queries the list of upstream and downstream lineage entities for a given entity in DataWorks Data Map, with an option to include specific lineage relationship information.
      *
      * @remarks
-     * 1. You must purchase DataWorks Standard Edition or a higher edition to use this operation.
-     * 2. This operation queries the upstream and downstream entities of the current entity, as well as the lineage relationships between entities.
+     * 1. You must purchase DataWorks Standard Edition or later to use this operation.
+     * 2. This operation queries the upstream and downstream entities of the current entity and the lineage relationships between entities.
      *
      * @param Request - ListLineagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20813,11 +20811,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the upstream and downstream lineage entities for a specified entity in DataWorks Data Map, with an option to include detailed lineage relationship information.
+     * Queries the list of upstream and downstream lineage entities for a given entity in DataWorks Data Map, with an option to include specific lineage relationship information.
      *
      * @remarks
-     * 1. You must purchase DataWorks Standard Edition or a higher edition to use this operation.
-     * 2. This operation queries the upstream and downstream entities of the current entity, as well as the lineage relationships between entities.
+     * 1. You must purchase DataWorks Standard Edition or later to use this operation.
+     * 2. This operation queries the upstream and downstream entities of the current entity and the lineage relationships between entities.
      *
      * @param Request - ListLineagesRequest
      *
@@ -21415,10 +21413,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of network resources for a serverless resource group.
+     * Queries the network resources in a resource group.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * You must purchase DataWorks Basic Edition or a later edition to use this feature.
      *
      * @param Request - ListNetworksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21453,10 +21451,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of network resources for a serverless resource group.
+     * Queries the network resources in a resource group.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * You must purchase DataWorks Basic Edition or a later edition to use this feature.
      *
      * @param Request - ListNetworksRequest
      *
@@ -21474,7 +21472,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the dependency nodes of a specified Data Studio node with pagination.
+     * Retrieves the dependent nodes of a specified data development node in a paginated manner.
      *
      * @param Request - ListNodeDependenciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21509,7 +21507,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the dependency nodes of a specified Data Studio node with pagination.
+     * Retrieves the dependent nodes of a specified data development node in a paginated manner.
      *
      * @param Request - ListNodeDependenciesRequest
      *
@@ -21527,7 +21525,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of Data Studio nodes with paging, and supports filtered query by specified conditions.
+     * Retrieves a list of data development nodes with paging. You can also perform a filtered query on the list by using specified conditions.
      *
      * @param Request - ListNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21562,7 +21560,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of Data Studio nodes with paging, and supports filtered query by specified conditions.
+     * Retrieves a list of data development nodes with paging. You can also perform a filtered query on the list by using specified conditions.
      *
      * @param Request - ListNodesRequest
      *
@@ -21655,10 +21653,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Query parameters.
+     * Queries the list of query parameters.
      *
      * @remarks
-     * This feature is available in DataWorks Professional Edition or higher.
+     * DataWorks Professional Edition or later is required.
      *
      * @param tmpReq - ListParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21739,10 +21737,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Query parameters.
+     * Queries the list of query parameters.
      *
      * @remarks
-     * This feature is available in DataWorks Professional Edition or higher.
+     * DataWorks Professional Edition or later is required.
      *
      * @param Request - ListParametersRequest
      *
@@ -22613,8 +22611,8 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves a list of resource groups.
      *
      * @remarks
-     * 1. This operation requires DataWorks Basic Edition or higher.
-     * 2. **Before you call this operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this API operation.**
      *
      * @param tmpReq - ListResourceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22666,8 +22664,8 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves a list of resource groups.
      *
      * @remarks
-     * 1. This operation requires DataWorks Basic Edition or higher.
-     * 2. **Before you call this operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this API operation.**
      *
      * @param Request - ListResourceGroupsRequest
      *
@@ -22685,7 +22683,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries resource files with pagination and filtering support.
+     * Retrieves a paginated list of resource files and filters resources.
      *
      * @param Request - ListResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22720,7 +22718,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries resource files with pagination and filtering support.
+     * Retrieves a paginated list of resource files and filters resources.
      *
      * @param Request - ListResourcesRequest
      *
@@ -23269,10 +23267,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a paged query list of personal development environment instances with paging support.
+     * Performs a paging query of personal development environment instances. When you invoke this operation, use the DataWorks endpoint that corresponds to the region of the target workspace.
      *
      * @remarks
-     * Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance subtype.
+     * Performs a paging query of personal development environment (ServerIDE) instances. You can filter the instances by workspace, resource group, keyword, owner, and instance subtype.
      *
      * @param Request - ListServerIdeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23343,10 +23341,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a paged query list of personal development environment instances with paging support.
+     * Performs a paging query of personal development environment instances. When you invoke this operation, use the DataWorks endpoint that corresponds to the region of the target workspace.
      *
      * @remarks
-     * Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance subtype.
+     * Performs a paging query of personal development environment (ServerIDE) instances. You can filter the instances by workspace, resource group, keyword, owner, and instance subtype.
      *
      * @param Request - ListServerIdeInstancesRequest
      *
@@ -23364,15 +23362,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Lists the Skills in your account.
+     * Performs a paging query to list skills under the current account.
      *
      * @remarks
-     * ## Request
-     * This operation lists the Skills in your account. You can filter the results by criteria such as a search keyword and visibility level.
-     * - **Q**: An optional search keyword for a fuzzy match on Skill names.
-     * - **Visibility**: An optional parameter to filter Skills by their visibility level. You can specify multiple values.
-     * - **MaxResults**: An optional parameter that specifies the maximum number of results to return per page.
-     * - **NextToken**: An optional pagination token for retrieving the next page of results. Omit this parameter for the first request. For subsequent requests, pass the `NextToken` value from the previous response to fetch the next page.
+     * ## Request description
+     * This API performs a paging query to list the skills under the current account. It supports filtering by conditions such as search keywords and visibility levels.
+     * - **Q**: Optional. Used for fuzzy match by skill name.
+     * - **Visibility**: Optional. Used to filter by visibility level. Multiple values can be passed.
+     * - **MaxResults**: Optional. Specifies the maximum number of entries to return in this request.
+     * - **NextToken**: Optional. Used to obtain the next page of data during paging. Do not pass this parameter for the first query. For subsequent queries, pass the NextToken returned in the previous response to obtain the next page of data.
      *
      * @param tmpReq - ListSkillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23431,15 +23429,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Lists the Skills in your account.
+     * Performs a paging query to list skills under the current account.
      *
      * @remarks
-     * ## Request
-     * This operation lists the Skills in your account. You can filter the results by criteria such as a search keyword and visibility level.
-     * - **Q**: An optional search keyword for a fuzzy match on Skill names.
-     * - **Visibility**: An optional parameter to filter Skills by their visibility level. You can specify multiple values.
-     * - **MaxResults**: An optional parameter that specifies the maximum number of results to return per page.
-     * - **NextToken**: An optional pagination token for retrieving the next page of results. Omit this parameter for the first request. For subsequent requests, pass the `NextToken` value from the previous response to fetch the next page.
+     * ## Request description
+     * This API performs a paging query to list the skills under the current account. It supports filtering by conditions such as search keywords and visibility levels.
+     * - **Q**: Optional. Used for fuzzy match by skill name.
+     * - **Visibility**: Optional. Used to filter by visibility level. Multiple values can be passed.
+     * - **MaxResults**: Optional. Specifies the maximum number of entries to return in this request.
+     * - **NextToken**: Optional. Used to obtain the next page of data during paging. Do not pass this parameter for the first query. For subsequent queries, pass the NextToken returned in the previous response to obtain the next page of data.
      *
      * @param Request - ListSkillsRequest
      *
@@ -23656,10 +23654,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Lists node instances by paging and supports filtered query by conditions.
+     * Retrieves a paged list of task instances. You can also perform a filtered query based on conditions.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param tmpReq - ListTaskInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23792,10 +23790,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Lists node instances by paging and supports filtered query by conditions.
+     * Retrieves a paged list of task instances. You can also perform a filtered query based on conditions.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param Request - ListTaskInstancesRequest
      *
@@ -23813,11 +23811,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a paginated list of operation logs for a specified node.
+     * Queries a paginated list of operation logs for a specified task.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or later to use this API.
-     * You can only query operation logs from the past 31 days.
+     * DataWorks Basic Edition or later is required to use this feature.
+     * Only operation logs from the past 31 days can be queried.
      *
      * @param Request - ListTaskOperationLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23852,11 +23850,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a paginated list of operation logs for a specified node.
+     * Queries a paginated list of operation logs for a specified task.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or later to use this API.
-     * You can only query operation logs from the past 31 days.
+     * DataWorks Basic Edition or later is required to use this feature.
+     * Only operation logs from the past 31 days can be queried.
      *
      * @param Request - ListTaskOperationLogsRequest
      *
@@ -24109,7 +24107,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of workflows in Data Studio. You can also specify filter conditions to query specific workflows.
+     * Queries a paginated list of data development workflows. You can also filter workflows based on specified conditions.
      *
      * @param Request - ListWorkflowDefinitionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24144,7 +24142,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of workflows in Data Studio. You can also specify filter conditions to query specific workflows.
+     * Queries a paginated list of data development workflows. You can also filter workflows based on specified conditions.
      *
      * @param Request - ListWorkflowDefinitionsRequest
      *
@@ -24162,10 +24160,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a paging list of workflow instances, with optional filtered query by conditions.
+     * Retrieves a list of workflow instances by using paging. You can also perform a filtered query based on conditions.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @param tmpReq - ListWorkflowInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24266,10 +24264,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a paging list of workflow instances, with optional filtered query by conditions.
+     * Retrieves a list of workflow instances by using paging. You can also perform a filtered query based on conditions.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @param Request - ListWorkflowInstancesRequest
      *
@@ -24287,10 +24285,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of workflows by page. You can also specify filter conditions to query workflows.
+     * Retrieves a list of workflows with paging, and supports filtered query by conditions.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param tmpReq - ListWorkflowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24375,10 +24373,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of workflows by page. You can also specify filter conditions to query workflows.
+     * Retrieves a list of workflows with paging, and supports filtered query by conditions.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param Request - ListWorkflowsRequest
      *
@@ -25524,7 +25522,7 @@ class Dataworkspublic extends OpenApiClient
      * Replies to a pending user interaction in a DataAgent session.
      *
      * @remarks
-     * Replies to a permission_request issued by the DataAgent daemon. You can submit an answer to an ask_user_question or cancel the current interaction. The PermissionRequestId must come from the params.data.requestId field in the _qwen/notify event (params.kind=permission_request) of the original PromptAgentSession SSE. The reply only returns whether it was accepted. Subsequent execution events are still returned through the original PromptAgentSession SSE. Do not resubmit the same prompt round.
+     * Replies to a permission_request issued by the DataAgent daemon. Supports submitting answers to ask_user_question or canceling the current interaction. The PermissionRequestId must be obtained from params.data.requestId in the _qwen/notify event (params.kind=permission_request) of the original PromptAgentSession SSE. The reply only returns whether it is accepted. Subsequent execution events are still returned through the original PromptAgentSession SSE. Do not repeatedly submit the same round of prompt.
      *
      * @param tmpReq - ReplyAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25580,7 +25578,7 @@ class Dataworkspublic extends OpenApiClient
      * Replies to a pending user interaction in a DataAgent session.
      *
      * @remarks
-     * Replies to a permission_request issued by the DataAgent daemon. You can submit an answer to an ask_user_question or cancel the current interaction. The PermissionRequestId must come from the params.data.requestId field in the _qwen/notify event (params.kind=permission_request) of the original PromptAgentSession SSE. The reply only returns whether it was accepted. Subsequent execution events are still returned through the original PromptAgentSession SSE. Do not resubmit the same prompt round.
+     * Replies to a permission_request issued by the DataAgent daemon. Supports submitting answers to ask_user_question or canceling the current interaction. The PermissionRequestId must be obtained from params.data.requestId in the _qwen/notify event (params.kind=permission_request) of the original PromptAgentSession SSE. The reply only returns whether it is accepted. Subsequent execution events are still returned through the original PromptAgentSession SSE. Do not repeatedly submit the same round of prompt.
      *
      * @param Request - ReplyAgentSessionRequest
      *
@@ -25675,7 +25673,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Rerun a workflow instance.
+     * Reruns a workflow instance.
      *
      * @param tmpReq - RerunWorkflowInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25764,7 +25762,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Rerun a workflow instance.
+     * Reruns a workflow instance.
      *
      * @param Request - RerunWorkflowInstancesRequest
      *
@@ -26859,10 +26857,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Stops multiple instances in a batch.
+     * Stops multiple task instances.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * DataWorks Basic Edition or later is required.
+     * Task instance stop mechanism and precautions:
+     * 1. Stopping a task instance is an asynchronous operation. Sending a stop request does not mean that the instance stops immediately. Continue to query the instance status after sending the request to confirm the result. If external compute resources are involved, verify the actual status of the remote job.
+     * 2. The status of a DataWorks task instance may not match the status of the remote job. For tasks that rely on external compute resources (such as MaxCompute, EMR, and SSH), DataWorks sends a stop request to the remote end through a client. Due to network exceptions, client compatibility, and other factors, a DataWorks task instance may be marked as failed while the remote job is still running. Therefore, you cannot rely solely on the DataWorks task instance status to determine whether the remote job has stopped. Check the status on the corresponding computing platform and manually stop the job if necessary to prevent it from continuing to run or consuming additional resources.
+     * 3. Pay special attention to MaxCompute tasks that use shared schedule resource groups. DataWorks shared schedule resource groups will soon be retired. Due to component version and compatibility limits, stop commands for some MaxCompute tasks may not take effect on the remote end. If this occurs, check the actual status of the corresponding instance in MaxCompute. If the instance is still running, perform a kill operation in MaxCompute and verify that it has stopped.
      *
      * @param tmpReq - StopTaskInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26911,10 +26913,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Stops multiple instances in a batch.
+     * Stops multiple task instances.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * DataWorks Basic Edition or later is required.
+     * Task instance stop mechanism and precautions:
+     * 1. Stopping a task instance is an asynchronous operation. Sending a stop request does not mean that the instance stops immediately. Continue to query the instance status after sending the request to confirm the result. If external compute resources are involved, verify the actual status of the remote job.
+     * 2. The status of a DataWorks task instance may not match the status of the remote job. For tasks that rely on external compute resources (such as MaxCompute, EMR, and SSH), DataWorks sends a stop request to the remote end through a client. Due to network exceptions, client compatibility, and other factors, a DataWorks task instance may be marked as failed while the remote job is still running. Therefore, you cannot rely solely on the DataWorks task instance status to determine whether the remote job has stopped. Check the status on the corresponding computing platform and manually stop the job if necessary to prevent it from continuing to run or consuming additional resources.
+     * 3. Pay special attention to MaxCompute tasks that use shared schedule resource groups. DataWorks shared schedule resource groups will soon be retired. Due to component version and compatibility limits, stop commands for some MaxCompute tasks may not take effect on the remote end. If this occurs, check the actual status of the corresponding instance in MaxCompute. If the instance is still running, perform a kill operation in MaxCompute and verify that it has stopped.
      *
      * @param Request - StopTaskInstancesRequest
      *
@@ -26932,10 +26938,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Stops multiple workflow instances at a time.
+     * Terminates multiple workflow instances in batches.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @param tmpReq - StopWorkflowInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26984,10 +26990,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Stops multiple workflow instances at a time.
+     * Terminates multiple workflow instances in batches.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @param Request - StopWorkflowInstancesRequest
      *
@@ -27222,10 +27228,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Adds tags to data assets.
+     * Attaches tags to data assets.
      *
      * @remarks
-     * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+     * This operation requires DataWorks Enterprise Edition or later.
      *
      * @param tmpReq - TagDataAssetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27294,10 +27300,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Adds tags to data assets.
+     * Attaches tags to data assets.
      *
      * @remarks
-     * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+     * This operation requires DataWorks Enterprise Edition or later.
      *
      * @param Request - TagDataAssetsRequest
      *
@@ -27463,10 +27469,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Removes tags from data assets.
+     * Disassociates tags from data assets.
      *
      * @remarks
-     * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+     * You must purchase DataWorks Enterprise Edition or a later edition to use this operation.
      *
      * @param tmpReq - UnTagDataAssetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27531,10 +27537,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Removes tags from data assets.
+     * Disassociates tags from data assets.
      *
      * @remarks
-     * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+     * You must purchase DataWorks Enterprise Edition or a later edition to use this operation.
      *
      * @param Request - UnTagDataAssetsRequest
      *
@@ -27868,12 +27874,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Modifies the specified computing resource based on the computing resource ID.
+     * Modifies a specified compute resource based on the compute resource ID.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-     * 2. You must have at least one of the following roles in the DataWorks workspace:
-     * 3. Tenant Owner, tenant administrator, Workspace Administrator, Project Owner, or Operator
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, tenant administrator, workspace administrator, project owner, or O&M engineer.
      *
      * @param Request - UpdateComputeResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27928,12 +27933,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Modifies the specified computing resource based on the computing resource ID.
+     * Modifies a specified compute resource based on the compute resource ID.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-     * 2. You must have at least one of the following roles in the DataWorks workspace:
-     * 3. Tenant Owner, tenant administrator, Workspace Administrator, Project Owner, or Operator
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, tenant administrator, workspace administrator, project owner, or O&M engineer.
      *
      * @param Request - UpdateComputeResourceRequest
      *
@@ -28522,7 +28526,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a specified data quality monitoring alert rule.
      *
      * @remarks
-     * DataWorks Basic Edition or a more advanced edition is required.
+     * DataWorks Basic Edition or later is required.
      *
      * @param tmpReq - UpdateDataQualityAlertRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28590,7 +28594,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a specified data quality monitoring alert rule.
      *
      * @remarks
-     * DataWorks Basic Edition or a more advanced edition is required.
+     * DataWorks Basic Edition or later is required.
      *
      * @param Request - UpdateDataQualityAlertRuleRequest
      *
@@ -28608,10 +28612,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates a data quality validation task.
+     * Updates a data quality check task.
      *
      * @remarks
-     * DataWorks Basic Edition or above must be purchased to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @deprecated openAPI UpdateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
@@ -28715,10 +28719,10 @@ class Dataworkspublic extends OpenApiClient
 
     // Deprecated
     /**
-     * Updates a data quality validation task.
+     * Updates a data quality check task.
      *
      * @remarks
-     * DataWorks Basic Edition or above must be purchased to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this feature.
      *
      * @deprecated openAPI UpdateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
@@ -28738,10 +28742,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates a data quality rule.
+     * Updates a quality rule.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or above to use this feature.
+     * You must purchase DataWorks Basic Edition or a later edition to use this operation.
      *
      * @deprecated openAPI UpdateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
@@ -28835,10 +28839,10 @@ class Dataworkspublic extends OpenApiClient
 
     // Deprecated
     /**
-     * Updates a data quality rule.
+     * Updates a quality rule.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or above to use this feature.
+     * You must purchase DataWorks Basic Edition or a later edition to use this operation.
      *
      * @deprecated openAPI UpdateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
@@ -29160,11 +29164,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Modifies a data source by ID.
+     * Modifies a specified data source based on the data source ID.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * You must have at least one of the following roles in the DataWorks workspace: tenant owner, tenant administrator, workspace administrator, project owner, or operator.
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. You must have at least one of the following roles in the DataWorks workspace:
+     * - Tenant Owner, Tenant Administrator, Workspace Administrator, Project Owner, or O&M Engineer.
      *
      * @param Request - UpdateDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29219,11 +29224,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Modifies a data source by ID.
+     * Modifies a specified data source based on the data source ID.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * You must have at least one of the following roles in the DataWorks workspace: tenant owner, tenant administrator, workspace administrator, project owner, or operator.
+     * 1. DataWorks Basic Edition or later is required.
+     * 2. You must have at least one of the following roles in the DataWorks workspace:
+     * - Tenant Owner, Tenant Administrator, Workspace Administrator, Project Owner, or O&M Engineer.
      *
      * @param Request - UpdateDataSourceRequest
      *
@@ -29371,7 +29377,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates a file.
+     * Updates an existing file.
      *
      * @param Request - UpdateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29538,7 +29544,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates a file.
+     * Updates an existing file.
      *
      * @param Request - UpdateFileRequest
      *
@@ -29762,8 +29768,8 @@ class Dataworkspublic extends OpenApiClient
      * Updates an image.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     * 1. DataWorks Basic Edition or higher is required.
+     * 2. **Ensure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
      *
      * @param tmpReq - UpdateImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29861,8 +29867,8 @@ class Dataworkspublic extends OpenApiClient
      * Updates an image.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
-     * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+     * 1. DataWorks Basic Edition or higher is required.
+     * 2. **Ensure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
      *
      * @param Request - UpdateImageRequest
      *
@@ -29880,12 +29886,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates an MCP Server.
+     * Updates an MCP server.
      *
      * @remarks
-     * ## Operation description
-     * This API operation allows you to update the configuration of a specified MCP Server, including the service URL, transport protocol, custom request headers, and visibility settings. Fields that are not provided retain their existing values.
-     * **Note**: When you modify the `Visibility` parameter, selectively provide `ProjectIds` or `UserIds` in `VisibilityScope` based on the visibility setting to ensure that the correct access control scope is applied.
+     * ## Request description
+     * Updates the configurations of a specified MCP server, including the service URL, transport protocol, custom request headers, and visibility settings. Fields that are not specified remain unchanged.
+     * **Note**: When you modify the `Visibility` parameter, specify `ProjectIds` or `UserIds` in `VisibilityScope` based on the visibility setting to ensure that the correct access control scope is applied.
      *
      * @param tmpReq - UpdateMcpServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29954,12 +29960,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates an MCP Server.
+     * Updates an MCP server.
      *
      * @remarks
-     * ## Operation description
-     * This API operation allows you to update the configuration of a specified MCP Server, including the service URL, transport protocol, custom request headers, and visibility settings. Fields that are not provided retain their existing values.
-     * **Note**: When you modify the `Visibility` parameter, selectively provide `ProjectIds` or `UserIds` in `VisibilityScope` based on the visibility setting to ensure that the correct access control scope is applied.
+     * ## Request description
+     * Updates the configurations of a specified MCP server, including the service URL, transport protocol, custom request headers, and visibility settings. Fields that are not specified remain unchanged.
+     * **Note**: When you modify the `Visibility` parameter, specify `ProjectIds` or `UserIds` in `VisibilityScope` based on the visibility setting to ensure that the correct access control scope is applied.
      *
      * @param Request - UpdateMcpServerRequest
      *
@@ -31763,7 +31769,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates the file information about a function.
+     * Updates the file information of a function.
      *
      * @param Request - UpdateUdfFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31846,7 +31852,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates the file information about a function.
+     * Updates the file information of a function.
      *
      * @param Request - UpdateUdfFileRequest
      *
