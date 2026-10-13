@@ -308,6 +308,18 @@ class Workorder extends OpenApiClient
     /**
      * Queries the Object Storage Service (OSS) URL that is used to upload attachments.
      *
+     * @remarks
+     * > Attachment upload
+     * >
+     * > - Use a presigned URL to upload the file. For more information, see the OSS documentation.
+     * After you obtain the temporary upload URL, you can upload the file as follows:
+     * <details>
+     * <summary>
+     * Sample
+     * </summary>
+     * curl -X PUT -H "Content-Type:application/octet-stream" -H "x-oss-meta-author:aliy" -T /home/admin/file.png "https\\://xx.oss-cn-zhangjiakou.aliyuncs.com/xx/xx.png"
+     * </details>
+     *
      * @param request - GetAttachmentUploadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -347,6 +359,18 @@ class Workorder extends OpenApiClient
     /**
      * Queries the Object Storage Service (OSS) URL that is used to upload attachments.
      *
+     * @remarks
+     * > Attachment upload
+     * >
+     * > - Use a presigned URL to upload the file. For more information, see the OSS documentation.
+     * After you obtain the temporary upload URL, you can upload the file as follows:
+     * <details>
+     * <summary>
+     * Sample
+     * </summary>
+     * curl -X PUT -H "Content-Type:application/octet-stream" -H "x-oss-meta-author:aliy" -T /home/admin/file.png "https\\://xx.oss-cn-zhangjiakou.aliyuncs.com/xx/xx.png"
+     * </details>
+     *
      * @param request - GetAttachmentUploadUrlRequest
      *
      * @returns GetAttachmentUploadUrlResponse
@@ -363,7 +387,8 @@ class Workorder extends OpenApiClient
     }
 
     /**
-     * @param request - GetMqConsumerTagRequest
+     * Retrieves the tag for a ticket\\"s RocketMQ message listener.
+     *
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMqConsumerTagResponse
@@ -391,6 +416,8 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * Retrieves the tag for a ticket\\"s RocketMQ message listener.
+     *
      * @returns GetMqConsumerTagResponse
      *
      * @return GetMqConsumerTagResponse
@@ -403,7 +430,7 @@ class Workorder extends OpenApiClient
     }
 
     /**
-     * Query tickets.
+     * Queries a ticket.
      *
      * @param request - GetTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -446,7 +473,7 @@ class Workorder extends OpenApiClient
     }
 
     /**
-     * Query tickets.
+     * Queries a ticket.
      *
      * @param request - GetTicketRequest
      *
@@ -592,7 +619,7 @@ class Workorder extends OpenApiClient
     }
 
     /**
-     * Obtains the ticket communication records.
+     * Retrieves the communication records for a ticket.
      *
      * @param request - ListTicketNotesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -635,7 +662,7 @@ class Workorder extends OpenApiClient
     }
 
     /**
-     * Obtains the ticket communication records.
+     * Retrieves the communication records for a ticket.
      *
      * @param request - ListTicketNotesRequest
      *
@@ -653,7 +680,7 @@ class Workorder extends OpenApiClient
     }
 
     /**
-     * You can call this operation to obtain the list of my tickets.
+     * Retrieves a list of your tickets.
      *
      * @param tmpReq - ListTicketsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -732,7 +759,7 @@ class Workorder extends OpenApiClient
     }
 
     /**
-     * You can call this operation to obtain the list of my tickets.
+     * Retrieves a list of your tickets.
      *
      * @param request - ListTicketsRequest
      *
@@ -815,7 +842,7 @@ class Workorder extends OpenApiClient
     }
 
     /**
-     * Reply to the ticket. You can call the ListTicketNotes operation to obtain the content of the reply.
+     * Replies to a ticket. You can call the ListTicketNotes operation to retrieve the reply.
      *
      * @param tmpReq - ReplyTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -878,7 +905,7 @@ class Workorder extends OpenApiClient
     }
 
     /**
-     * Reply to the ticket. You can call the ListTicketNotes operation to obtain the content of the reply.
+     * Replies to a ticket. You can call the ListTicketNotes operation to retrieve the reply.
      *
      * @param request - ReplyTicketRequest
      *

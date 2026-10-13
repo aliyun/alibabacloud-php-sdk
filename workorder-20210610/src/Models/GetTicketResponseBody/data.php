@@ -28,6 +28,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $creatorName;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -53,6 +58,7 @@ class data extends Model
         'categoryId' => 'CategoryId',
         'createTime' => 'CreateTime',
         'creatorId' => 'CreatorId',
+        'creatorName' => 'CreatorName',
         'description' => 'Description',
         'severity' => 'Severity',
         'status' => 'Status',
@@ -84,6 +90,10 @@ class data extends Model
 
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
+        }
+
+        if (null !== $this->creatorName) {
+            $res['CreatorName'] = $this->creatorName;
         }
 
         if (null !== $this->description) {
@@ -127,6 +137,10 @@ class data extends Model
 
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
+        }
+
+        if (isset($map['CreatorName'])) {
+            $model->creatorName = $map['CreatorName'];
         }
 
         if (isset($map['Description'])) {
