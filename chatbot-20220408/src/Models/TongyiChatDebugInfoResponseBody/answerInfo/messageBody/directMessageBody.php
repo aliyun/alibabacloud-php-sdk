@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models\TongyiChatDebugInfoResponseBody\answerInfo\messageBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\TongyiChatDebugInfoResponseBody\answerInfo\messageBody\directMessageBody\rtDetail;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\TongyiChatDebugInfoResponseBody\answerInfo\messageBody\directMessageBody\sentenceList;
 
 class directMessageBody extends Model
@@ -13,6 +14,16 @@ class directMessageBody extends Model
      * @var string
      */
     public $contentType;
+
+    /**
+     * @var string
+     */
+    public $hitSystemAskConfig;
+
+    /**
+     * @var rtDetail
+     */
+    public $rtDetail;
 
     /**
      * @var string[]
@@ -30,6 +41,8 @@ class directMessageBody extends Model
     public $sentenceList;
     protected $_name = [
         'contentType' => 'ContentType',
+        'hitSystemAskConfig' => 'HitSystemAskConfig',
+        'rtDetail' => 'RtDetail',
         'transitionList' => 'TransitionList',
         'relatedQuestionList' => 'relatedQuestionList',
         'sentenceList' => 'sentenceList',
@@ -37,6 +50,9 @@ class directMessageBody extends Model
 
     public function validate()
     {
+        if (null !== $this->rtDetail) {
+            $this->rtDetail->validate();
+        }
         if (\is_array($this->transitionList)) {
             Model::validateArray($this->transitionList);
         }
@@ -54,6 +70,14 @@ class directMessageBody extends Model
         $res = [];
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
+        }
+
+        if (null !== $this->hitSystemAskConfig) {
+            $res['HitSystemAskConfig'] = $this->hitSystemAskConfig;
+        }
+
+        if (null !== $this->rtDetail) {
+            $res['RtDetail'] = null !== $this->rtDetail ? $this->rtDetail->toArray($noStream) : $this->rtDetail;
         }
 
         if (null !== $this->transitionList) {
@@ -102,6 +126,14 @@ class directMessageBody extends Model
         $model = new self();
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
+        }
+
+        if (isset($map['HitSystemAskConfig'])) {
+            $model->hitSystemAskConfig = $map['HitSystemAskConfig'];
+        }
+
+        if (isset($map['RtDetail'])) {
+            $model->rtDetail = rtDetail::fromMap($map['RtDetail']);
         }
 
         if (isset($map['TransitionList'])) {
