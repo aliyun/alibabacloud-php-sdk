@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeVersionConfigShrink
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DownloadResourceControlEventsRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DownloadResourceControlEventsResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DownloadResourceControlEventsShrinkRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\EndPenetrationTestRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\EndPenetrationTestResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetAlertRecordAnalysisResultRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetAlertRecordAnalysisResultResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetAlertRecordAnalysisResultShrinkRequest;
@@ -79,6 +81,10 @@ use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryAccountSafetyIncidentR
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryAccountSafetyIncidentShrinkRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryGuideSubStatusRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryGuideSubStatusResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryPenetrationTestDetailRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryPenetrationTestDetailResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryPenetrationTestListRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryPenetrationTestListResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryResourceControlEventsRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryResourceControlEventsResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryResourceControlEventsShrinkRequest;
@@ -91,6 +97,8 @@ use AlibabaCloud\SDK\RiskManagement\V20260424\Models\StartSecurityCheckServiceRe
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitApplyRecordRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitApplyRecordResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitApplyRecordShrinkRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitPenetrationTestRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitPenetrationTestResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\UpdatePostPaidBindRelRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\UpdatePostPaidBindRelResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\UpdatePostPaidBindRelShrinkRequest;
@@ -857,6 +865,63 @@ class RiskManagement extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->downloadResourceControlEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Immediately ends a penetration test.
+     *
+     * @param request - EndPenetrationTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EndPenetrationTestResponse
+     *
+     * @param EndPenetrationTestRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return EndPenetrationTestResponse
+     */
+    public function endPenetrationTestWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EndPenetrationTest',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EndPenetrationTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Immediately ends a penetration test.
+     *
+     * @param request - EndPenetrationTestRequest
+     *
+     * @returns EndPenetrationTestResponse
+     *
+     * @param EndPenetrationTestRequest $request
+     *
+     * @return EndPenetrationTestResponse
+     */
+    public function endPenetrationTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->endPenetrationTestWithOptions($request, $runtime);
     }
 
     /**
@@ -2184,6 +2249,124 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
+     * Queries the details of a penetration test application.
+     *
+     * @param request - QueryPenetrationTestDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPenetrationTestDetailResponse
+     *
+     * @param QueryPenetrationTestDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryPenetrationTestDetailResponse
+     */
+    public function queryPenetrationTestDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryPenetrationTestDetail',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryPenetrationTestDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a penetration test application.
+     *
+     * @param request - QueryPenetrationTestDetailRequest
+     *
+     * @returns QueryPenetrationTestDetailResponse
+     *
+     * @param QueryPenetrationTestDetailRequest $request
+     *
+     * @return QueryPenetrationTestDetailResponse
+     */
+    public function queryPenetrationTestDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPenetrationTestDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询渗透测试申请列表.
+     *
+     * @param request - QueryPenetrationTestListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPenetrationTestListResponse
+     *
+     * @param QueryPenetrationTestListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryPenetrationTestListResponse
+     */
+    public function queryPenetrationTestListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryPenetrationTestList',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryPenetrationTestListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询渗透测试申请列表.
+     *
+     * @param request - QueryPenetrationTestListRequest
+     *
+     * @returns QueryPenetrationTestListResponse
+     *
+     * @param QueryPenetrationTestListRequest $request
+     *
+     * @return QueryPenetrationTestListResponse
+     */
+    public function queryPenetrationTestList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPenetrationTestListWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries cloud resource control events.
      *
      * @param tmpReq - QueryResourceControlEventsRequest
@@ -2624,6 +2807,99 @@ class RiskManagement extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitApplyRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a penetration test application.
+     *
+     * @param request - SubmitPenetrationTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitPenetrationTestResponse
+     *
+     * @param SubmitPenetrationTestRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitPenetrationTestResponse
+     */
+    public function submitPenetrationTestWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetList) {
+            @$query['AssetList'] = $request->assetList;
+        }
+
+        if (null !== $request->isThirdpartyTest) {
+            @$query['IsThirdpartyTest'] = $request->isThirdpartyTest;
+        }
+
+        if (null !== $request->testContent) {
+            @$query['TestContent'] = $request->testContent;
+        }
+
+        if (null !== $request->testEndDate) {
+            @$query['TestEndDate'] = $request->testEndDate;
+        }
+
+        if (null !== $request->testSourceIps) {
+            @$query['TestSourceIps'] = $request->testSourceIps;
+        }
+
+        if (null !== $request->testStartDate) {
+            @$query['TestStartDate'] = $request->testStartDate;
+        }
+
+        if (null !== $request->testSteps) {
+            @$query['TestSteps'] = $request->testSteps;
+        }
+
+        if (null !== $request->thirdpartyEmail) {
+            @$query['ThirdpartyEmail'] = $request->thirdpartyEmail;
+        }
+
+        if (null !== $request->thirdpartyMobile) {
+            @$query['ThirdpartyMobile'] = $request->thirdpartyMobile;
+        }
+
+        if (null !== $request->thirdpartyTester) {
+            @$query['ThirdpartyTester'] = $request->thirdpartyTester;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitPenetrationTest',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitPenetrationTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits a penetration test application.
+     *
+     * @param request - SubmitPenetrationTestRequest
+     *
+     * @returns SubmitPenetrationTestResponse
+     *
+     * @param SubmitPenetrationTestRequest $request
+     *
+     * @return SubmitPenetrationTestResponse
+     */
+    public function submitPenetrationTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitPenetrationTestWithOptions($request, $runtime);
     }
 
     /**
