@@ -113,6 +113,8 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sClusterRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sClusterResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sServicesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetK8sServicesResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\GetMigrateApplicationRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\GetMigrateApplicationResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetPackageStorageCredentialResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetScalingRulesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetScalingRulesResponse;
@@ -3877,7 +3879,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries a specific cluster.
+     * Retrieves the details of a specified cluster.
      *
      * @param request - GetClusterRequest
      * @param headers - map
@@ -3919,7 +3921,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries a specific cluster.
+     * Retrieves the details of a specified cluster.
      *
      * @param request - GetClusterRequest
      *
@@ -4398,6 +4400,75 @@ class Edas extends OpenApiClient
         $headers = [];
 
         return $this->getK8sServicesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the details of application import and export.
+     *
+     * @param request - GetMigrateApplicationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMigrateApplicationResponse
+     *
+     * @param GetMigrateApplicationRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetMigrateApplicationResponse
+     */
+    public function getMigrateApplicationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->migrationId) {
+            @$query['migrationId'] = $request->migrationId;
+        }
+
+        if (null !== $request->migrationType) {
+            @$query['migrationType'] = $request->migrationType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMigrateApplication',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v5/k8s/migrateK8sApp',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMigrateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of application import and export.
+     *
+     * @param request - GetMigrateApplicationRequest
+     *
+     * @returns GetMigrateApplicationResponse
+     *
+     * @param GetMigrateApplicationRequest $request
+     *
+     * @return GetMigrateApplicationResponse
+     */
+    public function getMigrateApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMigrateApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7052,7 +7123,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries consumed services.
+     * Queries the consumed services.
      *
      * @param request - ListConsumedServicesRequest
      * @param headers - map
@@ -7094,7 +7165,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries consumed services.
+     * Queries the consumed services.
      *
      * @param request - ListConsumedServicesRequest
      *
@@ -8597,9 +8668,6 @@ class Edas extends OpenApiClient
     /**
      * Migrates an application.
      *
-     * @remarks
-     * > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
-     *
      * @param request - MigrateApplicationRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8657,9 +8725,6 @@ class Edas extends OpenApiClient
 
     /**
      * Migrates an application.
-     *
-     * @remarks
-     * > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
      *
      * @param request - MigrateApplicationRequest
      *
@@ -8761,7 +8826,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Modifies the scaling rule for an application.
+     * Modifies the auto scaling rules.
      *
      * @param request - ModifyScalingRuleRequest
      * @param headers - map
@@ -8919,7 +8984,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Modifies the scaling rule for an application.
+     * Modifies the auto scaling rules.
      *
      * @param request - ModifyScalingRuleRequest
      *
@@ -9230,7 +9295,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the configuration details of Log Service for an application.
+     * Queries the Simple Log Service configuration details of an application.
      *
      * @param request - QuerySlsLogStoreListRequest
      * @param headers - map
@@ -9284,7 +9349,7 @@ class Edas extends OpenApiClient
     }
 
     /**
-     * Queries the configuration details of Log Service for an application.
+     * Queries the Simple Log Service configuration details of an application.
      *
      * @param request - QuerySlsLogStoreListRequest
      *

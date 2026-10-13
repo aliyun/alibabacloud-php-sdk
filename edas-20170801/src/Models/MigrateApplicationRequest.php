@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class MigrateApplicationRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
     public $appIds;
 
@@ -42,9 +42,6 @@ class MigrateApplicationRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->appIds)) {
-            Model::validateArray($this->appIds);
-        }
         parent::validate();
     }
 
@@ -52,14 +49,7 @@ class MigrateApplicationRequest extends Model
     {
         $res = [];
         if (null !== $this->appIds) {
-            if (\is_array($this->appIds)) {
-                $res['appIds'] = [];
-                $n1 = 0;
-                foreach ($this->appIds as $item1) {
-                    $res['appIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['appIds'] = $this->appIds;
         }
 
         if (null !== $this->cmd) {
@@ -90,14 +80,7 @@ class MigrateApplicationRequest extends Model
     {
         $model = new self();
         if (isset($map['appIds'])) {
-            if (!empty($map['appIds'])) {
-                $model->appIds = [];
-                $n1 = 0;
-                foreach ($map['appIds'] as $item1) {
-                    $model->appIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->appIds = $map['appIds'];
         }
 
         if (isset($map['cmd'])) {
