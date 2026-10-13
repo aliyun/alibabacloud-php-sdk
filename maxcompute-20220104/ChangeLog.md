@@ -1,3 +1,7 @@
+2026-10-13 Version: 5.2.0
+- Support API GetLogviewDownloadUrl.
+
+
 2026-10-13 Version: 5.1.3
 - Generated php 2022-01-04 for MaxCompute.
 
