@@ -11,6 +11,11 @@ class ModifyLifecyclePolicyRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $fileSystemId;
 
     /**
@@ -38,6 +43,7 @@ class ModifyLifecyclePolicyRequest extends Model
      */
     public $storageType;
     protected $_name = [
+        'description' => 'Description',
         'fileSystemId' => 'FileSystemId',
         'lifecyclePolicyId' => 'LifecyclePolicyId',
         'lifecyclePolicyName' => 'LifecyclePolicyName',
@@ -54,6 +60,10 @@ class ModifyLifecyclePolicyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
@@ -89,6 +99,10 @@ class ModifyLifecyclePolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
