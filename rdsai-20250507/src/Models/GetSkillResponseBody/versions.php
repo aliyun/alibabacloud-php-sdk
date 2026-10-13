@@ -24,6 +24,11 @@ class versions extends Model
     public $credentialRequired;
 
     /**
+     * @var int
+     */
+    public $fileCount;
+
+    /**
      * @var string
      */
     public $id;
@@ -61,7 +66,17 @@ class versions extends Model
     /**
      * @var string
      */
+    public $source;
+
+    /**
+     * @var string
+     */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $updateNote;
 
     /**
      * @var string
@@ -71,6 +86,7 @@ class versions extends Model
         'activatedAt' => 'ActivatedAt',
         'createdAt' => 'CreatedAt',
         'credentialRequired' => 'CredentialRequired',
+        'fileCount' => 'FileCount',
         'id' => 'Id',
         'packageSize' => 'PackageSize',
         'revokeReason' => 'RevokeReason',
@@ -78,7 +94,9 @@ class versions extends Model
         'sha256' => 'Sha256',
         'skillId' => 'SkillId',
         'skillMarkdown' => 'SkillMarkdown',
+        'source' => 'Source',
         'status' => 'Status',
+        'updateNote' => 'UpdateNote',
         'version' => 'Version',
     ];
 
@@ -100,6 +118,10 @@ class versions extends Model
 
         if (null !== $this->credentialRequired) {
             $res['CredentialRequired'] = $this->credentialRequired;
+        }
+
+        if (null !== $this->fileCount) {
+            $res['FileCount'] = $this->fileCount;
         }
 
         if (null !== $this->id) {
@@ -130,8 +152,16 @@ class versions extends Model
             $res['SkillMarkdown'] = $this->skillMarkdown;
         }
 
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->updateNote) {
+            $res['UpdateNote'] = $this->updateNote;
         }
 
         if (null !== $this->version) {
@@ -159,6 +189,10 @@ class versions extends Model
 
         if (isset($map['CredentialRequired'])) {
             $model->credentialRequired = $map['CredentialRequired'];
+        }
+
+        if (isset($map['FileCount'])) {
+            $model->fileCount = $map['FileCount'];
         }
 
         if (isset($map['Id'])) {
@@ -189,8 +223,16 @@ class versions extends Model
             $model->skillMarkdown = $map['SkillMarkdown'];
         }
 
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['UpdateNote'])) {
+            $model->updateNote = $map['UpdateNote'];
         }
 
         if (isset($map['Version'])) {

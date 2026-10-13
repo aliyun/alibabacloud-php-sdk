@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class UpdateSkillResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $action;
+
+    /**
+     * @var string
+     */
+    public $bundleHash;
+
+    /**
      * @var mixed[]
      */
     public $content;
@@ -41,21 +51,35 @@ class UpdateSkillResponseBody extends Model
     /**
      * @var string
      */
+    public $skillId;
+
+    /**
+     * @var string
+     */
     public $skillType;
 
     /**
      * @var string
      */
     public $updatedAt;
+
+    /**
+     * @var string
+     */
+    public $versionId;
     protected $_name = [
+        'action' => 'Action',
+        'bundleHash' => 'BundleHash',
         'content' => 'Content',
         'dbtypes' => 'Dbtypes',
         'description' => 'Description',
         'id' => 'Id',
         'name' => 'Name',
         'requestId' => 'RequestId',
+        'skillId' => 'SkillId',
         'skillType' => 'SkillType',
         'updatedAt' => 'UpdatedAt',
+        'versionId' => 'VersionId',
     ];
 
     public function validate()
@@ -72,6 +96,14 @@ class UpdateSkillResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->action) {
+            $res['Action'] = $this->action;
+        }
+
+        if (null !== $this->bundleHash) {
+            $res['BundleHash'] = $this->bundleHash;
+        }
+
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['Content'] = [];
@@ -108,12 +140,20 @@ class UpdateSkillResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->skillId) {
+            $res['SkillId'] = $this->skillId;
+        }
+
         if (null !== $this->skillType) {
             $res['SkillType'] = $this->skillType;
         }
 
         if (null !== $this->updatedAt) {
             $res['UpdatedAt'] = $this->updatedAt;
+        }
+
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
 
         return $res;
@@ -127,6 +167,14 @@ class UpdateSkillResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Action'])) {
+            $model->action = $map['Action'];
+        }
+
+        if (isset($map['BundleHash'])) {
+            $model->bundleHash = $map['BundleHash'];
+        }
+
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
@@ -163,12 +211,20 @@ class UpdateSkillResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
 
+        if (isset($map['SkillId'])) {
+            $model->skillId = $map['SkillId'];
+        }
+
         if (isset($map['SkillType'])) {
             $model->skillType = $map['SkillType'];
         }
 
         if (isset($map['UpdatedAt'])) {
             $model->updatedAt = $map['UpdatedAt'];
+        }
+
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $activeVersion;
+
+    /**
      * @var string
      */
     public $activeVersionId;
@@ -82,7 +87,13 @@ class data extends Model
      * @var string
      */
     public $updatedAt;
+
+    /**
+     * @var string
+     */
+    public $visibility;
     protected $_name = [
+        'activeVersion' => 'ActiveVersion',
         'activeVersionId' => 'ActiveVersionId',
         'category' => 'Category',
         'content' => 'Content',
@@ -98,10 +109,14 @@ class data extends Model
         'skillType' => 'SkillType',
         'slug' => 'Slug',
         'updatedAt' => 'UpdatedAt',
+        'visibility' => 'Visibility',
     ];
 
     public function validate()
     {
+        if (\is_array($this->activeVersion)) {
+            Model::validateArray($this->activeVersion);
+        }
         if (\is_array($this->content)) {
             Model::validateArray($this->content);
         }
@@ -114,6 +129,15 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->activeVersion) {
+            if (\is_array($this->activeVersion)) {
+                $res['ActiveVersion'] = [];
+                foreach ($this->activeVersion as $key1 => $value1) {
+                    $res['ActiveVersion'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->activeVersionId) {
             $res['ActiveVersionId'] = $this->activeVersionId;
         }
@@ -186,6 +210,10 @@ class data extends Model
             $res['UpdatedAt'] = $this->updatedAt;
         }
 
+        if (null !== $this->visibility) {
+            $res['Visibility'] = $this->visibility;
+        }
+
         return $res;
     }
 
@@ -197,6 +225,15 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActiveVersion'])) {
+            if (!empty($map['ActiveVersion'])) {
+                $model->activeVersion = [];
+                foreach ($map['ActiveVersion'] as $key1 => $value1) {
+                    $model->activeVersion[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['ActiveVersionId'])) {
             $model->activeVersionId = $map['ActiveVersionId'];
         }
@@ -267,6 +304,10 @@ class data extends Model
 
         if (isset($map['UpdatedAt'])) {
             $model->updatedAt = $map['UpdatedAt'];
+        }
+
+        if (isset($map['Visibility'])) {
+            $model->visibility = $map['Visibility'];
         }
 
         return $model;

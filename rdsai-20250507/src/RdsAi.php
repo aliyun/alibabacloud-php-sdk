@@ -5,6 +5,12 @@
 namespace AlibabaCloud\SDK\RdsAi\V20250507;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\AddContextDatabaseSyncJobExclusionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\AddContextDatabaseSyncJobExclusionResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CancelContextDatabaseSyncDiscoveryRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CancelContextDatabaseSyncDiscoveryResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CancelContextDatabaseSyncRunRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CancelContextDatabaseSyncRunResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesShrinkRequest;
@@ -19,6 +25,14 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseApiKeyRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseApiKeyResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseMemberRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseMemberResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseSyncConnectionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseSyncConnectionResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseSyncJobRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseSyncJobResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseSyncJobShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseSyncSourceRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseSyncSourceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseSyncSourceShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseWorkspaceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseWorkspaceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentRequest;
@@ -42,6 +56,12 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseMemberRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseMemberResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseSyncConnectionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseSyncConnectionResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseSyncJobRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseSyncJobResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseSyncSourceRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseSyncSourceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseWorkspaceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteContextDatabaseWorkspaceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentRequest;
@@ -95,6 +115,24 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetAvailableLLMModelsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetAvailableLLMModelsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetChatModelRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetChatModelResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncConnectionAuthorizationRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncConnectionAuthorizationResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncConnectionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncConnectionResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncDiscoveryTaskRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncDiscoveryTaskResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncJobReadinessRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncJobReadinessResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncJobRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncJobResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncJobScheduleRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncJobScheduleResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncRunRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncRunResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncSourceRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncSourceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncSourceSelectionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncSourceSelectionResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetCustomAgentRequest;
@@ -119,6 +157,26 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseApiKeysRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseApiKeysResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseMembersRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseMembersResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncConnectionsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncConnectionsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncJobDocumentsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncJobDocumentsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncJobExclusionsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncJobExclusionsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncJobsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncJobsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncPluginsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncPluginsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncRunItemsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncRunItemsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncRunLogsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncRunLogsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncRunsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncRunsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncSourcesRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncSourcesResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncSourceTreeNodesRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncSourceTreeNodesResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseWorkspacesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseWorkspacesResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentRequest;
@@ -160,6 +218,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyScheduledTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyScheduledTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyWhitelistIpsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyWhitelistIpsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\RemoveContextDatabaseSyncJobExclusionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\RemoveContextDatabaseSyncJobExclusionResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RenameApiKeyRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RenameApiKeyResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetApiKeyRequest;
@@ -170,8 +230,14 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RestartInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RestartInstanceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\RetryFailedContextDatabaseSyncRunRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\RetryFailedContextDatabaseSyncRunResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RevokeContextDatabaseApiKeyRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RevokeContextDatabaseApiKeyResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartContextDatabaseSyncRunRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartContextDatabaseSyncRunResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartContextDatabaseSyncSourceDiscoveryRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartContextDatabaseSyncSourceDiscoveryResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StopInstanceRequest;
@@ -183,6 +249,23 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseApiKeyRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseApiKeyResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseMemberRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseMemberResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncConnectionCredentialRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncConnectionCredentialResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncConnectionCredentialShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncConnectionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncConnectionResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncJobRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncJobResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncJobScheduleRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncJobScheduleResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncJobScheduleShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncJobShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncSourceRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncSourceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncSourceSelectionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncSourceSelectionResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncSourceSelectionShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseSyncSourceShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseWorkspaceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateContextDatabaseWorkspaceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentRequest;
@@ -194,6 +277,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateMOQuotaAlertThresholdShrinkReq
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\VerifyContextDatabaseSyncConnectionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\VerifyContextDatabaseSyncConnectionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -239,6 +324,223 @@ class RdsAi extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Adds an exclusion item to an import task.
+     *
+     * @remarks
+     * Adds a job exclusion item.
+     *
+     * @param request - AddContextDatabaseSyncJobExclusionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddContextDatabaseSyncJobExclusionResponse
+     *
+     * @param AddContextDatabaseSyncJobExclusionRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return AddContextDatabaseSyncJobExclusionResponse
+     */
+    public function addContextDatabaseSyncJobExclusionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->documentId) {
+            @$query['DocumentId'] = $request->documentId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddContextDatabaseSyncJobExclusion',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddContextDatabaseSyncJobExclusionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds an exclusion item to an import task.
+     *
+     * @remarks
+     * Adds a job exclusion item.
+     *
+     * @param request - AddContextDatabaseSyncJobExclusionRequest
+     *
+     * @returns AddContextDatabaseSyncJobExclusionResponse
+     *
+     * @param AddContextDatabaseSyncJobExclusionRequest $request
+     *
+     * @return AddContextDatabaseSyncJobExclusionResponse
+     */
+    public function addContextDatabaseSyncJobExclusion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addContextDatabaseSyncJobExclusionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Cancels an in-progress discovery task by task ID.
+     *
+     * @remarks
+     * You can specify a ClientToken to ensure idempotence for write operations. If you do not specify this parameter, the backend automatically generates one.
+     *
+     * @param request - CancelContextDatabaseSyncDiscoveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelContextDatabaseSyncDiscoveryResponse
+     *
+     * @param CancelContextDatabaseSyncDiscoveryRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CancelContextDatabaseSyncDiscoveryResponse
+     */
+    public function cancelContextDatabaseSyncDiscoveryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelContextDatabaseSyncDiscovery',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelContextDatabaseSyncDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Cancels an in-progress discovery task by task ID.
+     *
+     * @remarks
+     * You can specify a ClientToken to ensure idempotence for write operations. If you do not specify this parameter, the backend automatically generates one.
+     *
+     * @param request - CancelContextDatabaseSyncDiscoveryRequest
+     *
+     * @returns CancelContextDatabaseSyncDiscoveryResponse
+     *
+     * @param CancelContextDatabaseSyncDiscoveryRequest $request
+     *
+     * @return CancelContextDatabaseSyncDiscoveryResponse
+     */
+    public function cancelContextDatabaseSyncDiscovery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelContextDatabaseSyncDiscoveryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Cancels a run.
+     *
+     * @remarks
+     * Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically. Cancellation is best-effort. Completed RunItems are not affected.
+     *
+     * @param request - CancelContextDatabaseSyncRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelContextDatabaseSyncRunResponse
+     *
+     * @param CancelContextDatabaseSyncRunRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CancelContextDatabaseSyncRunResponse
+     */
+    public function cancelContextDatabaseSyncRunWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->runId) {
+            @$query['RunId'] = $request->runId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelContextDatabaseSyncRun',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelContextDatabaseSyncRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Cancels a run.
+     *
+     * @remarks
+     * Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically. Cancellation is best-effort. Completed RunItems are not affected.
+     *
+     * @param request - CancelContextDatabaseSyncRunRequest
+     *
+     * @returns CancelContextDatabaseSyncRunResponse
+     *
+     * @param CancelContextDatabaseSyncRunRequest $request
+     *
+     * @return CancelContextDatabaseSyncRunResponse
+     */
+    public function cancelContextDatabaseSyncRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelContextDatabaseSyncRunWithOptions($request, $runtime);
     }
 
     /**
@@ -569,13 +871,14 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates an RDS Supabase instance.
+     * Creates an RDS AI application instance.
      *
      * @remarks
-     * ### Supported Engine
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related Function Documentation
-     * >Warning: This API operation involves a Fee. Carefully read the related Function Documentation before performing this operation.
+     * ### Related documentation
+     * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param tmpReq - CreateAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -688,13 +991,14 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates an RDS Supabase instance.
+     * Creates an RDS AI application instance.
      *
      * @remarks
-     * ### Supported Engine
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related Function Documentation
-     * >Warning: This API operation involves a Fee. Carefully read the related Function Documentation before performing this operation.
+     * ### Related documentation
+     * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - CreateAppInstanceRequest
      *
@@ -786,7 +1090,7 @@ class RdsAi extends OpenApiClient
      * Creates a ContextDB member.
      *
      * @remarks
-     * Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
+     * Creates a member. If GenerateInitialKey is set to true, the first API key is also issued, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can call the List or Get operation to query the member and the metadata of the API keys under the member.
      *
      * @param request - CreateContextDatabaseMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -844,7 +1148,7 @@ class RdsAi extends OpenApiClient
      * Creates a ContextDB member.
      *
      * @remarks
-     * Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
+     * Creates a member. If GenerateInitialKey is set to true, the first API key is also issued, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can call the List or Get operation to query the member and the metadata of the API keys under the member.
      *
      * @param request - CreateContextDatabaseMemberRequest
      *
@@ -862,10 +1166,279 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
+     * Creates a synchronization connection.
      *
      * @remarks
-     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
+     * For write operations, you can specify a ClientToken to ensure idempotency. If no ClientToken is provided, the backend automatically generates one. Upon successful creation, the complete information of the created object is returned, including the ID that can be used for subsequent queries or updates.
+     *
+     * @param request - CreateContextDatabaseSyncConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContextDatabaseSyncConnectionResponse
+     *
+     * @param CreateContextDatabaseSyncConnectionRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return CreateContextDatabaseSyncConnectionResponse
+     */
+    public function createContextDatabaseSyncConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authKind) {
+            @$query['AuthKind'] = $request->authKind;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContextDatabaseSyncConnection',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContextDatabaseSyncConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a synchronization connection.
+     *
+     * @remarks
+     * For write operations, you can specify a ClientToken to ensure idempotency. If no ClientToken is provided, the backend automatically generates one. Upon successful creation, the complete information of the created object is returned, including the ID that can be used for subsequent queries or updates.
+     *
+     * @param request - CreateContextDatabaseSyncConnectionRequest
+     *
+     * @returns CreateContextDatabaseSyncConnectionResponse
+     *
+     * @param CreateContextDatabaseSyncConnectionRequest $request
+     *
+     * @return CreateContextDatabaseSyncConnectionResponse
+     */
+    public function createContextDatabaseSyncConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createContextDatabaseSyncConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an import task.
+     *
+     * @remarks
+     * Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically. Target is an implicit concept — you only need to provide KnowledgeBaseId, and the backend automatically creates or matches the Target.
+     * On success, the response returns the complete information of the created object. The Id field is active and can be used for subsequent queries or updates.
+     *
+     * @param tmpReq - CreateContextDatabaseSyncJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContextDatabaseSyncJobResponse
+     *
+     * @param CreateContextDatabaseSyncJobRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateContextDatabaseSyncJobResponse
+     */
+    public function createContextDatabaseSyncJobWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateContextDatabaseSyncJobShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filters) {
+            $request->filtersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->filtersShrink) {
+            @$query['Filters'] = $request->filtersShrink;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->targetId) {
+            @$query['TargetId'] = $request->targetId;
+        }
+
+        if (null !== $request->targetKnowledgeBaseId) {
+            @$query['TargetKnowledgeBaseId'] = $request->targetKnowledgeBaseId;
+        }
+
+        if (null !== $request->targetKnowledgeBaseName) {
+            @$query['TargetKnowledgeBaseName'] = $request->targetKnowledgeBaseName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContextDatabaseSyncJob',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContextDatabaseSyncJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an import task.
+     *
+     * @remarks
+     * Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically. Target is an implicit concept — you only need to provide KnowledgeBaseId, and the backend automatically creates or matches the Target.
+     * On success, the response returns the complete information of the created object. The Id field is active and can be used for subsequent queries or updates.
+     *
+     * @param request - CreateContextDatabaseSyncJobRequest
+     *
+     * @returns CreateContextDatabaseSyncJobResponse
+     *
+     * @param CreateContextDatabaseSyncJobRequest $request
+     *
+     * @return CreateContextDatabaseSyncJobResponse
+     */
+    public function createContextDatabaseSyncJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createContextDatabaseSyncJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a data selection scope.
+     *
+     * @remarks
+     * Write operations support idempotence by passing a ClientToken. If no token is provided, the backend generates one automatically. After creating a data selection scope, you typically need to call StartContextDatabaseSyncSourceDiscovery to discover available nodes.
+     * On success, the response returns the complete information of the created object. The Id field can be used for subsequent queries or updates.
+     *
+     * @param tmpReq - CreateContextDatabaseSyncSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContextDatabaseSyncSourceResponse
+     *
+     * @param CreateContextDatabaseSyncSourceRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateContextDatabaseSyncSourceResponse
+     */
+    public function createContextDatabaseSyncSourceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateContextDatabaseSyncSourceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sourceConfig) {
+            $request->sourceConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceConfig, 'SourceConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->connectionId) {
+            @$query['ConnectionId'] = $request->connectionId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->sourceConfigShrink) {
+            @$query['SourceConfig'] = $request->sourceConfigShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContextDatabaseSyncSource',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContextDatabaseSyncSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a data selection scope.
+     *
+     * @remarks
+     * Write operations support idempotence by passing a ClientToken. If no token is provided, the backend generates one automatically. After creating a data selection scope, you typically need to call StartContextDatabaseSyncSourceDiscovery to discover available nodes.
+     * On success, the response returns the complete information of the created object. The Id field can be used for subsequent queries or updates.
+     *
+     * @param request - CreateContextDatabaseSyncSourceRequest
+     *
+     * @returns CreateContextDatabaseSyncSourceResponse
+     *
+     * @param CreateContextDatabaseSyncSourceRequest $request
+     *
+     * @return CreateContextDatabaseSyncSourceResponse
+     */
+    public function createContextDatabaseSyncSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createContextDatabaseSyncSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a workspace, the first member, and the first API key in a one-time onboarding process.
+     *
+     * @remarks
+     * Creates a workspace along with the first member and the first API key in a one-time onboarding process. The plaintext API key is returned in the response.
      *
      * @param request - CreateContextDatabaseWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -908,10 +1481,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
+     * Creates a workspace, the first member, and the first API key in a one-time onboarding process.
      *
      * @remarks
-     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
+     * Creates a workspace along with the first member and the first API key in a one-time onboarding process. The plaintext API key is returned in the response.
      *
      * @param request - CreateContextDatabaseWorkspaceRequest
      *
@@ -1101,11 +1674,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 触发 MO 用量明细 CSV 异步导出任务
+     * Triggers an asynchronous export task for MO usage details in CSV format.
      *
      * @remarks
-     * ### 适用引擎
-     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - CreateMOUsageDetailExportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1164,11 +1737,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 触发 MO 用量明细 CSV 异步导出任务
+     * Triggers an asynchronous export task for MO usage details in CSV format.
      *
      * @remarks
-     * ### 适用引擎
-     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - CreateMOUsageDetailExportRequest
      *
@@ -1298,8 +1871,8 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related documentation
-     * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+     * ### Related feature documentation
+     * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - CreateScheduledTaskRequest
@@ -1388,8 +1961,8 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related documentation
-     * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+     * ### Related feature documentation
+     * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - CreateScheduledTaskRequest
@@ -1408,7 +1981,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates a user-defined Skill.
+     * Creates a user-defined skill.
      *
      * @param tmpReq - CreateSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1450,6 +2023,10 @@ class RdsAi extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->updateNote) {
+            @$query['UpdateNote'] = $request->updateNote;
+        }
+
         if (null !== $request->uploadId) {
             @$query['UploadId'] = $request->uploadId;
         }
@@ -1481,7 +2058,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates a user-defined Skill.
+     * Creates a user-defined skill.
      *
      * @param request - CreateSkillRequest
      *
@@ -1576,7 +2153,7 @@ class RdsAi extends OpenApiClient
      * ### Related feature documentation
      * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
+     * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created along with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
      *
      * @param request - DeleteAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1635,7 +2212,7 @@ class RdsAi extends OpenApiClient
      * ### Related feature documentation
      * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
+     * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created along with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
      *
      * @param request - DeleteAppInstanceRequest
      *
@@ -1653,10 +2230,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Deletes a ContextDB member.
+     * Deletes a context database member.
      *
      * @remarks
-     * Deletes a member (hard delete, not recoverable).
+     * Deletes a member. This is a hard delete and cannot be undone.
      *
      * @param request - DeleteContextDatabaseMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1699,10 +2276,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Deletes a ContextDB member.
+     * Deletes a context database member.
      *
      * @remarks
-     * Deletes a member (hard delete, not recoverable).
+     * Deletes a member. This is a hard delete and cannot be undone.
      *
      * @param request - DeleteContextDatabaseMemberRequest
      *
@@ -1720,10 +2297,223 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * Deletes a data source.
+     *
+     * @remarks
+     * For write operations, you can specify a ClientToken to ensure idempotency. If you do not specify a ClientToken, the backend automatically generates one.
+     *
+     * @param request - DeleteContextDatabaseSyncConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContextDatabaseSyncConnectionResponse
+     *
+     * @param DeleteContextDatabaseSyncConnectionRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DeleteContextDatabaseSyncConnectionResponse
+     */
+    public function deleteContextDatabaseSyncConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->connectionId) {
+            @$query['ConnectionId'] = $request->connectionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContextDatabaseSyncConnection',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContextDatabaseSyncConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a data source.
+     *
+     * @remarks
+     * For write operations, you can specify a ClientToken to ensure idempotency. If you do not specify a ClientToken, the backend automatically generates one.
+     *
+     * @param request - DeleteContextDatabaseSyncConnectionRequest
+     *
+     * @returns DeleteContextDatabaseSyncConnectionResponse
+     *
+     * @param DeleteContextDatabaseSyncConnectionRequest $request
+     *
+     * @return DeleteContextDatabaseSyncConnectionResponse
+     */
+    public function deleteContextDatabaseSyncConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContextDatabaseSyncConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an import task.
+     *
+     * @remarks
+     * You can provide a ClientToken to ensure idempotency for write operations. If not provided, the backend automatically generates one.
+     *
+     * @param request - DeleteContextDatabaseSyncJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContextDatabaseSyncJobResponse
+     *
+     * @param DeleteContextDatabaseSyncJobRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteContextDatabaseSyncJobResponse
+     */
+    public function deleteContextDatabaseSyncJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContextDatabaseSyncJob',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContextDatabaseSyncJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an import task.
+     *
+     * @remarks
+     * You can provide a ClientToken to ensure idempotency for write operations. If not provided, the backend automatically generates one.
+     *
+     * @param request - DeleteContextDatabaseSyncJobRequest
+     *
+     * @returns DeleteContextDatabaseSyncJobResponse
+     *
+     * @param DeleteContextDatabaseSyncJobRequest $request
+     *
+     * @return DeleteContextDatabaseSyncJobResponse
+     */
+    public function deleteContextDatabaseSyncJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContextDatabaseSyncJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a data selection scope.
+     *
+     * @remarks
+     * Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically.
+     *
+     * @param request - DeleteContextDatabaseSyncSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContextDatabaseSyncSourceResponse
+     *
+     * @param DeleteContextDatabaseSyncSourceRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteContextDatabaseSyncSourceResponse
+     */
+    public function deleteContextDatabaseSyncSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContextDatabaseSyncSource',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContextDatabaseSyncSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a data selection scope.
+     *
+     * @remarks
+     * Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically.
+     *
+     * @param request - DeleteContextDatabaseSyncSourceRequest
+     *
+     * @returns DeleteContextDatabaseSyncSourceResponse
+     *
+     * @param DeleteContextDatabaseSyncSourceRequest $request
+     *
+     * @return DeleteContextDatabaseSyncSourceResponse
+     */
+    public function deleteContextDatabaseSyncSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContextDatabaseSyncSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a ContextDB workspace.
      *
      * @remarks
-     * Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
+     * Deletes a workspace. This is a hard delete and cannot be recovered. After the workspace is deleted, the local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
      *
      * @param request - DeleteContextDatabaseWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1765,7 +2555,7 @@ class RdsAi extends OpenApiClient
      * Deletes a ContextDB workspace.
      *
      * @remarks
-     * Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
+     * Deletes a workspace. This is a hard delete and cannot be recovered. After the workspace is deleted, the local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
      *
      * @param request - DeleteContextDatabaseWorkspaceRequest
      *
@@ -1843,7 +2633,7 @@ class RdsAi extends OpenApiClient
      * Deletes a sandbox template.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engine
      * RDS Supabase
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1896,7 +2686,7 @@ class RdsAi extends OpenApiClient
      * Deletes a sandbox template.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engine
      * RDS Supabase
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2112,10 +2902,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * This API retrieves a list of RDS AI application instances.
+     * Queries a list of RDS AI application instances.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2173,10 +2963,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * This API retrieves a list of RDS AI application instances.
+     * Queries a list of RDS AI application instances.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2274,7 +3064,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * This API retrieves the list of events.
+     * Queries a list of events.
      *
      * @param request - DescribeEventsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2333,7 +3123,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * This API retrieves the list of events.
+     * Queries a list of events.
      *
      * @param request - DescribeEventsListRequest
      *
@@ -2505,10 +3295,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the IP whitelist of an ApsaraDB RDS AI application instance.
+     * Queries the IP whitelist of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2562,10 +3352,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the IP whitelist of an ApsaraDB RDS AI application instance.
+     * Queries the IP whitelist of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2912,11 +3702,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 查看 model operator 实例具体 token 汇总情况.
+     * Queries the token usage summary for a model operator instance.
      *
      * @remarks
-     * ### 适用引擎
-     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - DescribeMOTokenUsageSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2975,11 +3765,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 查看 model operator 实例具体 token 汇总情况.
+     * Queries the token usage summary for a model operator instance.
      *
      * @remarks
-     * ### 适用引擎
-     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - DescribeMOTokenUsageSummaryRequest
      *
@@ -2997,11 +3787,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接.
+     * Queries the status or download link of an asynchronous CSV export task for MO usage details.
      *
      * @remarks
-     * ### 适用引擎
-     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - DescribeMOUsageDetailExportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3040,11 +3830,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接.
+     * Queries the status or download link of an asynchronous CSV export task for MO usage details.
      *
      * @remarks
-     * ### 适用引擎
-     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - DescribeMOUsageDetailExportRequest
      *
@@ -3062,7 +3852,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
+     * Queries the basic information and usage of an RDS AI Assistant Ultimate Edition instance.
      *
      * @remarks
      * ### Applicable engine
@@ -3109,7 +3899,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
+     * Queries the basic information and usage of an RDS AI Assistant Ultimate Edition instance.
      *
      * @remarks
      * ### Applicable engine
@@ -3131,7 +3921,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
+     * Queries instance monitoring data of an RDS AI Assistant Ultimate Edition instance.
      *
      * @remarks
      * ### Applicable engine
@@ -3200,7 +3990,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
+     * Queries instance monitoring data of an RDS AI Assistant Ultimate Edition instance.
      *
      * @remarks
      * ### Applicable engine
@@ -3222,7 +4012,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the list of sandbox templates available for creating a Supabase sandbox.
+     * Queries the list of sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
      * ### Applicable engine
@@ -3295,7 +4085,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the list of sandbox templates available for creating a Supabase sandbox.
+     * Queries the list of sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
      * ### Applicable engine
@@ -3319,11 +4109,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Describes the whitelist of an RDS AI Assistant Enterprise Edition instance.
+     * Queries the whitelist of an RDS AI Assistant Ultimate Edition instance.
      *
      * @remarks
-     * ### Supported engine
-     * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - DescribeWhitelistIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3362,11 +4152,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Describes the whitelist of an RDS AI Assistant Enterprise Edition instance.
+     * Queries the whitelist of an RDS AI Assistant Ultimate Edition instance.
      *
      * @remarks
-     * ### Supported engine
-     * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - DescribeWhitelistIpsRequest
      *
@@ -3384,11 +4174,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
+     * Disables the sandbox and Edge Routine capabilities of a Supabase instance. Note: This operation deletes all sandboxes and Edge Routines of the instance. Fully assess the business risks before performing this operation.
      *
      * @remarks
-     * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
-     * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
+     * Disables the sandbox and Edge Routine capabilities of a Supabase instance.
+     * >Notice: This operation deletes all sandboxes and Edge Routines of the Supabase instance. Fully assess the business risks before performing this operation.
      *
      * @param request - DisableAgentRuntimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3439,11 +4229,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
+     * Disables the sandbox and Edge Routine capabilities of a Supabase instance. Note: This operation deletes all sandboxes and Edge Routines of the instance. Fully assess the business risks before performing this operation.
      *
      * @remarks
-     * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
-     * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
+     * Disables the sandbox and Edge Routine capabilities of a Supabase instance.
+     * >Notice: This operation deletes all sandboxes and Edge Routines of the Supabase instance. Fully assess the business risks before performing this operation.
      *
      * @param request - DisableAgentRuntimeRequest
      *
@@ -3466,7 +4256,7 @@ class RdsAi extends OpenApiClient
      * @remarks
      * During the public preview, the sandbox and Edge Routine features are free of charge.
      * ### Before you begin
-     * Before using this feature, you must complete [service-linked role authorization](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
+     * Before you use this feature, [authorize the service-linked role](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
      *
      * @param request - EnableAgentRuntimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3530,7 +4320,7 @@ class RdsAi extends OpenApiClient
      * @remarks
      * During the public preview, the sandbox and Edge Routine features are free of charge.
      * ### Before you begin
-     * Before using this feature, you must complete [service-linked role authorization](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
+     * Before you use this feature, [authorize the service-linked role](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
      *
      * @param request - EnableAgentRuntimeRequest
      *
@@ -3548,11 +4338,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * GetAvailableLLMModels.
+     * Retrieves the list of large language models supported by the current RDS Supabase AI gateway.
      *
      * @remarks
-     * ### 适用引擎
-     * RDS SUPABASE
+     * ### Applicable engine
+     * RDS Supabase.
      *
      * @param request - GetAvailableLLMModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3599,11 +4389,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * GetAvailableLLMModels.
+     * Retrieves the list of large language models supported by the current RDS Supabase AI gateway.
      *
      * @remarks
-     * ### 适用引擎
-     * RDS SUPABASE
+     * ### Applicable engine
+     * RDS Supabase.
      *
      * @param request - GetAvailableLLMModelsRequest
      *
@@ -3621,7 +4411,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 获取会话可选模型.
+     * Retrieves the available models for a session.
      *
      * @param request - GetChatModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3653,7 +4443,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 获取会话可选模型.
+     * Retrieves the available models for a session.
      *
      * @param request - GetChatModelRequest
      *
@@ -3668,6 +4458,609 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getChatModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a datasource configuration.
+     *
+     * @remarks
+     * Retrieves the details of a connection.
+     *
+     * @param request - GetContextDatabaseSyncConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseSyncConnectionResponse
+     *
+     * @param GetContextDatabaseSyncConnectionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetContextDatabaseSyncConnectionResponse
+     */
+    public function getContextDatabaseSyncConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectionId) {
+            @$query['ConnectionId'] = $request->connectionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseSyncConnection',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseSyncConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a datasource configuration.
+     *
+     * @remarks
+     * Retrieves the details of a connection.
+     *
+     * @param request - GetContextDatabaseSyncConnectionRequest
+     *
+     * @returns GetContextDatabaseSyncConnectionResponse
+     *
+     * @param GetContextDatabaseSyncConnectionRequest $request
+     *
+     * @return GetContextDatabaseSyncConnectionResponse
+     */
+    public function getContextDatabaseSyncConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseSyncConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the authorization scope of a data source.
+     *
+     * @remarks
+     * Queries the authorization scope of a connection.
+     *
+     * @param request - GetContextDatabaseSyncConnectionAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseSyncConnectionAuthorizationResponse
+     *
+     * @param GetContextDatabaseSyncConnectionAuthorizationRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return GetContextDatabaseSyncConnectionAuthorizationResponse
+     */
+    public function getContextDatabaseSyncConnectionAuthorizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectionId) {
+            @$query['ConnectionId'] = $request->connectionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseSyncConnectionAuthorization',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseSyncConnectionAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the authorization scope of a data source.
+     *
+     * @remarks
+     * Queries the authorization scope of a connection.
+     *
+     * @param request - GetContextDatabaseSyncConnectionAuthorizationRequest
+     *
+     * @returns GetContextDatabaseSyncConnectionAuthorizationResponse
+     *
+     * @param GetContextDatabaseSyncConnectionAuthorizationRequest $request
+     *
+     * @return GetContextDatabaseSyncConnectionAuthorizationResponse
+     */
+    public function getContextDatabaseSyncConnectionAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseSyncConnectionAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the status of a discovery task by task ID.
+     *
+     * @remarks
+     * Queries the status of a discovery task by task ID.
+     *
+     * @param request - GetContextDatabaseSyncDiscoveryTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseSyncDiscoveryTaskResponse
+     *
+     * @param GetContextDatabaseSyncDiscoveryTaskRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GetContextDatabaseSyncDiscoveryTaskResponse
+     */
+    public function getContextDatabaseSyncDiscoveryTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseSyncDiscoveryTask',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseSyncDiscoveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status of a discovery task by task ID.
+     *
+     * @remarks
+     * Queries the status of a discovery task by task ID.
+     *
+     * @param request - GetContextDatabaseSyncDiscoveryTaskRequest
+     *
+     * @returns GetContextDatabaseSyncDiscoveryTaskResponse
+     *
+     * @param GetContextDatabaseSyncDiscoveryTaskRequest $request
+     *
+     * @return GetContextDatabaseSyncDiscoveryTaskResponse
+     */
+    public function getContextDatabaseSyncDiscoveryTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseSyncDiscoveryTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of an import job.
+     *
+     * @remarks
+     * Retrieves the details of a job.
+     *
+     * @param request - GetContextDatabaseSyncJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseSyncJobResponse
+     *
+     * @param GetContextDatabaseSyncJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetContextDatabaseSyncJobResponse
+     */
+    public function getContextDatabaseSyncJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseSyncJob',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseSyncJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an import job.
+     *
+     * @remarks
+     * Retrieves the details of a job.
+     *
+     * @param request - GetContextDatabaseSyncJobRequest
+     *
+     * @returns GetContextDatabaseSyncJobResponse
+     *
+     * @param GetContextDatabaseSyncJobRequest $request
+     *
+     * @return GetContextDatabaseSyncJobResponse
+     */
+    public function getContextDatabaseSyncJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseSyncJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries whether an import task can be started.
+     *
+     * @remarks
+     * Queries whether a job can be started.
+     *
+     * @param request - GetContextDatabaseSyncJobReadinessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseSyncJobReadinessResponse
+     *
+     * @param GetContextDatabaseSyncJobReadinessRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetContextDatabaseSyncJobReadinessResponse
+     */
+    public function getContextDatabaseSyncJobReadinessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseSyncJobReadiness',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseSyncJobReadinessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries whether an import task can be started.
+     *
+     * @remarks
+     * Queries whether a job can be started.
+     *
+     * @param request - GetContextDatabaseSyncJobReadinessRequest
+     *
+     * @returns GetContextDatabaseSyncJobReadinessResponse
+     *
+     * @param GetContextDatabaseSyncJobReadinessRequest $request
+     *
+     * @return GetContextDatabaseSyncJobReadinessResponse
+     */
+    public function getContextDatabaseSyncJobReadiness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseSyncJobReadinessWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the scheduling configuration of an import task.
+     *
+     * @remarks
+     * Queries the scheduling configuration of a job.
+     *
+     * @param request - GetContextDatabaseSyncJobScheduleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseSyncJobScheduleResponse
+     *
+     * @param GetContextDatabaseSyncJobScheduleRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetContextDatabaseSyncJobScheduleResponse
+     */
+    public function getContextDatabaseSyncJobScheduleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseSyncJobSchedule',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseSyncJobScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the scheduling configuration of an import task.
+     *
+     * @remarks
+     * Queries the scheduling configuration of a job.
+     *
+     * @param request - GetContextDatabaseSyncJobScheduleRequest
+     *
+     * @returns GetContextDatabaseSyncJobScheduleResponse
+     *
+     * @param GetContextDatabaseSyncJobScheduleRequest $request
+     *
+     * @return GetContextDatabaseSyncJobScheduleResponse
+     */
+    public function getContextDatabaseSyncJobSchedule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseSyncJobScheduleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a run.
+     *
+     * @remarks
+     * Retrieves the details of a run.
+     *
+     * @param request - GetContextDatabaseSyncRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseSyncRunResponse
+     *
+     * @param GetContextDatabaseSyncRunRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetContextDatabaseSyncRunResponse
+     */
+    public function getContextDatabaseSyncRunWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->runId) {
+            @$query['RunId'] = $request->runId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseSyncRun',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseSyncRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a run.
+     *
+     * @remarks
+     * Retrieves the details of a run.
+     *
+     * @param request - GetContextDatabaseSyncRunRequest
+     *
+     * @returns GetContextDatabaseSyncRunResponse
+     *
+     * @param GetContextDatabaseSyncRunRequest $request
+     *
+     * @return GetContextDatabaseSyncRunResponse
+     */
+    public function getContextDatabaseSyncRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseSyncRunWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a data selection scope.
+     *
+     * @remarks
+     * Retrieves the details of a source.
+     *
+     * @param request - GetContextDatabaseSyncSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseSyncSourceResponse
+     *
+     * @param GetContextDatabaseSyncSourceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetContextDatabaseSyncSourceResponse
+     */
+    public function getContextDatabaseSyncSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseSyncSource',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseSyncSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a data selection scope.
+     *
+     * @remarks
+     * Retrieves the details of a source.
+     *
+     * @param request - GetContextDatabaseSyncSourceRequest
+     *
+     * @returns GetContextDatabaseSyncSourceResponse
+     *
+     * @param GetContextDatabaseSyncSourceRequest $request
+     *
+     * @return GetContextDatabaseSyncSourceResponse
+     */
+    public function getContextDatabaseSyncSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseSyncSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the current node selection in the data selection scope.
+     *
+     * @remarks
+     * Queries the current node selection of the source.
+     *
+     * @param request - GetContextDatabaseSyncSourceSelectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseSyncSourceSelectionResponse
+     *
+     * @param GetContextDatabaseSyncSourceSelectionRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return GetContextDatabaseSyncSourceSelectionResponse
+     */
+    public function getContextDatabaseSyncSourceSelectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseSyncSourceSelection',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseSyncSourceSelectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the current node selection in the data selection scope.
+     *
+     * @remarks
+     * Queries the current node selection of the source.
+     *
+     * @param request - GetContextDatabaseSyncSourceSelectionRequest
+     *
+     * @returns GetContextDatabaseSyncSourceSelectionResponse
+     *
+     * @param GetContextDatabaseSyncSourceSelectionRequest $request
+     *
+     * @return GetContextDatabaseSyncSourceSelectionResponse
+     */
+    public function getContextDatabaseSyncSourceSelection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseSyncSourceSelectionWithOptions($request, $runtime);
     }
 
     /**
@@ -3744,7 +5137,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves details for a specified custom agent.
+     * Queries a dedicated agent created by the user.
      *
      * @param request - GetCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3783,7 +5176,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves details for a specified custom agent.
+     * Queries a dedicated agent created by the user.
      *
      * @param request - GetCustomAgentRequest
      *
@@ -3939,7 +5332,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves order information for the RDS AI Assistant Ultimate Edition.
+     * Retrieves order information for RDS AI Assistant Ultimate Edition.
      *
      * @remarks
      * ### Applicable engine
@@ -3982,7 +5375,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves order information for the RDS AI Assistant Ultimate Edition.
+     * Retrieves order information for RDS AI Assistant Ultimate Edition.
      *
      * @remarks
      * ### Applicable engine
@@ -4142,7 +5535,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
+     * Retrieves the details of a specified skill. You can retrieve your own skills or system preset skills.
      *
      * @param request - GetSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4158,12 +5551,24 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->download) {
+            @$query['Download'] = $request->download;
+        }
+
         if (null !== $request->language) {
             @$query['Language'] = $request->language;
         }
 
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
         if (null !== $request->skillId) {
             @$query['SkillId'] = $request->skillId;
+        }
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
 
         if (null !== $request->workspaceId) {
@@ -4189,7 +5594,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
+     * Retrieves the details of a specified skill. You can retrieve your own skills or system preset skills.
      *
      * @param request - GetSkillRequest
      *
@@ -4428,10 +5833,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Lists the members of a context database.
+     * Lists context database members.
      *
      * @remarks
-     * Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
+     * Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
      *
      * @param request - ListContextDatabaseMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4478,10 +5883,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Lists the members of a context database.
+     * Lists context database members.
      *
      * @remarks
-     * Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
+     * Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
      *
      * @param request - ListContextDatabaseMembersRequest
      *
@@ -4496,6 +5901,738 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listContextDatabaseMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the datasource configurations in a workspace.
+     *
+     * @remarks
+     * The list operation returns paginated results by default. Page and PageSize are optional parameters.
+     * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+     *
+     * @param request - ListContextDatabaseSyncConnectionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseSyncConnectionsResponse
+     *
+     * @param ListContextDatabaseSyncConnectionsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListContextDatabaseSyncConnectionsResponse
+     */
+    public function listContextDatabaseSyncConnectionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseSyncConnections',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseSyncConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the datasource configurations in a workspace.
+     *
+     * @remarks
+     * The list operation returns paginated results by default. Page and PageSize are optional parameters.
+     * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+     *
+     * @param request - ListContextDatabaseSyncConnectionsRequest
+     *
+     * @returns ListContextDatabaseSyncConnectionsResponse
+     *
+     * @param ListContextDatabaseSyncConnectionsRequest $request
+     *
+     * @return ListContextDatabaseSyncConnectionsResponse
+     */
+    public function listContextDatabaseSyncConnections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseSyncConnectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the documents associated with an import task.
+     *
+     * @remarks
+     * By default, this operation returns paginated results. The Page and PageSize parameters are optional. The Data field in the response is returned as an array, and the Total field indicates the total number of matching entries.
+     *
+     * @param request - ListContextDatabaseSyncJobDocumentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseSyncJobDocumentsResponse
+     *
+     * @param ListContextDatabaseSyncJobDocumentsRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ListContextDatabaseSyncJobDocumentsResponse
+     */
+    public function listContextDatabaseSyncJobDocumentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseSyncJobDocuments',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseSyncJobDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the documents associated with an import task.
+     *
+     * @remarks
+     * By default, this operation returns paginated results. The Page and PageSize parameters are optional. The Data field in the response is returned as an array, and the Total field indicates the total number of matching entries.
+     *
+     * @param request - ListContextDatabaseSyncJobDocumentsRequest
+     *
+     * @returns ListContextDatabaseSyncJobDocumentsResponse
+     *
+     * @param ListContextDatabaseSyncJobDocumentsRequest $request
+     *
+     * @return ListContextDatabaseSyncJobDocumentsResponse
+     */
+    public function listContextDatabaseSyncJobDocuments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseSyncJobDocumentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the exclusions of an import task.
+     *
+     * @remarks
+     * This operation uses pagination by default. Page and PageSize are optional parameters.
+     * The Data field in the response returns an array. Total indicates the total number of records that match the specified conditions.
+     *
+     * @param request - ListContextDatabaseSyncJobExclusionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseSyncJobExclusionsResponse
+     *
+     * @param ListContextDatabaseSyncJobExclusionsRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListContextDatabaseSyncJobExclusionsResponse
+     */
+    public function listContextDatabaseSyncJobExclusionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseSyncJobExclusions',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseSyncJobExclusionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the exclusions of an import task.
+     *
+     * @remarks
+     * This operation uses pagination by default. Page and PageSize are optional parameters.
+     * The Data field in the response returns an array. Total indicates the total number of records that match the specified conditions.
+     *
+     * @param request - ListContextDatabaseSyncJobExclusionsRequest
+     *
+     * @returns ListContextDatabaseSyncJobExclusionsResponse
+     *
+     * @param ListContextDatabaseSyncJobExclusionsRequest $request
+     *
+     * @return ListContextDatabaseSyncJobExclusionsResponse
+     */
+    public function listContextDatabaseSyncJobExclusions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseSyncJobExclusionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists import tasks.
+     *
+     * @remarks
+     * The list operation returns paginated results by default. Page and PageSize are optional parameters.
+     * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+     *
+     * @param request - ListContextDatabaseSyncJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseSyncJobsResponse
+     *
+     * @param ListContextDatabaseSyncJobsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListContextDatabaseSyncJobsResponse
+     */
+    public function listContextDatabaseSyncJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$query['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseSyncJobs',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseSyncJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists import tasks.
+     *
+     * @remarks
+     * The list operation returns paginated results by default. Page and PageSize are optional parameters.
+     * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+     *
+     * @param request - ListContextDatabaseSyncJobsRequest
+     *
+     * @returns ListContextDatabaseSyncJobsResponse
+     *
+     * @param ListContextDatabaseSyncJobsRequest $request
+     *
+     * @return ListContextDatabaseSyncJobsResponse
+     */
+    public function listContextDatabaseSyncJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseSyncJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists available synchronization plugins.
+     *
+     * @remarks
+     * This operation returns a fixed-length array of available plugins in the workspace and does not support pagination.
+     * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+     *
+     * @param request - ListContextDatabaseSyncPluginsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseSyncPluginsResponse
+     *
+     * @param ListContextDatabaseSyncPluginsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListContextDatabaseSyncPluginsResponse
+     */
+    public function listContextDatabaseSyncPluginsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseSyncPlugins',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseSyncPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists available synchronization plugins.
+     *
+     * @remarks
+     * This operation returns a fixed-length array of available plugins in the workspace and does not support pagination.
+     * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+     *
+     * @param request - ListContextDatabaseSyncPluginsRequest
+     *
+     * @returns ListContextDatabaseSyncPluginsResponse
+     *
+     * @param ListContextDatabaseSyncPluginsRequest $request
+     *
+     * @return ListContextDatabaseSyncPluginsResponse
+     */
+    public function listContextDatabaseSyncPlugins($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseSyncPluginsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the run records.
+     *
+     * @remarks
+     * The list API returns paginated results by default. The Page and PageSize parameters are optional. Run records are a list of RunItems that show the processing results of each document in each import run.
+     * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+     *
+     * @param request - ListContextDatabaseSyncRunItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseSyncRunItemsResponse
+     *
+     * @param ListContextDatabaseSyncRunItemsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListContextDatabaseSyncRunItemsResponse
+     */
+    public function listContextDatabaseSyncRunItemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->runId) {
+            @$query['RunId'] = $request->runId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseSyncRunItems',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseSyncRunItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the run records.
+     *
+     * @remarks
+     * The list API returns paginated results by default. The Page and PageSize parameters are optional. Run records are a list of RunItems that show the processing results of each document in each import run.
+     * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+     *
+     * @param request - ListContextDatabaseSyncRunItemsRequest
+     *
+     * @returns ListContextDatabaseSyncRunItemsResponse
+     *
+     * @param ListContextDatabaseSyncRunItemsRequest $request
+     *
+     * @return ListContextDatabaseSyncRunItemsResponse
+     */
+    public function listContextDatabaseSyncRunItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseSyncRunItemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列出 Run 日志.
+     *
+     * @remarks
+     * 列表接口默认分页返回，Page 与 PageSize 为可选参数。
+     * 响应中的 Data 列表字段使用数组返回，Total 表示符合条件的总条数。
+     *
+     * @param request - ListContextDatabaseSyncRunLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseSyncRunLogsResponse
+     *
+     * @param ListContextDatabaseSyncRunLogsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListContextDatabaseSyncRunLogsResponse
+     */
+    public function listContextDatabaseSyncRunLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->runId) {
+            @$query['RunId'] = $request->runId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseSyncRunLogs',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseSyncRunLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出 Run 日志.
+     *
+     * @remarks
+     * 列表接口默认分页返回，Page 与 PageSize 为可选参数。
+     * 响应中的 Data 列表字段使用数组返回，Total 表示符合条件的总条数。
+     *
+     * @param request - ListContextDatabaseSyncRunLogsRequest
+     *
+     * @returns ListContextDatabaseSyncRunLogsResponse
+     *
+     * @param ListContextDatabaseSyncRunLogsRequest $request
+     *
+     * @return ListContextDatabaseSyncRunLogsResponse
+     */
+    public function listContextDatabaseSyncRunLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseSyncRunLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the runs.
+     *
+     * @remarks
+     * By default, this operation returns paginated results. The Page and PageSize parameters are optional.
+     * The Data field in the response is returned as an array, and the Total field indicates the total number of items that meet the query conditions.
+     *
+     * @param request - ListContextDatabaseSyncRunsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseSyncRunsResponse
+     *
+     * @param ListContextDatabaseSyncRunsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListContextDatabaseSyncRunsResponse
+     */
+    public function listContextDatabaseSyncRunsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseSyncRuns',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseSyncRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the runs.
+     *
+     * @remarks
+     * By default, this operation returns paginated results. The Page and PageSize parameters are optional.
+     * The Data field in the response is returned as an array, and the Total field indicates the total number of items that meet the query conditions.
+     *
+     * @param request - ListContextDatabaseSyncRunsRequest
+     *
+     * @returns ListContextDatabaseSyncRunsResponse
+     *
+     * @param ListContextDatabaseSyncRunsRequest $request
+     *
+     * @return ListContextDatabaseSyncRunsResponse
+     */
+    public function listContextDatabaseSyncRuns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseSyncRunsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the discovered tree nodes for the data selection scope.
+     *
+     * @remarks
+     * List operations return paginated results by default. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+     *
+     * @param request - ListContextDatabaseSyncSourceTreeNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseSyncSourceTreeNodesResponse
+     *
+     * @param ListContextDatabaseSyncSourceTreeNodesRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListContextDatabaseSyncSourceTreeNodesResponse
+     */
+    public function listContextDatabaseSyncSourceTreeNodesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseSyncSourceTreeNodes',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseSyncSourceTreeNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the discovered tree nodes for the data selection scope.
+     *
+     * @remarks
+     * List operations return paginated results by default. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+     *
+     * @param request - ListContextDatabaseSyncSourceTreeNodesRequest
+     *
+     * @returns ListContextDatabaseSyncSourceTreeNodesResponse
+     *
+     * @param ListContextDatabaseSyncSourceTreeNodesRequest $request
+     *
+     * @return ListContextDatabaseSyncSourceTreeNodesResponse
+     */
+    public function listContextDatabaseSyncSourceTreeNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseSyncSourceTreeNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the data selection scopes.
+     *
+     * @remarks
+     * By default, the list operation returns paginated results. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+     *
+     * @param request - ListContextDatabaseSyncSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseSyncSourcesResponse
+     *
+     * @param ListContextDatabaseSyncSourcesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListContextDatabaseSyncSourcesResponse
+     */
+    public function listContextDatabaseSyncSourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseSyncSources',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseSyncSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the data selection scopes.
+     *
+     * @remarks
+     * By default, the list operation returns paginated results. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+     *
+     * @param request - ListContextDatabaseSyncSourcesRequest
+     *
+     * @returns ListContextDatabaseSyncSourcesResponse
+     *
+     * @param ListContextDatabaseSyncSourcesRequest $request
+     *
+     * @return ListContextDatabaseSyncSourcesResponse
+     */
+    public function listContextDatabaseSyncSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseSyncSourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -4574,7 +6711,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Lists your custom agents.
+     * Queries the list of dedicated agents created by the user.
      *
      * @param request - ListCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4617,7 +6754,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Lists your custom agents.
+     * Queries the list of dedicated agents created by the user.
      *
      * @param request - ListCustomAgentRequest
      *
@@ -4635,7 +6772,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the custom agent tools of the user.
+     * Queries the list of Agent tools for a user.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4664,7 +6801,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the custom agent tools of the user.
+     * Queries the list of Agent tools for a user.
      *
      * @returns ListCustomAgentToolsResponse
      *
@@ -4678,11 +6815,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * ListLLMTokenUsage.
+     * Retrieves the AI gateway token usage for an RDS Supabase instance.
      *
      * @remarks
-     * ### 适用引擎
-     * RDS SUPABASE
+     * ### Applicable engine
+     * RDS Supabase.
      *
      * @param request - ListLLMTokenUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4737,11 +6874,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * ListLLMTokenUsage.
+     * Retrieves the AI gateway token usage for an RDS Supabase instance.
      *
      * @remarks
-     * ### 适用引擎
-     * RDS SUPABASE
+     * ### Applicable engine
+     * RDS Supabase.
      *
      * @param request - ListLLMTokenUsageRequest
      *
@@ -4850,6 +6987,22 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
 
         if (null !== $request->workspaceId) {
@@ -5156,10 +7309,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
+     * Modifies the IP whitelist of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -5225,10 +7378,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
+     * Modifies the IP whitelist of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -5878,11 +8031,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the IP whitelist for an RDS AI Assistant Enterprise Edition instance.
+     * Modifies the IP whitelist of an RDS AI Assistant Ultimate Edition instance.
      *
      * @remarks
-     * ### Applicable engines
-     * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - ModifyWhitelistIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5925,11 +8078,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the IP whitelist for an RDS AI Assistant Enterprise Edition instance.
+     * Modifies the IP whitelist of an RDS AI Assistant Ultimate Edition instance.
      *
      * @remarks
-     * ### Applicable engines
-     * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - ModifyWhitelistIpsRequest
      *
@@ -5944,6 +8097,81 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyWhitelistIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an exclusion item for an import job.
+     *
+     * @remarks
+     * Deletes an exclusion item for a job.
+     *
+     * @param request - RemoveContextDatabaseSyncJobExclusionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveContextDatabaseSyncJobExclusionResponse
+     *
+     * @param RemoveContextDatabaseSyncJobExclusionRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return RemoveContextDatabaseSyncJobExclusionResponse
+     */
+    public function removeContextDatabaseSyncJobExclusionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->documentId) {
+            @$query['DocumentId'] = $request->documentId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveContextDatabaseSyncJobExclusion',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveContextDatabaseSyncJobExclusionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an exclusion item for an import job.
+     *
+     * @remarks
+     * Deletes an exclusion item for a job.
+     *
+     * @param request - RemoveContextDatabaseSyncJobExclusionRequest
+     *
+     * @returns RemoveContextDatabaseSyncJobExclusionResponse
+     *
+     * @param RemoveContextDatabaseSyncJobExclusionRequest $request
+     *
+     * @return RemoveContextDatabaseSyncJobExclusionResponse
+     */
+    public function removeContextDatabaseSyncJobExclusion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeContextDatabaseSyncJobExclusionWithOptions($request, $runtime);
     }
 
     /**
@@ -6028,11 +8256,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Resets an API key.
+     * Resets the API key.
      *
      * @remarks
-     * ### Applicable engines
-     * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - ResetApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6075,11 +8303,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Resets an API key.
+     * Resets the API key.
      *
      * @remarks
-     * ### Applicable engines
-     * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - ResetApiKeyRequest
      *
@@ -6097,7 +8325,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
+     * Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are updated accordingly.
      *
      * @remarks
      * ### Applicable engine
@@ -6146,7 +8374,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
+     * Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are updated accordingly.
      *
      * @remarks
      * ### Applicable engine
@@ -6170,14 +8398,14 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
+     * Resets the logon password and database access password of an RDS AI application instance.
      *
      * @remarks
      * ### Applicable engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
+     * > Currently, only the password of the RDS Supabase Dashboard user can be modified.
      *
      * @param request - ResetInstancePasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6232,14 +8460,14 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
+     * Resets the logon password and database access password of an RDS AI application instance.
      *
      * @remarks
      * ### Applicable engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
+     * > Currently, only the password of the RDS Supabase Dashboard user can be modified.
      *
      * @param request - ResetInstancePasswordRequest
      *
@@ -6334,7 +8562,78 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Revokes a context database API key.
+     * 基于快照重试失败明细.
+     *
+     * @remarks
+     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 重试会基于失败项生成新的 Run，原 Run 状态保持不变。
+     *
+     * @param request - RetryFailedContextDatabaseSyncRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetryFailedContextDatabaseSyncRunResponse
+     *
+     * @param RetryFailedContextDatabaseSyncRunRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return RetryFailedContextDatabaseSyncRunResponse
+     */
+    public function retryFailedContextDatabaseSyncRunWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->runId) {
+            @$query['RunId'] = $request->runId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RetryFailedContextDatabaseSyncRun',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RetryFailedContextDatabaseSyncRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 基于快照重试失败明细.
+     *
+     * @remarks
+     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 重试会基于失败项生成新的 Run，原 Run 状态保持不变。
+     *
+     * @param request - RetryFailedContextDatabaseSyncRunRequest
+     *
+     * @returns RetryFailedContextDatabaseSyncRunResponse
+     *
+     * @param RetryFailedContextDatabaseSyncRunRequest $request
+     *
+     * @return RetryFailedContextDatabaseSyncRunResponse
+     */
+    public function retryFailedContextDatabaseSyncRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryFailedContextDatabaseSyncRunWithOptions($request, $runtime);
+    }
+
+    /**
+     * Revokes an API key for a context database.
      *
      * @remarks
      * Revokes an API key.
@@ -6384,7 +8683,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Revokes a context database API key.
+     * Revokes an API key for a context database.
      *
      * @remarks
      * Revokes an API key.
@@ -6402,6 +8701,152 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeContextDatabaseApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Manually triggers a run.
+     *
+     * @remarks
+     * Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically.
+     *
+     * @param request - StartContextDatabaseSyncRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartContextDatabaseSyncRunResponse
+     *
+     * @param StartContextDatabaseSyncRunRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return StartContextDatabaseSyncRunResponse
+     */
+    public function startContextDatabaseSyncRunWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartContextDatabaseSyncRun',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartContextDatabaseSyncRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Manually triggers a run.
+     *
+     * @remarks
+     * Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically.
+     *
+     * @param request - StartContextDatabaseSyncRunRequest
+     *
+     * @returns StartContextDatabaseSyncRunResponse
+     *
+     * @param StartContextDatabaseSyncRunRequest $request
+     *
+     * @return StartContextDatabaseSyncRunResponse
+     */
+    public function startContextDatabaseSyncRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startContextDatabaseSyncRunWithOptions($request, $runtime);
+    }
+
+    /**
+     * Initiates a snapshot discovery task for data selection scope configuration.
+     *
+     * @remarks
+     * Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically. Discovery is an asynchronous operation. The operation returns a discovery task identifier. Poll for results to retrieve SelectedNodeKeys.
+     *
+     * @param request - StartContextDatabaseSyncSourceDiscoveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartContextDatabaseSyncSourceDiscoveryResponse
+     *
+     * @param StartContextDatabaseSyncSourceDiscoveryRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return StartContextDatabaseSyncSourceDiscoveryResponse
+     */
+    public function startContextDatabaseSyncSourceDiscoveryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartContextDatabaseSyncSourceDiscovery',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartContextDatabaseSyncSourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates a snapshot discovery task for data selection scope configuration.
+     *
+     * @remarks
+     * Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically. Discovery is an asynchronous operation. The operation returns a discovery task identifier. Poll for results to retrieve SelectedNodeKeys.
+     *
+     * @param request - StartContextDatabaseSyncSourceDiscoveryRequest
+     *
+     * @returns StartContextDatabaseSyncSourceDiscoveryResponse
+     *
+     * @param StartContextDatabaseSyncSourceDiscoveryRequest $request
+     *
+     * @return StartContextDatabaseSyncSourceDiscoveryResponse
+     */
+    public function startContextDatabaseSyncSourceDiscovery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startContextDatabaseSyncSourceDiscoveryWithOptions($request, $runtime);
     }
 
     /**
@@ -6487,7 +8932,7 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StopInstanceRequest
@@ -6544,7 +8989,7 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StopInstanceRequest
@@ -6563,11 +9008,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modify the API KEY Quota.
+     * Modifies the quota of an API key.
      *
      * @remarks
-     * ### Supported engine
-     * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param tmpReq - UpdateApiKeyQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6616,11 +9061,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modify the API KEY Quota.
+     * Modifies the quota of an API key.
      *
      * @remarks
-     * ### Supported engine
-     * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - UpdateApiKeyQuotaRequest
      *
@@ -6638,7 +9083,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates the display metadata of a ContextDB API key.
+     * Updates the API key of a context database.
      *
      * @remarks
      * Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
@@ -6696,7 +9141,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates the display metadata of a ContextDB API key.
+     * Updates the API key of a context database.
      *
      * @remarks
      * Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
@@ -6792,6 +9237,522 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 更新连接元数据.
+     *
+     * @remarks
+     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     *
+     * @param request - UpdateContextDatabaseSyncConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContextDatabaseSyncConnectionResponse
+     *
+     * @param UpdateContextDatabaseSyncConnectionRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateContextDatabaseSyncConnectionResponse
+     */
+    public function updateContextDatabaseSyncConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->connectionId) {
+            @$query['ConnectionId'] = $request->connectionId;
+        }
+
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContextDatabaseSyncConnection',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContextDatabaseSyncConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新连接元数据.
+     *
+     * @remarks
+     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     *
+     * @param request - UpdateContextDatabaseSyncConnectionRequest
+     *
+     * @returns UpdateContextDatabaseSyncConnectionResponse
+     *
+     * @param UpdateContextDatabaseSyncConnectionRequest $request
+     *
+     * @return UpdateContextDatabaseSyncConnectionResponse
+     */
+    public function updateContextDatabaseSyncConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContextDatabaseSyncConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 单独轮换连接凭据.
+     *
+     * @remarks
+     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     *
+     * @param tmpReq - UpdateContextDatabaseSyncConnectionCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContextDatabaseSyncConnectionCredentialResponse
+     *
+     * @param UpdateContextDatabaseSyncConnectionCredentialRequest $tmpReq
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return UpdateContextDatabaseSyncConnectionCredentialResponse
+     */
+    public function updateContextDatabaseSyncConnectionCredentialWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateContextDatabaseSyncConnectionCredentialShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentials) {
+            $request->credentialsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentials, 'Credentials', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->connectionId) {
+            @$query['ConnectionId'] = $request->connectionId;
+        }
+
+        if (null !== $request->credentialsShrink) {
+            @$query['Credentials'] = $request->credentialsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContextDatabaseSyncConnectionCredential',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContextDatabaseSyncConnectionCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 单独轮换连接凭据.
+     *
+     * @remarks
+     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     *
+     * @param request - UpdateContextDatabaseSyncConnectionCredentialRequest
+     *
+     * @returns UpdateContextDatabaseSyncConnectionCredentialResponse
+     *
+     * @param UpdateContextDatabaseSyncConnectionCredentialRequest $request
+     *
+     * @return UpdateContextDatabaseSyncConnectionCredentialResponse
+     */
+    public function updateContextDatabaseSyncConnectionCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContextDatabaseSyncConnectionCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新 Job 元数据.
+     *
+     * @remarks
+     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 Target 为隐含概念，调用方只需传入 KnowledgeBaseId，后端自动创建/匹配 Target。
+     *
+     * @param tmpReq - UpdateContextDatabaseSyncJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContextDatabaseSyncJobResponse
+     *
+     * @param UpdateContextDatabaseSyncJobRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateContextDatabaseSyncJobResponse
+     */
+    public function updateContextDatabaseSyncJobWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateContextDatabaseSyncJobShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filters) {
+            $request->filtersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->filtersShrink) {
+            @$query['Filters'] = $request->filtersShrink;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->targetKnowledgeBaseId) {
+            @$query['TargetKnowledgeBaseId'] = $request->targetKnowledgeBaseId;
+        }
+
+        if (null !== $request->targetKnowledgeBaseName) {
+            @$query['TargetKnowledgeBaseName'] = $request->targetKnowledgeBaseName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContextDatabaseSyncJob',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContextDatabaseSyncJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 Job 元数据.
+     *
+     * @remarks
+     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 Target 为隐含概念，调用方只需传入 KnowledgeBaseId，后端自动创建/匹配 Target。
+     *
+     * @param request - UpdateContextDatabaseSyncJobRequest
+     *
+     * @returns UpdateContextDatabaseSyncJobResponse
+     *
+     * @param UpdateContextDatabaseSyncJobRequest $request
+     *
+     * @return UpdateContextDatabaseSyncJobResponse
+     */
+    public function updateContextDatabaseSyncJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContextDatabaseSyncJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新 Job 调度配置.
+     *
+     * @remarks
+     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     *
+     * @param tmpReq - UpdateContextDatabaseSyncJobScheduleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContextDatabaseSyncJobScheduleResponse
+     *
+     * @param UpdateContextDatabaseSyncJobScheduleRequest $tmpReq
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return UpdateContextDatabaseSyncJobScheduleResponse
+     */
+    public function updateContextDatabaseSyncJobScheduleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateContextDatabaseSyncJobScheduleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dailyTimes) {
+            $request->dailyTimesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dailyTimes, 'DailyTimes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dailyTimesShrink) {
+            @$query['DailyTimes'] = $request->dailyTimesShrink;
+        }
+
+        if (null !== $request->intervalMinutes) {
+            @$query['IntervalMinutes'] = $request->intervalMinutes;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->missedPolicy) {
+            @$query['MissedPolicy'] = $request->missedPolicy;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContextDatabaseSyncJobSchedule',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContextDatabaseSyncJobScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 Job 调度配置.
+     *
+     * @remarks
+     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     *
+     * @param request - UpdateContextDatabaseSyncJobScheduleRequest
+     *
+     * @returns UpdateContextDatabaseSyncJobScheduleResponse
+     *
+     * @param UpdateContextDatabaseSyncJobScheduleRequest $request
+     *
+     * @return UpdateContextDatabaseSyncJobScheduleResponse
+     */
+    public function updateContextDatabaseSyncJobSchedule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContextDatabaseSyncJobScheduleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the metadata of a data selection scope.
+     *
+     * @remarks
+     * Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically.
+     *
+     * @param tmpReq - UpdateContextDatabaseSyncSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContextDatabaseSyncSourceResponse
+     *
+     * @param UpdateContextDatabaseSyncSourceRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateContextDatabaseSyncSourceResponse
+     */
+    public function updateContextDatabaseSyncSourceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateContextDatabaseSyncSourceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sourceConfig) {
+            $request->sourceConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceConfig, 'SourceConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->sourceConfigShrink) {
+            @$query['SourceConfig'] = $request->sourceConfigShrink;
+        }
+
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContextDatabaseSyncSource',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContextDatabaseSyncSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the metadata of a data selection scope.
+     *
+     * @remarks
+     * Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically.
+     *
+     * @param request - UpdateContextDatabaseSyncSourceRequest
+     *
+     * @returns UpdateContextDatabaseSyncSourceResponse
+     *
+     * @param UpdateContextDatabaseSyncSourceRequest $request
+     *
+     * @return UpdateContextDatabaseSyncSourceResponse
+     */
+    public function updateContextDatabaseSyncSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContextDatabaseSyncSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the explicit node selection for the data selection scope.
+     *
+     * @remarks
+     * For write operations, you can pass the ClientToken parameter to ensure idempotency. If this parameter is not provided, the backend automatically generates one.
+     *
+     * @param tmpReq - UpdateContextDatabaseSyncSourceSelectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContextDatabaseSyncSourceSelectionResponse
+     *
+     * @param UpdateContextDatabaseSyncSourceSelectionRequest $tmpReq
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return UpdateContextDatabaseSyncSourceSelectionResponse
+     */
+    public function updateContextDatabaseSyncSourceSelectionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateContextDatabaseSyncSourceSelectionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->selectedNodeKeys) {
+            $request->selectedNodeKeysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->selectedNodeKeys, 'SelectedNodeKeys', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->selectedNodeKeysShrink) {
+            @$query['SelectedNodeKeys'] = $request->selectedNodeKeysShrink;
+        }
+
+        if (null !== $request->selectionPolicy) {
+            @$query['SelectionPolicy'] = $request->selectionPolicy;
+        }
+
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContextDatabaseSyncSourceSelection',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContextDatabaseSyncSourceSelectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the explicit node selection for the data selection scope.
+     *
+     * @remarks
+     * For write operations, you can pass the ClientToken parameter to ensure idempotency. If this parameter is not provided, the backend automatically generates one.
+     *
+     * @param request - UpdateContextDatabaseSyncSourceSelectionRequest
+     *
+     * @returns UpdateContextDatabaseSyncSourceSelectionResponse
+     *
+     * @param UpdateContextDatabaseSyncSourceSelectionRequest $request
+     *
+     * @return UpdateContextDatabaseSyncSourceSelectionResponse
+     */
+    public function updateContextDatabaseSyncSourceSelection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContextDatabaseSyncSourceSelectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates a ContextDB workspace.
      *
      * @remarks
@@ -6859,7 +9820,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates a custom agent.
+     * Updates a Custom Agent.
      *
      * @param tmpReq - UpdateCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6928,7 +9889,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates a custom agent.
+     * Updates a Custom Agent.
      *
      * @param request - UpdateCustomAgentRequest
      *
@@ -6946,11 +9907,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates the alert threshold percentage for API keys.
+     * Updates the alert threshold percentage for an API key.
      *
      * @remarks
-     * ### Applicable engines
-     * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param tmpReq - UpdateMOQuotaAlertThresholdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6999,11 +9960,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates the alert threshold percentage for API keys.
+     * Updates the alert threshold percentage for an API key.
      *
      * @remarks
-     * ### Applicable engines
-     * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - UpdateMOQuotaAlertThresholdRequest
      *
@@ -7021,7 +9982,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates the information of a specified skill.
+     * Updates the information of a specified Skill.
      *
      * @param tmpReq - UpdateSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7067,6 +10028,22 @@ class RdsAi extends OpenApiClient
             @$query['SkillId'] = $request->skillId;
         }
 
+        if (null !== $request->updateNote) {
+            @$query['UpdateNote'] = $request->updateNote;
+        }
+
+        if (null !== $request->uploadId) {
+            @$query['UploadId'] = $request->uploadId;
+        }
+
+        if (null !== $request->uploadToken) {
+            @$query['UploadToken'] = $request->uploadToken;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -7086,7 +10063,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates the information of a specified skill.
+     * Updates the information of a specified Skill.
      *
      * @param request - UpdateSkillRequest
      *
@@ -7101,5 +10078,76 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSkillWithOptions($request, $runtime);
+    }
+
+    /**
+     * Validates datasource credentials and authorization.
+     *
+     * @remarks
+     * Validates the connection credentials and authorization.
+     *
+     * @param request - VerifyContextDatabaseSyncConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyContextDatabaseSyncConnectionResponse
+     *
+     * @param VerifyContextDatabaseSyncConnectionRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return VerifyContextDatabaseSyncConnectionResponse
+     */
+    public function verifyContextDatabaseSyncConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->connectionId) {
+            @$query['ConnectionId'] = $request->connectionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyContextDatabaseSyncConnection',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyContextDatabaseSyncConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Validates datasource credentials and authorization.
+     *
+     * @remarks
+     * Validates the connection credentials and authorization.
+     *
+     * @param request - VerifyContextDatabaseSyncConnectionRequest
+     *
+     * @returns VerifyContextDatabaseSyncConnectionResponse
+     *
+     * @param VerifyContextDatabaseSyncConnectionRequest $request
+     *
+     * @return VerifyContextDatabaseSyncConnectionResponse
+     */
+    public function verifyContextDatabaseSyncConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyContextDatabaseSyncConnectionWithOptions($request, $runtime);
     }
 }

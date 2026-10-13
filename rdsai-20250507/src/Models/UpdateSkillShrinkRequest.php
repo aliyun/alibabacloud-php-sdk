@@ -32,12 +32,36 @@ class UpdateSkillShrinkRequest extends Model
      * @var string
      */
     public $skillId;
+
+    /**
+     * @var string
+     */
+    public $updateNote;
+
+    /**
+     * @var string
+     */
+    public $uploadId;
+
+    /**
+     * @var string
+     */
+    public $uploadToken;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'contentShrink' => 'Content',
         'dbtypesShrink' => 'Dbtypes',
         'description' => 'Description',
         'name' => 'Name',
         'skillId' => 'SkillId',
+        'updateNote' => 'UpdateNote',
+        'uploadId' => 'UploadId',
+        'uploadToken' => 'UploadToken',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -66,6 +90,22 @@ class UpdateSkillShrinkRequest extends Model
 
         if (null !== $this->skillId) {
             $res['SkillId'] = $this->skillId;
+        }
+
+        if (null !== $this->updateNote) {
+            $res['UpdateNote'] = $this->updateNote;
+        }
+
+        if (null !== $this->uploadId) {
+            $res['UploadId'] = $this->uploadId;
+        }
+
+        if (null !== $this->uploadToken) {
+            $res['UploadToken'] = $this->uploadToken;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -97,6 +137,22 @@ class UpdateSkillShrinkRequest extends Model
 
         if (isset($map['SkillId'])) {
             $model->skillId = $map['SkillId'];
+        }
+
+        if (isset($map['UpdateNote'])) {
+            $model->updateNote = $map['UpdateNote'];
+        }
+
+        if (isset($map['UploadId'])) {
+            $model->uploadId = $map['UploadId'];
+        }
+
+        if (isset($map['UploadToken'])) {
+            $model->uploadToken = $map['UploadToken'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

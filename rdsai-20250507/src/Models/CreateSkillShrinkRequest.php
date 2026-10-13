@@ -31,6 +31,11 @@ class CreateSkillShrinkRequest extends Model
     /**
      * @var string
      */
+    public $updateNote;
+
+    /**
+     * @var string
+     */
     public $uploadId;
 
     /**
@@ -47,6 +52,7 @@ class CreateSkillShrinkRequest extends Model
         'dbtypesShrink' => 'Dbtypes',
         'description' => 'Description',
         'name' => 'Name',
+        'updateNote' => 'UpdateNote',
         'uploadId' => 'UploadId',
         'uploadToken' => 'UploadToken',
         'workspaceId' => 'WorkspaceId',
@@ -74,6 +80,10 @@ class CreateSkillShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->updateNote) {
+            $res['UpdateNote'] = $this->updateNote;
         }
 
         if (null !== $this->uploadId) {
@@ -113,6 +123,10 @@ class CreateSkillShrinkRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['UpdateNote'])) {
+            $model->updateNote = $map['UpdateNote'];
         }
 
         if (isset($map['UploadId'])) {

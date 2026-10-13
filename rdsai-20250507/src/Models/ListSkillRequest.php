@@ -26,11 +26,35 @@ class ListSkillRequest extends Model
     /**
      * @var string
      */
+    public $query;
+
+    /**
+     * @var string
+     */
+    public $scope;
+
+    /**
+     * @var string
+     */
+    public $sort;
+
+    /**
+     * @var string
+     */
+    public $source;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'language' => 'Language',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'query' => 'Query',
+        'scope' => 'Scope',
+        'sort' => 'Sort',
+        'source' => 'Source',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -52,6 +76,22 @@ class ListSkillRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->query) {
+            $res['Query'] = $this->query;
+        }
+
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
+        }
+
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         if (null !== $this->workspaceId) {
@@ -79,6 +119,22 @@ class ListSkillRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['Query'])) {
+            $model->query = $map['Query'];
+        }
+
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
+        }
+
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['WorkspaceId'])) {
