@@ -26,7 +26,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $datasetId;
+
+    /**
+     * @var string
+     */
     public $datasource;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -76,7 +86,9 @@ class data extends Model
         'accuracyTestInsId' => 'AccuracyTestInsId',
         'agentId' => 'AgentId',
         'creator' => 'Creator',
+        'datasetId' => 'DatasetId',
         'datasource' => 'Datasource',
+        'description' => 'Description',
         'fileId' => 'FileId',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
@@ -108,8 +120,16 @@ class data extends Model
             $res['Creator'] = $this->creator;
         }
 
+        if (null !== $this->datasetId) {
+            $res['DatasetId'] = $this->datasetId;
+        }
+
         if (null !== $this->datasource) {
             $res['Datasource'] = $this->datasource;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->fileId) {
@@ -171,8 +191,16 @@ class data extends Model
             $model->creator = $map['Creator'];
         }
 
+        if (isset($map['DatasetId'])) {
+            $model->datasetId = $map['DatasetId'];
+        }
+
         if (isset($map['Datasource'])) {
             $model->datasource = $map['Datasource'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['FileId'])) {

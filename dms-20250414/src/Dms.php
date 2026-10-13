@@ -5145,10 +5145,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Lists accuracy test configuration items that meet the specified conditions.
+     * Lists the accuracy test configuration items that meet the specified conditions.
      *
      * @remarks
-     * Lists accuracy test configuration items that meet the specified conditions.
+     * Lists the accuracy test configuration items that meet the specified conditions.
      *
      * @param request - ListDataAgentAccuracyTestInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5207,10 +5207,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Lists accuracy test configuration items that meet the specified conditions.
+     * Lists the accuracy test configuration items that meet the specified conditions.
      *
      * @remarks
-     * Lists accuracy test configuration items that meet the specified conditions.
+     * Lists the accuracy test configuration items that meet the specified conditions.
      *
      * @param request - ListDataAgentAccuracyTestInstancesRequest
      *
@@ -5855,7 +5855,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of collaborative workspaces under the primary account.
+     * Queries a paginated list of collaborative workspaces under the Alibaba Cloud account.
      *
      * @param request - ListDataAgentWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5930,7 +5930,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of collaborative workspaces under the primary account.
+     * Queries a paginated list of collaborative workspaces under the Alibaba Cloud account.
      *
      * @param request - ListDataAgentWorkspaceRequest
      *

@@ -11,7 +11,37 @@ class AgenticResourceOwner extends Model
     /**
      * @var string
      */
+    public $catalogAlias;
+
+    /**
+     * @var string
+     */
+    public $catalogDataSourceType;
+
+    /**
+     * @var string
+     */
+    public $catalogEnvType;
+
+    /**
+     * @var string
+     */
+    public $catalogHost;
+
+    /**
+     * @var string
+     */
+    public $catalogPort;
+
+    /**
+     * @var string
+     */
     public $catalogUuid;
+
+    /**
+     * @var string
+     */
+    public $dataSourceUuid;
 
     /**
      * @var string
@@ -48,7 +78,13 @@ class AgenticResourceOwner extends Model
      */
     public $resourceType;
     protected $_name = [
+        'catalogAlias' => 'CatalogAlias',
+        'catalogDataSourceType' => 'CatalogDataSourceType',
+        'catalogEnvType' => 'CatalogEnvType',
+        'catalogHost' => 'CatalogHost',
+        'catalogPort' => 'CatalogPort',
         'catalogUuid' => 'CatalogUuid',
+        'dataSourceUuid' => 'DataSourceUuid',
         'databaseQualifiedName' => 'DatabaseQualifiedName',
         'databaseUuid' => 'DatabaseUuid',
         'grantBy' => 'GrantBy',
@@ -66,8 +102,32 @@ class AgenticResourceOwner extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->catalogAlias) {
+            $res['CatalogAlias'] = $this->catalogAlias;
+        }
+
+        if (null !== $this->catalogDataSourceType) {
+            $res['CatalogDataSourceType'] = $this->catalogDataSourceType;
+        }
+
+        if (null !== $this->catalogEnvType) {
+            $res['CatalogEnvType'] = $this->catalogEnvType;
+        }
+
+        if (null !== $this->catalogHost) {
+            $res['CatalogHost'] = $this->catalogHost;
+        }
+
+        if (null !== $this->catalogPort) {
+            $res['CatalogPort'] = $this->catalogPort;
+        }
+
         if (null !== $this->catalogUuid) {
             $res['CatalogUuid'] = $this->catalogUuid;
+        }
+
+        if (null !== $this->dataSourceUuid) {
+            $res['DataSourceUuid'] = $this->dataSourceUuid;
         }
 
         if (null !== $this->databaseQualifiedName) {
@@ -109,8 +169,32 @@ class AgenticResourceOwner extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CatalogAlias'])) {
+            $model->catalogAlias = $map['CatalogAlias'];
+        }
+
+        if (isset($map['CatalogDataSourceType'])) {
+            $model->catalogDataSourceType = $map['CatalogDataSourceType'];
+        }
+
+        if (isset($map['CatalogEnvType'])) {
+            $model->catalogEnvType = $map['CatalogEnvType'];
+        }
+
+        if (isset($map['CatalogHost'])) {
+            $model->catalogHost = $map['CatalogHost'];
+        }
+
+        if (isset($map['CatalogPort'])) {
+            $model->catalogPort = $map['CatalogPort'];
+        }
+
         if (isset($map['CatalogUuid'])) {
             $model->catalogUuid = $map['CatalogUuid'];
+        }
+
+        if (isset($map['DataSourceUuid'])) {
+            $model->dataSourceUuid = $map['DataSourceUuid'];
         }
 
         if (isset($map['DatabaseQualifiedName'])) {

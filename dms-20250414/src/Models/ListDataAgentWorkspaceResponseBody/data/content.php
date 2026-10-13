@@ -24,6 +24,11 @@ class content extends Model
     public $creatorName;
 
     /**
+     * @var int
+     */
+    public $customAgentCount;
+
+    /**
      * @var string
      */
     public $description;
@@ -81,6 +86,7 @@ class content extends Model
         'createTime' => 'CreateTime',
         'creator' => 'Creator',
         'creatorName' => 'CreatorName',
+        'customAgentCount' => 'CustomAgentCount',
         'description' => 'Description',
         'isSessionShareEnabled' => 'IsSessionShareEnabled',
         'modifyTime' => 'ModifyTime',
@@ -112,6 +118,10 @@ class content extends Model
 
         if (null !== $this->creatorName) {
             $res['CreatorName'] = $this->creatorName;
+        }
+
+        if (null !== $this->customAgentCount) {
+            $res['CustomAgentCount'] = $this->customAgentCount;
         }
 
         if (null !== $this->description) {
@@ -179,6 +189,10 @@ class content extends Model
 
         if (isset($map['CreatorName'])) {
             $model->creatorName = $map['CreatorName'];
+        }
+
+        if (isset($map['CustomAgentCount'])) {
+            $model->customAgentCount = $map['CustomAgentCount'];
         }
 
         if (isset($map['Description'])) {
