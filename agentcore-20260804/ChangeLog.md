@@ -1,3 +1,20 @@
+2026-10-13 Version: 2.1.0
+- Support API AddMemories.
+- Support API CreateMemoryStore.
+- Support API DeleteMemory.
+- Support API DeleteMemoryStore.
+- Support API GetMemory.
+- Support API GetMemoryStore.
+- Support API GetMemoryTask.
+- Support API ListMemories.
+- Support API ListMemorySessionMessages.
+- Support API ListMemorySessions.
+- Support API ListMemoryStores.
+- Support API SearchMemories.
+- Support API UpdateMemory.
+- Support API UpdateMemoryStore.
+
+
 2026-10-13 Version: 2.0.0
 - Support API ConvertMcpToFreeEdit.
 - Support API CreateCustomAgent.

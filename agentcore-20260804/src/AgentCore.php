@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\AddMemoriesRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\AddMemoriesResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\AddMemoriesShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchDeleteModelsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchDeleteModelsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchDeleteModelsShrinkRequest;
@@ -43,6 +46,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMemoryStoreRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMemoryStoreResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMemoryStoreShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateModelConnectionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateModelConnectionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateModelConnectionShrinkRequest;
@@ -82,6 +88,10 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteManagedAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteManagedAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMcpRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMcpResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemoryRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemoryResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemoryStoreRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemoryStoreResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteModelConnectionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteModelConnectionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteModelRequest;
@@ -134,6 +144,12 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpMarketItemRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpMarketItemResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryStoreRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryStoreResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryTaskRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryTaskResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetModelConnectionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetModelConnectionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetModelRequest;
@@ -193,6 +209,14 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpToolsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpToolsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoriesRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoriesResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemorySessionMessagesRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemorySessionMessagesResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemorySessionsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemorySessionsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoryStoresRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoryStoresResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListModelConnectionsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListModelConnectionsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListModelsRequest;
@@ -235,6 +259,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\RedraftSkillVersionShrinkRequest
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ResetUserPasswordRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ResetUserPasswordResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ResetUserPasswordShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchMemoriesRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchMemoriesResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchMemoriesShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\SubmitAgentSpecVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\SubmitAgentSpecVersionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\SubmitAgentSpecVersionShrinkRequest;
@@ -274,6 +301,12 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpTemplateConfigRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpTemplateConfigResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpTemplateConfigShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryStoreRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryStoreResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryStoreShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateModelConnectionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateModelConnectionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateModelConnectionShrinkRequest;
@@ -350,6 +383,83 @@ class AgentCore extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+     *
+     * @remarks
+     * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+     *
+     * @param tmpReq - AddMemoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddMemoriesResponse
+     *
+     * @param string             $workspaceId
+     * @param string             $memoryStoreName
+     * @param AddMemoriesRequest $tmpReq
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddMemoriesResponse
+     */
+    public function addMemoriesWithOptions($workspaceId, $memoryStoreName, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddMemoriesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddMemories',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memories',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+     *
+     * @remarks
+     * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+     *
+     * @param request - AddMemoriesRequest
+     *
+     * @returns AddMemoriesResponse
+     *
+     * @param string             $workspaceId
+     * @param string             $memoryStoreName
+     * @param AddMemoriesRequest $request
+     *
+     * @return AddMemoriesResponse
+     */
+    public function addMemories($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addMemoriesWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -1359,6 +1469,87 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->createMcpWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a long-term memory store in a specified workspace.
+     *
+     * @remarks
+     * Creates a long-term memory store in a specified workspace.
+     *
+     * @param tmpReq - CreateMemoryStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMemoryStoreResponse
+     *
+     * @param string                   $workspaceId
+     * @param CreateMemoryStoreRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateMemoryStoreResponse
+     */
+    public function createMemoryStoreWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateMemoryStoreShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMemoryStore',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMemoryStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a long-term memory store in a specified workspace.
+     *
+     * @remarks
+     * Creates a long-term memory store in a specified workspace.
+     *
+     * @param request - CreateMemoryStoreRequest
+     *
+     * @returns CreateMemoryStoreResponse
+     *
+     * @param string                   $workspaceId
+     * @param CreateMemoryStoreRequest $request
+     *
+     * @return CreateMemoryStoreResponse
+     */
+    public function createMemoryStore($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMemoryStoreWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2489,6 +2680,138 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->deleteMcpWithOptions($mcpServerId, $workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a long-term memory based on the memory ID.
+     *
+     * @remarks
+     * Deletes a long-term memory based on the memory ID.
+     *
+     * @param request - DeleteMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoryResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param string              $memoryId
+     * @param DeleteMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteMemoryResponse
+     */
+    public function deleteMemoryWithOptions($workspaceId, $memoryStoreName, $memoryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemory',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memories/' . Url::percentEncode($memoryId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a long-term memory based on the memory ID.
+     *
+     * @remarks
+     * Deletes a long-term memory based on the memory ID.
+     *
+     * @param request - DeleteMemoryRequest
+     *
+     * @returns DeleteMemoryResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param string              $memoryId
+     * @param DeleteMemoryRequest $request
+     *
+     * @return DeleteMemoryResponse
+     */
+    public function deleteMemory($workspaceId, $memoryStoreName, $memoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemoryWithOptions($workspaceId, $memoryStoreName, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Asynchronously deletes a MemoryStore and all its long-term memory.
+     *
+     * @remarks
+     * Asynchronously deletes a MemoryStore and all its long-term memory.
+     *
+     * @param request - DeleteMemoryStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoryStoreResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $memoryStoreName
+     * @param DeleteMemoryStoreRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteMemoryStoreResponse
+     */
+    public function deleteMemoryStoreWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemoryStore',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemoryStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Asynchronously deletes a MemoryStore and all its long-term memory.
+     *
+     * @remarks
+     * Asynchronously deletes a MemoryStore and all its long-term memory.
+     *
+     * @param request - DeleteMemoryStoreRequest
+     *
+     * @returns DeleteMemoryStoreResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $memoryStoreName
+     * @param DeleteMemoryStoreRequest $request
+     *
+     * @return DeleteMemoryStoreResponse
+     */
+    public function deleteMemoryStore($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemoryStoreWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -3720,12 +4043,12 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询自定义智能体.
+     * Queries the details of a custom agent in a specified workspace, including deployment configurations, the execute status of the latest configuration version, and running instance status statistics.
      *
      * @remarks
-     * 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
-     * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
-     * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+     * After creating or updating a custom agent, you can poll this operation to query the execution results of the latest configuration version. `latestVersionStatus` corresponds to `latestSpecVersion`. `latestExecutionError` indicates the reason for the pending or failed status of this version. If `retryable` is true, you can query again later.
+     * The returned configuration is the most recently submitted configuration and may not have taken effect. Verify the deployment and running status by checking `latestVersionStatus`, the overall agent status `status`, and the running instance statistics `sandboxPhaseCounts`.
+     * If the queried custom agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
      *
      * @param request - GetCustomAgentRequest
      * @param headers - map
@@ -3763,12 +4086,12 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询自定义智能体.
+     * Queries the details of a custom agent in a specified workspace, including deployment configurations, the execute status of the latest configuration version, and running instance status statistics.
      *
      * @remarks
-     * 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
-     * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
-     * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+     * After creating or updating a custom agent, you can poll this operation to query the execution results of the latest configuration version. `latestVersionStatus` corresponds to `latestSpecVersion`. `latestExecutionError` indicates the reason for the pending or failed status of this version. If `retryable` is true, you can query again later.
+     * The returned configuration is the most recently submitted configuration and may not have taken effect. Verify the deployment and running status by checking `latestVersionStatus`, the overall agent status `status`, and the running instance statistics `sandboxPhaseCounts`.
+     * If the queried custom agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
      *
      * @param request - GetCustomAgentRequest
      *
@@ -4166,6 +4489,205 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->getMcpMarketItemWithOptions($workspaceId, $marketItemId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a long-term memory by memory ID.
+     *
+     * @remarks
+     * Queries a long-term memory by memory ID.
+     *
+     * @param request - GetMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryResponse
+     *
+     * @param string           $workspaceId
+     * @param string           $memoryStoreName
+     * @param string           $memoryId
+     * @param GetMemoryRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetMemoryResponse
+     */
+    public function getMemoryWithOptions($workspaceId, $memoryStoreName, $memoryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemory',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memories/' . Url::percentEncode($memoryId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a long-term memory by memory ID.
+     *
+     * @remarks
+     * Queries a long-term memory by memory ID.
+     *
+     * @param request - GetMemoryRequest
+     *
+     * @returns GetMemoryResponse
+     *
+     * @param string           $workspaceId
+     * @param string           $memoryStoreName
+     * @param string           $memoryId
+     * @param GetMemoryRequest $request
+     *
+     * @return GetMemoryResponse
+     */
+    public function getMemory($workspaceId, $memoryStoreName, $memoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryWithOptions($workspaceId, $memoryStoreName, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the public information and current status of a MemoryStore in a specified workspace.
+     *
+     * @remarks
+     * Queries the public information and current status of a MemoryStore in a specified workspace.
+     *
+     * @param request - GetMemoryStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryStoreResponse
+     *
+     * @param string                $workspaceId
+     * @param string                $memoryStoreName
+     * @param GetMemoryStoreRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetMemoryStoreResponse
+     */
+    public function getMemoryStoreWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemoryStore',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the public information and current status of a MemoryStore in a specified workspace.
+     *
+     * @remarks
+     * Queries the public information and current status of a MemoryStore in a specified workspace.
+     *
+     * @param request - GetMemoryStoreRequest
+     *
+     * @returns GetMemoryStoreResponse
+     *
+     * @param string                $workspaceId
+     * @param string                $memoryStoreName
+     * @param GetMemoryStoreRequest $request
+     *
+     * @return GetMemoryStoreResponse
+     */
+    public function getMemoryStore($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryStoreWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the task ID returned by the asynchronous AddMemories operation.
+     *
+     * @remarks
+     * Queries the task ID returned by the asynchronous AddMemories operation.
+     *
+     * @param request - GetMemoryTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryTaskResponse
+     *
+     * @param string               $workspaceId
+     * @param string               $memoryStoreName
+     * @param string               $taskId
+     * @param GetMemoryTaskRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMemoryTaskResponse
+     */
+    public function getMemoryTaskWithOptions($workspaceId, $memoryStoreName, $taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemoryTask',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memory-tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the task ID returned by the asynchronous AddMemories operation.
+     *
+     * @remarks
+     * Queries the task ID returned by the asynchronous AddMemories operation.
+     *
+     * @param request - GetMemoryTaskRequest
+     *
+     * @returns GetMemoryTaskResponse
+     *
+     * @param string               $workspaceId
+     * @param string               $memoryStoreName
+     * @param string               $taskId
+     * @param GetMemoryTaskRequest $request
+     *
+     * @return GetMemoryTaskResponse
+     */
+    public function getMemoryTask($workspaceId, $memoryStoreName, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryTaskWithOptions($workspaceId, $memoryStoreName, $taskId, $request, $headers, $runtime);
     }
 
     /**
@@ -6233,6 +6755,336 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+     *
+     * @remarks
+     * Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+     *
+     * @param request - ListMemoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemoriesResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param ListMemoriesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListMemoriesResponse
+     */
+    public function listMemoriesWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMemories',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memories',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+     *
+     * @remarks
+     * Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+     *
+     * @param request - ListMemoriesRequest
+     *
+     * @returns ListMemoriesResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param ListMemoriesRequest $request
+     *
+     * @return ListMemoriesResponse
+     */
+    public function listMemories($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemoriesWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+     *
+     * @remarks
+     * Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+     *
+     * @param request - ListMemorySessionMessagesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemorySessionMessagesResponse
+     *
+     * @param string                           $workspaceId
+     * @param string                           $memoryStoreName
+     * @param ListMemorySessionMessagesRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListMemorySessionMessagesResponse
+     */
+    public function listMemorySessionMessagesWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMemorySessionMessages',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/messages',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMemorySessionMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+     *
+     * @remarks
+     * Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+     *
+     * @param request - ListMemorySessionMessagesRequest
+     *
+     * @returns ListMemorySessionMessagesResponse
+     *
+     * @param string                           $workspaceId
+     * @param string                           $memoryStoreName
+     * @param ListMemorySessionMessagesRequest $request
+     *
+     * @return ListMemorySessionMessagesResponse
+     */
+    public function listMemorySessionMessages($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemorySessionMessagesWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+     *
+     * @remarks
+     * Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+     *
+     * @param request - ListMemorySessionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemorySessionsResponse
+     *
+     * @param string                    $workspaceId
+     * @param string                    $memoryStoreName
+     * @param ListMemorySessionsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListMemorySessionsResponse
+     */
+    public function listMemorySessionsWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->userId) {
+            @$query['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMemorySessions',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/sessions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMemorySessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+     *
+     * @remarks
+     * Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+     *
+     * @param request - ListMemorySessionsRequest
+     *
+     * @returns ListMemorySessionsResponse
+     *
+     * @param string                    $workspaceId
+     * @param string                    $memoryStoreName
+     * @param ListMemorySessionsRequest $request
+     *
+     * @return ListMemorySessionsResponse
+     */
+    public function listMemorySessions($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemorySessionsWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries MemoryStores in a specified workspace by using paging.
+     *
+     * @remarks
+     * Queries MemoryStores in a specified workspace by using paging.
+     *
+     * @param request - ListMemoryStoresRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemoryStoresResponse
+     *
+     * @param string                  $workspaceId
+     * @param ListMemoryStoresRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMemoryStoresResponse
+     */
+    public function listMemoryStoresWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMemoryStores',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMemoryStoresResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries MemoryStores in a specified workspace by using paging.
+     *
+     * @remarks
+     * Queries MemoryStores in a specified workspace by using paging.
+     *
+     * @param request - ListMemoryStoresRequest
+     *
+     * @returns ListMemoryStoresResponse
+     *
+     * @param string                  $workspaceId
+     * @param ListMemoryStoresRequest $request
+     *
+     * @return ListMemoryStoresResponse
+     */
+    public function listMemoryStores($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemoryStoresWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
      *
      * @remarks
@@ -7641,6 +8493,83 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Retrieves long-term memory from a MemoryStore based on semantics queries.
+     *
+     * @remarks
+     * Retrieves long-term memory from a MemoryStore based on semantics queries.
+     *
+     * @param tmpReq - SearchMemoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchMemoriesResponse
+     *
+     * @param string                $workspaceId
+     * @param string                $memoryStoreName
+     * @param SearchMemoriesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SearchMemoriesResponse
+     */
+    public function searchMemoriesWithOptions($workspaceId, $memoryStoreName, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SearchMemoriesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SearchMemories',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memories/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves long-term memory from a MemoryStore based on semantics queries.
+     *
+     * @remarks
+     * Retrieves long-term memory from a MemoryStore based on semantics queries.
+     *
+     * @param request - SearchMemoriesRequest
+     *
+     * @returns SearchMemoriesResponse
+     *
+     * @param string                $workspaceId
+     * @param string                $memoryStoreName
+     * @param SearchMemoriesRequest $request
+     *
+     * @return SearchMemoriesResponse
+     */
+    public function searchMemories($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->searchMemoriesWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
      * Submits a specified AgentSpec draft version for review. If no release pipeline is configured, the version is published directly to online status.
      *
      * @remarks
@@ -8703,6 +9632,168 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->updateMcpTemplateConfigWithOptions($workspaceId, $mcpServerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the long-term memory text or metadata based on the memory ID.
+     *
+     * @remarks
+     * Updates the long-term memory text or metadata based on the memory ID.
+     *
+     * @param tmpReq - UpdateMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param string              $memoryId
+     * @param UpdateMemoryRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateMemoryResponse
+     */
+    public function updateMemoryWithOptions($workspaceId, $memoryStoreName, $memoryId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMemoryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMemory',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memories/' . Url::percentEncode($memoryId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the long-term memory text or metadata based on the memory ID.
+     *
+     * @remarks
+     * Updates the long-term memory text or metadata based on the memory ID.
+     *
+     * @param request - UpdateMemoryRequest
+     *
+     * @returns UpdateMemoryResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param string              $memoryId
+     * @param UpdateMemoryRequest $request
+     *
+     * @return UpdateMemoryResponse
+     */
+    public function updateMemory($workspaceId, $memoryStoreName, $memoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemoryWithOptions($workspaceId, $memoryStoreName, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates a memory store.
+     *
+     * @remarks
+     * Updates a memory store.
+     *
+     * @param tmpReq - UpdateMemoryStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryStoreResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $memoryStoreName
+     * @param UpdateMemoryStoreRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateMemoryStoreResponse
+     */
+    public function updateMemoryStoreWithOptions($workspaceId, $memoryStoreName, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMemoryStoreShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMemoryStore',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMemoryStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a memory store.
+     *
+     * @remarks
+     * Updates a memory store.
+     *
+     * @param request - UpdateMemoryStoreRequest
+     *
+     * @returns UpdateMemoryStoreResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $memoryStoreName
+     * @param UpdateMemoryStoreRequest $request
+     *
+     * @return UpdateMemoryStoreResponse
+     */
+    public function updateMemoryStore($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemoryStoreWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
     }
 
     /**
