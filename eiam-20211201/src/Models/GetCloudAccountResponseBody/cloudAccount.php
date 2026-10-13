@@ -49,11 +49,6 @@ class cloudAccount extends Model
     /**
      * @var string
      */
-    public $cloudAccountRoleCreationType;
-
-    /**
-     * @var string
-     */
     public $cloudAccountSite;
 
     /**
@@ -108,7 +103,6 @@ class cloudAccount extends Model
         'cloudAccountName' => 'CloudAccountName',
         'cloudAccountProviderConfig' => 'CloudAccountProviderConfig',
         'cloudAccountProviderName' => 'CloudAccountProviderName',
-        'cloudAccountRoleCreationType' => 'CloudAccountRoleCreationType',
         'cloudAccountSite' => 'CloudAccountSite',
         'cloudAccountVendorType' => 'CloudAccountVendorType',
         'createTime' => 'CreateTime',
@@ -167,10 +161,6 @@ class cloudAccount extends Model
 
         if (null !== $this->cloudAccountProviderName) {
             $res['CloudAccountProviderName'] = $this->cloudAccountProviderName;
-        }
-
-        if (null !== $this->cloudAccountRoleCreationType) {
-            $res['CloudAccountRoleCreationType'] = $this->cloudAccountRoleCreationType;
         }
 
         if (null !== $this->cloudAccountSite) {
@@ -257,10 +247,6 @@ class cloudAccount extends Model
 
         if (isset($map['CloudAccountProviderName'])) {
             $model->cloudAccountProviderName = $map['CloudAccountProviderName'];
-        }
-
-        if (isset($map['CloudAccountRoleCreationType'])) {
-            $model->cloudAccountRoleCreationType = $map['CloudAccountRoleCreationType'];
         }
 
         if (isset($map['CloudAccountSite'])) {

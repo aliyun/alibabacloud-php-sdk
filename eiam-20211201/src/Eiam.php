@@ -2085,10 +2085,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates an application resource in a specified EIAM instance.
+     * Creates an application resource in a specified Employee Identity and Access Management (EIAM) instance.
      *
      * @remarks
-     * EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your business scenario.
+     * EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your actual business scenario.
      *
      * @param request - CreateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2163,10 +2163,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates an application resource in a specified EIAM instance.
+     * Creates an application resource in a specified Employee Identity and Access Management (EIAM) instance.
      *
      * @remarks
-     * EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your business scenario.
+     * EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your actual business scenario.
      *
      * @param request - CreateApplicationRequest
      *
@@ -2877,7 +2877,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates a cloud role for a specified Alibaba Cloud account.
+     * Creates a cloud role resource under the specified cloud account resource.
      *
      * @param request - CreateCloudAccountRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2936,7 +2936,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates a cloud role for a specified Alibaba Cloud account.
+     * Creates a cloud role resource under the specified cloud account resource.
      *
      * @param request - CreateCloudAccountRoleRequest
      *
@@ -6218,7 +6218,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes a trusted origin.
+     * Deletes a trusted origin from a specified EIAM instance.
+     *
+     * @remarks
+     * Deletes a trusted origin from a specified EIAM instance.
      *
      * @param request - DeleteTrustedOriginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6265,7 +6268,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes a trusted origin.
+     * Deletes a trusted origin from a specified EIAM instance.
+     *
+     * @remarks
+     * Deletes a trusted origin from a specified EIAM instance.
      *
      * @param request - DeleteTrustedOriginRequest
      *
@@ -8118,7 +8124,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables a trusted origin.
+     * Disables a trusted origin in a specified EIAM instance.
+     *
+     * @remarks
+     * Disables a trusted origin in a specified EIAM instance.
      *
      * @param request - DisableTrustedOriginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8161,7 +8170,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables a trusted origin.
+     * Disables a trusted origin in a specified EIAM instance.
+     *
+     * @remarks
+     * Disables a trusted origin in a specified EIAM instance.
      *
      * @param request - DisableTrustedOriginRequest
      *
@@ -9884,7 +9896,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables a trusted origin.
+     * Enables a trusted origin in a specified EIAM instance.
+     *
+     * @remarks
+     * Enables a trusted origin in a specified EIAM instance.
      *
      * @param request - EnableTrustedOriginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9927,7 +9942,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables a trusted origin.
+     * Enables a trusted origin in a specified EIAM instance.
+     *
+     * @remarks
+     * Enables a trusted origin in a specified EIAM instance.
      *
      * @param request - EnableTrustedOriginRequest
      *
@@ -10006,7 +10024,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Resolves the metadata for an identity provider.
+     * Parses IdP metadata information.
      *
      * @param request - ExecIdentityProviderMetadataUrlResolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10061,7 +10079,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Resolves the metadata for an identity provider.
+     * Parses IdP metadata information.
      *
      * @param request - ExecIdentityProviderMetadataUrlResolutionRequest
      *
@@ -10479,6 +10497,9 @@ class Eiam extends OpenApiClient
     /**
      * Retrieves the details of a specified EIAM application.
      *
+     * @remarks
+     * Before you delete a specified EIAM application, make sure that the application is no longer in use. After the application is deleted, all configuration data is permanently removed and cannot be recovered.
+     *
      * @param request - GetApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10521,6 +10542,9 @@ class Eiam extends OpenApiClient
 
     /**
      * Retrieves the details of a specified EIAM application.
+     *
+     * @remarks
+     * Before you delete a specified EIAM application, make sure that the application is no longer in use. After the application is deleted, all configuration data is permanently removed and cannot be recovered.
      *
      * @param request - GetApplicationRequest
      *
@@ -10599,7 +10623,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves an application federated identity credential.
+     * Retrieves the federated identity credential of an application.
      *
      * @param request - GetApplicationFederatedCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10646,7 +10670,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves an application federated identity credential.
+     * Retrieves the federated identity credential of an application.
      *
      * @param request - GetApplicationFederatedCredentialRequest
      *
@@ -11530,10 +11554,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Get a conditional access policy.
+     * Retrieves a conditional access policy.
      *
      * @remarks
-     * Query a conditional access policy.
+     * Queries a conditional access policy.
      *
      * @param request - GetConditionalAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11576,10 +11600,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Get a conditional access policy.
+     * Retrieves a conditional access policy.
      *
      * @remarks
-     * Query a conditional access policy.
+     * Queries a conditional access policy.
      *
      * @param request - GetConditionalAccessPolicyRequest
      *
@@ -11963,7 +11987,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieve a federated credential provider.
+     * Retrieves a federated trust source.
      *
      * @param request - GetFederatedCredentialProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12006,7 +12030,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieve a federated credential provider.
+     * Retrieves a federated trust source.
      *
      * @param request - GetFederatedCredentialProviderRequest
      *
@@ -12024,7 +12048,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the forgot password policy of a specified EIAM instance.
+     * Queries the forgot password policy for a specified EIAM instance.
      *
      * @param request - GetForgetPasswordConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12063,7 +12087,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the forgot password policy of a specified EIAM instance.
+     * Queries the forgot password policy for a specified EIAM instance.
      *
      * @param request - GetForgetPasswordConfigurationRequest
      *
@@ -12264,7 +12288,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves an IdP check task.
+     * Retrieves an IdP status check job.
      *
      * @param request - GetIdentityProviderStatusCheckJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12311,7 +12335,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves an IdP check task.
+     * Retrieves an IdP status check job.
      *
      * @param request - GetIdentityProviderStatusCheckJobRequest
      *
@@ -12329,7 +12353,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the inbound synchronization configuration of an identity provider (IdP).
+     * Retrieves the inbound synchronization configuration of an Identity Provider (IdP).
      *
      * @param request - GetIdentityProviderUdPullConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12372,7 +12396,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the inbound synchronization configuration of an identity provider (IdP).
+     * Retrieves the inbound synchronization configuration of an Identity Provider (IdP).
      *
      * @param request - GetIdentityProviderUdPullConfigurationRequest
      *
@@ -12629,7 +12653,7 @@ class Eiam extends OpenApiClient
      * Queries the license information that is currently effective for an instance.
      *
      * @remarks
-     * Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+     * Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
      *
      * @param request - GetInstanceLicenseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12671,7 +12695,7 @@ class Eiam extends OpenApiClient
      * Queries the license information that is currently effective for an instance.
      *
      * @remarks
-     * Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+     * Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
      *
      * @param request - GetInstanceLicenseRequest
      *
@@ -13580,7 +13604,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the details of a trusted origin.
+     * Queries a trusted origin in a specified EIAM instance.
+     *
+     * @remarks
+     * Queries a trusted origin in a specified EIAM instance.
      *
      * @param request - GetTrustedOriginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13623,7 +13650,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the details of a trusted origin.
+     * Queries a trusted origin in a specified EIAM instance.
+     *
+     * @remarks
+     * Queries a trusted origin in a specified EIAM instance.
      *
      * @param request - GetTrustedOriginRequest
      *
@@ -13771,7 +13801,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the application accounts of an application by paging.
+     * Queries application accounts under an application by paging.
      *
      * @param request - ListApplicationAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13822,7 +13852,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the application accounts of an application by paging.
+     * Queries application accounts under an application by paging.
      *
      * @param request - ListApplicationAccountsRequest
      *
@@ -13840,10 +13870,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries all accounts that belong to a specified user in an application.
+     * Queries all accounts of a specified user in the current application.
      *
      * @remarks
-     * This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+     * This operation queries only the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
      *
      * @param request - ListApplicationAccountsForUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13890,10 +13920,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries all accounts that belong to a specified user in an application.
+     * Queries all accounts of a specified user in the current application.
      *
      * @remarks
-     * This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+     * This operation queries only the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
      *
      * @param request - ListApplicationAccountsForUserRequest
      *
@@ -13972,7 +14002,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the list of application federated identity credentials.
+     * Queries a list of application federated identity credentials.
      *
      * @param request - ListApplicationFederatedCredentialsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14031,7 +14061,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the list of application federated identity credentials.
+     * Queries a list of application federated identity credentials.
      *
      * @param request - ListApplicationFederatedCredentialsRequest
      *
@@ -15371,7 +15401,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the client public keys for a specified application using a cursor.
+     * Queries the list of ClientPublicKeys for a specified application by using a cursor.
      *
      * @param request - ListClientPublicKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15422,7 +15452,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the client public keys for a specified application using a cursor.
+     * Queries the list of ClientPublicKeys for a specified application by using a cursor.
      *
      * @param request - ListClientPublicKeysRequest
      *
@@ -15582,10 +15612,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * List conditional access policies.
+     * Lists conditional access policies.
      *
      * @remarks
-     * Query the list of conditional access policies with pagination.
+     * Queries conditional access policies by page.
      *
      * @param request - ListConditionalAccessPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15636,10 +15666,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * List conditional access policies.
+     * Lists conditional access policies.
      *
      * @remarks
-     * Query the list of conditional access policies with pagination.
+     * Queries conditional access policies by page.
      *
      * @param request - ListConditionalAccessPoliciesRequest
      *
@@ -15657,7 +15687,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * List conditional access policies associated with an application.
+     * Retrieves the list of conditional access policies associated with an application.
      *
      * @param request - ListConditionalAccessPoliciesForApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15700,7 +15730,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * List conditional access policies associated with an application.
+     * Retrieves the list of conditional access policies associated with an application.
      *
      * @param request - ListConditionalAccessPoliciesForApplicationRequest
      *
@@ -17660,7 +17690,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
+     * Queries the list of scope permissions that the current ResourceServer has authorized to organizational units by using a cursor-based pagination method.
      *
      * @param request - ListOrganizationalUnitsForResourceServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17719,7 +17749,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
+     * Queries the list of scope permissions that the current ResourceServer has authorized to organizational units by using a cursor-based pagination method.
      *
      * @param request - ListOrganizationalUnitsForResourceServerRequest
      *
@@ -18059,7 +18089,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the list of trusted origins.
+     * Queries the list of trusted origins in a specified Employees Identity and Access Management (EIAM) instance.
+     *
+     * @remarks
+     * Queries the list of trusted origins in a specified EIAM instance.
      *
      * @param request - ListTrustedOriginsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18122,7 +18155,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the list of trusted origins.
+     * Queries the list of trusted origins in a specified Employees Identity and Access Management (EIAM) instance.
+     *
+     * @remarks
+     * Queries the list of trusted origins in a specified EIAM instance.
      *
      * @param request - ListTrustedOriginsRequest
      *
@@ -18140,10 +18176,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the mappings for third-party logon accounts.
+     * Queries the binding relationships of third-party login accounts.
      *
      * @remarks
-     * This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+     * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
      *
      * @param request - ListUserAuthnSourceMappingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18206,10 +18242,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the mappings for third-party logon accounts.
+     * Queries the binding relationships of third-party login accounts.
      *
      * @remarks
-     * This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+     * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
      *
      * @param request - ListUserAuthnSourceMappingsRequest
      *
@@ -18573,7 +18609,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
+     * Queries the list of scope permissions that the current ResourceServer has granted to accounts by using a cursor-based pagination method.
      *
      * @param request - ListUsersForResourceServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18632,7 +18668,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
+     * Queries the list of scope permissions that the current ResourceServer has granted to accounts by using a cursor-based pagination method.
      *
      * @param request - ListUsersForResourceServerRequest
      *
@@ -18718,7 +18754,7 @@ class Eiam extends OpenApiClient
      * Queries a specified application token.
      *
      * @remarks
-     * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may result from this operation.
+     * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may be caused by this operation.
      *
      * @param request - ObtainApplicationTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18768,7 +18804,7 @@ class Eiam extends OpenApiClient
      * Queries a specified application token.
      *
      * @remarks
-     * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may result from this operation.
+     * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may be caused by this operation.
      *
      * @param request - ObtainApplicationTokenRequest
      *
@@ -19982,7 +20018,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates and immediately runs a new synchronization task.
+     * Runs a synchronization task. This operation creates a new synchronization task and immediately executes it.
      *
      * @param request - RunSynchronizationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20045,7 +20081,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates and immediately runs a new synchronization task.
+     * Runs a synchronization task. This operation creates a new synchronization task and immediately executes it.
      *
      * @param request - RunSynchronizationJobRequest
      *
@@ -22469,7 +22505,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates the expiration time of an application token.
+     * Updates the expiration time of an ApplicationToken.
      *
      * @param request - UpdateApplicationTokenExpirationTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22520,7 +22556,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates the expiration time of an application token.
+     * Updates the expiration time of an ApplicationToken.
      *
      * @param request - UpdateApplicationTokenExpirationTimeRequest
      *
@@ -24921,7 +24957,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Modifies a trusted origin.
+     * Updates a trusted origin in a specified EIAM instance.
+     *
+     * @remarks
+     * Updates a trusted origin in a specified EIAM instance.
      *
      * @param request - UpdateTrustedOriginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24976,7 +25015,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Modifies a trusted origin.
+     * Updates a trusted origin in a specified EIAM instance.
+     *
+     * @remarks
+     * Updates a trusted origin in a specified EIAM instance.
      *
      * @param request - UpdateTrustedOriginRequest
      *
